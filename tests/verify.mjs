@@ -1,0 +1,16 @@
+import { chromium } from 'playwright';
+const b = await chromium.launch();
+const p = await b.newContext({ viewport: { width: 1440, height: 900 } }).then(c => c.newPage());
+const errors = [];
+p.on('pageerror', e => errors.push(String(e)));
+p.on('console', m => { if (m.type() === 'error') errors.push(m.text()); });
+await p.goto('file:///Users/supreme/Desktop/cognis/index.html', { waitUntil: 'networkidle' });
+await p.waitForTimeout(3000);
+const h1 = await p.locator('h1').first().textContent();
+const hasAeline = await p.locator('text=Aeline').count();
+const hasTemlis = await p.locator('text=temlis').count();
+const hasCognis = await p.locator('text=Cognis').count();
+const hasAIStrat = await p.locator('text=AI Strategy & Advisory').count();
+const formAction = await p.locator('form').first().getAttribute('action');
+console.log(JSON.stringify({ h1: (h1||'').replace(/\s+/g,' ').trim(), hasAeline, hasTemlis, hasCognis, hasAIStrat, formAction, errors: errors.slice(0, 5) }, null, 2));
+await b.close();
