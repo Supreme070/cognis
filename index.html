@@ -1267,7 +1267,16 @@
         });
       }
 
-      function apply() { ensureAnchors(); ensureForms(); ensureHeroVideo(); installHeroListeners(); }
+      function ensureFooterLogoHref() {
+        document.querySelectorAll('footer a.framer-q4WSf').forEach(function (a) {
+          if (!a.getAttribute('href')) {
+            a.setAttribute('href', './');
+            a.setAttribute('data-framer-page-link-current', 'true');
+          }
+        });
+      }
+
+      function apply() { ensureAnchors(); ensureForms(); ensureHeroVideo(); installHeroListeners(); ensureFooterLogoHref(); }
 
       // Capture-phase handler for pure in-page hash anchors (e.g. Framer's
       // homepage CTAs that scroll to sections). Real route hrefs like
