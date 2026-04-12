@@ -925,6 +925,7 @@
       /* CLS: reserve hero image space before JS hydration. */
       .framer-5m9e3y { aspect-ratio: 16 / 9; }
 
+
       /* Offset anchor landing position so it clears the sticky nav. */
       #about, #services, #insights, #contact { scroll-margin-top: 120px; }
 
@@ -949,6 +950,12 @@
       .framer-1g27q0p > div,
       [data-framer-background-image-wrapper="true"] {
         background-color: transparent !important;
+      }
+
+      /* On mobile/tablet the hero video is shorter than the hero section
+         (56.25vw < 100vh), so override transparent with dark bg. */
+      @media (max-width: 809px) {
+        section.framer-1fqywl3 { background-color: #000 !important; }
       }
 
       /* Video portal layering — sits between the hero background and the
