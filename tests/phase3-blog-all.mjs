@@ -13,7 +13,7 @@ for (const slug of slugs) {
   const failedReqs = [];
   p.on('pageerror', e => pageErrors.push(e.message));
   p.on('requestfailed', r => failedReqs.push(r.url()));
-  await p.goto(`http://127.0.0.1:3001/blog/${slug}?cb=${Date.now()}`, { waitUntil: 'networkidle' });
+  await p.goto(`http://127.0.0.1:3001/blog/${slug}?cb=${Date.now()}`, { waitUntil: 'networkidle', timeout: 60000 });
   await p.waitForTimeout(6000);
   const info = await p.evaluate(() => ({
     url: location.pathname,

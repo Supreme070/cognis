@@ -82,6 +82,16 @@ BUNDLES = {
     "s9_qRQGKG6KioBAaHIvXSlJUEZbOxoJqp2uKZqdFXZU.BbyOPG8m.mjs": [
         ("Zaire Dorwart", "Supreme Oyewumi", 1),
     ],
+
+    # --- Homepage route bundle (title + meta) ---
+    "augiA20Il._IgiNCyN.mjs": [
+        ("Cognis Group \u2014 AI Consulting & Engineering for Enterprises",
+         "Cognis Group | AI Consulting, Strategy & Agent Engineering", 1),
+        ("Cognis Group builds, deploys, and governs AI systems \u2014 agents, chatbots, workflows, governance, and training. Lagos-headquartered, globally engaged.",
+         "Cognis Group is a global AI consulting firm. We design AI strategy, deploy intelligent agents, and build AI governance frameworks. Quod Tango Muto.", 1),
+        ("robots:`max-image-preview:large`",
+         "robots:`index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1`", 1),
+    ],
 }
 
 

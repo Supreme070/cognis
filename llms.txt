@@ -1,17 +1,41 @@
 # Cognis Group
 
-> Cognis Group is a Nigerian AI advisory firm based in Lagos, helping African enterprises and global clients deploy production AI. Practice areas: strategy, training, agent engineering, ML and data intelligence, governance, and digital transformation.
-
-Cognis Group Limited is registered with the Nigerian Corporate Affairs Commission (Lagos). Founded 2025 by Kola Olatunde. Serves clients across Africa, Europe, and North America. Sister entity registered in the United States.
-
-Motto: Quod Tango Muto — "What I touch, I change." Positioning: we do not replace people with AI; we make people extraordinary with AI.
+> Cognis Group is a global AI consulting and advisory firm that helps organizations design AI strategy, deploy intelligent agents, develop AI-ready workforces, and build AI governance frameworks. Lagos-headquartered, globally engaged. Quod Tango Muto — what we touch, we change.
 
 ## Core content
-- [Homepage](https://cognis.group/): Full overview of the firm, practice areas, founder, and contact
-- [About Cognis Group](https://cognis.group/#about): Who we are and how we work
-- [Practice areas](https://cognis.group/#services): Six service lines
-- [Insights](https://cognis.group/#insights): How Cognis approaches AI advisory
-- [Contact](https://cognis.group/#contact): How to engage Cognis Group
+
+- [Homepage](https://cognis.group/): Full overview of capabilities, team, and engagement model
+- [About Us](https://cognis.group/about-us): Mission, founding story, and operating principles
+- [Services](https://cognis.group/our-services): Six AI consulting practice areas
+- [Blog / Insights](https://cognis.group/blog): Enterprise AI deployment, governance, ROI, and workforce development
+- [Contact](https://cognis.group/contact): Start an engagement with Cognis Group
+
+## Services
+
+- [AI Strategy & Advisory](https://cognis.group/our-services/ai-strategy-advisory): AI readiness assessments, use case identification, and deployment roadmaps from strategy to measurable business impact.
+- [AI Training & Workforce Development](https://cognis.group/our-services/ai-training-workforce-development): AI literacy programs for C-suite to frontline teams — mindset, capability, and governance discipline at scale.
+- [AI Agent & Automation Engineering](https://cognis.group/our-services/ai-agent-automation-engineering): Custom AI agents and intelligent automation workflows that eliminate bottlenecks and scale output.
+- [Machine Learning & Data Intelligence](https://cognis.group/our-services/ml-data-intelligence): Custom ML models, data pipelines, and predictive analytics for competitive intelligence.
+- [AI Governance, Risk & Compliance](https://cognis.group/our-services/ai-governance-risk-compliance): Policy frameworks, audit structures, and compliance aligned to NDPA, EU AI Act, ISO 42001, and NIST AI RMF.
+- [Enterprise Digital Transformation](https://cognis.group/our-services/enterprise-digital-transformation): Legacy system modernization with AI embedded in every process and decision layer.
+
+## Insights
+
+- [Why Most Enterprise AI Strategies Fail Before They Start](https://cognis.group/blog/why-most-enterprise-ai-strategies-fail-before-they-start): Common failure modes in enterprise AI adoption.
+- [Building AI Agents That Actually Ship](https://cognis.group/blog/building-ai-agents-that-actually-ship): From proof of concept to production-grade agent deployment.
+- [AI Governance Is Not Optional](https://cognis.group/blog/ai-governance-is-not-optional): Building governance before deployment, not after.
+- [The Real ROI of AI](https://cognis.group/blog/the-real-roi-of-ai): How to measure AI impact beyond efficiency metrics.
+- [Making Your Workforce AI-Ready](https://cognis.group/blog/making-your-workforce-ai-ready): Developing AI literacy from boardroom to operations.
+- [AI-Native Operations for African Enterprises](https://cognis.group/blog/ai-native-operations-for-african-enterprises): How African enterprises can leapfrog into AI-native operations.
+
+## About
+
+Cognis Group Limited is registered with the Corporate Affairs Commission (Lagos, Nigeria). Founded 2025 by Supreme Oyewumi. Serves organizations across Africa, Europe, and the Americas.
+
+Motto: Quod Tango Muto — "What we touch, we change."
+
+Contact: consulting@cognis.group | +2349080001101
 
 ## Optional
-- [llms-full.txt](https://cognis.group/llms-full.txt): Full homepage content as Markdown for direct AI consumption
+
+- [llms-full.txt](https://cognis.group/llms-full.txt): Complete site content for AI ingestion

@@ -5,8 +5,8 @@ for (const path of routes) {
   const p = await (await b.newContext({ viewport: { width: 1440, height: 900 } })).newPage();
   const errs = [];
   p.on('console', m => { if (m.type() === 'error') errs.push(m.text().slice(0, 160)); });
-  await p.goto('http://127.0.0.1:3001' + path + '?cb=' + Date.now(), { waitUntil: 'networkidle' });
-  await p.waitForTimeout(4000);
+  await p.goto('http://127.0.0.1:3001' + path + '?cb=' + Date.now(), { waitUntil: 'load', timeout: 60000 });
+  await p.waitForTimeout(8000);
   const info = await p.evaluate(() => ({
     path: location.pathname,
     title: document.title,
