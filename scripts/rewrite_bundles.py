@@ -14,53 +14,73 @@ import sys
 BASE = pathlib.Path("framer-runtime/sites/3RYFpGbtMJS5XyuENcvikD")
 
 BUNDLES = {
-    "script_main.DuQsiV3H.mjs": [
-        ("1,540+ happy designers", "Quod Tango Muto", 3),
-        ("130+ Premium Templates", "Cognis Group", 4),
-        ("Built in Lagos · Serving Africa",
-         "Trusted by forward-thinking organizations across three continents", 2),
-        ("Subscribe to our insights", "Get AI intelligence in your inbox", 1),
-        ("Temlis", "Cognis", 1),
-    ],
-
-    "InvS17SM-NgHMgCCGqMQ2B4DzhSjCbqxQaMHtenca_I.BTbblbbR.mjs": [
-        ("Book a consultation", "Work With Us", 1),
-        ("Talk to us", "Start the Conversation", 3),
-        # Expertise cards (5 occurrences = 2 SSR variants × desktop/tablet/mobile)
-        ("Automation & optimization", "AI Agent & Automation Engineering", 5),
-        ("Experience intelligence", "AI Governance, Risk & Compliance", 1),
-        # Stat labels
-        ("Data Points", "Decisions Transformed", 2),
-        ("Continents", "Markets Served", 2),
-        # About headline accent word (only the `children:` literal)
-        ("children:`smarter`", "children:`sharper`", 1),
-    ],
-
-    "csw22u1fM.DvknQo2m.mjs": [
-        ("Talk to us", "Start the Conversation", 1),
-    ],
-
-    "ngJEIVI2a.DHBFJa2j.mjs": [
-        ("Blog and articles", "Insights & Perspectives", 1),
-        # Blog SSR headline — the JS has "Latest insights and trends" as display text
-        ("Latest insights and trends",
-         "Latest thinking on AI consulting, intelligent systems and organizational transformation", 2),
-        ("View All", "All Insights", 1),
-    ],
+    # Previously applied entries removed — they ran in an earlier session.
 
     "dVykPcZrU.BFMM7EGF.mjs": [
-        ("Here\u2019s what they shared about their experience working with our team.",
-         "From AI strategy engagements to agent deployments and enterprise-wide training programs — this is what our clients share.", 2),
-        ("Our Approach", "Leadership team", 1),
-        ("Our Philosophy", "Operations lead", 1),
-        ("Our Promise", "Chief People Officer", 1),
-        ("Built in Lagos · Serving Africa",
-         "Trusted by forward-thinking organizations across three continents", 1),
+        ("Mei Lin", "Partner CTO", 1),
+        ("Cactus Global", "Enterprise client", 1),
     ],
 
     "sJISsrSnv.C9FLvC4v.mjs": [
-        ("In the past 7 days", "Active Engagement", 4),
-        ("Monthly  expanse", "AI Adoption Rate", 2),
+        ("Vit premium", "Enterprise", 6),
+        ("November 14, 2025", "Ongoing", 6),
+        ("$10,000", "\u2014", 2),
+        ("$120", "\u2014", 6),
+        ("+5,000 customers", "Trusted partners", 2),
+        ("Smart. Simple. Strategic.", "Strategy. Agents. Training.", 1),
+    ],
+
+    # --- Contact page ---
+    "cJ1xuMkLTjw-x2vTqK43D546Q19G_AQcRRmTRca7GeY.CBHzrIGZ.mjs": [
+        ("consulting@aeline.com", "consulting@cognis.group", 4),
+        ("+1 (123) 456-7890", "+2349080001101", 2),
+        ("456 Business Ave, New York, NY 10001", "Lagos, Nigeria", 1),
+        ("456 Business Ave, New York", "Lagos, Nigeria", 1),
+        ("https://maps.app.goo.gl/fypBBWRAtpepS5vT8", "", 1),
+        ("Learn about our journey, mission, and the team driving innovation.",
+         "Let\u2019s discuss how AI can transform your organization.", 1),
+    ],
+
+    # --- About page ---
+    "QaJNDfNMG5C7JwHIw-sBm1Ys-NaZyVo7n9B49pO4X_Q.BfZeDgI1.mjs": [
+        ("Trusted over 5,000+", "Trusted across Africa", 2),
+        ("+2.5%", "\u2014", 2),
+        ("Business growth", "Impact delivered", 2),
+        ("Commitment to measurable", "Commitment to delivery", 2),
+        ("Collaborating with leading AI and cloud technology providers.",
+         "Partnering with forward-thinking organisations to operationalise AI.", 2),
+        ("A global consulting partner", "An AI advisory firm", 6),
+        ("dedicated to building", "committed to building", 6),
+        ("From our early days as a small consulting team to becoming a trusted AI partner for global organizations, our journey has been driven by curiosity, collaboration, and impact.",
+         "From founding in Lagos to serving organisations across three continents, our journey has been driven by one conviction: AI should ship, not sit in slide decks.", 2),
+        ("We started as a small consulting team focused on business strategy and process optimization.",
+         "Founded as a strategy and AI advisory practice in Lagos, Nigeria.", 6),
+        ("As tech advanced, we expanded our expertise into digital strategy and data analytics for all projects.",
+         "Delivered first enterprise AI strategy engagements and agent deployments across West Africa.", 1),
+        ("Seeing the potential of AI, we evolved to include automation, analytics, and smart systems for clients.",
+         "Expanded into AI agent engineering, workforce training, and governance advisory.", 1),
+        ("We partnered with forward-thinking clients to design data-driven strategies and AI-powered frameworks.",
+         "Serving forward-thinking organisations across three continents with production-first AI.", 1),
+    ],
+
+    # --- Services landing ---
+    "DaISNe0vXimYl7L-iYMx-Zb_StOfaNQRA98vcvMbT8M.HiBPkWXm.mjs": [
+        ("Rated 4.9/5 by 4.900+ clients",
+         "Trusted by forward-thinking organisations", 2),
+    ],
+
+    # --- Team card component (default/fallback values) ---
+    "CT0TXHUvF.iOqYZryg.mjs": [
+        ("Zaire Dorwart", "Supreme Oyewumi", 4),
+        ("Chief Financial Officer", "Founder & CEO", 4),
+    ],
+
+    "Dj9QoTIdF.-nt0DdeQ.mjs": [
+        ("Zaire Dorwart", "Supreme Oyewumi", 2),
+    ],
+
+    "s9_qRQGKG6KioBAaHIvXSlJUEZbOxoJqp2uKZqdFXZU.BbyOPG8m.mjs": [
+        ("Zaire Dorwart", "Supreme Oyewumi", 1),
     ],
 }
 
@@ -75,16 +95,25 @@ def main() -> int:
             continue
         text = path.read_text()
         before = len(text)
+        changed = 0
         for old, new, expected in reps:
+            if old == new:
+                continue
             count = text.count(old)
+            if count == 0 and text.count(new) >= expected:
+                continue
             if count != expected:
                 print(f"  !! {name}: {old!r}: expected {expected}, found {count}")
                 errors += 1
                 continue
             text = text.replace(old, new)
+            changed += count
             print(f"  {name}: {old!r} -> {new!r} ({count}x)")
-        path.write_text(text)
-        print(f"WROTE {name}: {before} -> {len(text)} bytes")
+        if changed:
+            path.write_text(text)
+            print(f"WROTE {name}: {before} -> {len(text)} bytes")
+        else:
+            print(f"  {name}: already up to date")
     return errors
 
 

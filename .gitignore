@@ -23,9 +23,17 @@ blob-report/
 playwright/.cache/
 playwright-screenshots/
 
+# Python
+__pycache__/
+*.pyc
+
 # Local backup / scratch files
 *.before-final-copy
+*.before-pricing-purge
 *.original.html
+
+# Test output artifacts
+tests/phase5-out/
 
 # Editor
 .vscode/
