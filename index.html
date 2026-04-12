@@ -917,6 +917,14 @@
         --variable-reference-Xkkt6D4HM-bW9HXwZAw: var(--token-e9a98e35-399c-4c23-b15a-bb69e055d084, #131313);
       }
 
+      /* WCAG: force dark text on lime-green "Work With Us" nav button. */
+      a.framer-QjZjT[style*="rgb(214, 253, 112)"] {
+        --extracted-r6o4lv: var(--token-e9a98e35-399c-4c23-b15a-bb69e055d084, #131313);
+      }
+
+      /* CLS: reserve hero image space before JS hydration. */
+      .framer-5m9e3y { aspect-ratio: 16 / 9; }
+
       /* Offset anchor landing position so it clears the sticky nav. */
       #about, #services, #insights, #contact { scroll-margin-top: 120px; }
 
@@ -1072,7 +1080,8 @@
         v.setAttribute('muted', '');
         v.setAttribute('playsinline', '');
         v.setAttribute('webkit-playsinline', '');
-        v.setAttribute('preload', 'auto');
+        v.setAttribute('preload', 'metadata');
+        v.setAttribute('poster', '/framer-runtime/assets/hero-poster.jpg');
         v.setAttribute('aria-hidden', 'true');
         v.setAttribute('tabindex', '-1');
         v.disablePictureInPicture = true;
@@ -1081,8 +1090,8 @@
           'position:fixed',
           'top:0px',
           'left:0px',
-          'width:0px',
-          'height:0px',
+          'width:100vw',
+          'height:56.25vw',
           'object-fit:cover',
           'object-position:center',
           'pointer-events:none',
@@ -1311,10 +1320,29 @@
         setTimeout(forceAppear, 500);
         setTimeout(forceAppear, 1500);
         setTimeout(forceAppear, 3000);
-        var mo = new MutationObserver(function () { apply(); });
+        setTimeout(function () {
+          document.querySelectorAll('[style*="will-change:transform"]').forEach(function (el) {
+            if (el.style.opacity === '0') {
+              el.style.opacity = '1';
+              el.style.transform = 'none';
+            }
+          });
+        }, 5000);
+        var appearT;
+        var mo = new MutationObserver(function () {
+          apply();
+          clearTimeout(appearT);
+          appearT = setTimeout(forceAppear, 150);
+        });
         mo.observe(document.body, { childList: true, subtree: true });
-        // Stop observing after 10s — hydration is long done
-        setTimeout(function () { mo.disconnect(); forceAppear(); }, 10000);
+        // On SPA route change, re-fire forceAppear aggressively
+        window.addEventListener('popstate', function () {
+          setTimeout(forceAppear, 50);
+          setTimeout(forceAppear, 200);
+          setTimeout(forceAppear, 500);
+        });
+        // Final hydration sweep at 10s
+        setTimeout(forceAppear, 10000);
         // Keep anchor ids pinned to the visible responsive variant on resize.
         var rzT; window.addEventListener('resize', function () {
           clearTimeout(rzT); rzT = setTimeout(ensureAnchors, 150);
@@ -5745,7 +5773,7 @@
                     <div class="framer-qe3948" data-framer-name="top">
                       <div class="framer-z9zmh9-container" style="will-change:transform;opacity:0;transform:translateY(10px)">
                         <!--$-->
-                        <a class="framer-q4WSf framer-11s2jw framer-v-11s2jw framer-lb3k4i" data-framer-name="Default" data-highlight="true" tabindex="0">                        <div data-framer-component-type="SVG" data-framer-name="Logo" style="image-rendering:pixelated;flex-shrink:0" class="framer-1j2y0ad" aria-hidden="true">
+                        <a class="framer-q4WSf framer-11s2jw framer-v-11s2jw framer-lb3k4i" data-framer-name="Default" data-highlight="true" href="./" data-framer-page-link-current="true" tabindex="0">                        <div data-framer-component-type="SVG" data-framer-name="Logo" style="image-rendering:pixelated;flex-shrink:0" class="framer-1j2y0ad" aria-hidden="true">
                           <div class="svgContainer" style="width:100%;height:100%;aspect-ratio:inherit">
                             <svg style="width:100%;height:100%;">
                               <use href="#svg8657342543">
@@ -5939,7 +5967,7 @@
                     <div class="framer-qe3948" data-framer-name="top">
                       <div class="framer-z9zmh9-container" style="will-change:transform;opacity:0;transform:translateY(10px)">
                         <!--$-->
-                        <a class="framer-q4WSf framer-11s2jw framer-v-11s2jw framer-lb3k4i" data-framer-name="Default" data-highlight="true" tabindex="0">                        <div data-framer-component-type="SVG" data-framer-name="Logo" style="image-rendering:pixelated;flex-shrink:0" class="framer-1j2y0ad" aria-hidden="true">
+                        <a class="framer-q4WSf framer-11s2jw framer-v-11s2jw framer-lb3k4i" data-framer-name="Default" data-highlight="true" href="./" data-framer-page-link-current="true" tabindex="0">                        <div data-framer-component-type="SVG" data-framer-name="Logo" style="image-rendering:pixelated;flex-shrink:0" class="framer-1j2y0ad" aria-hidden="true">
                           <div class="svgContainer" style="width:100%;height:100%;aspect-ratio:inherit">
                             <svg style="width:100%;height:100%;">
                               <use href="#svg8657342543">
@@ -6133,7 +6161,7 @@
                     <div class="framer-qe3948" data-framer-name="top">
                       <div class="framer-z9zmh9-container" style="will-change:transform;opacity:0;transform:translateY(10px)">
                         <!--$-->
-                        <a class="framer-q4WSf framer-11s2jw framer-v-11s2jw framer-lb3k4i" data-framer-name="Default" data-highlight="true" tabindex="0">                        <div data-framer-component-type="SVG" data-framer-name="Logo" style="image-rendering:pixelated;flex-shrink:0" class="framer-1j2y0ad" aria-hidden="true">
+                        <a class="framer-q4WSf framer-11s2jw framer-v-11s2jw framer-lb3k4i" data-framer-name="Default" data-highlight="true" href="./" data-framer-page-link-current="true" tabindex="0">                        <div data-framer-component-type="SVG" data-framer-name="Logo" style="image-rendering:pixelated;flex-shrink:0" class="framer-1j2y0ad" aria-hidden="true">
                           <div class="svgContainer" style="width:100%;height:100%;aspect-ratio:inherit">
                             <svg style="width:100%;height:100%;">
                               <use href="#svg8657342543">
