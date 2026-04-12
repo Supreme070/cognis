@@ -87,6 +87,25 @@ BUNDLES = {
         ("Zaire Dorwart", "Supreme Oyewumi", 1),
     ],
 
+    # --- Homepage stat-band copy & counters ---
+    "InvS17SM-NgHMgCCGqMQ2B4DzhSjCbqxQaMHtenca_I.BTbblbbR.mjs": [
+        ("Commitment to measurable", "Production-first delivery", 2),
+        ("Collaborating with leading AI and cloud technology providers.",
+         "Integrating with the AI and cloud ecosystems our clients already run on \u2014 Google, AWS, Microsoft, OpenAI, and partners like MarketSage.", 2),
+        ("Decisions Transformed", "Disciplines under one roof", 2),
+        ("Analyzed monthly to power smarter business strategies.",
+         "Strategy, agent engineering, workforce training, and AI governance \u2014 no handoffs, no gaps.", 2),
+        ("Markets Served", "Continents engaged", 2),
+        ("\u201cTheir automation strategy completely reshaped how we work. It\u2019s efficient, intelligent, and seamless.\u201d",
+         "\u201cCognis Group did not just advise us. They fundamentally changed how our leadership team thinks about artificial intelligence, automation, and decision-making.\u201d", 2),
+        # Counter end values
+        ("end:120,font:", "end:5,font:", 1),
+        ("end:520,font:", "end:4,font:", 1),
+        ("end:20,font:", "end:3,font:", 1),
+        # Drop the 'k+' suffix on the former 520k+ counter
+        ("suffix:`k+`", "suffix:`+`", 1),
+    ],
+
     # --- Homepage route bundle (title + meta) ---
     "augiA20Il._IgiNCyN.mjs": [
         ("Cognis Group \u2014 AI Consulting & Engineering for Enterprises",
