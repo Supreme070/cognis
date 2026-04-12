@@ -1,0 +1,12 @@
+import { chromium } from 'playwright';
+const b = await chromium.launch();
+const p = await (await b.newContext({ viewport: { width: 1440, height: 900 } })).newPage();
+const reqs = [];
+p.on('request', r => reqs.push(r.url()));
+await p.goto('http://127.0.0.1:3001/about-us?cb=' + Date.now(), { waitUntil: 'networkidle' });
+await p.waitForTimeout(5000);
+console.log('All requests with framercms or framerusercontent:');
+reqs.filter(u => /framercms|framerusercontent|nrURXlajq/i.test(u)).forEach(u => console.log('  ', u));
+console.log('\nAll .framercms fetches:');
+reqs.filter(u => u.includes('.framercms')).forEach(u => console.log('  ', u));
+await b.close();

@@ -21,9 +21,10 @@ import re
 import struct
 
 from rewrite_json_blobs import rewrite_image_blobs
+from blog_bodies import BODY_GOVERNANCE, BODY_ROI, BODY_NATIVE
 
 
-# Text replacements for first 3 blog items (titles, slugs, excerpts).
+# Text replacements for all 6 blog items (titles, slugs, excerpts, bodies).
 # Applied to each item's bytes as length-prefixed substitutions.
 REPLACEMENTS = {
     # --- Item 1 ---
@@ -48,8 +49,45 @@ REPLACEMENTS = {
     "human-machine-balance":
         "ai-ready-workforce-training",
     "The greatest success in the age of AI does not come from choosing between humans or machines, but from mastering their collaboration. The 'Human+Machine' dynamic is about pairing cognitive strengths with computational speed.":
-        "Most corporate AI training is a 90-minute tool demo. Here is what actually builds lasting AI capability across an organization — and what measurable outcomes look like six months after the Cognis Group training programme ends.",
+        "Most corporate AI training is a 90-minute tool demo. Here is what actually builds lasting AI capability across an organization \u2014 and what measurable outcomes look like six months after the Cognis Group training programme ends.",
+
+    # --- Item 4: "The Future of Automation for Creative Teams" → AI Governance ---
+    "The Future of Automation for Creative Teams":
+        "AI Governance for African Enterprises: Building Trust Before Scale",
+    "future-automation-creative-teams":
+        "ai-governance-african-enterprises",
+    "Automation often conjures images of factories and spreadsheets, but its future lies deeply within creative industries. AI-powered tools are emerging not to replace artists or designers, but to act as powerful co-pilots.":
+        "The EU AI Act is already reshaping global supply chains. The AU Continental AI Strategy is setting the agenda for Africa. Nigerian, Kenyan and South African regulators are moving. Here is the governance framework Cognis Group builds into every engagement \u2014 so you scale AI with trust, not liability.",
+
+    # --- Item 5: "How Consultants Can Leverage AI" → Measuring AI ROI ---
+    "How Consultants Can Leverage AI to Deliver Deeper Insights":
+        "Measuring AI ROI: The Framework That Separates Real Impact from Expensive Experiments",
+    "consultants-leverage-ai":
+        "measuring-ai-roi-framework",
+    "AI is an essential tool for the modern consultant, transforming the speed and depth of insights delivered to clients. By leveraging AI, consultants can move past basic data crunching and focus on complex strategic guidance.":
+        "Most enterprise AI projects cannot answer a simple question: what is the return? Cognis Group measures every engagement against four dimensions \u2014 hours saved, error rates reduced, throughput gained, and capability transferred. Here is the framework, and here is how to apply it to your own AI investments.",
+
+    # --- Item 6: "Why AI Is the Missing Piece" → AI-Native Operations in Africa ---
+    "Why AI Is the Missing Piece in Traditional Consulting":
+        "Why Africa\u2019s Next Competitive Advantage Is AI-Native Operations",
+    "ai-missing-piece-consulting":
+        "ai-native-operations-africa",
+    "Traditional consulting models often struggle with the sheer volume and velocity of modern data, leading to recommendations that can sometimes lag behind market realities. AI provides the real-time velocity these models lack.":
+        "African enterprises have a structural advantage most global competitors do not: they can build AI-native from the start, without decades of legacy systems to migrate. Here is why the leapfrog opportunity is real \u2014 and what Cognis Group sees on the ground across Lagos, Nairobi and Johannesburg.",
 }
+
+# Body content replacements for items 4-6 (loaded from blog_bodies.py).
+# These are JSON rich-text arrays — matched as length-prefixed strings just
+# like titles/excerpts.
+_OLD_BODY_4 = '[1,[4,"p",null,[5,"Automation is the ultimate tool for liberation, removing the technical barriers that stifle original thinking. It takes the repetitive work out of production and gives creators the clarity they need to innovate. Here\u2019s how creative automation can unlock new possibilities for your business:"]],[4,"h3",null,[5,"1. Why Creative Tech Matters"]],[4,"p",null,[5,"Modern creative teams generate massive amounts of assets\u2014versions, sizes, and formats for every platform. Without automation, your best designers stay stuck in \\\\"pixel pushing\\\\" while their big ideas stay locked away."]],[4,"h3",null,[5,"2. From Draft to Design"]],[4,"p",null,[5,"Ideas become powerful when they can be executed quickly. AI allows teams to identify which concepts work and where the biggest visual impact lies. Whether it\u2019s generating mood boards or scaling campaigns, automation enables teams to move from manual drafting to rapid iteration."]],[4,"h3",null,[5,"3. The Strategic Advantage"]],[4,"p",null,[5,"The companies that win today aren\u2019t the ones with the largest design budgets \u2014 but the ones who automate production. Automation empowers you to:"]],[4,"ul",null,[4,"li",{"data-preset-tag":"p"},[4,"p",null,[5,"Eliminate the fear of the blank canvas"]]],[4,"li",{"data-preset-tag":"p"},[4,"p",null,[5,"Scale global campaigns in seconds"]]],[4,"li",{"data-preset-tag":"p"},[4,"p",null,[5,"Validate visual ideas with real-time data"]]],[4,"li",{"data-preset-tag":"p"},[4,"p",null,[5,"Personalize content for every user segment"]]],[4,"li",{"data-preset-tag":"p"},[4,"p",null,[5,"Focus on deep, meaningful storytelling"]]]],[4,"p",null,[5,"It becomes the foundation of smarter, more strategic growth."]]]'
+
+_OLD_BODY_5 = '[1,[4,"p",null,[5,"In the consulting world, AI allows a shift from time-consuming research to high-level strategic advisory. It takes the manual work out of discovery and gives experts the insights they need to lead. Here\u2019s how AI-driven consulting can unlock new possibilities for your business:"]],[4,"h3",null,[5,"1. Why AI in Consulting Matters"]],[4,"p",null,[5,"Modern consultants handle massive amounts of client information\u2014interviews, documents, and market trends. Without AI, all of this valuable intelligence stays buried in long reports and unused spreadsheets."]],[4,"h3",null,[5,"2. From Research to Results"]],[4,"p",null,[5,"Expertise becomes powerful when it\u2019s backed by real-time evidence. AI allows consultants to identify hidden patterns and where the biggest client opportunities lie. Whether it\u2019s auditing workflows or predicting market shifts, AI enables teams to move from static advice to dynamic solutions."]],[4,"h3",null,[5,"3. The Strategic Advantage"]],[4,"p",null,[5,"The consultants that win today aren\u2019t the ones with the most billable hours \u2014 but the ones who use AI. AI empowers you to:"]],[4,"ul",null,[4,"li",{"data-preset-tag":"p"},[4,"p",null,[5,"Automate the discovery and audit phase"]]],[4,"li",{"data-preset-tag":"p"},[4,"p",null,[5,"Deliver evidence-based strategic roadmaps"]]],[4,"li",{"data-preset-tag":"p"},[4,"p",null,[5,"Provide real-time ROI tracking for clients"]]],[4,"li",{"data-preset-tag":"p"},[4,"p",null,[5,"Identify market trends before competitors"]]],[4,"li",{"data-preset-tag":"p"},[4,"p",null,[5,"Scale your expertise to more accounts"]]]],[4,"p",null,[5,"It becomes the foundation of smarter, more strategic growth."]]]'
+
+_OLD_BODY_6 = '[1,[4,"p",null,[5,"AI is the bridge that turns theoretical strategy into measurable, real-world business impact. It takes the guesswork out of transformation and gives clients the clarity they need to change. Here\u2019s how this \\\\"missing piece\\\\" can unlock new possibilities for your business:"]],[4,"h3",null,[5,"1. Why Implementation Matters"]],[4,"p",null,[5,"Modern consulting projects generate massive amounts of advice\u2014but often lack the tools to execute it. Without AI, the best strategies stay as PDFs on a shelf and never reach their full potential."]],[4,"h3",null,[5,"2. From Paper to Performance"]],[4,"p",null,[5,"Strategy becomes powerful when it\u2019s connected with automated execution. AI allows firms to identify what\u2019s being adopted, what isn\u2019t, and where the biggest implementation gaps lie. Whether it\u2019s tracking KPIs or adjusting tactics, AI enables teams to move from theory-driven to results-driven."]],[4,"h3",null,[5,"3. The Strategic Advantage"]],[4,"p",null,[5,"The firms that win today aren\u2019t the ones with the best presentations \u2014 but the ones who deliver the missing piece. AI empowers you to:"]],[4,"ul",null,[4,"li",{"data-preset-tag":"p"},[4,"p",null,[5,"Bridge the gap between strategy and action"]]],[4,"li",{"data-preset-tag":"p"},[4,"p",null,[5,"Personalize transformation for every client"]]],[4,"li",{"data-preset-tag":"p"},[4,"p",null,[5,"Spot new growth opportunities in real-time"]]],[4,"li",{"data-preset-tag":"p"},[4,"p",null,[5,"Reduce the risk of failed implementations"]]],[4,"li",{"data-preset-tag":"p"},[4,"p",null,[5,"Continuously improve based on performance"]]]],[4,"p",null,[5,"It becomes the foundation of smarter, more strategic growth."]]]'
+
+REPLACEMENTS[_OLD_BODY_4] = BODY_GOVERNANCE
+REPLACEMENTS[_OLD_BODY_5] = BODY_ROI
+REPLACEMENTS[_OLD_BODY_6] = BODY_NATIVE
 
 
 def apply_text_replacements(data: bytes, reps: dict) -> bytes:
@@ -131,6 +169,75 @@ def v_ptr(cid: int, off: int, ln: int) -> bytes:
     return struct.pack(">HII", cid, off, ln)
 
 
+def resort_map_indexes(seg: bytes, resort_keys: set[str]) -> bytes:
+    """Re-sort entries in every type-1 subtype-0x02 map whose primary key is
+    in `resort_keys`. Framer uses binary search on these maps; when a text
+    replacement rewrites the stored value of the key field (e.g. the slug),
+    the entries can drift out of sorted order and lookups silently fail.
+
+    Structure of a map section:
+      u32 header_len + `{"type":1}` + u8 subtype(0x02)
+      u32 k1_len + k1 + u32 k2_len + k2 + u32 entry_count
+      for each entry:
+        0x0c u32 key_val_len key_val 0x0c u32 id_len id u16 cid u32 off u32 len
+
+    Re-sorting swaps entries in place — segment byte length is preserved.
+    """
+    data = bytearray(seg)
+    i = 0
+    while True:
+        j = data.find(b'\x00\x00\x00\x0a{"type":1}\x02', i)
+        if j < 0:
+            break
+        p = j + 15  # past header_len + '{"type":1}' + subtype byte
+        try:
+            klen = struct.unpack(">I", data[p : p + 4])[0]
+            p += 4
+            k1 = bytes(data[p : p + klen]).decode("utf-8")
+            p += klen
+            k2len = struct.unpack(">I", data[p : p + 4])[0]
+            p += 4
+            k2 = bytes(data[p : p + k2len]).decode("utf-8")
+            p += k2len
+            cnt = struct.unpack(">I", data[p : p + 4])[0]
+            p += 4
+        except Exception:
+            i = j + 1
+            continue
+
+        if k1 not in resort_keys:
+            i = p
+            continue
+
+        entries_start = p
+        entries = []
+        for _ in range(cnt):
+            s = p
+            if data[p] != 0x0c:
+                break
+            p += 1
+            slen = struct.unpack(">I", data[p : p + 4])[0]
+            p += 4
+            key_val = bytes(data[p : p + slen]).decode("utf-8", errors="replace")
+            p += slen
+            if data[p] != 0x0c:
+                break
+            p += 1
+            ilen = struct.unpack(">I", data[p : p + 4])[0]
+            p += 4
+            p += ilen  # item id (opaque for sort)
+            p += 10  # chunk pointer
+            entries.append((key_val, bytes(data[s:p])))
+        else:
+            entries.sort(key=lambda e: e[0])
+            new_bytes = b"".join(e[1] for e in entries)
+            assert len(new_bytes) == p - entries_start
+            data[entries_start:p] = new_bytes
+            print(f"  re-sorted map k1={k1} k2={k2} ({cnt} entries)")
+        i = p
+    return bytes(data)
+
+
 def main():
     raw_chunk = RAW_CHUNK.read_bytes()
     raw_index = RAW_INDEX.read_bytes()
@@ -179,6 +286,9 @@ def main():
     ptr_map = {v_ptr(*old): v_ptr(*new) for old, new in pointer_map.items()}
 
     # Per-segment: V pointer substitute + image URL blob rewrite
+    # Fields whose stored values were rewritten above — any sorted index
+    # keyed on one of these must be re-sorted so binary search still works.
+    resort_keys = {"CqVvgMUzo", "FzEtguNp1"}
     new_segments = []
     new_ranges = []
     cursor = 0
@@ -197,6 +307,7 @@ def main():
                 i = idx + 10
         rewritten = rewrite_image_blobs(bytes(data))
         rewritten = apply_text_replacements(rewritten, REPLACEMENTS)
+        rewritten = resort_map_indexes(rewritten, resort_keys)
         new_segments.append(rewritten)
         new_ranges.append((cursor, cursor + len(rewritten)))
         cursor += len(rewritten)

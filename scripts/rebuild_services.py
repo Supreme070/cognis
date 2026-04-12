@@ -32,10 +32,19 @@ Outputs:
   framer-runtime/sites/3RYFpGbtMJS5XyuENcvikD/QSCEvOCzd.BEpRMyCY.mjs (patched)
 """
 import pathlib
+import re
 import struct
 
+from rebuild_blog import resort_map_indexes
 from rewrite_framercms import SERVICES
 from rewrite_json_blobs import rewrite_image_blobs
+
+# Services field IDs whose stored values are mutated by SERVICES replacements.
+# Any type-1 subtype-0x02 sorted index keyed on one of these must be re-sorted
+# after text rewrite, or Framer's binary search will silently miss entries.
+# From project_cognis_framer_internals.md:
+#   jMRdATqKw = title, eFnXXZiS4 = slug
+SERVICES_RESORT_KEYS = {"jMRdATqKw", "eFnXXZiS4"}
 
 RAW_CHUNK = pathlib.Path("framer-cms-raw/QSCEvOCzd-chunk-default-0.framercms")
 RAW_INDEX = pathlib.Path("framer-cms-raw/QSCEvOCzd-indexes-default-0.framercms")
@@ -198,6 +207,11 @@ def main():
         # String replacements + image URL blob rewrite inside segment
         rewritten = rewrite_bytes(bytes(data), SERVICES)
         rewritten = rewrite_image_blobs(rewritten)
+        # Sorted-index invariant: re-sort any type-1 subtype-0x02 map keyed
+        # on a rewritten field (slug/title), or binary search lookups fail
+        # with "xv: No data matches path variables" even though the value is
+        # literally present in the file. See project_cognis_framer_internals.md.
+        rewritten = resort_map_indexes(rewritten, SERVICES_RESORT_KEYS)
         new_segments.append(rewritten)
         new_ranges.append((cursor, cursor + len(rewritten)))
         cursor += len(rewritten)
@@ -208,19 +222,23 @@ def main():
     OUT_INDEX.write_bytes(new_index)
     print(f"indexes: {len(raw_index)} -> {len(new_index)} bytes ({len(new_index) - len(raw_index):+d})")
 
-    # 6. Patch .mjs ranges to reflect new segment offsets
+    # 6. Patch .mjs ranges to reflect new segment offsets. Idempotent: scan
+    # the current ranges in-file and replace in REVERSE order so earlier
+    # replacements don't shift offsets of later matches.
     mjs_text = MJS.read_text()
     orig_mjs_size = len(mjs_text)
+    pattern = re.compile(r"range:\{from:(\d+),to:(\d+)\}")
+    matches = list(pattern.finditer(mjs_text))
+    if len(matches) != len(new_ranges):
+        raise SystemExit(
+            f"expected {len(new_ranges)} range literals in {MJS.name}, found {len(matches)}"
+        )
     changed = 0
-    for (oa, ob), (na, nb) in zip(ORIG_RANGES, new_ranges):
-        old_literal = f"range:{{from:{oa},to:{ob}}}"
-        new_literal = f"range:{{from:{na},to:{nb}}}"
-        if old_literal == new_literal:
+    for m, (na, nb) in zip(reversed(matches), reversed(new_ranges)):
+        new_lit = f"range:{{from:{na},to:{nb}}}"
+        if m.group(0) == new_lit:
             continue
-        count = mjs_text.count(old_literal)
-        if count != 1:
-            raise SystemExit(f"expected 1 occurrence of {old_literal}, found {count}")
-        mjs_text = mjs_text.replace(old_literal, new_literal)
+        mjs_text = mjs_text[: m.start()] + new_lit + mjs_text[m.end():]
         changed += 1
     MJS.write_text(mjs_text)
     print(f"patched {changed} ranges in {MJS.name} ({orig_mjs_size} -> {len(mjs_text)} bytes)")
