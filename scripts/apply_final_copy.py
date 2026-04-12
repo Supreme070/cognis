@@ -18,8 +18,8 @@ REPLACEMENTS = [
 
     # Services section H2
     ("Comprehensive consulting and intelligent innovation",
-     "Six practice areas, one mission"),
-    ("Comprehensive consulting", "Six practice areas"),
+     "Three practice areas, one mission"),
+    ("Comprehensive consulting", "Three practice areas"),
     ("intelligent innovation", "one mission"),
 
     # Expertise section H2
@@ -39,7 +39,7 @@ REPLACEMENTS = [
 
     # Footer
     ("Easily adapt to changes and scale your operations with our flexible infrastructure, designed to support your business growth.",
-     "Cognis Group is a Nigerian AI advisory firm. Quod Tango Muto — what we touch, we change."),
+     "Cognis Group is more than an advisory firm — we build, deploy, and govern AI systems that permanently transform organizations. Quod Tango Muto — what we touch, we change."),
     ("Subscribe our newsletter", "Subscribe to our insights"),
 
     # Testimonial heading

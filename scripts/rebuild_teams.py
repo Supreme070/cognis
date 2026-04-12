@@ -42,7 +42,7 @@ TEAMS = {
     "Erin Siphron": "Eugene Jack",
     "erin-siphron": "eugene-jack",
     "Chief Data Scientist": "Head of Agent Engineering",
-    "Erin is responsible for designing the robust data architecture and predictive models that power our Data & Insights service. She transforms complex raw data into clear, actionable intelligence.":
+    "Erin is responsible for designing the robust data architecture and predictive models that power our AI Agent & Automation Engineering service. She transforms complex raw data into clear, actionable intelligence.":
         "Eugene designs and builds the AI agents and automation workflows that power Cognis client engagements. From document extraction to customer operations, he ships agent systems that measurably reduce manual effort.",
     "@erinsiphron": "@eugenejack",
 }

@@ -20,7 +20,7 @@ const info = await p.evaluate(() => {
     hasAllInsights: bodyText.includes('all insights'),
     hasGetAIInbox: bodyText.includes('get ai intelligence in your inbox'),
     hasSubscribe: bodyText.includes('subscribe'),
-    hasHeroSub: bodyText.includes('global ai consulting and advisory firm'),
+    hasHeroSub: bodyText.includes('ai company that builds, deploys, and governs ai systems'),
     hasTrustLine: bodyText.includes('trusted by'),
     hasAboutHeadline: bodyText.includes('global intelligence partner'),
     // Footer copyright

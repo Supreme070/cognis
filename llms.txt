@@ -1,12 +1,12 @@
 # Cognis Group
 
-> Cognis Group is a global AI consulting and advisory firm that helps organizations design AI strategy, deploy intelligent agents, develop AI-ready workforces, and build AI governance frameworks. Lagos-headquartered, globally engaged. Quod Tango Muto — what we touch, we change.
+> Cognis Group is an AI company that builds, deploys, and governs AI systems that permanently transform organizations. Three core practices: AI Strategy & Advisory, AI Training & Workforce Development, and AI Agent & Automation Engineering. Quod Tango Muto — what we touch, we change.
 
 ## Core content
 
 - [Homepage](https://cognis.group/): Full overview of capabilities, team, and engagement model
 - [About Us](https://cognis.group/about-us): Mission, founding story, and operating principles
-- [Services](https://cognis.group/our-services): Six AI consulting practice areas
+- [Services](https://cognis.group/our-services): Three AI practice areas
 - [Blog / Insights](https://cognis.group/blog): Enterprise AI deployment, governance, ROI, and workforce development
 - [Contact](https://cognis.group/contact): Start an engagement with Cognis Group
 
