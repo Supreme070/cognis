@@ -1,0 +1,50 @@
+# Cognis Group — AI Advisory for African Enterprises
+
+> Cognis Group is a Nigerian AI advisory firm helping African enterprises and global clients deploy production AI. Strategy, engineering, governance, training.
+
+## About
+
+Cognis Group is a Lagos-based AI advisory helping organizations build smarter and more intelligent. We are a Nigerian firm by design, registered with the Corporate Affairs Commission, with a sister entity in the United States. Every engagement leaves the organization permanently more capable — we do not sell dependency.
+
+**Quod Tango Muto — What I touch, I change.**
+
+## Six practice areas, one mission
+
+1. **AI Strategy & Advisory** — AI readiness assessments, use case identification, and deployment roadmaps for African enterprises.
+2. **AI Training & Workforce Development** — Programs for C-suite to frontline staff on AI tools, thinking, and governance.
+3. **Agent & Automation Engineering** — Design and deployment of AI agents and automated workflows — built on your stack, governed by your rules.
+4. **ML & Data Intelligence** — Custom ML models, data pipelines, and predictive systems — production-grade from day one.
+5. **AI Governance & Risk** — Policy frameworks, audit structures, and compliance with both local regulations (NDPA, CBN guidance) and global standards (ISO 42001, NIST AI RMF, EU AI Act).
+6. **Digital Transformation** — End-to-end modernization of legacy systems with intelligence embedded throughout.
+
+## Where African context meets AI engineering
+
+Our edge is deep African market knowledge combined with global AI engineering capability. International clients engaging with African operations get context no Western firm can authentically replicate. African enterprises get senior engineering without the overhead of remote Western consultancies.
+
+We work remotely, on-site, and through hybrid engagement models.
+
+## Our operating principles
+
+- **We deploy, we don't theorize.** Every engagement leaves the organization permanently more capable.
+- **We don't replace people with AI — we make people extraordinary with AI.**
+- **Built in Lagos. Serving African enterprises and the firms working with them. What we touch, we change.**
+
+## Frequently asked
+
+**What does Cognis Group actually do?** We help organizations understand, adopt, deploy, and govern artificial intelligence across six practice areas.
+
+**Where is Cognis Group based?** Headquartered in Lagos, Nigeria, registered with the Corporate Affairs Commission. Sister entity in the United States.
+
+**What industries do you serve?** Enterprises, government agencies, banks, telcos, and fintechs across Nigeria and Africa, plus international organizations operating in or expanding into Africa.
+
+**How do you approach AI governance?** We build policy frameworks, audit structures, and compliance systems aligned with both NDPA/CBN guidance and global standards (ISO 42001, NIST AI RMF, EU AI Act). We design governance before deployment, not after.
+
+**How does a Lagos-based firm work with international clients?** Deep African market knowledge combined with global AI engineering. We work remotely, on-site, and through hybrid engagement models.
+
+**What makes Cognis different?** We are a Nigerian firm by design, not a Western practice with an Africa strategy bolted on. Every engagement leaves the organization permanently more capable.
+
+## Contact
+
+Email: hello@cognis.group
+Based in: Lagos, Nigeria
+Engagements: Africa · Europe · North America

@@ -1,0 +1,17 @@
+# Cognis Group
+
+> Cognis Group is a Nigerian AI advisory firm based in Lagos, helping African enterprises and global clients deploy production AI. Practice areas: strategy, training, agent engineering, ML and data intelligence, governance, and digital transformation.
+
+Cognis Group Limited is registered with the Nigerian Corporate Affairs Commission (Lagos). Founded 2025 by Kola Olatunde. Serves clients across Africa, Europe, and North America. Sister entity registered in the United States.
+
+Motto: Quod Tango Muto — "What I touch, I change." Positioning: we do not replace people with AI; we make people extraordinary with AI.
+
+## Core content
+- [Homepage](https://cognis.group/): Full overview of the firm, practice areas, founder, and contact
+- [About Cognis Group](https://cognis.group/#about): Who we are and how we work
+- [Practice areas](https://cognis.group/#services): Six service lines
+- [Insights](https://cognis.group/#insights): How Cognis approaches AI advisory
+- [Contact](https://cognis.group/#contact): How to engage Cognis Group
+
+## Optional
+- [llms-full.txt](https://cognis.group/llms-full.txt): Full homepage content as Markdown for direct AI consumption
