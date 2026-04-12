@@ -19,7 +19,7 @@ const report = {
   src_framer_com: srcHtml.includes('https://www.framer.com'),
   src_badge_container: srcHtml.includes('__framer-badge-container'),
   src_template_overlay: srcHtml.includes('template-overlay'),
-  src_made_in_framer: srcHtml.includes('Made in Framer'),
+  src_made_in_framer_removed: !srcHtml.includes('Made in Framer'),
   // post-hydration DOM sanity
   dom_badge_node: await p.locator('#__framer-badge-container').count(),
   dom_overlay_node: await p.locator('#template-overlay').count(),

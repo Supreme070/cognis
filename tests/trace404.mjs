@@ -8,7 +8,7 @@ page.on('response', async (r) => {
   }
 });
 page.on('pageerror', (e) => console.log('PAGEERR:', String(e).slice(0,120)));
-await page.goto('http://localhost:8765/aeline_framer_website.html', { waitUntil: 'networkidle', timeout: 30000 });
+await page.goto('http://localhost:8765/cognis_base.html', { waitUntil: 'networkidle', timeout: 30000 });
 await page.waitForTimeout(4000);
 console.log('BAD:', bad.length);
 bad.forEach(b => console.log(` ${b.status} ${b.url}`));

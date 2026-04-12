@@ -19,7 +19,7 @@ import pathlib
 import shutil
 import sys
 
-RAW = pathlib.Path("framer-cms-raw")
+RAW = pathlib.Path("cms-raw")
 OUT = pathlib.Path("cognis-cms")
 OUT.mkdir(exist_ok=True)
 

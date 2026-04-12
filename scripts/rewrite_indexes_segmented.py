@@ -21,9 +21,9 @@ import re
 import struct
 import pathlib
 
-from rewrite_framercms import SERVICES
+from rewrite_cms import SERVICES
 
-RAW = pathlib.Path("framer-cms-raw/QSCEvOCzd-indexes-default-0.framercms")
+RAW = pathlib.Path("cms-raw/QSCEvOCzd-indexes-default-0.framercms")
 OUT = pathlib.Path("cognis-cms/services-indexes.framercms")
 MJS = pathlib.Path("framer-runtime/sites/3RYFpGbtMJS5XyuENcvikD/QSCEvOCzd.BEpRMyCY.mjs")
 

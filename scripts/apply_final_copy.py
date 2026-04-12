@@ -6,7 +6,7 @@ string swap — longest strings are applied first to avoid prefix collisions.
 """
 import pathlib
 
-HTML = pathlib.Path("aeline_framer_website.html")
+HTML = pathlib.Path("cognis_base.html")
 BUNDLE_DIR = pathlib.Path("framer-runtime/sites/3RYFpGbtMJS5XyuENcvikD")
 
 # Plain string replacements. Order is long-to-short to prevent partial overlap.

@@ -114,8 +114,8 @@ def apply_text_replacements(data: bytes, reps: dict) -> bytes:
                 i = idx + 1
     return bytes(out)
 
-RAW_CHUNK = pathlib.Path("framer-cms-raw/rAjl8lYSc-chunk-default-0.framercms")
-RAW_INDEX = pathlib.Path("framer-cms-raw/rAjl8lYSc-indexes-default-0.framercms")
+RAW_CHUNK = pathlib.Path("cms-raw/rAjl8lYSc-chunk-default-0.framercms")
+RAW_INDEX = pathlib.Path("cms-raw/rAjl8lYSc-indexes-default-0.framercms")
 OUT_CHUNK = pathlib.Path("cognis-cms/blog-chunk.framercms")
 OUT_INDEX = pathlib.Path("cognis-cms/blog-indexes.framercms")
 MJS = pathlib.Path("framer-runtime/sites/3RYFpGbtMJS5XyuENcvikD/rAjl8lYSc.DS3b7BJb.mjs")

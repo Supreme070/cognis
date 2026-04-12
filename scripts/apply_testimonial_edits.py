@@ -13,7 +13,7 @@ out of scope for this pass.
 import pathlib
 import re
 
-HTML = pathlib.Path("aeline_framer_website.html")
+HTML = pathlib.Path("cognis_base.html")
 BUNDLE = pathlib.Path(
     "framer-runtime/sites/3RYFpGbtMJS5XyuENcvikD/dVykPcZrU.BFMM7EGF.mjs"
 )

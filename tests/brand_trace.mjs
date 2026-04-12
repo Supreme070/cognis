@@ -5,7 +5,7 @@ const consoleErrs = [];
 const pageErrs = [];
 page.on('pageerror', (e) => pageErrs.push(String(e)));
 page.on('console', (m) => { if (m.type() === 'error') consoleErrs.push(m.text()); });
-await page.goto('http://localhost:8765/aeline_framer_website.html', { waitUntil: 'networkidle', timeout: 60000 });
+await page.goto('http://localhost:8765/cognis_base.html', { waitUntil: 'networkidle', timeout: 60000 });
 await page.waitForTimeout(6000);
 
 const res = await page.evaluate(() => {

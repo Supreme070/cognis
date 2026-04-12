@@ -3,7 +3,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const fileUrl = 'file://' + path.join(__dirname, '..', 'aeline_framer_website.html');
+const fileUrl = 'file://' + path.join(__dirname, '..', 'cognis_base.html');
 
 const browser = await chromium.launch();
 const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });

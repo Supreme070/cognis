@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, '..');
-const fileUrl = 'file://' + path.join(root, 'aeline_framer_website.html');
+const fileUrl = 'file://' + path.join(root, 'cognis_base.html');
 
 const label = process.argv[2] || 'snap';
 const breakpoints = [

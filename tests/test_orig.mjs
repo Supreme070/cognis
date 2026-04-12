@@ -3,7 +3,7 @@ const browser = await chromium.launch();
 const page = await browser.newPage();
 const errs = [];
 page.on('pageerror', (e) => errs.push(String(e).slice(0,80)));
-await page.goto('http://localhost:8765/aeline_framer_website.original.html', { waitUntil: 'domcontentloaded', timeout: 20000 }).catch(()=>{});
+await page.goto('http://localhost:8765/cognis_base.original.html', { waitUntil: 'domcontentloaded', timeout: 20000 }).catch(()=>{});
 await page.waitForTimeout(2000);
 console.log('Original errors:', errs.length);
 errs.slice(0,8).forEach(e => console.log(' ', e));

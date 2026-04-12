@@ -4,11 +4,11 @@ set -euo pipefail
 # Mirror all framerusercontent.com assets referenced by the HTML + the known CMS chunks.
 # Run from /Users/supreme/Desktop/cognis
 
-HTML="${1:-aeline_framer_website.html}"
+HTML="${1:-cognis_base.html}"
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
 
-mkdir -p framer-runtime/sites/3RYFpGbtMJS5XyuENcvikD framer-runtime/images framer-runtime/assets framer-cms-raw cognis-cms
+mkdir -p framer-runtime/sites/3RYFpGbtMJS5XyuENcvikD framer-runtime/images framer-runtime/assets cms-raw cognis-cms
 
 log() { printf '[mirror] %s\n' "$*"; }
 
@@ -57,10 +57,10 @@ CMS_URLS=(
 )
 for url in "${CMS_URLS[@]}"; do
   fname=$(basename "$url")
-  out="framer-cms-raw/$fname"
+  out="cms-raw/$fname"
   if [ ! -f "$out" ]; then
     curl -sSL --fail "$url" -o "$out" && log "  $fname" || log "  MISSING: $url"
   fi
 done
 
-log "Done. Runtime bundles: $(find framer-runtime/sites -type f | wc -l | tr -d ' '); images: $(find framer-runtime/images -type f | wc -l | tr -d ' '); CMS chunks: $(find framer-cms-raw -type f | wc -l | tr -d ' ')"
+log "Done. Runtime bundles: $(find framer-runtime/sites -type f | wc -l | tr -d ' '); images: $(find framer-runtime/images -type f | wc -l | tr -d ' '); CMS chunks: $(find cms-raw -type f | wc -l | tr -d ' ')"

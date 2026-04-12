@@ -13,7 +13,7 @@ await page.addInitScript(() => {
     window.__errs.push({ msg: String(e.message), src: e.filename, line: e.lineno, col: e.colno, stack: e.error?.stack });
   });
 });
-await page.goto('http://localhost:8765/aeline_framer_website.html', { waitUntil: 'networkidle', timeout: 30000 });
+await page.goto('http://localhost:8765/cognis_base.html', { waitUntil: 'networkidle', timeout: 30000 });
 await page.waitForTimeout(4000);
 const errs = await page.evaluate(() => window.__errs || []);
 console.log(JSON.stringify(errs, null, 2));

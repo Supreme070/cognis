@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, '..');
-const fileUrl = 'file://' + path.join(root, 'aeline_framer_website.original.html');
+const fileUrl = 'file://' + path.join(root, 'cognis_base.original.html');
 
 const browser = await chromium.launch();
 const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 } });

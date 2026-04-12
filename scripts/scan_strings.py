@@ -50,6 +50,6 @@ def scan(path, min_len=3, max_len=4000):
     return found
 
 if __name__ == "__main__":
-    paths = sys.argv[1:] or sorted(str(p) for p in pathlib.Path("framer-cms-raw").glob("*chunk*.framercms"))
+    paths = sys.argv[1:] or sorted(str(p) for p in pathlib.Path("cms-raw").glob("*chunk*.framercms"))
     for p in paths:
         scan(p)

@@ -135,6 +135,6 @@ def decode(path):
 if __name__ == "__main__":
     paths = sys.argv[1:]
     if not paths:
-        paths = sorted(str(p) for p in pathlib.Path("framer-cms-raw").glob("*.framercms"))
+        paths = sorted(str(p) for p in pathlib.Path("cms-raw").glob("*.framercms"))
     for p in paths:
         decode(p)

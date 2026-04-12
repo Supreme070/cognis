@@ -11,7 +11,7 @@ them in sync is the entire game.
 import pathlib
 import re
 
-HTML = pathlib.Path("aeline_framer_website.html")
+HTML = pathlib.Path("cognis_base.html")
 BUNDLE_DIR = pathlib.Path("framer-runtime/sites/3RYFpGbtMJS5XyuENcvikD")
 
 # Plain string replacements applied to BOTH HTML and the .mjs bundle that

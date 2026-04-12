@@ -7,7 +7,7 @@ page.on('response', (r) => {
     badImgs.push({ url: r.url(), status: r.status() });
   }
 });
-await page.goto('http://localhost:8765/aeline_framer_website.html', { waitUntil: 'networkidle', timeout: 30000 });
+await page.goto('http://localhost:8765/cognis_base.html', { waitUntil: 'networkidle', timeout: 30000 });
 await page.waitForTimeout(4000);
 
 const stats = await page.evaluate(() => {

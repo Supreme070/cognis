@@ -10,7 +10,7 @@ import pathlib
 from rebuild_services import rewrite_bytes
 from rewrite_json_blobs import rewrite_image_blobs
 
-RAW_CHUNK = pathlib.Path("framer-cms-raw/nrURXlajq-chunk-default-0.framercms")
+RAW_CHUNK = pathlib.Path("cms-raw/nrURXlajq-chunk-default-0.framercms")
 OUT_CHUNK = pathlib.Path("cognis-cms/teams-chunk.framercms")
 
 TEAMS = {

@@ -36,7 +36,7 @@ import re
 import struct
 
 from rebuild_blog import resort_map_indexes
-from rewrite_framercms import SERVICES
+from rewrite_cms import SERVICES
 from rewrite_json_blobs import rewrite_image_blobs
 
 # Services field IDs whose stored values are mutated by SERVICES replacements.
@@ -46,8 +46,8 @@ from rewrite_json_blobs import rewrite_image_blobs
 #   jMRdATqKw = title, eFnXXZiS4 = slug
 SERVICES_RESORT_KEYS = {"jMRdATqKw", "eFnXXZiS4"}
 
-RAW_CHUNK = pathlib.Path("framer-cms-raw/QSCEvOCzd-chunk-default-0.framercms")
-RAW_INDEX = pathlib.Path("framer-cms-raw/QSCEvOCzd-indexes-default-0.framercms")
+RAW_CHUNK = pathlib.Path("cms-raw/QSCEvOCzd-chunk-default-0.framercms")
+RAW_INDEX = pathlib.Path("cms-raw/QSCEvOCzd-indexes-default-0.framercms")
 OUT_CHUNK = pathlib.Path("cognis-cms/services-chunk.framercms")
 OUT_INDEX = pathlib.Path("cognis-cms/services-indexes.framercms")
 MJS = pathlib.Path("framer-runtime/sites/3RYFpGbtMJS5XyuENcvikD/QSCEvOCzd.BEpRMyCY.mjs")

@@ -5,7 +5,7 @@ const logs = [];
 page.on('console', m => logs.push(`[${m.type()}] ${m.text()}`));
 page.on('pageerror', e => logs.push(`[err] ${String(e).slice(0,150)}`));
 
-await page.goto('http://localhost:8765/aeline_framer_website.html', { waitUntil: 'networkidle', timeout: 30000 });
+await page.goto('http://localhost:8765/cognis_base.html', { waitUntil: 'networkidle', timeout: 30000 });
 await page.waitForTimeout(5000);
 
 const info = await page.evaluate(() => {
