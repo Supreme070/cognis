@@ -38,3 +38,7 @@ tests/phase5-out/
 # Editor
 .vscode/
 .idea/
+
+# Local raw source assets (not deployed)
+stock/
+

@@ -1,0 +1,6 @@
+# Cloudflare Pages SPA fallback.
+# Framer exports a single index.html; client router handles /teams/*,
+# /our-services/*, /blog/*, /insights/*, /about-us, /contact, etc.
+# Rewrite any non-asset path to /index.html with a 200 so cold/direct
+# deep-URL loads boot the router and resolve in-place.
+/*    /index.html   200

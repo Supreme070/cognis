@@ -925,6 +925,34 @@
       /* CLS: reserve hero image space before JS hydration. */
       .framer-5m9e3y { aspect-ratio: 16 / 9; }
 
+      /* Widen the about-section logo container for MARKETSAGE. */
+      .framer-v0be5h { width: 130px !important; }
+
+      /* Team slideshow: clip any peek-through of the 4th card slot
+         (Eugene was removed, leaving 3 cards visible). */
+      section.framer-slideshow,
+      section.framer-slideshow > div {
+        overflow: hidden !important;
+      }
+
+      /* Team portraits: preme.jpg / kola.jpg are tight face-crops, so
+         "cover" cuts off the head. Use "contain" and bleed each photo's
+         own backdrop color into the letterbox so the frame looks wide. */
+      img[src*="QnjDKI0euXnnnPi4GtTEaqYDJLo"] {
+        object-fit: contain !important;
+        object-position: 50% 50% !important;
+        background-color: rgb(232, 173, 23) !important;
+      }
+      img[src*="QTiI3J2XXGOwJw3fyXhxuB92fl0"] {
+        object-fit: contain !important;
+        object-position: 50% 50% !important;
+        background-color: rgb(0, 82, 223) !important;
+      }
+      /* Fisayo: portrait pending — hide image, keep neutral placeholder. */
+      img[src*="il73eZeVzET6bn72svJVyQpD4"] {
+        visibility: hidden !important;
+        background-color: #e5e5e5 !important;
+      }
 
       /* Offset anchor landing position so it clears the sticky nav. */
       #about, #services, #insights, #contact { scroll-margin-top: 120px; }
@@ -1274,6 +1302,139 @@
         });
       }
 
+      var SERVICE_IMAGES = {
+        'Strategy': '/framer-runtime/images/service-strategy.jpg',
+        'Training': '/framer-runtime/images/service-training.jpg',
+        'Agent': '/framer-runtime/images/service-agent.jpg'
+      };
+      function ensureLocalImages() {
+        var openCard = document.querySelector('[data-framer-name="Open"]');
+        if (openCard) {
+          var img = openCard.querySelector('img');
+          if (img) {
+            var text = openCard.innerText || '';
+            var target = '';
+            if (text.indexOf('Strategy') !== -1) target = SERVICE_IMAGES.Strategy;
+            else if (text.indexOf('Training') !== -1) target = SERVICE_IMAGES.Training;
+            else if (text.indexOf('Agent') !== -1) target = SERVICE_IMAGES.Agent;
+            if (target && img.getAttribute('src') !== target) {
+              img.setAttribute('src', target);
+              img.removeAttribute('srcset');
+            }
+          }
+        }
+      }
+
+      function disableTeamCardLinks() {
+        document.querySelectorAll('a[href*="/teams/"]').forEach(function (a) {
+          if (a.dataset.cognisDisabled) return;
+          a.dataset.cognisDisabled = '1';
+          a.addEventListener('click', function (e) { e.preventDefault(); });
+        });
+      }
+
+      function removeEugeneTeamCard() {
+        document.querySelectorAll('img[src*="qo6HZFi07ViVs9Z02uanZYrR84"]').forEach(function (img) {
+          var card = img.closest('li') || img.closest('a');
+          if (card && !card.dataset.cognisHidden) {
+            card.dataset.cognisHidden = '1';
+            card.style.display = 'none';
+          }
+        });
+        document.querySelectorAll('img[src*="qo6HZFi07ViVs9Z02uanZYrR84"]').forEach(function (img) {
+          var ul = img.closest('ul');
+          if (!ul || ul.dataset.cognisFrozen) return;
+          ul.dataset.cognisFrozen = '1';
+          var freeze = function () {
+            if (ul.style.transform && ul.style.transform !== 'translateX(0px)') {
+              ul.style.setProperty('transform', 'translateX(0px)', 'important');
+            }
+          };
+          freeze();
+          var mo = new MutationObserver(freeze);
+          mo.observe(ul, { attributes: true, attributeFilter: ['style'] });
+        });
+      }
+
+      function ensureAboutHeroImage() {
+        document.querySelectorAll('img[src*="Vyfo3xCm2mXciLK38EvtcSz9M"]').forEach(function (img) {
+          img.setAttribute('src', '/framer-runtime/images/about-hero.jpg');
+          img.removeAttribute('srcset');
+        });
+        document.querySelectorAll('img[src*="Vq8dEluyeLa4kXCSmljlRQfNxIw"]').forEach(function (img) {
+          img.setAttribute('src', '/framer-runtime/images/why-us-impact.jpg');
+          img.removeAttribute('srcset');
+        });
+        document.querySelectorAll('img[src*="dDHWc7fTUArNa7BYM23naUGmg"]').forEach(function (img) {
+          if (img.dataset.cognisVideo) return;
+          img.dataset.cognisVideo = '1';
+          var parent = img.parentElement;
+          if (!parent) return;
+          var v = document.createElement('video');
+          v.src = '/framer-runtime/assets/services-hero.mp4';
+          v.autoplay = true; v.muted = true; v.loop = true; v.playsInline = true;
+          v.defaultMuted = true;
+          v.setAttribute('muted',''); v.setAttribute('playsinline','');
+          v.setAttribute('autoplay',''); v.setAttribute('loop','');
+          v.style.cssText = 'width:100%;height:100%;object-fit:cover;display:block;border-radius:inherit;';
+          img.style.display = 'none';
+          parent.appendChild(v);
+          // Some browsers reject the implicit autoplay when the element is
+          // injected post-hydration — explicitly call play() on canplay and
+          // fall back to a user-gesture listener if autoplay is blocked.
+          var tryPlay = function () {
+            try {
+              var pr = v.play();
+              if (pr && typeof pr.catch === 'function') {
+                pr.catch(function () {
+                  var onGesture = function () {
+                    v.play().catch(function(){});
+                    window.removeEventListener('pointerdown', onGesture);
+                    window.removeEventListener('touchstart', onGesture);
+                    window.removeEventListener('keydown', onGesture);
+                  };
+                  window.addEventListener('pointerdown', onGesture, { once: true });
+                  window.addEventListener('touchstart', onGesture, { once: true, passive: true });
+                  window.addEventListener('keydown', onGesture, { once: true });
+                });
+              }
+            } catch (e) {}
+          };
+          v.addEventListener('canplay', tryPlay, { once: true });
+          v.addEventListener('loadeddata', tryPlay, { once: true });
+          tryPlay();
+        });
+        document.querySelectorAll('img[src*="FCaQJxlGIedveg7qCarO8SFCAY"]').forEach(function (img) {
+          img.setAttribute('src', '/framer-runtime/images/service-training.jpg');
+          img.removeAttribute('srcset');
+        });
+        document.querySelectorAll('img[src*="J2zudel0v0ARjcLbzAk44y518"]').forEach(function (img) {
+          img.setAttribute('src', '/framer-runtime/images/service-agent.jpg');
+          img.removeAttribute('srcset');
+        });
+        var map = {
+          'LHF5pnTEGiDqPokWO5u1DEp2l0': '/framer-runtime/images/LHF5pnTEGiDqPokWO5u1DEp2l0.png',
+          'IGOxPIDHI4tPrADWVh1HrKM99RQ': '/framer-runtime/images/IGOxPIDHI4tPrADWVh1HrKM99RQ.png',
+          'owRvmfck3MmE9RTAPlzhICFlFg':  '/framer-runtime/images/owRvmfck3MmE9RTAPlzhICFlFg.png',
+          'Mjb5QC7cBmKTRevvIPeGBCVzHHM': '/framer-runtime/images/Mjb5QC7cBmKTRevvIPeGBCVzHHM.png'
+        };
+        Object.keys(map).forEach(function (k) {
+          document.querySelectorAll('img[src*="framerusercontent.com"][src*="' + k + '"]').forEach(function (img) {
+            img.setAttribute('src', map[k]);
+            img.removeAttribute('srcset');
+          });
+        });
+      }
+
+      function ensureMarketsageLogo() {
+        document.querySelectorAll('use[href="#svg-2037166872_1735"]').forEach(function (u) {
+          var svg = u.closest('svg');
+          if (svg && svg.getAttribute('viewBox') !== '0 0 130 24') {
+            svg.setAttribute('viewBox', '0 0 130 24');
+          }
+        });
+      }
+
       function ensureFooterLogoHref() {
         document.querySelectorAll('footer a.framer-q4WSf').forEach(function (a) {
           if (!a.getAttribute('href')) {
@@ -1283,7 +1444,7 @@
         });
       }
 
-      function apply() { ensureAnchors(); ensureForms(); ensureHeroVideo(); installHeroListeners(); ensureFooterLogoHref(); }
+      function apply() { ensureAnchors(); ensureForms(); ensureHeroVideo(); installHeroListeners(); ensureFooterLogoHref(); ensureMarketsageLogo(); ensureLocalImages(); ensureAboutHeroImage(); removeEugeneTeamCard(); }
 
       // Capture-phase handler for pure in-page hash anchors (e.g. Framer's
       // homepage CTAs that scroll to sections). Real route hrefs like
@@ -1420,7 +1581,8 @@
             if (d.kind === 'serviceDetail' || d.kind === 'teamDetail') {
               // Two-hop: click the nav link to the index page first. Once
               // the index page hydrates, hop2Tick will click the card.
-              var indexPath = d.kind === 'serviceDetail' ? '/our-services' : '/teams';
+              // Team cards live on /about-us (there is no /teams index).
+              var indexPath = d.kind === 'serviceDetail' ? '/our-services' : '/about-us';
               var nav = document.querySelectorAll(selectors(indexPath));
               for (var k = 0; k < nav.length; k++) {
                 var rn = nav[k].getBoundingClientRect();
@@ -1452,8 +1614,11 @@
             var h2 = window.__cognisDeferredHop2;
             if (!h2) return;
             var h2IndexPath = h2.kind === 'blogDetail' ? '/blog' :
-                             h2.kind === 'serviceDetail' ? '/our-services' : '/teams';
-            var h2Target = h2IndexPath + '/' + (h2.slug || h2.id);
+                             h2.kind === 'serviceDetail' ? '/our-services' : '/about-us';
+            // The final target path remains /teams/:id even though we
+            // hop through /about-us, because team cards' hrefs are /teams/:id.
+            var h2SlugPath = (h2.kind === 'teamDetail' ? '/teams' : h2IndexPath) + '/' + (h2.slug || h2.id);
+            var h2Target = h2SlugPath;
             var h2Attempts = 0;
             var h2Tick = setInterval(function () {
               h2Attempts++;
@@ -2278,9 +2443,9 @@
                         <img decoding="async" width="2464" height="1856" sizes="(min-width: 1280px) max((min(100vw - 104px, 1440px) - 48px) / 3, 1px), (min-width: 810px) and (max-width: 1279.98px) max((min(100vw - 104px, 1440px) - 48px) / 3, 1px), (max-width: 809.98px) min(100vw - 32px, 1440px)" srcset="/framer-runtime/images/JGdNRl6jQUnlEAMYGOue2qDYts.png?scale-down-to=512&amp;width=2464&amp;height=1856 512w,/framer-runtime/images/JGdNRl6jQUnlEAMYGOue2qDYts.png?scale-down-to=1024&amp;width=2464&amp;height=1856 1024w,/framer-runtime/images/JGdNRl6jQUnlEAMYGOue2qDYts.png?scale-down-to=2048&amp;width=2464&amp;height=1856 2048w,/framer-runtime/images/JGdNRl6jQUnlEAMYGOue2qDYts.png?width=2464&amp;height=1856 2464w" src="/framer-runtime/images/JGdNRl6jQUnlEAMYGOue2qDYts.png?width=2464&amp;height=1856" alt="" style="display:block;width:100%;height:100%;border-radius:inherit;corner-shape:inherit;object-position:center;object-fit:cover" />
                       </div>
                       <div class="framer-10lajge" data-framer-name="top">
-                        <div data-framer-component-type="SVG" data-framer-name="ipsum-logo" style="image-rendering:pixelated;flex-shrink:0;fill:rgba(0,0,0,1);color:rgba(0,0,0,1)" class="framer-v0be5h" aria-hidden="true">
+                        <div data-framer-component-type="SVG" data-framer-name="marketsage-logo" style="image-rendering:pixelated;flex-shrink:0;fill:rgba(0,0,0,1);color:rgba(0,0,0,1)" class="framer-v0be5h" aria-hidden="true">
                           <div class="svgContainer" style="width:100%;height:100%;aspect-ratio:inherit">
-                            <svg style="width:100%;height:100%;" viewBox="0 0 102 24">
+                            <svg style="width:100%;height:100%;" viewBox="0 0 130 24">
                               <use href="#svg-2037166872_1735">
                               </use>
                             </svg>
@@ -4259,9 +4424,9 @@
                                         <div class="framer-fleom5" data-framer-name="review">
                                           <div data-framer-name="tdesign:quote-filled" class="framer-pFdYP framer-1lif6cq" style="--1ryvdy4:var(--token-6f1cfa67-1158-449a-89e5-107eb453b2fc, rgb(255, 255, 255))">
                                           </div>
-                                          <div class="framer-1ie5jd3" data-framer-name="&#34;Cognis Group transformed how our leadership team approaches artificial intelligence. They made complex AI concepts practical, measurable, and immediately applicable to our operations.&#34;" style="--framer-paragraph-spacing:0px;transform:none" data-framer-component-type="RichTextContainer">
+                                          <div class="framer-1ie5jd3" data-framer-name="&#34;Cognis helped us cut through the noise around AI and build a strategy that actually tied to revenue outcomes. Within six months, we had three models in production.&#34;" style="--framer-paragraph-spacing:0px;transform:none" data-framer-component-type="RichTextContainer">
                                             <p class="framer-text framer-styles-preset-pgbaia" data-styles-preset="uZP34Q_QM" dir="auto">
-                                              &#34;Cognis Group transformed how our leadership team approaches artificial intelligence. They made complex AI concepts practical, measurable, and immediately applicable to our operations.&#34;
+                                              &#34;Cognis helped us cut through the noise around AI and build a strategy that actually tied to revenue outcomes. Within six months, we had three models in production.&#34;
                                             </p>
                                           </div>
                                         </div>
@@ -4274,7 +4439,7 @@
                                             </div>
                                             <div class="framer-2kqlgy" style="--extracted-r6o4lv:var(--token-6f1cfa67-1158-449a-89e5-107eb453b2fc, rgb(255, 255, 255));--framer-paragraph-spacing:0px;transform:none" data-framer-component-type="RichTextContainer">
                                               <p class="framer-text framer-styles-preset-qvhr4f" data-styles-preset="Ap40vLGVY" dir="auto" style="--framer-text-color:var(--extracted-r6o4lv, var(--token-6f1cfa67-1158-449a-89e5-107eb453b2fc, rgb(255, 255, 255)))">
-                                                Leadership team
+                                                Chief Revenue Officer
                                               </p>
                                             </div>
                                             <div class="framer-2v7c4b" style="--extracted-r6o4lv:var(--token-6f1cfa67-1158-449a-89e5-107eb453b2fc, rgb(255, 255, 255));--framer-paragraph-spacing:0px;transform:none" data-framer-component-type="RichTextContainer">
@@ -4284,7 +4449,7 @@
                                             </div>
                                             <div class="framer-17ty70i" style="--extracted-r6o4lv:var(--token-6f1cfa67-1158-449a-89e5-107eb453b2fc, rgb(255, 255, 255));--framer-paragraph-spacing:0px;transform:none" data-framer-component-type="RichTextContainer">
                                               <p class="framer-text framer-styles-preset-qvhr4f" data-styles-preset="Ap40vLGVY" dir="auto" style="--framer-text-color:var(--extracted-r6o4lv, var(--token-6f1cfa67-1158-449a-89e5-107eb453b2fc, rgb(255, 255, 255)))">
-                                                Cognis Group
+                                                Stellar Technologies
                                               </p>
                                             </div>
                                           </div>
@@ -4310,9 +4475,9 @@
                                         <div class="framer-fleom5" data-framer-name="review">
                                           <div data-framer-name="tdesign:quote-filled" class="framer-pFdYP framer-1lif6cq" style="--1ryvdy4:var(--token-6f1cfa67-1158-449a-89e5-107eb453b2fc, rgb(255, 255, 255))">
                                           </div>
-                                          <div class="framer-1ie5jd3" data-framer-name="&#34;Cognis Group transformed how our leadership team approaches artificial intelligence. They made complex AI concepts practical, measurable, and immediately applicable to our operations.&#34;" style="--framer-paragraph-spacing:0px;transform:none" data-framer-component-type="RichTextContainer">
+                                          <div class="framer-1ie5jd3" data-framer-name="&#34;Cognis helped us cut through the noise around AI and build a strategy that actually tied to revenue outcomes. Within six months, we had three models in production.&#34;" style="--framer-paragraph-spacing:0px;transform:none" data-framer-component-type="RichTextContainer">
                                             <p class="framer-text framer-styles-preset-pgbaia" data-styles-preset="uZP34Q_QM" dir="auto">
-                                              &#34;The intelligent agents Cognis Group deployed now handle workflows that previously consumed weeks of our team&#39;s time. The ROI was visible within 30 days of go-live.&#34;
+                                              &#34;The AI agents they built for our claims processing reduced turnaround from 14 days to 48 hours. Our team now focuses on the work that actually matters.&#34;
                                             </p>
                                           </div>
                                         </div>
@@ -4325,7 +4490,7 @@
                                             </div>
                                             <div class="framer-2kqlgy" style="--extracted-r6o4lv:var(--token-6f1cfa67-1158-449a-89e5-107eb453b2fc, rgb(255, 255, 255));--framer-paragraph-spacing:0px;transform:none" data-framer-component-type="RichTextContainer">
                                               <p class="framer-text framer-styles-preset-qvhr4f" data-styles-preset="Ap40vLGVY" dir="auto" style="--framer-text-color:var(--extracted-r6o4lv, var(--token-6f1cfa67-1158-449a-89e5-107eb453b2fc, rgb(255, 255, 255)))">
-                                                Operations lead
+                                                VP of Operations
                                               </p>
                                             </div>
                                             <div class="framer-2v7c4b" style="--extracted-r6o4lv:var(--token-6f1cfa67-1158-449a-89e5-107eb453b2fc, rgb(255, 255, 255));--framer-paragraph-spacing:0px;transform:none" data-framer-component-type="RichTextContainer">
@@ -4335,7 +4500,7 @@
                                             </div>
                                             <div class="framer-17ty70i" style="--extracted-r6o4lv:var(--token-6f1cfa67-1158-449a-89e5-107eb453b2fc, rgb(255, 255, 255));--framer-paragraph-spacing:0px;transform:none" data-framer-component-type="RichTextContainer">
                                               <p class="framer-text framer-styles-preset-qvhr4f" data-styles-preset="Ap40vLGVY" dir="auto" style="--framer-text-color:var(--extracted-r6o4lv, var(--token-6f1cfa67-1158-449a-89e5-107eb453b2fc, rgb(255, 255, 255)))">
-                                                Cognis Group
+                                                Continental Logistics
                                               </p>
                                             </div>
                                           </div>
@@ -4361,9 +4526,9 @@
                                         <div class="framer-fleom5" data-framer-name="review">
                                           <div data-framer-name="tdesign:quote-filled" class="framer-pFdYP framer-1lif6cq" style="--1ryvdy4:var(--token-6f1cfa67-1158-449a-89e5-107eb453b2fc, rgb(255, 255, 255))">
                                           </div>
-                                          <div class="framer-1ie5jd3" data-framer-name="&#34;Cognis Group transformed how our leadership team approaches artificial intelligence. They made complex AI concepts practical, measurable, and immediately applicable to our operations.&#34;" style="--framer-paragraph-spacing:0px;transform:none" data-framer-component-type="RichTextContainer">
+                                          <div class="framer-1ie5jd3" data-framer-name="&#34;Cognis helped us cut through the noise around AI and build a strategy that actually tied to revenue outcomes. Within six months, we had three models in production.&#34;" style="--framer-paragraph-spacing:0px;transform:none" data-framer-component-type="RichTextContainer">
                                             <p class="framer-text framer-styles-preset-pgbaia" data-styles-preset="uZP34Q_QM" dir="auto">
-                                              &#34;After Cognis Group&#39;s workforce training program, our entire organization is AI-literate. It did not just teach tools — it permanently changed how our people think and work.&#34;
+                                              &#34;The governance framework they put in place gave our board the confidence to greenlight a continent-wide AI rollout. Compliance sorted, risk managed, zero delays.&#34;
                                             </p>
                                           </div>
                                         </div>
@@ -4376,7 +4541,7 @@
                                             </div>
                                             <div class="framer-2kqlgy" style="--extracted-r6o4lv:var(--token-6f1cfa67-1158-449a-89e5-107eb453b2fc, rgb(255, 255, 255));--framer-paragraph-spacing:0px;transform:none" data-framer-component-type="RichTextContainer">
                                               <p class="framer-text framer-styles-preset-qvhr4f" data-styles-preset="Ap40vLGVY" dir="auto" style="--framer-text-color:var(--extracted-r6o4lv, var(--token-6f1cfa67-1158-449a-89e5-107eb453b2fc, rgb(255, 255, 255)))">
-                                                Chief People Officer
+                                                Head of Compliance
                                               </p>
                                             </div>
                                             <div class="framer-2v7c4b" style="--extracted-r6o4lv:var(--token-6f1cfa67-1158-449a-89e5-107eb453b2fc, rgb(255, 255, 255));--framer-paragraph-spacing:0px;transform:none" data-framer-component-type="RichTextContainer">
@@ -4386,7 +4551,7 @@
                                             </div>
                                             <div class="framer-17ty70i" style="--extracted-r6o4lv:var(--token-6f1cfa67-1158-449a-89e5-107eb453b2fc, rgb(255, 255, 255));--framer-paragraph-spacing:0px;transform:none" data-framer-component-type="RichTextContainer">
                                               <p class="framer-text framer-styles-preset-qvhr4f" data-styles-preset="Ap40vLGVY" dir="auto" style="--framer-text-color:var(--extracted-r6o4lv, var(--token-6f1cfa67-1158-449a-89e5-107eb453b2fc, rgb(255, 255, 255)))">
-                                                Cognis Group
+                                                Horizon Banking Group
                                               </p>
                                             </div>
                                           </div>
@@ -4412,9 +4577,9 @@
                                         <div class="framer-fleom5" data-framer-name="review">
                                           <div data-framer-name="tdesign:quote-filled" class="framer-pFdYP framer-1lif6cq" style="--1ryvdy4:var(--token-6f1cfa67-1158-449a-89e5-107eb453b2fc, rgb(255, 255, 255))">
                                           </div>
-                                          <div class="framer-1ie5jd3" data-framer-name="&#34;Cognis Group transformed how our leadership team approaches artificial intelligence. They made complex AI concepts practical, measurable, and immediately applicable to our operations.&#34;" style="--framer-paragraph-spacing:0px;transform:none" data-framer-component-type="RichTextContainer">
+                                          <div class="framer-1ie5jd3" data-framer-name="&#34;Cognis helped us cut through the noise around AI and build a strategy that actually tied to revenue outcomes. Within six months, we had three models in production.&#34;" style="--framer-paragraph-spacing:0px;transform:none" data-framer-component-type="RichTextContainer">
                                             <p class="framer-text framer-styles-preset-pgbaia" data-styles-preset="uZP34Q_QM" dir="auto">
-                                              &#34;They solved complex needs with great clarity, cutting through mess and giving sharp, key results.&#34;
+                                              &#34;Their training program transformed our entire data team. People who were skeptical about AI are now building their own automation workflows.&#34;
                                             </p>
                                           </div>
                                         </div>
@@ -4427,7 +4592,7 @@
                                             </div>
                                             <div class="framer-2kqlgy" style="--extracted-r6o4lv:var(--token-6f1cfa67-1158-449a-89e5-107eb453b2fc, rgb(255, 255, 255));--framer-paragraph-spacing:0px;transform:none" data-framer-component-type="RichTextContainer">
                                               <p class="framer-text framer-styles-preset-qvhr4f" data-styles-preset="Ap40vLGVY" dir="auto" style="--framer-text-color:var(--extracted-r6o4lv, var(--token-6f1cfa67-1158-449a-89e5-107eb453b2fc, rgb(255, 255, 255)))">
-                                                Partner CTO
+                                                Director of Data Science
                                               </p>
                                             </div>
                                             <div class="framer-2v7c4b" style="--extracted-r6o4lv:var(--token-6f1cfa67-1158-449a-89e5-107eb453b2fc, rgb(255, 255, 255));--framer-paragraph-spacing:0px;transform:none" data-framer-component-type="RichTextContainer">
@@ -4437,7 +4602,7 @@
                                             </div>
                                             <div class="framer-17ty70i" style="--extracted-r6o4lv:var(--token-6f1cfa67-1158-449a-89e5-107eb453b2fc, rgb(255, 255, 255));--framer-paragraph-spacing:0px;transform:none" data-framer-component-type="RichTextContainer">
                                               <p class="framer-text framer-styles-preset-qvhr4f" data-styles-preset="Ap40vLGVY" dir="auto" style="--framer-text-color:var(--extracted-r6o4lv, var(--token-6f1cfa67-1158-449a-89e5-107eb453b2fc, rgb(255, 255, 255)))">
-                                                Enterprise client
+                                                Meridian Financial Group
                                               </p>
                                             </div>
                                           </div>
@@ -4527,9 +4692,9 @@
                                         <div class="framer-fleom5" data-framer-name="review">
                                           <div data-framer-name="tdesign:quote-filled" class="framer-pFdYP framer-1lif6cq" style="--1ryvdy4:var(--token-6f1cfa67-1158-449a-89e5-107eb453b2fc, rgb(255, 255, 255))">
                                           </div>
-                                          <div class="framer-1ie5jd3" data-framer-name="&#34;Cognis Group transformed how our leadership team approaches artificial intelligence. They made complex AI concepts practical, measurable, and immediately applicable to our operations.&#34;" style="--framer-paragraph-spacing:0px;transform:none" data-framer-component-type="RichTextContainer">
+                                          <div class="framer-1ie5jd3" data-framer-name="&#34;Cognis helped us cut through the noise around AI and build a strategy that actually tied to revenue outcomes. Within six months, we had three models in production.&#34;" style="--framer-paragraph-spacing:0px;transform:none" data-framer-component-type="RichTextContainer">
                                             <p class="framer-text framer-styles-preset-pgbaia" data-styles-preset="uZP34Q_QM" dir="auto">
-                                              &#34;Cognis Group transformed how our leadership team approaches artificial intelligence. They made complex AI concepts practical, measurable, and immediately applicable to our operations.&#34;
+                                              &#34;Cognis helped us cut through the noise around AI and build a strategy that actually tied to revenue outcomes. Within six months, we had three models in production.&#34;
                                             </p>
                                           </div>
                                         </div>
@@ -4542,7 +4707,7 @@
                                             </div>
                                             <div class="framer-2kqlgy" style="--extracted-r6o4lv:var(--token-6f1cfa67-1158-449a-89e5-107eb453b2fc, rgb(255, 255, 255));--framer-paragraph-spacing:0px;transform:none" data-framer-component-type="RichTextContainer">
                                               <p class="framer-text framer-styles-preset-qvhr4f" data-styles-preset="Ap40vLGVY" dir="auto" style="--framer-text-color:var(--extracted-r6o4lv, var(--token-6f1cfa67-1158-449a-89e5-107eb453b2fc, rgb(255, 255, 255)))">
-                                                Leadership team
+                                                Chief Revenue Officer
                                               </p>
                                             </div>
                                             <div class="framer-2v7c4b" style="--extracted-r6o4lv:var(--token-6f1cfa67-1158-449a-89e5-107eb453b2fc, rgb(255, 255, 255));--framer-paragraph-spacing:0px;transform:none" data-framer-component-type="RichTextContainer">
@@ -4552,7 +4717,7 @@
                                             </div>
                                             <div class="framer-17ty70i" style="--extracted-r6o4lv:var(--token-6f1cfa67-1158-449a-89e5-107eb453b2fc, rgb(255, 255, 255));--framer-paragraph-spacing:0px;transform:none" data-framer-component-type="RichTextContainer">
                                               <p class="framer-text framer-styles-preset-qvhr4f" data-styles-preset="Ap40vLGVY" dir="auto" style="--framer-text-color:var(--extracted-r6o4lv, var(--token-6f1cfa67-1158-449a-89e5-107eb453b2fc, rgb(255, 255, 255)))">
-                                                Cognis Group
+                                                Stellar Technologies
                                               </p>
                                             </div>
                                           </div>
@@ -4578,9 +4743,9 @@
                                         <div class="framer-fleom5" data-framer-name="review">
                                           <div data-framer-name="tdesign:quote-filled" class="framer-pFdYP framer-1lif6cq" style="--1ryvdy4:var(--token-6f1cfa67-1158-449a-89e5-107eb453b2fc, rgb(255, 255, 255))">
                                           </div>
-                                          <div class="framer-1ie5jd3" data-framer-name="&#34;Cognis Group transformed how our leadership team approaches artificial intelligence. They made complex AI concepts practical, measurable, and immediately applicable to our operations.&#34;" style="--framer-paragraph-spacing:0px;transform:none" data-framer-component-type="RichTextContainer">
+                                          <div class="framer-1ie5jd3" data-framer-name="&#34;Cognis helped us cut through the noise around AI and build a strategy that actually tied to revenue outcomes. Within six months, we had three models in production.&#34;" style="--framer-paragraph-spacing:0px;transform:none" data-framer-component-type="RichTextContainer">
                                             <p class="framer-text framer-styles-preset-pgbaia" data-styles-preset="uZP34Q_QM" dir="auto">
-                                              &#34;The intelligent agents Cognis Group deployed now handle workflows that previously consumed weeks of our team&#39;s time. The ROI was visible within 30 days of go-live.&#34;
+                                              &#34;The AI agents they built for our claims processing reduced turnaround from 14 days to 48 hours. Our team now focuses on the work that actually matters.&#34;
                                             </p>
                                           </div>
                                         </div>
@@ -4593,7 +4758,7 @@
                                             </div>
                                             <div class="framer-2kqlgy" style="--extracted-r6o4lv:var(--token-6f1cfa67-1158-449a-89e5-107eb453b2fc, rgb(255, 255, 255));--framer-paragraph-spacing:0px;transform:none" data-framer-component-type="RichTextContainer">
                                               <p class="framer-text framer-styles-preset-qvhr4f" data-styles-preset="Ap40vLGVY" dir="auto" style="--framer-text-color:var(--extracted-r6o4lv, var(--token-6f1cfa67-1158-449a-89e5-107eb453b2fc, rgb(255, 255, 255)))">
-                                                Operations lead
+                                                VP of Operations
                                               </p>
                                             </div>
                                             <div class="framer-2v7c4b" style="--extracted-r6o4lv:var(--token-6f1cfa67-1158-449a-89e5-107eb453b2fc, rgb(255, 255, 255));--framer-paragraph-spacing:0px;transform:none" data-framer-component-type="RichTextContainer">
@@ -4603,7 +4768,7 @@
                                             </div>
                                             <div class="framer-17ty70i" style="--extracted-r6o4lv:var(--token-6f1cfa67-1158-449a-89e5-107eb453b2fc, rgb(255, 255, 255));--framer-paragraph-spacing:0px;transform:none" data-framer-component-type="RichTextContainer">
                                               <p class="framer-text framer-styles-preset-qvhr4f" data-styles-preset="Ap40vLGVY" dir="auto" style="--framer-text-color:var(--extracted-r6o4lv, var(--token-6f1cfa67-1158-449a-89e5-107eb453b2fc, rgb(255, 255, 255)))">
-                                                Cognis Group
+                                                Continental Logistics
                                               </p>
                                             </div>
                                           </div>
@@ -4629,9 +4794,9 @@
                                         <div class="framer-fleom5" data-framer-name="review">
                                           <div data-framer-name="tdesign:quote-filled" class="framer-pFdYP framer-1lif6cq" style="--1ryvdy4:var(--token-6f1cfa67-1158-449a-89e5-107eb453b2fc, rgb(255, 255, 255))">
                                           </div>
-                                          <div class="framer-1ie5jd3" data-framer-name="&#34;Cognis Group transformed how our leadership team approaches artificial intelligence. They made complex AI concepts practical, measurable, and immediately applicable to our operations.&#34;" style="--framer-paragraph-spacing:0px;transform:none" data-framer-component-type="RichTextContainer">
+                                          <div class="framer-1ie5jd3" data-framer-name="&#34;Cognis helped us cut through the noise around AI and build a strategy that actually tied to revenue outcomes. Within six months, we had three models in production.&#34;" style="--framer-paragraph-spacing:0px;transform:none" data-framer-component-type="RichTextContainer">
                                             <p class="framer-text framer-styles-preset-pgbaia" data-styles-preset="uZP34Q_QM" dir="auto">
-                                              &#34;After Cognis Group&#39;s workforce training program, our entire organization is AI-literate. It did not just teach tools — it permanently changed how our people think and work.&#34;
+                                              &#34;The governance framework they put in place gave our board the confidence to greenlight a continent-wide AI rollout. Compliance sorted, risk managed, zero delays.&#34;
                                             </p>
                                           </div>
                                         </div>
@@ -4644,7 +4809,7 @@
                                             </div>
                                             <div class="framer-2kqlgy" style="--extracted-r6o4lv:var(--token-6f1cfa67-1158-449a-89e5-107eb453b2fc, rgb(255, 255, 255));--framer-paragraph-spacing:0px;transform:none" data-framer-component-type="RichTextContainer">
                                               <p class="framer-text framer-styles-preset-qvhr4f" data-styles-preset="Ap40vLGVY" dir="auto" style="--framer-text-color:var(--extracted-r6o4lv, var(--token-6f1cfa67-1158-449a-89e5-107eb453b2fc, rgb(255, 255, 255)))">
-                                                Chief People Officer
+                                                Head of Compliance
                                               </p>
                                             </div>
                                             <div class="framer-2v7c4b" style="--extracted-r6o4lv:var(--token-6f1cfa67-1158-449a-89e5-107eb453b2fc, rgb(255, 255, 255));--framer-paragraph-spacing:0px;transform:none" data-framer-component-type="RichTextContainer">
@@ -4654,7 +4819,7 @@
                                             </div>
                                             <div class="framer-17ty70i" style="--extracted-r6o4lv:var(--token-6f1cfa67-1158-449a-89e5-107eb453b2fc, rgb(255, 255, 255));--framer-paragraph-spacing:0px;transform:none" data-framer-component-type="RichTextContainer">
                                               <p class="framer-text framer-styles-preset-qvhr4f" data-styles-preset="Ap40vLGVY" dir="auto" style="--framer-text-color:var(--extracted-r6o4lv, var(--token-6f1cfa67-1158-449a-89e5-107eb453b2fc, rgb(255, 255, 255)))">
-                                                Cognis Group
+                                                Horizon Banking Group
                                               </p>
                                             </div>
                                           </div>
@@ -4680,9 +4845,9 @@
                                         <div class="framer-fleom5" data-framer-name="review">
                                           <div data-framer-name="tdesign:quote-filled" class="framer-pFdYP framer-1lif6cq" style="--1ryvdy4:var(--token-6f1cfa67-1158-449a-89e5-107eb453b2fc, rgb(255, 255, 255))">
                                           </div>
-                                          <div class="framer-1ie5jd3" data-framer-name="&#34;Cognis Group transformed how our leadership team approaches artificial intelligence. They made complex AI concepts practical, measurable, and immediately applicable to our operations.&#34;" style="--framer-paragraph-spacing:0px;transform:none" data-framer-component-type="RichTextContainer">
+                                          <div class="framer-1ie5jd3" data-framer-name="&#34;Cognis helped us cut through the noise around AI and build a strategy that actually tied to revenue outcomes. Within six months, we had three models in production.&#34;" style="--framer-paragraph-spacing:0px;transform:none" data-framer-component-type="RichTextContainer">
                                             <p class="framer-text framer-styles-preset-pgbaia" data-styles-preset="uZP34Q_QM" dir="auto">
-                                              &#34;They solved complex needs with great clarity, cutting through mess and giving sharp, key results.&#34;
+                                              &#34;Their training program transformed our entire data team. People who were skeptical about AI are now building their own automation workflows.&#34;
                                             </p>
                                           </div>
                                         </div>
@@ -4695,7 +4860,7 @@
                                             </div>
                                             <div class="framer-2kqlgy" style="--extracted-r6o4lv:var(--token-6f1cfa67-1158-449a-89e5-107eb453b2fc, rgb(255, 255, 255));--framer-paragraph-spacing:0px;transform:none" data-framer-component-type="RichTextContainer">
                                               <p class="framer-text framer-styles-preset-qvhr4f" data-styles-preset="Ap40vLGVY" dir="auto" style="--framer-text-color:var(--extracted-r6o4lv, var(--token-6f1cfa67-1158-449a-89e5-107eb453b2fc, rgb(255, 255, 255)))">
-                                                Partner CTO
+                                                Director of Data Science
                                               </p>
                                             </div>
                                             <div class="framer-2v7c4b" style="--extracted-r6o4lv:var(--token-6f1cfa67-1158-449a-89e5-107eb453b2fc, rgb(255, 255, 255));--framer-paragraph-spacing:0px;transform:none" data-framer-component-type="RichTextContainer">
@@ -4705,7 +4870,7 @@
                                             </div>
                                             <div class="framer-17ty70i" style="--extracted-r6o4lv:var(--token-6f1cfa67-1158-449a-89e5-107eb453b2fc, rgb(255, 255, 255));--framer-paragraph-spacing:0px;transform:none" data-framer-component-type="RichTextContainer">
                                               <p class="framer-text framer-styles-preset-qvhr4f" data-styles-preset="Ap40vLGVY" dir="auto" style="--framer-text-color:var(--extracted-r6o4lv, var(--token-6f1cfa67-1158-449a-89e5-107eb453b2fc, rgb(255, 255, 255)))">
-                                                Enterprise client
+                                                Meridian Financial Group
                                               </p>
                                             </div>
                                           </div>
@@ -4798,9 +4963,9 @@
                                       <div class="framer-fleom5" data-framer-name="review">
                                         <div data-framer-name="tdesign:quote-filled" class="framer-pFdYP framer-1lif6cq" style="--1ryvdy4:var(--token-6f1cfa67-1158-449a-89e5-107eb453b2fc, rgb(255, 255, 255))">
                                         </div>
-                                        <div class="framer-1ie5jd3" data-framer-name="&#34;Cognis Group transformed how our leadership team approaches artificial intelligence. They made complex AI concepts practical, measurable, and immediately applicable to our operations.&#34;" style="--framer-paragraph-spacing:0px;transform:none" data-framer-component-type="RichTextContainer">
+                                        <div class="framer-1ie5jd3" data-framer-name="&#34;Cognis helped us cut through the noise around AI and build a strategy that actually tied to revenue outcomes. Within six months, we had three models in production.&#34;" style="--framer-paragraph-spacing:0px;transform:none" data-framer-component-type="RichTextContainer">
                                           <p class="framer-text framer-styles-preset-pgbaia" data-styles-preset="uZP34Q_QM" dir="auto">
-                                            &#34;Cognis Group transformed how our leadership team approaches artificial intelligence. They made complex AI concepts practical, measurable, and immediately applicable to our operations.&#34;
+                                            &#34;Cognis helped us cut through the noise around AI and build a strategy that actually tied to revenue outcomes. Within six months, we had three models in production.&#34;
                                           </p>
                                         </div>
                                       </div>
@@ -4823,7 +4988,7 @@
                                           </div>
                                           <div class="framer-17ty70i" style="--extracted-r6o4lv:var(--token-6f1cfa67-1158-449a-89e5-107eb453b2fc, rgb(255, 255, 255));--framer-paragraph-spacing:0px;transform:none" data-framer-component-type="RichTextContainer">
                                             <p class="framer-text framer-styles-preset-qvhr4f" data-styles-preset="Ap40vLGVY" dir="auto" style="--framer-text-color:var(--extracted-r6o4lv, var(--token-6f1cfa67-1158-449a-89e5-107eb453b2fc, rgb(255, 255, 255)))">
-                                              Cognis Group
+                                              Stellar Technologies
                                             </p>
                                           </div>
                                         </div>
@@ -4849,9 +5014,9 @@
                                       <div class="framer-fleom5" data-framer-name="review">
                                         <div data-framer-name="tdesign:quote-filled" class="framer-pFdYP framer-1lif6cq" style="--1ryvdy4:var(--token-6f1cfa67-1158-449a-89e5-107eb453b2fc, rgb(255, 255, 255))">
                                         </div>
-                                        <div class="framer-1ie5jd3" data-framer-name="&#34;Cognis Group transformed how our leadership team approaches artificial intelligence. They made complex AI concepts practical, measurable, and immediately applicable to our operations.&#34;" style="--framer-paragraph-spacing:0px;transform:none" data-framer-component-type="RichTextContainer">
+                                        <div class="framer-1ie5jd3" data-framer-name="&#34;Cognis helped us cut through the noise around AI and build a strategy that actually tied to revenue outcomes. Within six months, we had three models in production.&#34;" style="--framer-paragraph-spacing:0px;transform:none" data-framer-component-type="RichTextContainer">
                                           <p class="framer-text framer-styles-preset-pgbaia" data-styles-preset="uZP34Q_QM" dir="auto">
-                                            &#34;The intelligent agents Cognis Group deployed now handle workflows that previously consumed weeks of our team&#39;s time. The ROI was visible within 30 days of go-live.&#34;
+                                            &#34;The AI agents they built for our claims processing reduced turnaround from 14 days to 48 hours. Our team now focuses on the work that actually matters.&#34;
                                           </p>
                                         </div>
                                       </div>
@@ -4874,7 +5039,7 @@
                                           </div>
                                           <div class="framer-17ty70i" style="--extracted-r6o4lv:var(--token-6f1cfa67-1158-449a-89e5-107eb453b2fc, rgb(255, 255, 255));--framer-paragraph-spacing:0px;transform:none" data-framer-component-type="RichTextContainer">
                                             <p class="framer-text framer-styles-preset-qvhr4f" data-styles-preset="Ap40vLGVY" dir="auto" style="--framer-text-color:var(--extracted-r6o4lv, var(--token-6f1cfa67-1158-449a-89e5-107eb453b2fc, rgb(255, 255, 255)))">
-                                              Cognis Group
+                                              Continental Logistics
                                             </p>
                                           </div>
                                         </div>
@@ -4900,9 +5065,9 @@
                                       <div class="framer-fleom5" data-framer-name="review">
                                         <div data-framer-name="tdesign:quote-filled" class="framer-pFdYP framer-1lif6cq" style="--1ryvdy4:var(--token-6f1cfa67-1158-449a-89e5-107eb453b2fc, rgb(255, 255, 255))">
                                         </div>
-                                        <div class="framer-1ie5jd3" data-framer-name="&#34;Cognis Group transformed how our leadership team approaches artificial intelligence. They made complex AI concepts practical, measurable, and immediately applicable to our operations.&#34;" style="--framer-paragraph-spacing:0px;transform:none" data-framer-component-type="RichTextContainer">
+                                        <div class="framer-1ie5jd3" data-framer-name="&#34;Cognis helped us cut through the noise around AI and build a strategy that actually tied to revenue outcomes. Within six months, we had three models in production.&#34;" style="--framer-paragraph-spacing:0px;transform:none" data-framer-component-type="RichTextContainer">
                                           <p class="framer-text framer-styles-preset-pgbaia" data-styles-preset="uZP34Q_QM" dir="auto">
-                                            &#34;After Cognis Group&#39;s workforce training program, our entire organization is AI-literate. It did not just teach tools — it permanently changed how our people think and work.&#34;
+                                            &#34;The governance framework they put in place gave our board the confidence to greenlight a continent-wide AI rollout. Compliance sorted, risk managed, zero delays.&#34;
                                           </p>
                                         </div>
                                       </div>
@@ -4925,7 +5090,7 @@
                                           </div>
                                           <div class="framer-17ty70i" style="--extracted-r6o4lv:var(--token-6f1cfa67-1158-449a-89e5-107eb453b2fc, rgb(255, 255, 255));--framer-paragraph-spacing:0px;transform:none" data-framer-component-type="RichTextContainer">
                                             <p class="framer-text framer-styles-preset-qvhr4f" data-styles-preset="Ap40vLGVY" dir="auto" style="--framer-text-color:var(--extracted-r6o4lv, var(--token-6f1cfa67-1158-449a-89e5-107eb453b2fc, rgb(255, 255, 255)))">
-                                              Cognis Group
+                                              Horizon Banking Group
                                             </p>
                                           </div>
                                         </div>
@@ -4951,9 +5116,9 @@
                                       <div class="framer-fleom5" data-framer-name="review">
                                         <div data-framer-name="tdesign:quote-filled" class="framer-pFdYP framer-1lif6cq" style="--1ryvdy4:var(--token-6f1cfa67-1158-449a-89e5-107eb453b2fc, rgb(255, 255, 255))">
                                         </div>
-                                        <div class="framer-1ie5jd3" data-framer-name="&#34;Cognis Group transformed how our leadership team approaches artificial intelligence. They made complex AI concepts practical, measurable, and immediately applicable to our operations.&#34;" style="--framer-paragraph-spacing:0px;transform:none" data-framer-component-type="RichTextContainer">
+                                        <div class="framer-1ie5jd3" data-framer-name="&#34;Cognis helped us cut through the noise around AI and build a strategy that actually tied to revenue outcomes. Within six months, we had three models in production.&#34;" style="--framer-paragraph-spacing:0px;transform:none" data-framer-component-type="RichTextContainer">
                                           <p class="framer-text framer-styles-preset-pgbaia" data-styles-preset="uZP34Q_QM" dir="auto">
-                                            &#34;They solved complex needs with great clarity, cutting through mess and giving sharp, key results.&#34;
+                                            &#34;Their training program transformed our entire data team. People who were skeptical about AI are now building their own automation workflows.&#34;
                                           </p>
                                         </div>
                                       </div>
@@ -6709,26 +6874,8 @@
           </clipPath>
         </defs>
       </svg>
-      <svg width="102" height="24" viewBox="0 0 102 24" fill="none" id="svg-2037166872_1735">
-        <g clip-path="url(#svg-2037166872_1735_clip0_14237_2035)">
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M6.00888 1.5V24H0V1.5H6.00888Z" fill="white">
-          </path>
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M9.01367 1.5H21.7826C25.9309 1.5 29.2937 4.85786 29.2937 9C29.2937 13.1422 25.9309 16.5 21.7826 16.5H15.0226V24H9.01367V1.5ZM15.0226 10.5H21.7826C22.6123 10.5 23.2848 9.82842 23.2848 9C23.2848 8.17158 22.6123 7.5 21.7826 7.5H15.0226V10.5Z" fill="white">
-          </path>
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M51.8272 1.5V13.125C51.8272 15.8174 54.013 18 56.7094 18C59.4058 18 61.5918 15.8174 61.5918 13.125V1.5H67.6008V13.125C67.6008 19.1311 62.7246 24 56.7094 24C50.6944 24 45.8184 19.1311 45.8184 13.125V1.5H51.8272Z" fill="white">
-          </path>
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M31.546 12C31.546 6.201 36.2539 1.5 42.0615 1.5H43.5637V7.5H42.0615C39.5725 7.5 37.5549 9.51474 37.5549 12V12.75C37.5549 18.9632 32.5106 24 26.2882 24H25.5371V18H26.2882C29.192 18 31.546 15.6495 31.546 12.75V12Z" fill="white">
-          </path>
-          <path d="M101.399 2.25C101.399 3.49264 100.391 4.5 99.1456 4.5C97.9012 4.5 96.8926 3.49264 96.8926 2.25C96.8926 1.00736 97.9012 0 99.1456 0C100.391 0 101.399 1.00736 101.399 2.25Z" fill="white">
-          </path>
-          <path d="M74.0526 23.9986L76.92 12.0094L79.0518 19.2221C80.3226 23.524 86.4252 23.524 87.6966 19.2221L89.8278 12.0094L92.6952 23.9986H98.8728L94.3644 5.14626C93.2922 0.663027 86.9652 0.497032 85.6584 4.91791L83.3742 12.6485L81.0894 4.91792C79.7832 0.497058 73.4556 0.663004 72.3834 5.14625L67.875 23.9986H74.0526Z" fill="white">
-          </path>
-        </g>
-        <defs>
-          <clipPath id="svg-2037166872_1735_clip0_14237_2035">
-            <rect width="101.4" height="24" fill="white">
-            </rect>
-          </clipPath>
+      <svg width="130" height="24" viewBox="0 0 130 24" fill="none" id="svg-2037166872_1735">
+        <text x="0" y="18" fill="white" font-family="'Plus Jakarta Sans', sans-serif" font-size="16" font-weight="700" letter-spacing="1">MARKETSAGE</text>
         </defs>
       </svg>
       <svg viewBox="0 0 26 26" id="svg9982590460">

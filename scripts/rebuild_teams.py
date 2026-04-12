@@ -17,25 +17,25 @@ TEAMS = {
     # --- Member 1: Zaire Dorwart → Supreme Oyewumi ---
     "Zaire Dorwart": "Supreme Oyewumi",
     "zaire-dorwart": "supreme-oyewumi",
-    "CEO & Founder": "Founder & CEO",
+    "CEO & Founder": "Principal AI Engineer",
     "Zaire is the CEO and Founder of our agency. With more than 20 years of experience in the Consulting, He started this company with a vision: to make business simple, transparent, and truly centered around people.":
-        "Supreme is the Founder and CEO of Cognis Group. He leads the firm\u2019s vision to transform how African enterprises adopt and operationalise artificial intelligence \u2014 from strategy through to production deployment.",
+        "Supreme co-founded Cognis Group and leads its AI engineering practice \u2014 architecting, building, and deploying the intelligent agents, automation systems, and ML pipelines that power client engagements. He turns strategy into working production software.",
     "@zairedorwart": "@supremeoyewumi",
 
     # --- Member 2: Cheyenne George → Kola Olatunde ---
     "Cheyenne George": "Kola Olatunde",
     "cheyenne-george": "kola-olatunde",
-    "Head of AI Strategy": "Chief Strategy Officer",
+    "Head of AI Strategy": "AI Cybersecurity & Governance Lead",
     "Cheyenne leads the development of our client-facing AI roadmaps and integration projects. Her expertise in Machine Learning ensures our solutions drive measurable impact and future-proof client operations.":
-        "Kola leads strategic advisory engagements, guiding executive teams through AI readiness assessments, use-case prioritisation, and roadmap design. His frameworks have shaped AI adoption at organisations across three continents.",
+        "Kola co-founded Cognis Group and leads its cybersecurity and AI governance practice \u2014 designing policy frameworks, model oversight systems, and compliance architectures aligned to the EU AI Act, ISO 42001, NIST AI RMF, and the Nigerian Data Protection Act. He has secured AI deployments for financial, government, and enterprise clients across three continents.",
     "@cheyennegeorge": "@kolaolatunde",
 
     # --- Member 3: Jaylon Calzoni → Fisayo Oludare ---
     "Jaylon Calzoni": "Fisayo Oludare",
     "jaylon-calzoni": "fisayo-oludare",
-    "VP of Business Transformation": "Chief Technology Officer",
+    "VP of Business Transformation": "Executive Director, Partnerships & AI Enablement",
     "Jaylon specializes in organizational restructuring and operational efficiency. He uses data-driven insights to help companies optimize workflows and achieve scalable growth beyond technological implementation.":
-        "Fisayo architects and delivers production AI systems \u2014 from intelligent agents and automation workflows to data infrastructure. He ensures every engagement ships technology that works in the real world, not just in demos.",
+        "Fisayo leads strategic partnerships and client growth at Cognis Group \u2014 opening doors with enterprises, government, and ecosystem partners. He also works hands-on with clients to adopt AI effectively, translating capability into practical use and training teams to get real value from it.",
     "@jayloncalzoni": "@fisayooludare",
 
     # --- Member 4: Erin Siphron → Eugene Jack ---
