@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-redirect-timezone="1" dir="ltr">
+<html lang="en-GB" data-redirect-timezone="1" dir="ltr">
   <head>
     <meta charset="utf-8" />
     <script id="cognis-deferred-nav">
@@ -124,6 +124,7 @@
     <meta name="revisit-after" content="7 days" />
     <meta name="rating" content="general" />
     <meta name="theme-color" content="#0A0A0A" />
+    <link rel="preload" as="image" href="/framer-runtime/images/why-us-impact.jpg" fetchpriority="high" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
@@ -626,6 +627,7 @@
     <link rel="preconnect" href="https://framerusercontent.com" crossorigin />
     <link rel="dns-prefetch" href="https://framerusercontent.com" />
     <link rel="canonical" href="https://cognis.group/" />
+    <link rel="alternate" type="text/plain" title="LLM-friendly summary" href="/llms.txt" />
     <style data-framer-breakpoint-css="">
       @media(min-width: 1280px){.hidden-72rtr7{display:none!important}}@media(min-width: 810px) and (max-width: 1279.98px){.hidden-1782kdd{display:none!important}}@media(max-width: 809.98px){.hidden-12plgzf{display:none!important}}@media(min-width: 1280px){.hidden-m5w6qg{display:none!important}}@media(min-width: 810px) and (max-width: 1279.98px){.hidden-r4pt59{display:none!important}}@media(max-width: 809.98px){.hidden-1h90a08{display:none!important}}
     </style>
@@ -887,6 +889,36 @@
           }
         }
       ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://cognis.group/#founder",
+      "name": "Supreme Oyewumi",
+      "jobTitle": "Founder & CEO",
+      "url": "https://cognis.group/about-us",
+      "worksFor": { "@id": "https://cognis.group/#organization" },
+      "knowsAbout": [
+        "AI Strategy",
+        "AI Agent Engineering",
+        "AI Governance",
+        "Enterprise AI Deployment"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://cognis.group/#team-kola",
+      "name": "Kola Aina",
+      "jobTitle": "Partner, AI Engineering",
+      "url": "https://cognis.group/about-us",
+      "worksFor": { "@id": "https://cognis.group/#organization" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://cognis.group/#team-fisayo",
+      "name": "Fisayo Adeyemi",
+      "jobTitle": "Partner, AI Strategy",
+      "url": "https://cognis.group/about-us",
+      "worksFor": { "@id": "https://cognis.group/#organization" }
     }
   ]
 }
@@ -1021,7 +1053,8 @@
      */
     (function () {
       var WEB3 = 'https://api.web3forms.com/submit';
-      var ACCESS_KEY = '{WEB3FORMS_ACCESS_KEY}';
+      var KEY_CONTACT = '5017c7dc-5bf0-4086-9f54-5171783a95ba';
+      var KEY_NEWSLETTER = '6e2d0eb5-2d17-4183-8662-83a3487d2703';
       var ANCHORS = {
         'hero': 'hero',
         'about': 'about',
@@ -1258,35 +1291,58 @@
         startHeroSyncLoop();
       }
 
+      // Contact form (framer-1h74s3j) carries a textarea for the message
+      // and the Full name input; newsletter forms (framer-1yovbvh) are
+      // email-only. Route each to its own Web3Forms key + subject.
+      var CONTACT_META = {
+        key: KEY_CONTACT,
+        from_name: 'cognis.group contact form',
+        subject: 'New contact form submission — cognis.group',
+        button: 'Send message'
+      };
+      var NEWSLETTER_META = {
+        key: KEY_NEWSLETTER,
+        from_name: 'cognis.group newsletter',
+        subject: 'New newsletter signup — cognis.group',
+        button: 'Subscribe'
+      };
+
+      function metaFor(form) {
+        if (form.classList.contains('framer-1h74s3j')) return CONTACT_META;
+        if (form.querySelector('textarea')) return CONTACT_META;
+        return NEWSLETTER_META;
+      }
+
+      function setHidden(form, name, value) {
+        var el = form.querySelector('input[type="hidden"][name="' + name + '"]');
+        if (!el) {
+          el = document.createElement('input');
+          el.type = 'hidden';
+          el.name = name;
+          form.appendChild(el);
+        }
+        el.value = value;
+      }
+
       function ensureForms() {
-        document.querySelectorAll('form.framer-1yovbvh, form[data-framer-name], form').forEach(function (form) {
-          // Only touch Framer newsletter forms (email-only label wrapper)
+        document.querySelectorAll('form.framer-1yovbvh, form.framer-1h74s3j, form[data-framer-name], form').forEach(function (form) {
           var email = form.querySelector('input[type="email"]');
           if (!email) return;
           if (form.dataset.cognisWired === '1') return;
+
+          var meta = metaFor(form);
 
           form.setAttribute('action', WEB3);
           form.setAttribute('method', 'POST');
           email.setAttribute('name', 'email');
 
-          // Inject hidden inputs if missing
-          var hidden = {
-            'access_key': ACCESS_KEY,
-            'from_name': 'cognis.group newsletter',
-            'subject': 'New newsletter signup — cognis.group',
-            'redirect': 'https://cognis.group/thanks.html'
-          };
-          Object.keys(hidden).forEach(function (k) {
-            if (!form.querySelector('input[name="' + k + '"]')) {
-              var i = document.createElement('input');
-              i.type = 'hidden';
-              i.name = k;
-              i.value = hidden[k];
-              form.appendChild(i);
-            }
-          });
+          setHidden(form, 'access_key', meta.key);
+          setHidden(form, 'from_name', meta.from_name);
+          setHidden(form, 'subject', meta.subject);
+          setHidden(form, 'redirect', 'https://cognis.group/thanks.html');
 
-          // Honeypot
+          // Honeypot — Framer forms already ship an off-screen name="botcheck"
+          // text input in some variants; only add ours if absent.
           if (!form.querySelector('input[name="botcheck"]')) {
             var hp = document.createElement('input');
             hp.type = 'text';
@@ -1296,6 +1352,20 @@
             hp.style.cssText = 'position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;';
             hp.setAttribute('aria-hidden', 'true');
             form.appendChild(hp);
+          }
+
+          // Contact form's Framer button renders as "Subscribe" — replace
+          // the visible label text in its nested spans.
+          if (meta === CONTACT_META) {
+            form.querySelectorAll('button[type="submit"]').forEach(function (btn) {
+              btn.querySelectorAll('p, span, div').forEach(function (el) {
+                if (el.childNodes.length === 1 && el.childNodes[0].nodeType === 3) {
+                  if (/^\s*Subscribe\s*$/.test(el.textContent)) {
+                    el.textContent = meta.button;
+                  }
+                }
+              });
+            });
           }
 
           form.dataset.cognisWired = '1';
@@ -1357,14 +1427,9 @@
       }
 
       function ensureAboutHeroImage() {
-        document.querySelectorAll('img[src*="Vyfo3xCm2mXciLK38EvtcSz9M"]').forEach(function (img) {
-          img.setAttribute('src', '/framer-runtime/images/about-hero.jpg');
-          img.removeAttribute('srcset');
-        });
-        document.querySelectorAll('img[src*="Vq8dEluyeLa4kXCSmljlRQfNxIw"]').forEach(function (img) {
-          img.setAttribute('src', '/framer-runtime/images/why-us-impact.jpg');
-          img.removeAttribute('srcset');
-        });
+        // Vyfo3xCm2mXciLK38EvtcSz9M (about-hero) and Vq8dEluyeLa4kXCSmljlRQfNxIw
+        // (why-us-impact) are now rewritten at the bundle level by
+        // scripts/rewrite_image_urls.py — no post-hydration swap needed.
         document.querySelectorAll('img[src*="dDHWc7fTUArNa7BYM23naUGmg"]').forEach(function (img) {
           if (img.dataset.cognisVideo) return;
           img.dataset.cognisVideo = '1';
@@ -1532,6 +1597,13 @@
         // routine below for /our-services/:slug which must first nav to the
         // /our-services index then click the card.
         var d = window.__cognisDeferred;
+        // Prerendered snapshots set data-cognis-snapshot on <html>; if we're
+        // already at the right URL there is nothing to defer. Skip the cascade
+        // entirely so it cannot fight any in-app navigation the user makes.
+        if (d && document.documentElement.hasAttribute('data-cognis-snapshot')) {
+          window.__cognisDeferred = null;
+          d = null;
+        }
         if (d) {
           window.__cognisDeferred = null;
           var targetPath = (function () {
@@ -1541,6 +1613,31 @@
             if (d.kind === 'teamDetail')    return '/teams/' + d.id;
             return '/';
           })();
+
+          // Cancellation token: any user-initiated nav (click on internal
+          // <a>, or popstate that lands somewhere unexpected) flips this
+          // flag and every async step in the cascade bails. Without this
+          // the unconditional history.replaceState calls below would snap
+          // the URL backward after the user has navigated forward — the
+          // root cause of the visible "freeze" on /teams/:id direct loads.
+          window.__cognisDeferredCancelled = false;
+          var cancel = function () { window.__cognisDeferredCancelled = true; };
+          var cancelled = function () { return window.__cognisDeferredCancelled; };
+          document.addEventListener('click', function (e) {
+            if (e.defaultPrevented) return;
+            var a = e.target && e.target.closest && e.target.closest('a[href]');
+            if (!a) return;
+            var h = a.getAttribute('href') || '';
+            // Internal nav only — external links don't affect us.
+            if (h.charAt(0) === '/' || h.charAt(0) === '#' || h.indexOf('./') === 0 || h.indexOf('../') === 0) {
+              cancel();
+            }
+          }, true);
+          window.addEventListener('popstate', function () {
+            if (location.pathname.replace(/\/+$/, '') !== targetPath.replace(/\/+$/, '')) {
+              cancel();
+            }
+          });
 
           var findTarget = function () {
             // Framer hydrates nav anchors with relative hrefs ("./about-us"),
@@ -1621,6 +1718,7 @@
             var h2Target = h2SlugPath;
             var h2Attempts = 0;
             var h2Tick = setInterval(function () {
+              if (cancelled()) { clearInterval(h2Tick); window.__cognisDeferredHop2 = null; return; }
               h2Attempts++;
               var onIndex = location.pathname.replace(/\/+$/, '') === h2IndexPath;
               if (onIndex) {
@@ -1644,7 +1742,9 @@
               if (h2Attempts > 40) {
                 clearInterval(h2Tick);
                 window.__cognisDeferredHop2 = null;
-                history.replaceState(null, '', h2Target);
+                if (!cancelled() && location.pathname !== h2Target) {
+                  history.replaceState(null, '', h2Target);
+                }
               }
             }, 200);
           };
@@ -1652,17 +1752,15 @@
           var attempts = 0;
           var maxAttempts = 25;
           var tryClick = function () {
+            if (cancelled()) return;
             attempts++;
             var tgt = findTarget();
             if (tgt) {
               var pathBefore = location.pathname;
               fireClick(tgt);
-              // If __cognisDeferredHop2 was set by findTarget (for detail
-              // routes), start polling for the detail card after the nav.
               installHop2Watcher();
-              // If .click() didn't trigger pushState within 500ms, retry
-              // with a synthetic MouseEvent (some runtimes reject .click()).
               setTimeout(function () {
+                if (cancelled()) return;
                 if (location.pathname === pathBefore) {
                   try {
                     tgt.dispatchEvent(new MouseEvent('click', {
@@ -1670,8 +1768,8 @@
                     }));
                   } catch (e) {}
                 }
-                // Last resort: at least reflect the intended path.
                 setTimeout(function () {
+                  if (cancelled()) return;
                   if (location.pathname === pathBefore &&
                       location.pathname !== targetPath) {
                     history.replaceState(null, '', targetPath);
@@ -1681,7 +1779,9 @@
               return;
             }
             if (attempts < maxAttempts) setTimeout(tryClick, 200);
-            else history.replaceState(null, '', targetPath);
+            else if (!cancelled() && location.pathname !== targetPath) {
+              history.replaceState(null, '', targetPath);
+            }
           };
           setTimeout(tryClick, 400);
         }
@@ -6081,7 +6181,8 @@
                 </div>
                 <div class="framer-1pjv7ku" data-framer-name="form">
                   <form class="framer-1yovbvh" action="https://api.web3forms.com/submit" method="POST" style="will-change:transform;opacity:0;transform:translateY(10px)">
-                    <input type="hidden" name="access_key" value="{WEB3FORMS_ACCESS_KEY}" />
+                    <input type="hidden" name="access_key" value="6e2d0eb5-2d17-4183-8662-83a3487d2703" />
+                    <input type="checkbox" name="botcheck" style="display:none !important" tabindex="-1" autocomplete="off" aria-hidden="true" />
                     <input type="hidden" name="from_name" value="cognis.group newsletter" />
                     <input type="hidden" name="subject" value="New newsletter signup — cognis.group" />
                     <input type="hidden" name="redirect" value="https://cognis.group/thanks.html" />
@@ -6275,7 +6376,8 @@
                 </div>
                 <div class="framer-1pjv7ku" data-framer-name="form">
                   <form class="framer-1yovbvh" action="https://api.web3forms.com/submit" method="POST" style="will-change:transform;opacity:0;transform:translateY(10px)">
-                    <input type="hidden" name="access_key" value="{WEB3FORMS_ACCESS_KEY}" />
+                    <input type="hidden" name="access_key" value="6e2d0eb5-2d17-4183-8662-83a3487d2703" />
+                    <input type="checkbox" name="botcheck" style="display:none !important" tabindex="-1" autocomplete="off" aria-hidden="true" />
                     <input type="hidden" name="from_name" value="cognis.group newsletter" />
                     <input type="hidden" name="subject" value="New newsletter signup — cognis.group" />
                     <input type="hidden" name="redirect" value="https://cognis.group/thanks.html" />
@@ -6469,7 +6571,8 @@
                 </div>
                 <div class="framer-1pjv7ku" data-framer-name="form">
                   <form class="framer-1yovbvh" action="https://api.web3forms.com/submit" method="POST" style="will-change:transform;opacity:0;transform:translateY(10px)">
-                    <input type="hidden" name="access_key" value="{WEB3FORMS_ACCESS_KEY}" />
+                    <input type="hidden" name="access_key" value="6e2d0eb5-2d17-4183-8662-83a3487d2703" />
+                    <input type="checkbox" name="botcheck" style="display:none !important" tabindex="-1" autocomplete="off" aria-hidden="true" />
                     <input type="hidden" name="from_name" value="cognis.group newsletter" />
                     <input type="hidden" name="subject" value="New newsletter signup — cognis.group" />
                     <input type="hidden" name="redirect" value="https://cognis.group/thanks.html" />

@@ -1,6 +1,19 @@
-# Cloudflare Pages SPA fallback.
-# Framer exports a single index.html; client router handles /teams/*,
-# /our-services/*, /blog/*, /insights/*, /about-us, /contact, etc.
-# Rewrite any non-asset path to /index.html with a 200 so cold/direct
-# deep-URL loads boot the router and resolve in-place.
-/*    /index.html   200
+# Cloudflare Pages routing for Cognis.
+#
+# Prerendered snapshots (built by scripts/prerender_routes.mjs) live at:
+#   - about-us.html, our-services.html, contact.html, blog.html
+#   - our-services/<slug>/index.html (6 service detail pages)
+#   - blog/<slug>/index.html (6 blog posts)
+#
+# Cloudflare Pages serves directory index files automatically, so
+# detail routes need no entries here — only flat *.html files need
+# an explicit rewrite so /about-us resolves to /about-us.html.
+#
+# Unknown paths fall through to /404.html with HTTP 404 (Cloudflare
+# Pages default when a top-level 404.html exists). The prior catch-all
+# `/* /index.html 200` poisoned crawl budget and is removed.
+
+/about-us       /about-us.html       200
+/our-services   /our-services.html   200
+/contact        /contact.html        200
+/blog           /blog.html           200

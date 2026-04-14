@@ -1,5 +1,7 @@
 # Cognis Group
 
+Last updated: 2026-04-14
+
 > Cognis Group is an AI company that builds, deploys, and governs AI systems that permanently transform organizations. Three core practices: AI Strategy & Advisory, AI Training & Workforce Development, and AI Agent & Automation Engineering. Quod Tango Muto — what we touch, we change.
 
 ## Core content

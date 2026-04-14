@@ -23,12 +23,18 @@ ASSETS_NEW = b"/framer-runtime/assets/"
 _BLOB_START = re.compile(rb'\x0a\x00\x00.{2}\{"src":"', re.DOTALL)
 
 
-def rewrite_image_blobs(data: bytes) -> bytes:
+def rewrite_image_blobs(data: bytes, asset_map: dict[bytes, bytes] | None = None) -> bytes:
     """Rewrite framerusercontent.com image URLs in every 0x0a JSON blob.
 
     Returns the new buffer; length may shrink because the new URL prefix is
     shorter than the old one. Each blob's u32 length prefix is updated to
     reflect the new payload length.
+
+    `asset_map` optionally substitutes asset IDs inside the blob payload
+    (e.g. swapping a stock avatar for a real one). Length changes are
+    absorbed by recomputing the blob's outer u32 prefix; callers that
+    change chunk-level byte totals (e.g. rebuild_services) are responsible
+    for re-packing and rewriting V pointers downstream.
     """
     buf = bytearray()
     i = 0
@@ -49,6 +55,9 @@ def rewrite_image_blobs(data: bytes) -> bytes:
             break
         payload = data[payload_start:payload_end]
         new_payload = payload.replace(IMG_OLD, IMG_NEW).replace(ASSETS_OLD, ASSETS_NEW)
+        if asset_map:
+            for old_id, new_id in asset_map.items():
+                new_payload = new_payload.replace(old_id, new_id)
         buf.append(0x0a)
         buf += struct.pack(">I", len(new_payload))
         buf += new_payload

@@ -3,9 +3,13 @@ FROM nginx:1.27-alpine AS build
 RUN apk add --no-cache brotli gzip
 
 WORKDIR /build
-COPY index.html llms.txt llms-full.txt robots.txt sitemap.xml thanks.html ./
+COPY index.html about-us.html our-services.html contact.html blog.html \
+     llms.txt llms-full.txt robots.txt sitemap.xml thanks.html ./
 COPY framer-runtime/ ./framer-runtime/
 COPY cognis-cms/ ./cognis-cms/
+COPY our-services/ ./our-services/
+COPY blog/ ./blog/
+COPY teams/ ./teams/
 
 RUN find . -type f \( \
       -name "*.html" -o -name "*.css" -o -name "*.js" -o -name "*.mjs" \

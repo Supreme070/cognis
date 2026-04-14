@@ -46,6 +46,49 @@ from rewrite_json_blobs import rewrite_image_blobs
 #   jMRdATqKw = title, eFnXXZiS4 = slug
 SERVICES_RESORT_KEYS = {"jMRdATqKw", "eFnXXZiS4"}
 
+# Per-item testimonial text swaps. Keyed by item_id so each service keeps
+# independent author/location values even when the strings repeat across
+# items. Applied inside the per-item rewrite loop, so matches are scoped
+# to that single item's bytes — no ordinal hazards, no cross-item bleed.
+#
+# Item map (from ID index):
+#   J32RqOIjy -> AI Strategy  (author stays Cognis Group, location -> Nigeria)
+#   XCpqVtRPS -> AI Training  (author -> Enterprise partner, location -> Partner CTO)
+#   P_XkcRpZV -> AI Agent     (author stays Cognis Group, location -> Nigeria)
+SERVICES_PER_ITEM: dict[str, dict[str, str]] = {
+    "J32RqOIjy": {
+        "Lagos, Nigeria": "Nigeria",
+    },
+    "XCpqVtRPS": {
+        "Cognis Group": "Enterprise partner",
+        "Lagos, Nigeria": "Partner CTO",
+    },
+    "P_XkcRpZV": {
+        "Lagos, Nigeria": "Nigeria",
+    },
+}
+
+# Testimonial avatar swaps. Asset IDs are 27-char and length-neutral, so
+# substitution inside the 0x0a JSON blob doesn't disturb the blob's outer
+# u32 length prefix. Applied via rewrite_image_blobs(asset_map=...) per item.
+#   Mjb5QC7cBmKTRevvIPeGBCVzHHM = stock portrait used by AI Strategy slot
+#   owRvmfck3MmE9RTAPlzhICFlFg  = stock portrait used by AI Training slot (26 char legacy)
+#   LHF5pnTEGiDqPokWO5u1DEp2l0  = stock portrait used by AI Agent slot (26 char legacy)
+#   QnjDKI0euXnnnPi4GtTEaqYDJLo = Supreme
+#   IGOxPIDHI4tPrADWVh1HrKM99RQ = Card 4 partner photo
+#   QTiI3J2XXGOwJw3fyXhxuB92fl0 = Kola
+SERVICES_AVATAR_MAP: dict[str, dict[bytes, bytes]] = {
+    "J32RqOIjy": {
+        b"Mjb5QC7cBmKTRevvIPeGBCVzHHM": b"QnjDKI0euXnnnPi4GtTEaqYDJLo",
+    },
+    "XCpqVtRPS": {
+        b"owRvmfck3MmE9RTAPlzhICFlFg": b"IGOxPIDHI4tPrADWVh1HrKM99RQ",
+    },
+    "P_XkcRpZV": {
+        b"LHF5pnTEGiDqPokWO5u1DEp2l0": b"QTiI3J2XXGOwJw3fyXhxuB92fl0",
+    },
+}
+
 RAW_CHUNK = pathlib.Path("cms-raw/QSCEvOCzd-chunk-default-0.framercms")
 RAW_INDEX = pathlib.Path("cms-raw/QSCEvOCzd-indexes-default-0.framercms")
 OUT_CHUNK = pathlib.Path("cognis-cms/services-chunk.framercms")
@@ -148,9 +191,18 @@ def main():
     new_items = {}  # item_id -> new bytes
     for item_id, cid, off, ln in items:
         orig_bytes = raw_chunk[off : off + ln]
-        # Text replacements (length-prefixed strings) + image URL blob rewrite
+        # Text replacements (length-prefixed strings) + image URL blob rewrite.
+        # SERVICES applies site-wide rewrites; SERVICES_PER_ITEM scopes
+        # testimonial-author/location edits to the single item whose bytes
+        # we're operating on, so repeated strings across items ("Cognis
+        # Group", "Lagos, Nigeria") stay unambiguous without ordinal logic.
         new_bytes = rewrite_bytes(orig_bytes, SERVICES)
-        new_bytes = rewrite_image_blobs(new_bytes)
+        per_item = SERVICES_PER_ITEM.get(item_id, {})
+        if per_item:
+            new_bytes = rewrite_bytes(new_bytes, per_item)
+        new_bytes = rewrite_image_blobs(
+            new_bytes, asset_map=SERVICES_AVATAR_MAP.get(item_id)
+        )
         new_items[item_id] = new_bytes
         print(f"  item {item_id}: {ln} -> {len(new_bytes)} ({len(new_bytes) - ln:+d})")
 
