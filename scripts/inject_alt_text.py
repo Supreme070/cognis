@@ -99,9 +99,6 @@ PAGE_CONTEXTS: dict[str, str] = {
     "/our-services/ai-strategy-advisory": "AI strategy and advisory — Cognis Group",
     "/our-services/ai-training-workforce-development": "AI training and workforce development — Cognis Group",
     "/our-services/ai-agent-automation-engineering": "AI agent and automation engineering — Cognis Group",
-    "/our-services/ai-governance-risk-compliance": "AI governance, risk, and compliance — Cognis Group",
-    "/our-services/ml-data-intelligence": "Machine learning and data intelligence — Cognis Group",
-    "/our-services/enterprise-digital-transformation": "Enterprise digital transformation — Cognis Group",
 }
 
 IMG_RE = re.compile(r"<img\b[^>]*>", re.IGNORECASE)

@@ -17,9 +17,6 @@ Last updated: 2026-04-14
 - [AI Strategy & Advisory](https://cognis.group/our-services/ai-strategy-advisory): AI readiness assessments, use case identification, and deployment roadmaps from strategy to measurable business impact.
 - [AI Training & Workforce Development](https://cognis.group/our-services/ai-training-workforce-development): AI literacy programs for C-suite to frontline teams — mindset, capability, and governance discipline at scale.
 - [AI Agent & Automation Engineering](https://cognis.group/our-services/ai-agent-automation-engineering): Custom AI agents and intelligent automation workflows that eliminate bottlenecks and scale output.
-- [Machine Learning & Data Intelligence](https://cognis.group/our-services/ml-data-intelligence): Custom ML models, data pipelines, and predictive analytics for competitive intelligence.
-- [AI Governance, Risk & Compliance](https://cognis.group/our-services/ai-governance-risk-compliance): Policy frameworks, audit structures, and compliance aligned to NDPA, EU AI Act, ISO 42001, and NIST AI RMF.
-- [Enterprise Digital Transformation](https://cognis.group/our-services/enterprise-digital-transformation): Legacy system modernization with AI embedded in every process and decision layer.
 
 ## Insights
 

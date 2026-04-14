@@ -66,8 +66,7 @@ SERVICES = {
              "a": "Yes. We advise clients across Africa, Europe, and the Americas. Our Lagos base gives us an unusually strong view on cross-border regulatory fit — particularly for organisations operating in multiple jurisdictions."},
         ],
         "related": [
-            ("/our-services/ai-governance-risk-compliance", "AI Governance, Risk &amp; Compliance"),
-            ("/our-services/enterprise-digital-transformation", "Enterprise Digital Transformation"),
+            ("/our-services/ai-agent-automation-engineering", "AI Agent &amp; Automation Engineering"),
             ("/our-services/ai-training-workforce-development", "AI Training &amp; Workforce Development"),
         ],
     },
@@ -127,124 +126,7 @@ SERVICES = {
         ],
         "related": [
             ("/our-services/ai-strategy-advisory", "AI Strategy &amp; Advisory"),
-            ("/our-services/ml-data-intelligence", "ML &amp; Data Intelligence"),
-            ("/our-services/ai-governance-risk-compliance", "AI Governance, Risk &amp; Compliance"),
-        ],
-    },
-
-    "ml-data-intelligence": {
-        "headline": "ML & Data Intelligence",
-        "lead": (
-            "ML &amp; Data Intelligence is the end-to-end work of turning enterprise data "
-            "into decisions — data platforms, predictive models, forecasting systems, and "
-            "the MLOps discipline required to keep them honest in production. We build "
-            "systems that survive the first week, the first drift event, and the first "
-            "audit."
-        ),
-        "what": """
-<p>Classical machine learning is not going away. Demand forecasting, churn prediction, anomaly detection, credit scoring, recommendation — these problems are better served by focused predictive models than by generalist LLMs, and the quality of the data platform beneath them is usually the single largest determinant of success.</p>
-<p>We build both halves. Data platforms that are trustworthy by design, and models that run on top of them with the observability, retraining discipline, and governance needed to keep them accurate.</p>
-""",
-        "how": """
-<ol>
-  <li><strong>Data platform foundations.</strong> Lakehouse or warehouse architecture, ingestion, transformation, lineage, and access governance. We design for auditability first — it is cheaper than retrofitting it.</li>
-  <li><strong>Feature engineering &amp; feature stores.</strong> So the same feature definition serves training and inference without drift.</li>
-  <li><strong>Model development.</strong> From baseline through tuned production model, with experiment tracking and reproducibility non-negotiable.</li>
-  <li><strong>MLOps &amp; serving.</strong> CI/CD for models, shadow deployment, canary rollout, and automated rollback.</li>
-  <li><strong>Monitoring &amp; retraining.</strong> Drift detection, performance monitoring, and scheduled or event-triggered retraining — tied to business metrics, not just technical ones.</li>
-  <li><strong>Governance &amp; documentation.</strong> Model cards, datasheets, risk classifications, and the audit trail your regulators will ask for.</li>
-</ol>
-""",
-        "who": """
-<p>This work is for organisations where data is a genuine asset but is either under-exploited or untrusted — and where decisions that should be quantitative are still made on instinct. We see strong fit in:</p>
-<ul>
-  <li>Financial services — credit, fraud, claims, forecasting.</li>
-  <li>Retail, consumer goods, and telecoms — demand, pricing, churn, personalisation.</li>
-  <li>Public sector and development finance — programme outcomes modelling, targeting, and impact measurement.</li>
-</ul>
-""",
-        "outcomes": """
-<ul>
-  <li>A production data platform with lineage, access governance, and quality SLAs.</li>
-  <li>Deployed predictive models with measurable accuracy and business impact.</li>
-  <li>MLOps pipelines the client team can operate without us.</li>
-  <li>Full model documentation aligned to EU AI Act high-risk requirements and ISO 42001.</li>
-</ul>
-""",
-        "faqs": [
-            {"q": "Do you replace existing data platforms?",
-             "a": "Usually no. Ripping out working infrastructure rarely pays back. We extend, harden, and govern what is already there, and only recommend replacement where the existing platform genuinely cannot support the use cases on the roadmap."},
-            {"q": "What cloud platforms do you build on?",
-             "a": "AWS, Azure, GCP, and hybrid. We have also delivered on-prem and sovereign-cloud deployments where data residency demanded it. The architecture patterns carry; the vendor does not dictate the design."},
-            {"q": "How do you handle model bias and fairness?",
-             "a": "Bias testing is built into the evaluation harness from the first model we ship. We use protected-attribute auditing, disparate-impact analysis, and — where appropriate — adversarial evaluation. Findings are documented in the model card and reviewed before promotion."},
-            {"q": "Can you work with legacy data?",
-             "a": "Yes. Most of our engagements involve some portion of messy, poorly-labelled, or unstructured legacy data. The work of getting it into a form a model can learn from is usually half the engagement."},
-            {"q": "What is your approach to MLOps tooling?",
-             "a": "Pragmatic. MLflow, SageMaker, Vertex, Databricks, Kubeflow — we have shipped on all of them. We match the tool to the team's existing stack and skill level rather than forcing a rewrite."},
-        ],
-        "related": [
-            ("/our-services/ai-agent-automation-engineering", "AI Agent &amp; Automation Engineering"),
-            ("/our-services/ai-strategy-advisory", "AI Strategy &amp; Advisory"),
-            ("/our-services/enterprise-digital-transformation", "Enterprise Digital Transformation"),
-        ],
-    },
-
-    "ai-governance-risk-compliance": {
-        "headline": "AI Governance, Risk &amp; Compliance",
-        "lead": (
-            "AI Governance, Risk &amp; Compliance is the operating discipline that lets an "
-            "enterprise deploy AI without accumulating unmanaged regulatory, reputational, "
-            "or operational risk. We design governance that is specific, implementable, and "
-            "auditable — not a policy document that lives in a shared drive."
-        ),
-        "what": """
-<p>Governance fails in one of two ways. Either it is treated as a late-stage compliance review — bolted on after the system is built, which guarantees friction — or it is written so abstractly that no engineer knows how to implement it. Both modes leave the organisation exposed.</p>
-<p>We build governance as a design input. That means inventories, classifications, controls, and review gates that developers and business owners can actually follow, mapped directly to the regulations and standards that bind your organisation.</p>
-""",
-        "how": """
-<ol>
-  <li><strong>AI inventory &amp; risk classification.</strong> Every AI system the organisation uses — built, bought, or embedded in a SaaS — inventoried and classified against EU AI Act risk tiers, ISO 42001, and internal risk appetite.</li>
-  <li><strong>Policy framework.</strong> Written so engineers can implement and auditors can test. Covers data use, model lifecycle, third-party AI, human oversight, transparency, and incident response.</li>
-  <li><strong>Control design.</strong> Specific controls for each risk tier — documentation, testing, monitoring, human-in-the-loop — with named owners.</li>
-  <li><strong>NDPA &amp; cross-border data mapping.</strong> Data flows, lawful bases, transfer mechanisms, and DPIA support where processing is high-risk.</li>
-  <li><strong>Training &amp; attestation.</strong> Role-specific training for executives, product teams, and engineers so the policy is actually known, not just written.</li>
-  <li><strong>Audit readiness.</strong> Evidence packs, model cards, and DPIA bundles in the form regulators and clients will actually ask for.</li>
-</ol>
-""",
-        "who": """
-<p>This service is relevant to any organisation whose AI use is entering a scale where the current informal controls will not hold. Common triggers:</p>
-<ul>
-  <li>EU AI Act obligations becoming enforceable for high-risk systems.</li>
-  <li>A client or partner requiring ISO 42001 or SOC 2 AI assurance.</li>
-  <li>NDPA enforcement action or a material privacy incident.</li>
-  <li>A board-level concern that the organisation cannot answer, in detail, what AI it is running and under what controls.</li>
-</ul>
-""",
-        "outcomes": """
-<ul>
-  <li>A complete AI inventory and risk register, maintained by name owners.</li>
-  <li>A policy framework aligned to EU AI Act, NIST AI RMF, ISO 42001, and NDPA 2023.</li>
-  <li>Implementable controls and review gates integrated with your existing SDLC.</li>
-  <li>Evidence readiness for internal audit, external audit, and regulator inspection.</li>
-</ul>
-""",
-        "faqs": [
-            {"q": "Do you handle EU AI Act compliance specifically?",
-             "a": "Yes. We map systems to EU AI Act risk tiers, design the documentation and post-market monitoring obligations for high-risk systems, and help you decide where to reduce risk classification through design changes rather than accept the heavier compliance burden."},
-            {"q": "How does this differ from a law firm's AI compliance work?",
-             "a": "Law firms interpret the regulation. We operationalise it. Both roles matter. Our deliverables are the inventories, controls, model cards, and monitoring that turn the legal interpretation into something the engineering team can actually execute."},
-            {"q": "Do you support ISO 42001 certification?",
-             "a": "Yes. We prepare organisations for ISO 42001 audit — AIMS scoping, policy authoring, control implementation, internal audit, and remediation. We do not certify; we prepare you for the certifying body."},
-            {"q": "Can you run a one-off audit rather than build a full programme?",
-             "a": "Yes. A focused AI risk assessment — typically 4–6 weeks — is a common entry point, and often becomes the input to a broader governance engagement."},
-            {"q": "How do you integrate governance with existing risk and compliance functions?",
-             "a": "We treat AI governance as an extension of your existing risk operating model, not a parallel one. The goal is one risk register, one audit calendar, one escalation path — with AI-specific controls layered in."},
-        ],
-        "related": [
-            ("/our-services/ai-strategy-advisory", "AI Strategy &amp; Advisory"),
             ("/our-services/ai-training-workforce-development", "AI Training &amp; Workforce Development"),
-            ("/our-services/ai-agent-automation-engineering", "AI Agent &amp; Automation Engineering"),
         ],
     },
 
@@ -300,65 +182,8 @@ SERVICES = {
         ],
         "related": [
             ("/our-services/ai-strategy-advisory", "AI Strategy &amp; Advisory"),
-            ("/our-services/ai-governance-risk-compliance", "AI Governance, Risk &amp; Compliance"),
-            ("/our-services/enterprise-digital-transformation", "Enterprise Digital Transformation"),
+            ("/our-services/ai-agent-automation-engineering", "AI Agent &amp; Automation Engineering"),
         ],
     },
 
-    "enterprise-digital-transformation": {
-        "headline": "Enterprise Digital Transformation",
-        "lead": (
-            "Enterprise Digital Transformation is the multi-year work of re-engineering how "
-            "an organisation runs — processes, platforms, data, and operating model — with "
-            "AI and modern software at the centre rather than bolted on. We lead "
-            "transformations that actually finish."
-        ),
-        "what": """
-<p>Digital transformation has a reputation for failing quietly. Programmes stretch, scope creeps, the target operating model is never quite ratified, and the business ends up with new technology layered on top of the old ways of working. The result costs more and delivers less than anyone planned for.</p>
-<p>AI raises the stakes. The organisations that genuinely become AI-native will not be the ones that added an AI team to an otherwise unchanged structure — they will be the ones that redesigned processes around what AI makes possible, at the same time as they redesigned the platforms, the data, and the operating model.</p>
-""",
-        "how": """
-<ol>
-  <li><strong>Transformation thesis.</strong> A clear, defensible answer to "what does this organisation look like three years from now, and why." Without it, every downstream decision drifts.</li>
-  <li><strong>Process re-engineering.</strong> End-to-end value streams redesigned around AI, automation, and modern software — not paved-cowpath digitisation.</li>
-  <li><strong>Platform &amp; data architecture.</strong> Cloud, data, integration, and AI platform decisions sequenced against the transformation thesis.</li>
-  <li><strong>Operating model redesign.</strong> Org, roles, funding, governance, vendor model, and talent strategy — the parts of transformation that usually fail are organisational, not technical.</li>
-  <li><strong>Programme delivery.</strong> Portfolio structure, tranche planning, benefit tracking, and executive cadence that keeps momentum over multi-year horizons.</li>
-  <li><strong>Change adoption.</strong> Workforce enablement, communications, and leadership development embedded from day one.</li>
-</ol>
-""",
-        "who": """
-<p>This work is for CEOs, CIOs, COOs, and transformation leaders accountable for a step change in how their organisation operates. Typical contexts:</p>
-<ul>
-  <li>Financial services, telecoms, and energy firms responding to new entrants, regulation, or margin compression.</li>
-  <li>Public-sector bodies modernising citizen services under constrained fiscal envelopes.</li>
-  <li>Post-merger integration where the integrated operating model needs to be digital and AI-native from the start.</li>
-</ul>
-""",
-        "outcomes": """
-<ul>
-  <li>A transformation thesis the board owns and the organisation understands.</li>
-  <li>Re-engineered value streams with measurable efficiency, quality, and customer-experience gains.</li>
-  <li>A platform and data architecture capable of supporting the next decade of change.</li>
-  <li>An operating model that sustains momentum past the external programme.</li>
-</ul>
-""",
-        "faqs": [
-            {"q": "How long are transformation engagements?",
-             "a": "Transformations are multi-year programmes, but we structure them as 12–18 month tranches with clear deliverables and decision gates. Open-ended programmes are the pattern that fails; tranches are how you avoid it."},
-            {"q": "Do you compete with the Big Four on transformation?",
-             "a": "We often work alongside them. Our edge is AI-native design and deep African market context. Where clients want a more focused, senior-led team rather than a large leverage model, they choose us."},
-            {"q": "Can you run the programme management office?",
-             "a": "Yes — either as the primary PMO or in a senior advisory role alongside an internal or third-party PMO. We have done both."},
-            {"q": "How do you measure transformation success?",
-             "a": "Against business outcomes the board signs off at the start — cost, revenue, customer metrics, resilience, compliance — with leading indicators tracked monthly. We do not measure success in slides delivered."},
-            {"q": "How do you handle legacy systems during transformation?",
-             "a": "Pragmatically. Wholesale replacement is rarely the right answer. We sequence modernisation so legacy is progressively encapsulated, replaced, or retired — not big-banged."},
-        ],
-        "related": [
-            ("/our-services/ai-strategy-advisory", "AI Strategy &amp; Advisory"),
-            ("/our-services/ai-governance-risk-compliance", "AI Governance, Risk &amp; Compliance"),
-            ("/our-services/ai-training-workforce-development", "AI Training &amp; Workforce Development"),
-        ],
-    },
 }

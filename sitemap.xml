@@ -49,24 +49,6 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
-  <url>
-    <loc>https://cognis.group/our-services/ml-data-intelligence</loc>
-    <lastmod>2026-04-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://cognis.group/our-services/ai-governance-risk-compliance</loc>
-    <lastmod>2026-04-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://cognis.group/our-services/enterprise-digital-transformation</loc>
-    <lastmod>2026-04-12</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
   <!-- Blog posts -->
   <url>
     <loc>https://cognis.group/blog/why-most-enterprise-ai-strategies-fail-before-they-start</loc>

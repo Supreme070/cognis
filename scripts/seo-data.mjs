@@ -132,30 +132,6 @@ export const SERVICES = [
       'Agents, copilots, and automation pipelines built for production — integrated, observable, and governed.',
     serviceType: 'AI Agent Engineering',
   },
-  {
-    slug: 'ml-data-intelligence',
-    name: 'ML & Data Intelligence',
-    title: 'ML & Data Intelligence | Cognis Group',
-    description:
-      'From raw data to decision systems. Forecasting, classification, and intelligent retrieval on your infrastructure.',
-    serviceType: 'Machine Learning Consulting',
-  },
-  {
-    slug: 'ai-governance-risk-compliance',
-    name: 'AI Governance, Risk & Compliance',
-    title: 'AI Governance, Risk & Compliance | Cognis Group',
-    description:
-      'EU AI Act, NIST AI RMF, ISO 42001, NDPA. Governance frameworks that scale with your AI footprint.',
-    serviceType: 'AI Governance Consulting',
-  },
-  {
-    slug: 'enterprise-digital-transformation',
-    name: 'Enterprise Digital Transformation',
-    title: 'Enterprise Digital Transformation | Cognis Group',
-    description:
-      'Operating-model redesign for AI-native enterprises. Process, platform, and organisation — together.',
-    serviceType: 'Digital Transformation Consulting',
-  },
 ];
 
 // Breadcrumb helper.

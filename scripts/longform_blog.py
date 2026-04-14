@@ -99,7 +99,7 @@ BLOG = {
         ],
         "related": [
             ("/our-services/ai-strategy-advisory", "AI Strategy & Advisory"),
-            ("/our-services/ai-governance-risk-compliance", "AI Governance, Risk & Compliance"),
+            ("/our-services/ai-training-workforce-development", "AI Training & Workforce Development"),
         ],
     },
 
@@ -165,7 +165,7 @@ BLOG = {
         ],
         "related": [
             ("/our-services/ai-agent-automation-engineering", "AI Agent & Automation Engineering"),
-            ("/our-services/ml-data-intelligence", "ML & Data Intelligence"),
+            ("/our-services/ai-strategy-advisory", "AI Strategy & Advisory"),
         ],
     },
 
@@ -237,13 +237,13 @@ BLOG = {
   <li>Stand up a lightweight AI review board — not a bottleneck committee, but a 30-minute standing slot that classifies new use cases and signs off exit criteria.</li>
   <li>Commit to one certifiable artefact in the next 12 months — an ISO 42001 readiness assessment, a DPIA programme, or a third-party audit of one high-risk system.</li>
 </ol>
-<p>Governance done well does not slow AI down. It is what lets AI run at the speed the business actually needs. This is the backbone of our <a href="/our-services/ai-governance-risk-compliance">AI Governance, Risk &amp; Compliance</a> practice.</p>
+<p>Governance done well does not slow AI down. It is what lets AI run at the speed the business actually needs. We build it into every <a href="/our-services/ai-strategy-advisory">AI Strategy &amp; Advisory</a> engagement from day one.</p>
 """
             },
         ],
         "related": [
-            ("/our-services/ai-governance-risk-compliance", "AI Governance, Risk & Compliance"),
             ("/our-services/ai-strategy-advisory", "AI Strategy & Advisory"),
+            ("/our-services/ai-training-workforce-development", "AI Training & Workforce Development"),
         ],
     },
 
@@ -316,7 +316,7 @@ BLOG = {
         ],
         "related": [
             ("/our-services/ai-strategy-advisory", "AI Strategy & Advisory"),
-            ("/our-services/ml-data-intelligence", "ML & Data Intelligence"),
+            ("/our-services/ai-agent-automation-engineering", "AI Agent & Automation Engineering"),
         ],
     },
 
@@ -390,7 +390,7 @@ BLOG = {
         ],
         "related": [
             ("/our-services/ai-training-workforce-development", "AI Training & Workforce Development"),
-            ("/our-services/enterprise-digital-transformation", "Enterprise Digital Transformation"),
+            ("/our-services/ai-strategy-advisory", "AI Strategy & Advisory"),
         ],
     },
 
@@ -455,12 +455,12 @@ BLOG = {
   <li><strong>Phase 2 (months 9–18): Scale it.</strong> Platform layer consolidated (model access, observability, evaluation, logging). Second wave of deployments across operations, back office, and customer. Manager-tier training at scale.</li>
   <li><strong>Phase 3 (months 18–36): Operate it.</strong> AI is a standing element of every operating review. New processes are scoped AI-native by default. The organisation has a portfolio, not a project list.</li>
 </ol>
-<p>The enterprises that make it to Phase 3 in the next 36 months will set the pace of their industries for a decade. That is the bet behind our <a href="/our-services/enterprise-digital-transformation">Enterprise Digital Transformation</a> and <a href="/our-services/ai-agent-automation-engineering">AI Agent &amp; Automation Engineering</a> practices.</p>
+<p>The enterprises that make it to Phase 3 in the next 36 months will set the pace of their industries for a decade. That is the bet behind our <a href="/our-services/ai-strategy-advisory">AI Strategy &amp; Advisory</a> and <a href="/our-services/ai-agent-automation-engineering">AI Agent &amp; Automation Engineering</a> practices.</p>
 """
             },
         ],
         "related": [
-            ("/our-services/enterprise-digital-transformation", "Enterprise Digital Transformation"),
+            ("/our-services/ai-strategy-advisory", "AI Strategy & Advisory"),
             ("/our-services/ai-agent-automation-engineering", "AI Agent & Automation Engineering"),
         ],
     },
