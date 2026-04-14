@@ -2,7 +2,7 @@
 #
 # Prerendered snapshots live at:
 #   - <section>/index.html (about-us, our-services, contact, blog)
-#   - our-services/<slug>/index.html (6 service detail pages)
+#   - our-services/<slug>/index.html (3 service detail pages)
 #   - blog/<slug>/index.html (6 blog posts)
 #   - teams/<id>/index.html (team member detail pages)
 #
@@ -13,3 +13,14 @@
 #
 # Unknown paths fall through to /404.html with HTTP 404 (CF Pages default
 # when a top-level 404.html exists).
+#
+# Retired service slugs — April 2026. The portfolio was pruned to the 3
+# surfaced services; any external backlink or cached Google index to these
+# URLs 301s to the services landing.
+/our-services/ml-data-intelligence                /our-services  301
+/our-services/ai-governance-risk-compliance       /our-services  301
+/our-services/enterprise-digital-transformation   /our-services  301
+# Trailing-slash variants, in case search engines indexed them that way.
+/our-services/ml-data-intelligence/               /our-services  301
+/our-services/ai-governance-risk-compliance/      /our-services  301
+/our-services/enterprise-digital-transformation/  /our-services  301
