@@ -1597,13 +1597,6 @@
         // routine below for /our-services/:slug which must first nav to the
         // /our-services index then click the card.
         var d = window.__cognisDeferred;
-        // Prerendered snapshots set data-cognis-snapshot on <html>; if we're
-        // already at the right URL there is nothing to defer. Skip the cascade
-        // entirely so it cannot fight any in-app navigation the user makes.
-        if (d && document.documentElement.hasAttribute('data-cognis-snapshot')) {
-          window.__cognisDeferred = null;
-          d = null;
-        }
         if (d) {
           window.__cognisDeferred = null;
           var targetPath = (function () {

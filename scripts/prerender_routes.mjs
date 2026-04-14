@@ -58,11 +58,13 @@ function replaceOrAppend(html, regex, replacement) {
 function transform(html, route) {
   const canonical = ORIGIN + route.path;
 
-  // Neutralise deferred-nav — a prerendered page must not rewrite URL.
-  let out = html.replace(
-    /<script id="cognis-deferred-nav">[\s\S]*?<\/script>/,
-    `<script id="cognis-deferred-nav">/* stripped for snapshot ${route.path} */</script>`
-  );
+  // Keep cognis-deferred-nav intact. Crawlers don't run JS — they see
+  // the snapshot HTML as-is. Humans run JS: the script rewrites URL to /
+  // so Framer boots its homepage-keyed SSR handover, then post-hydration
+  // clicks the matching nav link so Framer's client router swaps in the
+  // correct page in place. Stripping this script strands humans on
+  // homepage content because the SSR data is always keyed to /.
+  let out = html;
 
   // Mark snapshot + fix lang.
   out = out.replace(

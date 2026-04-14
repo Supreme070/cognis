@@ -1,6 +1,37 @@
 <!DOCTYPE html><html data-redirect-timezone="1" dir="ltr" class="lenis" lang="en-GB" data-cognis-snapshot="/blog/ai-governance-is-not-optional"><head>
     <meta charset="utf-8">
-    <script id="cognis-deferred-nav">/* stripped for snapshot /blog/ai-governance-is-not-optional */</script>
+    <script id="cognis-deferred-nav">
+    /* Direct-URL deferred navigation for every non-home route.
+     * Framer's SSR is single-route (homepage). Any direct load of an
+     * internal route otherwise renders the homepage because the handover
+     * data is keyed to routeId=augiA20Il (home). We catch those paths
+     * pre-hydration, rewrite to / so Framer boots as homepage, then the
+     * post-hydration handler synthesises a nav click so Framer's client
+     * router takes over and swaps in the target route's page in-place. */
+    (function () {
+      try {
+        var p = location.pathname.replace(/\/+$/, '') || '/';
+        var deferred = null;
+        var mBlog = p.match(/^\/blog\/([^\/?#]+)$/);
+        var mSvc  = p.match(/^\/our-services\/([^\/?#]+)$/);
+        var mTeam = p.match(/^\/teams\/([^\/?#]+)$/);
+        if (mBlog) {
+          deferred = { kind: 'blogDetail', slug: mBlog[1] };
+        } else if (mSvc) {
+          deferred = { kind: 'serviceDetail', slug: mSvc[1] };
+        } else if (mTeam) {
+          deferred = { kind: 'teamDetail', id: mTeam[1] };
+        } else if (p === '/about-us' || p === '/our-services' ||
+                   p === '/contact'  || p === '/blog') {
+          deferred = { kind: 'topLevel', href: p };
+        }
+        if (deferred) {
+          window.__cognisDeferred = deferred;
+          history.replaceState({ cognisDeferred: true }, '', '/');
+        }
+      } catch (e) {}
+    })();
+    </script>
     <!-- Start of headStart -->
     <script>
     (() => {
@@ -1564,13 +1595,6 @@
         // routine below for /our-services/:slug which must first nav to the
         // /our-services index then click the card.
         var d = window.__cognisDeferred;
-        // Prerendered snapshots set data-cognis-snapshot on <html>; if we're
-        // already at the right URL there is nothing to defer. Skip the cascade
-        // entirely so it cannot fight any in-app navigation the user makes.
-        if (d && document.documentElement.hasAttribute('data-cognis-snapshot')) {
-          window.__cognisDeferred = null;
-          d = null;
-        }
         if (d) {
           window.__cognisDeferred = null;
           var targetPath = (function () {

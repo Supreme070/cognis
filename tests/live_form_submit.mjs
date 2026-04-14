@@ -37,12 +37,14 @@ async function probe(page, label, url, fillFn, submitSelector) {
   });
   page.on('pageerror', (e) => events.push(`ERR  ${e.message}`));
 
-  await page.goto(url, { waitUntil: 'networkidle', timeout: 60000 });
-  await page.waitForTimeout(3000); // let hydration + ensureForms run
+  await page.goto(url, { waitUntil: 'domcontentloaded', timeout: 60000 });
+  await page.waitForTimeout(6000); // let hydration + ensureForms run
 
   const beforeUrl = page.url();
   console.log(`  loaded: ${beforeUrl}`);
 
+  const inputsSnap = await page.evaluate(() => Array.from(document.querySelectorAll('input, textarea')).map(el => ({tag: el.tagName, type: el.type, name: el.name, placeholder: el.placeholder, visible: !!(el.offsetWidth || el.offsetHeight)})));
+  console.log('  inputs:', JSON.stringify(inputsSnap, null, 2));
   await fillFn(page);
   await page.waitForTimeout(500);
 
