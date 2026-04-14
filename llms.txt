@@ -12,6 +12,10 @@ Last updated: 2026-04-14
 - [Blog / Insights](https://cognis.group/blog): Enterprise AI deployment, governance, ROI, and workforce development
 - [Contact](https://cognis.group/contact): Start an engagement with Cognis Group
 
+## How We Work
+
+- [Methodology](https://cognis.group/how-we-work): Our six-phase engagement methodology — Discovery, Assessment, Strategy, Build, Deploy, Govern — designed to ship production AI rather than stall at pilot.
+
 ## Services
 
 - [AI Strategy & Advisory](https://cognis.group/our-services/ai-strategy-advisory): AI readiness assessments, use case identification, and deployment roadmaps from strategy to measurable business impact.
