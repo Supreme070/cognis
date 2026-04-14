@@ -39,6 +39,7 @@ Contact: consulting@cognis.group | +2349080001101
 
 - [Privacy Policy](https://cognis.group/privacy-policy): How Cognis Group collects, uses, and protects personal data (NDPA 2023, GDPR-aligned).
 - [Terms of Service](https://cognis.group/terms): Website use, IP, liability, and Nigerian governing law.
+- [Frequently Asked Questions](https://cognis.group/faq): Answers on engagement shape, pricing, data sovereignty, and the frameworks we align to.
 
 ## Optional
 
