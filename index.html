@@ -1368,6 +1368,31 @@
             });
           }
 
+          // Framer's styled submit button is a React component that calls
+          // preventDefault on click, so native form submission never fires.
+          // Intercept in the capture phase, run the honeypot check, then call
+          // form.submit() directly — Web3Forms receives a normal POST.
+          form.querySelectorAll('button[type="submit"]').forEach(function (btn) {
+            if (btn.dataset.cognisSubmitWired === '1') return;
+            btn.dataset.cognisSubmitWired = '1';
+            btn.addEventListener('click', function (e) {
+              var hp = form.querySelector('input[name="botcheck"]');
+              if (hp && hp.value) { e.preventDefault(); e.stopImmediatePropagation(); return; }
+              var emailEl = form.querySelector('input[type="email"]');
+              if (!emailEl || !emailEl.value) { return; /* let browser show required */ }
+              e.preventDefault();
+              e.stopImmediatePropagation();
+              try { form.submit(); } catch (err) {
+                try {
+                  var fd = new FormData(form);
+                  fetch(WEB3, { method: 'POST', body: fd })
+                    .then(function () { location.href = 'https://cognis.group/thanks.html'; })
+                    .catch(function () {});
+                } catch (_) {}
+              }
+            }, true);
+          });
+
           form.dataset.cognisWired = '1';
         });
       }
