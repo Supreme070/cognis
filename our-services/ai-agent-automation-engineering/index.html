@@ -2140,6 +2140,113 @@
       </svg>
     </div>
     <!-- Start of bodyEnd -->
+<!-- cognis-service-longform:start -->
+
+<style data-cognis-service-style>
+  section.cognis-service-longform {
+    max-width: 860px; margin: 48px auto 96px; padding: 0 24px;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #131313; font-size: 17px; line-height: 1.72;
+  }
+  section.cognis-service-longform .sv-lead {
+    font-size: 20px; line-height: 1.55; color: #2f2f2f;
+    margin: 0 0 40px; font-weight: 500;
+    padding-bottom: 24px; border-bottom: 1px solid #e6e6e6;
+  }
+  section.cognis-service-longform h2 {
+    font-size: 26px; line-height: 1.25; letter-spacing: -0.01em;
+    margin: 48px 0 14px; font-weight: 700;
+  }
+  section.cognis-service-longform h3 {
+    font-size: 18px; line-height: 1.35; margin: 24px 0 8px; font-weight: 600;
+  }
+  section.cognis-service-longform p { margin: 0 0 16px; }
+  section.cognis-service-longform ul, section.cognis-service-longform ol {
+    padding-left: 22px; margin: 0 0 18px;
+  }
+  section.cognis-service-longform li { margin-bottom: 10px; }
+  section.cognis-service-longform a {
+    color: #131313; text-decoration: underline; text-underline-offset: 3px;
+  }
+  section.cognis-service-longform a:hover { background: #cdfb56; }
+  section.cognis-service-longform details {
+    border-top: 1px solid #e6e6e6; padding: 18px 0;
+  }
+  section.cognis-service-longform details:last-of-type {
+    border-bottom: 1px solid #e6e6e6;
+  }
+  section.cognis-service-longform details summary {
+    cursor: pointer; font-weight: 600; font-size: 17px;
+    list-style: none; position: relative; padding-right: 28px;
+  }
+  section.cognis-service-longform details summary::-webkit-details-marker { display: none; }
+  section.cognis-service-longform details summary::after {
+    content: "+"; position: absolute; right: 0; top: 0;
+    font-size: 22px; font-weight: 400; color: #7b7b7b;
+  }
+  section.cognis-service-longform details[open] summary::after { content: "−"; }
+  section.cognis-service-longform details p {
+    margin: 12px 0 0; color: #2f2f2f;
+  }
+  section.cognis-service-longform .sv-related {
+    margin-top: 56px; padding: 28px; background: #ffffff;
+    border: 1px solid #e6e6e6; border-radius: 12px;
+  }
+  section.cognis-service-longform .sv-related h3 {
+    margin: 0 0 12px; font-size: 14px; letter-spacing: 0.04em;
+    text-transform: uppercase; color: #7b7b7b; font-weight: 600;
+  }
+  section.cognis-service-longform .sv-related ul { list-style: none; padding: 0; margin: 0; }
+  section.cognis-service-longform .sv-related li { margin: 0 0 8px; }
+</style>
+
+<section class="cognis-service-longform" data-cognis-slug="ai-agent-automation-engineering">
+  <p class="sv-lead">AI Agent &amp; Automation Engineering is the discipline of building autonomous and semi-autonomous systems that execute real work inside enterprise workflows — under production-grade observability, guardrails, and human oversight. Demos are easy. Shipping agents that a regulated business is willing to trust with customer interactions, financial transactions, or compliance actions is not.</p>
+  <h2>What this means</h2>
+<p>Agents fail in production for predictable reasons: no evaluation harness, no safety rails, no recovery path when tools misfire, no observability into why they made a decision, and no integration discipline with the systems of record they are supposed to act on.</p>
+<p>We engineer agents as production software — with the same rigour you would apply to any other system the business depends on. That means version control, continuous evaluation, structured tool contracts, policy-enforced action surfaces, and human-in-the-loop design where the risk profile demands it.</p>
+  <h2>How we deliver</h2>
+<ol>
+  <li><strong>Workflow decomposition.</strong> We map the end-to-end workflow the agent is replacing or augmenting, identify the decision points, and classify each one by risk and reversibility.</li>
+  <li><strong>Tool &amp; integration design.</strong> We specify the tools the agent can call, the schemas they accept, and the rollback behaviour for any non-idempotent action.</li>
+  <li><strong>Evaluation harness.</strong> Before any model selection, we build the evaluation set — real tasks, real data, graded rubrics — so we can measure rather than guess.</li>
+  <li><strong>Guardrails &amp; policy layer.</strong> Structured policy enforcement (NDPA, internal controls, role-based action limits) sits between the model and the tools, not inside the prompt.</li>
+  <li><strong>Observability &amp; feedback loops.</strong> Every agent action is logged, attributed, and linkable to the inputs and model version that produced it — so incidents are investigable.</li>
+  <li><strong>Phased rollout.</strong> Shadow mode → supervised mode → autonomous mode, with explicit promotion criteria at each stage.</li>
+</ol>
+  <h2>Who this is for</h2>
+<p>This work suits organisations where agents will touch customer-facing, revenue-bearing, or compliance-sensitive workflows — and the cost of a wrong action is material. Typical contexts:</p>
+<ul>
+  <li>Financial services firms automating claims triage, KYC review, or credit adjudication support.</li>
+  <li>Public-sector and regulated enterprises automating case handling, document review, or citizen-facing enquiry response.</li>
+  <li>Operations-heavy businesses replacing repetitive back-office workflows without losing audit trails.</li>
+</ul>
+  <h2>Outcomes you can expect</h2>
+<ul>
+  <li>Production agents with measurable accuracy, latency, and cost envelopes.</li>
+  <li>A reproducible evaluation harness the team can extend post-handover.</li>
+  <li>Policy and guardrail layers that satisfy internal risk and external regulators.</li>
+  <li>Observability that turns "the agent did something weird" into a specific, debuggable event.</li>
+</ul>
+  <h2>Frequently asked questions</h2>
+  <details><summary>What foundation models do you work with?</summary><p>We are deliberately model-agnostic. We work across Claude, GPT, Gemini, and open-weight models (Llama, Mistral, Qwen) depending on the use case, data-residency requirement, and cost envelope. Model choice falls out of the evaluation harness, not the sales pitch.</p></details>
+  <details><summary>How do you handle data residency and sovereignty?</summary><p>Where residency is a requirement — NDPA, sector regulation, or client policy — we design for it from the start: in-region inference, BYOK key management, VPC-isolated deployments, or on-prem model hosting as needed.</p></details>
+  <details><summary>What agent frameworks do you use?</summary><p>We select per engagement. We have shipped on LangGraph, CrewAI, custom orchestration, and provider-native agent APIs. Framework choice is an implementation detail — the architecture discipline is what carries across.</p></details>
+  <details><summary>How do you prevent hallucinations in production agents?</summary><p>Hallucinations are a design problem, not just a model problem. We constrain the surface: structured tool outputs, retrieval-grounded generation where factual accuracy matters, policy checks on every external action, and evaluation gates before promotion.</p></details>
+  <details><summary>Do you provide post-deployment monitoring?</summary><p>Yes. Observability is part of the build, not an add-on. Clients receive dashboards covering accuracy drift, cost, latency, policy violations, and human-override rates. Ongoing managed operations is available as a separate engagement.</p></details>
+  <details><summary>How long does it take to get an agent into production?</summary><p>A focused agent on a well-scoped workflow typically moves from kickoff to supervised production in 10–16 weeks. Broader multi-agent systems or heavily regulated environments take longer — usually because the policy and integration surface, not the model work, is what governs the timeline.</p></details>
+  <aside class="sv-related">
+    <h3>Related services</h3>
+    <ul>
+    <li><a href="/our-services/ai-strategy-advisory">AI Strategy &amp; Advisory →</a></li>
+    <li><a href="/our-services/ml-data-intelligence">ML &amp; Data Intelligence →</a></li>
+    <li><a href="/our-services/ai-governance-risk-compliance">AI Governance, Risk &amp; Compliance →</a></li>
+    </ul>
+  </aside>
+</section>
+<script type="application/ld+json" data-cognis-service-faq>{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What foundation models do you work with?", "acceptedAnswer": {"@type": "Answer", "text": "We are deliberately model-agnostic. We work across Claude, GPT, Gemini, and open-weight models (Llama, Mistral, Qwen) depending on the use case, data-residency requirement, and cost envelope. Model choice falls out of the evaluation harness, not the sales pitch."}}, {"@type": "Question", "name": "How do you handle data residency and sovereignty?", "acceptedAnswer": {"@type": "Answer", "text": "Where residency is a requirement — NDPA, sector regulation, or client policy — we design for it from the start: in-region inference, BYOK key management, VPC-isolated deployments, or on-prem model hosting as needed."}}, {"@type": "Question", "name": "What agent frameworks do you use?", "acceptedAnswer": {"@type": "Answer", "text": "We select per engagement. We have shipped on LangGraph, CrewAI, custom orchestration, and provider-native agent APIs. Framework choice is an implementation detail — the architecture discipline is what carries across."}}, {"@type": "Question", "name": "How do you prevent hallucinations in production agents?", "acceptedAnswer": {"@type": "Answer", "text": "Hallucinations are a design problem, not just a model problem. We constrain the surface: structured tool outputs, retrieval-grounded generation where factual accuracy matters, policy checks on every external action, and evaluation gates before promotion."}}, {"@type": "Question", "name": "Do you provide post-deployment monitoring?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Observability is part of the build, not an add-on. Clients receive dashboards covering accuracy drift, cost, latency, policy violations, and human-override rates. Ongoing managed operations is available as a separate engagement."}}, {"@type": "Question", "name": "How long does it take to get an agent into production?", "acceptedAnswer": {"@type": "Answer", "text": "A focused agent on a well-scoped workflow typically moves from kickoff to supervised production in 10–16 weeks. Broader multi-agent systems or heavily regulated environments take longer — usually because the policy and integration surface, not the model work, is what governs the timeline."}}]}</script>
+<!-- cognis-service-longform:end -->
+
     <!-- End of bodyEnd -->
   
 
