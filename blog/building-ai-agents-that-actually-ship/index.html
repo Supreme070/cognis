@@ -2140,6 +2140,91 @@
       </svg>
     <svg viewBox="0 0 40 30" id="svg12363347018"><path d="M 36.968 20.426 L 33.716 26.059 L 24.189 26.048 L 27.223 20.794 L 18.262 5.293 L 28.346 5.337 Z" fill="var(--token-e9a98e35-399c-4c23-b15a-bb69e055d084, rgb(19, 19, 19)) /* {&quot;name&quot;:&quot;black&quot;} */"></path><path d="M 9.807 5.266 L 16.312 5.266 L 21.066 13.522 L 14.999 13.521 L 6.055 29.033 L 1.051 20.277 Z" fill="var(--token-e9a98e35-399c-4c23-b15a-bb69e055d084, rgb(19, 19, 19)) /* {&quot;name&quot;:&quot;black&quot;} */"></path></svg></div>
     <!-- Start of bodyEnd -->
+<!-- cognis-longform:start -->
+
+<style data-cognis-longform-style>
+  article.cognis-longform {
+    max-width: 760px;
+    margin: 48px auto 96px;
+    padding: 0 24px;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #131313;
+    font-size: 17px;
+    line-height: 1.72;
+  }
+  article.cognis-longform .lf-lead {
+    font-size: 20px; line-height: 1.55; color: #2f2f2f;
+    margin: 0 0 24px; font-weight: 500;
+  }
+  article.cognis-longform .lf-byline {
+    color: #7b7b7b; font-size: 14px; margin: 0 0 40px;
+    padding-bottom: 24px; border-bottom: 1px solid #e6e6e6;
+  }
+  article.cognis-longform .lf-byline a { color: #131313; text-decoration: none; font-weight: 600; }
+  article.cognis-longform .lf-byline a:hover { background: #cdfb56; }
+  article.cognis-longform h2 {
+    font-size: 26px; line-height: 1.25; letter-spacing: -0.01em;
+    margin: 40px 0 14px; font-weight: 700;
+  }
+  article.cognis-longform p { margin: 0 0 16px; }
+  article.cognis-longform ul, article.cognis-longform ol { padding-left: 22px; margin: 0 0 18px; }
+  article.cognis-longform li { margin-bottom: 8px; }
+  article.cognis-longform a { color: #131313; text-decoration: underline; text-underline-offset: 3px; }
+  article.cognis-longform a:hover { background: #cdfb56; }
+  article.cognis-longform .lf-related {
+    margin-top: 56px; padding: 28px; background: #ffffff;
+    border: 1px solid #e6e6e6; border-radius: 12px;
+  }
+  article.cognis-longform .lf-related h3 {
+    margin: 0 0 12px; font-size: 16px; letter-spacing: 0.04em;
+    text-transform: uppercase; color: #7b7b7b; font-weight: 600;
+  }
+  article.cognis-longform .lf-related ul { list-style: none; padding: 0; margin: 0; }
+  article.cognis-longform .lf-related li { margin: 0 0 8px; }
+</style>
+
+<article class="cognis-longform" data-cognis-slug="building-ai-agents-that-actually-ship">
+  <p class="lf-lead">AI agents ship when they are scoped like systems, not demos. Most agent projects stall because the team built a conversation, not a workflow — no tool contract, no eval harness, no production boundary. Shipping agents is about the plumbing, not the prompt.</p>
+  <p class="lf-byline">By <a href="/teams/supreme-oyewumi">Supreme Oyewumi</a> · Founder & CEO, Cognis Group</p>
+  <h2>Why do most AI agent projects stall at the demo?</h2>
+<p>The demo version of an agent runs on a curated prompt, perfect inputs, and a benevolent developer on the keyboard. Production does not look like that. In production the agent encounters ambiguous instructions, broken tools, rate limits, adversarial users, and data it has never seen. The demo-to-prod gap is not a scaling problem. It is a design problem.</p>
+<p>Teams that ship agents treat the agent as a bounded system with four explicit contracts:</p>
+<ul>
+  <li>Input contract — what the agent will accept, and what it will refuse.</li>
+  <li>Tool contract — which tools it can call, with which arguments, under which policies.</li>
+  <li>Output contract — what a well-formed response looks like, and how it is verified.</li>
+  <li>Failure contract — what happens when any of the above breaks.</li>
+</ul>
+<h2>What does a deployment-first agent architecture look like?</h2>
+<p>Deployment-first means the first artefact is not the prompt. It is the evaluation harness. Before any real work on the agent, the team writes a representative set of ground-truth cases — 50 to 300 examples, depending on surface — and a scorer. Every change to the agent runs the harness. Regressions are visible the same day.</p>
+<p>The second artefact is the tool layer. Every tool the agent can call is a typed, versioned function with explicit permissions and audit logging. Tools fail closed. No tool runs a write without a dry-run mode.</p>
+<p>The third artefact is the routing policy. A single monolithic model rarely wins. A small planner model plus targeted specialist models plus a verification pass outperforms a single generalist in almost every production surface we have built.</p>
+<p>Only after those three artefacts exist does the team write the system prompt. At that point the prompt is a configuration file, not a work of art.</p>
+<h2>How do you keep an agent alive in production?</h2>
+<p>An agent in production is a living system. The data it sees drifts, the tools it calls change, the users learn to probe its edges. Keeping it alive requires four operational practices:</p>
+<ol>
+  <li><strong>Continuous evaluation.</strong> The harness runs on every change, and a sampled slice runs nightly against real production traffic.</li>
+  <li><strong>Telemetry that answers the right questions.</strong> Tool call success rate, verification pass rate, user override rate, hallucination rate on reference inputs — not generic "tokens served."</li>
+  <li><strong>A feedback loop to the owner.</strong> Every user override and every verification failure feeds a triage queue that a human works through weekly.</li>
+  <li><strong>A kill switch.</strong> The agent can be partially or fully disabled without a deploy, routed to a deterministic fallback, or forced into human-in-the-loop mode for a subset of traffic.</li>
+</ol>
+<h2>Where do agents create real value versus theatre?</h2>
+<p>Agents are worth the engineering overhead where the work is high-volume, multi-step, and tolerant of a verification layer. Customer support triage, claims intake, sales research, document extraction, internal knowledge retrieval with citation, and guided onboarding are all surfaces where we have seen measurable wins.</p>
+<p>They are <em>not</em> worth the overhead for one-shot generation, tasks where a single API call would do the job, or decisions where the cost of a subtle error outweighs the cost of a human in the loop. A regulation-grade credit decision is not an agent problem. A credit-memo drafting assistant is.</p>
+<h2>What should a team do in the first 30 days on an agent project?</h2>
+<p>Day 1–7: write the four contracts above. Do not write prompts yet. Day 8–14: build the evaluation harness against a real data slice. Day 15–21: build the tool layer with dry-run and audit. Day 22–30: build the smallest useful agent, run it against the harness, and ship it to a tiny production audience under a kill switch.</p>
+<p>At day 30 you have an agent in production with known behaviour under known conditions. That is more progress than most teams make in six months.</p>
+<p>This is the methodology behind our <a href="/our-services/ai-agent-automation-engineering">AI Agent &amp; Automation Engineering</a> practice — deployment-first, contract-driven, never a demo dressed as production.</p>
+  <aside class="lf-related">
+  <h3>Related services</h3>
+  <ul>
+  <li><a href="/our-services/ai-agent-automation-engineering">AI Agent & Automation Engineering →</a></li>
+  <li><a href="/our-services/ml-data-intelligence">ML & Data Intelligence →</a></li>
+  </ul>
+</aside>
+</article>
+<!-- cognis-longform:end -->
+
     <!-- End of bodyEnd -->
   
 

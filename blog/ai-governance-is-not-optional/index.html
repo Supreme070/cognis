@@ -2140,6 +2140,102 @@
       </svg>
     <svg viewBox="0 0 40 30" id="svg12363347018"><path d="M 36.968 20.426 L 33.716 26.059 L 24.189 26.048 L 27.223 20.794 L 18.262 5.293 L 28.346 5.337 Z" fill="var(--token-e9a98e35-399c-4c23-b15a-bb69e055d084, rgb(19, 19, 19)) /* {&quot;name&quot;:&quot;black&quot;} */"></path><path d="M 9.807 5.266 L 16.312 5.266 L 21.066 13.522 L 14.999 13.521 L 6.055 29.033 L 1.051 20.277 Z" fill="var(--token-e9a98e35-399c-4c23-b15a-bb69e055d084, rgb(19, 19, 19)) /* {&quot;name&quot;:&quot;black&quot;} */"></path></svg></div>
     <!-- Start of bodyEnd -->
+<!-- cognis-longform:start -->
+
+<style data-cognis-longform-style>
+  article.cognis-longform {
+    max-width: 760px;
+    margin: 48px auto 96px;
+    padding: 0 24px;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #131313;
+    font-size: 17px;
+    line-height: 1.72;
+  }
+  article.cognis-longform .lf-lead {
+    font-size: 20px; line-height: 1.55; color: #2f2f2f;
+    margin: 0 0 24px; font-weight: 500;
+  }
+  article.cognis-longform .lf-byline {
+    color: #7b7b7b; font-size: 14px; margin: 0 0 40px;
+    padding-bottom: 24px; border-bottom: 1px solid #e6e6e6;
+  }
+  article.cognis-longform .lf-byline a { color: #131313; text-decoration: none; font-weight: 600; }
+  article.cognis-longform .lf-byline a:hover { background: #cdfb56; }
+  article.cognis-longform h2 {
+    font-size: 26px; line-height: 1.25; letter-spacing: -0.01em;
+    margin: 40px 0 14px; font-weight: 700;
+  }
+  article.cognis-longform p { margin: 0 0 16px; }
+  article.cognis-longform ul, article.cognis-longform ol { padding-left: 22px; margin: 0 0 18px; }
+  article.cognis-longform li { margin-bottom: 8px; }
+  article.cognis-longform a { color: #131313; text-decoration: underline; text-underline-offset: 3px; }
+  article.cognis-longform a:hover { background: #cdfb56; }
+  article.cognis-longform .lf-related {
+    margin-top: 56px; padding: 28px; background: #ffffff;
+    border: 1px solid #e6e6e6; border-radius: 12px;
+  }
+  article.cognis-longform .lf-related h3 {
+    margin: 0 0 12px; font-size: 16px; letter-spacing: 0.04em;
+    text-transform: uppercase; color: #7b7b7b; font-weight: 600;
+  }
+  article.cognis-longform .lf-related ul { list-style: none; padding: 0; margin: 0; }
+  article.cognis-longform .lf-related li { margin: 0 0 8px; }
+</style>
+
+<article class="cognis-longform" data-cognis-slug="ai-governance-is-not-optional">
+  <p class="lf-lead">AI governance is not a compliance artefact you add at the end — it is the operating discipline that decides whether your AI survives its first audit, its first incident, and its first year in production. The EU AI Act, ISO 42001, NIST AI RMF, and Nigeria's NDPA all assume governance is built in, not bolted on.</p>
+  <p class="lf-byline">By <a href="/teams/kola-olatunde">Kola Olatunde</a> · AI Cybersecurity & Governance Lead, Cognis Group</p>
+  <h2>What is AI governance, in practical terms?</h2>
+<p>AI governance is the set of policies, controls, and accountabilities that make an AI system safe to run and defensible to regulators, auditors, and the people affected by its decisions. It covers how models are scoped, how data is sourced, how risks are classified, how the system is monitored, and who is on the hook when it behaves badly.</p>
+<p>A governance programme that works has four layers:</p>
+<ul>
+  <li><strong>Policy</strong> — what the organisation will and will not do with AI.</li>
+  <li><strong>Process</strong> — how new AI use cases are classified, reviewed, and approved.</li>
+  <li><strong>Controls</strong> — the technical and operational measures that make the policy real (access, logging, evaluation, red-teaming, incident response).</li>
+  <li><strong>Evidence</strong> — the paper trail that lets you prove any of the above under audit.</li>
+</ul>
+<h2>Which frameworks actually apply to your organisation?</h2>
+<p>Most organisations do not need to implement every framework. They need to map the specific regulations that bind them to the specific controls that satisfy those regulations, and then use a general framework as the connective tissue. The four we see most in African and globally-integrated engagements:</p>
+<ul>
+  <li><strong>EU AI Act.</strong> If you serve EU-based users or trade with EU entities, risk classification and high-risk obligations apply. Phased enforcement began February 2025, with general-purpose AI obligations active August 2025 and full high-risk provisions by August 2026.</li>
+  <li><strong>NIST AI RMF 1.0.</strong> A voluntary but widely-adopted risk framework. Govern, Map, Measure, Manage. Excellent backbone for an organisation that wants a defensible, repeatable process without a specific regulator in the room.</li>
+  <li><strong>ISO/IEC 42001.</strong> The first certifiable AI management system standard. Useful when clients or partners want third-party assurance that you run AI responsibly.</li>
+  <li><strong>Nigeria Data Protection Act 2023 and NDPC regulations.</strong> Personal data used in AI falls here. The act imposes DPO obligations, DPIA requirements, and cross-border transfer rules that affect most enterprise AI pipelines.</li>
+</ul>
+<p>The African Union Continental AI Strategy and sector-specific CBN and NCC guidance add further obligations for financial services and telecoms.</p>
+<h2>What does "governance by design" look like in a real deployment?</h2>
+<p>Governance by design means every AI use case enters a classification gate before engineering starts. The gate asks: what data is used, who is affected, what happens when the system is wrong, what regulations apply? The answers determine the control set — which becomes part of the engineering backlog, not a compliance memo at launch.</p>
+<p>Concretely, that means:</p>
+<ul>
+  <li>A risk register entry with a named owner and a re-review cadence.</li>
+  <li>A DPIA, where personal data is in play.</li>
+  <li>An evaluation harness with fairness, safety, and robustness metrics matched to the use case.</li>
+  <li>Logging that preserves the inputs, outputs, and model version for the statutory retention window.</li>
+  <li>An incident response plan specific to the model, not a generic IT runbook.</li>
+</ul>
+<h2>Where do most governance programmes break?</h2>
+<p>They break in three places. First, policy and process are written by legal and never connect to the engineering pipeline — so in practice nothing changes. Second, the controls are defined but never audited, so drift accumulates silently. Third, there is no accountable owner when things go wrong, which means no one is authorised to pull a model down.</p>
+<p>The fix is unglamorous: appoint an accountable owner for each AI system, bake the controls into the deployment pipeline, and audit the evidence trail quarterly. Do not let the programme live in a PDF.</p>
+<h2>How should a leadership team start on AI governance this quarter?</h2>
+<p>Four moves:</p>
+<ol>
+  <li>Inventory every AI system actually in use, including shadow ones. Assign each a risk tier against the EU AI Act classification and your internal tolerance.</li>
+  <li>For each system, name an owner and record the controls already in place — gaps become a backlog, not an emergency.</li>
+  <li>Stand up a lightweight AI review board — not a bottleneck committee, but a 30-minute standing slot that classifies new use cases and signs off exit criteria.</li>
+  <li>Commit to one certifiable artefact in the next 12 months — an ISO 42001 readiness assessment, a DPIA programme, or a third-party audit of one high-risk system.</li>
+</ol>
+<p>Governance done well does not slow AI down. It is what lets AI run at the speed the business actually needs. This is the backbone of our <a href="/our-services/ai-governance-risk-compliance">AI Governance, Risk &amp; Compliance</a> practice.</p>
+  <aside class="lf-related">
+  <h3>Related services</h3>
+  <ul>
+  <li><a href="/our-services/ai-governance-risk-compliance">AI Governance, Risk & Compliance →</a></li>
+  <li><a href="/our-services/ai-strategy-advisory">AI Strategy & Advisory →</a></li>
+  </ul>
+</aside>
+</article>
+<!-- cognis-longform:end -->
+
     <!-- End of bodyEnd -->
   
 
