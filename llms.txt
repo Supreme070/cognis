@@ -12,6 +12,13 @@ Last updated: 2026-04-14
 - [Blog / Insights](https://cognis.group/blog): Enterprise AI deployment, governance, ROI, and workforce development
 - [Contact](https://cognis.group/contact): Start an engagement with Cognis Group
 
+## Case Studies
+
+- [Case Studies Landing](https://cognis.group/case-studies): Selected Cognis Group engagements from strategy to governed production.
+- [MarketSage: AI sales intelligence platform](https://cognis.group/case-studies/marketsage): 0 to v1 in 14 weeks — reference build for our agent engineering practice.
+- [Claims processing: 14 days to <48 hours](https://cognis.group/case-studies/claims-processing-automation): Governed agent system cut claims cycle time by 85% in a multi-country financial services group (anonymised).
+- [AI training: 6 months in 6 weeks](https://cognis.group/case-studies/ai-training-programme): 3,200 staff trained and EU AI Act Article 4 literacy evidenced in six weeks (anonymised).
+
 ## How We Work
 
 - [Methodology](https://cognis.group/how-we-work): Our six-phase engagement methodology — Discovery, Assessment, Strategy, Build, Deploy, Govern — designed to ship production AI rather than stall at pilot.
