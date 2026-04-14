@@ -1298,12 +1298,14 @@
         key: KEY_CONTACT,
         from_name: 'cognis.group contact form',
         subject: 'New contact form submission — cognis.group',
+        redirect: 'https://cognis.group/thanks.html',
         button: 'Send message'
       };
       var NEWSLETTER_META = {
         key: KEY_NEWSLETTER,
         from_name: 'cognis.group newsletter',
         subject: 'New newsletter signup — cognis.group',
+        redirect: 'https://cognis.group/thanks-subscribe.html',
         button: 'Subscribe'
       };
 
@@ -1339,7 +1341,7 @@
           setHidden(form, 'access_key', meta.key);
           setHidden(form, 'from_name', meta.from_name);
           setHidden(form, 'subject', meta.subject);
-          setHidden(form, 'redirect', 'https://cognis.group/thanks.html');
+          setHidden(form, 'redirect', meta.redirect);
 
           // Honeypot — Framer forms already ship an off-screen name="botcheck"
           // text input in some variants; only add ours if absent.
@@ -1386,7 +1388,7 @@
                 try {
                   var fd = new FormData(form);
                   fetch(WEB3, { method: 'POST', body: fd })
-                    .then(function () { location.href = 'https://cognis.group/thanks.html'; })
+                    .then(function () { location.href = meta.redirect; })
                     .catch(function () {});
                 } catch (_) {}
               }
@@ -6203,7 +6205,7 @@
                     <input type="checkbox" name="botcheck" style="display:none !important" tabindex="-1" autocomplete="off" aria-hidden="true" />
                     <input type="hidden" name="from_name" value="cognis.group newsletter" />
                     <input type="hidden" name="subject" value="New newsletter signup — cognis.group" />
-                    <input type="hidden" name="redirect" value="https://cognis.group/thanks.html" />
+                    <input type="hidden" name="redirect" value="https://cognis.group/thanks-subscribe.html" />
                     <label class="framer-1wsxa1y">
                       <div class="framer-4cmwho" style="--extracted-r6o4lv:var(--token-6f1cfa67-1158-449a-89e5-107eb453b2fc, rgb(255, 255, 255));--framer-paragraph-spacing:0px;transform:none" data-framer-component-type="RichTextContainer">
                         <p class="framer-text framer-styles-preset-14n02kf" data-styles-preset="KVbFiKquJ" dir="auto" style="--framer-text-color:var(--extracted-r6o4lv, var(--token-6f1cfa67-1158-449a-89e5-107eb453b2fc, rgb(255, 255, 255)))">
@@ -6398,7 +6400,7 @@
                     <input type="checkbox" name="botcheck" style="display:none !important" tabindex="-1" autocomplete="off" aria-hidden="true" />
                     <input type="hidden" name="from_name" value="cognis.group newsletter" />
                     <input type="hidden" name="subject" value="New newsletter signup — cognis.group" />
-                    <input type="hidden" name="redirect" value="https://cognis.group/thanks.html" />
+                    <input type="hidden" name="redirect" value="https://cognis.group/thanks-subscribe.html" />
                     <label class="framer-1wsxa1y">
                       <div class="framer-4cmwho" style="--extracted-r6o4lv:var(--token-6f1cfa67-1158-449a-89e5-107eb453b2fc, rgb(255, 255, 255));--framer-paragraph-spacing:0px;transform:none" data-framer-component-type="RichTextContainer">
                         <p class="framer-text framer-styles-preset-14n02kf" data-styles-preset="KVbFiKquJ" dir="auto" style="--framer-text-color:var(--extracted-r6o4lv, var(--token-6f1cfa67-1158-449a-89e5-107eb453b2fc, rgb(255, 255, 255)))">
@@ -6593,7 +6595,7 @@
                     <input type="checkbox" name="botcheck" style="display:none !important" tabindex="-1" autocomplete="off" aria-hidden="true" />
                     <input type="hidden" name="from_name" value="cognis.group newsletter" />
                     <input type="hidden" name="subject" value="New newsletter signup — cognis.group" />
-                    <input type="hidden" name="redirect" value="https://cognis.group/thanks.html" />
+                    <input type="hidden" name="redirect" value="https://cognis.group/thanks-subscribe.html" />
                     <label class="framer-1wsxa1y">
                       <div class="framer-4cmwho" style="--extracted-r6o4lv:var(--token-6f1cfa67-1158-449a-89e5-107eb453b2fc, rgb(255, 255, 255));--framer-paragraph-spacing:0px;transform:none" data-framer-component-type="RichTextContainer">
                         <p class="framer-text framer-styles-preset-14n02kf" data-styles-preset="KVbFiKquJ" dir="auto" style="--framer-text-color:var(--extracted-r6o4lv, var(--token-6f1cfa67-1158-449a-89e5-107eb453b2fc, rgb(255, 255, 255)))">
