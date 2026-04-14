@@ -1888,7 +1888,29 @@
         }
     </style>  <base href="/" />
     <script type="application/ld+json" data-cognis-route-schema>{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://cognis.group/teams/kola-olatunde#person","name":"Kola Olatunde","jobTitle":"AI Cybersecurity & Governance Lead","image":"https://cognis.group/framer-runtime/images/QTiI3J2XXGOwJw3fyXhxuB92fl0.png","url":"https://cognis.group/teams/kola-olatunde","worksFor":{"@id":"https://cognis.group/#organization"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://cognis.group/teams/kola-olatunde"}},{"@type":"ProfilePage","@id":"https://cognis.group/teams/kola-olatunde#webpage","url":"https://cognis.group/teams/kola-olatunde","name":"Kola Olatunde — AI Cybersecurity & Governance Lead","isPartOf":{"@id":"https://cognis.group/#website"},"breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://cognis.group/"},{"@type":"ListItem","position":2,"name":"About","item":"https://cognis.group/about-us"},{"@type":"ListItem","position":3,"name":"Kola Olatunde","item":"https://cognis.group/teams/kola-olatunde"}]}}]}</script>
-  </head>
+    <!-- cognis-ux-tweaks:start -->
+<style data-cognis-ux-tweaks>
+  /* Let vertical page scroll pass through horizontal Framer slideshows
+     on mobile (fixes "stuck on Supreme" on about-us team section). */
+  .framer-slideshow,
+  .framer-slideshow-axis-x,
+  [data-framer-name="slideshow"],
+  [data-framer-name="team"] {
+    touch-action: pan-y;
+  }
+  .framer-slideshow > div,
+  .framer-slideshow-axis-x > div {
+    touch-action: pan-y;
+  }
+
+  /* Soften testimonials transition — Framer default of 0.25s snaps when
+     you release a swipe. 0.55s cubic-bezier glides into place. */
+  .framer-slideshow-axis-x ul {
+    transition: transform 0.55s cubic-bezier(0.22, 0.61, 0.36, 1) !important;
+  }
+</style>
+<!-- cognis-ux-tweaks:end -->
+</head>
   <body><video data-cognis-hero-portal="1" src="/framer-runtime/assets/hero-afr5.mp4" autoplay="" muted="" loop="" playsinline="" webkit-playsinline="" preload="metadata" poster="/framer-runtime/assets/hero-poster.jpg" aria-hidden="true" tabindex="-1" disablepictureinpicture="" disableremoteplayback="" style="position: fixed; top: -2.05753px; left: -12.9911px; width: 1465.98px; height: 824.615px; object-fit: cover; object-position: center center; pointer-events: none; z-index: 0; border-radius: 24px; opacity: 0; will-change: transform, width, height, top, left; transform: translateZ(0px); backface-visibility: hidden;"></video><div data-cognis-hero-scrim="1" aria-hidden="true" style="position: fixed; top: -2.05753px; left: -12.9911px; width: 1465.98px; height: 824.615px; pointer-events: none; z-index: 0; opacity: 0; border-radius: 24px; background: linear-gradient(rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.66) 35%, rgba(0, 0, 0, 0.38) 62%, rgba(0, 0, 0, 0.05) 88%, rgba(0, 0, 0, 0) 100%); will-change: transform, width, height, top, left; transform: translateZ(0px);"></div>
     <!-- Start of bodyStart -->
     <!-- End of bodyStart -->

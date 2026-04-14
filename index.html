@@ -1816,7 +1816,29 @@
       }
     })();
     </script>
-  </head>
+    <!-- cognis-ux-tweaks:start -->
+<style data-cognis-ux-tweaks>
+  /* Let vertical page scroll pass through horizontal Framer slideshows
+     on mobile (fixes "stuck on Supreme" on about-us team section). */
+  .framer-slideshow,
+  .framer-slideshow-axis-x,
+  [data-framer-name="slideshow"],
+  [data-framer-name="team"] {
+    touch-action: pan-y;
+  }
+  .framer-slideshow > div,
+  .framer-slideshow-axis-x > div {
+    touch-action: pan-y;
+  }
+
+  /* Soften testimonials transition — Framer default of 0.25s snaps when
+     you release a swipe. 0.55s cubic-bezier glides into place. */
+  .framer-slideshow-axis-x ul {
+    transition: transform 0.55s cubic-bezier(0.22, 0.61, 0.36, 1) !important;
+  }
+</style>
+<!-- cognis-ux-tweaks:end -->
+</head>
   <body>
     <!-- Start of bodyStart -->
     <!-- End of bodyStart -->

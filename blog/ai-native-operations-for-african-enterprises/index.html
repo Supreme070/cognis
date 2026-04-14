@@ -1888,7 +1888,29 @@
         }
     </style>  <base href="/" />
     <script type="application/ld+json" data-cognis-route-schema>{"@context":"https://schema.org","@graph":[{"@type":"BlogPosting","@id":"https://cognis.group/blog/ai-native-operations-for-african-enterprises#article","headline":"AI-Native Operations for African Enterprises","description":"African data, African regulation, African infrastructure. Why AI deployment on the continent requires context, not translation.","image":["https://cognis.group/og/cognis-og-1200x630.jpg"],"datePublished":"2026-04-08","dateModified":"2026-04-10","author":{"@type":"Person","@id":"https://cognis.group/#founder","name":"Supreme Oyewumi","jobTitle":"Founder & CEO","url":"https://cognis.group/about-us","worksFor":{"@id":"https://cognis.group/#organization"}},"publisher":{"@id":"https://cognis.group/#organization"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://cognis.group/blog/ai-native-operations-for-african-enterprises"},"url":"https://cognis.group/blog/ai-native-operations-for-african-enterprises","keywords":"African AI, AI Nigeria, AI Africa, emerging markets AI, NDPA","inLanguage":"en-GB","isPartOf":{"@id":"https://cognis.group/blog#blog"},"breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://cognis.group/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://cognis.group/blog"},{"@type":"ListItem","position":3,"name":"AI-Native Operations for African Enterprises","item":"https://cognis.group/blog/ai-native-operations-for-african-enterprises"}]}}]}</script>
-  </head>
+    <!-- cognis-ux-tweaks:start -->
+<style data-cognis-ux-tweaks>
+  /* Let vertical page scroll pass through horizontal Framer slideshows
+     on mobile (fixes "stuck on Supreme" on about-us team section). */
+  .framer-slideshow,
+  .framer-slideshow-axis-x,
+  [data-framer-name="slideshow"],
+  [data-framer-name="team"] {
+    touch-action: pan-y;
+  }
+  .framer-slideshow > div,
+  .framer-slideshow-axis-x > div {
+    touch-action: pan-y;
+  }
+
+  /* Soften testimonials transition — Framer default of 0.25s snaps when
+     you release a swipe. 0.55s cubic-bezier glides into place. */
+  .framer-slideshow-axis-x ul {
+    transition: transform 0.55s cubic-bezier(0.22, 0.61, 0.36, 1) !important;
+  }
+</style>
+<!-- cognis-ux-tweaks:end -->
+</head>
   <body><video data-cognis-hero-portal="1" src="/framer-runtime/assets/hero-afr5.mp4" autoplay="" muted="" loop="" playsinline="" webkit-playsinline="" preload="metadata" poster="/framer-runtime/assets/hero-poster.jpg" aria-hidden="true" tabindex="-1" disablepictureinpicture="" disableremoteplayback="" style="position: fixed; top: 12px; left: 12px; width: 1416px; height: 796.5px; object-fit: cover; object-position: center center; pointer-events: none; z-index: 0; border-radius: 24px; opacity: 0; will-change: transform, width, height, top, left; transform: translateZ(0px); backface-visibility: hidden;"></video><div data-cognis-hero-scrim="1" aria-hidden="true" style="position: fixed; top: 12px; left: 12px; width: 1416px; height: 796.5px; pointer-events: none; z-index: 0; opacity: 0; border-radius: 24px; background: linear-gradient(rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.66) 35%, rgba(0, 0, 0, 0.38) 62%, rgba(0, 0, 0, 0.05) 88%, rgba(0, 0, 0, 0) 100%); will-change: transform, width, height, top, left; transform: translateZ(0px);"></div>
     <!-- Start of bodyStart -->
     <!-- End of bodyStart -->
