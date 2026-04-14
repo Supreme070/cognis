@@ -1,19 +1,15 @@
 # Cloudflare Pages routing for Cognis.
 #
-# Prerendered snapshots (built by scripts/prerender_routes.mjs) live at:
-#   - about-us.html, our-services.html, contact.html, blog.html
+# Prerendered snapshots live at:
+#   - <section>/index.html (about-us, our-services, contact, blog)
 #   - our-services/<slug>/index.html (6 service detail pages)
 #   - blog/<slug>/index.html (6 blog posts)
+#   - teams/<id>/index.html (team member detail pages)
 #
-# Cloudflare Pages serves directory index files automatically, so
-# detail routes need no entries here — only flat *.html files need
-# an explicit rewrite so /about-us resolves to /about-us.html.
+# Cloudflare Pages serves directory index files automatically, so no
+# rewrites are needed. The prior `/about-us -> /about-us.html` mapping
+# triggered a redirect loop because CF Pages' clean-URLs feature redirects
+# /about-us.html -> /about-us, fighting the rewrite.
 #
-# Unknown paths fall through to /404.html with HTTP 404 (Cloudflare
-# Pages default when a top-level 404.html exists). The prior catch-all
-# `/* /index.html 200` poisoned crawl budget and is removed.
-
-/about-us       /about-us.html       200
-/our-services   /our-services.html   200
-/contact        /contact.html        200
-/blog           /blog.html           200
+# Unknown paths fall through to /404.html with HTTP 404 (CF Pages default
+# when a top-level 404.html exists).

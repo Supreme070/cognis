@@ -213,7 +213,7 @@ async function main() {
     // Nuke prior detail-page snapshots — otherwise spa_server finds them
     // on disk and serves the stale copy instead of falling through to
     // index.html for a fresh render.
-    for (const sub of ['blog', 'our-services']) {
+    for (const sub of ['blog', 'our-services', 'about-us', 'contact', 'teams']) {
       const dir = path.join(root, sub);
       try { rmSync(dir, { recursive: true, force: true }); } catch {}
     }

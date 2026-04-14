@@ -177,7 +177,7 @@ export const ROUTES = [
   // Top-level — written as flat *.html files (matches legacy _redirects).
   {
     path: '/about-us',
-    out: 'about-us.html',
+    out: 'about-us/index.html',
     title: 'About Us | Cognis Group',
     description:
       'Cognis Group is a global AI consulting firm building intelligent agents, strategy, training, and governance frameworks. Quod Tango Muto.',
@@ -199,7 +199,7 @@ export const ROUTES = [
   },
   {
     path: '/our-services',
-    out: 'our-services.html',
+    out: 'our-services/index.html',
     title: 'Our Services | Cognis Group',
     description:
       'Strategy, agent engineering, workforce training, and AI governance — the disciplines that move AI from slide deck to production.',
@@ -220,7 +220,7 @@ export const ROUTES = [
   },
   {
     path: '/contact',
-    out: 'contact.html',
+    out: 'contact/index.html',
     title: 'Contact | Cognis Group',
     description:
       'Talk to Cognis Group about AI strategy, agent engineering, and governance. Lagos, Nigeria — engaged globally.',
@@ -241,7 +241,7 @@ export const ROUTES = [
   },
   {
     path: '/blog',
-    out: 'blog.html',
+    out: 'blog/index.html',
     title: 'Blog | Cognis Group',
     description:
       'Notes from the field on AI strategy, agent engineering, governance, and operating AI in production.',
