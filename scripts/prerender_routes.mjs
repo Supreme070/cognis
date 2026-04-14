@@ -101,6 +101,14 @@ function transform(html, route) {
     `<link rel="canonical" href="${canonical}" />`
   );
 
+  // hreflang — single-language site for now, declare en + x-default.
+  // Idempotent: strip any existing rel=alternate hreflang tags first.
+  out = out.replace(/<link\s+rel="alternate"\s+hreflang="[^"]*"[^>]*\/?>\s*/g, '');
+  out = out.replace(
+    /<link\s+rel="canonical"[^>]*\/?>/,
+    (m) => `${m}\n    <link rel="alternate" hreflang="en" href="${canonical}" />\n    <link rel="alternate" hreflang="x-default" href="${canonical}" />`
+  );
+
   // Open Graph.
   out = replaceOrAppend(
     out,
