@@ -10,7 +10,7 @@
     "cms:build": "python3 scripts/build_cms.py",
     "cms:check": "python3 scripts/build_cms.py --check",
     "cms:guard": "python3 scripts/guard_no_chunk_patching.py",
-    "prerender": "npm run cms:guard && npm run cms:build && node scripts/prerender_routes.mjs"
+    "prerender": "npm run cms:guard && npm run cms:build && node scripts/prerender_routes.mjs && python3 scripts/inject_alt_text.py"
   },
   "keywords": [],
   "author": "",
