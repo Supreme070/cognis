@@ -1384,6 +1384,15 @@
               if (!emailEl || !emailEl.value) { return; /* let browser show required */ }
               e.preventDefault();
               e.stopImmediatePropagation();
+              // Re-apply hidden inputs in case Framer re-rendered the form
+              // interior since initial wiring (wipes access_key/redirect etc).
+              setHidden(form, 'access_key', meta.key);
+              setHidden(form, 'from_name', meta.from_name);
+              setHidden(form, 'subject', meta.subject);
+              setHidden(form, 'redirect', meta.redirect);
+              form.setAttribute('action', WEB3);
+              form.setAttribute('method', 'POST');
+              emailEl.setAttribute('name', 'email');
               try { form.submit(); } catch (err) {
                 try {
                   var fd = new FormData(form);
