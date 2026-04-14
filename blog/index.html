@@ -2161,6 +2161,16 @@
     font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
     color: #7b7b7b; font-weight: 600; margin-right: 8px;
   }
+  @media (max-width: 640px) {
+    .cognis-site-links { padding: 24px 20px; }
+    .cognis-site-links .csl-inner {
+      flex-direction: column; align-items: flex-start; gap: 20px;
+    }
+    .cognis-site-links .csl-group {
+      width: 100%; flex-wrap: wrap; gap: 14px;
+    }
+    .cognis-site-links .csl-label { width: 100%; margin: 0 0 4px; }
+  }
 </style>
 <nav class="cognis-site-links" aria-label="Secondary site navigation">
   <div class="csl-inner">
