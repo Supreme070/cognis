@@ -54,34 +54,75 @@ PRODUCTS_SCHEMA = SCHEMA_START + """
 """ + SCHEMA_END
 
 # ── 1. Header "Products" link (runtime) ──────────────────────────────────
+# Self-contained link: instead of cloning a Framer nav node (which React wipes
+# on hydration / SPA re-render — leaving an empty gap, no hover, and missing
+# entirely on deeper routes), we build our OWN <a> styled by our own CSS. It
+# carries a real :hover (the same vertical text-slide the native items use) and
+# theme-matches its colour from a sibling at runtime, so it looks native on
+# both light and dark headers. A tight MutationObserver re-adds it instantly if
+# Framer re-renders the nav, so it never stays missing.
 NAV_SCRIPT = f"""{NAV_START}
+<style data-cognis-products-nav-style>
+  a.cognis-prod-link {{ display: flex; align-items: center; justify-content: center; padding: 12px 20px; height: 44px; box-sizing: border-box; text-decoration: none; cursor: pointer; }}
+  a.cognis-prod-link .cgpn-wrap {{ position: relative; display: inline-flex; flex-direction: column; height: 1.25em; line-height: 1.25em; overflow: hidden; }}
+  a.cognis-prod-link .cgpn-t {{ font-size: 14px; font-weight: 500; white-space: nowrap; transition: transform .3s cubic-bezier(.2,.7,.2,1); }}
+  a.cognis-prod-link:hover .cgpn-t {{ transform: translateY(-100%); }}
+</style>
 <script data-cognis-products-nav>
 (function () {{
-  // Add a "Products" item to whichever primary nav this page has:
-  //   • Framer pages  -> the [data-framer-name="menu"] container
-  //   • hand shells    -> header.site-nav > nav
-  function addToFramer(menu) {{
-    if (menu.querySelector('a[data-cognis-products]')) return;
-    var sample = null, kids = menu.children;
-    for (var i = kids.length - 1; i >= 0; i--) {{
-      if (kids[i].querySelector && kids[i].querySelector('a[href]')) {{ sample = kids[i]; break; }}
-    }}
-    if (!sample) return;
-    var clone = sample.cloneNode(true);
-    var a = clone.querySelector('a');
-    if (!a) return;
+  // Build our own Products link (not a Framer clone). `st` theme-matches the
+  // sibling nav items: colour, size, weight, tracking and case.
+  function buildLink(st) {{
+    st = st || {{}};
+    var a = document.createElement('a');
+    a.className = 'cognis-prod-link';
     a.setAttribute('href', '/products');
     a.setAttribute('data-cognis-products', '');
-    a.removeAttribute('data-framer-page-link-current');
-    var ps = clone.querySelectorAll('p');
-    for (var j = 0; j < ps.length; j++) ps[j].textContent = 'Products';
-    // Place "Products" right after the Services item; fall back to the end.
-    var after = null;
-    for (var k = 0; k < menu.children.length; k++) {{
-      if (menu.children[k].querySelector && menu.children[k].querySelector('a[href*="our-services"]')) {{ after = menu.children[k]; break; }}
+    a.setAttribute('aria-label', 'Products');
+    if (st.color) a.style.color = st.color;
+    var wrap = document.createElement('span'); wrap.className = 'cgpn-wrap';
+    function mk(hidden) {{
+      var s = document.createElement('span');
+      s.className = 'cgpn-t';
+      s.textContent = 'Products';
+      if (hidden) s.setAttribute('aria-hidden', 'true');
+      if (st.fontSize) s.style.fontSize = st.fontSize;
+      if (st.fontWeight) s.style.fontWeight = st.fontWeight;
+      if (st.fontFamily) s.style.fontFamily = st.fontFamily;
+      if (st.letterSpacing && st.letterSpacing !== 'normal') s.style.letterSpacing = st.letterSpacing;
+      if (st.textTransform && st.textTransform !== 'none') s.style.textTransform = st.textTransform;
+      return s;
     }}
-    if (after) after.parentNode.insertBefore(clone, after.nextSibling);
-    else sample.parentNode.appendChild(clone);
+    wrap.appendChild(mk(false)); wrap.appendChild(mk(true)); a.appendChild(wrap);
+    return a;
+  }}
+  // Sample the typography of a real, non-Products nav item so ours matches.
+  function sampleStyle(menu) {{
+    var links = menu.querySelectorAll('a[href]');
+    for (var i = 0; i < links.length; i++) {{
+      if (links[i].hasAttribute('data-cognis-products')) continue;
+      var p = links[i].querySelector('p') || links[i].querySelector('span') || links[i];
+      var cs = getComputedStyle(p);
+      var color = cs.color;
+      if (color === 'rgba(0, 0, 0, 0)') color = getComputedStyle(links[i]).color;
+      return {{ color: color, fontSize: cs.fontSize, fontWeight: cs.fontWeight, fontFamily: cs.fontFamily, letterSpacing: cs.letterSpacing, textTransform: cs.textTransform }};
+    }}
+    return null;
+  }}
+  function addToFramer(menu) {{
+    if (menu.querySelector('a[data-cognis-products]')) return;
+    // Anchor after the Services item; fall back to the last real item / end.
+    var kids = menu.children, after = null, last = null;
+    for (var i = 0; i < kids.length; i++) {{
+      var l = kids[i].querySelector && kids[i].querySelector('a[href]');
+      if (!l) continue;
+      last = kids[i];
+      if (/our-services/.test(l.getAttribute('href') || '')) after = kids[i];
+    }}
+    var link = buildLink(sampleStyle(menu));
+    if (after && after.parentNode) after.parentNode.insertBefore(link, after.nextSibling);
+    else if (last && last.parentNode) last.parentNode.appendChild(link);
+    else menu.appendChild(link);
   }}
   function addToShell(nav) {{
     if (nav.querySelector('a[href="/products"]')) return;
@@ -107,7 +148,7 @@ NAV_SCRIPT = f"""{NAV_START}
     }});
     mo.observe(document.documentElement, {{ childList: true, subtree: true }});
   }} catch (e) {{}}
-  [400, 1200, 2500].forEach(function (t) {{ setTimeout(run, t); }});
+  [200, 600, 1200, 2500].forEach(function (t) {{ setTimeout(run, t); }});
 }})();
 </script>
 {NAV_END}"""

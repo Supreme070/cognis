@@ -17,6 +17,7 @@ Fixes the "unfinished template" tells in #testimonials:
 from __future__ import annotations
 
 import re
+import urllib.parse
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -155,18 +156,120 @@ BLOCK = f"""{START}
 {END}"""
 
 
+# ── Site-wide quote-mark fix ──────────────────────────────────────────────
+# The full BLOCK above (heading swap, marquee, logo-hide) is homepage-only —
+# it depends on the #testimonials slideshow that exists only on home. But the
+# *broken white quote box* (`tdesign:quote-filled`, whose mask never loads)
+# also appears on other pages (e.g. the service detail pages). This lighter
+# block fixes just that, everywhere, with no #testimonials dependency.
+GLOBAL_START = "<!-- cognis-quotefix:start -->"
+GLOBAL_END = "<!-- cognis-quotefix:end -->"
+# CSS-only — no JS. On non-home pages the quote box lives inside Framer's live
+# testimonial carousel, which re-renders constantly: a JS innerHTML swap gets
+# wiped every frame (and fighting it with a MutationObserver burns CPU). A pure
+# CSS override of the box's background/mask can never be undone by React and
+# adds zero runtime churn. We paint the lime quote as a data-URI background and
+# disable the broken mask + white fill.
+_QUOTE_SVG = (
+    "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='#cdfb56'>"
+    "<path d='" + QUOTE_PATH + "'/></svg>"
+)
+QUOTE_DATA_URI = "data:image/svg+xml," + urllib.parse.quote(_QUOTE_SVG, safe="")
+GLOBAL_BLOCK = f"""{GLOBAL_START}
+<style data-cognis-quotefix>
+  [data-framer-name="tdesign:quote-filled"] {{
+    background-color: transparent !important;
+    -webkit-mask: none !important; mask: none !important;
+    background-image: url("{QUOTE_DATA_URI}") !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: contain !important;
+  }}
+  /* any inner mask layer the icon ships with — stand it down so only our bg shows */
+  [data-framer-name="tdesign:quote-filled"] > * {{ opacity: 0 !important; }}
+</style>
+<script data-cognis-quotefix>
+(function () {{
+  // The testimonials section also ships two leftover template tells on non-home
+  // pages: a heading ("Our operating principles") that contradicts the eyebrow,
+  // and placeholder client logos (Network / Umbrella / Vision). Fix both. These
+  // live outside the animating carousel track, so a light guarded pass sticks.
+  function tidy() {{
+    document.querySelectorAll('h1, h2, h3').forEach(function (h) {{
+      if (/operating principles/i.test(h.textContent || '')) h.textContent = 'What our clients say';
+    }});
+    // The placeholder client logos are image-based (no text), so match them by
+    // position: each sits inside the same testimonial card as a quote box.
+    // Walk up from each quote box to its card and hide the logo there — scoped
+    // so genuine logos elsewhere on the page are never touched.
+    document.querySelectorAll('[data-framer-name="tdesign:quote-filled"]').forEach(function (q) {{
+      var node = q, hops = 0;
+      while (node && hops < 5) {{
+        var logo = node.querySelector && node.querySelector('[data-framer-name="logo"]');
+        if (logo) {{ logo.style.display = 'none'; break; }}
+        node = node.parentElement; hops++;
+      }}
+    }});
+  }}
+  if (document.readyState !== 'loading') tidy();
+  else document.addEventListener('DOMContentLoaded', tidy);
+  try {{
+    var mo = new MutationObserver(function () {{
+      if (window.__cgtdRAF) return;
+      window.__cgtdRAF = requestAnimationFrame(function () {{ window.__cgtdRAF = 0; tidy(); }});
+    }});
+    mo.observe(document.documentElement, {{ childList: true, subtree: true }});
+  }} catch (e) {{}}
+  [400, 1200, 2500].forEach(function (t) {{ setTimeout(tidy, t); }});
+}})();
+</script>
+{GLOBAL_END}"""
+
+
+def snapshot_paths() -> list[Path]:
+    paths: list[Path] = []
+    skip = {
+        "node_modules", "framer-runtime", "cms-raw", "cognis-cms", "deploy",
+        "scripts", "playwright-screenshots", "stock", "tests", ".git", ".claude",
+    }
+    for sub in sorted(ROOT.iterdir()):
+        if not sub.is_dir() or sub.name.startswith(".") or sub.name in skip:
+            continue
+        if (sub / "index.html").exists():
+            paths.append(sub / "index.html")
+        for child in sorted(sub.iterdir()):
+            if child.is_dir() and (child / "index.html").exists():
+                paths.append(child / "index.html")
+    return paths
+
+
+def strip_block(html: str, start: str, end: str) -> str:
+    return re.sub(re.escape(start) + r"[\s\S]*?" + re.escape(end) + r"\s*", "", html)
+
+
 def main() -> int:
+    # 1. Homepage: full testimonials polish.
     home = ROOT / "index.html"
     if not home.exists():
         print("index.html not found")
         return 1
-    html = home.read_text(encoding="utf-8")
-    html = re.sub(re.escape(START) + r"[\s\S]*?" + re.escape(END) + r"\s*", "", html)
+    html = strip_block(home.read_text(encoding="utf-8"), START, END)
     if "</body>" not in html:
         print("no </body>")
         return 1
     home.write_text(html.replace("</body>", BLOCK + "\n</body>", 1), encoding="utf-8")
-    print("  injected: index.html")
+    print("  injected (full): index.html")
+
+    # 2. Every other snapshot: the lightweight quote-mark fix only.
+    count = 0
+    for p in snapshot_paths():
+        text = strip_block(p.read_text(encoding="utf-8"), GLOBAL_START, GLOBAL_END)
+        if "</body>" not in text:
+            continue
+        text = text.replace("</body>", GLOBAL_BLOCK + "\n</body>", 1)
+        p.write_text(text, encoding="utf-8")
+        count += 1
+    print(f"  quote-fix injected into {count} other snapshots")
     return 0
 
 
