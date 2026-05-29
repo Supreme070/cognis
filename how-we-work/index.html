@@ -178,6 +178,18 @@
         try { v.load(); } catch (e) {}  // abort any in-flight fetch
       }
     });
+
+    // Hero layout guard (home only). The hero is a full-viewport-height screen
+    // with the heading/subcopy up top and the 3D rotating cards anchored lower.
+    // On short laptop heights it compresses and the cards ride up over the
+    // wording. Enforce a min-height floor so the layout always has the room it
+    // has on a tall screen — only on home and only at laptop+ widths (the
+    // stacked mobile/tablet hero doesn't have the overlap). Cleared elsewhere.
+    var hero = document.querySelector('[data-framer-name="hero"]');
+    if (hero) {
+      if (on && window.innerWidth >= 810) hero.style.setProperty('min-height', '900px', 'important');
+      else hero.style.removeProperty('min-height');
+    }
   }
   if (document.readyState !== 'loading') tick();
   else document.addEventListener('DOMContentLoaded', tick);
@@ -188,6 +200,10 @@
     });
     mo.observe(document.documentElement, { childList: true, subtree: true });
   } catch (e) {}
+  window.addEventListener('resize', function () {
+    if (window.__cghvRZ) return;
+    window.__cghvRZ = requestAnimationFrame(function () { window.__cghvRZ = 0; tick(); });
+  }, { passive: true });
   [0, 50, 150, 400, 1000, 2500, 4200, 6000].forEach(function (t) { setTimeout(tick, t); });
 })();
 </script>
