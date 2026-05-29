@@ -113,6 +113,58 @@
   "dateModified": "2026-04-14"
 }
 </script>
+<!-- cognis-hero-video:start -->
+<script data-cognis-hero-video>
+(function () {
+  var SRC = '/framer-runtime/assets/hero-afr5.mp4';
+  function norm(pth) { return pth.replace(/\/index\.html$/, '').replace(/\/+$/, ''); }
+  function isHomePath() { return norm(location.pathname) === ''; }
+  // The page's own <link rel=canonical> is the reliable signal for WHICH route
+  // this snapshot is: it's baked in per route and never flickers. We can't use
+  // location.pathname during initial load because an early inline script
+  // (deferred-nav bootstrap) does history.replaceState(..., '/') on every page,
+  // and Framer briefly renders home content — both would falsely read as home
+  // and trigger a wasted 1.6 MB fetch on non-home routes. After things settle
+  // we switch to the live path so SPA navigation is handled too.
+  function canonicalIsHome() {
+    var l = document.querySelector('link[rel="canonical"]');
+    if (!l) return isHomePath();
+    try { return norm(new URL(l.href).pathname) === ''; } catch (e) { return isHomePath(); }
+  }
+  var settled = false;
+  setTimeout(function () { settled = true; }, 4000);
+  function wantVideo() { return settled ? isHomePath() : canonicalIsHome(); }
+  function tick() {
+    var on = wantVideo();
+    document.querySelectorAll('video[data-cognis-hero-portal]').forEach(function (v) {
+      if (on) {
+        if (!v.getAttribute('src')) {
+          v.setAttribute('preload', 'metadata');
+          v.src = SRC;
+          var p = v.play(); if (p && p.catch) p.catch(function () {});
+        }
+      } else if (v.getAttribute('src')) {
+        try { v.pause(); } catch (e) {}
+        v.removeAttribute('autoplay');
+        v.setAttribute('preload', 'none');
+        v.removeAttribute('src');
+        try { v.load(); } catch (e) {}  // abort any in-flight fetch
+      }
+    });
+  }
+  if (document.readyState !== 'loading') tick();
+  else document.addEventListener('DOMContentLoaded', tick);
+  try {
+    var mo = new MutationObserver(function () {
+      if (window.__cghvRAF) return;
+      window.__cghvRAF = requestAnimationFrame(function () { window.__cghvRAF = 0; tick(); });
+    });
+    mo.observe(document.documentElement, { childList: true, subtree: true });
+  } catch (e) {}
+  [0, 50, 150, 400, 1000, 2500, 4200, 6000].forEach(function (t) { setTimeout(tick, t); });
+})();
+</script>
+<!-- cognis-hero-video:end -->
 </head>
 <body>
 
