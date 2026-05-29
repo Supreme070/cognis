@@ -268,6 +268,55 @@
 })();
 </script>
 <!-- cognis-copy:end -->
+<!-- cognis-quotefix:start -->
+<style data-cognis-quotefix>
+  [data-framer-name="tdesign:quote-filled"] {
+    background-color: transparent !important;
+    -webkit-mask: none !important; mask: none !important;
+    background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27%23cdfb56%27%3E%3Cpath%20d%3D%27M4.583%2017.321C3.553%2016.227%203%2015%203%2013.011c0-3.5%202.457-6.637%206.03-8.188l.893%201.378c-3.335%201.804-3.987%204.145-4.247%205.621.537-.278%201.24-.375%201.929-.311%201.804.167%203.226%201.648%203.226%203.489a3.5%203.5%200%2001-3.5%203.5c-1.073%200-2.099-.49-2.748-1.179zm10%200C13.553%2016.227%2013%2015%2013%2013.011c0-3.5%202.457-6.637%206.03-8.188l.893%201.378c-3.335%201.804-3.987%204.145-4.247%205.621.537-.278%201.24-.375%201.929-.311%201.804.167%203.226%201.648%203.226%203.489a3.5%203.5%200%2001-3.5%203.5c-1.073%200-2.099-.49-2.748-1.179z%27%2F%3E%3C%2Fsvg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: contain !important;
+  }
+  /* any inner mask layer the icon ships with — stand it down so only our bg shows */
+  [data-framer-name="tdesign:quote-filled"] > * { opacity: 0 !important; }
+</style>
+<script data-cognis-quotefix>
+(function () {
+  // The testimonials section also ships two leftover template tells on non-home
+  // pages: a heading ("Our operating principles") that contradicts the eyebrow,
+  // and placeholder client logos (Network / Umbrella / Vision). Fix both. These
+  // live outside the animating carousel track, so a light guarded pass sticks.
+  function tidy() {
+    document.querySelectorAll('h1, h2, h3').forEach(function (h) {
+      if (/operating principles/i.test(h.textContent || '')) h.textContent = 'What our clients say';
+    });
+    // The placeholder client logos are image-based (no text), so match them by
+    // position: each sits inside the same testimonial card as a quote box.
+    // Walk up from each quote box to its card and hide the logo there — scoped
+    // so genuine logos elsewhere on the page are never touched.
+    document.querySelectorAll('[data-framer-name="tdesign:quote-filled"]').forEach(function (q) {
+      var node = q, hops = 0;
+      while (node && hops < 5) {
+        var logo = node.querySelector && node.querySelector('[data-framer-name="logo"]');
+        if (logo) { logo.style.display = 'none'; break; }
+        node = node.parentElement; hops++;
+      }
+    });
+  }
+  if (document.readyState !== 'loading') tidy();
+  else document.addEventListener('DOMContentLoaded', tidy);
+  try {
+    var mo = new MutationObserver(function () {
+      if (window.__cgtdRAF) return;
+      window.__cgtdRAF = requestAnimationFrame(function () { window.__cgtdRAF = 0; tidy(); });
+    });
+    mo.observe(document.documentElement, { childList: true, subtree: true });
+  } catch (e) {}
+  [400, 1200, 2500].forEach(function (t) { setTimeout(tidy, t); });
+})();
+</script>
+<!-- cognis-quotefix:end -->
 <!-- cognis-products-nav:start -->
 <style data-cognis-products-nav-style>
   a.cognis-prod-link { display: flex; align-items: center; justify-content: center; padding: 12px 20px; height: 44px; box-sizing: border-box; text-decoration: none; cursor: pointer; }
@@ -359,54 +408,5 @@
 })();
 </script>
 <!-- cognis-products-nav:end -->
-<!-- cognis-quotefix:start -->
-<style data-cognis-quotefix>
-  [data-framer-name="tdesign:quote-filled"] {
-    background-color: transparent !important;
-    -webkit-mask: none !important; mask: none !important;
-    background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27%23cdfb56%27%3E%3Cpath%20d%3D%27M4.583%2017.321C3.553%2016.227%203%2015%203%2013.011c0-3.5%202.457-6.637%206.03-8.188l.893%201.378c-3.335%201.804-3.987%204.145-4.247%205.621.537-.278%201.24-.375%201.929-.311%201.804.167%203.226%201.648%203.226%203.489a3.5%203.5%200%2001-3.5%203.5c-1.073%200-2.099-.49-2.748-1.179zm10%200C13.553%2016.227%2013%2015%2013%2013.011c0-3.5%202.457-6.637%206.03-8.188l.893%201.378c-3.335%201.804-3.987%204.145-4.247%205.621.537-.278%201.24-.375%201.929-.311%201.804.167%203.226%201.648%203.226%203.489a3.5%203.5%200%2001-3.5%203.5c-1.073%200-2.099-.49-2.748-1.179z%27%2F%3E%3C%2Fsvg%3E") !important;
-    background-repeat: no-repeat !important;
-    background-position: center !important;
-    background-size: contain !important;
-  }
-  /* any inner mask layer the icon ships with — stand it down so only our bg shows */
-  [data-framer-name="tdesign:quote-filled"] > * { opacity: 0 !important; }
-</style>
-<script data-cognis-quotefix>
-(function () {
-  // The testimonials section also ships two leftover template tells on non-home
-  // pages: a heading ("Our operating principles") that contradicts the eyebrow,
-  // and placeholder client logos (Network / Umbrella / Vision). Fix both. These
-  // live outside the animating carousel track, so a light guarded pass sticks.
-  function tidy() {
-    document.querySelectorAll('h1, h2, h3').forEach(function (h) {
-      if (/operating principles/i.test(h.textContent || '')) h.textContent = 'What our clients say';
-    });
-    // The placeholder client logos are image-based (no text), so match them by
-    // position: each sits inside the same testimonial card as a quote box.
-    // Walk up from each quote box to its card and hide the logo there — scoped
-    // so genuine logos elsewhere on the page are never touched.
-    document.querySelectorAll('[data-framer-name="tdesign:quote-filled"]').forEach(function (q) {
-      var node = q, hops = 0;
-      while (node && hops < 5) {
-        var logo = node.querySelector && node.querySelector('[data-framer-name="logo"]');
-        if (logo) { logo.style.display = 'none'; break; }
-        node = node.parentElement; hops++;
-      }
-    });
-  }
-  if (document.readyState !== 'loading') tidy();
-  else document.addEventListener('DOMContentLoaded', tidy);
-  try {
-    var mo = new MutationObserver(function () {
-      if (window.__cgtdRAF) return;
-      window.__cgtdRAF = requestAnimationFrame(function () { window.__cgtdRAF = 0; tidy(); });
-    });
-    mo.observe(document.documentElement, { childList: true, subtree: true });
-  } catch (e) {}
-  [400, 1200, 2500].forEach(function (t) { setTimeout(tidy, t); });
-})();
-</script>
-<!-- cognis-quotefix:end -->
 </body>
 </html>

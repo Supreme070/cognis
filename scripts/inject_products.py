@@ -230,14 +230,14 @@ PRODUCTS_BAND = f"""{BAND_START}
       <a class="cgp-card ms-card" href="https://www.marketsage.africa" target="_blank" rel="noopener" style="--c:#5f6fff;--glow:rgba(95,111,255,.13)">
         <span class="cgp-line"></span>
         <p class="cgp-kick">Live &middot; Marketing AI</p>
-        <div class="ms-logo"><img src="/assets/products/marketsage-logo.png" alt="MarketSage" /><span class="wm"><span class="mk">MΛRKET</span><span class="sg">SΛGE</span></span></div>
+        <div class="ms-logo"><img src="/assets/products/marketsage-logo.png" alt="MarketSage" loading="lazy" decoding="async" width="32" height="32" /><span class="wm"><span class="mk">MΛRKET</span><span class="sg">SΛGE</span></span></div>
         <p class="cgp-desc">Autonomous marketing and sales intelligence. Plans campaigns, runs them across channels, and turns activity into pipeline.</p>
         <span class="cgp-go">Visit MarketSage <span class="a">&rarr;</span></span>
       </a>
       <a class="cgp-card mig-card" href="https://migratio.cognis.group" target="_blank" rel="noopener" style="--c:#5bb04f;--glow:rgba(91,176,79,.18)">
         <span class="cgp-line"></span>
         <p class="cgp-kick">Live &middot; Data migration</p>
-        <img class="mig-logo" src="/assets/products/migratio-logo-horizontal-dark.svg" alt="Migratio by Cognis" />
+        <img class="mig-logo" src="/assets/products/migratio-logo-horizontal-dark.svg" alt="Migratio by Cognis" loading="lazy" decoding="async" />
         <p class="cgp-desc">The migration platform for banks, ministries, and regulated enterprises. Reconcile before cutover.</p>
         <span class="cgp-go">Visit Migratio <span class="a">&rarr;</span></span>
       </a>
