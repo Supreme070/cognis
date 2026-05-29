@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" width="32" height="32">
+<title>Migratio icon</title>
+<desc>Migratio cube mark with Aurora gradient finish, for use at sizes 32 pixels and above.</desc>
+<defs>
+<linearGradient id="auroraTop" x1="0" y1="0" x2="0.5" y2="1">
+<stop offset="0%" stop-color="#5A93D8"/>
+<stop offset="100%" stop-color="#3D7BC4"/>
+</linearGradient>
+<linearGradient id="auroraLeft" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0%" stop-color="#2670CA"/>
+<stop offset="100%" stop-color="#164695"/>
+</linearGradient>
+<linearGradient id="auroraRight" x1="0" y1="0" x2="0" y2="1">
+<stop offset="0%" stop-color="#6BC05F"/>
+<stop offset="100%" stop-color="#4A9A3F"/>
+</linearGradient>
+</defs>
+<path d="M 16 0 L 32 8 L 16 16 L 0 8 Z" fill="url(#auroraTop)"/>
+<path d="M 0 8 L 16 16 L 16 32 L 0 24 Z" fill="url(#auroraLeft)"/>
+<path d="M 32 8 L 16 16 L 16 32 L 32 24 Z" fill="url(#auroraRight)"/>
+<path d="M 16 0 L 32 8" stroke="#C5DAF0" stroke-width="0.35" opacity="0.65" fill="none"/>
+<path d="M 16 0 L 0 8" stroke="#C5DAF0" stroke-width="0.35" opacity="0.4" fill="none"/>
+</svg>

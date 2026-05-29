@@ -1,6 +1,6 @@
 # Cognis Group | AI Consulting, Strategy & Agent Engineering
 
-Last updated: 2026-04-14
+Last updated: 2026-05-29
 
 > Cognis Group builds, deploys, and governs AI systems — agents, chatbots, workflows, governance frameworks, and workforce training. Lagos-headquartered, globally engaged.
 
@@ -12,12 +12,22 @@ Cognis Group is a Lagos-headquartered AI consulting and engineering firm. We bui
 
 ## Core capabilities
 
-1. **AI Strategy & Advisory** — AI readiness assessments, use case identification, and deployment roadmaps.
-2. **AI Agent Building & Deployment** — Design and deployment of AI agents, chatbots, and automated workflows — built on your stack, governed by your rules.
-3. **AI Training & Workforce Development** — Programs for C-suite to frontline staff on AI tools, thinking, and governance.
-4. **AI Governance & Risk** — Policy frameworks, audit structures, and compliance with local regulations (NDPA, CBN guidance) and global standards (ISO 42001, NIST AI RMF, EU AI Act).
-5. **ML & Data Intelligence** — Custom ML models, data pipelines, and predictive systems — production-grade from day one.
-6. **Digital Transformation** — End-to-end modernization of legacy systems with intelligence embedded throughout.
+Three practice areas (see https://cognis.group/our-services):
+
+1. **AI Strategy & Advisory** — AI readiness assessments, use-case identification, and deployment roadmaps that move from strategy to measurable business impact. (https://cognis.group/our-services/ai-strategy-advisory)
+2. **AI Agent & Automation Engineering** — Custom AI agents, copilots, and automation pipelines built for production: integrated, observable, and governed — built on your stack, governed by your rules. (https://cognis.group/our-services/ai-agent-automation-engineering)
+3. **AI Training & Workforce Development** — Role-based AI literacy programmes for C-suite to frontline teams, covering capability, mindset, and governance discipline at scale. (https://cognis.group/our-services/ai-training-workforce-development)
+
+AI governance and regulatory alignment (NDPA 2023, CBN guidance, ISO 42001, NIST AI RMF, EU AI Act) is built into every engagement as a design input, not a separate line item.
+
+## Products
+
+Beyond advisory, Cognis Group builds and operates its own software. Four products (see https://cognis.group/products):
+
+1. **Cognis AI** (https://ai.cognis.group) — A workforce of specialised AI workers. Hire one for support, voice, knowledge, ops, or trade. Each worker is built for a single job, starts in shadow mode, earns autonomy through supervised promotion, and can be cancelled anytime. Priced per worker. Tagline: "Hire AI to do the work." Status: Live.
+2. **MarketSage** (https://www.marketsage.africa) — Autonomous marketing and sales intelligence. Plans campaigns, runs them across channels, and turns activity into pipeline; composes into existing CRM and outreach. Tagline: "Marketing that thinks, acts, and converts." Status: Live.
+3. **Migratio** (https://migratio.cognis.group) — The data-migration platform for banks, ministries, and regulated enterprises. Record-level reconciliation and audit trail, naming-normalisation built for African registries, signed cutover with zero-drift verification. Reconcile before cutover; pass the regulator's review on the first try. Status: Live.
+4. **SPOG** — A new Cognis Group product, in development. Status: Coming soon.
 
 ## Where African context meets AI engineering
 
@@ -33,7 +43,7 @@ We work remotely, on-site, and through hybrid engagement models.
 
 ## Frequently asked
 
-**What does Cognis Group actually do?** We build, deploy, and govern AI systems — agents, chatbots, workflows, governance frameworks, and training programmes — across six practice areas.
+**What does Cognis Group actually do?** We build, deploy, and govern AI systems — agents, chatbots, workflows, governance frameworks, and training programmes — across three practice areas: AI Strategy & Advisory, AI Agent & Automation Engineering, and AI Training & Workforce Development. We also build and operate our own products: Cognis AI, MarketSage, and Migratio.
 
 **Where is Cognis Group based?** Headquartered in Lagos, registered with the Corporate Affairs Commission. Sister entity in the United States.
 

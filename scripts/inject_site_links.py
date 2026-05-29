@@ -54,7 +54,12 @@ BLOCK = f"""{START}
 <nav class="cognis-site-links" aria-label="Secondary site navigation">
   <div class="csl-inner">
     <div class="csl-group">
+      <span class="csl-label">Products</span>
+      <a href="/products">Products</a>
+    </div>
+    <div class="csl-group">
       <span class="csl-label">Explore</span>
+      <a href="/why-cognis">Why Cognis</a>
       <a href="/case-studies">Case Studies</a>
       <a href="/how-we-work">How We Work</a>
       <a href="/faq">FAQ</a>
@@ -74,7 +79,7 @@ def snapshot_paths() -> list[Path]:
     paths: list[Path] = []
     skip_roots = {
         # Standalone shells already carry these links in their own footer.
-        "privacy-policy", "terms", "faq", "how-we-work", "case-studies",
+        "privacy-policy", "terms", "faq", "how-we-work", "case-studies", "products", "why-cognis",
         # Non-snapshot directories.
         "node_modules", "framer-runtime", "cms-raw", "cognis-cms", "deploy",
         "scripts", "playwright-screenshots", "stock", "tests", ".git", ".claude",

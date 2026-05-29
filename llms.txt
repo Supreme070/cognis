@@ -1,6 +1,6 @@
 # Cognis Group
 
-Last updated: 2026-04-14
+Last updated: 2026-05-29
 
 > Cognis Group is an AI company that builds, deploys, and governs AI systems that permanently transform organizations. Three core practices: AI Strategy & Advisory, AI Training & Workforce Development, and AI Agent & Automation Engineering. Quod Tango Muto — what we touch, we change.
 
@@ -8,9 +8,20 @@ Last updated: 2026-04-14
 
 - [Homepage](https://cognis.group/): Full overview of capabilities, team, and engagement model
 - [About Us](https://cognis.group/about-us): Mission, founding story, and operating principles
+- [Why Cognis](https://cognis.group/why-cognis): Why Cognis Group is Africa's leading AI consulting firm — differentiators, a partner-selection buyer's guide, and an honest comparison vs global consultancies and generic AI vendors
 - [Services](https://cognis.group/our-services): Three AI practice areas
 - [Blog / Insights](https://cognis.group/blog): Enterprise AI deployment, governance, ROI, and workforce development
 - [Contact](https://cognis.group/contact): Start an engagement with Cognis Group
+
+## Products
+
+Cognis Group builds and operates its own software, not just advisory. Four products:
+
+- [Products overview](https://cognis.group/products): The software Cognis Group builds and runs.
+- [Cognis AI](https://ai.cognis.group): A workforce of specialised AI workers — hire one for support, voice, knowledge, ops, or trade. Workers start in shadow mode, earn autonomy, and can be cancelled anytime. Tagline: "Hire AI to do the work." (Live)
+- [MarketSage](https://www.marketsage.africa): Autonomous marketing and sales intelligence — plans campaigns, runs them across channels, and turns activity into pipeline. Tagline: "Marketing that thinks, acts, and converts." (Live)
+- [Migratio](https://migratio.cognis.group): The data-migration platform for banks, ministries, and regulated enterprises — reconcile before cutover, audit every record, pass the regulator's review on the first try. (Live)
+- SPOG: A new Cognis Group product, in development. (Coming soon)
 
 ## Case Studies
 

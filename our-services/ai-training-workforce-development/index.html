@@ -2311,7 +2311,12 @@
 <nav class="cognis-site-links" aria-label="Secondary site navigation">
   <div class="csl-inner">
     <div class="csl-group">
+      <span class="csl-label">Products</span>
+      <a href="/products">Products</a>
+    </div>
+    <div class="csl-group">
       <span class="csl-label">Explore</span>
+      <a href="/why-cognis">Why Cognis</a>
       <a href="/case-studies">Case Studies</a>
       <a href="/how-we-work">How We Work</a>
       <a href="/faq">FAQ</a>
@@ -2325,4 +2330,124 @@
   </div>
 </nav>
 <!-- cognis-site-links:end -->
+<!-- cognis-products-nav:start -->
+<script data-cognis-products-nav>
+(function () {
+  // Add a "Products" item to whichever primary nav this page has:
+  //   • Framer pages  -> the [data-framer-name="menu"] container
+  //   • hand shells    -> header.site-nav > nav
+  function addToFramer(menu) {
+    if (menu.querySelector('a[data-cognis-products]')) return;
+    var sample = null, kids = menu.children;
+    for (var i = kids.length - 1; i >= 0; i--) {
+      if (kids[i].querySelector && kids[i].querySelector('a[href]')) { sample = kids[i]; break; }
+    }
+    if (!sample) return;
+    var clone = sample.cloneNode(true);
+    var a = clone.querySelector('a');
+    if (!a) return;
+    a.setAttribute('href', '/products');
+    a.setAttribute('data-cognis-products', '');
+    a.removeAttribute('data-framer-page-link-current');
+    var ps = clone.querySelectorAll('p');
+    for (var j = 0; j < ps.length; j++) ps[j].textContent = 'Products';
+    // Place "Products" right after the Services item; fall back to the end.
+    var after = null;
+    for (var k = 0; k < menu.children.length; k++) {
+      if (menu.children[k].querySelector && menu.children[k].querySelector('a[href*="our-services"]')) { after = menu.children[k]; break; }
+    }
+    if (after) after.parentNode.insertBefore(clone, after.nextSibling);
+    else sample.parentNode.appendChild(clone);
+  }
+  function addToShell(nav) {
+    if (nav.querySelector('a[href="/products"]')) return;
+    var services = nav.querySelector('a[href="/our-services"]');
+    var link = document.createElement('a');
+    link.setAttribute('href', '/products');
+    link.setAttribute('data-cognis-products', '');
+    link.textContent = 'Products';
+    if (services && services.parentNode) services.parentNode.insertBefore(link, services.nextSibling);
+    else nav.appendChild(link);
+  }
+  function run() {
+    document.querySelectorAll('nav [data-framer-name="menu"]').forEach(addToFramer);
+    document.querySelectorAll('header.site-nav nav').forEach(addToShell);
+  }
+  if (document.readyState !== 'loading') run();
+  else document.addEventListener('DOMContentLoaded', run);
+  // Framer is a SPA: re-apply when it re-renders the nav. rAF-debounced.
+  try {
+    var mo = new MutationObserver(function () {
+      if (window.__cognisNavRAF) return;
+      window.__cognisNavRAF = requestAnimationFrame(function () { window.__cognisNavRAF = 0; run(); });
+    });
+    mo.observe(document.documentElement, { childList: true, subtree: true });
+  } catch (e) {}
+  [400, 1200, 2500].forEach(function (t) { setTimeout(run, t); });
+})();
+</script>
+<!-- cognis-products-nav:end -->
+<!-- cognis-journey:start -->
+<script data-cognis-journey>
+(function () {
+  // Set each milestone's visible year from its description — order-independent
+  // and idempotent (safe to re-run through Framer's SPA re-renders).
+  function fix() {
+    var years = document.querySelectorAll('[data-framer-name="year"]');
+    if (!years.length) return;
+    years.forEach(function (yd) {
+      var p = yd.querySelector('p');
+      if (!p) return;
+      var c = yd.nextElementSibling;
+      if (!c || c.getAttribute('data-framer-name') !== 'content') {
+        c = yd.parentElement && yd.parentElement.querySelector('[data-framer-name="content"]');
+      }
+      var desc = c ? c.textContent : '';
+      var t = null;
+      if (/Launched workforce/i.test(desc)) t = 'Q4 2025';
+      else if (/Shipped agent/i.test(desc)) t = 'Q1 2026';
+      else if (/Conducted AI trainings/i.test(desc)) t = 'Q3 2025';
+      else if (/Founded/i.test(desc)) t = 'Q2 2025';
+      if (t && p.textContent.trim() !== t) p.textContent = t;
+    });
+  }
+  if (document.readyState !== 'loading') fix();
+  else document.addEventListener('DOMContentLoaded', fix);
+  try {
+    var mo = new MutationObserver(function () {
+      if (window.__cgjRAF) return;
+      window.__cgjRAF = requestAnimationFrame(function () { window.__cgjRAF = 0; fix(); });
+    });
+    mo.observe(document.documentElement, { childList: true, subtree: true });
+  } catch (e) {}
+  [400, 1200, 2500].forEach(function (t) { setTimeout(fix, t); });
+})();
+</script>
+<!-- cognis-journey:end -->
+<!-- cognis-copy:start -->
+<script data-cognis-copy>
+(function () {
+  var REPL = {"think smarter, move faster, and grow stronger": "ship AI into production and operate it with confidence", "forward-thinking organisations to operationalise AI": "banks, ministries, and enterprises to put AI into production \u2014 and govern it"};
+  function fix() {
+    var ps = document.querySelectorAll('p');
+    for (var i = 0; i < ps.length; i++) {
+      var p = ps[i], t = p.textContent;
+      for (var k in REPL) {
+        if (t.indexOf(k) !== -1) { p.textContent = t.split(k).join(REPL[k]); t = p.textContent; }
+      }
+    }
+  }
+  if (document.readyState !== 'loading') fix();
+  else document.addEventListener('DOMContentLoaded', fix);
+  try {
+    var mo = new MutationObserver(function () {
+      if (window.__cgcRAF) return;
+      window.__cgcRAF = requestAnimationFrame(function () { window.__cgcRAF = 0; fix(); });
+    });
+    mo.observe(document.documentElement, { childList: true, subtree: true });
+  } catch (e) {}
+  [400, 1200, 2500].forEach(function (t) { setTimeout(fix, t); });
+})();
+</script>
+<!-- cognis-copy:end -->
 </body></html>

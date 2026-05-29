@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Products | Cognis Group</title>
+<meta name="description" content="The products Cognis Group builds and operates — Cognis AI, the AI workforce; MarketSage, autonomous marketing; Migratio, the migration platform for regulated enterprises; and SPOG, coming soon." />
+<link rel="canonical" href="https://cognis.group/products" />
+<link rel="alternate" hreflang="en" href="https://cognis.group/products" />
+<link rel="alternate" hreflang="x-default" href="https://cognis.group/products" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Cognis Group" />
+<meta property="og:title" content="Products | Cognis Group" />
+<meta property="og:description" content="Four products, one company. Cognis AI, MarketSage, Migratio, and SPOG — built and operated by Cognis Group." />
+<meta property="og:url" content="https://cognis.group/products" />
+<meta property="og:image" content="https://cognis.group/og/cognis-og-1200x630.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Cognis Group — Products" />
+<meta property="og:locale" content="en_GB" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@cognisgroup" />
+<meta name="twitter:title" content="Products | Cognis Group" />
+<meta name="twitter:description" content="Four products, one company — Cognis AI, MarketSage, Migratio, and SPOG." />
+<meta name="twitter:image" content="https://cognis.group/og/cognis-og-1200x630.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Nunito:wght@400;700;800&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --ink: #131313; --ink-soft: #2f2f2f; --mute: #7b7b7b;
+    --line: #e6e6e6; --bg: #f2f2f2; --card: #ffffff; --accent: #cdfb56;
+    /* product brand tokens */
+    --cognis-blue: #4285f4; --cognis-blue-hover: #1a73e8;
+    --migratio-navy: #1f2657; --migratio-navy-deep: #1a2049;
+    --migratio-blue: #1e5bb8; --migratio-green: #5bb04f;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: var(--ink); background: var(--bg); font-size: 17px; line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Header ─────────────────────────────────────────────────────── */
+  header.site-nav {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(242, 242, 242, 0.92);
+    backdrop-filter: saturate(140%) blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  header.site-nav .inner {
+    max-width: 1180px; margin: 0 auto; padding: 18px 24px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  header.site-nav a.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  header.site-nav a.brand .brand-mark { width: 30px; height: 22px; fill: var(--ink); display: block; }
+  header.site-nav a.brand .brand-word { font-weight: 700; letter-spacing: -0.06em; color: var(--ink); font-size: 24px; }
+  header.site-nav nav a { color: var(--ink-soft); text-decoration: none; margin-left: 24px; font-weight: 500; font-size: 15px; }
+  header.site-nav nav a:hover { color: var(--ink); }
+  header.site-nav nav a[aria-current="page"] { color: var(--ink); position: relative; }
+  header.site-nav nav a[aria-current="page"]::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: -6px; height: 2px; background: var(--accent);
+  }
+  @media (max-width: 720px) { header.site-nav nav a:not([aria-current="page"]) { display: none; } }
+
+  /* ── Hero ───────────────────────────────────────────────────────── */
+  main { max-width: 1180px; margin: 0 auto; padding: 72px 24px 40px; }
+  .hero { max-width: 760px; margin-bottom: 56px; }
+  .eyebrow {
+    color: var(--mute); font-size: 13px; letter-spacing: 0.12em;
+    text-transform: uppercase; font-weight: 600; margin: 0 0 18px;
+  }
+  .eyebrow::before {
+    content: ""; display: inline-block; width: 28px; height: 2px;
+    background: var(--accent); vertical-align: middle; margin-right: 12px;
+  }
+  .hero h1 { font-size: 56px; line-height: 1.04; letter-spacing: -0.025em; margin: 0 0 20px; font-weight: 700; }
+  .hero p { color: var(--ink-soft); font-size: 20px; line-height: 1.55; margin: 0; }
+
+  /* ── Bento grid ─────────────────────────────────────────────────── */
+  .bento {
+    display: grid; gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas: "cognis cognis cognis" "market migratio spog";
+  }
+  @media (max-width: 860px) { .bento { grid-template-columns: 1fr; grid-template-areas: "cognis" "market" "migratio" "spog"; } }
+
+  .tile {
+    position: relative; border-radius: 22px; padding: 36px;
+    border: 1px solid var(--line); background: var(--card);
+    display: flex; flex-direction: column; overflow: hidden; isolation: isolate;
+    transition: transform .3s cubic-bezier(.2,.7,.2,1), box-shadow .3s ease, border-color .3s ease;
+    text-decoration: none; color: inherit;
+  }
+  .tile > * { position: relative; z-index: 1; }
+  /* cursor-following, brand-tinted spotlight */
+  .tile::before {
+    content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none; border-radius: inherit;
+    background: radial-gradient(440px circle at var(--mx, 50%) var(--my, -10%), var(--spot, rgba(66,133,244,.13)), transparent 60%);
+    opacity: 0; transition: opacity .4s ease;
+  }
+  .tile:hover::before { opacity: 1; }
+  .tile:hover { transform: translateY(-6px); box-shadow: 0 24px 60px -28px rgba(19,19,19,0.28); }
+  .tile .glow { z-index: 0; }
+  .tile .accent-line {
+    position: absolute; top: 0; left: 0; right: 0; height: 4px; z-index: 2;
+    background: var(--tile-accent, var(--accent));
+    transform: scaleX(0); transform-origin: left; transition: transform .4s cubic-bezier(.2,.7,.2,1);
+  }
+  .tile:hover .accent-line { transform: scaleX(1); }
+
+  .tile .kicker {
+    font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
+    font-weight: 600; color: var(--mute); margin: 0 0 auto;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .tile .lockup { margin: 28px 0 6px; }
+  .tile .lockup img, .tile .ms-lockup img { transition: transform .35s cubic-bezier(.2,.7,.2,1); }
+  .tile:hover .lockup img, .tile:hover .ms-lockup img { transform: scale(1.05); }
+  .tile .tagline { font-size: 21px; line-height: 1.3; font-weight: 600; letter-spacing: -0.01em; margin: 18px 0 10px; }
+  .tile .desc { font-size: 15.5px; line-height: 1.6; color: var(--ink-soft); margin: 0 0 22px; }
+  .tile .feats { list-style: none; padding: 0; margin: 0 0 26px; }
+  .tile .feats li { position: relative; padding-left: 22px; margin-bottom: 9px; font-size: 14.5px; color: var(--ink-soft); }
+  .tile .feats li::before {
+    content: ""; position: absolute; left: 0; top: 9px; width: 8px; height: 8px;
+    border-radius: 50%; background: var(--tile-accent, var(--accent));
+  }
+  .tile .go {
+    margin-top: auto; align-self: flex-start;
+    display: inline-flex; align-items: center; gap: 8px;
+    font-weight: 600; font-size: 15px; padding: 11px 18px; border-radius: 10px;
+    text-decoration: none; transition: gap 200ms ease, background 200ms ease, color 200ms ease;
+  }
+  .tile .go .arr { transition: transform 220ms cubic-bezier(.2,.7,.2,1); }
+  .tile:hover .go .arr { transform: translateX(4px); }
+
+  /* ── Cognis AI tile (full-width hero, blue) ─────────────────────── */
+  .tile.cognis {
+    grid-area: cognis; --tile-accent: var(--cognis-blue); --spot: rgba(66,133,244,.13);
+    background: linear-gradient(180deg, #ffffff 0%, #f4f8ff 100%);
+  }
+  .tile.cognis:hover { border-color: rgba(66,133,244,.45); box-shadow: 0 26px 60px -30px rgba(66,133,244,.5); }
+  .tile.cognis .hero-row { display: grid; grid-template-columns: 1.15fr 1fr; gap: 44px; align-items: center; width: 100%; }
+  .tile.cognis .hero-row .r { border-left: 1px solid var(--line); padding-left: 44px; }
+  .tile.cognis .kicker { margin: 0 0 18px; }
+  .tile.cognis .desc { margin-bottom: 0; }
+  .tile.cognis .feats { margin-bottom: 24px; }
+  @media (max-width: 760px) {
+    .tile.cognis .hero-row { grid-template-columns: 1fr; gap: 24px; }
+    .tile.cognis .hero-row .r { border-left: 0; padding-left: 0; border-top: 1px solid var(--line); padding-top: 24px; }
+  }
+  .tile.cognis .lockup .wm {
+    font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 46px;
+    letter-spacing: -0.02em; color: var(--ink); line-height: 1;
+  }
+  .tile.cognis .lockup .wm .ai { color: var(--cognis-blue); }
+  .tile.cognis .tagline { font-size: 30px; }
+  .tile.cognis .go { background: var(--cognis-blue); color: #fff; }
+  .tile.cognis .go:hover { background: var(--cognis-blue-hover); }
+  .tile.cognis:hover .go { box-shadow: 0 10px 22px -8px rgba(66,133,244,.7); }
+  .tile.cognis .glow {
+    position: absolute; right: -120px; top: -120px; width: 360px; height: 360px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(66,133,244,0.16), transparent 70%); pointer-events: none;
+  }
+
+  /* ── MarketSage tile (brand globe: teal · blue · orange) ────────── */
+  .tile.marketsage {
+    grid-area: market; --tile-accent: #5f6fff; --spot: rgba(95,111,255,.13);
+    background: linear-gradient(180deg, #ffffff 0%, #f6f7ff 100%);
+  }
+  .tile.marketsage:hover { border-color: rgba(95,111,255,.45); box-shadow: 0 26px 60px -30px rgba(95,111,255,.45); }
+  .tile.marketsage .accent-line { background: linear-gradient(90deg, #5f6fff 0%, #06b6d4 100%); }
+  .tile.marketsage .ms-lockup { display: flex; align-items: center; gap: 12px; margin: 26px 0 0; }
+  .tile.marketsage .ms-lockup img { width: 42px; height: 42px; display: block; flex-shrink: 0; }
+  .tile.marketsage .ms-lockup .wm { font-weight: 600; font-size: 26px; letter-spacing: -0.02em; line-height: 1; }
+  .tile.marketsage .ms-lockup .mk { color: #5f6fff; }
+  .tile.marketsage .ms-lockup .sg { color: #06b6d4; }
+  .tile.marketsage .go { background: #5f6fff; color: #fff; }
+  .tile.marketsage .go:hover { background: #4f5fef; }
+  .tile.marketsage:hover .go { box-shadow: 0 10px 22px -8px rgba(95,111,255,.7); }
+  .tile.marketsage .glow {
+    position: absolute; right: -110px; top: -110px; width: 320px; height: 320px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(95,111,255,0.13), transparent 70%); pointer-events: none;
+  }
+
+  /* ── Migratio tile (navy, dark) ─────────────────────────────────── */
+  .tile.migratio {
+    grid-area: migratio; --tile-accent: var(--migratio-green); --spot: rgba(91,176,79,.18);
+    background: linear-gradient(160deg, #242c63 0%, #1a2049 100%); border-color: var(--migratio-navy-deep); color: #f1f2f8;
+    font-family: 'IBM Plex Sans', 'Inter', sans-serif;
+  }
+  .tile.migratio:hover { border-color: rgba(91,176,79,.5); box-shadow: 0 26px 60px -28px rgba(31,38,87,0.85); }
+  .tile.migratio:hover .go { box-shadow: 0 10px 22px -8px rgba(91,176,79,.6); }
+  .tile.migratio .kicker { color: #8993a8; }
+  .tile.migratio .lockup { margin: 24px 0 6px; }
+  .tile.migratio .lockup img { height: 44px; width: auto; max-width: 100%; display: block; }
+  .tile.migratio .tagline { color: #f1f2f8; font-weight: 500; font-size: 19px; }
+  .tile.migratio .desc { color: #b3bbd0; }
+  .tile.migratio .feats li { color: #b3bbd0; }
+  .tile.migratio .go { background: var(--migratio-green); color: #0d2410; }
+  .tile.migratio .go:hover { background: #6bc05f; }
+  .tile.migratio .glow {
+    position: absolute; right: -100px; bottom: -100px; width: 300px; height: 300px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(91,176,79,0.18), transparent 70%); pointer-events: none;
+  }
+
+  /* ── SPOG tile (coming soon) ────────────────────────────────────── */
+  .tile.spog {
+    grid-area: spog; --tile-accent: var(--accent); --spot: rgba(205,251,86,.22);
+    background: linear-gradient(180deg, #fdfee8 0%, #fbfbf3 100%);
+  }
+  .tile.spog:hover { border-color: rgba(150,180,40,.5); box-shadow: 0 24px 56px -30px rgba(120,140,30,.4); }
+  .tile.spog .pill {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--ink); color: #fff; font-size: 11px; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase; padding: 6px 12px; border-radius: 999px;
+  }
+  .tile.spog .pill .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+  .tile.spog .wm { font-size: 38px; font-weight: 700; letter-spacing: -0.02em; margin: 24px 0 0; }
+  .tile.spog .desc { margin-top: 12px; }
+  .tile.spog .soon { margin-top: auto; font-size: 14px; font-weight: 600; color: var(--mute); }
+
+  /* ── Closing band ───────────────────────────────────────────────── */
+  .band {
+    max-width: 1180px; margin: 64px auto 0; padding: 0 24px;
+  }
+  .band-inner {
+    background: #0a0a0a; color: #fff; border-radius: 22px; padding: 48px 44px;
+    display: flex; flex-wrap: wrap; gap: 24px; align-items: center; justify-content: space-between;
+  }
+  .band-inner h2 { font-size: 28px; letter-spacing: -0.02em; margin: 0 0 8px; font-weight: 700; }
+  .band-inner p { margin: 0; color: #c1c1c1; max-width: 560px; }
+  .band-inner .cta {
+    background: var(--accent); color: var(--ink); font-weight: 700; text-decoration: none;
+    padding: 14px 26px; border-radius: 10px; white-space: nowrap;
+    transition: transform 200ms ease;
+  }
+  .band-inner .cta:hover { transform: translateY(-2px); }
+
+  /* ── Footer ─────────────────────────────────────────────────────── */
+  footer.site-foot {
+    border-top: 1px solid var(--line); background: #0A0A0A; color: #C1C1C1;
+    padding: 40px 24px; font-size: 14px; margin-top: 72px;
+  }
+  footer.site-foot .inner {
+    max-width: 1180px; margin: 0 auto;
+    display: flex; flex-wrap: wrap; gap: 24px; justify-content: space-between;
+  }
+  footer.site-foot a { color: #C1C1C1; text-decoration: none; margin-right: 18px; }
+  footer.site-foot a:hover { color: var(--accent); }
+  footer.site-foot .legal-links a { margin-right: 16px; }
+
+  @media (max-width: 640px) {
+    main { padding-top: 48px; }
+    .hero h1 { font-size: 38px; }
+    .hero p { font-size: 18px; }
+    .tile { padding: 28px; }
+    .tile.cognis .lockup .wm { font-size: 38px; }
+    .tile.cognis .tagline { font-size: 24px; }
+    .band-inner { padding: 32px 26px; }
+  }
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "CollectionPage",
+      "@id": "https://cognis.group/products",
+      "url": "https://cognis.group/products",
+      "name": "Products",
+      "description": "The products Cognis Group builds and operates.",
+      "inLanguage": "en-GB",
+      "isPartOf": { "@id": "https://cognis.group/#website" },
+      "about": { "@id": "https://cognis.group/#organization" }
+    },
+    {
+      "@type": "ItemList",
+      "name": "Cognis Group products",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "SoftwareApplication",
+            "name": "Cognis AI",
+            "applicationCategory": "BusinessApplication",
+            "url": "https://ai.cognis.group",
+            "description": "A workforce of specialised AI workers. Hire one for support, voice, knowledge, ops, or trade.",
+            "publisher": { "@id": "https://cognis.group/#organization" }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "SoftwareApplication",
+            "name": "MarketSage",
+            "applicationCategory": "BusinessApplication",
+            "url": "https://www.marketsage.africa",
+            "description": "Autonomous marketing and sales intelligence. Plans campaigns, runs them across channels, and turns activity into pipeline.",
+            "publisher": { "@id": "https://cognis.group/#organization" }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "SoftwareApplication",
+            "name": "Migratio",
+            "applicationCategory": "BusinessApplication",
+            "url": "https://migratio.cognis.group",
+            "description": "The migration platform for banks, ministries, and regulated enterprises. Reconcile before cutover, audit every record.",
+            "publisher": { "@id": "https://cognis.group/#organization" }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@type": "SoftwareApplication",
+            "name": "SPOG",
+            "applicationCategory": "BusinessApplication",
+            "description": "A new Cognis Group product, in development.",
+            "publisher": { "@id": "https://cognis.group/#organization" }
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="inner">
+    <a class="brand" href="/" aria-label="Cognis">
+      <svg class="brand-mark" viewBox="0 0 40 30" aria-hidden="true">
+        <path d="M 36.968 20.426 L 33.716 26.059 L 24.189 26.048 L 27.223 20.794 L 18.262 5.293 L 28.346 5.337 Z" />
+        <path d="M 9.807 5.266 L 16.312 5.266 L 21.066 13.522 L 14.999 13.521 L 6.055 29.033 L 1.051 20.277 Z" />
+      </svg>
+      <span class="brand-word">Cognis</span>
+    </a>
+    <nav>
+      <a href="/about-us">About</a>
+      <a href="/our-services">Services</a>
+      <a href="/how-we-work">How We Work</a>
+      <a href="/products" aria-current="page">Products</a>
+      <a href="/blog">Insights</a>
+      <a href="/contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <p class="eyebrow">Products</p>
+    <h1>Four products. One company.</h1>
+    <p>Beyond advisory, Cognis Group builds and operates its own software. Each product solves one problem end to end — shipped as production systems, not pilots.</p>
+  </div>
+
+  <div class="bento">
+
+    <!-- Cognis AI — full-width hero -->
+    <a class="tile cognis" href="https://ai.cognis.group" target="_blank" rel="noopener">
+      <span class="accent-line"></span>
+      <span class="glow"></span>
+      <div class="hero-row">
+        <div class="l">
+          <p class="kicker">Live · AI workforce</p>
+          <div class="lockup"><span class="wm">Cognis<span class="ai">Ai</span>.</span></div>
+          <p class="tagline">Hire AI to do the work.</p>
+          <p class="desc">A workforce of specialised AI workers. Hire one for support, voice, knowledge, ops, or trade. Each worker is built for a single job and sharpened on real work — it starts in shadow mode, earns autonomy, and cancels anytime.</p>
+        </div>
+        <div class="r">
+          <ul class="feats">
+            <li>Specialised workers, not a single chatbot</li>
+            <li>Shadow → supervised → autonomous promotion</li>
+            <li>Priced per worker, cancel anytime</li>
+          </ul>
+          <span class="go">Visit Cognis AI <span class="arr">&rarr;</span></span>
+        </div>
+      </div>
+    </a>
+
+    <!-- MarketSage -->
+    <a class="tile marketsage" href="https://www.marketsage.africa" target="_blank" rel="noopener">
+      <span class="accent-line"></span>
+      <span class="glow"></span>
+      <p class="kicker">Live · Marketing AI</p>
+      <div class="ms-lockup"><img src="/assets/products/marketsage-logo.png" alt="MarketSage" /><span class="wm"><span class="mk">MΛRKET</span><span class="sg">SΛGE</span></span></div>
+      <p class="tagline">Marketing that thinks, acts, and converts.</p>
+      <p class="desc">An autonomous marketing engine — it plans campaigns, runs them across channels, and turns activity into pipeline. Built and proven on Cognis's own go-to-market.</p>
+      <ul class="feats">
+        <li>Autonomous, multi-channel campaigns</li>
+        <li>Sales intelligence that scores and routes leads</li>
+        <li>Composes into your CRM and outreach</li>
+      </ul>
+      <span class="go">Visit MarketSage <span class="arr">&rarr;</span></span>
+    </a>
+
+    <!-- Migratio -->
+    <a class="tile migratio" href="https://migratio.cognis.group" target="_blank" rel="noopener">
+      <span class="accent-line"></span>
+      <span class="glow"></span>
+      <p class="kicker">Live · Data migration</p>
+      <div class="lockup"><img src="/assets/products/migratio-logo-horizontal-dark.svg" alt="Migratio by Cognis" /></div>
+      <p class="tagline">Reconcile before cutover.</p>
+      <p class="desc">The migration platform for banks, ministries, and regulated enterprises. Audit every record, verify the hash on both sides, and pass the regulator's review on the first try.</p>
+      <ul class="feats">
+        <li>Record-level reconciliation and audit trail</li>
+        <li>Naming-normalisation built for African registries</li>
+        <li>Signed cutover with zero-drift verification</li>
+      </ul>
+      <span class="go">Visit Migratio <span class="arr">&rarr;</span></span>
+    </a>
+
+    <!-- SPOG -->
+    <div class="tile spog">
+      <span class="accent-line"></span>
+      <span class="pill"><span class="dot"></span> Coming soon</span>
+      <p class="wm">SPOG</p>
+      <p class="desc">A new product from Cognis Group, in development. Details soon.</p>
+      <p class="soon">In the works for 2026</p>
+    </div>
+
+  </div>
+</main>
+
+<div class="band">
+  <div class="band-inner">
+    <div>
+      <h2>One company behind all four.</h2>
+      <p>Cognis Group builds, ships, and governs every product on this page — the same team that runs AI engagements for banks, ministries, and enterprises.</p>
+    </div>
+    <a class="cta" href="/contact">Start a conversation &rarr;</a>
+  </div>
+</div>
+
+<footer class="site-foot">
+  <div class="inner">
+    <div>© Cognis Group Limited · Lagos, Nigeria · <em>Quod Tango Muto</em></div>
+    <div class="legal-links">
+      <a href="/about-us">About</a>
+      <a href="/our-services">Services</a>
+      <a href="/privacy-policy">Privacy</a>
+      <a href="/terms">Terms</a>
+      <a href="/contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Cursor-following brand spotlight on each product tile.
+  (function () {
+    document.querySelectorAll('.tile').forEach(function (el) {
+      el.addEventListener('pointermove', function (e) {
+        var r = el.getBoundingClientRect();
+        el.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
+        el.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
+      });
+    });
+  })();
+</script>
+
+<!-- cognis-products-nav:start -->
+<script data-cognis-products-nav>
+(function () {
+  // Add a "Products" item to whichever primary nav this page has:
+  //   • Framer pages  -> the [data-framer-name="menu"] container
+  //   • hand shells    -> header.site-nav > nav
+  function addToFramer(menu) {
+    if (menu.querySelector('a[data-cognis-products]')) return;
+    var sample = null, kids = menu.children;
+    for (var i = kids.length - 1; i >= 0; i--) {
+      if (kids[i].querySelector && kids[i].querySelector('a[href]')) { sample = kids[i]; break; }
+    }
+    if (!sample) return;
+    var clone = sample.cloneNode(true);
+    var a = clone.querySelector('a');
+    if (!a) return;
+    a.setAttribute('href', '/products');
+    a.setAttribute('data-cognis-products', '');
+    a.removeAttribute('data-framer-page-link-current');
+    var ps = clone.querySelectorAll('p');
+    for (var j = 0; j < ps.length; j++) ps[j].textContent = 'Products';
+    // Place "Products" right after the Services item; fall back to the end.
+    var after = null;
+    for (var k = 0; k < menu.children.length; k++) {
+      if (menu.children[k].querySelector && menu.children[k].querySelector('a[href*="our-services"]')) { after = menu.children[k]; break; }
+    }
+    if (after) after.parentNode.insertBefore(clone, after.nextSibling);
+    else sample.parentNode.appendChild(clone);
+  }
+  function addToShell(nav) {
+    if (nav.querySelector('a[href="/products"]')) return;
+    var services = nav.querySelector('a[href="/our-services"]');
+    var link = document.createElement('a');
+    link.setAttribute('href', '/products');
+    link.setAttribute('data-cognis-products', '');
+    link.textContent = 'Products';
+    if (services && services.parentNode) services.parentNode.insertBefore(link, services.nextSibling);
+    else nav.appendChild(link);
+  }
+  function run() {
+    document.querySelectorAll('nav [data-framer-name="menu"]').forEach(addToFramer);
+    document.querySelectorAll('header.site-nav nav').forEach(addToShell);
+  }
+  if (document.readyState !== 'loading') run();
+  else document.addEventListener('DOMContentLoaded', run);
+  // Framer is a SPA: re-apply when it re-renders the nav. rAF-debounced.
+  try {
+    var mo = new MutationObserver(function () {
+      if (window.__cognisNavRAF) return;
+      window.__cognisNavRAF = requestAnimationFrame(function () { window.__cognisNavRAF = 0; run(); });
+    });
+    mo.observe(document.documentElement, { childList: true, subtree: true });
+  } catch (e) {}
+  [400, 1200, 2500].forEach(function (t) { setTimeout(run, t); });
+})();
+</script>
+<!-- cognis-products-nav:end -->
+<!-- cognis-journey:start -->
+<script data-cognis-journey>
+(function () {
+  // Set each milestone's visible year from its description — order-independent
+  // and idempotent (safe to re-run through Framer's SPA re-renders).
+  function fix() {
+    var years = document.querySelectorAll('[data-framer-name="year"]');
+    if (!years.length) return;
+    years.forEach(function (yd) {
+      var p = yd.querySelector('p');
+      if (!p) return;
+      var c = yd.nextElementSibling;
+      if (!c || c.getAttribute('data-framer-name') !== 'content') {
+        c = yd.parentElement && yd.parentElement.querySelector('[data-framer-name="content"]');
+      }
+      var desc = c ? c.textContent : '';
+      var t = null;
+      if (/Launched workforce/i.test(desc)) t = 'Q4 2025';
+      else if (/Shipped agent/i.test(desc)) t = 'Q1 2026';
+      else if (/Conducted AI trainings/i.test(desc)) t = 'Q3 2025';
+      else if (/Founded/i.test(desc)) t = 'Q2 2025';
+      if (t && p.textContent.trim() !== t) p.textContent = t;
+    });
+  }
+  if (document.readyState !== 'loading') fix();
+  else document.addEventListener('DOMContentLoaded', fix);
+  try {
+    var mo = new MutationObserver(function () {
+      if (window.__cgjRAF) return;
+      window.__cgjRAF = requestAnimationFrame(function () { window.__cgjRAF = 0; fix(); });
+    });
+    mo.observe(document.documentElement, { childList: true, subtree: true });
+  } catch (e) {}
+  [400, 1200, 2500].forEach(function (t) { setTimeout(fix, t); });
+})();
+</script>
+<!-- cognis-journey:end -->
+<!-- cognis-copy:start -->
+<script data-cognis-copy>
+(function () {
+  var REPL = {"think smarter, move faster, and grow stronger": "ship AI into production and operate it with confidence", "forward-thinking organisations to operationalise AI": "banks, ministries, and enterprises to put AI into production \u2014 and govern it"};
+  function fix() {
+    var ps = document.querySelectorAll('p');
+    for (var i = 0; i < ps.length; i++) {
+      var p = ps[i], t = p.textContent;
+      for (var k in REPL) {
+        if (t.indexOf(k) !== -1) { p.textContent = t.split(k).join(REPL[k]); t = p.textContent; }
+      }
+    }
+  }
+  if (document.readyState !== 'loading') fix();
+  else document.addEventListener('DOMContentLoaded', fix);
+  try {
+    var mo = new MutationObserver(function () {
+      if (window.__cgcRAF) return;
+      window.__cgcRAF = requestAnimationFrame(function () { window.__cgcRAF = 0; fix(); });
+    });
+    mo.observe(document.documentElement, { childList: true, subtree: true });
+  } catch (e) {}
+  [400, 1200, 2500].forEach(function (t) { setTimeout(fix, t); });
+})();
+</script>
+<!-- cognis-copy:end -->
+</body>
+</html>
