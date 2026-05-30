@@ -64,6 +64,18 @@ def snapshot_paths() -> list[Path]:
     return paths
 
 
+# P2-1 — footer social links are placeholders (generic platform roots) with no
+# accessible name and no target/rel (they'd replace the current tab). Real
+# profiles will be supplied later; for now make the placeholders safe: add an
+# aria-label, open in a new tab, and harden rel.
+SOCIAL = {
+    "https://www.facebook.com/": "Facebook",
+    "https://www.instagram.com/": "Instagram",
+    "https://www.linkedin.com/": "LinkedIn",
+    "https://x.com/": "X",
+}
+
+
 def fix(html: str) -> str:
     for dead, live in BLOG_SLUGS.items():
         html = html.replace(f"blog/{dead}", f"blog/{live}")
@@ -71,6 +83,11 @@ def fix(html: str) -> str:
     html = html.replace(f'href="{AI_DEAD}"', f'href="{AI_INTERIM}"')
     html = html.replace(f'"{AI_DEAD}/"', f'"{AI_INTERIM}"')
     html = html.replace(FORM_OLD, FORM_NEW)
+    for url, name in SOCIAL.items():
+        marker = f'href="{url}"'
+        safe = f'aria-label="{name}" target="_blank" rel="noopener noreferrer" href="{url}"'
+        if marker in html and 'aria-label="' + name not in html:
+            html = html.replace(marker, safe)
     return html
 
 
