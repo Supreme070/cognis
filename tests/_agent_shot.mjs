@@ -1,0 +1,13 @@
+import { chromium } from 'playwright';
+const BASE = 'https://www.cognis.group';
+const path = process.env.SHOTPATH || '/';
+const out = process.env.SHOTOUT || 'test-results/site-audit/evidence/e2e-blog-journeys/shot.png';
+const wait = parseInt(process.env.SHOTWAIT || '3000', 10);
+const browser = await chromium.launch({ executablePath: 'C:\\Users\\supre\\AppData\\Local\\ms-playwright\\chromium-1223\\chrome-win64\\chrome.exe' });
+const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 } });
+const page = await ctx.newPage();
+await page.goto(BASE + path, { waitUntil: 'load', timeout: 45000 }).catch(()=>{});
+await page.waitForTimeout(wait);
+console.log('FINAL URL', page.url(), 'TITLE', await page.title().catch(()=>'?'));
+await page.screenshot({ path: out });
+await browser.close();

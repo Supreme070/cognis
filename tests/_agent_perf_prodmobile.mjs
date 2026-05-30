@@ -1,0 +1,13 @@
+import { chromium } from 'playwright';
+const BASE = 'https://www.cognis.group';
+const out = 'test-results/site-audit/evidence/perf-jank-seize';
+const browser = await chromium.launch();
+const page = await (await browser.newContext({ viewport: { width: 390, height: 844 } })).newPage();
+await page.goto(BASE + '/products/', { waitUntil: 'domcontentloaded', timeout: 45000 });
+await page.waitForTimeout(1500);
+const nav = await page.evaluate(() => Array.from(document.querySelectorAll('header.site-nav nav a')).map(a => ({ t: a.textContent.trim(), visible: a.offsetParent !== null })));
+console.log('PRODUCTS MOBILE NAV', JSON.stringify(nav));
+const visibleNav = nav.filter(n => n.visible).map(n=>n.t);
+console.log('visible nav links on mobile:', JSON.stringify(visibleNav));
+await page.screenshot({ path: out + '/products-mobile-header.png' });
+await browser.close();

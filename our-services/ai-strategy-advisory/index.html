@@ -1381,7 +1381,7 @@
               var hp = form.querySelector('input[name="botcheck"]');
               if (hp && hp.value) { e.preventDefault(); e.stopImmediatePropagation(); return; }
               var emailEl = form.querySelector('input[type="email"]');
-              if (!emailEl || !emailEl.value) { return; /* let browser show required */ }
+              var msgEl = form.querySelector('textarea'); if (emailEl) emailEl.required = true; if (msgEl) msgEl.required = true; if (!form.checkValidity()) { form.reportValidity(); return; }
               e.preventDefault();
               e.stopImmediatePropagation();
               // Re-apply hidden inputs in case Framer re-rendered the form

@@ -41,7 +41,7 @@ LINKS_START = "<!-- cognis-site-links:start -->"
 PRODUCTS_SCHEMA = SCHEMA_START + """
 <script type="application/ld+json" data-cognis-products-schema>
 {"@context":"https://schema.org","@graph":[
-{"@type":"SoftwareApplication","@id":"https://cognis.group/#product-cognis-ai","name":"Cognis AI","applicationCategory":"BusinessApplication","operatingSystem":"Web","url":"https://ai.cognis.group","description":"A workforce of specialised AI workers — hire one for support, voice, knowledge, ops, or trade.","publisher":{"@id":"https://cognis.group/#organization"}},
+{"@type":"SoftwareApplication","@id":"https://cognis.group/#product-cognis-ai","name":"Cognis AI","applicationCategory":"BusinessApplication","operatingSystem":"Web","url":"https://cognis.group/products","description":"A workforce of specialised AI workers — hire one for support, voice, knowledge, ops, or trade.","publisher":{"@id":"https://cognis.group/#organization"}},
 {"@type":"SoftwareApplication","@id":"https://cognis.group/#product-marketsage","name":"MarketSage","applicationCategory":"BusinessApplication","operatingSystem":"Web","url":"https://www.marketsage.africa","description":"Autonomous marketing and sales intelligence — plans campaigns, runs them across channels, and turns activity into pipeline.","publisher":{"@id":"https://cognis.group/#organization"}},
 {"@type":"SoftwareApplication","@id":"https://cognis.group/#product-migratio","name":"Migratio","applicationCategory":"BusinessApplication","operatingSystem":"Web","url":"https://migratio.cognis.group","description":"The data-migration platform for banks, ministries, and regulated enterprises — reconcile before cutover, audit every record.","publisher":{"@id":"https://cognis.group/#organization"}},
 {"@type":"ItemList","name":"Cognis Group products","itemListElement":[
@@ -220,7 +220,7 @@ PRODUCTS_BAND = f"""{BAND_START}
       <a class="cgp-all" href="/products">All products &rarr;</a>
     </div>
     <div class="cgp-grid">
-      <a class="cgp-card cog-card" href="https://ai.cognis.group" target="_blank" rel="noopener" style="--c:#4285f4;--glow:rgba(66,133,244,.14)">
+      <a class="cgp-card cog-card" href="/products" rel="noopener" style="--c:#4285f4;--glow:rgba(66,133,244,.14)">
         <span class="cgp-line"></span>
         <p class="cgp-kick">Live &middot; AI workforce</p>
         <p class="cgp-name cog">Cognis<span class="ai">Ai</span>.</p>
