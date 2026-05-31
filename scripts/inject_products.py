@@ -172,7 +172,7 @@ PRODUCTS_BAND = f"""{BAND_START}
   /* A contained, bordered panel on white (no full-width gray band) — matching
      the framed look of the other sections. Its outer edge stays on the 1440
      content box so it aligns with the testimonials / expertise / footer. */
-  .cgp-inner {{ max-width: 1440px; margin: 0 auto; background: #fff; border: 1px solid #e6e6e6; border-radius: 28px; padding: 48px 48px 52px; }}
+  .cgp-inner {{ max-width: 1440px; margin: 0 auto; background: #fff; border: 1px solid #e2e2e2; border-radius: 28px; padding: 48px 48px 52px; box-shadow: 0 6px 26px -6px rgba(19, 19, 19, 0.12); }}
   .cgp-eyebrow {{ color: #7b7b7b; font-size: 13px; letter-spacing: .12em; text-transform: uppercase; font-weight: 600; margin: 0 0 14px; }}
   .cgp-eyebrow::before {{ content: ""; display: inline-block; width: 28px; height: 2px; background: #cdfb56; vertical-align: middle; margin-right: 12px; }}
   .cgp-head {{ display: flex; flex-wrap: wrap; gap: 16px 32px; align-items: baseline; justify-content: space-between; margin-bottom: 36px; }}
