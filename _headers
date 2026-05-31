@@ -1,0 +1,35 @@
+# Cloudflare Pages response headers.
+# Audit P1-9: hashed/static assets were served `max-age=0, must-revalidate`
+# (cf-cache-status: DYNAMIC) — re-validated on every request. Cache the
+# content-hashed, immutable Framer runtime assets hard so repeat (and edge)
+# loads are instant. HTML is intentionally left on the Pages default
+# (revalidate) so deploys appear immediately.
+
+# Content-hashed, immutable runtime assets (JS bundles, images, fonts, video).
+/framer-runtime/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Locally-served product assets (stable but not fingerprinted) — a week.
+/assets/*
+  Cache-Control: public, max-age=604800
+
+# Brand icons (not fingerprinted) — a week.
+/favicon.svg
+  Cache-Control: public, max-age=604800
+/favicon.ico
+  Cache-Control: public, max-age=604800
+/apple-touch-icon.png
+  Cache-Control: public, max-age=604800
+/favicon-32.png
+  Cache-Control: public, max-age=604800
+
+# CMS chunks change on every content rebuild and are not fingerprinted —
+# keep these short so edits surface quickly.
+/cognis-cms/*
+  Cache-Control: public, max-age=3600, must-revalidate
+
+# Security headers for all responses (defensive hardening).
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: SAMEORIGIN
