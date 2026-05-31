@@ -14,6 +14,8 @@ last step of `npm run prerender`:
 
 from __future__ import annotations
 
+import re
+import urllib.parse
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -39,6 +41,31 @@ AI_INTERIM = "/products"
 
 # Fisayo Oludare — reposition to a senior advisory title.
 FISAYO_TITLE = "Senior Advisor"
+
+# P2-2 — the CTA arrow icons (data-framer-name="arrow") ship with a broken mask
+# (mask:none), so the box renders as a solid colored square in GET STARTED /
+# SEND MESSAGE / LEARN MORE / SUBSCRIBE. Re-mask the box with a data-URI arrow
+# so its background-colour shows only in the arrow shape (preserving the
+# per-button colour). Scoped to lowercase "arrow" (the icon), never the
+# "Arrow"/"Arrow Dark" button wrappers.
+_ARROW_SVG = (
+    "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'>"
+    "<path d='M4 11h12.17l-5.59-5.59L12 4l8 8-8 8-1.41-1.41L16.17 13H4z'/></svg>"
+)
+_ARROW_URI = "data:image/svg+xml," + urllib.parse.quote(_ARROW_SVG, safe="")
+ICON_START = "<!-- cognis-iconfix:start -->"
+ICON_END = "<!-- cognis-iconfix:end -->"
+ICON_BLOCK = f"""{ICON_START}
+<style data-cognis-iconfix>
+  [data-framer-name="arrow"] {{
+    -webkit-mask-image: url("{_ARROW_URI}") !important; mask-image: url("{_ARROW_URI}") !important;
+    -webkit-mask-repeat: no-repeat !important; mask-repeat: no-repeat !important;
+    -webkit-mask-position: center !important; mask-position: center !important;
+    -webkit-mask-size: contain !important; mask-size: contain !important;
+  }}
+  [data-framer-name="arrow"] > * {{ opacity: 0 !important; }}
+</style>
+{ICON_END}"""
 
 # P1-5 — contact form validation. The handler bailed only when the email was
 # empty, then called form.submit() (which skips constraint validation), so an
@@ -82,9 +109,10 @@ SOCIAL = {
 def fix(html: str) -> str:
     for dead, live in BLOG_SLUGS.items():
         html = html.replace(f"blog/{dead}", f"blog/{live}")
-    # Repoint the dead product domain. Match both the bare host and any path.
+    # Repoint the dead product domain. Match href, bare-quoted (JSON-LD url), path.
     html = html.replace(f'href="{AI_DEAD}"', f'href="{AI_INTERIM}"')
     html = html.replace(f'"{AI_DEAD}/"', f'"{AI_INTERIM}"')
+    html = html.replace(f'"{AI_DEAD}"', '"https://cognis.group/products"')
     html = html.replace(FORM_OLD, FORM_NEW)
     for url, name in SOCIAL.items():
         marker = f'href="{url}"'
@@ -95,6 +123,10 @@ def fix(html: str) -> str:
     # meta, og/twitter, JSON-LD jobTitle). Covers plain & and &amp; forms.
     html = html.replace("Executive Director, Partnerships &amp; AI Enablement", FISAYO_TITLE)
     html = html.replace("Executive Director, Partnerships & AI Enablement", FISAYO_TITLE)
+    # P2-2 — re-mask the broken CTA arrow icons (idempotent block before </body>).
+    html = re.sub(re.escape(ICON_START) + r"[\s\S]*?" + re.escape(ICON_END) + r"\s*", "", html)
+    if "</body>" in html:
+        html = html.replace("</body>", ICON_BLOCK + "\n</body>", 1)
     return html
 
 
