@@ -586,6 +586,11 @@
       s.textContent = 'Skip to main content';
       document.body.insertBefore(s, document.body.firstChild);
     }
+    // Ticker/slideshow marquees use <ul role="group"> which strips the list
+    // role from their <li> children (WCAG 1.3.1). Restore list semantics.
+    document.querySelectorAll('ul[role="group"]').forEach(function (ul) {
+      if (ul.querySelector(':scope > li')) ul.setAttribute('role', 'list');
+    });
     // Accessible name for placeholder-only fields (WCAG 1.3.1 / 4.1.2).
     document.querySelectorAll('input, textarea, select').forEach(function (el) {
       var t = (el.getAttribute('type') || '').toLowerCase();
