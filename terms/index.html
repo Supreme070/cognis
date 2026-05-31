@@ -506,8 +506,8 @@
   :root { --cgx-ink: #131313; --cgx-lime: #d6fd70; }
   /* ---- HEADER (faithful to the global: fixed, transparent, dark ink on light) ---- */
   header.cgx { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: transparent; font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
-  header.cgx .cgx-in { max-width: 1280px; margin: 0 auto; padding: 18px 32px; display: flex; align-items: center; gap: 8px; }
-  header.cgx .cgx-logo { display: flex; align-items: center; gap: 9px; text-decoration: none; margin-right: auto; color: var(--cgx-ink); }
+  header.cgx .cgx-in { max-width: 1344px; margin: 0 auto; padding: 18px 24px; display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  header.cgx .cgx-logo { display: flex; align-items: center; gap: 9px; text-decoration: none; color: var(--cgx-ink); }
   header.cgx .cgx-mark { width: 32px; height: 24px; fill: currentColor; display: block; }
   header.cgx .cgx-word { font-weight: 600; letter-spacing: -0.04em; font-size: 23px; color: var(--cgx-ink); }
   header.cgx .cgx-nav { display: flex; align-items: center; }
@@ -515,7 +515,7 @@
   header.cgx .cgx-roll { position: relative; display: inline-block; overflow: hidden; height: 20px; line-height: 20px; vertical-align: top; }
   header.cgx .cgx-roll > span { display: block; transition: transform .34s cubic-bezier(.2,.7,.2,1); }
   header.cgx a:hover .cgx-roll > span { transform: translateY(-20px); }
-  header.cgx .cgx-cta { margin-left: 14px; background: var(--cgx-lime); color: #131313; text-decoration: none; font-size: 13px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; padding: 11px 20px; border-radius: 48px; white-space: nowrap; transition: transform .2s ease, box-shadow .2s ease; }
+  header.cgx .cgx-cta { background: var(--cgx-lime); color: #131313; text-decoration: none; font-size: 13px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; padding: 11px 20px; border-radius: 48px; white-space: nowrap; transition: transform .2s ease, box-shadow .2s ease; }
   header.cgx .cgx-cta:hover { transform: translateY(-1px); box-shadow: 0 10px 26px -10px rgba(214,253,112,.95); }
   header.cgx .cgx-burger { display: none; flex-direction: column; gap: 5px; align-items: center; justify-content: center; width: 44px; height: 44px; background: var(--cgx-lime); border: 0; border-radius: 12px; cursor: pointer; }
   header.cgx .cgx-burger span { width: 20px; height: 2px; background: #131313; border-radius: 2px; transition: transform .25s ease, opacity .2s ease; }
@@ -537,7 +537,7 @@
   }
   /* ---- FOOTER (faithful: dark rounded card inset in white) ---- */
   footer.cgxf { background: transparent; padding: 12px; font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
-  footer.cgxf .cgxf-card { background: #0f0f0f; color: #fff; border-radius: 26px; padding: 56px 60px 40px; max-width: 1416px; margin: 0 auto; }
+  footer.cgxf .cgxf-card { background: #0f0f0f; color: #fff; border-radius: 26px; padding: 56px 40px 40px; max-width: 1416px; margin: 0 auto; }
   footer.cgxf .cgxf-top { display: flex; justify-content: space-between; gap: 48px; flex-wrap: wrap; }
   footer.cgxf .cgxf-brand { max-width: 620px; }
   footer.cgxf .cgxf-logo { display: inline-flex; align-items: center; gap: 9px; text-decoration: none; color: #fff; }
