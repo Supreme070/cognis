@@ -37,6 +37,9 @@ BLOG_SLUGS = {
 AI_DEAD = "https://ai.cognis.group"
 AI_INTERIM = "/products"
 
+# Fisayo Oludare — reposition to a senior advisory title.
+FISAYO_TITLE = "Senior Advisor"
+
 # P1-5 — contact form validation. The handler bailed only when the email was
 # empty, then called form.submit() (which skips constraint validation), so an
 # invalid email or empty message still posted. Enforce validity first.
@@ -88,6 +91,10 @@ def fix(html: str) -> str:
         safe = f'aria-label="{name}" target="_blank" rel="noopener noreferrer" href="{url}"'
         if marker in html and 'aria-label="' + name not in html:
             html = html.replace(marker, safe)
+    # Fisayo Oludare title -> senior advisory positioning (visible text, <title>,
+    # meta, og/twitter, JSON-LD jobTitle). Covers plain & and &amp; forms.
+    html = html.replace("Executive Director, Partnerships &amp; AI Enablement", FISAYO_TITLE)
+    html = html.replace("Executive Director, Partnerships & AI Enablement", FISAYO_TITLE)
     return html
 
 
