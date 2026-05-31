@@ -166,13 +166,13 @@ PRODUCTS_BAND = f"""{BAND_START}
 <style data-cognis-products-band>
   @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@800&display=swap');
   .cgp-band {{
-    background: #f2f2f2; color: #131313; padding: 72px 52px 80px;
+    background: #fff; color: #131313; padding: 72px 52px 80px;
     font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    border-top: 1px solid #e6e6e6;
   }}
-  /* Match the site's content box: max-width 1440 with 52px side gutters, so the
-     band's edges align with the testimonials / footer / other sections. */
-  .cgp-inner {{ max-width: 1440px; margin: 0 auto; }}
+  /* A contained, bordered panel on white (no full-width gray band) — matching
+     the framed look of the other sections. Its outer edge stays on the 1440
+     content box so it aligns with the testimonials / expertise / footer. */
+  .cgp-inner {{ max-width: 1440px; margin: 0 auto; background: #fff; border: 1px solid #e6e6e6; border-radius: 28px; padding: 48px 48px 52px; }}
   .cgp-eyebrow {{ color: #7b7b7b; font-size: 13px; letter-spacing: .12em; text-transform: uppercase; font-weight: 600; margin: 0 0 14px; }}
   .cgp-eyebrow::before {{ content: ""; display: inline-block; width: 28px; height: 2px; background: #cdfb56; vertical-align: middle; margin-right: 12px; }}
   .cgp-head {{ display: flex; flex-wrap: wrap; gap: 16px 32px; align-items: baseline; justify-content: space-between; margin-bottom: 36px; }}
@@ -220,8 +220,8 @@ PRODUCTS_BAND = f"""{BAND_START}
   .cgp-go .a {{ transition: margin-left .2s ease; }}
   .cgp-card:hover .cgp-go .a {{ margin-left: 5px; }}
   @media (max-width: 1040px) {{ .cgp-grid {{ grid-template-columns: repeat(2, 1fr); }} }}
-  @media (max-width: 810px) {{ .cgp-band {{ padding: 56px 24px 64px; }} }}
-  @media (max-width: 560px) {{ .cgp-grid {{ grid-template-columns: 1fr; }} .cgp-head h2 {{ font-size: 28px; }} .cgp-band {{ padding: 48px 16px 56px; }} }}
+  @media (max-width: 810px) {{ .cgp-band {{ padding: 56px 24px 64px; }} .cgp-inner {{ padding: 36px 32px 40px; }} }}
+  @media (max-width: 560px) {{ .cgp-grid {{ grid-template-columns: 1fr; }} .cgp-head h2 {{ font-size: 28px; }} .cgp-band {{ padding: 48px 16px 56px; }} .cgp-inner {{ padding: 28px 20px 32px; border-radius: 20px; }} }}
 </style>
 <template id="cgp-band-tpl"><section class="cgp-band" aria-label="Products">
   <div class="cgp-inner">
