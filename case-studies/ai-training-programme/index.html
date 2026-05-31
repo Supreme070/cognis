@@ -474,5 +474,50 @@
   [data-framer-name="arrow"] > * { opacity: 0 !important; }
 </style>
 <!-- cognis-iconfix:end -->
+<!-- cognis-a11y:start -->
+<style data-cognis-a11y>
+  .cognis-skip { position: fixed; top: 10px; left: 10px; z-index: 100000; background: #131313; color: #fff; padding: 12px 20px; border-radius: 10px; font: 600 14px/1.2 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif; text-decoration: none; transform: translateY(-160%); transition: transform .16s ease; }
+  .cognis-skip:focus { transform: translateY(0); outline: 3px solid #cdfb56; outline-offset: 2px; }
+  :focus-visible { outline: 3px solid #1769ff; outline-offset: 2px; }
+  .cognis-skip:focus-visible { outline-color: #cdfb56; }
+  /* Contrast lifts (only affect the hand-built shells where these exist). */
+  :root { --mute: #636363 !important; }
+  table.compare .mid { color: #8a5200 !important; }
+</style>
+<script data-cognis-a11y>
+(function () {
+  function main() {
+    return document.querySelector('main') || document.querySelector('[data-framer-name="main"]') || document.querySelector('[role="main"]');
+  }
+  function run() {
+    var m = main();
+    if (m) {
+      if (!m.id) m.id = 'cognis-main';
+      if (m.getAttribute('tabindex') === null) m.setAttribute('tabindex', '-1');
+    }
+    if (!document.querySelector('a.cognis-skip')) {
+      var s = document.createElement('a');
+      s.className = 'cognis-skip';
+      s.href = '#' + (m && m.id ? m.id : 'cognis-main');
+      s.textContent = 'Skip to main content';
+      document.body.insertBefore(s, document.body.firstChild);
+    }
+    // Accessible name for placeholder-only fields (WCAG 1.3.1 / 4.1.2).
+    document.querySelectorAll('input, textarea, select').forEach(function (el) {
+      var t = (el.getAttribute('type') || '').toLowerCase();
+      if (t === 'hidden' || el.getAttribute('aria-hidden') === 'true') return;
+      var labelled = (el.labels && el.labels.length) || el.getAttribute('aria-label') || el.getAttribute('aria-labelledby');
+      if (!labelled) {
+        var ph = el.getAttribute('placeholder');
+        if (ph) el.setAttribute('aria-label', ph);
+      }
+    });
+  }
+  if (document.readyState !== 'loading') run();
+  else document.addEventListener('DOMContentLoaded', run);
+  [400, 1200, 2500].forEach(function (t) { setTimeout(run, t); });
+})();
+</script>
+<!-- cognis-a11y:end -->
 </body>
 </html>
