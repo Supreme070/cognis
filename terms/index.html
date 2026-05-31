@@ -349,97 +349,6 @@
 })();
 </script>
 <!-- cognis-quotefix:end -->
-<!-- cognis-products-nav:start -->
-<style data-cognis-products-nav-style>
-  a.cognis-prod-link { display: flex; align-items: center; justify-content: center; padding: 12px 20px; height: 44px; box-sizing: border-box; text-decoration: none; cursor: pointer; }
-  a.cognis-prod-link .cgpn-wrap { position: relative; display: inline-flex; flex-direction: column; height: 1.25em; line-height: 1.25em; overflow: hidden; }
-  a.cognis-prod-link .cgpn-t { font-size: 14px; font-weight: 500; white-space: nowrap; transition: transform .3s cubic-bezier(.2,.7,.2,1); }
-  a.cognis-prod-link:hover .cgpn-t { transform: translateY(-100%); }
-</style>
-<script data-cognis-products-nav>
-(function () {
-  // Build our own Products link (not a Framer clone). `st` theme-matches the
-  // sibling nav items: colour, size, weight, tracking and case.
-  function buildLink(st) {
-    st = st || {};
-    var a = document.createElement('a');
-    a.className = 'cognis-prod-link';
-    a.setAttribute('href', '/products');
-    a.setAttribute('data-cognis-products', '');
-    a.setAttribute('aria-label', 'Products');
-    if (st.color) a.style.color = st.color;
-    var wrap = document.createElement('span'); wrap.className = 'cgpn-wrap';
-    function mk(hidden) {
-      var s = document.createElement('span');
-      s.className = 'cgpn-t';
-      s.textContent = 'Products';
-      if (hidden) s.setAttribute('aria-hidden', 'true');
-      if (st.fontSize) s.style.fontSize = st.fontSize;
-      if (st.fontWeight) s.style.fontWeight = st.fontWeight;
-      if (st.fontFamily) s.style.fontFamily = st.fontFamily;
-      if (st.letterSpacing && st.letterSpacing !== 'normal') s.style.letterSpacing = st.letterSpacing;
-      if (st.textTransform && st.textTransform !== 'none') s.style.textTransform = st.textTransform;
-      return s;
-    }
-    wrap.appendChild(mk(false)); wrap.appendChild(mk(true)); a.appendChild(wrap);
-    return a;
-  }
-  // Sample the typography of a real, non-Products nav item so ours matches.
-  function sampleStyle(menu) {
-    var links = menu.querySelectorAll('a[href]');
-    for (var i = 0; i < links.length; i++) {
-      if (links[i].hasAttribute('data-cognis-products')) continue;
-      var p = links[i].querySelector('p') || links[i].querySelector('span') || links[i];
-      var cs = getComputedStyle(p);
-      var color = cs.color;
-      if (color === 'rgba(0, 0, 0, 0)') color = getComputedStyle(links[i]).color;
-      return { color: color, fontSize: cs.fontSize, fontWeight: cs.fontWeight, fontFamily: cs.fontFamily, letterSpacing: cs.letterSpacing, textTransform: cs.textTransform };
-    }
-    return null;
-  }
-  function addToFramer(menu) {
-    if (menu.querySelector('a[data-cognis-products]')) return;
-    // Anchor after the Services item; fall back to the last real item / end.
-    var kids = menu.children, after = null, last = null;
-    for (var i = 0; i < kids.length; i++) {
-      var l = kids[i].querySelector && kids[i].querySelector('a[href]');
-      if (!l) continue;
-      last = kids[i];
-      if (/our-services/.test(l.getAttribute('href') || '')) after = kids[i];
-    }
-    var link = buildLink(sampleStyle(menu));
-    if (after && after.parentNode) after.parentNode.insertBefore(link, after.nextSibling);
-    else if (last && last.parentNode) last.parentNode.appendChild(link);
-    else menu.appendChild(link);
-  }
-  function addToShell(nav) {
-    if (nav.querySelector('a[href="/products"]')) return;
-    var services = nav.querySelector('a[href="/our-services"]');
-    var link = document.createElement('a');
-    link.setAttribute('href', '/products');
-    link.setAttribute('data-cognis-products', '');
-    link.textContent = 'Products';
-    if (services && services.parentNode) services.parentNode.insertBefore(link, services.nextSibling);
-    else nav.appendChild(link);
-  }
-  function run() {
-    document.querySelectorAll('nav [data-framer-name="menu"]').forEach(addToFramer);
-    document.querySelectorAll('header.site-nav nav').forEach(addToShell);
-  }
-  if (document.readyState !== 'loading') run();
-  else document.addEventListener('DOMContentLoaded', run);
-  // Framer is a SPA: re-apply when it re-renders the nav. rAF-debounced.
-  try {
-    var mo = new MutationObserver(function () {
-      if (window.__cognisNavRAF) return;
-      window.__cognisNavRAF = requestAnimationFrame(function () { window.__cognisNavRAF = 0; run(); });
-    });
-    mo.observe(document.documentElement, { childList: true, subtree: true });
-  } catch (e) {}
-  [200, 600, 1200, 2500].forEach(function (t) { setTimeout(run, t); });
-})();
-</script>
-<!-- cognis-products-nav:end -->
 <!-- cognis-iconfix:start -->
 <style data-cognis-iconfix>
   [data-framer-name="arrow"] {
@@ -587,5 +496,104 @@
 })();
 </script>
 <!-- cognis-gnav:end -->
+<!-- cognis-products-nav:start -->
+<style data-cognis-products-nav-style>
+  a.cognis-prod-link { display: flex; align-items: center; justify-content: center; padding: 12px 20px; height: 44px; box-sizing: border-box; text-decoration: none; cursor: pointer; }
+  a.cognis-prod-link .cgpn-wrap { position: relative; display: inline-flex; flex-direction: column; height: 1.25em; line-height: 1.25em; overflow: hidden; }
+  a.cognis-prod-link .cgpn-t { font-size: 14px; font-weight: 500; white-space: nowrap; transition: transform .3s cubic-bezier(.2,.7,.2,1); }
+  a.cognis-prod-link:hover .cgpn-t { transform: translateY(-100%); }
+</style>
+<script data-cognis-products-nav>
+(function () {
+  // Build our own Products link (not a Framer clone). `st` theme-matches the
+  // sibling nav items: colour, size, weight, tracking and case.
+  function buildLink(st) {
+    st = st || {};
+    var a = document.createElement('a');
+    a.className = 'cognis-prod-link';
+    a.setAttribute('href', '/products');
+    a.setAttribute('data-cognis-products', '');
+    a.setAttribute('aria-label', 'Products');
+    if (st.color) a.style.color = st.color;
+    var wrap = document.createElement('span'); wrap.className = 'cgpn-wrap';
+    function mk(hidden) {
+      var s = document.createElement('span');
+      s.className = 'cgpn-t';
+      s.textContent = 'Products';
+      if (hidden) s.setAttribute('aria-hidden', 'true');
+      if (st.fontSize) s.style.fontSize = st.fontSize;
+      if (st.fontWeight) s.style.fontWeight = st.fontWeight;
+      if (st.fontFamily) s.style.fontFamily = st.fontFamily;
+      if (st.letterSpacing && st.letterSpacing !== 'normal') s.style.letterSpacing = st.letterSpacing;
+      if (st.textTransform && st.textTransform !== 'none') s.style.textTransform = st.textTransform;
+      return s;
+    }
+    wrap.appendChild(mk(false)); wrap.appendChild(mk(true)); a.appendChild(wrap);
+    return a;
+  }
+  // Sample the typography of a real, non-Products nav item so ours matches.
+  function sampleStyle(menu) {
+    var links = menu.querySelectorAll('a[href]');
+    for (var i = 0; i < links.length; i++) {
+      if (links[i].hasAttribute('data-cognis-products')) continue;
+      var p = links[i].querySelector('p') || links[i].querySelector('span') || links[i];
+      var cs = getComputedStyle(p);
+      var color = cs.color;
+      if (color === 'rgba(0, 0, 0, 0)') color = getComputedStyle(links[i]).color;
+      return { color: color, fontSize: cs.fontSize, fontWeight: cs.fontWeight, fontFamily: cs.fontFamily, letterSpacing: cs.letterSpacing, textTransform: cs.textTransform };
+    }
+    return null;
+  }
+  function addToFramer(menu) {
+    if (menu.querySelector('a[data-cognis-products]')) return;
+    // Anchor after the Services item; fall back to the last real item / end.
+    var kids = menu.children, after = null, last = null;
+    for (var i = 0; i < kids.length; i++) {
+      var l = kids[i].querySelector && kids[i].querySelector('a[href]');
+      if (!l) continue;
+      last = kids[i];
+      if (/our-services/.test(l.getAttribute('href') || '')) after = kids[i];
+    }
+    var link = buildLink(sampleStyle(menu));
+    if (after && after.parentNode) after.parentNode.insertBefore(link, after.nextSibling);
+    else if (last && last.parentNode) last.parentNode.appendChild(link);
+    else menu.appendChild(link);
+  }
+  function addToShell(nav) {
+    if (nav.querySelector('a[href="/products"]')) return;
+    var services = nav.querySelector('a[href="/our-services"]');
+    var link = document.createElement('a');
+    link.setAttribute('href', '/products');
+    link.setAttribute('data-cognis-products', '');
+    link.textContent = 'Products';
+    if (services && services.parentNode) services.parentNode.insertBefore(link, services.nextSibling);
+    else nav.appendChild(link);
+  }
+  function run() {
+    document.querySelectorAll('nav [data-framer-name="menu"]').forEach(addToFramer);
+    document.querySelectorAll('header.site-nav nav').forEach(addToShell);
+  }
+  if (document.readyState !== 'loading') run();
+  else document.addEventListener('DOMContentLoaded', run);
+  // Framer re-renders the nav on scroll (its scroll-linked colour change),
+  // which drops the injected Products link. Re-add SYNCHRONOUSLY the instant
+  // it goes missing: MutationObserver callbacks run as a microtask BEFORE the
+  // next paint, so re-adding here (not via rAF) closes the gap with no visible
+  // flicker, even during continuous scrolling. The check is cheap and only
+  // calls run() when the link is actually absent (no loop: the re-add's own
+  // mutation finds it present next tick and bails).
+  try {
+    var mo = new MutationObserver(function () {
+      var menus = document.querySelectorAll('nav [data-framer-name="menu"]');
+      for (var i = 0; i < menus.length; i++) {
+        if (!menus[i].querySelector('a[data-cognis-products]')) { run(); return; }
+      }
+    });
+    mo.observe(document.documentElement, { childList: true, subtree: true });
+  } catch (e) {}
+  [200, 600, 1200, 2500].forEach(function (t) { setTimeout(run, t); });
+})();
+</script>
+<!-- cognis-products-nav:end -->
 </body>
 </html>

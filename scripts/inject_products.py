@@ -140,11 +140,19 @@ NAV_SCRIPT = f"""{NAV_START}
   }}
   if (document.readyState !== 'loading') run();
   else document.addEventListener('DOMContentLoaded', run);
-  // Framer is a SPA: re-apply when it re-renders the nav. rAF-debounced.
+  // Framer re-renders the nav on scroll (its scroll-linked colour change),
+  // which drops the injected Products link. Re-add SYNCHRONOUSLY the instant
+  // it goes missing: MutationObserver callbacks run as a microtask BEFORE the
+  // next paint, so re-adding here (not via rAF) closes the gap with no visible
+  // flicker, even during continuous scrolling. The check is cheap and only
+  // calls run() when the link is actually absent (no loop: the re-add's own
+  // mutation finds it present next tick and bails).
   try {{
     var mo = new MutationObserver(function () {{
-      if (window.__cognisNavRAF) return;
-      window.__cognisNavRAF = requestAnimationFrame(function () {{ window.__cognisNavRAF = 0; run(); }});
+      var menus = document.querySelectorAll('nav [data-framer-name="menu"]');
+      for (var i = 0; i < menus.length; i++) {{
+        if (!menus[i].querySelector('a[data-cognis-products]')) {{ run(); return; }}
+      }}
     }});
     mo.observe(document.documentElement, {{ childList: true, subtree: true }});
   }} catch (e) {{}}
