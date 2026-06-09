@@ -1986,7 +1986,7 @@
 })();
 </script>
 <!-- cognis-hero-video:end -->
-    <!-- cognis-ux-tweaks:start -->
+      <!-- cognis-ux-tweaks:start -->
 <style data-cognis-ux-tweaks>
   /* Let vertical page scroll pass through horizontal Framer slideshows
      on mobile (e.g. the testimonials carousel). */
@@ -2064,6 +2064,11 @@
   }
   /* hide the now-dead carousel prev/next arrows (the "Contact us" CTA is an <a>) */
   [data-framer-name="team"] button {
+    display: none !important;
+  }
+  /* Fisayo Oludare's photo is a stock placeholder, not a real headshot —
+     leave the image slot empty until a real photo is supplied. */
+  [data-framer-name="team"] img[src*="il73eZeVzET6bn72svJVyQpD4"] {
     display: none !important;
   }
 </style>

@@ -104,6 +104,11 @@ BLOCK = f"""{START}
   [data-framer-name="team"] button {{
     display: none !important;
   }}
+  /* Fisayo Oludare's photo is a stock placeholder, not a real headshot —
+     leave the image slot empty until a real photo is supplied. */
+  [data-framer-name="team"] img[src*="il73eZeVzET6bn72svJVyQpD4"] {{
+    display: none !important;
+  }}
 </style>
 {END}"""
 
