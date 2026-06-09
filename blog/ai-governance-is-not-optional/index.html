@@ -32,6 +32,46 @@
       } catch (e) {}
     })();
     </script>
+    <script id="cognis-blog-canonical">
+    /* Blog posts render under Framer's original CMS slug, but the canonical
+     * URL, sitemap and <link canonical> use the newer SEO slug. Normalise the
+     * address bar to the canonical slug whenever Framer routes to an old slug
+     * — covering deep links (via the deferred-nav two-hop) and in-app card
+     * clicks alike. Installed before Framer so its history writes are caught. */
+    (function () {
+      try {
+        var O2C = {
+          'why-enterprise-ai-deployments-fail': 'why-most-enterprise-ai-strategies-fail-before-they-start',
+          'ai-agents-new-operating-system': 'building-ai-agents-that-actually-ship',
+          'ai-ready-workforce-training': 'making-your-workforce-ai-ready',
+          'ai-governance-african-enterprises': 'ai-governance-is-not-optional',
+          'measuring-ai-roi-framework': 'the-real-roi-of-ai',
+          'ai-native-operations-africa': 'ai-native-operations-for-african-enterprises'
+        };
+        var busy = false;
+        function normalize() {
+          if (busy) return;
+          var m = location.pathname.replace(/\/+$/, '').match(/^\/blog\/([^\/]+)$/);
+          if (!m) return;
+          var canon = O2C[m[1]];
+          if (!canon) return;
+          busy = true;
+          try { history.replaceState(history.state, '', '/blog/' + canon); } catch (e) {}
+          busy = false;
+        }
+        ['pushState', 'replaceState'].forEach(function (k) {
+          var orig = history[k];
+          history[k] = function () {
+            var r = orig.apply(this, arguments);
+            if (!busy) setTimeout(normalize, 0);
+            return r;
+          };
+        });
+        window.addEventListener('popstate', function () { setTimeout(normalize, 0); });
+        [0, 300, 800, 1500, 3000, 6000, 9000].forEach(function (t) { setTimeout(normalize, t); });
+      } catch (e) {}
+    })();
+    </script>
     <!-- Start of headStart -->
     <script>
     (() => {
@@ -1440,25 +1480,60 @@
       }
 
       function removeEugeneTeamCard() {
-        document.querySelectorAll('img[src*="qo6HZFi07ViVs9Z02uanZYrR84"]').forEach(function (img) {
-          var card = img.closest('li') || img.closest('a');
-          if (card && !card.dataset.cognisHidden) {
-            card.dataset.cognisHidden = '1';
-            card.style.display = 'none';
+        // The 4th team member (Eugene Jack) is an unpublished Framer CMS item:
+        // his card links to an unresolved ":token" slug on desktop and an
+        // unpublished /teams/eugene-jack on mobile — both 404. Remove the card
+        // node entirely so no dead link survives in the DOM (the responsive
+        // team grid then shows the three real members). Self-heals on re-render
+        // because apply() re-runs from the MutationObserver.
+        var sel = 'img[src*="qo6HZFi07ViVs9Z02uanZYrR84"], a[href*="/teams/:"], a[href*="/teams/eugene"]';
+        document.querySelectorAll(sel).forEach(function (el) {
+          var card = el.closest('li') || el.closest('a') || el;
+          if (card && card.parentNode) card.remove();
+        });
+      }
+
+      function fixContactCta() {
+        // Some Framer CTAs lost their link binding and render as <a> with no
+        // href (e.g. the about-us "Contact us" button). Point any link-less
+        // "Contact us" control at /contact so it actually navigates.
+        document.querySelectorAll('a:not([href])').forEach(function (a) {
+          var u = (a.textContent || '').toLowerCase().replace(/\s+/g, '');
+          if (u && u.replace(/contactus/g, '') === '') {
+            a.setAttribute('href', './contact');
           }
         });
-        document.querySelectorAll('img[src*="qo6HZFi07ViVs9Z02uanZYrR84"]').forEach(function (img) {
-          var ul = img.closest('ul');
-          if (!ul || ul.dataset.cognisFrozen) return;
-          ul.dataset.cognisFrozen = '1';
-          var freeze = function () {
-            if (ul.style.transform && ul.style.transform !== 'translateX(0px)') {
-              ul.style.setProperty('transform', 'translateX(0px)', 'important');
-            }
-          };
-          freeze();
-          var mo = new MutationObserver(freeze);
-          mo.observe(ul, { attributes: true, attributeFilter: ['style'] });
+      }
+
+      function fixFormRequired() {
+        // Make the real email field required so a prospect can't send a message
+        // the team can't reply to (honeypots are type=text, so unaffected), and
+        // require the contact Message body.
+        document.querySelectorAll('form input[type="email"][name="email"]').forEach(function (i) {
+          if (!i.required) i.required = true;
+        });
+        document.querySelectorAll('form textarea[name="Message"]').forEach(function (t) {
+          if (!t.required) t.required = true;
+        });
+      }
+
+      function fixDupButtonLabels() {
+        // Framer's hover-fill buttons render the label twice (base + reveal
+        // layer), so screen readers announce it twice. aria-hide the duplicate
+        // text layers, leaving a single accessible name.
+        document.querySelectorAll('button').forEach(function (btn) {
+          if (btn.dataset.cognisAria) return;
+          var layers = btn.querySelectorAll('[data-framer-component-type="RichTextContainer"]');
+          if (layers.length < 2) return;
+          var first = (layers[0].textContent || '').trim();
+          if (!first) return;
+          var allSame = true;
+          for (var i = 1; i < layers.length; i++) {
+            if ((layers[i].textContent || '').trim() !== first) { allSame = false; break; }
+          }
+          if (!allSame) return;
+          for (var j = 1; j < layers.length; j++) layers[j].setAttribute('aria-hidden', 'true');
+          btn.dataset.cognisAria = '1';
         });
       }
 
@@ -1545,7 +1620,7 @@
         });
       }
 
-      function apply() { ensureAnchors(); ensureForms(); ensureHeroVideo(); installHeroListeners(); ensureFooterLogoHref(); ensureMarketsageLogo(); ensureLocalImages(); ensureAboutHeroImage(); removeEugeneTeamCard(); }
+      function apply() { ensureAnchors(); ensureForms(); ensureHeroVideo(); installHeroListeners(); ensureFooterLogoHref(); ensureMarketsageLogo(); ensureLocalImages(); ensureAboutHeroImage(); removeEugeneTeamCard(); fixContactCta(); fixFormRequired(); fixDupButtonLabels(); }
 
       // Capture-phase handler for pure in-page hash anchors (e.g. Framer's
       // homepage CTAs that scroll to sections). Real route hrefs like
@@ -1635,6 +1710,20 @@
         var d = window.__cognisDeferred;
         if (d) {
           window.__cognisDeferred = null;
+          // Blog posts have canonical (new) slugs in the prerendered pages,
+          // sitemap and <link canonical>, but Framer's CMS still routes the
+          // ORIGINAL (old) slug — so a deep link to a canonical slug must
+          // click the card carrying the old slug, then we restore the URL to
+          // the canonical slug via replaceState. Map: canonical -> card slug.
+          var BLOG_SLUG_ALIAS = {
+            'why-most-enterprise-ai-strategies-fail-before-they-start': 'why-enterprise-ai-deployments-fail',
+            'building-ai-agents-that-actually-ship': 'ai-agents-new-operating-system',
+            'making-your-workforce-ai-ready': 'ai-ready-workforce-training',
+            'ai-governance-is-not-optional': 'ai-governance-african-enterprises',
+            'the-real-roi-of-ai': 'measuring-ai-roi-framework',
+            'ai-native-operations-for-african-enterprises': 'ai-native-operations-africa'
+          };
+          var blogCardSlug = (d.kind === 'blogDetail') ? (BLOG_SLUG_ALIAS[d.slug] || d.slug) : null;
           var targetPath = (function () {
             if (d.kind === 'topLevel')      return d.href;
             if (d.kind === 'blogDetail')    return '/blog/' + d.slug;
@@ -1654,6 +1743,7 @@
           var cancelled = function () { return window.__cognisDeferredCancelled; };
           document.addEventListener('click', function (e) {
             if (e.defaultPrevented) return;
+            if (!e.isTrusted) return;  // ignore our own synthesized two-hop nav clicks; only real user nav cancels the cascade
             var a = e.target && e.target.closest && e.target.closest('a[href]');
             if (!a) return;
             var h = a.getAttribute('href') || '';
@@ -1686,7 +1776,7 @@
             }
             if (d.kind === 'blogDetail') {
               var cards = document.querySelectorAll(
-                'a[href$="/blog/' + d.slug + '"]');
+                'a[href$="/blog/' + blogCardSlug + '"]');
               for (var j = 0; j < cards.length; j++) {
                 var rc = cards[j].getBoundingClientRect();
                 if (rc.width > 0 && rc.height > 0) return cards[j];
@@ -1697,7 +1787,7 @@
                 for (var bn = 0; bn < blogNav.length; bn++) {
                   var rb = blogNav[bn].getBoundingClientRect();
                   if (rb.width > 0 && rb.height > 0) {
-                    window.__cognisDeferredHop2 = { kind: 'blogDetail', slug: d.slug };
+                    window.__cognisDeferredHop2 = { kind: 'blogDetail', slug: blogCardSlug, canonical: d.slug };
                     return blogNav[bn];
                   }
                 }
@@ -1764,11 +1854,14 @@
                         }));
                       } catch (_) {}
                     }
+                    // Article renders under Framer's old CMS slug; the global
+                    // blog-canonical normalizer (see #cognis-blog-canonical)
+                    // restores the canonical slug in the URL bar.
                     return;
                   }
                 }
               }
-              if (h2Attempts > 40) {
+              if (h2Attempts > 75) {
                 clearInterval(h2Tick);
                 window.__cognisDeferredHop2 = null;
                 if (!cancelled() && location.pathname !== h2Target) {
@@ -1779,7 +1872,7 @@
           };
 
           var attempts = 0;
-          var maxAttempts = 25;
+          var maxAttempts = 50;
           var tryClick = function () {
             if (cancelled()) return;
             attempts++;
@@ -1965,7 +2058,7 @@
 })();
 </script>
 <!-- cognis-hero-video:end -->
-  <!-- cognis-ux-tweaks:start -->
+    <!-- cognis-ux-tweaks:start -->
 <style data-cognis-ux-tweaks>
   /* Let vertical page scroll pass through horizontal Framer slideshows
      on mobile (e.g. the testimonials carousel). */
@@ -2009,6 +2102,24 @@
     justify-content: center;
     align-items: stretch;
     gap: 24px !important;
+    /* The Framer slideshow JS stays live and otherwise drifts the track
+       (~15px translateX) and animates it via the inherited 0.55s transition.
+       Pin it still — a stylesheet !important always beats the JS's inline
+       (non-important) transform, so no MutationObserver freeze is needed. */
+    transform: none !important;
+    transition: none !important;
+  }
+  /* The slideshow also marks "off-view" slides visibility:hidden inline —
+     that was blanking the 3rd card (Fisayo). Force every grid card visible
+     (hidden clones stay gone via the display:none rule below, which wins). */
+  [data-framer-name="team"] .framer-slideshow-axis-x ul > li,
+  [data-framer-name="team"] .framer-slideshow-axis-x ul > li * {
+    visibility: visible !important;
+  }
+  /* Let vertical page scroll pass through the (now static) team grid. */
+  [data-framer-name="team"] .framer-slideshow-axis-x,
+  [data-framer-name="team"] .framer-slideshow-axis-x * {
+    touch-action: pan-y;
   }
   [data-framer-name="team"] .framer-slideshow-axis-x ul > li:nth-child(n+4) {
     display: none !important;

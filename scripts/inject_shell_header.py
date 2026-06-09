@@ -146,8 +146,8 @@ STYLE = """<style data-cognis-gnav>
   footer.cgxf .cgxf-nav a:hover { opacity: 1; box-shadow: inset 0 -2px 0 var(--cgx-lime); }
   footer.cgxf .cgxf-sub { margin-top: 46px; }
   footer.cgxf .cgxf-subh { font-size: 17px; font-weight: 600; margin: 0 0 16px; }
-  footer.cgxf .cgxf-form { display: flex; align-items: center; background: #242424; border-radius: 999px; padding: 6px 6px 6px 4px; max-width: 420px; }
-  footer.cgxf .cgxf-email { flex: 1; background: transparent; border: 0; outline: 0; color: #fff; font-size: 14px; padding: 12px 18px; }
+  footer.cgxf .cgxf-form { display: flex; align-items: center; background: #242424; border-radius: 999px; padding: 6px 6px 6px 4px; max-width: 420px; box-sizing: border-box; width: 100%; }
+  footer.cgxf .cgxf-email { flex: 1; min-width: 0; background: transparent; border: 0; outline: 0; color: #fff; font-size: 14px; padding: 12px 18px; }
   footer.cgxf .cgxf-email::placeholder { color: #9a9ca0; }
   footer.cgxf .cgxf-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--cgx-lime); color: #131313; border: 0; border-radius: 999px; font-size: 13px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; padding: 12px 22px; cursor: pointer; transition: transform .2s ease; }
   footer.cgxf .cgxf-btn:hover { transform: translateX(1px); }
