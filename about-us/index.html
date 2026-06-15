@@ -1000,8 +1000,8 @@
       /* Widen the about-section logo container for MARKETSAGE. */
       .framer-v0be5h { width: 130px !important; }
 
-      /* Team slideshow: clip any peek-through of the 4th card slot
-         (Eugene was removed, leaving 3 cards visible). */
+      /* Team slideshow: clip any peek-through of the removed card slots
+         (Eugene and Fisayo were removed, leaving 2 cards visible). */
       section.framer-slideshow,
       section.framer-slideshow > div {
         overflow: hidden !important;
@@ -1479,14 +1479,15 @@
         });
       }
 
-      function removeEugeneTeamCard() {
-        // The 4th team member (Eugene Jack) is an unpublished Framer CMS item:
-        // his card links to an unresolved ":token" slug on desktop and an
-        // unpublished /teams/eugene-jack on mobile — both 404. Remove the card
-        // node entirely so no dead link survives in the DOM (the responsive
-        // team grid then shows the three real members). Self-heals on re-render
-        // because apply() re-runs from the MutationObserver.
-        var sel = 'img[src*="qo6HZFi07ViVs9Z02uanZYrR84"], a[href*="/teams/:"], a[href*="/teams/eugene"]';
+      function removeRetiredTeamCards() {
+        // Team cards we no longer show on About: Eugene Jack (an unpublished
+        // Framer CMS item whose card links to an unresolved ":token" slug on
+        // desktop and an unpublished /teams/eugene-jack on mobile — both 404)
+        // and Fisayo Oludare. Remove the card node entirely so no stale/dead
+        // link survives in the DOM (the responsive team grid then reflows to
+        // the remaining members). Self-heals on re-render because apply()
+        // re-runs from the MutationObserver.
+        var sel = 'img[src*="qo6HZFi07ViVs9Z02uanZYrR84"], a[href*="/teams/:"], a[href*="/teams/eugene"], a[href*="/teams/fisayo"]';
         document.querySelectorAll(sel).forEach(function (el) {
           var card = el.closest('li') || el.closest('a') || el;
           if (card && card.parentNode) card.remove();
@@ -1620,7 +1621,7 @@
         });
       }
 
-      function apply() { ensureAnchors(); ensureForms(); ensureHeroVideo(); installHeroListeners(); ensureFooterLogoHref(); ensureMarketsageLogo(); ensureLocalImages(); ensureAboutHeroImage(); removeEugeneTeamCard(); fixContactCta(); fixFormRequired(); fixDupButtonLabels(); }
+      function apply() { ensureAnchors(); ensureForms(); ensureHeroVideo(); installHeroListeners(); ensureFooterLogoHref(); ensureMarketsageLogo(); ensureLocalImages(); ensureAboutHeroImage(); removeRetiredTeamCards(); fixContactCta(); fixFormRequired(); fixDupButtonLabels(); }
 
       // Capture-phase handler for pure in-page hash anchors (e.g. Framer's
       // homepage CTAs that scroll to sections). Real route hrefs like
