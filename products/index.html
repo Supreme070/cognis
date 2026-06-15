@@ -34,6 +34,7 @@
     --cognis-blue: #4285f4; --cognis-blue-hover: #1a73e8;
     --migratio-navy: #1f2657; --migratio-navy-deep: #1a2049;
     --migratio-blue: #1e5bb8; --migratio-green: #5bb04f;
+    --spog-indigo: #5b54e0; --spog-indigo-hover: #443dc4;
   }
   * { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; }
@@ -206,20 +207,22 @@
     background: radial-gradient(circle, rgba(91,176,79,0.18), transparent 70%); pointer-events: none;
   }
 
-  /* ── SPOG tile (coming soon) ────────────────────────────────────── */
+  /* ── SPOG tile (coming soon · Royal Indigo) ─────────────────────── */
   .tile.spog {
-    grid-area: spog; --tile-accent: var(--accent); --spot: rgba(205,251,86,.22);
-    background: linear-gradient(180deg, #fdfee8 0%, #fbfbf3 100%);
+    grid-area: spog; --tile-accent: var(--spog-indigo); --spot: rgba(91,84,224,.14);
+    background: linear-gradient(180deg, #ffffff 0%, #f4f3fe 100%);
   }
-  .tile.spog:hover { border-color: rgba(150,180,40,.5); box-shadow: 0 24px 56px -30px rgba(120,140,30,.4); }
+  .tile.spog:hover { border-color: rgba(91,84,224,.45); box-shadow: 0 24px 56px -30px rgba(91,84,224,.45); }
   .tile.spog .pill {
     display: inline-flex; align-items: center; gap: 8px;
     background: var(--ink); color: #fff; font-size: 11px; font-weight: 600;
     letter-spacing: 0.08em; text-transform: uppercase; padding: 6px 12px; border-radius: 999px;
   }
-  .tile.spog .pill .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
-  .tile.spog .wm { font-size: 38px; font-weight: 700; letter-spacing: -0.02em; margin: 24px 0 0; }
-  .tile.spog .desc { margin-top: 12px; }
+  .tile.spog .pill .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--spog-indigo); }
+  .tile.spog .lockup { display: flex; align-items: center; gap: 12px; margin: 24px 0 0; }
+  .tile.spog .lockup img { width: 40px; height: 40px; display: block; flex-shrink: 0; }
+  .tile.spog .lockup .wm { font-size: 32px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); line-height: 1; }
+  .tile.spog .desc { margin-top: 14px; }
   .tile.spog .soon { margin-top: auto; font-size: 14px; font-weight: 600; color: var(--mute); }
 
   /* ── Closing band ───────────────────────────────────────────────── */
@@ -559,7 +562,10 @@
     <div class="tile spog">
       <span class="accent-line"></span>
       <span class="pill"><span class="dot"></span> Coming soon</span>
-      <p class="wm">SPOG</p>
+      <div class="lockup">
+        <img src="/assets/products/spog-icon.svg" alt="SPOG" width="40" height="40" loading="lazy" decoding="async" />
+        <span class="wm">SPOG</span>
+      </div>
       <p class="desc">A new product from Cognis Group, in development. Details soon.</p>
       <p class="soon">In the works for 2026</p>
     </div>

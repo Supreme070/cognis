@@ -214,7 +214,10 @@ PRODUCTS_BAND = f"""{BAND_START}
   .mig-card .cgp-kick {{ color: #8993a8; }}
   .mig-card .cgp-desc {{ color: #b3bbd0; }}
   .mig-card .cgp-go {{ color: #ffffff; }}
-  .spog-card {{ background: linear-gradient(180deg, #fdfee8, #fbfbf3); }}
+  .spog-card {{ background: linear-gradient(180deg, #ffffff, #f4f3fe); }}
+  .spog-logo {{ display: flex; align-items: center; gap: 10px; margin: 0 0 10px; }}
+  .spog-logo img {{ width: 32px; height: 32px; display: block; }}
+  .spog-logo .wm {{ font-weight: 700; font-size: 20px; letter-spacing: -0.02em; color: #131313; }}
   .cgp-desc {{ font-size: 14.5px; line-height: 1.55; color: #2f2f2f; margin: 0 0 20px; }}
   .cgp-go {{ margin-top: auto; font-weight: 600; font-size: 14px; color: #131313; }}
   .cgp-go .a {{ transition: margin-left .2s ease; }}
@@ -252,10 +255,10 @@ PRODUCTS_BAND = f"""{BAND_START}
         <p class="cgp-desc">The migration platform for banks, ministries, and regulated enterprises. Reconcile before cutover.</p>
         <span class="cgp-go">Visit Migratio <span class="a">&rarr;</span></span>
       </a>
-      <a class="cgp-card spog-card" href="/products" style="--c:#cdfb56;--glow:rgba(205,251,86,.22)">
+      <a class="cgp-card spog-card" href="/products" style="--c:#5b54e0;--glow:rgba(91,84,224,.18)">
         <span class="cgp-line"></span>
         <p class="cgp-kick">Coming soon</p>
-        <p class="cgp-name">SPOG</p>
+        <div class="spog-logo"><img src="/assets/products/spog-icon.svg" alt="SPOG" loading="lazy" decoding="async" width="32" height="32" /><span class="wm">SPOG</span></div>
         <p class="cgp-desc">A new product from Cognis Group, in development. Details soon.</p>
         <span class="cgp-go">Learn more <span class="a">&rarr;</span></span>
       </a>
