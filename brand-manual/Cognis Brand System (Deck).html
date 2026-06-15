@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cognis Group — Brand System Deck</title>
+<link rel="stylesheet" href="cognis.css">
+<style>
+  html,body{margin:0;background:#0d0d0f;}
+  deck-stage:not(:defined){visibility:hidden;}
+  deck-stage{--sig:#D6FD70;--sigb:#D6FD70;--cyan:#38C6F6;}
+  section.dk{background:var(--ink);color:var(--paper);}
+  section.ob{background:linear-gradient(165deg,#262626 0%,#131313 62%);color:var(--paper);}
+  section.pp{background:var(--paper);color:var(--ink);}
+  .pad{position:absolute;inset:0;padding:96px 120px;display:flex;flex-direction:column;}
+  /* deck type scale */
+  .dk-kick,.pp-kick{font-family:var(--mono);font-size:21px;letter-spacing:.32em;text-transform:uppercase;font-weight:500;display:flex;align-items:center;gap:16px;}
+  .dk-kick{color:var(--sigb);} .pp-kick{color:var(--ink);}
+  .dk-kick::before,.pp-kick::before{content:"";width:34px;height:2px;background:currentColor;display:inline-block;}
+  .pp-kick::before{background:var(--lime);}
+  .dsp{font-size:150px;font-weight:700;letter-spacing:-.04em;line-height:.92;}
+  .t1{font-size:96px;font-weight:700;letter-spacing:-.035em;line-height:.98;}
+  .t2{font-size:60px;font-weight:600;letter-spacing:-.025em;line-height:1.02;}
+  .t3{font-size:34px;font-weight:600;letter-spacing:-.01em;}
+  .dlead{font-size:34px;line-height:1.42;font-weight:400;}
+  .dbody{font-size:26px;line-height:1.55;}
+  .dmono{font-family:var(--mono);}
+  .dlabel{font-family:var(--mono);font-size:18px;letter-spacing:.2em;text-transform:uppercase;color:var(--g-500);}
+  section.dk .dlabel,section.ob .dlabel{color:var(--g-400);}
+  .dmotto{font-family:var(--serif);font-style:italic;font-weight:300;}
+  .dchev{display:inline-flex;gap:10px;}
+  .dchev i{width:26px;height:46px;background:var(--sig);clip-path:polygon(0 0,55% 0,100% 50%,55% 100%,0 100%,45% 50%);display:block;opacity:.28;}
+  .dchev i:nth-child(2){opacity:.6;} .dchev i:nth-child(3){opacity:1;background:var(--sigb);}
+  .dk-foot{position:absolute;left:120px;right:120px;bottom:54px;display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:16px;letter-spacing:.18em;text-transform:uppercase;color:var(--g-500);}
+  section.dk .dk-foot,section.ob .dk-foot{color:var(--g-400);}
+  .appicon{border-radius:22%;background:linear-gradient(165deg,#2f2f2f,#131313 62%);display:flex;align-items:center;justify-content:center;}
+  .appicon .mark{color:#fff;width:46%;}
+  .lock{display:flex;align-items:center;gap:24px;}
+  .wm{font-weight:600;letter-spacing:-.03em;line-height:.88;}
+  .wm .sub{display:block;font-family:var(--mono);font-weight:500;letter-spacing:.34em;text-transform:uppercase;}
+  .card{border:1px solid #262628;border-radius:10px;overflow:hidden;background:#161618;display:flex;flex-direction:column;}
+  section.pp .card{border-color:var(--g-200);background:#fff;}
+  .card .cstage{flex:1;display:flex;align-items:center;justify-content:center;position:relative;min-height:0;}
+  .card .ccap{padding:18px 22px;border-top:1px solid #262628;display:flex;justify-content:space-between;align-items:center;}
+  section.pp .card .ccap{border-color:var(--g-200);}
+  .card .ccap .t{font-weight:600;font-size:22px;} .card .ccap .s{font-family:var(--mono);font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--g-500);}
+  .prodd svg{display:block;width:100%;height:auto;}
+  .ph2{background:repeating-linear-gradient(135deg,#1c1c1e 0 14px,#232325 14px 28px);display:flex;align-items:center;justify-content:center;}
+  section.pp .ph2{background:repeating-linear-gradient(135deg,#e6e4de 0 14px,#dedcd5 14px 28px);}
+  .ph2 .pl{font-family:var(--mono);font-size:16px;letter-spacing:.1em;text-transform:uppercase;color:var(--g-400);}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<path id="mt" fill="currentColor" d="M34,24 L59,24 L78,56 L55,56 L20,116 L18,116 L0,82 L34,25 Z M69,24 L108,25 L140,81 L140,87 L129,106 L92,106 L104,85 L69,25 Z"/>
+</defs></svg>
+
+<deck-stage width="1920" height="1080">
+
+  <!-- 1 COVER -->
+  <section class="ob" data-label="Cover">
+    <div class="pad" style="justify-content:space-between;">
+      <div class="flex between" style="font-family:var(--mono);font-size:16px;letter-spacing:.2em;text-transform:uppercase;color:var(--g-400);"><span>Cognis Group</span><span>Brand System · v1.0</span></div>
+      <div style="display:flex;flex-direction:column;gap:44px;">
+        <div class="appicon" style="width:150px;height:150px;"><span class="mark"><svg viewBox="0 22 141 96"><use href="#mt"/></svg></span></div>
+        <div><div class="dk-kick">The Brand System</div><h1 class="dsp" style="margin-top:26px;">Cognis Group</h1></div>
+      </div>
+      <div class="flex between ae">
+        <div><p class="dmotto" style="font-size:42px;line-height:1.15;margin:0;max-width:16ch;">“What we touch, we change.”</p><p class="dmono" style="font-size:20px;letter-spacing:.34em;color:var(--sigb);margin:22px 0 0;text-transform:uppercase;">Quod Tango Muto</p></div>
+        <div class="dchev"><i></i><i></i><i></i></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2 MANIFESTO -->
+  <section class="dk" data-label="Manifesto">
+    <div class="pad" style="justify-content:center;gap:46px;">
+      <div class="dchev" style="transform:scale(1.4);transform-origin:left;"><i></i><i></i><i></i></div>
+      <h2 class="t1" style="max-width:24ch;">We don’t observe change.<br>We are the <span class="dmotto" style="font-weight:300;font-style:italic;color:var(--sigb);">cause</span> of it.</h2>
+      <p class="dlead" style="color:var(--g-300);max-width:54ch;">This system protects the one asset that makes that promise legible at a glance — a disciplined, monochrome identity built to scale from a 16px favicon to a building.</p>
+    </div>
+    <div class="dk-foot"><span>Quod Tango Muto</span><span>01</span></div>
+  </section>
+
+  <!-- 3 SYSTEM OVERVIEW -->
+  <section class="pp" data-label="System">
+    <div class="pad">
+      <div class="pp-kick">At a glance</div>
+      <h2 class="t1" style="margin-top:24px;">The system</h2>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:auto;">
+        <div class="card" style="aspect-ratio:1;"><div class="cstage" style="background:var(--paper-2);"><span class="mark" style="width:84px;color:var(--ink);"><svg viewBox="0 22 141 96"><use href="#mt"/></svg></span></div><div class="ccap"><span class="t">Mark</span><span class="s">01</span></div></div>
+        <div class="card" style="aspect-ratio:1;"><div class="cstage" style="background:var(--paper-2);gap:0;"><span style="flex:1;height:100%;background:#131313;"></span><span style="flex:1;height:100%;background:#FFFFFF;"></span><span style="flex:1;height:100%;background:#7B7B7B;"></span><span style="flex:1;height:100%;background:#D6FD70;"></span></div><div class="ccap"><span class="t">Colour</span><span class="s">02</span></div></div>
+        <div class="card" style="aspect-ratio:1;"><div class="cstage" style="background:var(--paper-2);flex-direction:column;gap:4px;"><span style="font-weight:700;font-size:64px;letter-spacing:-.03em;">Aa</span><span class="dmotto" style="font-size:30px;">Aa</span></div><div class="ccap"><span class="t">Type</span><span class="s">03</span></div></div>
+        <div class="card" style="aspect-ratio:1;"><div class="cstage" style="background:var(--ink);"><span class="dmotto" style="color:var(--paper);font-size:30px;">“Quod<br>Tango<br>Muto.”</span></div><div class="ccap"><span class="t">Voice</span><span class="s">04</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 THE MARK -->
+  <section class="pp" data-label="The Mark">
+    <div class="pad" style="flex-direction:row;gap:80px;align-items:center;">
+      <div style="flex:0 0 46%;background:var(--paper-2);border-radius:14px;aspect-ratio:1/.9;display:flex;align-items:center;justify-content:center;"><span class="mark" style="width:58%;color:var(--ink);"><svg viewBox="0 22 141 96"><use href="#mt"/></svg></span></div>
+      <div style="flex:1;">
+        <div class="pp-kick">The symbol</div>
+        <h2 class="t2" style="margin-top:22px;">An ascending peak,<br>a forward chevron</h2>
+        <p class="dbody" style="color:var(--g-700);margin-top:24px;max-width:34ch;">Two forms, one gesture: upward movement and momentum — the moment something is touched and begins to change.</p>
+        <div style="display:flex;flex-direction:column;gap:18px;margin-top:32px;">
+          <div class="flex" style="gap:20px;align-items:baseline;"><span class="dmono" style="color:var(--ink);font-size:22px;">A</span><span class="t3">Peak — judgment &amp; ascent</span></div>
+          <div class="flex" style="gap:20px;align-items:baseline;"><span class="dmono" style="color:var(--ink);font-size:22px;">B</span><span class="t3">Chevron — momentum &amp; deployment</span></div>
+          <div class="flex" style="gap:20px;align-items:baseline;"><span class="dmono" style="color:var(--ink);font-size:22px;">C</span><span class="t3">Cut — the gap we close</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 LOCKUPS -->
+  <section class="pp" data-label="Lockups">
+    <div class="pad">
+      <div class="pp-kick">Approved configurations</div>
+      <h2 class="t1" style="margin-top:22px;">Lockups</h2>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:auto;">
+        <div class="card"><div class="cstage" style="min-height:230px;background:var(--paper-2);"><div class="lock"><span class="mark" style="width:62px;color:var(--ink);"><svg viewBox="0 22 141 96"><use href="#mt"/></svg></span><span class="wm" style="font-size:46px;">Cognis<span class="sub" style="font-size:13px;">Group</span></span></div></div><div class="ccap"><span class="t">Horizontal</span><span class="s">Default</span></div></div>
+        <div class="card"><div class="cstage" style="min-height:230px;background:var(--paper-2);flex-direction:column;gap:16px;"><span class="mark" style="width:62px;color:var(--ink);"><svg viewBox="0 22 141 96"><use href="#mt"/></svg></span><span class="wm" style="font-size:38px;text-align:center;">Cognis<span class="sub" style="font-size:12px;">Group</span></span></div><div class="ccap"><span class="t">Stacked</span><span class="s">Compact</span></div></div>
+        <div class="card"><div class="cstage" style="min-height:230px;background:var(--paper-2);"><span class="wm" style="font-size:52px;color:var(--ink);">Cognis</span></div><div class="ccap"><span class="t">Wordmark</span><span class="s">Editorial</span></div></div>
+        <div class="card"><div class="cstage" style="min-height:230px;background:var(--ink);"><span class="mark" style="width:78px;color:var(--paper);"><svg viewBox="0 22 141 96"><use href="#mt"/></svg></span></div><div class="ccap"><span class="t">Symbol</span><span class="s">Avatar</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 6 CLEAR SPACE -->
+  <section class="pp" data-label="Clear Space">
+    <div class="pad" style="flex-direction:row;gap:80px;">
+      <div style="flex:1;">
+        <div class="pp-kick">Protection</div>
+        <h2 class="t2" style="margin-top:22px;">Clear space &amp; minimums</h2>
+        <p class="dbody" style="color:var(--g-700);margin-top:24px;max-width:30ch;">Keep an exclusion zone of <strong>X</strong> — the mark’s height — on every side. Below the minimums, switch to symbol-only.</p>
+        <div style="display:flex;gap:48px;margin-top:40px;">
+          <div><div class="t2 dmono">24<span style="font-size:28px;">mm</span></div><p class="dlabel" style="margin-top:8px;">Print min</p></div>
+          <div><div class="t2 dmono">16<span style="font-size:28px;">px</span></div><p class="dlabel" style="margin-top:8px;">Digital min</p></div>
+        </div>
+      </div>
+      <div style="flex:0 0 44%;background:var(--paper-2);border-radius:14px;display:flex;align-items:center;justify-content:center;">
+        <div style="position:relative;padding:78px;outline:2px dashed var(--g-300);">
+          <span style="position:absolute;left:-46px;top:50%;transform:translateY(-50%);font-family:var(--mono);font-size:22px;color:var(--ink);">X</span>
+          <span style="position:absolute;top:-46px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:22px;color:var(--ink);">X</span>
+          <div class="lock"><span class="mark" style="width:64px;color:var(--ink);"><svg viewBox="0 22 141 96"><use href="#mt"/></svg></span><span class="wm" style="font-size:48px;">Cognis</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7 COLOUR -->
+  <section class="pp" data-label="Colour">
+    <div class="pad">
+      <div class="pp-kick">The palette</div>
+      <h2 class="t1" style="margin-top:22px;">Disciplined monochrome</h2>
+      <div style="display:grid;grid-template-columns:1.4fr 1.4fr 1fr 1fr;gap:20px;margin-top:auto;">
+        <div class="card"><div class="cstage" style="background:#131313;min-height:300px;"></div><div class="ccap"><span class="t" style="color:var(--ink);">Cognis Ink</span><span class="s">#131313</span></div></div>
+        <div class="card"><div class="cstage" style="background:#FFFFFF;min-height:300px;border-bottom:1px solid var(--g-200);"></div><div class="ccap"><span class="t">Cognis White</span><span class="s">#FFFFFF</span></div></div>
+        <div class="card"><div class="cstage" style="background:#7B7B7B;min-height:300px;"></div><div class="ccap"><span class="t">Graphite</span><span class="s">#7B7B7B</span></div></div>
+        <div class="card"><div class="cstage" style="background:#D6FD70;min-height:300px;"></div><div class="ccap"><span class="t">Lime</span><span class="s">#D6FD70</span></div></div>
+      </div>
+      <p class="dbody" style="color:var(--g-500);margin-top:28px;">≈ 80% ink &amp; white · 15% graphite · <span style="font-weight:600;color:var(--ink);">5% lime</span> — colour earns attention by scarcity.</p>
+    </div>
+  </section>
+
+  <!-- 8 TYPOGRAPHY -->
+  <section class="pp" data-label="Type">
+    <div class="pad">
+      <div class="pp-kick">Three voices, one system</div>
+      <h2 class="t1" style="margin-top:22px;">Typography</h2>
+      <div style="display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:24px;margin-top:auto;align-items:stretch;">
+        <div class="card"><div class="cstage" style="background:var(--paper-2);flex-direction:column;align-items:flex-start;padding:36px;"><span style="font-weight:700;font-size:120px;letter-spacing:-.04em;line-height:.8;">Aa</span><span class="t3" style="margin-top:20px;">Schibsted Grotesk</span></div><div class="ccap"><span class="t">Primary</span><span class="s">Headlines · UI · Body</span></div></div>
+        <div class="card"><div class="cstage" style="background:var(--paper-2);flex-direction:column;padding:36px;"><span class="dmotto" style="font-size:96px;line-height:.8;">Aa</span><span class="t3" style="margin-top:20px;">Newsreader</span></div><div class="ccap"><span class="t">Accent serif</span><span class="s">Mottos</span></div></div>
+        <div class="card"><div class="cstage" style="background:var(--paper-2);flex-direction:column;padding:36px;"><span class="dmono" style="font-size:88px;font-weight:500;line-height:.8;">Aa</span><span class="t3 dmono" style="margin-top:20px;font-size:24px;">IBM Plex Mono</span></div><div class="ccap"><span class="t">Mono</span><span class="s">Data · Labels</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 9 ICONOGRAPHY + DEVICE -->
+  <section class="dk" data-label="Elements">
+    <div class="pad">
+      <div class="dk-kick">Visual elements</div>
+      <h2 class="t1" style="margin-top:22px;">Icons &amp; the chevron device</h2>
+      <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:20px;margin-top:auto;">
+        <div class="card" style="aspect-ratio:1;"><div class="cstage"><svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="#F3F2EE" stroke-width="1.6" stroke-linecap="square"><path d="M3 20 L9 11 L13 15 L21 4"/><path d="M21 4 L21 10 M21 4 L15 4"/></svg></div></div>
+        <div class="card" style="aspect-ratio:1;"><div class="cstage"><svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="#F3F2EE" stroke-width="1.6" stroke-linecap="square"><rect x="6" y="8" width="12" height="10"/><path d="M12 8 V4 M9 4 H15 M3 12 H6 M18 12 H21"/></svg></div></div>
+        <div class="card" style="aspect-ratio:1;"><div class="cstage"><svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="#F3F2EE" stroke-width="1.6" stroke-linecap="square"><path d="M12 3 L20 6 V12 C20 17 16 20 12 21 C8 20 4 17 4 12 V6 Z"/><path d="M9 12 L11 14 L15 9"/></svg></div></div>
+        <div class="card" style="aspect-ratio:1;"><div class="cstage"><svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="#F3F2EE" stroke-width="1.6" stroke-linecap="square"><path d="M4 20 V9 M10 20 V5 M16 20 V12 M22 20 V7 M3 20 H22"/></svg></div></div>
+        <div class="card" style="aspect-ratio:1;"><div class="cstage"><svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="#F3F2EE" stroke-width="1.6" stroke-linecap="square"><path d="M3 12 H17 M12 6 L18 12 L12 18"/></svg></div></div>
+        <div class="card" style="aspect-ratio:1;"><div class="cstage" style="background:var(--lime);overflow:hidden;"><div class="dchev" style="transform:scale(1.5);"><i style="background:rgba(19,19,19,.35);"></i><i style="background:rgba(19,19,19,.65);"></i><i style="background:#131313;"></i></div></div></div>
+      </div>
+      <p class="dbody" style="color:var(--g-400);margin-top:28px;">Single-weight line icons on a 24-unit grid · the chevron device carries momentum across every surface.</p>
+    </div>
+    <div class="dk-foot"><span>Quod Tango Muto</span><span>02</span></div>
+  </section>
+
+  <!-- 10 VOICE -->
+  <section class="ob" data-label="Voice">
+    <div class="pad" style="justify-content:center;gap:40px;">
+      <div class="dk-kick">How we sound</div>
+      <h2 class="dmotto" style="font-size:78px;font-weight:300;line-height:1.18;max-width:26ch;">“Within six months, three models in production and claims turnaround down from 14 days to 48 hours.”</h2>
+      <div class="flex" style="gap:60px;">
+        <div><p class="t3" style="color:var(--sigb);">Precise</p><p class="dbody" style="color:var(--g-400);">Outcomes, not adjectives.</p></div>
+        <div><p class="t3" style="color:var(--sigb);">Confident</p><p class="dbody" style="color:var(--g-400);">We make claims and stand behind them.</p></div>
+        <div><p class="t3" style="color:var(--sigb);">Unhyped</p><p class="dbody" style="color:var(--g-400);">The work speaks. No “revolutionary”.</p></div>
+      </div>
+    </div>
+    <div class="dk-foot"><span>Voice &amp; messaging</span><span>03</span></div>
+  </section>
+
+  <!-- 11 STATIONERY -->
+  <section class="pp" data-label="Stationery">
+    <div class="pad">
+      <div class="pp-kick">Applications · print</div>
+      <h2 class="t1" style="margin-top:22px;">Stationery</h2>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;margin-top:auto;align-items:center;">
+        <div style="background:var(--ink);border-radius:14px;aspect-ratio:85/55;padding:34px;display:flex;flex-direction:column;justify-content:space-between;"><span class="mark" style="width:52px;color:var(--paper);"><svg viewBox="0 22 141 96"><use href="#mt"/></svg></span><div><p style="color:var(--paper);font-weight:600;font-size:30px;">Abimbola Oyewumi</p><p class="dmono" style="color:var(--g-400);font-size:16px;letter-spacing:.1em;margin-top:6px;">PRINCIPAL · AI STRATEGY</p></div></div>
+        <div style="background:#fff;border:1px solid var(--g-200);border-radius:14px;aspect-ratio:85/55;padding:34px;display:flex;flex-direction:column;justify-content:space-between;"><div class="lock" style="gap:16px;"><span class="mark" style="width:44px;color:var(--ink);"><svg viewBox="0 22 141 96"><use href="#mt"/></svg></span><span class="wm" style="font-size:32px;">Cognis</span></div><p class="dmono" style="font-size:15px;letter-spacing:.06em;color:var(--g-700);line-height:1.7;">hello@cognis.group<br>cognis.group · Lagos</p></div>
+        <div style="background:#fff;border:1px solid var(--g-200);border-radius:14px;aspect-ratio:85/55;padding:30px;display:flex;flex-direction:column;"><div class="flex between"><div class="lock" style="gap:12px;"><span class="mark" style="width:28px;color:var(--ink);"><svg viewBox="0 22 141 96"><use href="#mt"/></svg></span><span class="wm" style="font-size:22px;">Cognis</span></div><span class="dmono" style="font-size:12px;color:var(--g-500);">QUOD TANGO MUTO</span></div><div style="margin-top:20px;display:flex;flex-direction:column;gap:9px;"><span style="height:8px;width:48%;background:var(--g-100);border-radius:3px;"></span><span style="height:7px;width:84%;background:var(--g-100);border-radius:3px;"></span><span style="height:7px;width:78%;background:var(--g-100);border-radius:3px;"></span></div></div>
+      </div>
+      <p class="dbody" style="color:var(--g-500);margin-top:28px;">Business cards · letterhead · envelope · compliment slip · email signature.</p>
+    </div>
+  </section>
+
+  <!-- 12 DIGITAL -->
+  <section class="pp" data-label="Digital">
+    <div class="pad">
+      <div class="pp-kick">Applications · screens</div>
+      <h2 class="t1" style="margin-top:22px;">Digital</h2>
+      <div style="margin-top:auto;border:1px solid var(--g-200);border-radius:14px;overflow:hidden;">
+        <div style="background:linear-gradient(160deg,#262626,#131313);padding:52px 60px;color:var(--paper);position:relative;overflow:hidden;">
+          <div class="flex between ac"><div class="lock" style="gap:16px;"><span class="mark" style="width:40px;color:var(--paper);"><svg viewBox="0 22 141 96"><use href="#mt"/></svg></span><span class="wm" style="font-size:30px;">Cognis</span></div><div class="flex dmono" style="gap:32px;font-size:16px;letter-spacing:.14em;color:var(--g-300);"><span>ABOUT</span><span>SERVICES</span><span>INSIGHTS</span><span style="color:var(--sigb);">WORK WITH US</span></div></div>
+          <h3 style="font-size:68px;font-weight:700;letter-spacing:-.03em;line-height:1.0;margin-top:46px;max-width:18ch;">What we touch, we change.</h3>
+          <p class="dbody" style="color:var(--g-300);margin-top:22px;max-width:50ch;">A global AI company that builds, deploys and governs intelligent systems.</p>
+          <div class="flex" style="gap:14px;margin-top:32px;"><span style="background:var(--paper);color:var(--ink);font-weight:600;font-size:18px;padding:16px 28px;border-radius:100px;">Work With Us</span><span style="border:1px solid var(--g-500);color:var(--paper);font-size:18px;padding:16px 28px;border-radius:100px;">Our Services</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 13 MERCH -->
+  <section class="pp" data-label="Merch">
+    <div class="pad">
+      <div class="pp-kick">Applications · objects</div>
+      <h2 class="t1" style="margin-top:22px;">Merchandise</h2>
+      <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:20px;margin-top:auto;">
+        <div class="card" style="aspect-ratio:1;"><div class="cstage" style="background:var(--paper-2);"><div style="position:relative;width:78%;color:var(--ink);"><span class="prodd"><svg viewBox="0 0 100 100" fill="currentColor"><path d="M38 15 C40 23 60 23 62 15 L79 21 L93 39 L80 50 L72 41 L72 90 L28 90 L28 41 L20 50 L7 39 L21 21 Z"/></svg></span><span class="mark" style="position:absolute;top:38%;left:36%;width:13%;color:var(--paper);"><svg viewBox="0 22 141 96"><use href="#mt"/></svg></span></div></div><div class="ccap"><span class="t">Tee</span><span class="s"></span></div></div>
+        <div class="card" style="aspect-ratio:1;"><div class="cstage" style="background:var(--paper-2);"><div style="position:relative;width:64%;color:var(--ink);"><span class="prodd"><svg viewBox="0 0 100 100" fill="currentColor"><path d="M30 26 H66 V80 Q66 88 58 88 H38 Q30 88 30 80 Z"/><ellipse cx="48" cy="26" rx="18" ry="5" fill="rgba(255,255,255,.18)"/><path d="M66 38 C84 38 84 66 66 66" fill="none" stroke="currentColor" stroke-width="7"/></svg></span><span class="mark" style="position:absolute;top:48%;left:31%;width:18%;color:var(--paper);"><svg viewBox="0 22 141 96"><use href="#mt"/></svg></span></div></div><div class="ccap"><span class="t">Mug</span><span class="s"></span></div></div>
+        <div class="card" style="aspect-ratio:1;"><div class="cstage" style="background:var(--paper-2);"><div style="position:relative;width:80%;color:var(--ink);"><span class="prodd"><svg viewBox="0 0 100 100" fill="currentColor"><path d="M6 50 A44 44 0 0 1 94 50 L83 50 Q72 62 61 50 Q50 62 39 50 Q28 62 17 50 Z"/><path d="M50 8 L50 50 M28 14 L39 50 M72 14 L61 50" stroke="rgba(255,255,255,.18)" stroke-width="1.4" fill="none"/><path d="M50 50 L50 84 Q50 92 58 92 Q64 92 64 86" stroke="currentColor" stroke-width="3.4" fill="none"/></svg></span><span class="mark" style="position:absolute;top:26%;left:43%;width:14%;color:var(--paper);"><svg viewBox="0 22 141 96"><use href="#mt"/></svg></span></div></div><div class="ccap"><span class="t">Umbrella</span><span class="s"></span></div></div>
+        <div class="card" style="aspect-ratio:1;"><div class="cstage" style="background:var(--paper-2);"><div style="position:relative;width:62%;color:var(--ink);"><span class="prodd"><svg viewBox="0 0 100 100" fill="currentColor"><path d="M35 34 C35 16 65 16 65 34" fill="none" stroke="currentColor" stroke-width="4"/><path d="M24 34 H76 V90 H24 Z"/></svg></span><span class="mark" style="position:absolute;top:58%;left:38%;width:24%;color:var(--paper);"><svg viewBox="0 22 141 96"><use href="#mt"/></svg></span></div></div><div class="ccap"><span class="t">Tote</span><span class="s"></span></div></div>
+        <div class="card" style="aspect-ratio:1;"><div class="cstage" style="background:var(--paper-2);"><div style="position:relative;width:34%;color:var(--ink);"><span class="prodd"><svg viewBox="0 0 60 130" fill="currentColor"><path d="M22 8 H38 Q40 8 40 10 V20 H20 V10 Q20 8 22 8 Z"/><path d="M23 20 H37 V28 H23 Z"/><path d="M16 30 Q16 28 18 28 H42 Q44 28 44 30 V118 Q44 124 38 124 H22 Q16 124 16 118 Z"/></svg></span><span class="mark" style="position:absolute;top:62%;left:30%;width:40%;color:var(--paper);"><svg viewBox="0 22 141 96"><use href="#mt"/></svg></span></div></div><div class="ccap"><span class="t">Bottle</span><span class="s"></span></div></div>
+        <div class="card" style="aspect-ratio:1;"><div class="cstage" style="background:var(--paper-2);gap:12px;"><span class="appicon" style="width:58px;height:58px;border-radius:24%;"><span class="mark" style="width:46%;"><svg viewBox="0 22 141 96"><use href="#mt"/></svg></span></span><span style="width:58px;height:58px;border-radius:50%;background:var(--sig);display:flex;align-items:center;justify-content:center;"><span class="mark" style="width:50%;color:#fff;"><svg viewBox="0 22 141 96"><use href="#mt"/></svg></span></span></div><div class="ccap"><span class="t">Stickers</span><span class="s"></span></div></div>
+      </div>
+      <p class="dbody" style="color:var(--g-500);margin-top:28px;">One mark · one colour · one placement. Restraint is the brand.</p>
+    </div>
+  </section>
+
+  <!-- 14 ENVIRONMENT -->
+  <section class="dk" data-label="Environment">
+    <div class="pad">
+      <div class="dk-kick">At scale</div>
+      <h2 class="t1" style="margin-top:22px;">Signage &amp; large format</h2>
+      <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:24px;margin-top:auto;">
+        <div class="card"><div class="cstage" style="min-height:340px;background:var(--ink);overflow:hidden;padding:0;"><div style="position:absolute;inset:0;background:repeating-linear-gradient(115deg,transparent 0 50px,rgba(93,112,255,.07) 50px 54px);"></div><div class="lock" style="position:relative;gap:24px;"><span class="mark" style="width:64px;color:var(--paper);"><svg viewBox="0 22 141 96"><use href="#mt"/></svg></span><div><span class="wm" style="font-size:56px;color:var(--paper);">Cognis</span><p class="dmotto" style="color:var(--sigb);font-size:26px;margin-top:8px;">“What we touch, we change.”</p></div></div></div><div class="ccap"><span class="t" style="color:var(--paper);">Fleet livery</span><span class="s">Ink wrap</span></div></div>
+        <div class="card"><div class="cstage" style="min-height:340px;background:linear-gradient(160deg,#262626,#131313);"><div style="text-align:center;"><span class="appicon" style="width:96px;height:96px;margin:0 auto 18px;"><span class="mark" style="width:46%;"><svg viewBox="0 22 141 96"><use href="#mt"/></svg></span></span><div class="dmono" style="font-size:16px;letter-spacing:.28em;color:var(--paper);">COGNIS GROUP</div></div></div><div class="ccap"><span class="t" style="color:var(--paper);">Event backdrop</span><span class="s">Step &amp; repeat</span></div></div>
+      </div>
+    </div>
+    <div class="dk-foot"><span>Applications</span><span>04</span></div>
+  </section>
+
+  <!-- 15 CLOSING -->
+  <section class="ob" data-label="Close">
+    <div class="pad" style="align-items:center;justify-content:center;text-align:center;gap:40px;">
+      <span class="appicon" style="width:128px;height:128px;"><span class="mark" style="width:46%;"><svg viewBox="0 22 141 96"><use href="#mt"/></svg></span></span>
+      <h2 class="dmotto" style="font-size:84px;font-weight:300;">“What we touch, we change.”</h2>
+      <p class="dmono" style="font-size:22px;letter-spacing:.34em;color:var(--sigb);text-transform:uppercase;">Quod Tango Muto</p>
+    </div>
+    <div class="dk-foot"><span>Cognis Group · Lagos · Worldwide</span><span>cognis.group</span></div>
+  </section>
+
+</deck-stage>
+<script src="deck-stage.js"></script>
+</body>
+</html>

@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Products | Cognis Group</title>
-<meta name="description" content="The products Cognis Group builds and operates — Cognis AI, the AI workforce; MarketSage, autonomous marketing; Migratio, the migration platform for regulated enterprises; and SPOG, coming soon." />
+<meta name="description" content="The products Cognis Group builds and operates — Cognis AI, the AI workforce; MarketSage, autonomous marketing; Migratio, the migration platform for regulated enterprises; and SPOG, the single pane of glass for enterprise operations." />
 <link rel="canonical" href="https://cognis.group/products" />
 <link rel="alternate" hreflang="en" href="https://cognis.group/products" />
 <link rel="alternate" hreflang="x-default" href="https://cognis.group/products" />
@@ -207,23 +207,22 @@
     background: radial-gradient(circle, rgba(91,176,79,0.18), transparent 70%); pointer-events: none;
   }
 
-  /* ── SPOG tile (coming soon · Royal Indigo) ─────────────────────── */
+  /* ── SPOG tile (live · Royal Indigo) ────────────────────────────── */
   .tile.spog {
     grid-area: spog; --tile-accent: var(--spog-indigo); --spot: rgba(91,84,224,.14);
     background: linear-gradient(180deg, #ffffff 0%, #f4f3fe 100%);
   }
   .tile.spog:hover { border-color: rgba(91,84,224,.45); box-shadow: 0 24px 56px -30px rgba(91,84,224,.45); }
-  .tile.spog .pill {
-    display: inline-flex; align-items: center; gap: 8px;
-    background: var(--ink); color: #fff; font-size: 11px; font-weight: 600;
-    letter-spacing: 0.08em; text-transform: uppercase; padding: 6px 12px; border-radius: 999px;
-  }
-  .tile.spog .pill .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--spog-indigo); }
-  .tile.spog .lockup { display: flex; align-items: center; gap: 12px; margin: 24px 0 0; }
+  .tile.spog .lockup { display: flex; align-items: center; gap: 12px; }
   .tile.spog .lockup img { width: 40px; height: 40px; display: block; flex-shrink: 0; }
   .tile.spog .lockup .wm { font-size: 32px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); line-height: 1; }
-  .tile.spog .desc { margin-top: 14px; }
-  .tile.spog .soon { margin-top: auto; font-size: 14px; font-weight: 600; color: var(--mute); }
+  .tile.spog .go { background: var(--spog-indigo); color: #fff; }
+  .tile.spog .go:hover { background: var(--spog-indigo-hover); }
+  .tile.spog:hover .go { box-shadow: 0 10px 22px -8px rgba(91,84,224,.7); }
+  .tile.spog .glow {
+    position: absolute; right: -110px; top: -110px; width: 320px; height: 320px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(91,84,224,0.14), transparent 70%); pointer-events: none;
+  }
 
   /* ── Closing band ───────────────────────────────────────────────── */
   .band {
@@ -326,7 +325,8 @@
             "@type": "SoftwareApplication",
             "name": "SPOG",
             "applicationCategory": "BusinessApplication",
-            "description": "A new Cognis Group product, in development.",
+            "url": "https://spog.cognis.group",
+            "description": "Single pane of glass for enterprise operations. Federates IT, network, facilities, fleet, and security telemetry into one dashboard, with every number traced to its source.",
             "publisher": { "@id": "https://cognis.group/#organization" }
           }
         }
@@ -559,16 +559,23 @@
     </a>
 
     <!-- SPOG -->
-    <div class="tile spog">
+    <a class="tile spog" href="https://spog.cognis.group" target="_blank" rel="noopener">
       <span class="accent-line"></span>
-      <span class="pill"><span class="dot"></span> Coming soon</span>
+      <span class="glow"></span>
+      <p class="kicker">Live · Observability</p>
       <div class="lockup">
-        <img src="/assets/products/spog-icon.svg" alt="SPOG" width="40" height="40" loading="lazy" decoding="async" />
+        <img src="/assets/products/spog-icon.svg" alt="" width="40" height="40" loading="lazy" decoding="async" />
         <span class="wm">SPOG</span>
       </div>
-      <p class="desc">A new product from Cognis Group, in development. Details soon.</p>
-      <p class="soon">In the works for 2026</p>
-    </div>
+      <p class="tagline">See everything. Trust every number.</p>
+      <p class="desc">The single pane of glass for enterprise operations. SPOG federates monitoring across IT, networks, facilities, fleet, and physical security into one normalised view — and shows where every number came from.</p>
+      <ul class="feats">
+        <li>Federates 30+ telemetry sources into one view</li>
+        <li>Role-tiered dashboards — exec, director, and ops/NOC</li>
+        <li>Provenance on every metric — live, cached, stale, unreachable</li>
+      </ul>
+      <span class="go">Visit SPOG <span class="arr">&rarr;</span></span>
+    </a>
 
   </div>
 </main>

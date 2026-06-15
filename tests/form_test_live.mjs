@@ -1,43 +1,28 @@
 import { chromium } from 'playwright';
-const LOCAL = 'http://localhost:8000';
+const SITE = 'https://cognis.group';
 const EMAIL = 'supremeoye@outlook.com';
-
-// Mock web3forms: simulate a successful 302 to whatever `redirect` field
-// the form submitted, rewritten to localhost so we can see the actual
-// landing page the user will experience on production.
-async function mockWeb3forms(page) {
-  await page.route('https://api.web3forms.com/submit', async (route) => {
-    const body = route.request().postData() || '';
-    const params = new URLSearchParams(body);
-    const redirect = params.get('redirect') || 'https://cognis.group/thanks';
-    const localLoc = redirect.replace('https://cognis.group', LOCAL);
-    console.log(`  [mock] 302 -> ${localLoc}`);
-    await route.fulfill({ status: 302, headers: { location: localLoc }, body: '' });
-  });
-}
 
 async function run(browser, label, startPath, formSelector, fillFn) {
   const ctx = await browser.newContext({ viewport: { width: 1280, height: 900 } });
   const page = await ctx.newPage();
-  // No mock — hit real web3forms to see what a human on localhost actually sees.
-  console.log(`\n=== ${label} ===`);
-  await page.goto(LOCAL + startPath, { waitUntil: 'networkidle', timeout: 30000 });
-  await page.waitForTimeout(3000);
+  console.log(`\n=== ${label} (LIVE) ===`);
+  await page.goto(SITE + startPath, { waitUntil: 'domcontentloaded', timeout: 60000 });
+  await page.waitForLoadState('load', { timeout: 30000 }).catch(()=>{}); await page.waitForTimeout(6000);
   await fillFn(page);
   await Promise.all([
-    page.waitForURL(u => u.includes('/thanks'), { timeout: 15000 }).catch(() => null),
+    page.waitForURL(u => u.includes('/thanks') || u.includes('web3forms'), { timeout: 30000 }).catch(()=>null),
     page.click(`${formSelector} button[type="submit"]`),
   ]);
   await page.waitForLoadState('networkidle').catch(()=>{});
   const finalUrl = page.url();
   const title = await page.title();
   const h1 = await page.locator('h1').first().textContent().catch(()=>null);
-  const bodyText = (await page.locator('body').innerText().catch(()=>'')).slice(0, 400);
+  const bodyText = (await page.locator('body').innerText().catch(()=>'')).slice(0, 500);
   console.log('  final URL:', finalUrl);
   console.log('  title    :', title);
   console.log('  h1       :', h1);
   console.log('  body     :', bodyText.replace(/\s+/g,' '));
-  const shot = `/tmp/${label.replace(/\W+/g,'_')}.png`;
+  const shot = `/tmp/LIVE_${label.replace(/\W+/g,'_')}.png`;
   await page.screenshot({ path: shot, fullPage: true });
   console.log('  screenshot:', shot);
   await ctx.close();
@@ -55,7 +40,7 @@ try {
       const em = f.querySelector('input[type="email"]');
       em.value = e; em.dispatchEvent(new Event('input',{bubbles:true}));
       const ta = f.querySelector('textarea');
-      ta.value = 'Playwright smoke — please ignore.'; ta.dispatchEvent(new Event('input',{bubbles:true}));
+      ta.value = 'Playwright live test — please ignore.'; ta.dispatchEvent(new Event('input',{bubbles:true}));
     }, EMAIL);
   });
   passN = await run(browser, 'NEWSLETTER', '/', 'form.framer-1yovbvh', async page => {
