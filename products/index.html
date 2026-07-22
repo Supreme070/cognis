@@ -1,13 +1,91 @@
 <!DOCTYPE html>
-<html lang="en-GB">
+<html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Products | Cognis Group</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+    .sc-placeholder{background:color-mix(in srgb,currentColor 8%,transparent);
+      border:1px solid color-mix(in srgb,currentColor 50%,transparent);
+      border-radius:2px;box-sizing:border-box;overflow:hidden}
+    @keyframes sc-shine{0%{background-position:100% 50%}100%{background-position:0% 50%}}
+    html.sc-dc-streaming .sc-placeholder,
+    html.sc-dc-streaming .sc-interp.sc-missing{position:relative;
+      background:color-mix(in srgb,currentColor 5%,transparent);
+      border-color:transparent}
+    html.sc-dc-streaming .sc-placeholder::before,
+    html.sc-dc-streaming .sc-interp.sc-missing::before{content:'';
+      position:absolute;inset:0;pointer-events:none;
+      background:linear-gradient(90deg,rgba(217,119,87,0) 25%,rgba(247,225,211,.95) 37%,rgba(217,119,87,0) 63%);
+      background-size:400% 100%;animation:sc-shine 1.4s ease infinite}
+    html.sc-dc-streaming .sc-placeholder:nth-child(n+9 of .sc-placeholder)::before,
+    html.sc-dc-streaming .sc-interp.sc-missing:nth-child(n+9 of .sc-interp.sc-missing)::before{animation:none;
+      background:color-mix(in srgb,currentColor 8%,transparent)}
+    .sc-placeholder-error{padding:4px 8px;font:11px/1.4 ui-monospace,monospace;
+      color:color-mix(in srgb,currentColor 70%,transparent);word-break:break-word}
+    .sc-interp.sc-missing{display:inline-block;width:2em;height:1em;overflow:hidden;
+      vertical-align:text-bottom;background:rgba(255,255,255,.3);border:1px solid rgba(0,0,0,.5);
+      border-radius:2px;box-sizing:border-box;color:transparent;
+      user-select:none}
+    .sc-interp.sc-unresolved{font-family:ui-monospace,monospace;font-size:.85em;
+      color:color-mix(in srgb,currentColor 50%,transparent);
+      background:color-mix(in srgb,currentColor 10%,transparent);border-radius:3px;
+      padding:0 3px}
+    .sc-host.sc-has-error{position:relative}
+    .sc-logic-error{position:absolute;top:8px;left:8px;z-index:2147483647;max-width:60ch;
+      padding:6px 10px;background:#b00020;color:#fff;font:12px/1.4 ui-monospace,monospace;
+      border-radius:4px;white-space:pre-wrap;pointer-events:none}
+    /* Mirrors PRINT_BASELINE_CSS in apps/web deck-stage-export.ts — keep both
+       in sync until dc-runtime regains a build step. */
+    @media print {
+      @page { margin: 0.5cm; }
+      figure, table { break-inside: avoid; }
+      #dc-root, #dc-root > .sc-host { height: auto; }
+      *, *::before, *::after {
+        print-color-adjust: exact; -webkit-print-color-adjust: exact;
+        backdrop-filter: none !important; -webkit-backdrop-filter: none !important;
+        animation-delay: -99s !important; animation-duration: .001s !important;
+        animation-iteration-count: 1 !important; animation-fill-mode: both !important;
+        animation-play-state: running !important; transition-duration: 0s !important;
+      }
+    }
+  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>x-dc{display:none!important}</style>
+<style>html,body{height:100%;margin:0}#dc-root,#dc-root>.sc-host{height:100%}</style>
+<title data-dc-tpl="1">Products | Cognis Group</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" data-dc-tpl="2">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" data-dc-tpl="3">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600;1,700&amp;family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&amp;family=Roboto&amp;family=Nunito:wght@800&amp;display=swap" rel="stylesheet" data-dc-tpl="4">
+<style data-dc-tpl="5">
+  @font-face { font-family: Geistmono; src: url(https://cdn.prod.website-files.com/6929c116366a14507fc8424d/6929c9fc0f8dc4c415a7aef6_GeistMono-Medium.ttf) format("truetype"); font-weight: 400 500; font-style: normal; font-display: swap; }
+  html, body { margin: 0; padding: 0; background: #F2F2F2; }
+  body { font-family: "Plus Jakarta Sans", -apple-system, "Segoe UI", Roboto, sans-serif; color: #131313; font-size: 16px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  a:hover { color: inherit; }
+  /* EXPLORE dropdown */
+  .cg-exp { position: relative; }
+  .cg-exp-panel { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); padding-top: 16px; opacity: 0; visibility: hidden; transition: opacity .22s ease; z-index: 30; }
+  .cg-exp:hover .cg-exp-panel, .cg-exp:focus-within .cg-exp-panel { opacity: 1; visibility: visible; }
+  .cg-exp-menu { background: #131313; border: 1px solid rgba(255,255,255,0.10); border-radius: 16px; padding: 8px; min-width: 236px; display: flex; flex-direction: column; gap: 2px; box-shadow: 0 28px 60px rgba(0,0,0,0.45); transform: translateY(8px); transition: transform .22s cubic-bezier(.22,1,.36,1); }
+  .cg-exp:hover .cg-exp-menu, .cg-exp:focus-within .cg-exp-menu { transform: translateY(0); }
+  .cg-exp-menu a { display: flex; flex-direction: column; gap: 2px; padding: 11px 14px; border-radius: 11px; text-transform: none; letter-spacing: -0.01em; transition: background .15s ease; }
+  .cg-exp-menu a:hover { background: rgba(255,255,255,0.06); }
+  .cg-exp-menu .t { font-weight: 600; font-size: 14px; color: #FFFFFF; }
+  .cg-exp-menu .d { font-weight: 400; font-size: 12px; color: rgba(255,255,255,0.5); }
+
+[data-h="h0"]:hover{color: #131313;}
+[data-h="h1"]:hover{background: #FFFFFF; transform: scale(0.95);}
+[data-h="h2"]:hover{transform: translateY(-6px); box-shadow: 0 26px 60px -30px rgba(66,133,244,0.5); border-color: rgba(66,133,244,0.45);}
+[data-h="h3"]:hover{transform: translateY(-6px); box-shadow: 0 26px 60px -30px rgba(95,111,255,0.45); border-color: rgba(95,111,255,0.45);}
+[data-h="h4"]:hover{transform: translateY(-6px); box-shadow: 0 26px 60px -28px rgba(31,38,87,0.85); border-color: rgba(91,176,79,0.5);}
+[data-h="h5"]:hover{transform: translateY(-6px); box-shadow: 0 24px 56px -30px rgba(91,84,224,0.45); border-color: rgba(91,84,224,0.45);}
+[data-h="h6"]:hover{transform: translateY(-2px);}
+[data-h="h7"]:hover{color: #FFFFFF;}
+[data-h="h8"]:hover{background: #E5FF9B;}
+</style>
+<!-- SEO (ported from original) -->
 <meta name="description" content="The products Cognis Group builds and operates — Cognis AI, the AI workforce; MarketSage, autonomous marketing; Migratio, the migration platform for regulated enterprises; and SPOG, the single pane of glass for enterprise operations." />
-<link rel="canonical" href="https://cognis.group/products" />
-<link rel="alternate" hreflang="en" href="https://cognis.group/products" />
-<link rel="alternate" hreflang="x-default" href="https://cognis.group/products" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Cognis Group" />
 <meta property="og:title" content="Products | Cognis Group" />
@@ -23,247 +101,9 @@
 <meta name="twitter:title" content="Products | Cognis Group" />
 <meta name="twitter:description" content="Four products, one company — Cognis AI, MarketSage, Migratio, and SPOG." />
 <meta name="twitter:image" content="https://cognis.group/og/cognis-og-1200x630.jpg" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Nunito:wght@400;700;800&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
-<style>
-  :root {
-    --ink: #131313; --ink-soft: #2f2f2f; --mute: #7b7b7b;
-    --line: #e6e6e6; --bg: #f2f2f2; --card: #ffffff; --accent: #cdfb56;
-    /* product brand tokens */
-    --cognis-blue: #4285f4; --cognis-blue-hover: #1a73e8;
-    --migratio-navy: #1f2657; --migratio-navy-deep: #1a2049;
-    --migratio-blue: #1e5bb8; --migratio-green: #5bb04f;
-    --spog-indigo: #5b54e0; --spog-indigo-hover: #443dc4;
-  }
-  * { box-sizing: border-box; }
-  html, body { margin: 0; padding: 0; }
-  body {
-    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    color: var(--ink); background: var(--bg); font-size: 17px; line-height: 1.65;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  /* ── Header ─────────────────────────────────────────────────────── */
-  header.site-nav {
-    position: sticky; top: 0; z-index: 10;
-    background: rgba(242, 242, 242, 0.92);
-    backdrop-filter: saturate(140%) blur(10px);
-    border-bottom: 1px solid var(--line);
-  }
-  header.site-nav .inner {
-    max-width: 1180px; margin: 0 auto; padding: 18px 24px;
-    display: flex; align-items: center; justify-content: space-between;
-  }
-  header.site-nav a.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-  header.site-nav a.brand .brand-mark { width: 30px; height: 22px; fill: var(--ink); display: block; }
-  header.site-nav a.brand .brand-word { font-weight: 700; letter-spacing: -0.06em; color: var(--ink); font-size: 24px; }
-  header.site-nav nav a { color: var(--ink-soft); text-decoration: none; margin-left: 24px; font-weight: 500; font-size: 15px; }
-  header.site-nav nav a:hover { color: var(--ink); }
-  header.site-nav nav a[aria-current="page"] { color: var(--ink); position: relative; }
-  header.site-nav nav a[aria-current="page"]::after {
-    content: ""; position: absolute; left: 0; right: 0; bottom: -6px; height: 2px; background: var(--accent);
-  }
-  @media (max-width: 720px) { header.site-nav nav a:not([aria-current="page"]) { display: none; } }
-
-  /* ── Hero ───────────────────────────────────────────────────────── */
-  main { max-width: 1180px; margin: 0 auto; padding: 72px 24px 40px; }
-  .hero { max-width: 760px; margin-bottom: 56px; }
-  .eyebrow {
-    color: var(--mute); font-size: 13px; letter-spacing: 0.12em;
-    text-transform: uppercase; font-weight: 600; margin: 0 0 18px;
-  }
-  .eyebrow::before {
-    content: ""; display: inline-block; width: 28px; height: 2px;
-    background: var(--accent); vertical-align: middle; margin-right: 12px;
-  }
-  .hero h1 { font-size: 56px; line-height: 1.04; letter-spacing: -0.025em; margin: 0 0 20px; font-weight: 700; }
-  .hero p { color: var(--ink-soft); font-size: 20px; line-height: 1.55; margin: 0; }
-
-  /* ── Bento grid ─────────────────────────────────────────────────── */
-  .bento {
-    display: grid; gap: 20px;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-areas: "cognis cognis cognis" "market migratio spog";
-  }
-  @media (max-width: 860px) { .bento { grid-template-columns: 1fr; grid-template-areas: "cognis" "market" "migratio" "spog"; } }
-
-  .tile {
-    position: relative; border-radius: 22px; padding: 36px;
-    border: 1px solid var(--line); background: var(--card);
-    display: flex; flex-direction: column; overflow: hidden; isolation: isolate;
-    transition: transform .3s cubic-bezier(.2,.7,.2,1), box-shadow .3s ease, border-color .3s ease;
-    text-decoration: none; color: inherit;
-  }
-  .tile > * { position: relative; z-index: 1; }
-  /* cursor-following, brand-tinted spotlight */
-  .tile::before {
-    content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none; border-radius: inherit;
-    background: radial-gradient(440px circle at var(--mx, 50%) var(--my, -10%), var(--spot, rgba(66,133,244,.13)), transparent 60%);
-    opacity: 0; transition: opacity .4s ease;
-  }
-  .tile:hover::before { opacity: 1; }
-  .tile:hover { transform: translateY(-6px); box-shadow: 0 24px 60px -28px rgba(19,19,19,0.28); }
-  .tile .glow { z-index: 0; }
-  .tile .accent-line {
-    position: absolute; top: 0; left: 0; right: 0; height: 4px; z-index: 2;
-    background: var(--tile-accent, var(--accent));
-    transform: scaleX(0); transform-origin: left; transition: transform .4s cubic-bezier(.2,.7,.2,1);
-  }
-  .tile:hover .accent-line { transform: scaleX(1); }
-
-  .tile .kicker {
-    font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
-    font-weight: 600; color: var(--mute); margin: 0 0 auto;
-    display: flex; align-items: center; gap: 10px;
-  }
-  .tile .lockup { margin: 28px 0 6px; }
-  .tile .lockup img, .tile .ms-lockup img { transition: transform .35s cubic-bezier(.2,.7,.2,1); }
-  .tile:hover .lockup img, .tile:hover .ms-lockup img { transform: scale(1.05); }
-  .tile .tagline { font-size: 21px; line-height: 1.3; font-weight: 600; letter-spacing: -0.01em; margin: 18px 0 10px; }
-  .tile .desc { font-size: 15.5px; line-height: 1.6; color: var(--ink-soft); margin: 0 0 22px; }
-  .tile .feats { list-style: none; padding: 0; margin: 0 0 26px; }
-  .tile .feats li { position: relative; padding-left: 22px; margin-bottom: 9px; font-size: 14.5px; color: var(--ink-soft); }
-  .tile .feats li::before {
-    content: ""; position: absolute; left: 0; top: 9px; width: 8px; height: 8px;
-    border-radius: 50%; background: var(--tile-accent, var(--accent));
-  }
-  .tile .go {
-    margin-top: auto; align-self: flex-start;
-    display: inline-flex; align-items: center; gap: 8px;
-    font-weight: 600; font-size: 15px; padding: 11px 18px; border-radius: 10px;
-    text-decoration: none; transition: gap 200ms ease, background 200ms ease, color 200ms ease;
-  }
-  .tile .go .arr { transition: transform 220ms cubic-bezier(.2,.7,.2,1); }
-  .tile:hover .go .arr { transform: translateX(4px); }
-
-  /* ── Cognis AI tile (full-width hero, blue) ─────────────────────── */
-  .tile.cognis {
-    grid-area: cognis; --tile-accent: var(--cognis-blue); --spot: rgba(66,133,244,.13);
-    background: linear-gradient(180deg, #ffffff 0%, #f4f8ff 100%);
-  }
-  .tile.cognis:hover { border-color: rgba(66,133,244,.45); box-shadow: 0 26px 60px -30px rgba(66,133,244,.5); }
-  .tile.cognis .hero-row { display: grid; grid-template-columns: 1.15fr 1fr; gap: 44px; align-items: center; width: 100%; }
-  .tile.cognis .hero-row .r { border-left: 1px solid var(--line); padding-left: 44px; }
-  .tile.cognis .kicker { margin: 0 0 18px; }
-  .tile.cognis .desc { margin-bottom: 0; }
-  .tile.cognis .feats { margin-bottom: 24px; }
-  @media (max-width: 760px) {
-    .tile.cognis .hero-row { grid-template-columns: 1fr; gap: 24px; }
-    .tile.cognis .hero-row .r { border-left: 0; padding-left: 0; border-top: 1px solid var(--line); padding-top: 24px; }
-  }
-  .tile.cognis .lockup .wm {
-    font-family: 'Nunito', sans-serif; font-weight: 800; font-size: 46px;
-    letter-spacing: -0.02em; color: var(--ink); line-height: 1;
-  }
-  .tile.cognis .lockup .wm .ai { color: var(--cognis-blue); }
-  .tile.cognis .tagline { font-size: 30px; }
-  .tile.cognis .go { background: var(--cognis-blue); color: #fff; }
-  .tile.cognis .go:hover { background: var(--cognis-blue-hover); }
-  .tile.cognis:hover .go { box-shadow: 0 10px 22px -8px rgba(66,133,244,.7); }
-  .tile.cognis .glow {
-    position: absolute; right: -120px; top: -120px; width: 360px; height: 360px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(66,133,244,0.16), transparent 70%); pointer-events: none;
-  }
-
-  /* ── MarketSage tile (brand globe: teal · blue · orange) ────────── */
-  .tile.marketsage {
-    grid-area: market; --tile-accent: #5f6fff; --spot: rgba(95,111,255,.13);
-    background: linear-gradient(180deg, #ffffff 0%, #f6f7ff 100%);
-  }
-  .tile.marketsage:hover { border-color: rgba(95,111,255,.45); box-shadow: 0 26px 60px -30px rgba(95,111,255,.45); }
-  .tile.marketsage .accent-line { background: linear-gradient(90deg, #5f6fff 0%, #06b6d4 100%); }
-  .tile.marketsage .ms-lockup { display: flex; align-items: center; gap: 12px; margin: 26px 0 0; }
-  .tile.marketsage .ms-lockup img { width: 42px; height: 42px; display: block; flex-shrink: 0; }
-  .tile.marketsage .ms-lockup .wm { font-weight: 600; font-size: 26px; letter-spacing: -0.02em; line-height: 1; }
-  .tile.marketsage .ms-lockup .mk { color: #5f6fff; }
-  .tile.marketsage .ms-lockup .sg { color: #06b6d4; }
-  .tile.marketsage .go { background: #5f6fff; color: #fff; }
-  .tile.marketsage .go:hover { background: #4f5fef; }
-  .tile.marketsage:hover .go { box-shadow: 0 10px 22px -8px rgba(95,111,255,.7); }
-  .tile.marketsage .glow {
-    position: absolute; right: -110px; top: -110px; width: 320px; height: 320px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(95,111,255,0.13), transparent 70%); pointer-events: none;
-  }
-
-  /* ── Migratio tile (navy, dark) ─────────────────────────────────── */
-  .tile.migratio {
-    grid-area: migratio; --tile-accent: var(--migratio-green); --spot: rgba(91,176,79,.18);
-    background: linear-gradient(160deg, #242c63 0%, #1a2049 100%); border-color: var(--migratio-navy-deep); color: #f1f2f8;
-    font-family: 'IBM Plex Sans', 'Inter', sans-serif;
-  }
-  .tile.migratio:hover { border-color: rgba(91,176,79,.5); box-shadow: 0 26px 60px -28px rgba(31,38,87,0.85); }
-  .tile.migratio:hover .go { box-shadow: 0 10px 22px -8px rgba(91,176,79,.6); }
-  .tile.migratio .kicker { color: #8993a8; }
-  .tile.migratio .lockup { margin: 24px 0 6px; }
-  .tile.migratio .lockup img { height: 44px; width: auto; max-width: 100%; display: block; }
-  .tile.migratio .tagline { color: #f1f2f8; font-weight: 500; font-size: 19px; }
-  .tile.migratio .desc { color: #b3bbd0; }
-  .tile.migratio .feats li { color: #b3bbd0; }
-  .tile.migratio .go { background: var(--migratio-green); color: #0d2410; }
-  .tile.migratio .go:hover { background: #6bc05f; }
-  .tile.migratio .glow {
-    position: absolute; right: -100px; bottom: -100px; width: 300px; height: 300px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(91,176,79,0.18), transparent 70%); pointer-events: none;
-  }
-
-  /* ── SPOG tile (live · Royal Indigo) ────────────────────────────── */
-  .tile.spog {
-    grid-area: spog; --tile-accent: var(--spog-indigo); --spot: rgba(91,84,224,.14);
-    background: linear-gradient(180deg, #ffffff 0%, #f4f3fe 100%);
-  }
-  .tile.spog:hover { border-color: rgba(91,84,224,.45); box-shadow: 0 24px 56px -30px rgba(91,84,224,.45); }
-  .tile.spog .lockup { display: flex; align-items: center; gap: 12px; }
-  .tile.spog .lockup img { width: 40px; height: 40px; display: block; flex-shrink: 0; }
-  .tile.spog .lockup .wm { font-size: 32px; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); line-height: 1; }
-  .tile.spog .go { background: var(--spog-indigo); color: #fff; }
-  .tile.spog .go:hover { background: var(--spog-indigo-hover); }
-  .tile.spog:hover .go { box-shadow: 0 10px 22px -8px rgba(91,84,224,.7); }
-  .tile.spog .glow {
-    position: absolute; right: -110px; top: -110px; width: 320px; height: 320px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(91,84,224,0.14), transparent 70%); pointer-events: none;
-  }
-
-  /* ── Closing band ───────────────────────────────────────────────── */
-  .band {
-    max-width: 1180px; margin: 64px auto 0; padding: 0 24px;
-  }
-  .band-inner {
-    background: #0a0a0a; color: #fff; border-radius: 22px; padding: 48px 44px;
-    display: flex; flex-wrap: wrap; gap: 24px; align-items: center; justify-content: space-between;
-  }
-  .band-inner h2 { font-size: 28px; letter-spacing: -0.02em; margin: 0 0 8px; font-weight: 700; }
-  .band-inner p { margin: 0; color: #c1c1c1; max-width: 560px; }
-  .band-inner .cta {
-    background: var(--accent); color: var(--ink); font-weight: 700; text-decoration: none;
-    padding: 14px 26px; border-radius: 10px; white-space: nowrap;
-    transition: transform 200ms ease;
-  }
-  .band-inner .cta:hover { transform: translateY(-2px); }
-
-  /* ── Footer ─────────────────────────────────────────────────────── */
-  footer.site-foot {
-    border-top: 1px solid var(--line); background: #0A0A0A; color: #C1C1C1;
-    padding: 40px 24px; font-size: 14px; margin-top: 72px;
-  }
-  footer.site-foot .inner {
-    max-width: 1180px; margin: 0 auto;
-    display: flex; flex-wrap: wrap; gap: 24px; justify-content: space-between;
-  }
-  footer.site-foot a { color: #C1C1C1; text-decoration: none; margin-right: 18px; }
-  footer.site-foot a:hover { color: var(--accent); }
-  footer.site-foot .legal-links a { margin-right: 16px; }
-
-  @media (max-width: 640px) {
-    main { padding-top: 48px; }
-    .hero h1 { font-size: 38px; }
-    .hero p { font-size: 18px; }
-    .tile { padding: 28px; }
-    .tile.cognis .lockup .wm { font-size: 38px; }
-    .tile.cognis .tagline { font-size: 24px; }
-    .band-inner { padding: 32px 26px; }
-  }
-</style>
+<link rel="canonical" href="https://cognis.group/products" />
+<link rel="alternate" hreflang="en" href="https://cognis.group/products" />
+<link rel="alternate" hreflang="x-default" href="https://cognis.group/products" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -335,633 +175,188 @@
   ]
 }
 </script>
-<!-- cognis-hero-video:start -->
-<script data-cognis-hero-video>
-(function () {
-  var SRC = '/framer-runtime/assets/hero-afr5.mp4';
-  function norm(pth) { return pth.replace(/\/index\.html$/, '').replace(/\/+$/, ''); }
-  function isHomePath() { return norm(location.pathname) === ''; }
-  // The page's own <link rel=canonical> is the reliable signal for WHICH route
-  // this snapshot is: it's baked in per route and never flickers. We can't use
-  // location.pathname during initial load because an early inline script
-  // (deferred-nav bootstrap) does history.replaceState(..., '/') on every page,
-  // and Framer briefly renders home content — both would falsely read as home
-  // and trigger a wasted 1.6 MB fetch on non-home routes. After things settle
-  // we switch to the live path so SPA navigation is handled too.
-  function canonicalIsHome() {
-    var l = document.querySelector('link[rel="canonical"]');
-    if (!l) return isHomePath();
-    try { return norm(new URL(l.href).pathname) === ''; } catch (e) { return isHomePath(); }
-  }
-  var settled = false;
-  setTimeout(function () { settled = true; }, 4000);
-  function wantVideo() { return settled ? isHomePath() : canonicalIsHome(); }
-  function tick() {
-    var on = wantVideo();
-    document.querySelectorAll('video[data-cognis-hero-portal]').forEach(function (v) {
-      if (on) {
-        if (!v.getAttribute('src')) {
-          v.setAttribute('preload', 'metadata');
-          v.src = SRC;
-          var p = v.play(); if (p && p.catch) p.catch(function () {});
-        }
-      } else if (v.getAttribute('src')) {
-        try { v.pause(); } catch (e) {}
-        v.removeAttribute('autoplay');
-        v.setAttribute('preload', 'none');
-        v.removeAttribute('src');
-        try { v.load(); } catch (e) {}  // abort any in-flight fetch
-      }
-    });
-
-    // Hero layout guard (home only). The hero is a full-viewport-height screen
-    // with the heading/subcopy up top and the 3D rotating cards anchored lower.
-    // On short laptop heights it compresses and the cards ride up over the
-    // wording. Enforce a min-height floor so the layout always has the room it
-    // has on a tall screen — only on home and only at laptop+ widths (the
-    // stacked mobile/tablet hero doesn't have the overlap). Cleared elsewhere.
-    var hero = document.querySelector('[data-framer-name="hero"]');
-    if (hero) {
-      if (on && window.innerWidth >= 810) hero.style.setProperty('min-height', '900px', 'important');
-      else hero.style.removeProperty('min-height');
-    }
-  }
-  if (document.readyState !== 'loading') tick();
-  else document.addEventListener('DOMContentLoaded', tick);
-  try {
-    var mo = new MutationObserver(function () {
-      if (window.__cghvRAF) return;
-      window.__cghvRAF = requestAnimationFrame(function () { window.__cghvRAF = 0; tick(); });
-    });
-    mo.observe(document.documentElement, { childList: true, subtree: true });
-  } catch (e) {}
-  window.addEventListener('resize', function () {
-    if (window.__cghvRZ) return;
-    window.__cghvRZ = requestAnimationFrame(function () { window.__cghvRZ = 0; tick(); });
-  }, { passive: true });
-  [0, 50, 150, 400, 1000, 2500, 4200, 6000].forEach(function (t) { setTimeout(tick, t); });
-})();
-</script>
-<!-- cognis-hero-video:end -->
-      <!-- cognis-ux-tweaks:start -->
-<style data-cognis-ux-tweaks>
-  /* Let vertical page scroll pass through horizontal Framer slideshows
-     on mobile (e.g. the testimonials carousel). */
-  .framer-slideshow,
-  .framer-slideshow-axis-x,
-  [data-framer-name="slideshow"] {
-    touch-action: pan-y;
-  }
-  .framer-slideshow > div,
-  .framer-slideshow-axis-x > div {
-    touch-action: pan-y;
-  }
-
-  /* Soften testimonials transition — Framer default of 0.25s snaps when
-     you release a swipe. 0.55s cubic-bezier glides into place. */
-  .framer-slideshow-axis-x ul {
-    transition: transform 0.55s cubic-bezier(0.22, 0.61, 0.36, 1) !important;
-  }
-
-  /* About-us "Meet our team": the team slideshow was frozen at slide 0 (a
-     leftover from hiding a 4th member) and rendered 1-up on phones, so only
-     the first card (Supreme) showed and the track couldn't be swiped to the
-     rest. Convert the carousel into a responsive wrapping grid — 3-up on
-     desktop, 2-up on tablet, stacked on mobile — so every member is visible
-     with normal page scroll and no swipe. The carousel's looped clone slides
-     (4 sets of [Supreme, Kola, Fisayo, hidden 4th]) collapse to the first
-     three real cards. */
-  [data-framer-name="team"] [data-framer-name="Desktop"],
-  [data-framer-name="team"] .framer-slideshow-axis-x,
-  [data-framer-name="team"] .framer-slideshow-axis-x > div,
-  [data-framer-name="team"] .framer-slideshow-axis-x ul {
-    position: relative !important;
-    inset: auto !important;
-    height: auto !important;
-    max-height: none !important;
-    overflow: visible !important;
-    perspective: none !important;
-  }
-  [data-framer-name="team"] .framer-slideshow-axis-x ul {
-    flex-wrap: wrap !important;
-    justify-content: center;
-    align-items: stretch;
-    gap: 24px !important;
-    /* The Framer slideshow JS stays live and otherwise drifts the track
-       (~15px translateX) and animates it via the inherited 0.55s transition.
-       Pin it still — a stylesheet !important always beats the JS's inline
-       (non-important) transform, so no MutationObserver freeze is needed. */
-    transform: none !important;
-    transition: none !important;
-  }
-  /* The slideshow also marks "off-view" slides visibility:hidden inline —
-     that was blanking the 3rd card (Fisayo). Force every grid card visible
-     (hidden clones stay gone via the display:none rule below, which wins). */
-  [data-framer-name="team"] .framer-slideshow-axis-x ul > li,
-  [data-framer-name="team"] .framer-slideshow-axis-x ul > li * {
-    visibility: visible !important;
-  }
-  /* Let vertical page scroll pass through the (now static) team grid. */
-  [data-framer-name="team"] .framer-slideshow-axis-x,
-  [data-framer-name="team"] .framer-slideshow-axis-x * {
-    touch-action: pan-y;
-  }
-  [data-framer-name="team"] .framer-slideshow-axis-x ul > li:nth-child(n+4) {
-    display: none !important;
-  }
-  [data-framer-name="team"] .framer-slideshow-axis-x ul > li > div {
-    width: calc(33.333% - 16px) !important;
-    height: auto !important;
-  }
-  @media (max-width: 809px) {
-    [data-framer-name="team"] .framer-slideshow-axis-x ul > li > div { width: calc(50% - 12px) !important; }
-  }
-  @media (max-width: 539px) {
-    [data-framer-name="team"] .framer-slideshow-axis-x ul > li > div { width: 100% !important; }
-  }
-  /* hide the now-dead carousel prev/next arrows (the "Contact us" CTA is an <a>) */
-  [data-framer-name="team"] button {
-    display: none !important;
-  }
-  /* Fisayo Oludare's photo is a stock placeholder, not a real headshot —
-     leave the image slot empty until a real photo is supplied. */
-  [data-framer-name="team"] img[src*="il73eZeVzET6bn72svJVyQpD4"] {
-    display: none !important;
-  }
-</style>
-<!-- cognis-ux-tweaks:end -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 </head>
 <body>
+<div id="dc-root"><div class="sc-host" data-sc-name="__pre__Cognis Products"><div data-dc-tpl="6" style="background: rgb(242, 242, 242); min-width: 1100px; position: relative;">
 
-<header class="cgx" data-cognis-gnav><div class="cgx-in"><a class="cgx-logo" href="/" aria-label="Cognis Group"><svg class="cgx-mark" viewBox="0 0 40 30" aria-hidden="true"><path d="M 36.968 20.426 L 33.716 26.059 L 24.189 26.048 L 27.223 20.794 L 18.262 5.293 L 28.346 5.337 Z"/><path d="M 9.807 5.266 L 16.312 5.266 L 21.066 13.522 L 14.999 13.521 L 6.055 29.033 L 1.051 20.277 Z"/></svg><span class="cgx-word">Cognis</span></a><nav class="cgx-nav" aria-label="Primary"><a href="/"><span class="cgx-roll"><span>Home</span><span aria-hidden="true">Home</span></span></a><a href="/about-us"><span class="cgx-roll"><span>About Us</span><span aria-hidden="true">About Us</span></span></a><a href="/our-services"><span class="cgx-roll"><span>Services</span><span aria-hidden="true">Services</span></span></a><a href="/products"><span class="cgx-roll"><span>Products</span><span aria-hidden="true">Products</span></span></a><a href="/blog"><span class="cgx-roll"><span>Insights</span><span aria-hidden="true">Insights</span></span></a></nav><a class="cgx-cta" href="/contact"><span class="cgx-roll"><span>Work With Us</span><span aria-hidden="true">Work With Us</span></span></a><button class="cgx-burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="cgx-drawer"><span></span><span></span><span></span></button></div><div class="cgx-drawer" id="cgx-drawer" hidden><a href="/">Home</a><a href="/about-us">About Us</a><a href="/our-services">Services</a><a href="/products">Products</a><a href="/blog">Insights</a><a class="cgx-cta" href="/contact">Work With Us</a></div></header>
-
-<main>
-  <div class="hero">
-    <p class="eyebrow">Products</p>
-    <h1>Four products. One company.</h1>
-    <p>Beyond advisory, Cognis Group builds and operates its own software. Each product solves one problem end to end — shipped as production systems, not pilots.</p>
-  </div>
-
-  <div class="bento">
-
-    <!-- Cognis AI — full-width hero -->
-    <a class="tile cognis" href="/products" target="_blank" rel="noopener">
-      <span class="accent-line"></span>
-      <span class="glow"></span>
-      <div class="hero-row">
-        <div class="l">
-          <p class="kicker">Live · AI workforce</p>
-          <div class="lockup"><span class="wm">Cognis<span class="ai">Ai</span>.</span></div>
-          <p class="tagline">Hire AI to do the work.</p>
-          <p class="desc">A workforce of specialised AI workers. Hire one for support, voice, knowledge, ops, or trade. Each worker is built for a single job and sharpened on real work — it starts in shadow mode, earns autonomy, and cancels anytime.</p>
-        </div>
-        <div class="r">
-          <ul class="feats">
-            <li>Specialised workers, not a single chatbot</li>
-            <li>Shadow → supervised → autonomous promotion</li>
-            <li>Priced per worker, cancel anytime</li>
-          </ul>
-          <span class="go">Visit Cognis AI <span class="arr">&rarr;</span></span>
+  
+  <div data-dc-tpl="7" style="position: absolute; top: 0px; left: 0px; right: 0px; z-index: 1000; min-width: 1100px; background: rgba(242, 242, 242, 0.92); backdrop-filter: saturate(140%) blur(10px);">
+    <div data-dc-tpl="8" style="max-width: 1280px; min-width: 1100px; margin: 0px auto; padding: 24px 48px; display: flex; align-items: center; justify-content: space-between; gap: 8px;">
+      <a data-dc-tpl="9" href="/" aria-label="Cognis Group" style="display: flex; align-items: center; gap: 9px; color: rgb(19, 19, 19);">
+        <svg data-dc-tpl="10" viewBox="0 0 40 30" aria-hidden="true" style="width: 32px; height: 24px; fill: currentcolor; display: block;"><path data-dc-tpl="11" d="M 36.968 20.426 L 33.716 26.059 L 24.189 26.048 L 27.223 20.794 L 18.262 5.293 L 28.346 5.337 Z"></path><path data-dc-tpl="12" d="M 9.807 5.266 L 16.312 5.266 L 21.066 13.522 L 14.999 13.521 L 6.055 29.033 L 1.051 20.277 Z"></path></svg>
+        <span data-dc-tpl="13" style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 600; letter-spacing: -0.04em; font-size: 23px; color: rgb(19, 19, 19);">Cognis</span>
+      </a>
+      <div data-dc-tpl="14" style="display: flex; align-items: center; gap: 32px;">
+        <a data-dc-tpl="15" href="/" data-h="h0" style="color: rgba(19, 19, 19, 0.8); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; white-space: nowrap;">Home</a>
+        <a data-dc-tpl="16" href="/about-us/" data-h="h0" style="color: rgba(19, 19, 19, 0.8); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; white-space: nowrap;">About Us</a>
+        <a data-dc-tpl="17" href="/our-services/" data-h="h0" style="color: rgba(19, 19, 19, 0.8); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; white-space: nowrap;">Services</a>
+        <a data-dc-tpl="18" href="#" aria-current="page" style="color: rgb(19, 19, 19); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; white-space: nowrap; box-shadow: rgb(214, 253, 112) 0px -2px 0px inset; padding-bottom: 4px;">Products</a>
+        <a data-dc-tpl="19" href="/blog/" data-h="h0" style="color: rgba(19, 19, 19, 0.8); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; white-space: nowrap;">Insights</a>
+      <div data-dc-tpl="20" class="cg-exp" tabindex="0" style="height: 20px; color: rgba(19, 19, 19, 0.8); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; white-space: nowrap; cursor: default;">
+          <span data-dc-tpl="21" style="display: inline-flex; align-items: center; gap: 5px;">Explore
+            <svg data-dc-tpl="22" width="10" height="10" viewBox="0 0 10 10" fill="none" style="opacity: 0.85;"><path data-dc-tpl="23" d="M2 3.5L5 6.5L8 3.5" stroke="#131313" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </span>
+          <div data-dc-tpl="24" class="cg-exp-panel">
+            <div data-dc-tpl="25" class="cg-exp-menu">
+              <a data-dc-tpl="26" href="/why-cognis/"><span data-dc-tpl="27" class="t">Why Cognis</span><span data-dc-tpl="28" class="d">The case for working with us</span></a>
+              <a data-dc-tpl="29" href="/case-studies/"><span data-dc-tpl="30" class="t">Case Studies</span><span data-dc-tpl="31" class="d">AI shipped to governed production</span></a>
+              <a data-dc-tpl="32" href="/how-we-work/"><span data-dc-tpl="33" class="t">How We Work</span><span data-dc-tpl="34" class="d">Six phases, designed to ship</span></a>
+            </div>
+          </div>
         </div>
       </div>
-    </a>
-
-    <!-- MarketSage -->
-    <a class="tile marketsage" href="https://www.marketsage.africa" target="_blank" rel="noopener">
-      <span class="accent-line"></span>
-      <span class="glow"></span>
-      <p class="kicker">Live · Marketing AI</p>
-      <div class="ms-lockup"><img src="/assets/products/marketsage-logo.png" alt="MarketSage" /><span class="wm"><span class="mk">MΛRKET</span><span class="sg">SΛGE</span></span></div>
-      <p class="tagline">Marketing that thinks, acts, and converts.</p>
-      <p class="desc">An autonomous marketing engine — it plans campaigns, runs them across channels, and turns activity into pipeline. Built and proven on Cognis's own go-to-market.</p>
-      <ul class="feats">
-        <li>Autonomous, multi-channel campaigns</li>
-        <li>Sales intelligence that scores and routes leads</li>
-        <li>Composes into your CRM and outreach</li>
-      </ul>
-      <span class="go">Visit MarketSage <span class="arr">&rarr;</span></span>
-    </a>
-
-    <!-- Migratio -->
-    <a class="tile migratio" href="https://migratio.cognis.group" target="_blank" rel="noopener">
-      <span class="accent-line"></span>
-      <span class="glow"></span>
-      <p class="kicker">Live · Data migration</p>
-      <div class="lockup"><img src="/assets/products/migratio-logo-horizontal-dark.svg" alt="Migratio by Cognis" /></div>
-      <p class="tagline">Reconcile before cutover.</p>
-      <p class="desc">The migration platform for banks, ministries, and regulated enterprises. Audit every record, verify the hash on both sides, and pass the regulator's review on the first try.</p>
-      <ul class="feats">
-        <li>Record-level reconciliation and audit trail</li>
-        <li>Naming-normalisation built for African registries</li>
-        <li>Signed cutover with zero-drift verification</li>
-      </ul>
-      <span class="go">Visit Migratio <span class="arr">&rarr;</span></span>
-    </a>
-
-    <!-- SPOG -->
-    <a class="tile spog" href="https://spog.cognis.group" target="_blank" rel="noopener">
-      <span class="accent-line"></span>
-      <span class="glow"></span>
-      <p class="kicker">Live · Observability</p>
-      <div class="lockup">
-        <img src="/assets/products/spog-icon.svg" alt="" width="40" height="40" loading="lazy" decoding="async" />
-        <span class="wm">SPOG</span>
-      </div>
-      <p class="tagline">See everything. Trust every number.</p>
-      <p class="desc">The single pane of glass for enterprise operations. SPOG federates monitoring across IT, networks, facilities, fleet, and physical security into one normalised view — and shows where every number came from.</p>
-      <ul class="feats">
-        <li>Federates 30+ telemetry sources into one view</li>
-        <li>Role-tiered dashboards — exec, director, and ops/NOC</li>
-        <li>Provenance on every metric — live, cached, stale, unreachable</li>
-      </ul>
-      <span class="go">Visit SPOG <span class="arr">&rarr;</span></span>
-    </a>
-
-  </div>
-</main>
-
-<div class="band">
-  <div class="band-inner">
-    <div>
-      <h2>One company behind all four.</h2>
-      <p>Cognis Group builds, ships, and governs every product on this page — the same team that runs AI engagements for banks, ministries, and enterprises.</p>
+      <a data-dc-tpl="35" href="/contact/" data-h="h1" style="background: rgb(214, 253, 112); color: rgb(19, 19, 19); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; padding: 12px 22px; border-radius: 100px; white-space: nowrap; transition: transform 0.3s cubic-bezier(0.19, 1, 0.22, 1), background-color 0.3s;">Work With Us</a>
     </div>
-    <a class="cta" href="/contact">Start a conversation &rarr;</a>
   </div>
-</div>
 
-<footer class="cgxf"><div class="cgxf-card"><div class="cgxf-top"><div class="cgxf-brand"><a class="cgxf-logo" href="/" aria-label="Cognis Group"><svg class="cgx-mark" viewBox="0 0 40 30" aria-hidden="true"><path d="M 36.968 20.426 L 33.716 26.059 L 24.189 26.048 L 27.223 20.794 L 18.262 5.293 L 28.346 5.337 Z"/><path d="M 9.807 5.266 L 16.312 5.266 L 21.066 13.522 L 14.999 13.521 L 6.055 29.033 L 1.051 20.277 Z"/></svg><span>Cognis</span></a><p class="cgxf-desc">Cognis Group is more than an advisory firm — we build, deploy, and govern AI systems that permanently transform organizations. <em>Quod Tango Muto</em> — what we touch, we change.</p></div><nav class="cgxf-nav" aria-label="Footer"><a href="/">Home</a><a href="/about-us">About Us</a><a href="/our-services">Services</a><a href="/blog">Insights</a><a href="/contact">Contact</a></nav></div><div class="cgxf-sub"><p class="cgxf-subh">Get AI intelligence in your inbox</p><form class="cgxf-form" action="https://api.web3forms.com/submit" method="POST"><input type="hidden" name="access_key" value="6e2d0eb5-2d17-4183-8662-83a3487d2703"><input type="hidden" name="from_name" value="cognis.group newsletter"><input type="hidden" name="subject" value="New newsletter signup — cognis.group"><input type="hidden" name="redirect" value="https://cognis.group/thanks-subscribe"><input class="cgxf-email" type="email" name="email" required placeholder="Enter your email" aria-label="Email address"><button class="cgxf-btn" type="submit">Subscribe<span class="cgxf-arrow" aria-hidden="true">→</span></button></form></div><p class="cgxf-copy">© 2026 Cognis Group. All rights reserved.</p></div></footer>
+  
+  <div data-dc-tpl="36" style="max-width: 1180px; margin: 0px auto; padding: 168px 24px 40px;">
+    <div data-dc-tpl="37" style="max-width: 760px; margin-bottom: 56px;">
+      <p data-dc-tpl="38" style="color: rgb(99, 99, 99); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; font-weight: 500; margin: 0px 0px 18px; display: flex; align-items: center; gap: 12px;"><span data-dc-tpl="39" style="display: inline-block; width: 28px; height: 2px; background: rgb(205, 251, 86);"></span>Products</p>
+      <h1 data-dc-tpl="40" style="font-size: 56px; line-height: 1.04; letter-spacing: -0.025em; margin: 0px 0px 20px; font-weight: 700;">Four products. One company.</h1>
+      <p data-dc-tpl="41" style="color: rgb(47, 47, 47); font-size: 20px; line-height: 1.55; margin: 0px;">Beyond advisory, Cognis Group builds and operates its own software. Each product solves one problem end to end — shipped as production systems, not pilots.</p>
+    </div>
 
-<script>
-  // Cursor-following brand spotlight on each product tile.
-  (function () {
-    document.querySelectorAll('.tile').forEach(function (el) {
-      el.addEventListener('pointermove', function (e) {
-        var r = el.getBoundingClientRect();
-        el.style.setProperty('--mx', ((e.clientX - r.left) / r.width * 100) + '%');
-        el.style.setProperty('--my', ((e.clientY - r.top) / r.height * 100) + '%');
-      });
-    });
-  })();
-</script>
+    
+    <div data-dc-tpl="42" style="display: grid; gap: 20px; grid-template-columns: repeat(3, 1fr);">
 
-<!-- cognis-journey:start -->
-<script data-cognis-journey>
-(function () {
-  // Set each milestone's visible year from its description — order-independent
-  // and idempotent (safe to re-run through Framer's SPA re-renders).
-  function fix() {
-    var years = document.querySelectorAll('[data-framer-name="year"]');
-    if (!years.length) return;
-    years.forEach(function (yd) {
-      var p = yd.querySelector('p');
-      if (!p) return;
-      var c = yd.nextElementSibling;
-      if (!c || c.getAttribute('data-framer-name') !== 'content') {
-        c = yd.parentElement && yd.parentElement.querySelector('[data-framer-name="content"]');
-      }
-      var desc = c ? c.textContent : '';
-      var t = null;
-      if (/Launched workforce/i.test(desc)) t = 'Q4 2025';
-      else if (/Shipped agent/i.test(desc)) t = 'Q1 2026';
-      else if (/Conducted AI trainings/i.test(desc)) t = 'Q3 2025';
-      else if (/Founded/i.test(desc)) t = 'Q2 2025';
-      if (t && p.textContent.trim() !== t) p.textContent = t;
-    });
-  }
-  if (document.readyState !== 'loading') fix();
-  else document.addEventListener('DOMContentLoaded', fix);
-  try {
-    var mo = new MutationObserver(function () {
-      if (window.__cgjRAF) return;
-      window.__cgjRAF = requestAnimationFrame(function () { window.__cgjRAF = 0; fix(); });
-    });
-    mo.observe(document.documentElement, { childList: true, subtree: true });
-  } catch (e) {}
-  [400, 1200, 2500].forEach(function (t) { setTimeout(fix, t); });
-})();
-</script>
-<!-- cognis-journey:end -->
-<!-- cognis-copy:start -->
-<script data-cognis-copy>
-(function () {
-  var REPL = {"think smarter, move faster, and grow stronger": "ship AI into production and operate it with confidence", "forward-thinking organisations to operationalise AI": "banks, ministries, and enterprises to put AI into production \u2014 and govern it"};
-  function fix() {
-    var ps = document.querySelectorAll('p');
-    for (var i = 0; i < ps.length; i++) {
-      var p = ps[i], t = p.textContent;
-      for (var k in REPL) {
-        if (t.indexOf(k) !== -1) { p.textContent = t.split(k).join(REPL[k]); t = p.textContent; }
-      }
-    }
-  }
-  if (document.readyState !== 'loading') fix();
-  else document.addEventListener('DOMContentLoaded', fix);
-  try {
-    var mo = new MutationObserver(function () {
-      if (window.__cgcRAF) return;
-      window.__cgcRAF = requestAnimationFrame(function () { window.__cgcRAF = 0; fix(); });
-    });
-    mo.observe(document.documentElement, { childList: true, subtree: true });
-  } catch (e) {}
-  [400, 1200, 2500].forEach(function (t) { setTimeout(fix, t); });
-})();
-</script>
-<!-- cognis-copy:end -->
-<!-- cognis-quotefix:start -->
-<style data-cognis-quotefix>
-  [data-framer-name="tdesign:quote-filled"] {
-    background-color: transparent !important;
-    -webkit-mask: none !important; mask: none !important;
-    background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27%23cdfb56%27%3E%3Cpath%20d%3D%27M4.583%2017.321C3.553%2016.227%203%2015%203%2013.011c0-3.5%202.457-6.637%206.03-8.188l.893%201.378c-3.335%201.804-3.987%204.145-4.247%205.621.537-.278%201.24-.375%201.929-.311%201.804.167%203.226%201.648%203.226%203.489a3.5%203.5%200%2001-3.5%203.5c-1.073%200-2.099-.49-2.748-1.179zm10%200C13.553%2016.227%2013%2015%2013%2013.011c0-3.5%202.457-6.637%206.03-8.188l.893%201.378c-3.335%201.804-3.987%204.145-4.247%205.621.537-.278%201.24-.375%201.929-.311%201.804.167%203.226%201.648%203.226%203.489a3.5%203.5%200%2001-3.5%203.5c-1.073%200-2.099-.49-2.748-1.179z%27%2F%3E%3C%2Fsvg%3E") !important;
-    background-repeat: no-repeat !important;
-    background-position: center !important;
-    background-size: contain !important;
-  }
-  /* any inner mask layer the icon ships with — stand it down so only our bg shows */
-  [data-framer-name="tdesign:quote-filled"] > * { opacity: 0 !important; }
-</style>
-<script data-cognis-quotefix>
-(function () {
-  // The testimonials section also ships two leftover template tells on non-home
-  // pages: a heading ("Our operating principles") that contradicts the eyebrow,
-  // and placeholder client logos (Network / Umbrella / Vision). Fix both. These
-  // live outside the animating carousel track, so a light guarded pass sticks.
-  function tidy() {
-    document.querySelectorAll('h1, h2, h3').forEach(function (h) {
-      if (/operating principles/i.test(h.textContent || '')) h.textContent = 'What our clients say';
-    });
-    // The placeholder client logos are image-based (no text), so match them by
-    // position: each sits inside the same testimonial card as a quote box.
-    // Walk up from each quote box to its card and hide the logo there — scoped
-    // so genuine logos elsewhere on the page are never touched.
-    document.querySelectorAll('[data-framer-name="tdesign:quote-filled"]').forEach(function (q) {
-      var node = q, hops = 0;
-      while (node && hops < 5) {
-        var logo = node.querySelector && node.querySelector('[data-framer-name="logo"]');
-        if (logo) { logo.style.display = 'none'; break; }
-        node = node.parentElement; hops++;
-      }
-    });
-  }
-  if (document.readyState !== 'loading') tidy();
-  else document.addEventListener('DOMContentLoaded', tidy);
-  try {
-    var mo = new MutationObserver(function () {
-      if (window.__cgtdRAF) return;
-      window.__cgtdRAF = requestAnimationFrame(function () { window.__cgtdRAF = 0; tidy(); });
-    });
-    mo.observe(document.documentElement, { childList: true, subtree: true });
-  } catch (e) {}
-  [400, 1200, 2500].forEach(function (t) { setTimeout(tidy, t); });
-})();
-</script>
-<!-- cognis-quotefix:end -->
-<!-- cognis-iconfix:start -->
-<style data-cognis-iconfix>
-  [data-framer-name="arrow"] {
-    -webkit-mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%3E%3Cpath%20d%3D%27M4%2011h12.17l-5.59-5.59L12%204l8%208-8%208-1.41-1.41L16.17%2013H4z%27%2F%3E%3C%2Fsvg%3E") !important; mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%3E%3Cpath%20d%3D%27M4%2011h12.17l-5.59-5.59L12%204l8%208-8%208-1.41-1.41L16.17%2013H4z%27%2F%3E%3C%2Fsvg%3E") !important;
-    -webkit-mask-repeat: no-repeat !important; mask-repeat: no-repeat !important;
-    -webkit-mask-position: center !important; mask-position: center !important;
-    -webkit-mask-size: contain !important; mask-size: contain !important;
-  }
-  [data-framer-name="arrow"] > * { opacity: 0 !important; }
-</style>
-<!-- cognis-iconfix:end -->
-<!-- cognis-a11y:start -->
-<style data-cognis-a11y>
-  .cognis-skip { position: fixed; top: 10px; left: 10px; z-index: 100000; background: #131313; color: #fff; padding: 12px 20px; border-radius: 10px; font: 600 14px/1.2 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif; text-decoration: none; transform: translateY(-160%); transition: transform .16s ease; }
-  .cognis-skip:focus { transform: translateY(0); outline: 3px solid #cdfb56; outline-offset: 2px; }
-  :focus-visible { outline: 3px solid #1769ff; outline-offset: 2px; }
-  .cognis-skip:focus-visible { outline-color: #cdfb56; }
-  /* Contrast lifts (only affect the hand-built shells where these exist). */
-  :root { --mute: #636363 !important; }
-  table.compare .mid { color: #8a5200 !important; }
-</style>
-<script data-cognis-a11y>
-(function () {
-  function main() {
-    return document.querySelector('main') || document.querySelector('[data-framer-name="main"]') || document.querySelector('[role="main"]');
-  }
-  function run() {
-    var m = main();
-    if (m) {
-      if (!m.id) m.id = 'cognis-main';
-      if (m.getAttribute('tabindex') === null) m.setAttribute('tabindex', '-1');
-    }
-    if (!document.querySelector('a.cognis-skip')) {
-      var s = document.createElement('a');
-      s.className = 'cognis-skip';
-      s.href = '#' + (m && m.id ? m.id : 'cognis-main');
-      s.textContent = 'Skip to main content';
-      document.body.insertBefore(s, document.body.firstChild);
-    }
-    // Ticker/slideshow marquees use <ul role="group"> which strips the list
-    // role from their <li> children (WCAG 1.3.1). Restore list semantics.
-    document.querySelectorAll('ul[role="group"]').forEach(function (ul) {
-      if (ul.querySelector(':scope > li')) ul.setAttribute('role', 'list');
-    });
-    // Accessible name for placeholder-only fields (WCAG 1.3.1 / 4.1.2).
-    document.querySelectorAll('input, textarea, select').forEach(function (el) {
-      var t = (el.getAttribute('type') || '').toLowerCase();
-      if (t === 'hidden' || el.getAttribute('aria-hidden') === 'true') return;
-      var labelled = (el.labels && el.labels.length) || el.getAttribute('aria-label') || el.getAttribute('aria-labelledby');
-      if (!labelled) {
-        var ph = el.getAttribute('placeholder');
-        if (ph) el.setAttribute('aria-label', ph);
-      }
-    });
-  }
-  if (document.readyState !== 'loading') run();
-  else document.addEventListener('DOMContentLoaded', run);
-  [400, 1200, 2500].forEach(function (t) { setTimeout(run, t); });
-})();
-</script>
-<!-- cognis-a11y:end -->
-<!-- cognis-products-nav:start -->
-<style data-cognis-products-nav-style>
-  a.cognis-prod-link { display: flex; align-items: center; justify-content: center; padding: 12px 20px; height: 44px; box-sizing: border-box; text-decoration: none; cursor: pointer; }
-  a.cognis-prod-link .cgpn-wrap { position: relative; display: inline-flex; flex-direction: column; height: 1.25em; line-height: 1.25em; overflow: hidden; }
-  a.cognis-prod-link .cgpn-t { font-size: 14px; font-weight: 500; white-space: nowrap; transition: transform .3s cubic-bezier(.2,.7,.2,1); }
-  a.cognis-prod-link:hover .cgpn-t { transform: translateY(-100%); }
-</style>
-<script data-cognis-products-nav>
-(function () {
-  // Build our own Products link (not a Framer clone). `st` theme-matches the
-  // sibling nav items: colour, size, weight, tracking and case.
-  function buildLink(st) {
-    st = st || {};
-    var a = document.createElement('a');
-    a.className = 'cognis-prod-link';
-    a.setAttribute('href', '/products');
-    a.setAttribute('data-cognis-products', '');
-    a.setAttribute('aria-label', 'Products');
-    if (st.color) a.style.color = st.color;
-    var wrap = document.createElement('span'); wrap.className = 'cgpn-wrap';
-    function mk(hidden) {
-      var s = document.createElement('span');
-      s.className = 'cgpn-t';
-      s.textContent = 'Products';
-      if (hidden) s.setAttribute('aria-hidden', 'true');
-      if (st.fontSize) s.style.fontSize = st.fontSize;
-      if (st.fontWeight) s.style.fontWeight = st.fontWeight;
-      if (st.fontFamily) s.style.fontFamily = st.fontFamily;
-      if (st.letterSpacing && st.letterSpacing !== 'normal') s.style.letterSpacing = st.letterSpacing;
-      if (st.textTransform && st.textTransform !== 'none') s.style.textTransform = st.textTransform;
-      return s;
-    }
-    wrap.appendChild(mk(false)); wrap.appendChild(mk(true)); a.appendChild(wrap);
-    return a;
-  }
-  // Sample the typography of a real, non-Products nav item so ours matches.
-  function sampleStyle(menu) {
-    var links = menu.querySelectorAll('a[href]');
-    for (var i = 0; i < links.length; i++) {
-      if (links[i].hasAttribute('data-cognis-products')) continue;
-      var p = links[i].querySelector('p') || links[i].querySelector('span') || links[i];
-      var cs = getComputedStyle(p);
-      var color = cs.color;
-      if (color === 'rgba(0, 0, 0, 0)') color = getComputedStyle(links[i]).color;
-      return { color: color, fontSize: cs.fontSize, fontWeight: cs.fontWeight, fontFamily: cs.fontFamily, letterSpacing: cs.letterSpacing, textTransform: cs.textTransform };
-    }
-    return null;
-  }
-  function addToFramer(menu) {
-    if (menu.querySelector('a[data-cognis-products]')) return;
-    // Anchor after the Services item; fall back to the last real item / end.
-    var kids = menu.children, after = null, last = null;
-    for (var i = 0; i < kids.length; i++) {
-      var l = kids[i].querySelector && kids[i].querySelector('a[href]');
-      if (!l) continue;
-      last = kids[i];
-      if (/our-services/.test(l.getAttribute('href') || '')) after = kids[i];
-    }
-    var link = buildLink(sampleStyle(menu));
-    if (after && after.parentNode) after.parentNode.insertBefore(link, after.nextSibling);
-    else if (last && last.parentNode) last.parentNode.appendChild(link);
-    else menu.appendChild(link);
-  }
-  function addToShell(nav) {
-    if (nav.querySelector('a[href="/products"]')) return;
-    var services = nav.querySelector('a[href="/our-services"]');
-    var link = document.createElement('a');
-    link.setAttribute('href', '/products');
-    link.setAttribute('data-cognis-products', '');
-    link.textContent = 'Products';
-    if (services && services.parentNode) services.parentNode.insertBefore(link, services.nextSibling);
-    else nav.appendChild(link);
-  }
-  function run() {
-    document.querySelectorAll('nav [data-framer-name="menu"]').forEach(addToFramer);
-    document.querySelectorAll('header.site-nav nav').forEach(addToShell);
-  }
-  if (document.readyState !== 'loading') run();
-  else document.addEventListener('DOMContentLoaded', run);
-  // Framer re-renders the nav on scroll (its scroll-linked colour change),
-  // which drops the injected Products link. Re-add SYNCHRONOUSLY the instant
-  // it goes missing: MutationObserver callbacks run as a microtask BEFORE the
-  // next paint, so re-adding here (not via rAF) closes the gap with no visible
-  // flicker, even during continuous scrolling. The check is cheap and only
-  // calls run() when the link is actually absent (no loop: the re-add's own
-  // mutation finds it present next tick and bails).
-  try {
-    var mo = new MutationObserver(function () {
-      var menus = document.querySelectorAll('nav [data-framer-name="menu"]');
-      for (var i = 0; i < menus.length; i++) {
-        if (!menus[i].querySelector('a[data-cognis-products]')) { run(); return; }
-      }
-    });
-    mo.observe(document.documentElement, { childList: true, subtree: true });
-  } catch (e) {}
-  [200, 600, 1200, 2500].forEach(function (t) { setTimeout(run, t); });
-})();
-</script>
-<!-- cognis-products-nav:end -->
-<!-- cognis-gnav:start -->
-<style data-cognis-gnav>
-  :root { --cgx-ink: #131313; --cgx-lime: #d6fd70; }
-  /* ---- HEADER (faithful to the global: fixed, transparent, dark ink on light) ---- */
-  header.cgx { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: transparent; font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
-  header.cgx .cgx-in { max-width: 1344px; margin: 0 auto; padding: 18px 24px; display: flex; align-items: center; justify-content: space-between; gap: 8px; }
-  header.cgx .cgx-logo { display: flex; align-items: center; gap: 9px; text-decoration: none; color: var(--cgx-ink); }
-  header.cgx .cgx-mark { width: 32px; height: 24px; fill: currentColor; display: block; }
-  header.cgx .cgx-word { font-weight: 600; letter-spacing: -0.04em; font-size: 23px; color: var(--cgx-ink); }
-  header.cgx .cgx-nav { display: flex; align-items: center; }
-  header.cgx .cgx-nav a { color: var(--cgx-ink); text-decoration: none; font-size: 14px; font-weight: 500; letter-spacing: 1.68px; text-transform: uppercase; padding: 12px 20px; }
-  header.cgx .cgx-roll { position: relative; display: inline-block; overflow: hidden; height: 20px; line-height: 20px; vertical-align: top; }
-  header.cgx .cgx-roll > span { display: block; transition: transform .34s cubic-bezier(.2,.7,.2,1); }
-  header.cgx a:hover .cgx-roll > span { transform: translateY(-20px); }
-  header.cgx .cgx-cta { background: var(--cgx-lime); color: #131313; text-decoration: none; font-size: 13px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; padding: 11px 20px; border-radius: 48px; white-space: nowrap; transition: transform .2s ease, box-shadow .2s ease; }
-  header.cgx .cgx-cta:hover { transform: translateY(-1px); box-shadow: 0 10px 26px -10px rgba(214,253,112,.95); }
-  header.cgx .cgx-burger { display: none; flex-direction: column; gap: 5px; align-items: center; justify-content: center; width: 44px; height: 44px; background: var(--cgx-lime); border: 0; border-radius: 12px; cursor: pointer; }
-  header.cgx .cgx-burger span { width: 20px; height: 2px; background: #131313; border-radius: 2px; transition: transform .25s ease, opacity .2s ease; }
-  header.cgx.open .cgx-burger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-  header.cgx.open .cgx-burger span:nth-child(2) { opacity: 0; }
-  header.cgx.open .cgx-burger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-  header.cgx .cgx-drawer { display: none; flex-direction: column; gap: 2px; padding: 6px 32px 24px; }
-  header.cgx .cgx-drawer a { color: #131313; text-decoration: none; font-weight: 600; font-size: 16px; padding: 14px 4px; border-bottom: 1px solid rgba(19,19,19,.06); }
-  header.cgx .cgx-drawer .cgx-cta { display: inline-block; margin: 16px 0 0; text-align: center; border-bottom: 0; }
-  /* shells are light pages — push content clear of the fixed header */
-  header.cgx ~ main, header.cgx + main { padding-top: 96px; }
-  @media (max-width: 860px) {
-    header.cgx .cgx-in { padding: 14px 20px; }
-    header.cgx .cgx-nav, header.cgx .cgx-in > .cgx-cta { display: none; }
-    header.cgx .cgx-burger { display: flex; }
-    header.cgx { background: rgba(255,255,255,0.9); backdrop-filter: saturate(180%) blur(12px); -webkit-backdrop-filter: saturate(180%) blur(12px); }
-    header.cgx.open { background: #fff; }
-    header.cgx.open .cgx-drawer { display: flex; }
-  }
-  /* ---- FOOTER (faithful: dark rounded card inset in white) ---- */
-  footer.cgxf { background: transparent; padding: 12px; font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
-  footer.cgxf .cgxf-card { background: #0f0f0f; color: #fff; border-radius: 26px; padding: 56px 40px 40px; max-width: 1416px; margin: 0 auto; }
-  footer.cgxf .cgxf-top { display: flex; justify-content: space-between; gap: 48px; flex-wrap: wrap; }
-  footer.cgxf .cgxf-brand { max-width: 620px; }
-  footer.cgxf .cgxf-logo { display: inline-flex; align-items: center; gap: 9px; text-decoration: none; color: #fff; }
-  footer.cgxf .cgxf-logo .cgx-mark { width: 34px; height: 26px; fill: #fff; }
-  footer.cgxf .cgxf-logo span { font-weight: 600; letter-spacing: -0.04em; font-size: 24px; }
-  footer.cgxf .cgxf-desc { color: #aeb0b3; font-size: 15px; line-height: 1.62; margin: 22px 0 0; }
-  footer.cgxf .cgxf-desc em { font-style: italic; color: #cfd1d4; }
-  footer.cgxf .cgxf-nav { display: grid; grid-template-columns: repeat(2, auto); gap: 18px 64px; align-content: start; }
-  footer.cgxf .cgxf-nav a { color: #fff; text-decoration: none; font-size: 15px; font-weight: 500; opacity: .92; }
-  footer.cgxf .cgxf-nav a:hover { opacity: 1; box-shadow: inset 0 -2px 0 var(--cgx-lime); }
-  footer.cgxf .cgxf-sub { margin-top: 46px; }
-  footer.cgxf .cgxf-subh { font-size: 17px; font-weight: 600; margin: 0 0 16px; }
-  footer.cgxf .cgxf-form { display: flex; align-items: center; background: #242424; border-radius: 999px; padding: 6px 6px 6px 4px; max-width: 420px; box-sizing: border-box; width: 100%; }
-  footer.cgxf .cgxf-email { flex: 1; min-width: 0; background: transparent; border: 0; outline: 0; color: #fff; font-size: 14px; padding: 12px 18px; }
-  footer.cgxf .cgxf-email::placeholder { color: #9a9ca0; }
-  footer.cgxf .cgxf-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--cgx-lime); color: #131313; border: 0; border-radius: 999px; font-size: 13px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; padding: 12px 22px; cursor: pointer; transition: transform .2s ease; }
-  footer.cgxf .cgxf-btn:hover { transform: translateX(1px); }
-  footer.cgxf .cgxf-copy { color: #949699; font-size: 13px; margin: 36px 0 0; }
-  @media (max-width: 760px) {
-    footer.cgxf .cgxf-card { padding: 40px 24px 30px; border-radius: 22px; }
-    footer.cgxf .cgxf-top { flex-direction: column; gap: 32px; }
-    footer.cgxf .cgxf-nav { grid-template-columns: 1fr; gap: 12px; }
-    footer.cgxf .cgxf-form { max-width: none; }
-  }
-</style>
-<script data-cognis-gnav>
-(function () {
-  var h = document.querySelector('header.cgx[data-cognis-gnav]');
-  if (h) {
-    var here = location.pathname.replace(/\/index\.html$/, '').replace(/\/+$/, '') || '/';
-    h.querySelectorAll('a[href]').forEach(function (a) {
-      var p = (a.getAttribute('href') || '').replace(/\/+$/, '') || '/';
-      if (p === here) a.setAttribute('aria-current', 'page');
-    });
-    var burger = h.querySelector('.cgx-burger'), drawer = h.querySelector('.cgx-drawer');
-    function setOpen(o) {
-      h.classList.toggle('open', o);
-      if (burger) burger.setAttribute('aria-expanded', o ? 'true' : 'false');
-      if (drawer) { if (o) drawer.removeAttribute('hidden'); else drawer.setAttribute('hidden', ''); }
-      document.documentElement.style.overflow = o ? 'hidden' : '';
-    }
-    if (burger) burger.addEventListener('click', function () { setOpen(!h.classList.contains('open')); });
-    if (drawer) drawer.addEventListener('click', function (e) { if (e.target.closest('a')) setOpen(false); });
-    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setOpen(false); });
-    window.addEventListener('resize', function () { if (window.innerWidth > 860) setOpen(false); });
-  }
-})();
-</script>
-<!-- cognis-gnav:end -->
+      
+      <a data-dc-tpl="43" href="https://cognis.group/products" target="_blank" rel="noopener" data-h="h2" style="grid-column: span 3; position: relative; border-radius: 22px; padding: 36px; border: 1px solid rgb(230, 230, 230); background: linear-gradient(rgb(255, 255, 255) 0%, rgb(244, 248, 255) 100%); overflow: hidden; display: block; transition: transform 0.3s cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 0.3s, border-color 0.3s;">
+        <div data-dc-tpl="44" style="position: absolute; top: 0px; left: 0px; right: 0px; height: 4px; background: rgb(66, 133, 244); transform: scaleX(0); transform-origin: left center; transition: transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1);"></div>
+        <div data-dc-tpl="45" style="position: absolute; right: -120px; top: -120px; width: 360px; height: 360px; border-radius: 50%; background: radial-gradient(circle, rgba(66, 133, 244, 0.16), transparent 70%); pointer-events: none;"></div>
+        <div data-dc-tpl="46" style="position: relative; display: grid; grid-template-columns: 1.15fr 1fr; gap: 44px; align-items: center;">
+          <div data-dc-tpl="47">
+            <p data-dc-tpl="48" style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-size: 11px; letter-spacing: 1.1px; text-transform: uppercase; font-weight: 600; color: rgb(99, 99, 99); margin: 0px 0px 18px;">Live · AI workforce</p>
+            <div data-dc-tpl="49" style="font-family: Nunito, sans-serif; font-weight: 800; font-size: 46px; letter-spacing: -0.02em; color: rgb(19, 19, 19); line-height: 1;">Cognis<span data-dc-tpl="50" style="color: rgb(66, 133, 244);">Ai</span>.</div>
+            <p data-dc-tpl="51" style="font-size: 30px; line-height: 1.3; font-weight: 600; letter-spacing: -0.01em; margin: 18px 0px 10px;">Hire AI to do the work.</p>
+            <p data-dc-tpl="52" style="font-size: 14.5px; line-height: 22.5px; color: rgb(47, 47, 47); margin: 0px;">A workforce of specialised AI workers. Hire one for support, voice, knowledge, ops, or trade. Each worker is built for a single job and sharpened on real work — it starts in shadow mode, earns autonomy, and cancels anytime.</p>
+          </div>
+          <div data-dc-tpl="53" style="border-left: 1px solid rgb(230, 230, 230); padding-left: 44px;">
+            <div data-dc-tpl="54" style="display: flex; flex-direction: column; gap: 9px; margin-bottom: 24px;">
+              <div data-dc-tpl="55" style="display: flex; align-items: center; gap: 14px;"><span data-dc-tpl="56" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(66, 133, 244); flex-shrink: 0;"></span><span data-dc-tpl="57" style="font-size: 14.5px; color: rgb(47, 47, 47);">Specialised workers, not a single chatbot</span></div>
+              <div data-dc-tpl="58" style="display: flex; align-items: center; gap: 14px;"><span data-dc-tpl="59" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(66, 133, 244); flex-shrink: 0;"></span><span data-dc-tpl="60" style="font-size: 14.5px; color: rgb(47, 47, 47);">Shadow → supervised → autonomous promotion</span></div>
+              <div data-dc-tpl="61" style="display: flex; align-items: center; gap: 14px;"><span data-dc-tpl="62" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(66, 133, 244); flex-shrink: 0;"></span><span data-dc-tpl="63" style="font-size: 14.5px; color: rgb(47, 47, 47);">Priced per worker, cancel anytime</span></div>
+            </div>
+            <span data-dc-tpl="64" style="display: inline-flex; align-items: center; gap: 8px; font-weight: 600; font-size: 15px; padding: 11px 18px; border-radius: 10px; background: rgb(66, 133, 244); color: rgb(255, 255, 255);">Visit Cognis AI <span data-dc-tpl="65">→</span></span>
+          </div>
+        </div>
+      </a>
+
+      
+      <a data-dc-tpl="66" href="https://www.marketsage.africa" target="_blank" rel="noopener" data-h="h3" style="position: relative; border-radius: 22px; padding: 36px; border: 1px solid rgb(230, 230, 230); background: linear-gradient(rgb(255, 255, 255) 0%, rgb(246, 247, 255) 100%); overflow: hidden; display: flex; flex-direction: column; transition: transform 0.3s cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 0.3s, border-color 0.3s;">
+        <div data-dc-tpl="67" style="position: absolute; top: 0px; left: 0px; right: 0px; height: 4px; background: linear-gradient(90deg, rgb(95, 111, 255) 0%, rgb(6, 182, 212) 100%); transform: scaleX(0); transform-origin: left center; transition: transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1);"></div>
+        <div data-dc-tpl="68" style="position: absolute; right: -110px; top: -110px; width: 320px; height: 320px; border-radius: 50%; background: radial-gradient(circle, rgba(95, 111, 255, 0.13), transparent 70%); pointer-events: none;"></div>
+        <p data-dc-tpl="69" style="position: relative; font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-size: 11px; letter-spacing: 1.1px; text-transform: uppercase; font-weight: 600; color: rgb(99, 99, 99); margin: 0px;">Live · Marketing AI</p>
+        <div data-dc-tpl="70" style="position: relative; margin: 26px 0px 0px; display: flex; align-items: center; gap: 12px;"><img data-dc-tpl="71" src="/assets/marketsage-logo.png" alt="MarketSage" style="width: 42px; height: 42px; display: block; flex-shrink: 0;"><span data-dc-tpl="72" style="font-weight: 600; font-size: 26px; letter-spacing: -0.02em; line-height: 1;"><span data-dc-tpl="73" style="color: rgb(95, 111, 255);">MΛRKET</span><span data-dc-tpl="74" style="color: rgb(6, 182, 212);">SΛGE</span></span></div>
+        <p data-dc-tpl="75" style="position: relative; font-size: 21px; line-height: 1.3; font-weight: 600; letter-spacing: -0.01em; margin: 18px 0px 10px;">Marketing that thinks, acts, and converts.</p>
+        <p data-dc-tpl="76" style="position: relative; font-size: 14.5px; line-height: 22.5px; color: rgb(47, 47, 47); margin: 0px 0px 22px;">An autonomous marketing engine — it plans campaigns, runs them across channels, and turns activity into pipeline. Built and proven on Cognis's own go-to-market.</p>
+        <div data-dc-tpl="77" style="position: relative; display: flex; flex-direction: column; gap: 9px; margin-bottom: 26px;">
+          <div data-dc-tpl="78" style="display: flex; align-items: center; gap: 14px;"><span data-dc-tpl="79" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(95, 111, 255); flex-shrink: 0;"></span><span data-dc-tpl="80" style="font-size: 14.5px; color: rgb(47, 47, 47);">Autonomous, multi-channel campaigns</span></div>
+          <div data-dc-tpl="81" style="display: flex; align-items: center; gap: 14px;"><span data-dc-tpl="82" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(95, 111, 255); flex-shrink: 0;"></span><span data-dc-tpl="83" style="font-size: 14.5px; color: rgb(47, 47, 47);">Sales intelligence that scores and routes leads</span></div>
+          <div data-dc-tpl="84" style="display: flex; align-items: center; gap: 14px;"><span data-dc-tpl="85" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(95, 111, 255); flex-shrink: 0;"></span><span data-dc-tpl="86" style="font-size: 14.5px; color: rgb(47, 47, 47);">Composes into your CRM and outreach</span></div>
+        </div>
+        <span data-dc-tpl="87" style="position: relative; margin-top: auto; align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; font-weight: 600; font-size: 15px; padding: 11px 18px; border-radius: 10px; background: rgb(95, 111, 255); color: rgb(255, 255, 255);">Visit MarketSage <span data-dc-tpl="88">→</span></span>
+      </a>
+
+      
+      <a data-dc-tpl="89" href="https://migratio.cognis.group" target="_blank" rel="noopener" data-h="h4" style="position: relative; border-radius: 22px; padding: 36px; border: 1px solid rgb(26, 32, 73); background: linear-gradient(160deg, rgb(36, 44, 99) 0%, rgb(26, 32, 73) 100%); color: rgb(241, 242, 248); overflow: hidden; display: flex; flex-direction: column; transition: transform 0.3s cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 0.3s, border-color 0.3s;">
+        <div data-dc-tpl="90" style="position: absolute; top: 0px; left: 0px; right: 0px; height: 4px; background: rgb(91, 176, 79); transform: scaleX(0); transform-origin: left center; transition: transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1);"></div>
+        <div data-dc-tpl="91" style="position: absolute; right: -100px; bottom: -100px; width: 300px; height: 300px; border-radius: 50%; background: radial-gradient(circle, rgba(91, 176, 79, 0.18), transparent 70%); pointer-events: none;"></div>
+        <p data-dc-tpl="92" style="position: relative; font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-size: 11px; letter-spacing: 1.1px; text-transform: uppercase; font-weight: 600; color: rgb(137, 147, 168); margin: 0px;">Live · Data migration</p>
+        <div data-dc-tpl="93" style="position: relative; margin: 24px 0px 6px;"><img data-dc-tpl="94" src="/assets/migratio-logo-horizontal-dark.svg" alt="Migratio by Cognis" style="height: 44px; width: auto; max-width: 100%; display: block;"></div>
+        <p data-dc-tpl="95" style="position: relative; font-size: 19px; line-height: 1.3; font-weight: 500; color: rgb(241, 242, 248); margin: 18px 0px 10px;">Reconcile before cutover.</p>
+        <p data-dc-tpl="96" style="position: relative; font-size: 14.5px; line-height: 22.5px; color: rgb(179, 187, 208); margin: 0px 0px 22px;">The migration platform for banks, ministries, and regulated enterprises. Audit every record, verify the hash on both sides, and pass the regulator's review on the first try.</p>
+        <div data-dc-tpl="97" style="position: relative; display: flex; flex-direction: column; gap: 9px; margin-bottom: 26px;">
+          <div data-dc-tpl="98" style="display: flex; align-items: center; gap: 14px;"><span data-dc-tpl="99" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(91, 176, 79); flex-shrink: 0;"></span><span data-dc-tpl="100" style="font-size: 14.5px; color: rgb(179, 187, 208);">Record-level reconciliation and audit trail</span></div>
+          <div data-dc-tpl="101" style="display: flex; align-items: center; gap: 14px;"><span data-dc-tpl="102" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(91, 176, 79); flex-shrink: 0;"></span><span data-dc-tpl="103" style="font-size: 14.5px; color: rgb(179, 187, 208);">Naming-normalisation built for African registries</span></div>
+          <div data-dc-tpl="104" style="display: flex; align-items: center; gap: 14px;"><span data-dc-tpl="105" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(91, 176, 79); flex-shrink: 0;"></span><span data-dc-tpl="106" style="font-size: 14.5px; color: rgb(179, 187, 208);">Signed cutover with zero-drift verification</span></div>
+        </div>
+        <span data-dc-tpl="107" style="position: relative; margin-top: auto; align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; font-weight: 600; font-size: 15px; padding: 11px 18px; border-radius: 10px; background: rgb(91, 176, 79); color: rgb(13, 36, 16);">Visit Migratio <span data-dc-tpl="108">→</span></span>
+      </a>
+
+      
+      <a data-dc-tpl="109" href="https://spog.cognis.group" target="_blank" rel="noopener" data-h="h5" style="position: relative; border-radius: 22px; padding: 36px; border: 1px solid rgb(230, 230, 230); background: linear-gradient(rgb(255, 255, 255) 0%, rgb(244, 243, 254) 100%); overflow: hidden; display: flex; flex-direction: column; transition: transform 0.3s cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 0.3s, border-color 0.3s;">
+        <div data-dc-tpl="110" style="position: absolute; top: 0px; left: 0px; right: 0px; height: 4px; background: rgb(91, 84, 224); transform: scaleX(0); transform-origin: left center; transition: transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1);"></div>
+        <div data-dc-tpl="111" style="position: absolute; right: -110px; top: -110px; width: 320px; height: 320px; border-radius: 50%; background: radial-gradient(circle, rgba(91, 84, 224, 0.14), transparent 70%); pointer-events: none;"></div>
+        <p data-dc-tpl="112" style="position: relative; font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-size: 11px; letter-spacing: 1.1px; text-transform: uppercase; font-weight: 600; color: rgb(99, 99, 99); margin: 0px;">Live · Observability</p>
+        <div data-dc-tpl="113" style="position: relative; margin: 24px 0px 0px; display: flex; align-items: center; gap: 12px;"><img data-dc-tpl="114" src="/assets/spog-icon.svg" alt="" style="width: 40px; height: 40px; display: block; flex-shrink: 0;"><span data-dc-tpl="115" style="font-size: 32px; font-weight: 700; letter-spacing: -0.02em; color: rgb(19, 19, 19); line-height: 1;">SPOG</span></div>
+        <p data-dc-tpl="116" style="position: relative; font-size: 21px; line-height: 1.3; font-weight: 600; letter-spacing: -0.01em; margin: 18px 0px 10px;">See everything. Trust every number.</p>
+        <p data-dc-tpl="117" style="position: relative; font-size: 14.5px; line-height: 22.5px; color: rgb(47, 47, 47); margin: 0px 0px 22px;">The single pane of glass for enterprise operations. SPOG federates monitoring across IT, networks, facilities, fleet, and physical security into one normalised view — and shows where every number came from.</p>
+        <div data-dc-tpl="118" style="position: relative; display: flex; flex-direction: column; gap: 9px; margin-bottom: 26px;">
+          <div data-dc-tpl="119" style="display: flex; align-items: center; gap: 14px;"><span data-dc-tpl="120" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(91, 84, 224); flex-shrink: 0;"></span><span data-dc-tpl="121" style="font-size: 14.5px; color: rgb(47, 47, 47);">Federates 30+ telemetry sources into one view</span></div>
+          <div data-dc-tpl="122" style="display: flex; align-items: center; gap: 14px;"><span data-dc-tpl="123" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(91, 84, 224); flex-shrink: 0;"></span><span data-dc-tpl="124" style="font-size: 14.5px; color: rgb(47, 47, 47);">Role-tiered dashboards — exec, director, and ops/NOC</span></div>
+          <div data-dc-tpl="125" style="display: flex; align-items: center; gap: 14px;"><span data-dc-tpl="126" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(91, 84, 224); flex-shrink: 0;"></span><span data-dc-tpl="127" style="font-size: 14.5px; color: rgb(47, 47, 47);">Provenance on every metric — live, cached, stale, unreachable</span></div>
+        </div>
+        <span data-dc-tpl="128" style="position: relative; margin-top: auto; align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; font-weight: 600; font-size: 15px; padding: 11px 18px; border-radius: 10px; background: rgb(91, 84, 224); color: rgb(255, 255, 255);">Visit SPOG <span data-dc-tpl="129">→</span></span>
+      </a>
+    </div>
+  </div>
+
+  
+  <div data-dc-tpl="130" style="max-width: 1180px; margin: 64px auto 0px; padding: 0px 24px;">
+    <div data-dc-tpl="131" style="background: rgb(10, 10, 10); color: rgb(255, 255, 255); border-radius: 22px; padding: 48px 44px; display: flex; flex-wrap: wrap; gap: 24px; align-items: center; justify-content: space-between;">
+      <div data-dc-tpl="132">
+        <h2 data-dc-tpl="133" style="font-size: 28px; letter-spacing: -0.02em; margin: 0px 0px 8px; font-weight: 700;">One company behind all four.</h2>
+        <p data-dc-tpl="134" style="margin: 0px; color: rgb(193, 193, 193); max-width: 560px; font-size: 16px;">Cognis Group builds, ships, and governs every product on this page — the same team that runs AI engagements for banks, ministries, and enterprises.</p>
+      </div>
+      <a data-dc-tpl="135" href="/contact/" data-h="h6" style="background: rgb(205, 251, 86); color: rgb(19, 19, 19); font-weight: 700; padding: 14px 26px; border-radius: 10px; white-space: nowrap; transition: transform 0.2s;">Start a conversation →</a>
+    </div>
+  </div>
+
+  
+  <footer data-dc-tpl="136" style="background: rgb(13, 13, 12); margin: 12px; border-radius: 24px; padding: 56px 48px 32px;">
+    <div data-dc-tpl="137" style="max-width: 1280px; margin: 0px auto;">
+      <div data-dc-tpl="138" style="display: grid; grid-template-columns: 1.4fr 0.7fr 0.7fr 1.2fr; gap: 48px;">
+        <div data-dc-tpl="139">
+          <a data-dc-tpl="140" href="/" style="display: inline-flex; align-items: center; gap: 9px; color: rgb(255, 255, 255);">
+            <svg data-dc-tpl="141" viewBox="0 0 40 30" aria-hidden="true" style="width: 34px; height: 26px; fill: rgb(255, 255, 255); display: block;"><path data-dc-tpl="142" d="M 36.968 20.426 L 33.716 26.059 L 24.189 26.048 L 27.223 20.794 L 18.262 5.293 L 28.346 5.337 Z"></path><path data-dc-tpl="143" d="M 9.807 5.266 L 16.312 5.266 L 21.066 13.522 L 14.999 13.521 L 6.055 29.033 L 1.051 20.277 Z"></path></svg>
+            <span data-dc-tpl="144" style="font-family: Inter, sans-serif; font-weight: 400; font-size: 24px; line-height: 28.8px; color: rgb(255, 255, 255); letter-spacing: -1.44px;">Cognis</span>
+          </a>
+          <div data-dc-tpl="145" style="height: 20px;"></div>
+          <div data-dc-tpl="146" style="font-size: 14px; line-height: 1.65; color: rgba(255, 255, 255, 0.6); max-width: 320px;">Cognis Group is more than an advisory firm — we build, deploy, and govern AI systems that permanently transform organizations. Quod Tango Muto — what we touch, we change.</div>
+        </div>
+        <div data-dc-tpl="147" style="display: flex; flex-direction: column; gap: 14px;">
+          <div data-dc-tpl="148" style="font-family: Inter, sans-serif; font-weight: 600; font-size: 11px; color: rgba(255, 255, 255, 0.45); letter-spacing: 0.88px; text-transform: uppercase;">COMPANY</div>
+          <a data-dc-tpl="149" href="/" data-h="h7" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Home</a>
+          <a data-dc-tpl="150" href="/about-us/" data-h="h7" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">About Us</a>
+          <a data-dc-tpl="151" href="/our-services/" data-h="h7" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Services</a>
+          <a data-dc-tpl="152" href="/products/" data-h="h7" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Products</a>
+          <a data-dc-tpl="153" href="/blog/" data-h="h7" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Insights</a>
+        </div>
+        <div data-dc-tpl="154" style="display: flex; flex-direction: column; gap: 14px;">
+          <div data-dc-tpl="155" style="font-family: Inter, sans-serif; font-weight: 600; font-size: 11px; color: rgba(255, 255, 255, 0.45); letter-spacing: 0.88px; text-transform: uppercase;">EXPLORE</div>
+          <a data-dc-tpl="156" href="/why-cognis/" data-h="h7" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Why Cognis</a>
+          <a data-dc-tpl="157" href="/case-studies/" data-h="h7" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Case Studies</a>
+          <a data-dc-tpl="158" href="/how-we-work/" data-h="h7" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">How We Work</a>
+          <a data-dc-tpl="159" href="/contact/" data-h="h7" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Contact</a>
+        </div>
+        <div data-dc-tpl="160">
+          <div data-dc-tpl="161" style="font-family: Inter, sans-serif; font-weight: 600; font-size: 11px; color: rgba(255, 255, 255, 0.45); letter-spacing: 0.88px; text-transform: uppercase;">GET AI INTELLIGENCE IN YOUR INBOX</div>
+          <div data-dc-tpl="162" style="height: 16px;"></div>
+          <form data-dc-tpl="163" action="https://api.web3forms.com/submit" method="POST" style="display: flex; gap: 8px;">
+            <input data-dc-tpl="164" type="hidden" name="access_key" value="6e2d0eb5-2d17-4183-8662-83a3487d2703">
+            <input data-dc-tpl="165" type="hidden" name="from_name" value="cognis.group newsletter">
+            <input data-dc-tpl="166" type="hidden" name="subject" value="New newsletter signup — cognis.group">
+            <input data-dc-tpl="167" type="hidden" name="redirect" value="https://cognis.group/thanks-subscribe">
+            <input data-dc-tpl="168" type="email" name="email" required="" placeholder="Your work email" style="flex: 1 1 0%; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.14); border-radius: 100px; padding: 12px 18px; font-size: 14px; color: rgb(255, 255, 255); outline: none; font-family: &quot;Plus Jakarta Sans&quot;, sans-serif;">
+            <button data-dc-tpl="169" type="submit" data-h="h8" style="background: rgb(214, 253, 112); color: rgb(13, 13, 12); border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; border-radius: 100px; padding: 12px 22px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: &quot;Plus Jakarta Sans&quot;, sans-serif;">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div data-dc-tpl="170" style="height: 56px;"></div>
+      <div data-dc-tpl="171" style="border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 24px; display: flex; justify-content: space-between; align-items: center;">
+        <div data-dc-tpl="172" style="font-size: 14px; color: rgba(255, 255, 255, 0.45);">© 2026 Cognis Group. All rights reserved.</div>
+        <div data-dc-tpl="173" style="display: flex; gap: 24px;">
+          <a data-dc-tpl="174" href="#" data-h="h7" style="font-size: 13px; color: rgba(255, 255, 255, 0.45);">Privacy</a>
+          <a data-dc-tpl="175" href="#" data-h="h7" style="font-size: 13px; color: rgba(255, 255, 255, 0.45);">Terms</a>
+          <a data-dc-tpl="176" href="/contact/" data-h="h7" style="font-size: 13px; color: rgba(255, 255, 255, 0.45);">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer></div></div></div>
+<script src="/cognis.js" defer></script>
 </body>
 </html>
