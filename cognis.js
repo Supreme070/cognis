@@ -287,6 +287,12 @@
     var ring = document.querySelector('[style*="perspective: 3000px"]');
     if (!ring) return;
     var row = ring.closest('[style*="height: 230px"]');
+    // The trust badge sits in flow right after the card ring; the cards float
+    // ~140px below the ring's box, so without help they cover it. Find it once.
+    var trust = null, divs = document.querySelectorAll('div');
+    for (var i = 0; i < divs.length; i++) {
+      if ((divs[i].textContent || '').trim().indexOf('Trusted by organizations') === 0) { trust = divs[i]; break; }
+    }
     function fit() {
       var w = document.documentElement.clientWidth || window.innerWidth;
       var s = Math.min(1, Math.max(0.34, w / 1240));
@@ -296,7 +302,19 @@
         if (row) row.style.height = Math.round(230 * s) + 'px';
       } else {
         ring.style.transform = '';
-        if (row) row.style.height = '';
+        if (row) row.style.height = '230px'; // keep the reserved space; '' collapsed it
+      }
+      // Drop the trust badge clear of the floating cards' real bottom edge.
+      if (trust) {
+        trust.style.marginTop = '0px';
+        var cardsBottom = row ? row.getBoundingClientRect().bottom : ring.getBoundingClientRect().bottom;
+        var kids = ring.querySelectorAll('*');
+        for (var k = 0; k < kids.length; k++) {
+          var b = kids[k].getBoundingClientRect().bottom;
+          if (b > cardsBottom) cardsBottom = b;
+        }
+        var gap = cardsBottom - trust.getBoundingClientRect().top;
+        if (gap > 0) trust.style.marginTop = Math.round(gap + 24) + 'px';
       }
     }
     fit();
