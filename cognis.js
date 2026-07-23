@@ -176,6 +176,85 @@
     next.addEventListener('click', function () { ti += 1; render(); });
   }
 
-  function init() { keepAlive(); setInterval(keepAlive, 1000); setupReveal(); setupAppear(); setupCountUp(); setupServices(); setupProductHover(); setupTestiCarousel(); }
+  // Mobile nav: the desktop header has no hamburger. Build one from the
+  // existing header links; CSS (responsive.css) hides the desktop links and
+  // shows this button under 900px.
+  // Clean label: EXPLORE items expose a .t title (+ .d description); main
+  // links wrap the label in a .cgRoll with two <b> copies (hover roll).
+  function cgLabelOf(a) {
+    var t = a.querySelector('.t');
+    if (t) return (t.textContent || '').trim();
+    var bold = a.querySelector('.cgRoll b') || a.querySelector('b');
+    if (bold) return (bold.textContent || '').trim();
+    var txt = (a.textContent || '').replace(/\s+/g, ' ').trim();
+    var half = txt.length / 2;
+    if (txt.length % 2 === 0 && txt.slice(0, half) === txt.slice(half)) return txt.slice(0, half);
+    return txt;
+  }
+
+  function setupMobileNav() {
+    if (document.querySelector('[data-cg-hamburger]')) return;
+    // Pages can render the header twice (initial + sticky). Probe with links
+    // that appear in EVERY header (the current page's own link may be active/
+    // href-less, so don't rely on it). Mark ALL nav rows + all headers.
+    var probes = [].slice.call(document.querySelectorAll('a[href="/our-services/"], a[href="/products/"], a[href="/about-us/"], a[href="/blog/"]'));
+    if (!probes.length) return;
+    var wraps = [], headers = [], color = '#131313';
+    probes.forEach(function (a) {
+      var wrap = a.parentElement;
+      if (wrap && wraps.indexOf(wrap) < 0) { wraps.push(wrap); wrap.setAttribute('data-cg-navlinks', ''); color = window.getComputedStyle(a).color || color; }
+      var h = wrap, g = 0, found = null;
+      while (h && g++ < 8) { if (/space-between/.test(h.getAttribute('style') || '')) { found = h; break; } h = h.parentElement; }
+      if (found && headers.indexOf(found) < 0) headers.push(found);
+    });
+    if (!headers.length && wraps[0]) headers = [wraps[0].parentElement];
+
+    // Build the shared menu from every header link (dedup by href).
+    var seen = {}, items = [];
+    headers.forEach(function (h) {
+      [].slice.call(h.querySelectorAll('a[href]')).forEach(function (a) {
+        var href = a.getAttribute('href'), text = cgLabelOf(a);
+        if (!href || href === '#' || !text || seen[href]) return;
+        seen[href] = 1;
+        items.push({ href: href, text: text, cta: /\/contact\/?$/.test(href) && /work with us/i.test(text) });
+      });
+    });
+    if (!seen['/']) items.unshift({ href: '/', text: 'Home', cta: false });
+
+    var menu = document.createElement('nav');
+    menu.setAttribute('data-cg-menu', '');
+    menu.innerHTML = items.map(function (it) {
+      return '<a href="' + it.href + '"' + (it.cta ? ' class="cg-menu-cta"' : '') + '>' + it.text + '</a>';
+    }).join('');
+    document.body.appendChild(menu);
+
+    function setBurgers(open) {
+      [].slice.call(document.querySelectorAll('[data-cg-hamburger]')).forEach(function (b) {
+        b.setAttribute('aria-expanded', open ? 'true' : 'false');
+        b.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      });
+    }
+    function toggle() {
+      var open = menu.classList.toggle('cg-open');
+      setBurgers(open);
+      document.body.classList.toggle('cg-menu-lock', open);
+    }
+    // One hamburger per header (only the visible header's shows on mobile).
+    headers.forEach(function (h) {
+      var burger = document.createElement('button');
+      burger.setAttribute('data-cg-hamburger', '');
+      burger.setAttribute('aria-label', 'Open menu');
+      burger.setAttribute('aria-expanded', 'false');
+      burger.style.color = color;
+      burger.innerHTML = '<span></span><span></span><span></span>';
+      burger.addEventListener('click', toggle);
+      h.appendChild(burger);
+    });
+    [].slice.call(menu.querySelectorAll('a')).forEach(function (a) {
+      a.addEventListener('click', function () { menu.classList.remove('cg-open'); setBurgers(false); document.body.classList.remove('cg-menu-lock'); });
+    });
+  }
+
+  function init() { keepAlive(); setInterval(keepAlive, 1000); setupReveal(); setupAppear(); setupCountUp(); setupServices(); setupProductHover(); setupTestiCarousel(); setupMobileNav(); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();
