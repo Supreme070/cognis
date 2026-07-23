@@ -287,6 +287,9 @@
     var ring = document.querySelector('[style*="perspective: 3000px"]');
     if (!ring) return;
     var row = ring.closest('[style*="height: 230px"]');
+    // The 18 card faces on the ring (each an absolutely-positioned box with a
+    // translateZ transform). Their inline size is 172px.
+    var cards = [].slice.call(ring.querySelectorAll('[style*="translateZ"]'));
     // The trust badge sits in flow right after the card ring; the cards float
     // ~140px below the ring's box, so without help they cover it. Find it once.
     var trust = null, divs = document.querySelectorAll('div');
@@ -294,33 +297,32 @@
       if ((divs[i].textContent || '').trim().indexOf('Trusted by organizations') === 0) { trust = divs[i]; break; }
     }
     function fit() {
-      // Match the Aeline reference: its hero cards are a FIXED ~132px tall and
-      // simply bleed off the screen edges on narrow viewports (never shrink to
-      // thumbnails). Our unscaled front card renders ~218px, so scale the whole
-      // 3D ring to ~0.62 to land on Aeline's proportions. This also keeps the
-      // hero composed within the first screen — the full-size ring pushed the
-      // trust badge below the fold on laptops (1440x900, 1280x800, 1536x864).
-      var s = 0.62;
-      if (s < 0.999) {
-        ring.style.transform = 'scale(' + s.toFixed(3) + ')';
-        ring.style.transformOrigin = 'center top';
-        if (row) row.style.height = Math.round(230 * s) + 'px';
-      } else {
-        ring.style.transform = '';
-        if (row) row.style.height = '230px'; // keep the reserved space; '' collapsed it
-      }
-      // Drop the trust badge clear of the floating cards' real bottom edge.
-      if (trust) {
-        trust.style.marginTop = '0px';
-        var cardsBottom = row ? row.getBoundingClientRect().bottom : ring.getBoundingClientRect().bottom;
-        var kids = ring.querySelectorAll('*');
-        for (var k = 0; k < kids.length; k++) {
-          var b = kids[k].getBoundingClientRect().bottom;
-          if (b > cardsBottom) cardsBottom = b;
-        }
-        var gap = cardsBottom - trust.getBoundingClientRect().top;
-        if (gap > 0) trust.style.marginTop = Math.round(gap + 24) + 'px';
-      }
+      // Aeline's hero ring spans the FULL width — a card enters at the far left,
+      // sweeps across, and exits at the far right (the side fade-mask hides the
+      // wrap-around). Preserve that wide spread: DON'T scale the whole ring down
+      // (that shrinks the ring's radius and bunches the cards into the middle).
+      // Instead shrink only each CARD FACE, so cards match Aeline's ~132px while
+      // the arc still runs edge-to-edge. Front cards render ~1.21x the face size
+      // (perspective 3000 / translateZ 525), so ~108px -> ~131px on screen.
+      var CARD = 108;
+      cards.forEach(function (c) {
+        c.style.width = CARD + 'px';
+        c.style.margin = (-CARD / 2) + 'px 0px 0px ' + (-CARD / 2) + 'px';
+        var img = c.querySelector('img');
+        if (img) img.style.height = CARD + 'px';
+      });
+      // Keep the ring at full spread (no container scale); the shorter cards no
+      // longer bleed far enough down to push the trust badge past the fold.
+      // Tighten the reserved row so the ring + badge move up and compose within
+      // the first screen (the 230px design height left the badge below the fold
+      // on short laptops).
+      ring.style.transform = '';
+      if (row) row.style.height = '180px';
+      // Trust badge sits a small fixed gap below the ring. Like Aeline, the low
+      // side cards may bleed behind it. Don't derive the gap from the cards:
+      // their 3D-rotated bounding boxes inflate well past the visible card, which
+      // over-pushed the badge past the fold.
+      if (trust) trust.style.marginTop = '14px';
     }
     fit();
     window.addEventListener('resize', fit);
