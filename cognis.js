@@ -290,6 +290,24 @@
     // The 18 card faces on the ring (each an absolutely-positioned box with a
     // translateZ transform). Their inline size is 172px.
     var cards = [].slice.call(ring.querySelectorAll('[style*="translateZ"]'));
+    // Densify the ring to Aeline's spacing. With only 18 faces the shrunk cards
+    // sit too far apart; Aeline's ring has neighbours nearly touching. Clone the
+    // existing faces up to COUNT and redistribute them evenly around the SAME
+    // radius, so cards sit close together while the ring still spans full width.
+    // One-time (guarded by the count so resize never re-clones).
+    var COUNT = 24;
+    if (cards.length && cards.length < COUNT) {
+      var group = cards[0].parentNode, templates = cards.slice();
+      var zm = /translateZ\(([-\d.]+)px\)/.exec(cards[0].style.transform || '');
+      var radius = zm ? zm[1] : '525';
+      for (var n = cards.length; n < COUNT; n++) {
+        group.appendChild(templates[n % templates.length].cloneNode(true));
+      }
+      cards = [].slice.call(ring.querySelectorAll('[style*="translateZ"]'));
+      cards.forEach(function (c, i) {
+        c.style.transform = 'rotateY(' + (i * 360 / cards.length) + 'deg) translateZ(' + radius + 'px)';
+      });
+    }
     // The trust badge sits in flow right after the card ring; the cards float
     // ~140px below the ring's box, so without help they cover it. Find it once.
     var trust = null, divs = document.querySelectorAll('div');
