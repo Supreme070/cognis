@@ -294,11 +294,13 @@
       if ((divs[i].textContent || '').trim().indexOf('Trusted by organizations') === 0) { trust = divs[i]; break; }
     }
     function fit() {
-      var w = document.documentElement.clientWidth || window.innerWidth;
-      // Keep the cards LARGE on phones/tablets (like the Aeline reference): the
-      // 3D carousel is positioned by transforms, so full-size cards simply bleed
-      // off the screen edges — far better than shrinking them to thumbnails.
-      var s = Math.min(1, Math.max(0.9, w / 1240));
+      // Match the Aeline reference: its hero cards are a FIXED ~132px tall and
+      // simply bleed off the screen edges on narrow viewports (never shrink to
+      // thumbnails). Our unscaled front card renders ~218px, so scale the whole
+      // 3D ring to ~0.62 to land on Aeline's proportions. This also keeps the
+      // hero composed within the first screen — the full-size ring pushed the
+      // trust badge below the fold on laptops (1440x900, 1280x800, 1536x864).
+      var s = 0.62;
       if (s < 0.999) {
         ring.style.transform = 'scale(' + s.toFixed(3) + ')';
         ring.style.transformOrigin = 'center top';
