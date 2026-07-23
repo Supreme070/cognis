@@ -91,14 +91,34 @@
       return { prefix: m[1], suffix: m[3], target: parseFloat(raw.replace(/,/g, '')), decimals: raw.indexOf('.') > -1 ? (raw.split('.')[1] || '').length : 0 };
     }
     var els = [].slice.call(document.querySelectorAll('[data-countup]'));
+    // An element clipped fully outside an overflow-hidden ancestor (e.g. the
+    // about-us collage at mobile) will never intersect — leave it at its
+    // final value instead of zeroing it forever.
+    function clippedOut(el) {
+      var r = el.getBoundingClientRect(), a = el.parentElement;
+      while (a && a !== document.body) {
+        var cs = window.getComputedStyle(a);
+        if (cs.display === 'none') return true;
+        // Only a truly clipping axis counts — auto/scroll ancestors can be
+        // scrolled, so "outside" there just means below the fold.
+        var b = a.getBoundingClientRect();
+        var clipY = cs.overflowY === 'hidden' || cs.overflowY === 'clip';
+        var clipX = cs.overflowX === 'hidden' || cs.overflowX === 'clip';
+        if (clipY && (r.bottom < b.top || r.top > b.bottom)) return true;
+        if (clipX && (r.right < b.left || r.left > b.right)) return true;
+        a = a.parentElement;
+      }
+      return false;
+    }
     els.forEach(function (el) {
       // NOTE: prerendered snapshots carry a stale data-cu-init="1" from the
       // dc-runtime pass — guard on an internal property so we still animate.
       if (el.__cuInit) return;
       var p = parse(el.textContent.trim());
       if (!p) return;
-      el.__cuInit = true; el.__cu = p;
-      if (reduced) return;
+      el.__cuInit = true;
+      if (reduced || clippedOut(el)) return;
+      el.__cu = p;
       el.textContent = p.prefix + (p.decimals ? (0).toFixed(p.decimals) : '0') + p.suffix;
     });
     if (reduced) return;
@@ -245,7 +265,11 @@
       burger.setAttribute('data-cg-hamburger', '');
       burger.setAttribute('aria-label', 'Open menu');
       burger.setAttribute('aria-expanded', 'false');
-      burger.style.color = color;
+      // Color from a nav link inside THIS header (pages differ: dark hero
+      // headers use white links, light headers use ink — and the footer must
+      // never win).
+      var probeLink = h.querySelector('[data-cg-navlinks] a') || h.querySelector('a[href]');
+      burger.style.color = probeLink ? window.getComputedStyle(probeLink).color : color;
       burger.innerHTML = '<span></span><span></span><span></span>';
       burger.addEventListener('click', toggle);
       h.appendChild(burger);
@@ -255,6 +279,30 @@
     });
   }
 
-  function init() { keepAlive(); setInterval(keepAlive, 1000); setupReveal(); setupAppear(); setupCountUp(); setupServices(); setupProductHover(); setupTestiCarousel(); setupMobileNav(); }
+  // Screen-aware hero: the 3D card ring is ~1240px wide by design. Scale it
+  // continuously to the actual viewport (not a breakpoint jump) and shrink
+  // the height it reserves to match — so the hero composition fits any
+  // screen, like the reference template.
+  function setupHeroScale() {
+    var ring = document.querySelector('[style*="perspective: 3000px"]');
+    if (!ring) return;
+    var row = ring.closest('[style*="height: 230px"]');
+    function fit() {
+      var w = document.documentElement.clientWidth || window.innerWidth;
+      var s = Math.min(1, Math.max(0.34, w / 1240));
+      if (s < 0.999) {
+        ring.style.transform = 'scale(' + s.toFixed(3) + ')';
+        ring.style.transformOrigin = 'center top';
+        if (row) row.style.height = Math.round(230 * s) + 'px';
+      } else {
+        ring.style.transform = '';
+        if (row) row.style.height = '';
+      }
+    }
+    fit();
+    window.addEventListener('resize', fit);
+  }
+
+  function init() { keepAlive(); setInterval(keepAlive, 1000); setupReveal(); setupAppear(); setupCountUp(); setupServices(); setupProductHover(); setupTestiCarousel(); setupMobileNav(); setupHeroScale(); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();
