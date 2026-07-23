@@ -1,16 +1,17 @@
 /* ============================================================
-   Cognis — mobile/tablet responsive layer.
-   The redesign was authored desktop-only (fixed px widths, no
-   @media). This overrides the inline styles for small screens.
-   Targets inline-style substrings with !important (inline styles
-   otherwise beat stylesheet rules).
+   Cognis — responsive structure layer (v2, fluid foundation).
+   Typography, gutters and spacers are now FLUID AT THE SOURCE
+   (inline clamp() values anchored at 1440px), so this file only
+   handles what genuinely needs breakpoint re-layout: grid/flex
+   structure, the mobile nav, and a few bespoke components.
+   Breakpoints follow the reference template: 991 / 767 / 479.
    ============================================================ */
 
 /* Never allow sideways scroll. */
 html, body { max-width: 100%; overflow-x: hidden; }
 #dc-root { overflow-x: hidden; }
 
-/* Mobile nav chrome (hidden on desktop; shown in the <=900px block). */
+/* Mobile nav chrome (hidden on desktop; shown in the <=991px block). */
 [data-cg-hamburger] {
   display: none;
   flex-direction: column;
@@ -38,7 +39,7 @@ html, body { max-width: 100%; overflow-x: hidden; }
   padding: 88px 28px 40px;
   gap: 4px;
   transform: translateY(-100%);
-  transition: transform .34s cubic-bezier(.22,1,.36,1);
+  transition: transform .34s cubic-bezier(.22,1,.36,1), visibility .34s;
   overflow-y: auto;
   visibility: hidden;
 }
@@ -55,85 +56,28 @@ html, body { max-width: 100%; overflow-x: hidden; }
   border-radius: 100px; padding: 16px; font-weight: 600;
   text-transform: uppercase; letter-spacing: 1.2px; font-size: 15px;
 }
-[data-cg-menu] .cg-menu-label {
-  font-family: Geistmono, monospace; font-size: 11px; letter-spacing: 0.14em;
-  text-transform: uppercase; color: rgba(255,255,255,0.5);
-  margin: 22px 4px 6px;
-}
 body.cg-menu-lock { overflow: hidden; }
 
-/* ---------- TABLET & PHONE (<= 900px) ---------- */
-@media (max-width: 900px) {
-  /* THE master fix: a top-level wrapper has min-width:1200px, which pins the
-     whole page to >=1200px on every screen. Release it and everything below
-     can finally shrink to the viewport. */
-  [style*="min-width: 1100px"],
-  [style*="min-width: 1180px"],
-  [style*="min-width: 1200px"],
-  [style*="min-width: 1280px"] { min-width: 0 !important; }
-  /* Section horizontal padding: 48px -> 20px (many compound values) */
-  [style*="padding: 24px 48px"],
-  [style*="padding: 0px 48px"],
-  [style*="padding: 0 48px"],
-  [style*="padding: 48px"],
-  [style*="96px 48px"],
-  [style*="48px 96px"],
-  [style*="padding: 24px 48px 96px"],
-  [style*="padding: 0px 48px 96px"],
-  [style*="padding: 120px 48px"],
-  [style*="padding: 80px 48px"] {
-    padding-left: 20px !important;
-    padding-right: 20px !important;
+/* ---------- TABLET (<= 991px, matches the reference template) ---------- */
+@media (max-width: 991px) {
+  /* Nav: desktop links -> hamburger */
+  [data-cg-navlinks] { display: none !important; }
+  [data-cg-hamburger] { display: flex !important; }
+
+  /* Grid structure: repeat() grids reflow to as many 300px+ columns as fit
+     (2-up on tablet). Full-width feature tiles span the whole row so a
+     `span 3` can never force phantom tracks. */
+  [style*="grid-template-columns: repeat("] {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)) !important;
+  }
+  [style*="grid-column: span"] { grid-column: 1 / -1 !important; }
+  /* Asymmetric two-column grids (1.15fr 1fr etc.) stack. */
+  [style*="grid-template-columns"]:not([style*="repeat("]) {
+    grid-template-columns: 1fr !important;
   }
 
-  /* ANY multi-column grid collapses to a single column (single-col is always
-     right on mobile for this design; catches every fr combination). */
-  [style*="grid-template-columns"] { grid-template-columns: 1fr !important; }
-
-  /* Centered content wrappers are shrink-to-fit under max-width, so a wide
-     child (heading w/ inline icons, card ring) stretches them past the
-     viewport. Cap every such wrapper at 100%. */
-  [style*="max-width: 1280px"],
-  [style*="max-width: 1180px"],
-  [style*="max-width: 1100px"],
-  [style*="max-width: 960px"],
-  [style*="max-width: 900px"],
-  [style*="max-width: 880px"],
-  [style*="max-width: 860px"],
-  [style*="max-width: 820px"],
-  [style*="max-width: 800px"],
-  [style*="max-width: 760px"],
-  [style*="max-width: 720px"],
-  [style*="max-width: 700px"],
-  [style*="max-width: 680px"],
-  [style*="max-width: 660px"],
-  [style*="max-width: 640px"],
-  [style*="max-width: 620px"],
-  [style*="max-width: 600px"],
-  [style*="max-width: 580px"],
-  [style*="max-width: 560px"],
-  [style*="max-width: 540px"],
-  [style*="max-width: 520px"] { max-width: 100% !important; }
-
-  /* Long headings with inline chips/icons must wrap, not force width. */
-  h1, h2, h3 { overflow-wrap: break-word; word-break: break-word; }
-
-  /* Inline icon+word heading rows (column-gap) must wrap instead of forcing
-     the line wider than the screen. Centered so it stays balanced. */
-  [style*="column-gap: 14px"],
-  [style*="column-gap: 16px"],
-  [style*="column-gap: 12px"] { flex-wrap: wrap !important; }
-
-  /* Card rows (flex, gap) wrap to a stack (children are width:100% below). */
-  [style*="display: flex"][style*="gap: 24px"],
-  [style*="display: flex"][style*="gap: 20px"],
-  [style*="display: flex"][style*="gap: 12px"] {
-    flex-wrap: wrap !important;
-  }
-
-  /* Wider 2-3 column content rows (heading|text, split layouts) stack.
-     NOTE: the logo/testimonial marquees use gap:96px + width:max-content and
-     must NOT be touched, so we stop at 80px. */
+  /* Wide side-by-side flex rows (heading|copy, split heroes) stack.
+     Marquee tracks (width: max-content) are exempt. */
   [style*="display: flex"][style*="gap: 80px"]:not([style*="max-content"]),
   [style*="display: flex"][style*="gap: 64px"]:not([style*="max-content"]),
   [style*="display: flex"][style*="gap: 56px"]:not([style*="max-content"]),
@@ -145,88 +89,54 @@ body.cg-menu-lock { overflow: hidden; }
     gap: 24px !important;
     align-items: stretch !important;
   }
+  /* Card rows wrap; icon+word heading rows wrap instead of forcing width. */
+  [style*="display: flex"][style*="gap: 24px"],
+  [style*="display: flex"][style*="gap: 20px"],
+  [style*="display: flex"][style*="gap: 12px"],
+  [style*="column-gap: 16px"],
+  [style*="column-gap: 14px"],
+  [style*="column-gap: 12px"] { flex-wrap: wrap !important; justify-content: center; }
+  /* Icon-heading fragments are white-space:nowrap; let them break on phones. */
+  [style*="column-gap: 14px"] > [style*="white-space: nowrap"],
+  [style*="column-gap: 16px"] > [style*="white-space: nowrap"] { white-space: normal !important; }
 
-  /* Fixed-width blocks become fluid. Excludes marquee tracks &
-     videos (handled below / kept intrinsic). */
-  [style*="width: 900px"],
-  [style*="width: 660px"],
-  [style*="width: 640px"],
-  [style*="width: 560px"],
-  [style*="width: 540px"],
-  [style*="width: 520px"],
-  [style*="width: 480px"],
-  [style*="width: 440px"],
-  [style*="width: 420px"],
-  [style*="width: 404px"],
-  [style*="width: 380px"],
-  [style*="width: 360px"],
-  [style*="width: 340px"],
-  [style*="width: 320px"],
-  [style*="width: 300px"],
-  [style*="width: 275px"] {
+  /* Centered shrink-to-fit wrappers: a wide child (card ring, icon heading)
+     must not stretch them past the viewport. */
+  [style*="max-width: 1280px"], [style*="max-width: 1180px"],
+  [style*="max-width: 1100px"], [style*="max-width: 960px"],
+  [style*="max-width: 900px"],  [style*="max-width: 880px"],
+  [style*="max-width: 860px"],  [style*="max-width: 820px"],
+  [style*="max-width: 800px"],  [style*="max-width: 760px"],
+  [style*="max-width: 720px"],  [style*="max-width: 700px"],
+  [style*="max-width: 680px"],  [style*="max-width: 660px"],
+  [style*="max-width: 640px"],  [style*="max-width: 620px"],
+  [style*="max-width: 600px"],  [style*="max-width: 580px"],
+  [style*="max-width: 560px"],  [style*="max-width: 540px"],
+  [style*="max-width: 520px"] { max-width: 100% !important; }
+  h1, h2, h3 { overflow-wrap: break-word; }
+
+  /* Fixed-width content blocks go fluid. */
+  [style*="width: 900px"], [style*="width: 660px"], [style*="width: 640px"],
+  [style*="width: 560px"], [style*="width: 540px"], [style*="width: 520px"],
+  [style*="width: 480px"], [style*="width: 440px"], [style*="width: 420px"],
+  [style*="width: 380px"], [style*="width: 360px"], [style*="width: 340px"],
+  [style*="width: 320px"], [style*="width: 300px"], [style*="width: 275px"] {
     width: 100% !important;
     max-width: 100% !important;
   }
 
-  /* Big display headings shrink. */
-  [style*="font-size: 80px"] { font-size: 34px !important; line-height: 1.08 !important; }
-  [style*="font-size: 72px"] { font-size: 33px !important; line-height: 1.1 !important; }
-  [style*="font-size: 60px"] { font-size: 31px !important; line-height: 1.14 !important; }
-  [style*="font-size: 64px"] { font-size: 34px !important; line-height: 1.1 !important; }
-  [style*="font-size: 56px"] { font-size: 32px !important; line-height: 1.12 !important; }
-  [style*="font-size: 48px"] { font-size: 29px !important; line-height: 1.15 !important; }
-  [style*="font-size: 46px"] { font-size: 30px !important; line-height: 1.1 !important; }
-  [style*="font-size: 44px"] { font-size: 28px !important; line-height: 1.15 !important; }
-  [style*="font-size: 40px"] { font-size: 26px !important; line-height: 1.2 !important; }
-  [style*="font-size: 36px"] { font-size: 25px !important; line-height: 1.2 !important; }
-  [style*="font-size: 32px"] { font-size: 23px !important; line-height: 1.25 !important; }
-  [style*="font-size: 30px"] { font-size: 22px !important; }
-
-  /* ---- HERO: the 3D card ring (perspective) is ~1050px wide; scale it
-     down to fit, and tighten the section padding. ---- */
-  [data-screen-label="Hero"] {
-    padding-left: 20px !important;
-    padding-right: 20px !important;
-    padding-top: 108px !important;
-    margin: 8px !important;
-  }
-  /* The centered hero wrapper is shrink-to-fit under max-width:900px, so the
-     wide card-ring stretches it past the viewport. Pin it to 100%. */
-  [data-screen-label="Hero"] [style*="max-width: 900px"] { width: 100% !important; max-width: 100% !important; }
-  [data-screen-label="Hero"] [style*="max-width: 560px"] { max-width: 100% !important; }
-  [style*="perspective: 3000px"] {
-    transform: scale(0.52);
-    transform-origin: center top;
-  }
-  /* The ring's row that reserves 230px height — pull following content up
-     since the scaled ring occupies less. */
-  [style*="height: 230px"][style*="overflow: visible"] {
-    height: 150px !important;
-  }
-
-  /* ---- HOME services accordion: a hover-expand row of cards with an
-     absolutely-placed video (left:315px). Stack the cards full-width and drop
-     the video, which can't fit a narrow card. ---- */
+  /* Home services accordion: stack the cards; the absolutely-inset video
+     (inset ... 315px) cannot fit a narrow card. */
   #services [style*="cursor: pointer"] { flex: 1 0 100% !important; }
   #services [style*="315px"] { display: none !important; }
 
-  /* ---- NAV: hide desktop links, show hamburger (built by cognis.js) ---- */
-  [data-cg-navlinks] { display: none !important; }
-  [data-cg-hamburger] { display: flex !important; }
+  /* Hero section: tighter chrome on small screens. */
+  [data-screen-label="Hero"] { margin: 8px !important; }
+  [data-screen-label="Hero"] [style*="max-width: 900px"] { width: 100% !important; }
 }
 
-/* ---------- PHONE (<= 560px) ---------- */
-@media (max-width: 560px) {
-  [style*="padding: 24px 48px"],
-  [style*="padding: 0px 48px"],
-  [style*="padding: 0 48px"],
-  [style*="96px 48px"],
-  [style*="48px 96px"] {
-    padding-left: 16px !important;
-    padding-right: 16px !important;
-  }
-  /* Tighten very tall section vertical padding a touch. */
-  [style*="height: 120px"] { height: 56px !important; }
-  [style*="height: 96px"] { height: 48px !important; }
-  [style*="height: 88px"] { height: 44px !important; }
+/* ---------- PHONE (<= 479px) ---------- */
+@media (max-width: 479px) {
+  /* Grids: single column. */
+  [style*="grid-template-columns: repeat("] { grid-template-columns: 1fr !important; }
 }
