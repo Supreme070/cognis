@@ -295,7 +295,10 @@
     }
     function fit() {
       var w = document.documentElement.clientWidth || window.innerWidth;
-      var s = Math.min(1, Math.max(0.34, w / 1240));
+      // Keep the cards LARGE on phones/tablets (like the Aeline reference): the
+      // 3D carousel is positioned by transforms, so full-size cards simply bleed
+      // off the screen edges — far better than shrinking them to thumbnails.
+      var s = Math.min(1, Math.max(0.9, w / 1240));
       if (s < 0.999) {
         ring.style.transform = 'scale(' + s.toFixed(3) + ')';
         ring.style.transformOrigin = 'center top';
