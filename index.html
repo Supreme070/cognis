@@ -103,6 +103,7 @@
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
 <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="manifest" href="/site.webmanifest">
 <meta name="description" content="Cognis Group is a global AI consulting firm. We design AI strategy, deploy intelligent agents, and build AI governance frameworks. Quod Tango Muto." />
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
 <meta name="author" content="Cognis Group" />
@@ -125,8 +126,7 @@
 <link rel="alternate" hreflang="en" href="https://cognis.group/" />
 <link rel="alternate" hreflang="x-default" href="https://cognis.group/" />
 <link rel="alternate" type="text/plain" title="LLM-friendly summary" href="/llms.txt" />
-<script type="application/ld+json">
-{
+<script type="application/ld+json">{
   "@context": "https://schema.org",
   "@graph": [
     {
@@ -135,7 +135,7 @@
       "name": "Cognis Group",
       "alternateName": "Cognis",
       "legalName": "Cognis Group Limited",
-      "url": "https://cognis.group",
+      "url": "https://cognis.group/",
       "logo": {
         "@type": "ImageObject",
         "@id": "https://cognis.group/#logo",
@@ -144,15 +144,19 @@
         "height": 512,
         "caption": "Cognis Group"
       },
-      "image": { "@id": "https://cognis.group/#logo" },
+      "image": {
+        "@id": "https://cognis.group/#logo"
+      },
       "description": "Cognis Group is an AI company that builds, deploys, and governs AI systems that permanently transform organizations. Three core practices: AI Strategy & Advisory, AI Training & Workforce Development, and AI Agent & Automation Engineering.",
-      "slogan": "Quod Tango Muto — What we touch, we change.",
+      "slogan": "Quod Tango Muto \u2014 What we touch, we change.",
       "foundingDate": "2025",
       "founder": {
         "@type": "Person",
         "name": "Supreme Oyewumi",
         "jobTitle": "Founder & CEO",
-        "worksFor": { "@id": "https://cognis.group/#organization" }
+        "worksFor": {
+          "@id": "https://cognis.group/#organization"
+        }
       },
       "foundingLocation": {
         "@type": "Place",
@@ -169,18 +173,38 @@
         "addressRegion": "LA",
         "addressCountry": "NG"
       },
-      "contactPoint": [{
-        "@type": "ContactPoint",
-        "contactType": "sales",
-        "email": "consulting@cognis.group",
-        "telephone": "+2349080001101",
-        "availableLanguage": ["English"],
-        "areaServed": ["NG","ZA","KE","GH","US","GB"]
-      }],
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "contactType": "sales",
+          "email": "consulting@cognis.group",
+          "telephone": "+2349080001101",
+          "availableLanguage": [
+            "English"
+          ],
+          "areaServed": [
+            "NG",
+            "ZA",
+            "KE",
+            "GH",
+            "US",
+            "GB"
+          ]
+        }
+      ],
       "areaServed": [
-        { "@type": "Place", "name": "Africa" },
-        { "@type": "Place", "name": "Europe" },
-        { "@type": "Place", "name": "Americas" }
+        {
+          "@type": "Place",
+          "name": "Africa"
+        },
+        {
+          "@type": "Place",
+          "name": "Europe"
+        },
+        {
+          "@type": "Place",
+          "name": "Americas"
+        }
       ],
       "knowsAbout": [
         "Artificial Intelligence Strategy",
@@ -214,7 +238,9 @@
               "@id": "https://cognis.group/#service-ai-strategy",
               "name": "AI Strategy & Advisory",
               "description": "Cognis Group assesses organizational AI readiness, identifies high-value AI use cases, and builds a clear, executable roadmap from initial strategy through to live deployment and measurable business impact.",
-              "provider": { "@id": "https://cognis.group/#organization" },
+              "provider": {
+                "@id": "https://cognis.group/#organization"
+              },
               "serviceType": "AI Strategy Consulting",
               "areaServed": "Worldwide",
               "audience": {
@@ -229,8 +255,10 @@
               "@type": "Service",
               "@id": "https://cognis.group/#service-ai-training",
               "name": "AI Training & Workforce Development",
-              "description": "Cognis Group develops AI literacy across entire organizations — from executive leadership to operational teams — building the mindset, capability, and governance discipline required to work with AI effectively and responsibly at scale.",
-              "provider": { "@id": "https://cognis.group/#organization" },
+              "description": "Cognis Group develops AI literacy across entire organizations \u2014 from executive leadership to operational teams \u2014 building the mindset, capability, and governance discipline required to work with AI effectively and responsibly at scale.",
+              "provider": {
+                "@id": "https://cognis.group/#organization"
+              },
               "serviceType": "AI Training and Education",
               "areaServed": "Worldwide"
             }
@@ -242,7 +270,9 @@
               "@id": "https://cognis.group/#service-ai-agents",
               "name": "AI Agent & Automation Engineering",
               "description": "Cognis Group architects, builds, and deploys custom AI agents and intelligent automation workflows that eliminate manual bottlenecks, reduce operational errors, and scale organizational output without scaling headcount.",
-              "provider": { "@id": "https://cognis.group/#organization" },
+              "provider": {
+                "@id": "https://cognis.group/#organization"
+              },
               "serviceType": "AI Engineering and Automation",
               "areaServed": "Worldwide"
             }
@@ -254,7 +284,9 @@
               "@id": "https://cognis.group/#service-ml-data",
               "name": "Machine Learning & Data Intelligence",
               "description": "Cognis Group builds custom machine learning models, data pipelines, and predictive analytics systems that convert raw organizational data into actionable competitive intelligence.",
-              "provider": { "@id": "https://cognis.group/#organization" },
+              "provider": {
+                "@id": "https://cognis.group/#organization"
+              },
               "serviceType": "Machine Learning Consulting",
               "areaServed": "Worldwide"
             }
@@ -266,7 +298,9 @@
               "@id": "https://cognis.group/#service-ai-governance",
               "name": "AI Governance, Risk & Compliance",
               "description": "Cognis Group builds policy frameworks, audit structures, model oversight systems, and regulatory compliance processes for responsible AI deployment, aligned to NDPA, EU AI Act, ISO 42001, NIST AI RMF, and sector-specific requirements.",
-              "provider": { "@id": "https://cognis.group/#organization" },
+              "provider": {
+                "@id": "https://cognis.group/#organization"
+              },
               "serviceType": "AI Governance and Risk Management",
               "areaServed": "Worldwide"
             }
@@ -277,8 +311,10 @@
               "@type": "Service",
               "@id": "https://cognis.group/#service-digital-transformation",
               "name": "Enterprise Digital Transformation",
-              "description": "Cognis Group delivers full-scale digital transformation — modernizing legacy systems, redesigning core processes, and embedding artificial intelligence into every layer of organizational decision-making.",
-              "provider": { "@id": "https://cognis.group/#organization" },
+              "description": "Cognis Group delivers full-scale digital transformation \u2014 modernizing legacy systems, redesigning core processes, and embedding artificial intelligence into every layer of organizational decision-making.",
+              "provider": {
+                "@id": "https://cognis.group/#organization"
+              },
               "serviceType": "Digital Transformation Consulting",
               "areaServed": "Worldwide"
             }
@@ -292,7 +328,9 @@
       "url": "https://cognis.group",
       "name": "Cognis Group",
       "description": "AI company that builds, deploys, and governs AI systems that permanently transform organizations",
-      "publisher": { "@id": "https://cognis.group/#organization" },
+      "publisher": {
+        "@id": "https://cognis.group/#organization"
+      },
       "inLanguage": "en-GB"
     },
     {
@@ -300,9 +338,15 @@
       "@id": "https://cognis.group/#webpage",
       "url": "https://cognis.group",
       "name": "Cognis Group | AI Consulting, Strategy & Agent Engineering",
-      "isPartOf": { "@id": "https://cognis.group/#website" },
-      "about": { "@id": "https://cognis.group/#organization" },
-      "primaryImageOfPage": { "@id": "https://cognis.group/#logo" },
+      "isPartOf": {
+        "@id": "https://cognis.group/#website"
+      },
+      "about": {
+        "@id": "https://cognis.group/#organization"
+      },
+      "primaryImageOfPage": {
+        "@id": "https://cognis.group/#logo"
+      },
       "description": "Cognis Group is a global AI consulting firm. We help organizations design AI strategy, deploy intelligent agents, develop AI-ready workforces, and build AI governance frameworks.",
       "inLanguage": "en-GB",
       "breadcrumb": {
@@ -318,74 +362,14 @@
       }
     },
     {
-      "@type": "FAQPage",
-      "@id": "https://cognis.group/#faq",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "What is Cognis Group?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Cognis Group is an AI company that builds, deploys, and governs AI systems that permanently transform organizations. Our three core practices are AI Strategy & Advisory, AI Training & Workforce Development, and AI Agent & Automation Engineering. Quod Tango Muto — what we touch, we change."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What AI consulting services does Cognis Group offer?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Cognis Group offers six core services: AI Strategy and Advisory, AI Training and Workforce Development, AI Agent and Automation Engineering, Machine Learning and Data Intelligence, AI Governance Risk and Compliance, and Enterprise Digital Transformation."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What is AI Strategy and Advisory consulting?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "AI Strategy and Advisory consulting involves assessing an organization's AI readiness, identifying high-value use cases for artificial intelligence, and building an executable roadmap from initial strategy through to live deployment with measurable business impact. Cognis Group specializes in this service for enterprises, government agencies, and financial institutions."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What is AI Agent Engineering?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "AI Agent Engineering is the design, development, and deployment of custom artificial intelligence agents and intelligent automation workflows. Cognis Group builds AI agents that eliminate manual bottlenecks, reduce operational errors, and scale organizational output without requiring additional headcount."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How does Cognis Group help organizations develop AI-ready workforces?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Cognis Group delivers AI training and workforce development programs that build AI literacy across entire organizations — from C-suite executives to frontline operators. Our programs develop the mindset, capability, and governance discipline required to work with AI effectively and responsibly at scale."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Does Cognis Group work with African organizations?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Yes. Cognis Group is headquartered in Lagos, Nigeria and works with organizations across Africa, Europe, and the Americas. We have deep expertise in African market contexts, including alignment with the Nigerian Data Protection Act, Central Bank of Nigeria guidance, and regional enterprise environments."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "What is AI governance consulting?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "AI governance consulting helps organizations deploy artificial intelligence responsibly. Cognis Group builds policy frameworks, audit structures, model oversight systems, and regulatory compliance processes aligned to global standards including the EU AI Act, ISO 42001, NIST AI RMF, and sector-specific requirements in financial services, healthcare, and government."
-          }
-        }
-      ]
-    },
-    {
       "@type": "Person",
       "@id": "https://cognis.group/#founder",
       "name": "Supreme Oyewumi",
       "jobTitle": "Founder & CEO",
-      "url": "https://cognis.group/about-us",
-      "worksFor": { "@id": "https://cognis.group/#organization" },
+      "url": "https://cognis.group/teams/supreme-oyewumi/",
+      "worksFor": {
+        "@id": "https://cognis.group/#organization"
+      },
       "knowsAbout": [
         "AI Strategy",
         "AI Agent Engineering",
@@ -396,22 +380,66 @@
     {
       "@type": "Person",
       "@id": "https://cognis.group/#team-kola",
-      "name": "Kola Aina",
-      "jobTitle": "Partner, AI Engineering",
-      "url": "https://cognis.group/about-us",
-      "worksFor": { "@id": "https://cognis.group/#organization" }
+      "name": "Kola Olatunde",
+      "jobTitle": "AI Cybersecurity & Governance Lead",
+      "url": "https://cognis.group/teams/kola-olatunde/",
+      "worksFor": {
+        "@id": "https://cognis.group/#organization"
+      },
+      "knowsAbout": [
+        "AI Security",
+        "AI Governance",
+        "Cybersecurity",
+        "Compliance"
+      ]
     },
     {
       "@type": "Person",
       "@id": "https://cognis.group/#team-fisayo",
-      "name": "Fisayo Adeyemi",
-      "jobTitle": "Partner, AI Strategy",
-      "url": "https://cognis.group/about-us",
-      "worksFor": { "@id": "https://cognis.group/#organization" }
+      "name": "Fisayo Oludare",
+      "jobTitle": "Senior Advisor",
+      "url": "https://cognis.group/teams/fisayo-oludare/",
+      "worksFor": {
+        "@id": "https://cognis.group/#organization"
+      },
+      "knowsAbout": [
+        "AI Strategy",
+        "Enterprise Transformation",
+        "Advisory"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://cognis.group/#team-tosin",
+      "name": "Tosin Salami",
+      "jobTitle": "Executive Director, Product & Strategy",
+      "url": "https://cognis.group/teams/tosin-salami/",
+      "worksFor": {
+        "@id": "https://cognis.group/#organization"
+      },
+      "knowsAbout": [
+        "Product Strategy",
+        "AI Product Management",
+        "Enterprise AI"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://cognis.group/#team-obruche",
+      "name": "Obruche Uwanoghor",
+      "jobTitle": "Director of People & Culture",
+      "url": "https://cognis.group/teams/obruche-uwanoghor/",
+      "worksFor": {
+        "@id": "https://cognis.group/#organization"
+      },
+      "knowsAbout": [
+        "People Operations",
+        "AI Workforce Development",
+        "Organisational Culture"
+      ]
     }
   ]
-}
-    </script>
+}</script>
 <link rel="stylesheet" href="/responsive.css">
 </head>
 <body>
@@ -449,10 +477,10 @@
 
   
   <section data-dc-tpl="51" data-screen-label="Hero" style="position: relative; overflow: clip; margin: 12px; border-radius: 24px; display: flex; flex-direction: column; justify-content: flex-start; padding: clamp(104px, 10.42vw, 150px) clamp(16px, 3.33vw, 48px) 0px; background: radial-gradient(120% 80% at 50% 0%, rgb(28, 28, 26) 0%, rgb(13, 13, 12) 60%);">
-    <video data-dc-tpl="52" autoplay="" playsinline="" preload="auto" src="/assets/hero-afr5.mp4" loop="" style="position: absolute; inset: 0px; width: 100%; height: 100%; object-fit: cover; z-index: 0;"></video>
+    <video data-dc-tpl="52" autoplay="" playsinline="" preload="auto" src="/assets/hero-afr5.mp4" loop="" poster="/assets/hero-poster.jpg" width="1280" height="720" style="position: absolute; inset: 0px; width: 100%; height: 100%; object-fit: cover; z-index: 0;"></video>
     <div data-dc-tpl="53" style="position: absolute; inset: 0px; z-index: 0; background: linear-gradient(rgba(0, 0, 0, 0.82) 0%, rgba(0, 0, 0, 0.72) 35%, rgba(0, 0, 0, 0.55) 55%, rgba(0, 0, 0, 0.3) 78%, rgba(0, 0, 0, 0.05) 92%, rgba(0, 0, 0, 0) 100%);"></div>
     <div data-dc-tpl="54" style="position: relative; max-width: 900px; margin: 0px auto; display: flex; flex-direction: column; align-items: center; text-align: center; text-shadow: rgba(0, 0, 0, 0.55) 0px 1px 28px;">
-      <h1 data-dc-tpl="55" style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-size: clamp(36px, 4.17vw, 60px); line-height: 1.2; letter-spacing: -0.06em; font-weight: 500; color: rgb(255, 255, 255); margin: 0px; text-wrap: balance; animation: 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0s 1 normal both running cgFadeUp;">What We Touch, <span data-dc-tpl="56" style="color: rgba(255, 255, 255, 0.75);">We</span><br data-dc-tpl="57"><span data-dc-tpl="58" style="color: rgba(255, 255, 255, 0.75);">Change.</span></h1>
+      <h1 data-dc-tpl="55" style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-size: clamp(36px, 4.17vw, 60px); line-height: 1.2; letter-spacing: -0.06em; font-weight: 500; color: rgb(255, 255, 255); margin: 0px; text-wrap: balance; animation: 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0s 1 normal both running cgFadeUp;">What We Touch, <span data-dc-tpl="56" style="color: rgba(255, 255, 255, 0.75);">We</span> <br data-dc-tpl="57"><span data-dc-tpl="58" style="color: rgba(255, 255, 255, 0.75);">Change.</span></h1>
       <div data-dc-tpl="59" style="height: 20px;"></div>
       <div data-dc-tpl="60" style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 300; font-size: 19.2px; line-height: 19.2px; letter-spacing: 4.8px; color: rgba(255, 255, 255, 0.72); animation: 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.06s 1 normal both running cgFadeUp;">Quod Tango Muto</div>
       <div data-dc-tpl="61" style="height: 24px;"></div>
@@ -768,7 +796,7 @@
       <div data-dc-tpl="175" style="height: clamp(28px, 3.89vw, 56px);"></div>
       <div data-dc-tpl="176" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
         
-        <a data-dc-tpl="177" href="https://cognis.group/products" target="_blank" rel="noopener" data-h="h4" style="border: 1px solid rgb(230, 230, 230); border-radius: 18px; padding: 24px; min-height: 278px; box-sizing: border-box; display: flex; flex-direction: column; transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s, background-color 0.3s;">
+        <a data-dc-tpl="177" href="https://cognis.group/products/" target="_blank" rel="noopener" data-h="h4" style="border: 1px solid rgb(230, 230, 230); border-radius: 18px; padding: 24px; min-height: 278px; box-sizing: border-box; display: flex; flex-direction: column; transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s, background-color 0.3s;">
           <div data-dc-tpl="178" style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.88px; text-transform: uppercase; color: rgb(123, 123, 123);">Live · AI Workforce</div>
           <div data-dc-tpl="179" style="height: 18px;"></div>
           <div data-dc-tpl="180" style="font-family: Nunito, sans-serif; font-weight: 800; font-size: 24px; letter-spacing: -0.24px; color: rgb(19, 19, 19); line-height: 1;">Cognis<span data-dc-tpl="181" style="color: rgb(66, 133, 244);">Ai</span>.</div>
@@ -1231,7 +1259,7 @@
       <div data-dc-tpl="406" style="height: clamp(28px, 3.89vw, 56px);"></div>
       <div data-dc-tpl="407" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
         
-          <a data-dc-tpl="409" href="https://cognis.group/blog/why-most-enterprise-ai-strategies-fail-before-they-start" target="_blank" rel="noopener" data-h="h9" style="background: rgb(255, 255, 255); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column;">
+          <a data-dc-tpl="409" href="https://cognis.group/blog/why-most-enterprise-ai-strategies-fail-before-they-start/" target="_blank" rel="noopener" data-h="h9" style="background: rgb(255, 255, 255); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column;">
             <div data-dc-tpl="410" style="height: 210px; overflow: hidden;"><img loading="lazy" decoding="async" data-dc-tpl="411" src="https://cognis.group/framer-runtime/images/v4o6m3a57qOMklmWqrkcQPIdI.png?width=1600" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block;"></div>
             <div data-dc-tpl="412" style="padding: 24px 24px 28px; display: flex; flex-direction: column; gap: 12px;">
               <div data-dc-tpl="413" style="font-family: Geistmono, &quot;Geist Mono&quot;, monospace; font-size: 12px; color: rgba(13, 13, 12, 0.5);"><span class="sc-interp">AI STRATEGY</span></div>
@@ -1239,7 +1267,7 @@
             </div>
           </a>
         
-          <a data-dc-tpl="409" href="https://cognis.group/blog/building-ai-agents-that-actually-ship" target="_blank" rel="noopener" data-h="h9" style="background: rgb(255, 255, 255); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column;">
+          <a data-dc-tpl="409" href="https://cognis.group/blog/building-ai-agents-that-actually-ship/" target="_blank" rel="noopener" data-h="h9" style="background: rgb(255, 255, 255); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column;">
             <div data-dc-tpl="410" style="height: 210px; overflow: hidden;"><img loading="lazy" decoding="async" data-dc-tpl="411" src="https://cognis.group/framer-runtime/images/xMyo1j7rlMvnbr9NtkshZFKFcEo.png?width=1600" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block;"></div>
             <div data-dc-tpl="412" style="padding: 24px 24px 28px; display: flex; flex-direction: column; gap: 12px;">
               <div data-dc-tpl="413" style="font-family: Geistmono, &quot;Geist Mono&quot;, monospace; font-size: 12px; color: rgba(13, 13, 12, 0.5);"><span class="sc-interp">AGENT ENGINEERING</span></div>
@@ -1247,7 +1275,7 @@
             </div>
           </a>
         
-          <a data-dc-tpl="409" href="https://cognis.group/blog/making-your-workforce-ai-ready" target="_blank" rel="noopener" data-h="h9" style="background: rgb(255, 255, 255); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column;">
+          <a data-dc-tpl="409" href="https://cognis.group/blog/making-your-workforce-ai-ready/" target="_blank" rel="noopener" data-h="h9" style="background: rgb(255, 255, 255); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column;">
             <div data-dc-tpl="410" style="height: 210px; overflow: hidden;"><img loading="lazy" decoding="async" data-dc-tpl="411" src="https://cognis.group/framer-runtime/images/v9xKsohrFAX7eLCkGBmNgxjzlw.png?width=1600" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block;"></div>
             <div data-dc-tpl="412" style="padding: 24px 24px 28px; display: flex; flex-direction: column; gap: 12px;">
               <div data-dc-tpl="413" style="font-family: Geistmono, &quot;Geist Mono&quot;, monospace; font-size: 12px; color: rgba(13, 13, 12, 0.5);"><span class="sc-interp">WORKFORCE</span></div>
@@ -1325,7 +1353,7 @@
             <input data-dc-tpl="463" type="hidden" name="access_key" value="6e2d0eb5-2d17-4183-8662-83a3487d2703">
             <input data-dc-tpl="464" type="hidden" name="from_name" value="cognis.group newsletter">
             <input data-dc-tpl="465" type="hidden" name="subject" value="New newsletter signup — cognis.group">
-            <input data-dc-tpl="466" type="hidden" name="redirect" value="https://cognis.group/thanks-subscribe">
+            <input data-dc-tpl="466" type="hidden" name="redirect" value="https://cognis.group/thanks-subscribe/">
             <input data-dc-tpl="467" type="email" name="email" required="" placeholder="Your work email" style="flex: 1 1 0%; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.14); border-radius: 100px; padding: 12px 18px; font-size: 14px; color: rgb(255, 255, 255); outline: none; font-family: &quot;Plus Jakarta Sans&quot;, sans-serif;">
             <button data-dc-tpl="468" type="submit" data-h="h10" style="background: rgb(214, 253, 112); color: rgb(13, 13, 12); border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; border-radius: 100px; padding: 12px 22px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: &quot;Plus Jakarta Sans&quot;, sans-serif;">Subscribe</button>
           </form>

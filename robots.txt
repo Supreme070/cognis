@@ -69,6 +69,21 @@ Allow: /
 User-agent: Amazonbot
 Allow: /
 
+User-agent: Perplexity-User
+Allow: /
+
+# DuckDuckGo AI
+User-agent: DuckAssistBot
+Allow: /
+
+# Mistral
+User-agent: MistralAI-User
+Allow: /
+
+# Meta AI
+User-agent: Meta-ExternalAgent
+Allow: /
+
 # Block known abusive crawlers
 User-agent: Bytespider
 Disallow: /

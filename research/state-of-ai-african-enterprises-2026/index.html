@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+    .sc-placeholder{background:color-mix(in srgb,currentColor 8%,transparent);
+      border:1px solid color-mix(in srgb,currentColor 50%,transparent);
+      border-radius:2px;box-sizing:border-box;overflow:hidden}
+    @keyframes sc-shine{0%{background-position:100% 50%}100%{background-position:0% 50%}}
+    html.sc-dc-streaming .sc-placeholder,
+    html.sc-dc-streaming .sc-interp.sc-missing{position:relative;
+      background:color-mix(in srgb,currentColor 5%,transparent);
+      border-color:transparent}
+    html.sc-dc-streaming .sc-placeholder::before,
+    html.sc-dc-streaming .sc-interp.sc-missing::before{content:'';
+      position:absolute;inset:0;pointer-events:none;
+      background:linear-gradient(90deg,rgba(217,119,87,0) 25%,rgba(247,225,211,.95) 37%,rgba(217,119,87,0) 63%);
+      background-size:400% 100%;animation:sc-shine 1.4s ease infinite}
+    html.sc-dc-streaming .sc-placeholder:nth-child(n+9 of .sc-placeholder)::before,
+    html.sc-dc-streaming .sc-interp.sc-missing:nth-child(n+9 of .sc-interp.sc-missing)::before{animation:none;
+      background:color-mix(in srgb,currentColor 8%,transparent)}
+    .sc-placeholder-error{padding:4px 8px;font:11px/1.4 ui-monospace,monospace;
+      color:color-mix(in srgb,currentColor 70%,transparent);word-break:break-word}
+    .sc-interp.sc-missing{display:inline-block;width:2em;height:1em;overflow:hidden;
+      vertical-align:text-bottom;background:rgba(255,255,255,.3);border:1px solid rgba(0,0,0,.5);
+      border-radius:2px;box-sizing:border-box;color:transparent;
+      user-select:none}
+    .sc-interp.sc-unresolved{font-family:ui-monospace,monospace;font-size:.85em;
+      color:color-mix(in srgb,currentColor 50%,transparent);
+      background:color-mix(in srgb,currentColor 10%,transparent);border-radius:3px;
+      padding:0 3px}
+    .sc-host.sc-has-error{position:relative}
+    .sc-logic-error{position:absolute;top:8px;left:8px;z-index:2147483647;max-width:60ch;
+      padding:6px 10px;background:#b00020;color:#fff;font:12px/1.4 ui-monospace,monospace;
+      border-radius:4px;white-space:pre-wrap;pointer-events:none}
+    /* Mirrors PRINT_BASELINE_CSS in apps/web deck-stage-export.ts — keep both
+       in sync until dc-runtime regains a build step. */
+    @media print {
+      @page { margin: 0.5cm; }
+      figure, table { break-inside: avoid; }
+      #dc-root, #dc-root > .sc-host { height: auto; }
+      *, *::before, *::after {
+        print-color-adjust: exact; -webkit-print-color-adjust: exact;
+        backdrop-filter: none !important; -webkit-backdrop-filter: none !important;
+        animation-delay: -99s !important; animation-duration: .001s !important;
+        animation-iteration-count: 1 !important; animation-fill-mode: both !important;
+        animation-play-state: running !important; transition-duration: 0s !important;
+      }
+    }
+  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>x-dc{display:none!important}</style>
+<style>html,body{height:100%;margin:0}#dc-root,#dc-root>.sc-host{height:100%}</style>
+<title data-dc-tpl="1">State of AI in African Enterprises 2026 | Cognis Group</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" data-dc-tpl="2">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" data-dc-tpl="3">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600;1,700&amp;family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&amp;display=swap" rel="stylesheet" data-dc-tpl="4">
+<style data-dc-tpl="5">
+  @font-face { font-family: Geistmono; src: url(https://cdn.prod.website-files.com/6929c116366a14507fc8424d/6929c9fc0f8dc4c415a7aef6_GeistMono-Medium.ttf) format("truetype"); font-weight: 400 500; font-style: normal; font-display: swap; }
+  html, body { margin: 0; padding: 0; background: #FFFFFF; }
+  body { font-family: "Plus Jakarta Sans", -apple-system, "Segoe UI", Roboto, sans-serif; color: #131313; letter-spacing: -0.02em; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  a:hover { color: inherit; }
+  @keyframes cgsMarquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @keyframes cgDrift { 0% { transform: translate(0,0) scale(1); } 50% { transform: translate(4%,-6%) scale(1.12); } 100% { transform: translate(0,0) scale(1); } }
+  /* EXPLORE dropdown */
+  .cg-exp { position: relative; }
+  .cg-exp-panel { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); padding-top: 16px; opacity: 0; visibility: hidden; transition: opacity .22s ease; z-index: 30; }
+  .cg-exp:hover .cg-exp-panel, .cg-exp:focus-within .cg-exp-panel { opacity: 1; visibility: visible; }
+  .cg-exp-menu { background: #131313; border: 1px solid rgba(255,255,255,0.10); border-radius: 16px; padding: 8px; min-width: 236px; display: flex; flex-direction: column; gap: 2px; box-shadow: 0 28px 60px rgba(0,0,0,0.45); transform: translateY(8px); transition: transform .22s cubic-bezier(.22,1,.36,1); }
+  .cg-exp:hover .cg-exp-menu, .cg-exp:focus-within .cg-exp-menu { transform: translateY(0); }
+  .cg-exp-menu a { display: flex; flex-direction: column; gap: 2px; padding: 11px 14px; border-radius: 11px; text-transform: none; letter-spacing: -0.01em; transition: background .15s ease; }
+  .cg-exp-menu a:hover { background: rgba(255,255,255,0.06); }
+  .cg-exp-menu .t { font-weight: 600; font-size: 14px; color: #FFFFFF; }
+  .cg-exp-menu .d { font-weight: 400; font-size: 12px; color: rgba(255,255,255,0.5); }
+
+[data-h="h0"]:hover{transform: translateY(-20px);}
+[data-h="h1"]:hover{transform: scale(0.95);}
+[data-h="h2"]:hover{transform: scale(0.97);}
+[data-h="h3"]:hover{transform: translateY(-4px); box-shadow: 0 20px 44px rgba(0,0,0,0.09);}
+[data-h="h4"]:hover{color: #FFFFFF;}
+[data-h="h5"]:hover{background: #E5FF9B;}
+</style>
+<!-- SEO -->
+<meta name="description" content="Cognis Group research: Africa’s AI market is heading for $16.5B by 2030, yet no African country tops 20% adoption. The data, the gaps, and the playbook." />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Cognis Group" />
+<meta property="og:title" content="The State of AI in African Enterprises, 2026" />
+<meta property="og:description" content="The market, adoption, and readiness data on enterprise AI in Africa — compiled with sources." />
+<meta property="og:url" content="https://cognis.group/research/state-of-ai-african-enterprises-2026/" />
+<meta property="og:image" content="https://cognis.group/og/cognis-og-1200x630.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:locale" content="en_GB" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@cognisgroup" />
+<meta name="twitter:title" content="The State of AI in African Enterprises, 2026" />
+<meta name="twitter:description" content="The market, adoption, and readiness data on enterprise AI in Africa — compiled with sources." />
+<link rel="canonical" href="https://cognis.group/research/state-of-ai-african-enterprises-2026/" />
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": [
+        "Article",
+        "Report"
+      ],
+      "@id": "https://cognis.group/research/state-of-ai-african-enterprises-2026/#article",
+      "headline": "The State of AI in African Enterprises, 2026",
+      "description": "Cognis Group research compiling the market, adoption, and readiness data on enterprise AI in Africa in 2026, with field observations from production deployments.",
+      "url": "https://cognis.group/research/state-of-ai-african-enterprises-2026/",
+      "datePublished": "2026-07-24",
+      "dateModified": "2026-07-24",
+      "author": [
+        {
+          "@id": "https://cognis.group/#organization"
+        },
+        {
+          "@id": "https://cognis.group/#founder"
+        }
+      ],
+      "publisher": {
+        "@id": "https://cognis.group/#organization"
+      },
+      "isPartOf": {
+        "@id": "https://cognis.group/#website"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://cognis.group/research/state-of-ai-african-enterprises-2026/#webpage",
+      "url": "https://cognis.group/research/state-of-ai-african-enterprises-2026/",
+      "name": "The State of AI in African Enterprises, 2026",
+      "inLanguage": "en-GB",
+      "isPartOf": {
+        "@id": "https://cognis.group/#website"
+      },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://cognis.group/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "State of AI in African Enterprises 2026",
+            "item": "https://cognis.group/research/state-of-ai-african-enterprises-2026/"
+          }
+        ]
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://cognis.group/#organization",
+      "name": "Cognis Group",
+      "alternateName": "Cognis",
+      "legalName": "Cognis Group Limited",
+      "url": "https://cognis.group/",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://cognis.group/#logo",
+        "url": "https://cognis.group/assets/img/cognis-logo.png",
+        "width": 512,
+        "height": 512,
+        "caption": "Cognis Group"
+      },
+      "image": {
+        "@id": "https://cognis.group/#logo"
+      },
+      "description": "Cognis Group is an AI company that builds, deploys, and governs AI systems that permanently transform organizations. Three core practices: AI Strategy & Advisory, AI Training & Workforce Development, and AI Agent & Automation Engineering.",
+      "slogan": "Quod Tango Muto \u2014 What we touch, we change.",
+      "foundingDate": "2025",
+      "founder": {
+        "@type": "Person",
+        "name": "Supreme Oyewumi",
+        "jobTitle": "Founder & CEO",
+        "worksFor": {
+          "@id": "https://cognis.group/#organization"
+        }
+      },
+      "foundingLocation": {
+        "@type": "Place",
+        "name": "Lagos, Nigeria",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Lagos",
+          "addressCountry": "NG"
+        }
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Lagos",
+        "addressRegion": "LA",
+        "addressCountry": "NG"
+      },
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "contactType": "sales",
+          "email": "consulting@cognis.group",
+          "telephone": "+2349080001101",
+          "availableLanguage": [
+            "English"
+          ],
+          "areaServed": [
+            "NG",
+            "ZA",
+            "KE",
+            "GH",
+            "US",
+            "GB"
+          ]
+        }
+      ],
+      "areaServed": [
+        {
+          "@type": "Place",
+          "name": "Africa"
+        },
+        {
+          "@type": "Place",
+          "name": "Europe"
+        },
+        {
+          "@type": "Place",
+          "name": "Americas"
+        }
+      ],
+      "knowsAbout": [
+        "Artificial Intelligence Strategy",
+        "AI Consulting",
+        "AI Agent Engineering",
+        "Machine Learning",
+        "AI Governance",
+        "AI Workforce Development",
+        "Intelligent Automation",
+        "Large Language Models",
+        "Enterprise AI Deployment",
+        "Digital Transformation",
+        "AI Readiness Assessment",
+        "Generative AI",
+        "AI Risk Management",
+        "Responsible AI"
+      ],
+      "sameAs": [
+        "https://www.linkedin.com/company/cognis-group",
+        "https://x.com/cognisgroup",
+        "https://github.com/cognis-group"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "AI Consulting Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "@id": "https://cognis.group/#service-ai-strategy",
+              "name": "AI Strategy & Advisory",
+              "description": "Cognis Group assesses organizational AI readiness, identifies high-value AI use cases, and builds a clear, executable roadmap from initial strategy through to live deployment and measurable business impact.",
+              "provider": {
+                "@id": "https://cognis.group/#organization"
+              },
+              "serviceType": "AI Strategy Consulting",
+              "areaServed": "Worldwide",
+              "audience": {
+                "@type": "Audience",
+                "audienceType": "Enterprise organizations, Government agencies, Financial institutions"
+              }
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "@id": "https://cognis.group/#service-ai-training",
+              "name": "AI Training & Workforce Development",
+              "description": "Cognis Group develops AI literacy across entire organizations \u2014 from executive leadership to operational teams \u2014 building the mindset, capability, and governance discipline required to work with AI effectively and responsibly at scale.",
+              "provider": {
+                "@id": "https://cognis.group/#organization"
+              },
+              "serviceType": "AI Training and Education",
+              "areaServed": "Worldwide"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "@id": "https://cognis.group/#service-ai-agents",
+              "name": "AI Agent & Automation Engineering",
+              "description": "Cognis Group architects, builds, and deploys custom AI agents and intelligent automation workflows that eliminate manual bottlenecks, reduce operational errors, and scale organizational output without scaling headcount.",
+              "provider": {
+                "@id": "https://cognis.group/#organization"
+              },
+              "serviceType": "AI Engineering and Automation",
+              "areaServed": "Worldwide"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "@id": "https://cognis.group/#service-ml-data",
+              "name": "Machine Learning & Data Intelligence",
+              "description": "Cognis Group builds custom machine learning models, data pipelines, and predictive analytics systems that convert raw organizational data into actionable competitive intelligence.",
+              "provider": {
+                "@id": "https://cognis.group/#organization"
+              },
+              "serviceType": "Machine Learning Consulting",
+              "areaServed": "Worldwide"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "@id": "https://cognis.group/#service-ai-governance",
+              "name": "AI Governance, Risk & Compliance",
+              "description": "Cognis Group builds policy frameworks, audit structures, model oversight systems, and regulatory compliance processes for responsible AI deployment, aligned to NDPA, EU AI Act, ISO 42001, NIST AI RMF, and sector-specific requirements.",
+              "provider": {
+                "@id": "https://cognis.group/#organization"
+              },
+              "serviceType": "AI Governance and Risk Management",
+              "areaServed": "Worldwide"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "@id": "https://cognis.group/#service-digital-transformation",
+              "name": "Enterprise Digital Transformation",
+              "description": "Cognis Group delivers full-scale digital transformation \u2014 modernizing legacy systems, redesigning core processes, and embedding artificial intelligence into every layer of organizational decision-making.",
+              "provider": {
+                "@id": "https://cognis.group/#organization"
+              },
+              "serviceType": "Digital Transformation Consulting",
+              "areaServed": "Worldwide"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://cognis.group/#website",
+      "url": "https://cognis.group",
+      "name": "Cognis Group",
+      "description": "AI company that builds, deploys, and governs AI systems that permanently transform organizations",
+      "publisher": {
+        "@id": "https://cognis.group/#organization"
+      },
+      "inLanguage": "en-GB"
+    }
+  ]
+}</script>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+</head>
+<body>
+<div id="dc-root"><div class="sc-host" data-sc-name="__pre__Cognis Why"><div data-dc-tpl="6" style="background: rgb(255, 255, 255); position: relative;">
+
+  
+  <div data-dc-tpl="7" style="position: absolute; top: 0px; left: 0px; right: 0px; z-index: 1000;">
+    <div data-dc-tpl="8" style="max-width: 1280px; margin: 0px auto; padding: 24px clamp(16px, 3.33vw, 48px); display: flex; align-items: center; justify-content: space-between; gap: 8px;">
+      <a data-dc-tpl="9" href="/" aria-label="Cognis Group" style="display: flex; align-items: center; gap: 9px; color: rgb(255, 255, 255);">
+        <svg data-dc-tpl="10" viewBox="0 0 40 30" aria-hidden="true" style="width: 32px; height: 24px; fill: currentcolor; display: block;"><path data-dc-tpl="11" d="M 36.968 20.426 L 33.716 26.059 L 24.189 26.048 L 27.223 20.794 L 18.262 5.293 L 28.346 5.337 Z"></path><path data-dc-tpl="12" d="M 9.807 5.266 L 16.312 5.266 L 21.066 13.522 L 14.999 13.521 L 6.055 29.033 L 1.051 20.277 Z"></path></svg>
+        <span data-dc-tpl="13" style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 600; letter-spacing: -0.04em; font-size: 23px;">Cognis</span>
+      </a>
+      <div data-dc-tpl="14" style="display: flex; align-items: center; gap: 24px;">
+        
+          <a data-dc-tpl="16" href="/" style="display: block; height: 20px; overflow: hidden; color: rgb(255, 255, 255); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; white-space: nowrap; box-shadow: none;">
+            <span data-dc-tpl="17" data-h="h0" style="display: flex; flex-direction: column; transition: transform 0.16s ease-out;">
+              <span data-dc-tpl="18" style="height: 20px;"><span class="sc-interp">Home</span></span>
+              <span data-dc-tpl="19" style="height: 20px;"><span class="sc-interp">Home</span></span>
+            </span>
+          </a>
+        
+          <a data-dc-tpl="16" href="/about-us/" style="display: block; height: 20px; overflow: hidden; color: rgb(255, 255, 255); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; white-space: nowrap; box-shadow: none;">
+            <span data-dc-tpl="17" data-h="h0" style="display: flex; flex-direction: column; transition: transform 0.16s ease-out;">
+              <span data-dc-tpl="18" style="height: 20px;"><span class="sc-interp">About Us</span></span>
+              <span data-dc-tpl="19" style="height: 20px;"><span class="sc-interp">About Us</span></span>
+            </span>
+          </a>
+        
+          <a data-dc-tpl="16" href="/our-services/" style="display: block; height: 20px; overflow: hidden; color: rgb(255, 255, 255); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; white-space: nowrap; box-shadow: none;">
+            <span data-dc-tpl="17" data-h="h0" style="display: flex; flex-direction: column; transition: transform 0.16s ease-out;">
+              <span data-dc-tpl="18" style="height: 20px;"><span class="sc-interp">Services</span></span>
+              <span data-dc-tpl="19" style="height: 20px;"><span class="sc-interp">Services</span></span>
+            </span>
+          </a>
+        
+          <a data-dc-tpl="16" href="/products/" style="display: block; height: 20px; overflow: hidden; color: rgb(255, 255, 255); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; white-space: nowrap; box-shadow: none;">
+            <span data-dc-tpl="17" data-h="h0" style="display: flex; flex-direction: column; transition: transform 0.16s ease-out;">
+              <span data-dc-tpl="18" style="height: 20px;"><span class="sc-interp">Products</span></span>
+              <span data-dc-tpl="19" style="height: 20px;"><span class="sc-interp">Products</span></span>
+            </span>
+          </a>
+        
+          <a data-dc-tpl="16" href="/blog/" style="display: block; height: 20px; overflow: hidden; color: rgb(255, 255, 255); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; white-space: nowrap; box-shadow: none;">
+            <span data-dc-tpl="17" data-h="h0" style="display: flex; flex-direction: column; transition: transform 0.16s ease-out;">
+              <span data-dc-tpl="18" style="height: 20px;"><span class="sc-interp">Insights</span></span>
+              <span data-dc-tpl="19" style="height: 20px;"><span class="sc-interp">Insights</span></span>
+            </span>
+          </a>
+        
+        <div data-dc-tpl="20" class="cg-exp" tabindex="0" style="height: 20px; color: rgb(255, 255, 255); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; white-space: nowrap; cursor: default; box-shadow: rgb(214, 253, 112) 0px -2px 0px inset;">
+          <span data-dc-tpl="21" style="display: inline-flex; align-items: center; gap: 5px;">Explore
+            <svg data-dc-tpl="22" width="10" height="10" viewBox="0 0 10 10" fill="none" style="opacity: 0.8;"><path data-dc-tpl="23" d="M2 3.5L5 6.5L8 3.5" stroke="#FFFFFF" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </span>
+          <div data-dc-tpl="24" class="cg-exp-panel">
+            <div data-dc-tpl="25" class="cg-exp-menu">
+              <a data-dc-tpl="26" href="/why-cognis/"><span data-dc-tpl="27" class="t">Why Cognis</span><span data-dc-tpl="28" class="d">The case for working with us</span></a>
+              <a data-dc-tpl="29" href="/case-studies/"><span data-dc-tpl="30" class="t">Case Studies</span><span data-dc-tpl="31" class="d">AI shipped to governed production</span></a>
+              <a data-dc-tpl="32" href="/how-we-work/"><span data-dc-tpl="33" class="t">How We Work</span><span data-dc-tpl="34" class="d">Six phases, designed to ship</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a data-dc-tpl="35" href="/contact/" data-h="h1" style="background: rgb(19, 19, 19); color: rgb(205, 251, 86); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; padding: 12px 22px; border-radius: 100px; white-space: nowrap; transition: transform 0.3s cubic-bezier(0.19, 1, 0.22, 1);">Work With Us</a>
+    </div>
+  </div>
+
+  
+
+  <section data-screen-label="Hero" style="position: relative; box-sizing: border-box; margin: 12px; border-radius: 24px; overflow: hidden; padding: 172px 52px 96px; background: rgb(13, 13, 12);">
+    <img src="/assets/cases-hero.jpg" alt="" style="position: absolute; inset: 0px; width: 100%; height: 100%; object-fit: cover;">
+    <div style="position: absolute; inset: 0px; background: linear-gradient(100deg, rgba(13, 13, 12, 0.92) 0%, rgba(13, 13, 12, 0.68) 48%, rgba(13, 13, 12, 0.42) 100%);"></div>
+    <div style="position: absolute; width: 640px; height: 640px; top: -240px; right: -120px; background: radial-gradient(circle, rgba(205, 251, 86, 0.16), transparent 62%); filter: blur(20px); animation: 26s ease-in-out 0s infinite normal none running cgDrift;"></div>
+    <div style="position: relative; max-width: 1280px; margin: 0px auto;">
+      <div data-appear="" style="display: inline-flex; align-items: center; gap: 8px; font-family: Geistmono, monospace; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: rgb(205, 251, 86);">
+        <span style="width: 6px; height: 6px; border-radius: 50%; background: rgb(205, 251, 86);"></span>Research · July 2026
+      </div>
+      <div style="height: 24px;"></div>
+      <h1 style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-size: clamp(43px, 5.00vw, 72px); font-weight: 500; line-height: 1.06; letter-spacing: -0.055em; color: rgb(255, 255, 255); margin: 0px; max-width: 980px;">The State of AI in <br>African enterprises.</h1>
+      <div style="height: 26px;"></div>
+      <div data-appear="" style="font-size: 18px; line-height: 28px; letter-spacing: -0.01em; color: rgba(255, 255, 255, 0.72); max-width: 680px;">What the data actually says about AI in Africa in 2026 — market size, real adoption, the gaps, and what separates the enterprises whose AI works. Compiled by Cognis Group from cited public research and our own production deployments.</div>
+    </div>
+  </section>
+
+  <section data-screen-label="Key numbers" style="margin: 40px 12px; border-radius: 24px; overflow: hidden; background: rgb(13, 13, 12); padding: 72px 64px;">
+    <div style="max-width: 1160px; margin: 0px auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px;">
+<div data-appear="">
+  <div style="font-family: Geistmono, monospace; font-size: clamp(29px, 3.33vw, 48px); font-weight: 500; line-height: 1; letter-spacing: -0.03em; color: rgb(205, 251, 86);">$16.5B</div>
+  <div style="height: 14px;"></div>
+  <div style="font-size: 15px; line-height: 22px; color: rgba(255, 255, 255, 0.62);">projected African AI market by 2030, from $4.5B in 2025 — 27.4% CAGR (Mastercard, 2025)</div>
+</div>
+<div data-appear="">
+  <div style="font-family: Geistmono, monospace; font-size: clamp(29px, 3.33vw, 48px); font-weight: 500; line-height: 1; letter-spacing: -0.03em; color: rgb(205, 251, 86);">$2.9T</div>
+  <div style="height: 14px;"></div>
+  <div style="font-size: 15px; line-height: 22px; color: rgba(255, 255, 255, 0.62);">potential AI contribution to Africa’s economy by 2030 (GSMA)</div>
+</div>
+<div data-appear="">
+  <div style="font-family: Geistmono, monospace; font-size: clamp(29px, 3.33vw, 48px); font-weight: 500; line-height: 1; letter-spacing: -0.03em; color: rgb(205, 251, 86);">88%</div>
+  <div style="height: 14px;"></div>
+  <div style="font-size: 15px; line-height: 22px; color: rgba(255, 255, 255, 0.62);">of organisations globally now use AI in at least one function (McKinsey, 2025)</div>
+</div>
+<div data-appear="">
+  <div style="font-family: Geistmono, monospace; font-size: clamp(29px, 3.33vw, 48px); font-weight: 500; line-height: 1; letter-spacing: -0.03em; color: rgb(205, 251, 86);">&lt;20%</div>
+  <div style="height: 14px;"></div>
+  <div style="font-size: 15px; line-height: 22px; color: rgba(255, 255, 255, 0.62);">AI adoption in every African country measured (Microsoft AI Diffusion Report, 2025)</div>
+</div>
+    </div>
+  </section>
+
+  <section data-screen-label="The Opportunity" style="padding: 48px clamp(16px, 3.33vw, 48px) 32px;">
+    <div style="max-width: 980px; margin: 0px auto;">
+      <div data-appear="" style="font-family: Geistmono, monospace; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: rgba(19, 19, 19, 0.5);">▪ The Opportunity</div>
+      <div style="height: 18px;"></div>
+      <h2 style="font-size: clamp(24px, 2.78vw, 40px); font-weight: 500; line-height: 1.15; letter-spacing: -0.04em; margin: 0px; max-width: 700px;">How big is Africa’s AI opportunity?</h2>
+      <div style="height: 24px;"></div>
+      <div data-appear="" style="font-size: 16px; line-height: 27px; color: rgba(19, 19, 19, 0.72); max-width: 760px;">Africa’s AI market is projected to grow from $4.51 billion in 2025 to $16.53 billion by 2030 — a 27.4% compound annual growth rate (Mastercard, 2025). The macro projections are larger still: the GSMA estimates AI could contribute up to $2.9 trillion to the continent’s economy by 2030, the African Development Bank projects up to $1 trillion in additional GDP by 2035, and the IMF finds that faster AI adoption could lift Africa’s GDP by around 4% over the next decade — roughly twenty times the current trajectory.</div><div style="height: 18px;"></div>
+<div data-appear="" style="font-size: 16px; line-height: 27px; color: rgba(19, 19, 19, 0.72); max-width: 760px;">The mobile foundation this runs on is already substantial: mobile technologies contributed $240 billion to Africa’s economy in 2025 — 7.8% of GDP — and the GSMA forecasts $290 billion by 2030, driven by 4G, 5G, and AI (GSMA Mobile Economy Africa, 2026).</div><div style="height: 18px;"></div>
+    </div>
+  </section>
+
+  <section data-screen-label="Real Adoption" style="padding: 48px clamp(16px, 3.33vw, 48px) 32px;">
+    <div style="max-width: 980px; margin: 0px auto;">
+      <div data-appear="" style="font-family: Geistmono, monospace; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: rgba(19, 19, 19, 0.5);">▪ Real Adoption</div>
+      <div style="height: 18px;"></div>
+      <h2 style="font-size: clamp(24px, 2.78vw, 40px); font-weight: 500; line-height: 1.15; letter-spacing: -0.04em; margin: 0px; max-width: 700px;">How widely are African enterprises actually adopting AI?</h2>
+      <div style="height: 24px;"></div>
+      <div data-appear="" style="font-size: 16px; line-height: 27px; color: rgba(19, 19, 19, 0.72); max-width: 760px;">The honest answer: far less than the headlines suggest, and far more than the pessimists claim. Microsoft’s 2025 AI Diffusion Report found that no African country has reached 20% population-level AI adoption. Yet among Sub-Saharan African organisations surveyed in the CIO100 report (2025), adoption runs at 55% — and more than 75% of young Africans already use AI tools weekly.</div><div style="height: 18px;"></div>
+<div data-appear="" style="font-size: 16px; line-height: 27px; color: rgba(19, 19, 19, 0.72); max-width: 760px;">The global benchmark makes the gap concrete: McKinsey’s State of AI 2025 survey found 88% of organisations worldwide now use AI in at least one business function, up from 78% a year earlier. African enterprise adoption is real and accelerating — but it is concentrated in large organisations, in fintech and payments, and in Nigeria, South Africa, Kenya, and Egypt.</div><div style="height: 18px;"></div>
+    </div>
+  </section>
+
+  <section data-screen-label="The Gaps" style="padding: 48px clamp(16px, 3.33vw, 48px) 32px;">
+    <div style="max-width: 980px; margin: 0px auto;">
+      <div data-appear="" style="font-family: Geistmono, monospace; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: rgba(19, 19, 19, 0.5);">▪ The Gaps</div>
+      <div style="height: 18px;"></div>
+      <h2 style="font-size: clamp(24px, 2.78vw, 40px); font-weight: 500; line-height: 1.15; letter-spacing: -0.04em; margin: 0px; max-width: 700px;">What is holding African enterprise AI back?</h2>
+      <div style="height: 24px;"></div>
+      <div data-appear="" style="font-size: 16px; line-height: 27px; color: rgba(19, 19, 19, 0.72); max-width: 760px;">Five structural gaps recur across the research (TechCabal Insights, 2025): electricity, data centres, internet access, skills, and language coverage. To these, our field experience adds two enterprise-specific gaps: ungoverned deployments that cannot survive audit, and workforces licensed for AI tools they have not been trained to use.</div><div style="height: 18px;"></div>
+<div data-appear="" style="font-size: 16px; line-height: 27px; color: rgba(19, 19, 19, 0.72); max-width: 760px;">The global failure data applies with full force. MIT Media Lab’s State of AI in Business 2025 study found 95% of enterprise generative-AI pilots deliver no measurable P&amp;L impact, and S&amp;P Global’s 2025 survey found 42% of companies abandoned most of their AI initiatives before production — up from 17% a year earlier. Adoption is not the bottleneck; deployment discipline is.</div><div style="height: 18px;"></div>
+    </div>
+  </section>
+
+  <section data-screen-label="What Works" style="padding: 48px clamp(16px, 3.33vw, 48px) 32px;">
+    <div style="max-width: 980px; margin: 0px auto;">
+      <div data-appear="" style="font-family: Geistmono, monospace; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: rgba(19, 19, 19, 0.5);">▪ What Works</div>
+      <div style="height: 18px;"></div>
+      <h2 style="font-size: clamp(24px, 2.78vw, 40px); font-weight: 500; line-height: 1.15; letter-spacing: -0.04em; margin: 0px; max-width: 700px;">What separates the enterprises whose AI works?</h2>
+      <div style="height: 24px;"></div>
+      <div data-appear="" style="font-size: 16px; line-height: 27px; color: rgba(19, 19, 19, 0.72); max-width: 760px;">Across Cognis Group’s own deployments in financial services, insurance, and enterprise operations, well-scoped systems consistently deliver 40–70% cycle-time reductions in support triage, 60–90% handling-time reductions in document extraction, and 15–30% error reductions in forecasting — but only where three conditions hold: the baseline was instrumented before build, governance was designed in from day one, and the workforce was trained for the workflows the system changed.</div><div style="height: 18px;"></div>
+<div data-appear="" style="font-size: 16px; line-height: 27px; color: rgba(19, 19, 19, 0.72); max-width: 760px;">“African enterprises are not catching up to legacy technology — they are skipping it. The leapfrog only pays off if governance ships with it.” — <strong>Supreme Oyewumi</strong>, Founder &amp; CEO, Cognis Group.</div><div style="height: 18px;"></div>
+    </div>
+  </section>
+
+  <section data-screen-label="The Playbook" style="padding: 48px clamp(16px, 3.33vw, 48px) 32px;">
+    <div style="max-width: 980px; margin: 0px auto;">
+      <div data-appear="" style="font-family: Geistmono, monospace; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: rgba(19, 19, 19, 0.5);">▪ The Playbook</div>
+      <div style="height: 18px;"></div>
+      <h2 style="font-size: clamp(24px, 2.78vw, 40px); font-weight: 500; line-height: 1.15; letter-spacing: -0.04em; margin: 0px; max-width: 700px;">What should African enterprise leaders do in 2026?</h2>
+      <div style="height: 24px;"></div>
+      <div data-appear="" style="font-size: 16px; line-height: 27px; color: rgba(19, 19, 19, 0.72); max-width: 760px;">Five moves, in order: instrument the baseline for the two or three processes AI would most plausibly transform; write the measurement contract before any build starts; align governance with the frameworks that already bind you — NDPA 2023, CBN guidance, POPIA, the EU AI Act where it reaches you, ISO 42001, NIST AI RMF; train the workforce for the workflows that will change, not for AI in the abstract; and ship one governed system to production before funding ten pilots.</div><div style="height: 18px;"></div>
+<div data-appear="" style="font-size: 16px; line-height: 27px; color: rgba(19, 19, 19, 0.72); max-width: 760px;">For how the consulting field on the continent divides — and how to choose a partner — see our companion guide to the <a href="/best-ai-consulting-firms-africa/" style="text-decoration: underline;">best AI consulting firms in Africa in 2026</a>, or start with an <a href="/our-services/ai-strategy-advisory/" style="text-decoration: underline;">AI readiness assessment</a>.</div><div style="height: 18px;"></div>
+    </div>
+  </section>
+
+  <section data-screen-label="Sources" style="padding: 48px clamp(16px, 3.33vw, 48px) 32px;">
+    <div style="max-width: 980px; margin: 0px auto;">
+      <div data-appear="" style="font-family: Geistmono, monospace; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; color: rgba(19, 19, 19, 0.5);">▪ Sources</div>
+      <div style="height: 20px;"></div>
+      <div style="font-size: 14px; line-height: 26px; color: rgba(19, 19, 19, 0.6);">
+        Mastercard, “AI in Africa” market analysis (2025) · GSMA, “AI for Africa” and “The Mobile Economy Africa” (2025–2026) · African Development Bank, “Africa’s AI Productivity Gain” · IMF analysis on AI and African GDP (2026) · Microsoft AI Diffusion Report (2025) · CIO100 Sub-Saharan Africa report (2025) · TechCabal Insights, “The building blocks Africa needs for AI adoption” · McKinsey, “The State of AI” global survey (2025) · MIT Media Lab, “The GenAI Divide: State of AI in Business 2025” · S&amp;P Global generative-AI survey (2025) · Cognis Group client deployment data (2024–2026).
+      </div>
+      <div style="height: 16px;"></div>
+      <div style="font-family: Geistmono, monospace; font-size: 12px; letter-spacing: 0.5px; color: rgba(19, 19, 19, 0.45);">Published July 24, 2026 · Cognis Group Research · Cite freely with attribution.</div>
+    </div>
+  </section>
+
+  <section data-screen-label="CTA" style="padding: 40px 12px 12px;">
+    <div data-appear="" style="position: relative; overflow: hidden; border-radius: 24px; max-width: 1416px; margin: 0px auto; padding: 84px 64px; text-align: center;">
+      <img loading="lazy" decoding="async" src="https://cognis.group/framer-runtime/images/W7a7pFrDjUXSx6Ldb2bKvhqgg.png?width=1600" alt="" style="position: absolute; inset: 0px; width: 100%; height: 100%; object-fit: cover;">
+      <div style="position: absolute; inset: 0px; background: linear-gradient(rgba(19, 19, 19, 0.28) 0%, rgba(19, 19, 19, 0.55) 100%);"></div>
+      <div style="position: relative;">
+        <h2 style="font-size: clamp(28px, 3.19vw, 46px); font-weight: 500; line-height: 1.13; letter-spacing: -0.04em; color: rgb(255, 255, 255); margin: 0px;">Bring us a problem worth shipping.</h2>
+        <div style="height: 18px;"></div>
+        <div style="font-size: 17px; line-height: 26px; color: rgba(255, 255, 255, 0.6); max-width: 560px; margin: 0px auto;">First conversations are exploratory, confidential, and at no cost.</div>
+        <div style="height: 34px;"></div>
+        <a href="/contact/" data-h="h2" style="background: rgb(205, 251, 86); border-radius: 100px; padding: 4px 4px 4px 24px; display: inline-flex; align-items: center; gap: 12px; transition: transform 0.3s cubic-bezier(0.19, 1, 0.22, 1);">
+          <span style="color: rgb(19, 19, 19); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; letter-spacing: 1.68px; text-transform: uppercase;">Start a Conversation</span>
+          <span style="width: 40px; height: 40px; border-radius: 50%; background: rgb(19, 19, 19); display: flex; align-items: center; justify-content: center;"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M13.0457 8.13128L5.8733 15.3037L4.69479 14.1252L11.8672 6.95277L5.54568 6.95277L5.54568 5.28636H14.7121V14.4528L13.0457 14.4528V8.13128Z" fill="#CDFB56"></path></svg></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer data-dc-tpl="131" style="background: rgb(13, 13, 12); margin: 12px; border-radius: 24px; padding: 56px clamp(16px, 3.33vw, 48px) 32px;">
+    <div data-dc-tpl="132" style="max-width: 1280px; margin: 0px auto;">
+      <div data-dc-tpl="133" style="display: grid; grid-template-columns: 1.4fr 0.7fr 0.7fr 1.2fr; gap: 48px;">
+        <div data-dc-tpl="134">
+          <a data-dc-tpl="135" href="/" style="display: inline-flex; align-items: center; gap: 9px; color: rgb(255, 255, 255);">
+            <svg data-dc-tpl="136" viewBox="0 0 40 30" aria-hidden="true" style="width: 34px; height: 26px; fill: rgb(255, 255, 255); display: block;"><path data-dc-tpl="137" d="M 36.968 20.426 L 33.716 26.059 L 24.189 26.048 L 27.223 20.794 L 18.262 5.293 L 28.346 5.337 Z"></path><path data-dc-tpl="138" d="M 9.807 5.266 L 16.312 5.266 L 21.066 13.522 L 14.999 13.521 L 6.055 29.033 L 1.051 20.277 Z"></path></svg>
+            <span data-dc-tpl="139" style="font-family: Inter, sans-serif; font-weight: 400; font-size: 24px; line-height: 28.8px; color: rgb(255, 255, 255); letter-spacing: -1.44px;">Cognis</span>
+          </a>
+          <div data-dc-tpl="140" style="height: 20px;"></div>
+          <div data-dc-tpl="141" style="font-size: 14px; line-height: 1.65; color: rgba(255, 255, 255, 0.6); max-width: 320px;">Cognis Group is more than an advisory firm — we build, deploy, and govern AI systems that permanently transform organizations. Quod Tango Muto — what we touch, we change.</div>
+        </div>
+        <div data-dc-tpl="142" style="display: flex; flex-direction: column; gap: 14px;">
+          <div data-dc-tpl="143" style="font-family: Inter, sans-serif; font-weight: 600; font-size: 11px; color: rgba(255, 255, 255, 0.45); letter-spacing: 0.88px; text-transform: uppercase;">COMPANY</div>
+          <a data-dc-tpl="144" href="/" data-h="h4" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Home</a>
+          <a data-dc-tpl="145" href="/about-us/" data-h="h4" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">About Us</a>
+          <a data-dc-tpl="146" href="/our-services/" data-h="h4" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Services</a>
+          <a data-dc-tpl="147" href="/products/" data-h="h4" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Products</a>
+          <a data-dc-tpl="148" href="/blog/" data-h="h4" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Insights</a>
+        </div>
+        <div data-dc-tpl="149" style="display: flex; flex-direction: column; gap: 14px;">
+          <div data-dc-tpl="150" style="font-family: Inter, sans-serif; font-weight: 600; font-size: 11px; color: rgba(255, 255, 255, 0.45); letter-spacing: 0.88px; text-transform: uppercase;">EXPLORE</div>
+          <a data-dc-tpl="151" href="/why-cognis/" data-h="h4" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Why Cognis</a>
+          <a data-dc-tpl="152" href="/case-studies/" data-h="h4" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Case Studies</a>
+          <a data-dc-tpl="153" href="/how-we-work/" data-h="h4" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">How We Work</a>
+          <a data-dc-tpl="154" href="/contact/" data-h="h4" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Contact</a>
+        </div>
+        <div data-dc-tpl="155">
+          <div data-dc-tpl="156" style="font-family: Inter, sans-serif; font-weight: 600; font-size: 11px; color: rgba(255, 255, 255, 0.45); letter-spacing: 0.88px; text-transform: uppercase;">GET AI INTELLIGENCE IN YOUR INBOX</div>
+          <div data-dc-tpl="157" style="height: 16px;"></div>
+          <form data-dc-tpl="158" action="https://api.web3forms.com/submit" method="POST" style="display: flex; gap: 8px;">
+            <input data-dc-tpl="159" type="hidden" name="access_key" value="6e2d0eb5-2d17-4183-8662-83a3487d2703">
+            <input data-dc-tpl="160" type="hidden" name="from_name" value="cognis.group newsletter">
+            <input data-dc-tpl="161" type="hidden" name="subject" value="New newsletter signup — cognis.group">
+            <input data-dc-tpl="162" type="hidden" name="redirect" value="https://cognis.group/thanks-subscribe/">
+            <input data-dc-tpl="163" type="email" name="email" required="" placeholder="Your work email" style="flex: 1 1 0%; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.14); border-radius: 100px; padding: 12px 18px; font-size: 14px; color: rgb(255, 255, 255); outline: none; font-family: &quot;Plus Jakarta Sans&quot;, sans-serif;">
+            <button data-dc-tpl="164" type="submit" data-h="h5" style="background: rgb(214, 253, 112); color: rgb(13, 13, 12); border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; border-radius: 100px; padding: 12px 22px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: &quot;Plus Jakarta Sans&quot;, sans-serif;">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div data-dc-tpl="165" style="height: clamp(28px, 3.89vw, 56px);"></div>
+      <div data-dc-tpl="166" style="border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 24px; display: flex; justify-content: space-between; align-items: center;">
+        <div data-dc-tpl="167" style="font-size: 14px; color: rgba(255, 255, 255, 0.45);">© 2026 Cognis Group. All rights reserved.</div>
+        <div data-dc-tpl="168" style="display: flex; gap: 24px;">
+          <a data-dc-tpl="169" href="#" data-h="h4" style="font-size: 13px; color: rgba(255, 255, 255, 0.45);">Privacy</a>
+          <a data-dc-tpl="170" href="#" data-h="h4" style="font-size: 13px; color: rgba(255, 255, 255, 0.45);">Terms</a>
+          <a data-dc-tpl="171" href="/contact/" data-h="h4" style="font-size: 13px; color: rgba(255, 255, 255, 0.45);">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer></div></div></div>
+<script src="/cognis.js" defer></script>
+</body>
+</html>
