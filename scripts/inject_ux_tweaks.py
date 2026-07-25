@@ -193,7 +193,105 @@ BLOCK = f"""{START}
   @media (max-width: 539px) {{
     .cognis-team-grid {{ grid-template-columns: 1fr; }}
   }}
+
+  /* The static homepage scrolls #dc-root rather than the document. Keep its
+     header inside that real scroll container so it remains visible, and give
+     the scrolled state an opaque surface instead of letting content show
+     through the navigation. JS below supplies the measured negative margin,
+     preserving the original absolute-header hero spacing at every breakpoint. */
+  .sc-host[data-sc-name="__pre__Cognis Home"] > div > [data-dc-tpl="7"] {{
+    position: sticky !important;
+    top: 12px !important;
+    left: auto !important;
+    right: auto !important;
+    z-index: 1000 !important;
+    transition: background-color .22s ease, box-shadow .22s ease, backdrop-filter .22s ease;
+  }}
+  .sc-host[data-sc-name="__pre__Cognis Home"] > div > [data-dc-tpl="7"].cognis-nav-scrolled {{
+    background: rgba(13, 13, 12, .96) !important;
+    box-shadow: 0 10px 32px rgba(0, 0, 0, .2);
+    backdrop-filter: saturate(140%) blur(12px);
+    -webkit-backdrop-filter: saturate(140%) blur(12px);
+  }}
+
+  /* Blog cards: the complete clickable surface responds, with the same
+     restrained lift/image movement used elsewhere in the Cognis system.
+     Keyboard focus receives the same state; coarse pointers do not get a
+     sticky hover effect. */
+  .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="43"],
+  .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="65"] {{
+    border-radius: 20px;
+    transition: transform .28s cubic-bezier(.2,.7,.2,1), box-shadow .28s ease, background-color .28s ease;
+  }}
+  .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="43"] img,
+  .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="65"] img {{
+    transition: transform .36s cubic-bezier(.2,.7,.2,1);
+  }}
+  .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="43"]:focus-visible,
+  .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="65"]:focus-visible {{
+    transform: translateY(-4px);
+    box-shadow: 0 20px 44px -28px rgba(19,19,19,.42);
+  }}
+  .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="43"]:focus-visible img,
+  .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="65"]:focus-visible img {{
+    transform: scale(1.035);
+  }}
+  @media (hover: hover) and (pointer: fine) {{
+    .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="43"]:hover,
+    .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="65"]:hover {{
+      transform: translateY(-4px);
+      box-shadow: 0 20px 44px -28px rgba(19,19,19,.42);
+      opacity: 1;
+    }}
+    .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="43"]:hover img,
+    .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="65"]:hover img {{
+      transform: scale(1.035);
+    }}
+  }}
+  @media (prefers-reduced-motion: reduce) {{
+    .sc-host[data-sc-name="__pre__Cognis Home"] > div > [data-dc-tpl="7"],
+    .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="43"],
+    .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="65"],
+    .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="43"] img,
+    .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="65"] img {{
+      transition-duration: .01ms !important;
+    }}
+    .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="43"]:hover,
+    .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="65"]:hover,
+    .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="43"]:focus-visible,
+    .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="65"]:focus-visible,
+    .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="43"]:hover img,
+    .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="65"]:hover img,
+    .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="43"]:focus-visible img,
+    .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="65"]:focus-visible img {{
+      transform: none;
+    }}
+  }}
 </style>
+<script data-cognis-sticky-header>
+(function () {{
+  function initStickyHeader() {{
+    var host = document.querySelector('.sc-host[data-sc-name="__pre__Cognis Home"]');
+    if (!host) return;
+    var header = host.querySelector(':scope > div > [data-dc-tpl="7"]');
+    var scroller = host.parentElement;
+    if (!header || !scroller) return;
+    function size() {{
+      header.style.marginBottom = (-header.offsetHeight) + 'px';
+    }}
+    function state() {{
+      header.classList.toggle('cognis-nav-scrolled', scroller.scrollTop > 24);
+    }}
+    size();
+    state();
+    scroller.addEventListener('scroll', state, {{ passive: true }});
+    window.addEventListener('resize', size, {{ passive: true }});
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(size);
+  }}
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initStickyHeader);
+  else initStickyHeader();
+}})();
+</script>
 {END}"""
 
 

@@ -1,0 +1,265 @@
+{
+  "console": [],
+  "views": {
+    "desktop": {
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "candidates": [
+        {
+          "i": 43,
+          "tag": "DIV",
+          "cls": "",
+          "sh": 7222,
+          "ch": 900,
+          "oy": "auto",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "w": 1440,
+            "h": 900
+          }
+        },
+        {
+          "i": 44,
+          "tag": "DIV",
+          "cls": "sc-host",
+          "sh": 7210,
+          "ch": 900,
+          "oy": "visible",
+          "rect": {
+            "x": 0,
+            "y": 12,
+            "w": 1425,
+            "h": 900
+          }
+        },
+        {
+          "i": 562,
+          "tag": "DIV",
+          "cls": "",
+          "sh": 278,
+          "ch": 0,
+          "oy": "visible",
+          "rect": {
+            "x": 1035.5,
+            "y": 4242.2890625,
+            "w": 0,
+            "h": 0
+          }
+        },
+        {
+          "i": 53,
+          "tag": "DIV",
+          "cls": "",
+          "sh": 258,
+          "ch": 20,
+          "oy": "visible",
+          "rect": {
+            "x": 388.75,
+            "y": 60,
+            "w": 594.125,
+            "h": 20
+          }
+        },
+        {
+          "i": 74,
+          "tag": "DIV",
+          "cls": "cg-exp",
+          "sh": 258,
+          "ch": 20,
+          "oy": "visible",
+          "rect": {
+            "x": 892.890625,
+            "y": 60,
+            "w": 89.984375,
+            "h": 20
+          }
+        },
+        {
+          "i": 47,
+          "tag": "DIV",
+          "cls": "",
+          "sh": 270,
+          "ch": 44,
+          "oy": "visible",
+          "rect": {
+            "x": 72.5,
+            "y": 48,
+            "w": 1280,
+            "h": 44
+          }
+        },
+        {
+          "i": 46,
+          "tag": "DIV",
+          "cls": "",
+          "sh": 294,
+          "ch": 92,
+          "oy": "visible",
+          "rect": {
+            "x": 12,
+            "y": 24,
+            "w": 1401,
+            "h": 92
+          }
+        },
+        {
+          "i": 555,
+          "tag": "DIV",
+          "cls": "",
+          "sh": 530,
+          "ch": 340,
+          "oy": "hidden",
+          "rect": {
+            "x": 730.5,
+            "y": 4072.2890625,
+            "w": 610,
+            "h": 340
+          }
+        },
+        {
+          "i": 107,
+          "tag": "DIV",
+          "cls": "",
+          "sh": 320,
+          "ch": 180,
+          "oy": "visible",
+          "rect": {
+            "x": 59.9453125,
+            "y": 505.203125,
+            "w": 1305.109375,
+            "h": 180
+          }
+        }
+      ],
+      "scrollResult": {
+        "before": {
+          "tag": "DIV",
+          "cls": "",
+          "top": 0,
+          "sh": 7222,
+          "ch": 900
+        },
+        "after": 1500
+      },
+      "topPixel": {
+        "tag": "DIV",
+        "cls": "",
+        "text": "“Cognis Group did not just advise us. They fundamentally changed how our leaders",
+        "background": "rgba(0, 0, 0, 0)",
+        "opacity": "1"
+      }
+    },
+    "mobile": {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "candidates": [
+        {
+          "i": 43,
+          "tag": "DIV",
+          "cls": "",
+          "sh": 11094,
+          "ch": 844,
+          "oy": "auto",
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "w": 390,
+            "h": 844
+          }
+        },
+        {
+          "i": 44,
+          "tag": "DIV",
+          "cls": "sc-host",
+          "sh": 11086,
+          "ch": 844,
+          "oy": "visible",
+          "rect": {
+            "x": 0,
+            "y": 8,
+            "w": 375,
+            "h": 844
+          }
+        },
+        {
+          "i": 562,
+          "tag": "DIV",
+          "cls": "",
+          "sh": 302,
+          "ch": 0,
+          "oy": "visible",
+          "rect": {
+            "x": 187.5,
+            "y": 7157.3828125,
+            "w": 0,
+            "h": 0
+          }
+        },
+        {
+          "i": 555,
+          "tag": "DIV",
+          "cls": "",
+          "sh": 622,
+          "ch": 340,
+          "oy": "hidden",
+          "rect": {
+            "x": 28,
+            "y": 6987.3828125,
+            "w": 319,
+            "h": 340
+          }
+        },
+        {
+          "i": 107,
+          "tag": "DIV",
+          "cls": "",
+          "sh": 320,
+          "ch": 180,
+          "oy": "visible",
+          "rect": {
+            "x": 24,
+            "y": 473.59375,
+            "w": 327,
+            "h": 180
+          }
+        },
+        {
+          "i": 581,
+          "tag": "DIV",
+          "cls": "",
+          "sh": 146,
+          "ch": 44,
+          "oy": "visible",
+          "rect": {
+            "x": 234.2010955810547,
+            "y": 6992.08935546875,
+            "w": 81.97212219238281,
+            "h": 197.73193359375
+          }
+        }
+      ],
+      "scrollResult": {
+        "before": {
+          "tag": "DIV",
+          "cls": "",
+          "top": 0,
+          "sh": 11094,
+          "ch": 844
+        },
+        "after": 1500
+      },
+      "topPixel": {
+        "tag": "DIV",
+        "cls": "",
+        "text": "93%",
+        "background": "rgba(0, 0, 0, 0)",
+        "opacity": "1"
+      }
+    }
+  }
+}

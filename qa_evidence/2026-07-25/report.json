@@ -1,0 +1,743 @@
+{
+  "posts": {
+    "ai-governance-is-not-optional": {
+      "coldRuns": [
+        {
+          "run": 1,
+          "title": "AI Governance Is Not Optional | Cognis Group",
+          "bodyTextStart": "Cognis\nHOME\nABOUT US\nSERVICES\nPRODUCTS\nINSIGHTS\nEXPLORE\nWORK WITH US\n\nINSIGHTS · APRIL 1, 2026\n\nAI Governance for African Enterprises: Building Trust Before Scale\n\nAI governance is not a compliance artefact you add at the end — it is the operating discipline that decides whether your AI survives its first audit, its first incident, and its first year in production. The EU AI Act, ISO 42001, NIST AI RMF, and Nigeria's NDPA all assume governance is built in, not bolted on.\n\nBy Kola Olatunde · AI C",
+          "frames": [
+            "ai-governance-is-not-optional__cold-r1__0000ms.png",
+            "ai-governance-is-not-optional__cold-r1__0100ms.png",
+            "ai-governance-is-not-optional__cold-r1__0200ms.png",
+            "ai-governance-is-not-optional__cold-r1__0300ms.png",
+            "ai-governance-is-not-optional__cold-r1__0400ms.png",
+            "ai-governance-is-not-optional__cold-r1__0500ms.png",
+            "ai-governance-is-not-optional__cold-r1__0600ms.png",
+            "ai-governance-is-not-optional__cold-r1__0700ms.png",
+            "ai-governance-is-not-optional__cold-r1__0800ms.png",
+            "ai-governance-is-not-optional__cold-r1__0900ms.png",
+            "ai-governance-is-not-optional__cold-r1__1000ms.png",
+            "ai-governance-is-not-optional__cold-r1__1100ms.png",
+            "ai-governance-is-not-optional__cold-r1__1200ms.png",
+            "ai-governance-is-not-optional__cold-r1__1300ms.png",
+            "ai-governance-is-not-optional__cold-r1__1400ms.png",
+            "ai-governance-is-not-optional__cold-r1__1500ms.png",
+            "ai-governance-is-not-optional__cold-r1__1600ms.png",
+            "ai-governance-is-not-optional__cold-r1__1700ms.png",
+            "ai-governance-is-not-optional__cold-r1__1800ms.png",
+            "ai-governance-is-not-optional__cold-r1__1900ms.png",
+            "ai-governance-is-not-optional__cold-r1__2000ms.png"
+          ]
+        },
+        {
+          "run": 2,
+          "title": "AI Governance Is Not Optional | Cognis Group",
+          "bodyTextStart": "Cognis\nHOME\nABOUT US\nSERVICES\nPRODUCTS\nINSIGHTS\nEXPLORE\nWORK WITH US\n\nINSIGHTS · APRIL 1, 2026\n\nAI Governance for African Enterprises: Building Trust Before Scale\n\nAI governance is not a compliance artefact you add at the end — it is the operating discipline that decides whether your AI survives its first audit, its first incident, and its first year in production. The EU AI Act, ISO 42001, NIST AI RMF, and Nigeria's NDPA all assume governance is built in, not bolted on.\n\nBy Kola Olatunde · AI C",
+          "frames": [
+            "ai-governance-is-not-optional__cold-r2__0000ms.png",
+            "ai-governance-is-not-optional__cold-r2__0100ms.png",
+            "ai-governance-is-not-optional__cold-r2__0200ms.png",
+            "ai-governance-is-not-optional__cold-r2__0300ms.png",
+            "ai-governance-is-not-optional__cold-r2__0400ms.png",
+            "ai-governance-is-not-optional__cold-r2__0500ms.png",
+            "ai-governance-is-not-optional__cold-r2__0600ms.png",
+            "ai-governance-is-not-optional__cold-r2__0700ms.png",
+            "ai-governance-is-not-optional__cold-r2__0800ms.png",
+            "ai-governance-is-not-optional__cold-r2__0900ms.png",
+            "ai-governance-is-not-optional__cold-r2__1000ms.png",
+            "ai-governance-is-not-optional__cold-r2__1100ms.png",
+            "ai-governance-is-not-optional__cold-r2__1200ms.png",
+            "ai-governance-is-not-optional__cold-r2__1300ms.png",
+            "ai-governance-is-not-optional__cold-r2__1400ms.png",
+            "ai-governance-is-not-optional__cold-r2__1500ms.png",
+            "ai-governance-is-not-optional__cold-r2__1600ms.png",
+            "ai-governance-is-not-optional__cold-r2__1700ms.png",
+            "ai-governance-is-not-optional__cold-r2__1800ms.png",
+            "ai-governance-is-not-optional__cold-r2__1900ms.png",
+            "ai-governance-is-not-optional__cold-r2__2000ms.png"
+          ]
+        }
+      ],
+      "boundary": {
+        "footer": {
+          "top": 3895.625,
+          "bottom": 4277.1171875,
+          "text": "Cognis\n          \n          \n          Cognis Group is more than an advisory firm — we build, deploy, and govern AI systems that permanently transform organizations. Quod Tango Muto — what we touch, we change.\n        \n        \n          COMPANY\n    ",
+          "tag": "FOOTER",
+          "cls": ""
+        },
+        "article": {
+          "top": 987.9375,
+          "bottom": 3799.625,
+          "text": "AI governance is not a compliance artefact you add at the end — it is the operating discipline that decides whether your AI survives its first audit, its first incident, and its first year in production. The EU AI Act, ISO 42001, NIST AI RMF, and Nig",
+          "tag": "ARTICLE",
+          "cls": "cognis-longform"
+        },
+        "byline": {
+          "top": 1135.9375,
+          "bottom": 1185.015625,
+          "text": "By Kola Olatunde · AI Cybersecurity & Governance Lead, Cognis Group",
+          "tag": "P",
+          "cls": "lf-byline"
+        },
+        "related": {
+          "top": 3627.640625,
+          "bottom": 3799.625,
+          "text": "Related services\n  \n  AI Strategy & Advisory →\n  AI Training & Workforce Development →",
+          "tag": "ASIDE",
+          "cls": "lf-related"
+        },
+        "founder": [],
+        "height": 4376
+      }
+    },
+    "ai-native-operations-for-african-enterprises": {
+      "coldRuns": [
+        {
+          "run": 1,
+          "title": "AI-Native Operations for African Enterprises | Cognis Group",
+          "bodyTextStart": "Cognis\nHOME\nABOUT US\nSERVICES\nPRODUCTS\nINSIGHTS\nEXPLORE\nWORK WITH US\n\nINSIGHTS · APRIL 8, 2026\n\nWhy Africa’s Next Competitive Advantage Is AI-Native Operations\n\nAfrican enterprises have a structural advantage most don't realise: less legacy debt to unwind. An AI-native operating model — where AI is embedded in every process and decision layer from day one — is genuinely reachable. It is also the single highest-leverage move a serious operator can make in the next 36 months.\n\nBy Supreme Oyewumi ·",
+          "frames": [
+            "ai-native-operations-for-african-enterprises__cold-r1__0000ms.png",
+            "ai-native-operations-for-african-enterprises__cold-r1__0100ms.png",
+            "ai-native-operations-for-african-enterprises__cold-r1__0200ms.png",
+            "ai-native-operations-for-african-enterprises__cold-r1__0300ms.png",
+            "ai-native-operations-for-african-enterprises__cold-r1__0400ms.png",
+            "ai-native-operations-for-african-enterprises__cold-r1__0500ms.png",
+            "ai-native-operations-for-african-enterprises__cold-r1__0600ms.png",
+            "ai-native-operations-for-african-enterprises__cold-r1__0700ms.png",
+            "ai-native-operations-for-african-enterprises__cold-r1__0800ms.png",
+            "ai-native-operations-for-african-enterprises__cold-r1__0900ms.png",
+            "ai-native-operations-for-african-enterprises__cold-r1__1000ms.png",
+            "ai-native-operations-for-african-enterprises__cold-r1__1100ms.png",
+            "ai-native-operations-for-african-enterprises__cold-r1__1200ms.png",
+            "ai-native-operations-for-african-enterprises__cold-r1__1300ms.png",
+            "ai-native-operations-for-african-enterprises__cold-r1__1400ms.png",
+            "ai-native-operations-for-african-enterprises__cold-r1__1500ms.png",
+            "ai-native-operations-for-african-enterprises__cold-r1__1600ms.png",
+            "ai-native-operations-for-african-enterprises__cold-r1__1700ms.png",
+            "ai-native-operations-for-african-enterprises__cold-r1__1800ms.png",
+            "ai-native-operations-for-african-enterprises__cold-r1__1900ms.png",
+            "ai-native-operations-for-african-enterprises__cold-r1__2000ms.png"
+          ]
+        },
+        {
+          "run": 2,
+          "title": "AI-Native Operations for African Enterprises | Cognis Group",
+          "bodyTextStart": "Cognis\nHOME\nABOUT US\nSERVICES\nPRODUCTS\nINSIGHTS\nEXPLORE\nWORK WITH US\n\nINSIGHTS · APRIL 8, 2026\n\nWhy Africa’s Next Competitive Advantage Is AI-Native Operations\n\nAfrican enterprises have a structural advantage most don't realise: less legacy debt to unwind. An AI-native operating model — where AI is embedded in every process and decision layer from day one — is genuinely reachable. It is also the single highest-leverage move a serious operator can make in the next 36 months.\n\nBy Supreme Oyewumi ·",
+          "frames": [
+            "ai-native-operations-for-african-enterprises__cold-r2__0000ms.png",
+            "ai-native-operations-for-african-enterprises__cold-r2__0100ms.png",
+            "ai-native-operations-for-african-enterprises__cold-r2__0200ms.png",
+            "ai-native-operations-for-african-enterprises__cold-r2__0300ms.png",
+            "ai-native-operations-for-african-enterprises__cold-r2__0400ms.png",
+            "ai-native-operations-for-african-enterprises__cold-r2__0500ms.png",
+            "ai-native-operations-for-african-enterprises__cold-r2__0600ms.png",
+            "ai-native-operations-for-african-enterprises__cold-r2__0700ms.png",
+            "ai-native-operations-for-african-enterprises__cold-r2__0800ms.png",
+            "ai-native-operations-for-african-enterprises__cold-r2__0900ms.png",
+            "ai-native-operations-for-african-enterprises__cold-r2__1000ms.png",
+            "ai-native-operations-for-african-enterprises__cold-r2__1100ms.png",
+            "ai-native-operations-for-african-enterprises__cold-r2__1200ms.png",
+            "ai-native-operations-for-african-enterprises__cold-r2__1300ms.png",
+            "ai-native-operations-for-african-enterprises__cold-r2__1400ms.png",
+            "ai-native-operations-for-african-enterprises__cold-r2__1500ms.png",
+            "ai-native-operations-for-african-enterprises__cold-r2__1600ms.png",
+            "ai-native-operations-for-african-enterprises__cold-r2__1700ms.png",
+            "ai-native-operations-for-african-enterprises__cold-r2__1800ms.png",
+            "ai-native-operations-for-african-enterprises__cold-r2__1900ms.png",
+            "ai-native-operations-for-african-enterprises__cold-r2__2000ms.png"
+          ]
+        }
+      ],
+      "boundary": {
+        "footer": {
+          "top": 3785.890625,
+          "bottom": 4167.3828125,
+          "text": "Cognis\n          \n          \n          Cognis Group is more than an advisory firm — we build, deploy, and govern AI systems that permanently transform organizations. Quod Tango Muto — what we touch, we change.\n        \n        \n          COMPANY\n    ",
+          "tag": "FOOTER",
+          "cls": ""
+        },
+        "article": {
+          "top": 987.9375,
+          "bottom": 3689.890625,
+          "text": "African enterprises have a structural advantage most don't realise: less legacy debt to unwind. An AI-native operating model — where AI is embedded in every process and decision layer from day one — is genuinely reachable. It is also the single highe",
+          "tag": "ARTICLE",
+          "cls": "cognis-longform"
+        },
+        "byline": {
+          "top": 1135.9375,
+          "bottom": 1185.015625,
+          "text": "By Supreme Oyewumi · Founder & CEO, Cognis Group",
+          "tag": "P",
+          "cls": "lf-byline"
+        },
+        "related": {
+          "top": 3517.90625,
+          "bottom": 3689.890625,
+          "text": "Related services\n  \n  AI Strategy & Advisory →\n  AI Agent & Automation Engineering →",
+          "tag": "ASIDE",
+          "cls": "lf-related"
+        },
+        "founder": [
+          {
+            "tag": "P",
+            "cls": "lf-byline",
+            "text": "By Supreme Oyewumi · Founder & CEO, Cognis Group",
+            "top": 1135.9375
+          }
+        ],
+        "height": 4267
+      }
+    },
+    "building-ai-agents-that-actually-ship": {
+      "coldRuns": [
+        {
+          "run": 1,
+          "title": "Building AI Agents That Actually Ship | Cognis Group",
+          "bodyTextStart": "Cognis\nHOME\nABOUT US\nSERVICES\nPRODUCTS\nINSIGHTS\nEXPLORE\nWORK WITH US\n\nINSIGHTS · MARCH 25, 2026\n\nAI Agents Are the New Operating System for Enterprise Teams\n\nAI agents ship when they are scoped like systems, not demos. Most agent projects stall because the team built a conversation, not a workflow — no tool contract, no eval harness, no production boundary. Shipping agents is about the plumbing, not the prompt.\n\nBy Supreme Oyewumi · Founder & CEO, Cognis Group\n\nWhy do most AI agent projects stal",
+          "frames": [
+            "building-ai-agents-that-actually-ship__cold-r1__0000ms.png",
+            "building-ai-agents-that-actually-ship__cold-r1__0100ms.png",
+            "building-ai-agents-that-actually-ship__cold-r1__0200ms.png",
+            "building-ai-agents-that-actually-ship__cold-r1__0300ms.png",
+            "building-ai-agents-that-actually-ship__cold-r1__0400ms.png",
+            "building-ai-agents-that-actually-ship__cold-r1__0500ms.png",
+            "building-ai-agents-that-actually-ship__cold-r1__0600ms.png",
+            "building-ai-agents-that-actually-ship__cold-r1__0700ms.png",
+            "building-ai-agents-that-actually-ship__cold-r1__0800ms.png",
+            "building-ai-agents-that-actually-ship__cold-r1__0900ms.png",
+            "building-ai-agents-that-actually-ship__cold-r1__1000ms.png",
+            "building-ai-agents-that-actually-ship__cold-r1__1100ms.png",
+            "building-ai-agents-that-actually-ship__cold-r1__1200ms.png",
+            "building-ai-agents-that-actually-ship__cold-r1__1300ms.png",
+            "building-ai-agents-that-actually-ship__cold-r1__1400ms.png",
+            "building-ai-agents-that-actually-ship__cold-r1__1500ms.png",
+            "building-ai-agents-that-actually-ship__cold-r1__1600ms.png",
+            "building-ai-agents-that-actually-ship__cold-r1__1700ms.png",
+            "building-ai-agents-that-actually-ship__cold-r1__1800ms.png",
+            "building-ai-agents-that-actually-ship__cold-r1__1900ms.png",
+            "building-ai-agents-that-actually-ship__cold-r1__2000ms.png"
+          ]
+        },
+        {
+          "run": 2,
+          "title": "Building AI Agents That Actually Ship | Cognis Group",
+          "bodyTextStart": "Cognis\nHOME\nABOUT US\nSERVICES\nPRODUCTS\nINSIGHTS\nEXPLORE\nWORK WITH US\n\nINSIGHTS · MARCH 25, 2026\n\nAI Agents Are the New Operating System for Enterprise Teams\n\nAI agents ship when they are scoped like systems, not demos. Most agent projects stall because the team built a conversation, not a workflow — no tool contract, no eval harness, no production boundary. Shipping agents is about the plumbing, not the prompt.\n\nBy Supreme Oyewumi · Founder & CEO, Cognis Group\n\nWhy do most AI agent projects stal",
+          "frames": [
+            "building-ai-agents-that-actually-ship__cold-r2__0000ms.png",
+            "building-ai-agents-that-actually-ship__cold-r2__0100ms.png",
+            "building-ai-agents-that-actually-ship__cold-r2__0200ms.png",
+            "building-ai-agents-that-actually-ship__cold-r2__0300ms.png",
+            "building-ai-agents-that-actually-ship__cold-r2__0400ms.png",
+            "building-ai-agents-that-actually-ship__cold-r2__0500ms.png",
+            "building-ai-agents-that-actually-ship__cold-r2__0600ms.png",
+            "building-ai-agents-that-actually-ship__cold-r2__0700ms.png",
+            "building-ai-agents-that-actually-ship__cold-r2__0800ms.png",
+            "building-ai-agents-that-actually-ship__cold-r2__0900ms.png",
+            "building-ai-agents-that-actually-ship__cold-r2__1000ms.png",
+            "building-ai-agents-that-actually-ship__cold-r2__1100ms.png",
+            "building-ai-agents-that-actually-ship__cold-r2__1200ms.png",
+            "building-ai-agents-that-actually-ship__cold-r2__1300ms.png",
+            "building-ai-agents-that-actually-ship__cold-r2__1400ms.png",
+            "building-ai-agents-that-actually-ship__cold-r2__1500ms.png",
+            "building-ai-agents-that-actually-ship__cold-r2__1600ms.png",
+            "building-ai-agents-that-actually-ship__cold-r2__1700ms.png",
+            "building-ai-agents-that-actually-ship__cold-r2__1800ms.png",
+            "building-ai-agents-that-actually-ship__cold-r2__1900ms.png",
+            "building-ai-agents-that-actually-ship__cold-r2__2000ms.png"
+          ]
+        }
+      ],
+      "boundary": {
+        "footer": {
+          "top": 3452.46875,
+          "bottom": 3833.9609375,
+          "text": "Cognis\n          \n          \n          Cognis Group is more than an advisory firm — we build, deploy, and govern AI systems that permanently transform organizations. Quod Tango Muto — what we touch, we change.\n        \n        \n          COMPANY\n    ",
+          "tag": "FOOTER",
+          "cls": ""
+        },
+        "article": {
+          "top": 929.625,
+          "bottom": 3356.46875,
+          "text": "AI agents ship when they are scoped like systems, not demos. Most agent projects stall because the team built a conversation, not a workflow — no tool contract, no eval harness, no production boundary. Shipping agents is about the plumbing, not the p",
+          "tag": "ARTICLE",
+          "cls": "cognis-longform"
+        },
+        "byline": {
+          "top": 1077.625,
+          "bottom": 1126.703125,
+          "text": "By Supreme Oyewumi · Founder & CEO, Cognis Group",
+          "tag": "P",
+          "cls": "lf-byline"
+        },
+        "related": {
+          "top": 3184.484375,
+          "bottom": 3356.46875,
+          "text": "Related services\n  \n  AI Agent & Automation Engineering →\n  AI Strategy & Advisory →",
+          "tag": "ASIDE",
+          "cls": "lf-related"
+        },
+        "founder": [
+          {
+            "tag": "P",
+            "cls": "lf-byline",
+            "text": "By Supreme Oyewumi · Founder & CEO, Cognis Group",
+            "top": 1077.625
+          }
+        ],
+        "height": 3933
+      }
+    },
+    "making-your-workforce-ai-ready": {
+      "coldRuns": [
+        {
+          "run": 1,
+          "title": "Making Your Workforce AI-Ready | Cognis Group",
+          "bodyTextStart": "Cognis\nHOME\nABOUT US\nSERVICES\nPRODUCTS\nINSIGHTS\nEXPLORE\nWORK WITH US\n\nINSIGHTS · APRIL 6, 2026\n\nBuilding an AI-Ready Workforce: What Effective Training Actually Looks Like\n\nAI-ready workforces are built, not hired. The binding constraint on enterprise AI is rarely the model — it is the number of people in the organisation who can confidently scope, adopt, and govern AI in their day-to-day work. That capability is a training problem, and most training programmes are solving the wrong one.\n\nBy Fis",
+          "frames": [
+            "making-your-workforce-ai-ready__cold-r1__0000ms.png",
+            "making-your-workforce-ai-ready__cold-r1__0100ms.png",
+            "making-your-workforce-ai-ready__cold-r1__0200ms.png",
+            "making-your-workforce-ai-ready__cold-r1__0300ms.png",
+            "making-your-workforce-ai-ready__cold-r1__0400ms.png",
+            "making-your-workforce-ai-ready__cold-r1__0500ms.png",
+            "making-your-workforce-ai-ready__cold-r1__0600ms.png",
+            "making-your-workforce-ai-ready__cold-r1__0700ms.png",
+            "making-your-workforce-ai-ready__cold-r1__0800ms.png",
+            "making-your-workforce-ai-ready__cold-r1__0900ms.png",
+            "making-your-workforce-ai-ready__cold-r1__1000ms.png",
+            "making-your-workforce-ai-ready__cold-r1__1100ms.png",
+            "making-your-workforce-ai-ready__cold-r1__1200ms.png",
+            "making-your-workforce-ai-ready__cold-r1__1300ms.png",
+            "making-your-workforce-ai-ready__cold-r1__1400ms.png",
+            "making-your-workforce-ai-ready__cold-r1__1500ms.png",
+            "making-your-workforce-ai-ready__cold-r1__1600ms.png",
+            "making-your-workforce-ai-ready__cold-r1__1700ms.png",
+            "making-your-workforce-ai-ready__cold-r1__1800ms.png",
+            "making-your-workforce-ai-ready__cold-r1__1900ms.png",
+            "making-your-workforce-ai-ready__cold-r1__2000ms.png"
+          ]
+        },
+        {
+          "run": 2,
+          "title": "Making Your Workforce AI-Ready | Cognis Group",
+          "bodyTextStart": "Cognis\nHOME\nABOUT US\nSERVICES\nPRODUCTS\nINSIGHTS\nEXPLORE\nWORK WITH US\n\nINSIGHTS · APRIL 6, 2026\n\nBuilding an AI-Ready Workforce: What Effective Training Actually Looks Like\n\nAI-ready workforces are built, not hired. The binding constraint on enterprise AI is rarely the model — it is the number of people in the organisation who can confidently scope, adopt, and govern AI in their day-to-day work. That capability is a training problem, and most training programmes are solving the wrong one.\n\nBy Fis",
+          "frames": [
+            "making-your-workforce-ai-ready__cold-r2__0000ms.png",
+            "making-your-workforce-ai-ready__cold-r2__0100ms.png",
+            "making-your-workforce-ai-ready__cold-r2__0200ms.png",
+            "making-your-workforce-ai-ready__cold-r2__0300ms.png",
+            "making-your-workforce-ai-ready__cold-r2__0400ms.png",
+            "making-your-workforce-ai-ready__cold-r2__0500ms.png",
+            "making-your-workforce-ai-ready__cold-r2__0600ms.png",
+            "making-your-workforce-ai-ready__cold-r2__0700ms.png",
+            "making-your-workforce-ai-ready__cold-r2__0800ms.png",
+            "making-your-workforce-ai-ready__cold-r2__0900ms.png",
+            "making-your-workforce-ai-ready__cold-r2__1000ms.png",
+            "making-your-workforce-ai-ready__cold-r2__1100ms.png",
+            "making-your-workforce-ai-ready__cold-r2__1200ms.png",
+            "making-your-workforce-ai-ready__cold-r2__1300ms.png",
+            "making-your-workforce-ai-ready__cold-r2__1400ms.png",
+            "making-your-workforce-ai-ready__cold-r2__1500ms.png",
+            "making-your-workforce-ai-ready__cold-r2__1600ms.png",
+            "making-your-workforce-ai-ready__cold-r2__1700ms.png",
+            "making-your-workforce-ai-ready__cold-r2__1800ms.png",
+            "making-your-workforce-ai-ready__cold-r2__1900ms.png",
+            "making-your-workforce-ai-ready__cold-r2__2000ms.png"
+          ]
+        }
+      ],
+      "boundary": {
+        "footer": {
+          "top": 3529.515625,
+          "bottom": 3911.0078125,
+          "text": "Cognis\n          \n          \n          Cognis Group is more than an advisory firm — we build, deploy, and govern AI systems that permanently transform organizations. Quod Tango Muto — what we touch, we change.\n        \n        \n          COMPANY\n    ",
+          "tag": "FOOTER",
+          "cls": ""
+        },
+        "article": {
+          "top": 987.9375,
+          "bottom": 3433.515625,
+          "text": "AI-ready workforces are built, not hired. The binding constraint on enterprise AI is rarely the model — it is the number of people in the organisation who can confidently scope, adopt, and govern AI in their day-to-day work. That capability is a trai",
+          "tag": "ARTICLE",
+          "cls": "cognis-longform"
+        },
+        "byline": {
+          "top": 1135.9375,
+          "bottom": 1185.015625,
+          "text": "By Fisayo Oludare · Executive Director, Partnerships & AI Enablement, Cognis Group",
+          "tag": "P",
+          "cls": "lf-byline"
+        },
+        "related": {
+          "top": 3261.53125,
+          "bottom": 3433.515625,
+          "text": "Related services\n  \n  AI Training & Workforce Development →\n  AI Strategy & Advisory →",
+          "tag": "ASIDE",
+          "cls": "lf-related"
+        },
+        "founder": [],
+        "height": 4010
+      }
+    },
+    "the-real-roi-of-ai": {
+      "coldRuns": [
+        {
+          "run": 1,
+          "title": "The Real ROI of AI | Cognis Group",
+          "bodyTextStart": "Cognis\nHOME\nABOUT US\nSERVICES\nPRODUCTS\nINSIGHTS\nEXPLORE\nWORK WITH US\n\nINSIGHTS · APRIL 3, 2026\n\nMeasuring AI ROI: The Framework That Separates Real Impact from Expensive Experiments\n\nThe real ROI of AI is rarely where the business case promised. It shows up in cycle time, defect rate, and capacity unlock — and it requires a measurement discipline most organisations never build. Without that discipline, AI spend looks like cost; with it, AI becomes the highest-leverage line on the operating P&L.\n",
+          "frames": [
+            "the-real-roi-of-ai__cold-r1__0000ms.png",
+            "the-real-roi-of-ai__cold-r1__0100ms.png",
+            "the-real-roi-of-ai__cold-r1__0200ms.png",
+            "the-real-roi-of-ai__cold-r1__0300ms.png",
+            "the-real-roi-of-ai__cold-r1__0400ms.png",
+            "the-real-roi-of-ai__cold-r1__0500ms.png",
+            "the-real-roi-of-ai__cold-r1__0600ms.png",
+            "the-real-roi-of-ai__cold-r1__0700ms.png",
+            "the-real-roi-of-ai__cold-r1__0800ms.png",
+            "the-real-roi-of-ai__cold-r1__0900ms.png",
+            "the-real-roi-of-ai__cold-r1__1000ms.png",
+            "the-real-roi-of-ai__cold-r1__1100ms.png",
+            "the-real-roi-of-ai__cold-r1__1200ms.png",
+            "the-real-roi-of-ai__cold-r1__1300ms.png",
+            "the-real-roi-of-ai__cold-r1__1400ms.png",
+            "the-real-roi-of-ai__cold-r1__1500ms.png",
+            "the-real-roi-of-ai__cold-r1__1600ms.png",
+            "the-real-roi-of-ai__cold-r1__1700ms.png",
+            "the-real-roi-of-ai__cold-r1__1800ms.png",
+            "the-real-roi-of-ai__cold-r1__1900ms.png",
+            "the-real-roi-of-ai__cold-r1__2000ms.png"
+          ]
+        },
+        {
+          "run": 2,
+          "title": "The Real ROI of AI | Cognis Group",
+          "bodyTextStart": "Cognis\nHOME\nABOUT US\nSERVICES\nPRODUCTS\nINSIGHTS\nEXPLORE\nWORK WITH US\n\nINSIGHTS · APRIL 3, 2026\n\nMeasuring AI ROI: The Framework That Separates Real Impact from Expensive Experiments\n\nThe real ROI of AI is rarely where the business case promised. It shows up in cycle time, defect rate, and capacity unlock — and it requires a measurement discipline most organisations never build. Without that discipline, AI spend looks like cost; with it, AI becomes the highest-leverage line on the operating P&L.\n",
+          "frames": [
+            "the-real-roi-of-ai__cold-r2__0000ms.png",
+            "the-real-roi-of-ai__cold-r2__0100ms.png",
+            "the-real-roi-of-ai__cold-r2__0200ms.png",
+            "the-real-roi-of-ai__cold-r2__0300ms.png",
+            "the-real-roi-of-ai__cold-r2__0400ms.png",
+            "the-real-roi-of-ai__cold-r2__0500ms.png",
+            "the-real-roi-of-ai__cold-r2__0600ms.png",
+            "the-real-roi-of-ai__cold-r2__0700ms.png",
+            "the-real-roi-of-ai__cold-r2__0800ms.png",
+            "the-real-roi-of-ai__cold-r2__0900ms.png",
+            "the-real-roi-of-ai__cold-r2__1000ms.png",
+            "the-real-roi-of-ai__cold-r2__1100ms.png",
+            "the-real-roi-of-ai__cold-r2__1200ms.png",
+            "the-real-roi-of-ai__cold-r2__1300ms.png",
+            "the-real-roi-of-ai__cold-r2__1400ms.png",
+            "the-real-roi-of-ai__cold-r2__1500ms.png",
+            "the-real-roi-of-ai__cold-r2__1600ms.png",
+            "the-real-roi-of-ai__cold-r2__1700ms.png",
+            "the-real-roi-of-ai__cold-r2__1800ms.png",
+            "the-real-roi-of-ai__cold-r2__1900ms.png",
+            "the-real-roi-of-ai__cold-r2__2000ms.png"
+          ]
+        }
+      ],
+      "boundary": {
+        "footer": {
+          "top": 3527.546875,
+          "bottom": 3909.0390625,
+          "text": "Cognis\n          \n          \n          Cognis Group is more than an advisory firm — we build, deploy, and govern AI systems that permanently transform organizations. Quod Tango Muto — what we touch, we change.\n        \n        \n          COMPANY\n    ",
+          "tag": "FOOTER",
+          "cls": ""
+        },
+        "article": {
+          "top": 987.9375,
+          "bottom": 3431.546875,
+          "text": "The real ROI of AI is rarely where the business case promised. It shows up in cycle time, defect rate, and capacity unlock — and it requires a measurement discipline most organisations never build. Without that discipline, AI spend looks like cost; w",
+          "tag": "ARTICLE",
+          "cls": "cognis-longform"
+        },
+        "byline": {
+          "top": 1135.9375,
+          "bottom": 1185.015625,
+          "text": "By Supreme Oyewumi · Founder & CEO, Cognis Group",
+          "tag": "P",
+          "cls": "lf-byline"
+        },
+        "related": {
+          "top": 3259.5625,
+          "bottom": 3431.546875,
+          "text": "Related services\n  \n  AI Strategy & Advisory →\n  AI Agent & Automation Engineering →",
+          "tag": "ASIDE",
+          "cls": "lf-related"
+        },
+        "founder": [
+          {
+            "tag": "P",
+            "cls": "lf-byline",
+            "text": "By Supreme Oyewumi · Founder & CEO, Cognis Group",
+            "top": 1135.9375
+          }
+        ],
+        "height": 4008
+      }
+    },
+    "why-most-enterprise-ai-strategies-fail-before-they-start": {
+      "coldRuns": [
+        {
+          "run": 1,
+          "title": "Why Most Enterprise AI Strategies Fail | Cognis Group",
+          "bodyTextStart": "Cognis\nHOME\nABOUT US\nSERVICES\nPRODUCTS\nINSIGHTS\nEXPLORE\nWORK WITH US\n\nINSIGHTS · MARCH 18, 2026\n\nWhy Most Enterprise AI Deployments Fail — and What Separates the Ones That Succeed\n\nMost enterprise AI strategies fail at the whiteboard, not the model. Industry data from McKinsey and BCG consistently puts the failure rate of enterprise AI initiatives between 70% and 85% — and the pattern repeats: the strategy was a deck, not a deployment plan, and the organisation was never actually ready to ship.\n",
+          "frames": [
+            "why-most-enterprise-ai-strategies-fail-before-they-start__cold-r1__0000ms.png",
+            "why-most-enterprise-ai-strategies-fail-before-they-start__cold-r1__0100ms.png",
+            "why-most-enterprise-ai-strategies-fail-before-they-start__cold-r1__0200ms.png",
+            "why-most-enterprise-ai-strategies-fail-before-they-start__cold-r1__0300ms.png",
+            "why-most-enterprise-ai-strategies-fail-before-they-start__cold-r1__0400ms.png",
+            "why-most-enterprise-ai-strategies-fail-before-they-start__cold-r1__0500ms.png",
+            "why-most-enterprise-ai-strategies-fail-before-they-start__cold-r1__0600ms.png",
+            "why-most-enterprise-ai-strategies-fail-before-they-start__cold-r1__0700ms.png",
+            "why-most-enterprise-ai-strategies-fail-before-they-start__cold-r1__0800ms.png",
+            "why-most-enterprise-ai-strategies-fail-before-they-start__cold-r1__0900ms.png",
+            "why-most-enterprise-ai-strategies-fail-before-they-start__cold-r1__1000ms.png",
+            "why-most-enterprise-ai-strategies-fail-before-they-start__cold-r1__1100ms.png",
+            "why-most-enterprise-ai-strategies-fail-before-they-start__cold-r1__1200ms.png",
+            "why-most-enterprise-ai-strategies-fail-before-they-start__cold-r1__1300ms.png",
+            "why-most-enterprise-ai-strategies-fail-before-they-start__cold-r1__1400ms.png",
+            "why-most-enterprise-ai-strategies-fail-before-they-start__cold-r1__1500ms.png",
+            "why-most-enterprise-ai-strategies-fail-before-they-start__cold-r1__1600ms.png",
+            "why-most-enterprise-ai-strategies-fail-before-they-start__cold-r1__1700ms.png",
+            "why-most-enterprise-ai-strategies-fail-before-they-start__cold-r1__1800ms.png",
+            "why-most-enterprise-ai-strategies-fail-before-they-start__cold-r1__1900ms.png",
+            "why-most-enterprise-ai-strategies-fail-before-they-start__cold-r1__2000ms.png"
+          ]
+        },
+        {
+          "run": 2,
+          "title": "Why Most Enterprise AI Strategies Fail | Cognis Group",
+          "bodyTextStart": "Cognis\nHOME\nABOUT US\nSERVICES\nPRODUCTS\nINSIGHTS\nEXPLORE\nWORK WITH US\n\nINSIGHTS · MARCH 18, 2026\n\nWhy Most Enterprise AI Deployments Fail — and What Separates the Ones That Succeed\n\nMost enterprise AI strategies fail at the whiteboard, not the model. Industry data from McKinsey and BCG consistently puts the failure rate of enterprise AI initiatives between 70% and 85% — and the pattern repeats: the strategy was a deck, not a deployment plan, and the organisation was never actually ready to ship.\n",
+          "frames": [
+            "why-most-enterprise-ai-strategies-fail-before-they-start__cold-r2__0000ms.png",
+            "why-most-enterprise-ai-strategies-fail-before-they-start__cold-r2__0100ms.png",
+            "why-most-enterprise-ai-strategies-fail-before-they-start__cold-r2__0200ms.png",
+            "why-most-enterprise-ai-strategies-fail-before-they-start__cold-r2__0300ms.png",
+            "why-most-enterprise-ai-strategies-fail-before-they-start__cold-r2__0400ms.png",
+            "why-most-enterprise-ai-strategies-fail-before-they-start__cold-r2__0500ms.png",
+            "why-most-enterprise-ai-strategies-fail-before-they-start__cold-r2__0600ms.png",
+            "why-most-enterprise-ai-strategies-fail-before-they-start__cold-r2__0700ms.png",
+            "why-most-enterprise-ai-strategies-fail-before-they-start__cold-r2__0800ms.png",
+            "why-most-enterprise-ai-strategies-fail-before-they-start__cold-r2__0900ms.png",
+            "why-most-enterprise-ai-strategies-fail-before-they-start__cold-r2__1000ms.png",
+            "why-most-enterprise-ai-strategies-fail-before-they-start__cold-r2__1100ms.png",
+            "why-most-enterprise-ai-strategies-fail-before-they-start__cold-r2__1200ms.png",
+            "why-most-enterprise-ai-strategies-fail-before-they-start__cold-r2__1300ms.png",
+            "why-most-enterprise-ai-strategies-fail-before-they-start__cold-r2__1400ms.png",
+            "why-most-enterprise-ai-strategies-fail-before-they-start__cold-r2__1500ms.png",
+            "why-most-enterprise-ai-strategies-fail-before-they-start__cold-r2__1600ms.png",
+            "why-most-enterprise-ai-strategies-fail-before-they-start__cold-r2__1700ms.png",
+            "why-most-enterprise-ai-strategies-fail-before-they-start__cold-r2__1800ms.png",
+            "why-most-enterprise-ai-strategies-fail-before-they-start__cold-r2__1900ms.png",
+            "why-most-enterprise-ai-strategies-fail-before-they-start__cold-r2__2000ms.png"
+          ]
+        }
+      ],
+      "boundary": {
+        "footer": {
+          "top": 3852,
+          "bottom": 4233.4921875,
+          "text": "Cognis\n          \n          \n          Cognis Group is more than an advisory firm — we build, deploy, and govern AI systems that permanently transform organizations. Quod Tango Muto — what we touch, we change.\n        \n        \n          COMPANY\n    ",
+          "tag": "FOOTER",
+          "cls": ""
+        },
+        "article": {
+          "top": 1046.25,
+          "bottom": 3756,
+          "text": "Most enterprise AI strategies fail at the whiteboard, not the model. Industry data from McKinsey and BCG consistently puts the failure rate of enterprise AI initiatives between 70% and 85% — and the pattern repeats: the strategy was a deck, not a dep",
+          "tag": "ARTICLE",
+          "cls": "cognis-longform"
+        },
+        "byline": {
+          "top": 1225.25,
+          "bottom": 1274.328125,
+          "text": "By Supreme Oyewumi · Founder & CEO, Cognis Group",
+          "tag": "P",
+          "cls": "lf-byline"
+        },
+        "related": {
+          "top": 3584.015625,
+          "bottom": 3756,
+          "text": "Related services\n  \n  AI Strategy & Advisory →\n  AI Training & Workforce Development →",
+          "tag": "ASIDE",
+          "cls": "lf-related"
+        },
+        "founder": [
+          {
+            "tag": "P",
+            "cls": "lf-byline",
+            "text": "By Supreme Oyewumi · Founder & CEO, Cognis Group",
+            "top": 1225.25
+          }
+        ],
+        "height": 4333
+      }
+    }
+  },
+  "console": [],
+  "sanity": {
+    "landing-desktop-1440x900": {
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "headerBefore": {
+        "background": "rgb(13, 13, 12)",
+        "position": "fixed",
+        "top": -900,
+        "text": "HomeAbout UsServicesProductsInsightsWhy CognisCase StudiesHow We WorkWork With Us"
+      },
+      "headerAfter": {
+        "background": "rgb(13, 13, 12)",
+        "position": "fixed",
+        "top": -900,
+        "text": "HomeAbout UsServicesProductsInsightsWhy CognisCase StudiesHow We WorkWork With Us"
+      },
+      "title": "Cognis Group | AI Consulting, Strategy & Agent Engineering"
+    },
+    "landing-mobile-390x844": {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "headerBefore": {
+        "background": "rgb(13, 13, 12)",
+        "position": "fixed",
+        "top": -844,
+        "text": "HomeAbout UsServicesProductsInsightsWhy CognisCase StudiesHow We WorkWork With Us"
+      },
+      "headerAfter": {
+        "background": "rgb(13, 13, 12)",
+        "position": "fixed",
+        "top": -844,
+        "text": "HomeAbout UsServicesProductsInsightsWhy CognisCase StudiesHow We WorkWork With Us"
+      },
+      "title": "Cognis Group | AI Consulting, Strategy & Agent Engineering"
+    }
+  },
+  "hover": {
+    "local-blog-card": {
+      "url": "http://127.0.0.1:8099/blog/",
+      "beforeStyle": {
+        "transform": "none",
+        "boxShadow": "none",
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(19, 19, 19)",
+        "rect": {
+          "x": 72.5,
+          "y": 386.09375,
+          "w": 1280,
+          "h": 448.78125
+        },
+        "text": "March 18, 2026\n        \n        Why Most Enterprise AI Strategies Fail Before They Start\n        \n        Five years of "
+      },
+      "afterStyle": {
+        "transform": "none",
+        "boxShadow": "none",
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(19, 19, 19)",
+        "rect": {
+          "x": 72.5,
+          "y": 386.09375,
+          "w": 1280,
+          "h": 448.78125
+        },
+        "text": "March 18, 2026\n        \n        Why Most Enterprise AI Strategies Fail Before They Start\n        \n        Five years of "
+      }
+    },
+    "local-main-button": {
+      "url": "http://127.0.0.1:8099/",
+      "beforeStyle": {
+        "transform": "none",
+        "boxShadow": "none",
+        "background": "rgb(214, 253, 112)",
+        "color": "rgb(13, 13, 12)",
+        "rect": {
+          "x": 1239.765625,
+          "y": 602.984375,
+          "w": 112.734375,
+          "h": 44
+        },
+        "text": "Subscribe"
+      },
+      "afterStyle": {
+        "transform": "none",
+        "boxShadow": "none",
+        "background": "rgb(229, 255, 155)",
+        "color": "rgb(13, 13, 12)",
+        "rect": {
+          "x": 1239.765625,
+          "y": 602.984375,
+          "w": 112.734375,
+          "h": 44
+        },
+        "text": "Subscribe"
+      }
+    },
+    "aeline-insight-card": {
+      "url": "https://aeline.webflow.io",
+      "beforeStyle": {
+        "transform": "none",
+        "boxShadow": "none",
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(0, 0, 0)",
+        "rect": {
+          "x": 124.56399536132812,
+          "y": 311.0801086425781,
+          "w": 556.9920654296875,
+          "h": 278.4960021972656
+        },
+        "text": "AI strategyWe help you identify opportunities for AI adoption and implement the right solutions."
+      },
+      "afterStyle": {
+        "transform": "none",
+        "boxShadow": "none",
+        "background": "rgba(0, 0, 0, 0)",
+        "color": "rgb(0, 0, 0)",
+        "rect": {
+          "x": 104.5,
+          "y": 612.328125,
+          "w": 576,
+          "h": 288
+        },
+        "text": "AI strategyWe help you identify opportunities for AI adoption and implement the right solutions."
+      }
+    },
+    "aeline-main-button": {
+      "url": "https://aeline.webflow.io",
+      "beforeStyle": {
+        "transform": "none",
+        "boxShadow": "none",
+        "background": "rgb(214, 253, 112)",
+        "color": "rgb(0, 0, 0)",
+        "rect": {
+          "x": 306.75958251953125,
+          "y": 729.341796875,
+          "w": 132.6273193359375,
+          "h": 46.42529296875
+        },
+        "text": "Submit"
+      },
+      "afterStyle": {
+        "transform": "none",
+        "boxShadow": "none",
+        "background": "rgb(214, 253, 112)",
+        "color": "rgb(0, 0, 0)",
+        "rect": {
+          "x": 293,
+          "y": 729.96875,
+          "w": 137.125,
+          "h": 48
+        },
+        "text": "Submit"
+      }
+    }
+  }
+}

@@ -1,0 +1,315 @@
+{
+  "console": [],
+  "headers": {
+    "desktop": {
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "before": {
+        "top": 12,
+        "bottom": 104,
+        "left": 0,
+        "width": 1425,
+        "height": 92,
+        "position": "sticky",
+        "background": "rgba(0, 0, 0, 0)",
+        "transform": "none",
+        "shadow": "none",
+        "opacity": "1",
+        "outline": "rgb(0, 0, 0) none 1.5px"
+      },
+      "after": {
+        "top": 12,
+        "bottom": 104,
+        "left": 0,
+        "width": 1425,
+        "height": 92,
+        "position": "sticky",
+        "background": "rgba(13, 13, 12, 0.96)",
+        "transform": "none",
+        "shadow": "rgba(0, 0, 0, 0.2) 0px 10px 32px 0px",
+        "opacity": "1",
+        "outline": "rgb(0, 0, 0) none 1.5px"
+      },
+      "className": "cognis-nav-scrolled",
+      "scroll": {
+        "top": 1500,
+        "height": 7222,
+        "client": 900
+      }
+    },
+    "mobile": {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "before": {
+        "top": 12,
+        "bottom": 104,
+        "left": 0,
+        "width": 375,
+        "height": 92,
+        "position": "sticky",
+        "background": "rgba(0, 0, 0, 0)",
+        "transform": "none",
+        "shadow": "none",
+        "opacity": "1",
+        "outline": "rgb(0, 0, 0) none 1.5px"
+      },
+      "after": {
+        "top": 12,
+        "bottom": 104,
+        "left": 0,
+        "width": 375,
+        "height": 92,
+        "position": "sticky",
+        "background": "rgba(13, 13, 12, 0.96)",
+        "transform": "none",
+        "shadow": "rgba(0, 0, 0, 0.2) 0px 10px 32px 0px",
+        "opacity": "1",
+        "outline": "rgb(0, 0, 0) none 1.5px"
+      },
+      "className": "cognis-nav-scrolled",
+      "scroll": {
+        "top": 1500,
+        "height": 11094,
+        "client": 844
+      }
+    }
+  },
+  "cards": {
+    "featured-card": {
+      "before": {
+        "card": {
+          "top": 386.1015625,
+          "bottom": 834.8984375,
+          "left": 72.5,
+          "width": 1280,
+          "height": 448.796875,
+          "position": "static",
+          "background": "rgba(0, 0, 0, 0)",
+          "transform": "none",
+          "shadow": "none",
+          "opacity": "1",
+          "outline": "rgb(19, 19, 19) none 1.5px"
+        },
+        "image": {
+          "top": 386.1015625,
+          "bottom": 834.8984375,
+          "left": 72.5,
+          "width": 673.1953125,
+          "height": 448.796875,
+          "position": "static",
+          "background": "rgba(0, 0, 0, 0)",
+          "transform": "none",
+          "shadow": "none",
+          "opacity": "1",
+          "outline": "rgb(19, 19, 19) none 1.5px"
+        }
+      },
+      "hovered": {
+        "card": {
+          "top": 382.1015625,
+          "bottom": 830.8984375,
+          "left": 72.5,
+          "width": 1280,
+          "height": 448.796875,
+          "position": "static",
+          "background": "rgba(0, 0, 0, 0)",
+          "transform": "matrix(1, 0, 0, 1, 0, -4)",
+          "shadow": "rgba(19, 19, 19, 0.42) 0px 20px 44px -28px",
+          "opacity": "1",
+          "outline": "rgb(19, 19, 19) none 1.5px"
+        },
+        "image": {
+          "top": 374.24761962890625,
+          "bottom": 838.7523803710938,
+          "left": 60.719085693359375,
+          "width": 696.757080078125,
+          "height": 464.5047607421875,
+          "position": "static",
+          "background": "rgba(0, 0, 0, 0)",
+          "transform": "matrix(1.035, 0, 0, 1.035, 0, 0)",
+          "shadow": "none",
+          "opacity": "1",
+          "outline": "rgb(19, 19, 19) none 1.5px"
+        }
+      },
+      "focused": {
+        "card": {
+          "top": 382.1015625,
+          "bottom": 830.8984375,
+          "left": 72.5,
+          "width": 1280,
+          "height": 448.796875,
+          "position": "static",
+          "background": "rgba(0, 0, 0, 0)",
+          "transform": "matrix(1, 0, 0, 1, 0, -4)",
+          "shadow": "rgba(19, 19, 19, 0.42) 0px 20px 44px -28px",
+          "opacity": "1",
+          "outline": "rgb(0, 95, 204) auto 1px"
+        },
+        "image": {
+          "top": 374.24761962890625,
+          "bottom": 838.7523803710938,
+          "left": 60.719085693359375,
+          "width": 696.757080078125,
+          "height": 464.5047607421875,
+          "position": "static",
+          "background": "rgba(0, 0, 0, 0)",
+          "transform": "matrix(1.035, 0, 0, 1.035, 0, 0)",
+          "shadow": "none",
+          "opacity": "1",
+          "outline": "rgb(19, 19, 19) none 1.5px"
+        }
+      }
+    },
+    "recent-card": {
+      "before": {
+        "card": {
+          "top": 260.9765625,
+          "bottom": 638.6953125,
+          "left": 72.5,
+          "width": 405.328125,
+          "height": 377.71875,
+          "position": "static",
+          "background": "rgba(0, 0, 0, 0)",
+          "transform": "none",
+          "shadow": "none",
+          "opacity": "1",
+          "outline": "rgb(19, 19, 19) none 1.5px"
+        },
+        "image": {
+          "top": 260.9765625,
+          "bottom": 531.1953125,
+          "left": 72.5,
+          "width": 405.328125,
+          "height": 270.21875,
+          "position": "static",
+          "background": "rgba(0, 0, 0, 0)",
+          "transform": "none",
+          "shadow": "none",
+          "opacity": "1",
+          "outline": "rgb(19, 19, 19) none 1.5px"
+        }
+      },
+      "hovered": {
+        "card": {
+          "top": 256.9765625,
+          "bottom": 634.6953125,
+          "left": 72.5,
+          "width": 405.328125,
+          "height": 377.71875,
+          "position": "static",
+          "background": "rgba(0, 0, 0, 0)",
+          "transform": "matrix(1, 0, 0, 1, 0, -4)",
+          "shadow": "rgba(19, 19, 19, 0.42) 0px 20px 44px -28px",
+          "opacity": "1",
+          "outline": "rgb(19, 19, 19) none 1.5px"
+        },
+        "image": {
+          "top": 252.24774169921875,
+          "bottom": 531.9241333007812,
+          "left": 65.40676879882812,
+          "width": 419.51458740234375,
+          "height": 279.6763916015625,
+          "position": "static",
+          "background": "rgba(0, 0, 0, 0)",
+          "transform": "matrix(1.035, 0, 0, 1.035, 0, 0)",
+          "shadow": "none",
+          "opacity": "1",
+          "outline": "rgb(19, 19, 19) none 1.5px"
+        }
+      },
+      "focused": {
+        "card": {
+          "top": 256.9765625,
+          "bottom": 634.6953125,
+          "left": 72.5,
+          "width": 405.328125,
+          "height": 377.71875,
+          "position": "static",
+          "background": "rgba(0, 0, 0, 0)",
+          "transform": "matrix(1, 0, 0, 1, 0, -4)",
+          "shadow": "rgba(19, 19, 19, 0.42) 0px 20px 44px -28px",
+          "opacity": "1",
+          "outline": "rgb(0, 95, 204) auto 1px"
+        },
+        "image": {
+          "top": 252.24774169921875,
+          "bottom": 531.9241333007812,
+          "left": 65.40676879882812,
+          "width": 419.51458740234375,
+          "height": 279.6763916015625,
+          "position": "static",
+          "background": "rgba(0, 0, 0, 0)",
+          "transform": "matrix(1.035, 0, 0, 1.035, 0, 0)",
+          "shadow": "none",
+          "opacity": "1",
+          "outline": "rgb(19, 19, 19) none 1.5px"
+        }
+      }
+    }
+  },
+  "buttons": {
+    "main": {
+      "before": {
+        "top": 36,
+        "bottom": 80,
+        "left": 1185.046875,
+        "width": 167.453125,
+        "height": 44,
+        "position": "static",
+        "background": "rgb(214, 253, 112)",
+        "transform": "none",
+        "shadow": "none",
+        "opacity": "1",
+        "outline": "rgb(19, 19, 19) none 1.5px"
+      },
+      "after": {
+        "top": 37.099998474121094,
+        "bottom": 78.9000015258789,
+        "left": 1189.233154296875,
+        "width": 159.0804443359375,
+        "height": 41.80000305175781,
+        "position": "static",
+        "background": "rgb(255, 255, 255)",
+        "transform": "matrix(0.95, 0, 0, 0.95, 0, 0)",
+        "shadow": "none",
+        "opacity": "0.85",
+        "outline": "rgb(19, 19, 19) none 1.5px"
+      }
+    }
+  },
+  "reducedMotion": {
+    "card": {
+      "card": {
+        "top": 260.9765625,
+        "bottom": 638.6953125,
+        "left": 72.5,
+        "width": 405.328125,
+        "height": 377.71875,
+        "position": "static",
+        "background": "rgba(0, 0, 0, 0)",
+        "transform": "none",
+        "shadow": "rgba(19, 19, 19, 0.42) 0px 20px 44px -28px",
+        "opacity": "1",
+        "outline": "rgb(19, 19, 19) none 1.5px"
+      },
+      "image": {
+        "top": 260.9765625,
+        "bottom": 531.1953125,
+        "left": 72.5,
+        "width": 405.328125,
+        "height": 270.21875,
+        "position": "static",
+        "background": "rgba(0, 0, 0, 0)",
+        "transform": "none",
+        "shadow": "none",
+        "opacity": "1",
+        "outline": "rgb(19, 19, 19) none 1.5px"
+      }
+    }
+  }
+}

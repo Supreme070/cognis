@@ -444,6 +444,272 @@ a[href*="/blog/"]:hover div[style*="overflow"] img{transform:scale(1.06)}
   ]
 }</script>
 <link rel="stylesheet" href="/responsive.css">
+  <!-- cognis-ux-tweaks:start -->
+<style data-cognis-ux-tweaks>
+  /* Let vertical page scroll pass through horizontal Framer slideshows
+     on mobile (e.g. the testimonials carousel). */
+  .framer-slideshow,
+  .framer-slideshow-axis-x,
+  [data-framer-name="slideshow"] {
+    touch-action: pan-y;
+  }
+  .framer-slideshow > div,
+  .framer-slideshow-axis-x > div {
+    touch-action: pan-y;
+  }
+
+  /* Soften testimonials transition — Framer default of 0.25s snaps when
+     you release a swipe. 0.55s cubic-bezier glides into place. */
+  .framer-slideshow-axis-x ul {
+    transition: transform 0.55s cubic-bezier(0.22, 0.61, 0.36, 1) !important;
+  }
+
+  /* About-us "Meet our team": the native Framer block is a horizontal
+     slideshow that froze at slide 0 and only loops two real members
+     (Supreme, Kola) after Fisayo & Eugene were retired — so it showed a
+     duplicate Supreme on desktop and disappeared on the phone breakpoint
+     (Framer's mobile layout omits the section). Hide it on the about-us
+     snapshot only (scoped so a "team"-named element on any other route is
+     never touched) and let `ensureTeamGrid()` render the clean grid below. */
+  [data-cognis-snapshot="/about-us"] [data-framer-name="team"] {
+    display: none !important;
+  }
+
+  /* Injected replacement: a self-contained, deduplicated team grid that
+     renders identically at every breakpoint (2-up desktop/tablet, stacked
+     on mobile). On-brand: Royal/ink heading, lime accent, surface cards. */
+  .cognis-team {
+    background: #fff;
+    padding: 80px max(24px, 5vw) 96px;
+  }
+  .cognis-team-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+  .cognis-team-eyebrow {
+    margin: 0 0 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #131313;
+  }
+  .cognis-team-eyebrow::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #131313;
+  }
+  .cognis-team-title {
+    margin: 0 0 28px;
+    font-size: clamp(34px, 5vw, 56px);
+    line-height: 1.02;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: #131313;
+  }
+  .cognis-team-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 44px;
+    padding: 12px 22px;
+    border-radius: 999px;
+    background: #131313;
+    color: #d6fd70;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+  /* All four members fit on one row — no horizontal scroll. Responsive grid:
+     4-up on desktop, 2-up on tablet, stacked on phones. minmax(0,1fr) lets
+     the columns share the row evenly and shrink without overflowing. */
+  .cognis-team-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+  }
+  .cognis-team-card {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 22px 22px 20px;
+    border-radius: 18px;
+    background: #f2f2f2;
+    color: #131313;
+    text-decoration: none;
+    transition: transform 0.25s ease, background 0.25s ease;
+  }
+  a.cognis-team-card:hover {
+    background: #ececec;
+    transform: translateY(-4px);
+  }
+  .cognis-team-card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .cognis-team-name {
+    font-size: clamp(20px, 1.5vw, 30px);
+    line-height: 1.08;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .cognis-team-go {
+    flex: 0 0 auto;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #131313;
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.25s ease, color 0.25s ease;
+  }
+  a.cognis-team-card:hover .cognis-team-go {
+    background: #d6fd70;
+    color: #131313;
+  }
+  .cognis-team-go svg {
+    width: 18px;
+    height: 18px;
+    display: block;
+  }
+  .cognis-team-role {
+    margin: 6px 0 16px;
+    font-size: 14px;
+    color: #7b7b7b;
+  }
+  .cognis-team-photo {
+    margin-top: auto;
+    overflow: hidden;
+    border-radius: 14px;
+    aspect-ratio: 5 / 4;
+    background: #ddd;
+  }
+  .cognis-team-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  @media (max-width: 1099px) {
+    .cognis-team-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+  }
+  @media (max-width: 809px) {
+    .cognis-team { padding: 56px max(20px, 5vw) 64px; }
+  }
+  @media (max-width: 539px) {
+    .cognis-team-grid { grid-template-columns: 1fr; }
+  }
+
+  /* The static homepage scrolls #dc-root rather than the document. Keep its
+     header inside that real scroll container so it remains visible, and give
+     the scrolled state an opaque surface instead of letting content show
+     through the navigation. JS below supplies the measured negative margin,
+     preserving the original absolute-header hero spacing at every breakpoint. */
+  .sc-host[data-sc-name="__pre__Cognis Home"] > div > [data-dc-tpl="7"] {
+    position: sticky !important;
+    top: 12px !important;
+    left: auto !important;
+    right: auto !important;
+    z-index: 1000 !important;
+    transition: background-color .22s ease, box-shadow .22s ease, backdrop-filter .22s ease;
+  }
+  .sc-host[data-sc-name="__pre__Cognis Home"] > div > [data-dc-tpl="7"].cognis-nav-scrolled {
+    background: rgba(13, 13, 12, .96) !important;
+    box-shadow: 0 10px 32px rgba(0, 0, 0, .2);
+    backdrop-filter: saturate(140%) blur(12px);
+    -webkit-backdrop-filter: saturate(140%) blur(12px);
+  }
+
+  /* Blog cards: the complete clickable surface responds, with the same
+     restrained lift/image movement used elsewhere in the Cognis system.
+     Keyboard focus receives the same state; coarse pointers do not get a
+     sticky hover effect. */
+  .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="43"],
+  .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="65"] {
+    border-radius: 20px;
+    transition: transform .28s cubic-bezier(.2,.7,.2,1), box-shadow .28s ease, background-color .28s ease;
+  }
+  .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="43"] img,
+  .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="65"] img {
+    transition: transform .36s cubic-bezier(.2,.7,.2,1);
+  }
+  .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="43"]:focus-visible,
+  .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="65"]:focus-visible {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 44px -28px rgba(19,19,19,.42);
+  }
+  .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="43"]:focus-visible img,
+  .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="65"]:focus-visible img {
+    transform: scale(1.035);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="43"]:hover,
+    .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="65"]:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 44px -28px rgba(19,19,19,.42);
+      opacity: 1;
+    }
+    .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="43"]:hover img,
+    .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="65"]:hover img {
+      transform: scale(1.035);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .sc-host[data-sc-name="__pre__Cognis Home"] > div > [data-dc-tpl="7"],
+    .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="43"],
+    .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="65"],
+    .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="43"] img,
+    .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="65"] img {
+      transition-duration: .01ms !important;
+    }
+    .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="43"]:hover,
+    .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="65"]:hover,
+    .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="43"]:focus-visible,
+    .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="65"]:focus-visible,
+    .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="43"]:hover img,
+    .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="65"]:hover img,
+    .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="43"]:focus-visible img,
+    .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="65"]:focus-visible img {
+      transform: none;
+    }
+  }
+</style>
+<script data-cognis-sticky-header>
+(function () {
+  function initStickyHeader() {
+    var host = document.querySelector('.sc-host[data-sc-name="__pre__Cognis Home"]');
+    if (!host) return;
+    var header = host.querySelector(':scope > div > [data-dc-tpl="7"]');
+    var scroller = host.parentElement;
+    if (!header || !scroller) return;
+    function size() {
+      header.style.marginBottom = (-header.offsetHeight) + 'px';
+    }
+    function state() {
+      header.classList.toggle('cognis-nav-scrolled', scroller.scrollTop > 24);
+    }
+    size();
+    state();
+    scroller.addEventListener('scroll', state, { passive: true });
+    window.addEventListener('resize', size, { passive: true });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(size);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initStickyHeader);
+  else initStickyHeader();
+})();
+</script>
+<!-- cognis-ux-tweaks:end -->
 </head>
 <body>
 <div id="dc-root"><div class="sc-host" data-sc-name="__pre__Cognis Home"><div data-dc-tpl="6" style="background: rgb(255, 255, 255); position: relative;">
