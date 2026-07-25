@@ -63,6 +63,9 @@ body.cg-menu-lock { overflow: hidden; }
   /* Nav: desktop links -> hamburger */
   [data-cg-navlinks] { display: none !important; }
   [data-cg-hamburger] { display: flex !important; }
+  /* Aeline mobile header: logo + hamburger only — the slide-in menu carries
+     the Work With Us CTA, so the header pill hides at hamburger widths. */
+  [data-cg-headercta] { display: none !important; }
 
   /* Grid structure: repeat() grids reflow to as many 300px+ columns as fit
      (2-up on tablet). Full-width feature tiles span the whole row so a

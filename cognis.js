@@ -259,6 +259,14 @@
       setBurgers(open);
       document.body.classList.toggle('cg-menu-lock', open);
     }
+    // Aeline's mobile header is logo + hamburger only — tag the header CTA
+    // pill so responsive.css can hide it at hamburger widths (the slide-in
+    // menu carries its own Work With Us CTA).
+    headers.forEach(function (h) {
+      [].slice.call(h.querySelectorAll('a[href="/contact/"]')).forEach(function (a) {
+        if (/work with us/i.test(cgLabelOf(a) || '')) a.setAttribute('data-cg-headercta', '');
+      });
+    });
     // One hamburger per header (only the visible header's shows on mobile).
     headers.forEach(function (h) {
       var burger = document.createElement('button');
@@ -314,7 +322,19 @@
     for (var i = 0; i < divs.length; i++) {
       if ((divs[i].textContent || '').trim().indexOf('Trusted by organizations') === 0) { trust = divs[i]; break; }
     }
+    // Original inline values, restored when leaving the phone breakpoint.
+    var origMask = ring.style.maskImage || ring.style.webkitMaskImage || '';
+    var origPersp = ring.style.perspective || '';
     function fit() {
+      // Phones: the design-width mask fades over % of a now-narrow container,
+      // so cards slice off at the edges instead of melting out; and the wide
+      // ring's perspective balloons side cards. Widen the fade band and
+      // flatten the projection so the sweep stays smooth. Desktop unchanged.
+      var phone = window.innerWidth < 768;
+      var phoneMask = 'linear-gradient(90deg, transparent 0%, rgb(0, 0, 0) 20%, rgb(0, 0, 0) 80%, transparent 100%)';
+      ring.style.maskImage = phone ? phoneMask : origMask;
+      ring.style.webkitMaskImage = phone ? phoneMask : origMask;
+      ring.style.perspective = phone ? '7000px' : origPersp;
       // Aeline's hero ring spans the FULL width — a card enters at the far left,
       // sweeps across, and exits at the far right (the side fade-mask hides the
       // wrap-around). Preserve that wide spread: DON'T scale the whole ring down
