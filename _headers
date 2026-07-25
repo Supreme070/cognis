@@ -9,9 +9,11 @@
 /framer-runtime/*
   Cache-Control: public, max-age=31536000, immutable
 
-# Locally-served product assets (stable but not fingerprinted) — a week.
+# Locally-served product assets (not fingerprinted, replaced in place during
+# redesigns) — always revalidate so a deploy shows immediately; unchanged
+# files still answer with a cheap 304 via ETag.
 /assets/*
-  Cache-Control: public, max-age=604800
+  Cache-Control: public, max-age=0, must-revalidate
 
 # Brand icons (not fingerprinted) — a week.
 /favicon.svg
