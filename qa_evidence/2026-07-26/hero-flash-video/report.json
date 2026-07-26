@@ -1,0 +1,35 @@
+{
+  "console": [],
+  "videos": [
+    {
+      "name": "why-cognis",
+      "mode": "cold",
+      "file": "why-cognis__cold.webm"
+    },
+    {
+      "name": "why-cognis",
+      "mode": "navigation",
+      "file": "why-cognis__navigation.webm"
+    },
+    {
+      "name": "case-studies",
+      "mode": "cold",
+      "file": "case-studies__cold.webm"
+    },
+    {
+      "name": "case-studies",
+      "mode": "navigation",
+      "file": "case-studies__navigation.webm"
+    },
+    {
+      "name": "how-we-work",
+      "mode": "cold",
+      "file": "how-we-work__cold.webm"
+    },
+    {
+      "name": "how-we-work",
+      "mode": "navigation",
+      "file": "how-we-work__navigation.webm"
+    }
+  ]
+}

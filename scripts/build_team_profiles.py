@@ -12,6 +12,7 @@ pages (no Framer runtime), served directly by Cloudflare Pages.
 from __future__ import annotations
 
 import html
+import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -20,13 +21,24 @@ ROOT = Path(__file__).resolve().parent.parent
 # them here. Only members without a CMS profile go below.
 MEMBERS = [
     {
+        "slug": "fisayo-oludare",
+        "name": "Fisayo Oludare",
+        "role": "Executive Director, Partnerships & AI Enablement",
+        "img": "/framer-runtime/images/il73eZeVzET6bn72svJVyQpD4.png",
+        "bio": "Fisayo leads partnerships and AI enablement at Cognis Group. "
+               "She connects enterprise priorities to role-based adoption "
+               "programmes, helping leadership teams and workforces build the "
+               "capability to use and govern AI in day-to-day work.",
+    },
+    {
         "slug": "obruche-uwanoghor",
         "name": "Obruche Uwanoghor",
         "role": "Director of People & Culture",
         "img": "/framer-runtime/images/team-obruche-uwanoghor.jpg",
         "bio": "Obruche leads People & Culture at Cognis Group — building the "
-               "team, shaping how we work day to day, and making sure our "
-               "people grow as fast as the company does.",
+               "multidisciplinary teams behind our consulting and engineering "
+               "work, shaping how we operate, and making sure our people grow "
+               "as fast as the systems they deliver.",
     },
     {
         "slug": "tosin-salami",
@@ -34,8 +46,8 @@ MEMBERS = [
         "role": "Executive Director, Product & Strategy",
         "img": "/framer-runtime/images/team-tosin-salami.jpg",
         "bio": "Tosin sets product direction and strategy at Cognis Group — "
-               "turning where the market is heading into the products, "
-               "roadmaps, and priorities that get us there.",
+               "turning enterprise needs into the product roadmaps and delivery "
+               "priorities behind Cognis AI, MarketSage, Migratio, and SPOG.",
     },
 ]
 
@@ -55,12 +67,19 @@ TEMPLATE = """<!doctype html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{name} — Cognis Group</title>
 <meta name="description" content="{name}, {role_text} at Cognis Group.">
-<link rel="canonical" href="https://cognis.group/teams/{slug}">
+<link rel="canonical" href="https://cognis.group/teams/{slug}/">
+<link rel="alternate" hreflang="en" href="https://cognis.group/teams/{slug}/">
+<link rel="alternate" hreflang="x-default" href="https://cognis.group/teams/{slug}/">
 <meta property="og:type" content="profile">
 <meta property="og:title" content="{name} — Cognis Group">
 <meta property="og:description" content="{role_text} at Cognis Group.">
-<meta property="og:url" content="https://cognis.group/teams/{slug}">
+<meta property="og:url" content="https://cognis.group/teams/{slug}/">
 <meta property="og:image" content="https://cognis.group{img_path}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{name} — Cognis Group">
+<meta name="twitter:description" content="{role_text} at Cognis Group.">
+<meta name="twitter:image" content="https://cognis.group{img_path}">
+<script type="application/ld+json">{schema}</script>
 <link rel="icon" href="/favicon.svg">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <style>
@@ -140,6 +159,37 @@ def main() -> None:
     nav_links = "".join(f'<a href="{h}">{html.escape(t)}</a>' for t, h in NAV)
     foot_links = "".join(f'<a href="{h}">{html.escape(t)}</a>' for t, h in FOOT)
     for m in MEMBERS:
+        person_id = f'https://cognis.group/teams/{m["slug"]}/#person'
+        page_id = f'https://cognis.group/teams/{m["slug"]}/#webpage'
+        schema = json.dumps({
+            "@context": "https://schema.org",
+            "@graph": [
+                {
+                    "@type": "ProfilePage",
+                    "@id": page_id,
+                    "url": f'https://cognis.group/teams/{m["slug"]}/',
+                    "name": f'{m["name"]} — {m["role"]}',
+                    "mainEntity": {"@id": person_id},
+                    "breadcrumb": {
+                        "@type": "BreadcrumbList",
+                        "itemListElement": [
+                            {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://cognis.group/"},
+                            {"@type": "ListItem", "position": 2, "name": "About", "item": "https://cognis.group/about-us/"},
+                            {"@type": "ListItem", "position": 3, "name": m["name"], "item": f'https://cognis.group/teams/{m["slug"]}/'},
+                        ],
+                    },
+                },
+                {
+                    "@type": "Person",
+                    "@id": person_id,
+                    "name": m["name"],
+                    "jobTitle": m["role"],
+                    "image": f'https://cognis.group{m["img"]}',
+                    "url": f'https://cognis.group/teams/{m["slug"]}/',
+                    "worksFor": {"@id": "https://cognis.group/#organization"},
+                },
+            ],
+        }, ensure_ascii=False)
         page = TEMPLATE.format(
             name=html.escape(m["name"]),
             role_text=html.escape(m["role"]),
@@ -149,6 +199,7 @@ def main() -> None:
             img_path=m["img"],
             nav_links=nav_links,
             foot_links=foot_links,
+            schema=schema,
         )
         out = ROOT / "teams" / m["slug"] / "index.html"
         out.parent.mkdir(parents=True, exist_ok=True)

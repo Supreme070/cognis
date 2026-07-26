@@ -45,6 +45,7 @@ jobs:
             --exclude='deploy' \
             --exclude='tests' \
             --exclude='qa_evidence' \
+            --exclude='brand-manual' \
             --exclude='playwright-report' \
             --exclude='test-results' \
             --exclude='package.json' \

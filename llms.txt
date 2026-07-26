@@ -1,6 +1,6 @@
 # Cognis Group
 
-Last updated: 2026-07-24
+Last updated: 2026-07-26
 
 > Cognis Group is an AI company that builds, deploys, and governs AI systems that permanently transform organizations. Three core practices: AI Strategy & Advisory, AI Training & Workforce Development, and AI Agent & Automation Engineering. Quod Tango Muto — what we touch, we change.
 
@@ -23,7 +23,7 @@ Cognis Group builds and operates its own software, not just advisory. Four produ
 - [Cognis AI](https://ai.cognis.group): A workforce of specialised AI workers — hire one for support, voice, knowledge, ops, or trade. Workers start in shadow mode, earn autonomy, and can be cancelled anytime. Tagline: "Hire AI to do the work." (Live)
 - [MarketSage](https://www.marketsage.africa): Autonomous marketing and sales intelligence — plans campaigns, runs them across channels, and turns activity into pipeline. Tagline: "Marketing that thinks, acts, and converts." (Live)
 - [Migratio](https://migratio.cognis.group): The data-migration platform for banks, ministries, and regulated enterprises — reconcile before cutover, audit every record, pass the regulator's review on the first try. (Live)
-- SPOG: A new Cognis Group product, in development. (Coming soon)
+- [SPOG](https://spog.cognis.group): A single pane of glass for enterprise operations across IT, networks, facilities, fleet, and physical security. (Live)
 
 ## Case Studies
 
@@ -44,6 +44,11 @@ Cognis Group builds and operates its own software, not just advisory. Four produ
 
 ## Insights
 
+- [Securing AI Agents in Production: A 2026 Threat Model](https://cognis.group/blog/securing-ai-agents-in-production/): Kola Olatunde’s boundary-first control model for identity, tools, memory, approvals, logging, and incident response.
+- [Enterprise RAG Security](https://cognis.group/blog/enterprise-rag-security-prompt-injection-data-exfiltration/): Kola Olatunde on prompt injection, data exfiltration, retrieval-time access control, and secure ingestion.
+- [AI Governance in Africa in 2026](https://cognis.group/blog/ai-governance-africa-2026/): Kola Olatunde’s operating-control framework for multi-jurisdiction African enterprises.
+- [From Copilot to Coworker](https://cognis.group/blog/from-copilot-to-coworker-productizing-ai-agents/): Tosin Salami’s product framework for bounded jobs, trust, staged autonomy, and agent launch criteria.
+- [The AI Agent Product Operating System](https://cognis.group/blog/ai-agent-product-operating-system/): Tosin Salami on evals, production telemetry, unit economics, versioning, and lifecycle governance.
 - [Why Most Enterprise AI Strategies Fail Before They Start](https://cognis.group/blog/why-most-enterprise-ai-strategies-fail-before-they-start/): Common failure modes in enterprise AI adoption.
 - [Building AI Agents That Actually Ship](https://cognis.group/blog/building-ai-agents-that-actually-ship/): From proof of concept to production-grade agent deployment.
 - [AI Governance Is Not Optional](https://cognis.group/blog/ai-governance-is-not-optional/): Building governance before deployment, not after.
@@ -53,7 +58,7 @@ Cognis Group builds and operates its own software, not just advisory. Four produ
 
 ## About
 
-Cognis Group Limited is registered with the Corporate Affairs Commission (Lagos, Nigeria). Founded 2025 by Supreme Oyewumi. Serves organizations across Africa, Europe, and the Americas.
+Cognis Group Limited is registered with the Corporate Affairs Commission (Lagos, Nigeria). Co-founded in 2025 by Supreme Oyewumi and Kola Olatunde. Serves organizations across Africa, Europe, and the Americas.
 
 Motto: Quod Tango Muto — "What we touch, we change."
 

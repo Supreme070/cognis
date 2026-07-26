@@ -1,0 +1,1211 @@
+{
+  "console": [],
+  "routes": {
+    "why-cognis": {
+      "expected": "/assets/why-hero.jpg",
+      "cold": [
+        [
+          {
+            "ms": 0,
+            "file": "why-cognis__cold-r1__0000ms.png",
+            "state": {
+              "src": "/assets/why-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/why-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 100,
+            "file": "why-cognis__cold-r1__0100ms.png",
+            "state": {
+              "src": "/assets/why-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/why-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 200,
+            "file": "why-cognis__cold-r1__0200ms.png",
+            "state": {
+              "src": "/assets/why-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/why-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 300,
+            "file": "why-cognis__cold-r1__0300ms.png",
+            "state": {
+              "src": "/assets/why-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/why-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 400,
+            "file": "why-cognis__cold-r1__0400ms.png",
+            "state": {
+              "src": "/assets/why-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/why-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 500,
+            "file": "why-cognis__cold-r1__0500ms.png",
+            "state": {
+              "src": "/assets/why-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/why-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 600,
+            "file": "why-cognis__cold-r1__0600ms.png",
+            "state": {
+              "src": "/assets/why-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/why-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 700,
+            "file": "why-cognis__cold-r1__0700ms.png",
+            "state": {
+              "src": "/assets/why-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/why-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 800,
+            "file": "why-cognis__cold-r1__0800ms.png",
+            "state": {
+              "src": "/assets/why-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/why-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 900,
+            "file": "why-cognis__cold-r1__0900ms.png",
+            "state": {
+              "src": "/assets/why-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/why-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 1000,
+            "file": "why-cognis__cold-r1__1000ms.png",
+            "state": {
+              "src": "/assets/why-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/why-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 1100,
+            "file": "why-cognis__cold-r1__1100ms.png",
+            "state": {
+              "src": "/assets/why-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/why-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 1200,
+            "file": "why-cognis__cold-r1__1200ms.png",
+            "state": {
+              "src": "/assets/why-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/why-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 1300,
+            "file": "why-cognis__cold-r1__1300ms.png",
+            "state": {
+              "src": "/assets/why-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/why-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 1400,
+            "file": "why-cognis__cold-r1__1400ms.png",
+            "state": {
+              "src": "/assets/why-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/why-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 1500,
+            "file": "why-cognis__cold-r1__1500ms.png",
+            "state": {
+              "src": "/assets/why-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/why-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 1600,
+            "file": "why-cognis__cold-r1__1600ms.png",
+            "state": {
+              "src": "/assets/why-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/why-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 1700,
+            "file": "why-cognis__cold-r1__1700ms.png",
+            "state": {
+              "src": "/assets/why-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/why-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 1800,
+            "file": "why-cognis__cold-r1__1800ms.png",
+            "state": {
+              "src": "/assets/why-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/why-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 1900,
+            "file": "why-cognis__cold-r1__1900ms.png",
+            "state": {
+              "src": "/assets/why-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/why-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 2000,
+            "file": "why-cognis__cold-r1__2000ms.png",
+            "state": {
+              "src": "/assets/why-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/why-hero.jpg",
+              "complete": true
+            }
+          }
+        ],
+        [
+          {
+            "ms": 0,
+            "file": "why-cognis__cold-r2__0000ms.png",
+            "state": {
+              "src": "/assets/why-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/why-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 100,
+            "file": "why-cognis__cold-r2__0100ms.png",
+            "state": {
+              "src": "/assets/why-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/why-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 200,
+            "file": "why-cognis__cold-r2__0200ms.png",
+            "state": {
+              "src": "/assets/why-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/why-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 300,
+            "file": "why-cognis__cold-r2__0300ms.png",
+            "state": {
+              "src": "/assets/why-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/why-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 400,
+            "file": "why-cognis__cold-r2__0400ms.png",
+            "state": {
+              "src": "/assets/why-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/why-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 500,
+            "file": "why-cognis__cold-r2__0500ms.png",
+            "state": {
+              "src": "/assets/why-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/why-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 600,
+            "file": "why-cognis__cold-r2__0600ms.png",
+            "state": {
+              "src": "/assets/why-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/why-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 700,
+            "file": "why-cognis__cold-r2__0700ms.png",
+            "state": {
+              "src": "/assets/why-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/why-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 800,
+            "file": "why-cognis__cold-r2__0800ms.png",
+            "state": {
+              "src": "/assets/why-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/why-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 900,
+            "file": "why-cognis__cold-r2__0900ms.png",
+            "state": {
+              "src": "/assets/why-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/why-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 1000,
+            "file": "why-cognis__cold-r2__1000ms.png",
+            "state": {
+              "src": "/assets/why-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/why-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 1100,
+            "file": "why-cognis__cold-r2__1100ms.png",
+            "state": {
+              "src": "/assets/why-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/why-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 1200,
+            "file": "why-cognis__cold-r2__1200ms.png",
+            "state": {
+              "src": "/assets/why-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/why-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 1300,
+            "file": "why-cognis__cold-r2__1300ms.png",
+            "state": {
+              "src": "/assets/why-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/why-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 1400,
+            "file": "why-cognis__cold-r2__1400ms.png",
+            "state": {
+              "src": "/assets/why-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/why-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 1500,
+            "file": "why-cognis__cold-r2__1500ms.png",
+            "state": {
+              "src": "/assets/why-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/why-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 1600,
+            "file": "why-cognis__cold-r2__1600ms.png",
+            "state": {
+              "src": "/assets/why-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/why-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 1700,
+            "file": "why-cognis__cold-r2__1700ms.png",
+            "state": {
+              "src": "/assets/why-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/why-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 1800,
+            "file": "why-cognis__cold-r2__1800ms.png",
+            "state": {
+              "src": "/assets/why-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/why-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 1900,
+            "file": "why-cognis__cold-r2__1900ms.png",
+            "state": {
+              "src": "/assets/why-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/why-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 2000,
+            "file": "why-cognis__cold-r2__2000ms.png",
+            "state": {
+              "src": "/assets/why-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/why-hero.jpg",
+              "complete": true
+            }
+          }
+        ]
+      ],
+      "navigation": [
+        "why-cognis__navigation__0000ms.png",
+        "why-cognis__navigation__0100ms.png",
+        "why-cognis__navigation__0200ms.png",
+        "why-cognis__navigation__0300ms.png",
+        "why-cognis__navigation__0400ms.png",
+        "why-cognis__navigation__0500ms.png",
+        "why-cognis__navigation__0600ms.png",
+        "why-cognis__navigation__0700ms.png",
+        "why-cognis__navigation__0800ms.png",
+        "why-cognis__navigation__0900ms.png",
+        "why-cognis__navigation__1000ms.png",
+        "why-cognis__navigation__1100ms.png",
+        "why-cognis__navigation__1200ms.png"
+      ]
+    },
+    "case-studies": {
+      "expected": "/assets/cases-hero.jpg",
+      "cold": [
+        [
+          {
+            "ms": 0,
+            "file": "case-studies__cold-r1__0000ms.png",
+            "state": {
+              "src": "/assets/cases-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/cases-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 100,
+            "file": "case-studies__cold-r1__0100ms.png",
+            "state": {
+              "src": "/assets/cases-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/cases-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 200,
+            "file": "case-studies__cold-r1__0200ms.png",
+            "state": {
+              "src": "/assets/cases-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/cases-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 300,
+            "file": "case-studies__cold-r1__0300ms.png",
+            "state": {
+              "src": "/assets/cases-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/cases-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 400,
+            "file": "case-studies__cold-r1__0400ms.png",
+            "state": {
+              "src": "/assets/cases-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/cases-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 500,
+            "file": "case-studies__cold-r1__0500ms.png",
+            "state": {
+              "src": "/assets/cases-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/cases-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 600,
+            "file": "case-studies__cold-r1__0600ms.png",
+            "state": {
+              "src": "/assets/cases-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/cases-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 700,
+            "file": "case-studies__cold-r1__0700ms.png",
+            "state": {
+              "src": "/assets/cases-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/cases-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 800,
+            "file": "case-studies__cold-r1__0800ms.png",
+            "state": {
+              "src": "/assets/cases-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/cases-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 900,
+            "file": "case-studies__cold-r1__0900ms.png",
+            "state": {
+              "src": "/assets/cases-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/cases-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 1000,
+            "file": "case-studies__cold-r1__1000ms.png",
+            "state": {
+              "src": "/assets/cases-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/cases-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 1100,
+            "file": "case-studies__cold-r1__1100ms.png",
+            "state": {
+              "src": "/assets/cases-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/cases-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 1200,
+            "file": "case-studies__cold-r1__1200ms.png",
+            "state": {
+              "src": "/assets/cases-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/cases-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 1300,
+            "file": "case-studies__cold-r1__1300ms.png",
+            "state": {
+              "src": "/assets/cases-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/cases-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 1400,
+            "file": "case-studies__cold-r1__1400ms.png",
+            "state": {
+              "src": "/assets/cases-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/cases-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 1500,
+            "file": "case-studies__cold-r1__1500ms.png",
+            "state": {
+              "src": "/assets/cases-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/cases-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 1600,
+            "file": "case-studies__cold-r1__1600ms.png",
+            "state": {
+              "src": "/assets/cases-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/cases-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 1700,
+            "file": "case-studies__cold-r1__1700ms.png",
+            "state": {
+              "src": "/assets/cases-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/cases-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 1800,
+            "file": "case-studies__cold-r1__1800ms.png",
+            "state": {
+              "src": "/assets/cases-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/cases-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 1900,
+            "file": "case-studies__cold-r1__1900ms.png",
+            "state": {
+              "src": "/assets/cases-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/cases-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 2000,
+            "file": "case-studies__cold-r1__2000ms.png",
+            "state": {
+              "src": "/assets/cases-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/cases-hero.jpg",
+              "complete": true
+            }
+          }
+        ],
+        [
+          {
+            "ms": 0,
+            "file": "case-studies__cold-r2__0000ms.png",
+            "state": {
+              "src": "/assets/cases-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/cases-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 100,
+            "file": "case-studies__cold-r2__0100ms.png",
+            "state": {
+              "src": "/assets/cases-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/cases-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 200,
+            "file": "case-studies__cold-r2__0200ms.png",
+            "state": {
+              "src": "/assets/cases-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/cases-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 300,
+            "file": "case-studies__cold-r2__0300ms.png",
+            "state": {
+              "src": "/assets/cases-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/cases-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 400,
+            "file": "case-studies__cold-r2__0400ms.png",
+            "state": {
+              "src": "/assets/cases-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/cases-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 500,
+            "file": "case-studies__cold-r2__0500ms.png",
+            "state": {
+              "src": "/assets/cases-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/cases-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 600,
+            "file": "case-studies__cold-r2__0600ms.png",
+            "state": {
+              "src": "/assets/cases-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/cases-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 700,
+            "file": "case-studies__cold-r2__0700ms.png",
+            "state": {
+              "src": "/assets/cases-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/cases-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 800,
+            "file": "case-studies__cold-r2__0800ms.png",
+            "state": {
+              "src": "/assets/cases-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/cases-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 900,
+            "file": "case-studies__cold-r2__0900ms.png",
+            "state": {
+              "src": "/assets/cases-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/cases-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 1000,
+            "file": "case-studies__cold-r2__1000ms.png",
+            "state": {
+              "src": "/assets/cases-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/cases-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 1100,
+            "file": "case-studies__cold-r2__1100ms.png",
+            "state": {
+              "src": "/assets/cases-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/cases-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 1200,
+            "file": "case-studies__cold-r2__1200ms.png",
+            "state": {
+              "src": "/assets/cases-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/cases-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 1300,
+            "file": "case-studies__cold-r2__1300ms.png",
+            "state": {
+              "src": "/assets/cases-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/cases-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 1400,
+            "file": "case-studies__cold-r2__1400ms.png",
+            "state": {
+              "src": "/assets/cases-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/cases-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 1500,
+            "file": "case-studies__cold-r2__1500ms.png",
+            "state": {
+              "src": "/assets/cases-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/cases-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 1600,
+            "file": "case-studies__cold-r2__1600ms.png",
+            "state": {
+              "src": "/assets/cases-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/cases-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 1700,
+            "file": "case-studies__cold-r2__1700ms.png",
+            "state": {
+              "src": "/assets/cases-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/cases-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 1800,
+            "file": "case-studies__cold-r2__1800ms.png",
+            "state": {
+              "src": "/assets/cases-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/cases-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 1900,
+            "file": "case-studies__cold-r2__1900ms.png",
+            "state": {
+              "src": "/assets/cases-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/cases-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 2000,
+            "file": "case-studies__cold-r2__2000ms.png",
+            "state": {
+              "src": "/assets/cases-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/cases-hero.jpg",
+              "complete": true
+            }
+          }
+        ]
+      ],
+      "navigation": [
+        "case-studies__navigation__0000ms.png",
+        "case-studies__navigation__0100ms.png",
+        "case-studies__navigation__0200ms.png",
+        "case-studies__navigation__0300ms.png",
+        "case-studies__navigation__0400ms.png",
+        "case-studies__navigation__0500ms.png",
+        "case-studies__navigation__0600ms.png",
+        "case-studies__navigation__0700ms.png",
+        "case-studies__navigation__0800ms.png",
+        "case-studies__navigation__0900ms.png",
+        "case-studies__navigation__1000ms.png",
+        "case-studies__navigation__1100ms.png",
+        "case-studies__navigation__1200ms.png"
+      ]
+    },
+    "how-we-work": {
+      "expected": "/assets/process-hero.jpg",
+      "cold": [
+        [
+          {
+            "ms": 0,
+            "file": "how-we-work__cold-r1__0000ms.png",
+            "state": {
+              "src": "/assets/process-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/process-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 100,
+            "file": "how-we-work__cold-r1__0100ms.png",
+            "state": {
+              "src": "/assets/process-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/process-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 200,
+            "file": "how-we-work__cold-r1__0200ms.png",
+            "state": {
+              "src": "/assets/process-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/process-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 300,
+            "file": "how-we-work__cold-r1__0300ms.png",
+            "state": {
+              "src": "/assets/process-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/process-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 400,
+            "file": "how-we-work__cold-r1__0400ms.png",
+            "state": {
+              "src": "/assets/process-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/process-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 500,
+            "file": "how-we-work__cold-r1__0500ms.png",
+            "state": {
+              "src": "/assets/process-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/process-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 600,
+            "file": "how-we-work__cold-r1__0600ms.png",
+            "state": {
+              "src": "/assets/process-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/process-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 700,
+            "file": "how-we-work__cold-r1__0700ms.png",
+            "state": {
+              "src": "/assets/process-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/process-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 800,
+            "file": "how-we-work__cold-r1__0800ms.png",
+            "state": {
+              "src": "/assets/process-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/process-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 900,
+            "file": "how-we-work__cold-r1__0900ms.png",
+            "state": {
+              "src": "/assets/process-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/process-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 1000,
+            "file": "how-we-work__cold-r1__1000ms.png",
+            "state": {
+              "src": "/assets/process-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/process-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 1100,
+            "file": "how-we-work__cold-r1__1100ms.png",
+            "state": {
+              "src": "/assets/process-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/process-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 1200,
+            "file": "how-we-work__cold-r1__1200ms.png",
+            "state": {
+              "src": "/assets/process-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/process-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 1300,
+            "file": "how-we-work__cold-r1__1300ms.png",
+            "state": {
+              "src": "/assets/process-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/process-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 1400,
+            "file": "how-we-work__cold-r1__1400ms.png",
+            "state": {
+              "src": "/assets/process-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/process-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 1500,
+            "file": "how-we-work__cold-r1__1500ms.png",
+            "state": {
+              "src": "/assets/process-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/process-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 1600,
+            "file": "how-we-work__cold-r1__1600ms.png",
+            "state": {
+              "src": "/assets/process-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/process-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 1700,
+            "file": "how-we-work__cold-r1__1700ms.png",
+            "state": {
+              "src": "/assets/process-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/process-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 1800,
+            "file": "how-we-work__cold-r1__1800ms.png",
+            "state": {
+              "src": "/assets/process-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/process-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 1900,
+            "file": "how-we-work__cold-r1__1900ms.png",
+            "state": {
+              "src": "/assets/process-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/process-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 2000,
+            "file": "how-we-work__cold-r1__2000ms.png",
+            "state": {
+              "src": "/assets/process-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/process-hero.jpg",
+              "complete": true
+            }
+          }
+        ],
+        [
+          {
+            "ms": 0,
+            "file": "how-we-work__cold-r2__0000ms.png",
+            "state": {
+              "src": "/assets/process-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/process-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 100,
+            "file": "how-we-work__cold-r2__0100ms.png",
+            "state": {
+              "src": "/assets/process-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/process-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 200,
+            "file": "how-we-work__cold-r2__0200ms.png",
+            "state": {
+              "src": "/assets/process-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/process-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 300,
+            "file": "how-we-work__cold-r2__0300ms.png",
+            "state": {
+              "src": "/assets/process-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/process-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 400,
+            "file": "how-we-work__cold-r2__0400ms.png",
+            "state": {
+              "src": "/assets/process-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/process-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 500,
+            "file": "how-we-work__cold-r2__0500ms.png",
+            "state": {
+              "src": "/assets/process-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/process-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 600,
+            "file": "how-we-work__cold-r2__0600ms.png",
+            "state": {
+              "src": "/assets/process-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/process-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 700,
+            "file": "how-we-work__cold-r2__0700ms.png",
+            "state": {
+              "src": "/assets/process-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/process-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 800,
+            "file": "how-we-work__cold-r2__0800ms.png",
+            "state": {
+              "src": "/assets/process-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/process-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 900,
+            "file": "how-we-work__cold-r2__0900ms.png",
+            "state": {
+              "src": "/assets/process-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/process-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 1000,
+            "file": "how-we-work__cold-r2__1000ms.png",
+            "state": {
+              "src": "/assets/process-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/process-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 1100,
+            "file": "how-we-work__cold-r2__1100ms.png",
+            "state": {
+              "src": "/assets/process-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/process-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 1200,
+            "file": "how-we-work__cold-r2__1200ms.png",
+            "state": {
+              "src": "/assets/process-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/process-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 1300,
+            "file": "how-we-work__cold-r2__1300ms.png",
+            "state": {
+              "src": "/assets/process-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/process-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 1400,
+            "file": "how-we-work__cold-r2__1400ms.png",
+            "state": {
+              "src": "/assets/process-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/process-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 1500,
+            "file": "how-we-work__cold-r2__1500ms.png",
+            "state": {
+              "src": "/assets/process-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/process-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 1600,
+            "file": "how-we-work__cold-r2__1600ms.png",
+            "state": {
+              "src": "/assets/process-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/process-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 1700,
+            "file": "how-we-work__cold-r2__1700ms.png",
+            "state": {
+              "src": "/assets/process-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/process-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 1800,
+            "file": "how-we-work__cold-r2__1800ms.png",
+            "state": {
+              "src": "/assets/process-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/process-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 1900,
+            "file": "how-we-work__cold-r2__1900ms.png",
+            "state": {
+              "src": "/assets/process-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/process-hero.jpg",
+              "complete": true
+            }
+          },
+          {
+            "ms": 2000,
+            "file": "how-we-work__cold-r2__2000ms.png",
+            "state": {
+              "src": "/assets/process-hero.jpg",
+              "currentSrc": "http://127.0.0.1:8099/assets/process-hero.jpg",
+              "complete": true
+            }
+          }
+        ]
+      ],
+      "navigation": [
+        "how-we-work__navigation__0000ms.png",
+        "how-we-work__navigation__0100ms.png",
+        "how-we-work__navigation__0200ms.png",
+        "how-we-work__navigation__0300ms.png",
+        "how-we-work__navigation__0400ms.png",
+        "how-we-work__navigation__0500ms.png",
+        "how-we-work__navigation__0600ms.png",
+        "how-we-work__navigation__0700ms.png",
+        "how-we-work__navigation__0800ms.png",
+        "how-we-work__navigation__0900ms.png",
+        "how-we-work__navigation__1000ms.png",
+        "how-we-work__navigation__1100ms.png",
+        "how-we-work__navigation__1200ms.png"
+      ]
+    }
+  }
+}

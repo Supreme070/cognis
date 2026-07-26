@@ -17,26 +17,29 @@
 # Retired service slugs — April 2026. The portfolio was pruned to the 3
 # surfaced services; any external backlink or cached Google index to these
 # URLs 301s to the services landing.
-/our-services/ml-data-intelligence                /our-services  301
-/our-services/ai-governance-risk-compliance       /our-services  301
-/our-services/enterprise-digital-transformation   /our-services  301
+/our-services/ml-data-intelligence                /our-services/  301
+/our-services/ai-governance-risk-compliance       /our-services/  301
+/our-services/enterprise-digital-transformation   /our-services/  301
 # Trailing-slash variants, in case search engines indexed them that way.
-/our-services/ml-data-intelligence/               /our-services  301
-/our-services/ai-governance-risk-compliance/      /our-services  301
-/our-services/enterprise-digital-transformation/  /our-services  301
+/our-services/ml-data-intelligence/               /our-services/  301
+/our-services/ai-governance-risk-compliance/      /our-services/  301
+/our-services/enterprise-digital-transformation/  /our-services/  301
 
 # Re-slugged blog articles — May 2026 audit. Old CMS/related/featured links
 # pointed at 404 slugs; 301 them to the live articles (belt-and-suspenders with
 # the in-HTML href repoint in inject_fixes.py).
-/blog/why-enterprise-ai-deployments-fail   /blog/why-most-enterprise-ai-strategies-fail-before-they-start  301
-/blog/ai-agents-new-operating-system       /blog/building-ai-agents-that-actually-ship                      301
-/blog/ai-ready-workforce-training          /blog/making-your-workforce-ai-ready                             301
-/blog/ai-governance-african-enterprises    /blog/ai-governance-is-not-optional                              301
-/blog/measuring-ai-roi-framework           /blog/the-real-roi-of-ai                                         301
-/blog/ai-native-operations-africa          /blog/ai-native-operations-for-african-enterprises               301
-/blog/why-enterprise-ai-deployments-fail/  /blog/why-most-enterprise-ai-strategies-fail-before-they-start  301
-/blog/ai-agents-new-operating-system/      /blog/building-ai-agents-that-actually-ship                      301
-/blog/ai-ready-workforce-training/         /blog/making-your-workforce-ai-ready                             301
-/blog/ai-governance-african-enterprises/   /blog/ai-governance-is-not-optional                              301
-/blog/measuring-ai-roi-framework/          /blog/the-real-roi-of-ai                                         301
-/blog/ai-native-operations-africa/         /blog/ai-native-operations-for-african-enterprises               301
+/blog/why-enterprise-ai-deployments-fail   /blog/why-most-enterprise-ai-strategies-fail-before-they-start/  301
+/blog/ai-agents-new-operating-system       /blog/building-ai-agents-that-actually-ship/                      301
+/blog/ai-ready-workforce-training          /blog/making-your-workforce-ai-ready/                             301
+/blog/ai-governance-african-enterprises    /blog/ai-governance-is-not-optional/                              301
+/blog/measuring-ai-roi-framework           /blog/the-real-roi-of-ai/                                         301
+/blog/ai-native-operations-africa          /blog/ai-native-operations-for-african-enterprises/               301
+/blog/why-enterprise-ai-deployments-fail/  /blog/why-most-enterprise-ai-strategies-fail-before-they-start/  301
+/blog/ai-agents-new-operating-system/      /blog/building-ai-agents-that-actually-ship/                      301
+/blog/ai-ready-workforce-training/         /blog/making-your-workforce-ai-ready/                             301
+/blog/ai-governance-african-enterprises/   /blog/ai-governance-is-not-optional/                              301
+/blog/measuring-ai-roi-framework/          /blog/the-real-roi-of-ai/                                         301
+/blog/ai-native-operations-africa/         /blog/ai-native-operations-for-african-enterprises/               301
+# Retired team member page
+/teams/fisayo-oludare/* /about-us/ 301
+/teams/fisayo-oludare /about-us/ 301

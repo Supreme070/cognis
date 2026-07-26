@@ -54,6 +54,12 @@ BLOCK = f"""{START}
 <nav class="cognis-site-links" aria-label="Secondary site navigation">
   <div class="csl-inner">
     <div class="csl-group">
+      <span class="csl-label">Services</span>
+      <a href="/our-services/ai-strategy-advisory/">Strategy</a>
+      <a href="/our-services/ai-training-workforce-development/">Training</a>
+      <a href="/our-services/ai-agent-automation-engineering/">Agent Engineering</a>
+    </div>
+    <div class="csl-group">
       <span class="csl-label">Products</span>
       <a href="/products">Products</a>
     </div>
@@ -98,12 +104,21 @@ def snapshot_paths() -> list[Path]:
 
 
 def inject(path: Path) -> bool:
-    html = path.read_text(encoding="utf-8")
+    original = path.read_text(encoding="utf-8")
+    html = original
     html = re.sub(
         re.escape(START) + r"[\s\S]*?" + re.escape(END) + r"\s*",
         "",
         html,
     )
+    # Insight pages already carry the universal Cognis footer (including its
+    # newsletter and navigation). A second strip below it is duplicate chrome
+    # and breaks the intended newsletter -> footer ending.
+    if path.relative_to(ROOT).parts[0] == "blog":
+        if html == original:
+            return False
+        path.write_text(html, encoding="utf-8")
+        return True
     if "</body>" not in html:
         return False
     new_html = html.replace("</body>", BLOCK + "\n</body>", 1)

@@ -15,7 +15,25 @@ const AUTHOR_SUPREME = {
   '@id': FOUNDER_ID,
   name: 'Supreme Oyewumi',
   jobTitle: 'Founder & CEO',
-  url: `${ORIGIN}/about-us`,
+  url: `${ORIGIN}/teams/supreme-oyewumi/`,
+  worksFor: { '@id': ORG_ID },
+};
+
+const AUTHOR_KOLA = {
+  '@type': 'Person',
+  '@id': `${ORIGIN}/teams/kola-olatunde/#person`,
+  name: 'Kola Olatunde',
+  jobTitle: 'AI Cybersecurity & Governance Lead',
+  url: `${ORIGIN}/teams/kola-olatunde/`,
+  worksFor: { '@id': ORG_ID },
+};
+
+const AUTHOR_FISAYO = {
+  '@type': 'Person',
+  '@id': `${ORIGIN}/teams/fisayo-oludare/#person`,
+  name: 'Fisayo Oludare',
+  jobTitle: 'Executive Director, Partnerships & AI Enablement',
+  url: `${ORIGIN}/teams/fisayo-oludare/`,
   worksFor: { '@id': ORG_ID },
 };
 
@@ -50,7 +68,8 @@ export const BLOG_POSTS = [
     description:
       'Enterprise AI fails at the whiteboard, not the model. The signals that separate strategies that ship from decks that don\'t.',
     datePublished: '2026-03-18',
-    dateModified: '2026-04-10',
+    dateModified: '2026-07-24',
+    author: AUTHOR_SUPREME,
     image: `${ORIGIN}/og/cognis-og-1200x630.jpg`,
     keywords: ['AI strategy', 'enterprise AI', 'AI adoption', 'AI consulting'],
   },
@@ -60,7 +79,8 @@ export const BLOG_POSTS = [
     description:
       'Most agent projects stall in the demo phase. A deployment-first approach to agent engineering — what to build, what to skip, and how to keep them alive in production.',
     datePublished: '2026-03-25',
-    dateModified: '2026-04-10',
+    dateModified: '2026-07-24',
+    author: AUTHOR_SUPREME,
     image: `${ORIGIN}/og/cognis-og-1200x630.jpg`,
     keywords: ['AI agents', 'agent engineering', 'LLM agents', 'production AI'],
   },
@@ -70,7 +90,8 @@ export const BLOG_POSTS = [
     description:
       'EU AI Act, NIST AI RMF, ISO 42001, NDPA. Governance is the foundation of AI that scales — here\'s the framework that maps regulation to engineering.',
     datePublished: '2026-04-01',
-    dateModified: '2026-04-10',
+    dateModified: '2026-07-24',
+    author: AUTHOR_KOLA,
     image: `${ORIGIN}/og/cognis-og-1200x630.jpg`,
     keywords: ['AI governance', 'EU AI Act', 'NIST AI RMF', 'ISO 42001', 'AI compliance'],
   },
@@ -80,7 +101,8 @@ export const BLOG_POSTS = [
     description:
       'Time-to-value, decision velocity, and cost avoidance — the metrics that actually matter when you measure AI in the enterprise.',
     datePublished: '2026-04-03',
-    dateModified: '2026-04-10',
+    dateModified: '2026-07-24',
+    author: AUTHOR_SUPREME,
     image: `${ORIGIN}/og/cognis-og-1200x630.jpg`,
     keywords: ['AI ROI', 'AI business value', 'AI metrics', 'AI investment'],
   },
@@ -90,7 +112,8 @@ export const BLOG_POSTS = [
     description:
       'AI literacy is a capability, not a workshop. The training framework that turns functional teams into AI-fluent operators.',
     datePublished: '2026-04-06',
-    dateModified: '2026-04-10',
+    dateModified: '2026-07-24',
+    author: AUTHOR_FISAYO,
     image: `${ORIGIN}/og/cognis-og-1200x630.jpg`,
     keywords: ['AI training', 'AI literacy', 'workforce development', 'AI upskilling'],
   },
@@ -100,7 +123,8 @@ export const BLOG_POSTS = [
     description:
       'African data, African regulation, African infrastructure. Why AI deployment on the continent requires context, not translation.',
     datePublished: '2026-04-08',
-    dateModified: '2026-04-10',
+    dateModified: '2026-07-24',
+    author: AUTHOR_SUPREME,
     image: `${ORIGIN}/og/cognis-og-1200x630.jpg`,
     keywords: ['African AI', 'AI Nigeria', 'AI Africa', 'emerging markets AI', 'NDPA'],
   },
@@ -304,6 +328,7 @@ export const ROUTES = [
         url: `${ORIGIN}/teams/${m.id}`,
         name: `${m.name} — ${m.jobTitle}`,
         isPartOf: { '@id': WEBSITE_ID },
+        mainEntity: { '@id': `${ORIGIN}/teams/${m.id}#person` },
         breadcrumb: crumbs(
           { name: 'Home', url: `${ORIGIN}/` },
           { name: 'About', url: `${ORIGIN}/about-us` },
@@ -329,13 +354,20 @@ export const ROUTES = [
         image: [p.image],
         datePublished: p.datePublished,
         dateModified: p.dateModified,
-        author: AUTHOR_SUPREME,
+        author: p.author,
         publisher: { '@id': ORG_ID },
-        mainEntityOfPage: { '@type': 'WebPage', '@id': `${ORIGIN}/blog/${p.slug}` },
+        mainEntityOfPage: { '@type': 'WebPage', '@id': `${ORIGIN}/blog/${p.slug}/#webpage` },
         url: `${ORIGIN}/blog/${p.slug}`,
         keywords: p.keywords.join(', '),
         inLanguage: 'en-GB',
         isPartOf: { '@id': `${ORIGIN}/blog#blog` },
+      },
+      {
+        '@type': 'WebPage',
+        '@id': `${ORIGIN}/blog/${p.slug}#webpage`,
+        url: `${ORIGIN}/blog/${p.slug}`,
+        name: p.headline,
+        isPartOf: { '@id': WEBSITE_ID },
         breadcrumb: crumbs(
           { name: 'Home', url: `${ORIGIN}/` },
           { name: 'Blog', url: `${ORIGIN}/blog` },
