@@ -34,7 +34,7 @@ MEMBERS = [
         "name": "Tosin Salami",
         "role": "Executive Director, Product & Strategy",
         "img": "/assets/team-tosin-salami.jpg",
-        "bio": "Tosin serves Cognis Group at board level as Executive Director, Product & Strategy. A senior product leader in global payments with EMEA-wide experience across cross-border infrastructure and fintech, he advises our leadership on product direction and strategy for Cognis AI, MarketSage, Migratio and SPOG.",
+        "bio": "Tosin serves Cognis Group at board level as Executive Director, Product & Strategy, advising our leadership on product direction and strategy for Cognis AI, MarketSage, Migratio and SPOG. He is currently Director of Product Management, Transfer Solutions (EMEA) at Mastercard. Before that he was Chief Operating Officer at Rabafast Technologies, where he built a cross-border payments business from the ground up, and Head of Product at AZA Finance, where he led African payments infrastructure across eight countries, including a project that processed over $500 million in volume. His product career began at Venture Garden Group, building payment platforms used by federal institutions across Nigeria. He is completing an MBA at Edinburgh Business School, Heriot-Watt University.",
     },
 ]
 
