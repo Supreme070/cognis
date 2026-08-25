@@ -1,0 +1,42 @@
+{
+	"name": "cognis-form-handler",
+	"main": "src/index.js",
+	"compatibility_date": "2026-08-01",
+	"routes": [
+		{
+			"pattern": "cognis.group/api/*",
+			"zone_name": "cognis.group"
+		},
+		{
+			"pattern": "www.cognis.group/api/*",
+			"zone_name": "cognis.group"
+		}
+	],
+	"send_email": [
+		{
+			"name": "EMAIL",
+			"allowed_sender_addresses": ["forms@cognis.group", "noreply@cognis.group"]
+		}
+	],
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "cognis-leads",
+			"database_id": "2d1e0f2e-191d-4bd2-8029-0c7b63dea82d"
+		}
+	],
+	"ai": {
+		"binding": "AI"
+	},
+	"workflows": [
+		{
+			"name": "lead-enrichment",
+			"binding": "FORM_WORKFLOW",
+			"class_name": "LeadEnrichment"
+		}
+	]
+	// After the AI Search instance "cognis-site" exists (needs the one-time
+	// dashboard token at dash.cloudflare.com/<account>/ai/ai-search/tokens),
+	// add and redeploy:
+	// "ai_search": [{ "binding": "SITE_SEARCH", "instance_name": "cognis-site", "remote": true }]
+}

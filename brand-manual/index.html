@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+  @font-face { font-family: Geistmono; src: url(./assets/GeistMono-Medium.ttf) format("truetype"); font-weight: 400 500; }
+  html, body { margin: 0; padding: 0; }
+  body { font-family: "Plus Jakarta Sans", sans-serif; -webkit-font-smoothing: antialiased; color: #131313; }
+  a { color: #131313; } a:hover { color: #131313; opacity: 0.8; }
+  doc-page:not(:defined) { visibility: hidden; }
+  @keyframes cgRingIn { 0% { transform: rotate(-110deg); opacity: 0; } 12% { opacity: 1; } 45% { transform: rotate(0deg); opacity: 1; } 100% { transform: rotate(0deg); opacity: 1; } }
+  @keyframes cgKeyIn { 0% { transform: scale(0); } 42% { transform: scale(0); } 58% { transform: scale(1.28); } 70% { transform: scale(1); } 100% { transform: scale(1); } }
+  @media print { .cg-motion-demo * { animation: none !important; } }
+  @media (prefers-reduced-motion: reduce) { .cg-motion-demo * { animation: none !important; } }
+</style>
+<script src="./doc-page.js"></script>
+</helmet>
+<doc-page margin="0.85in" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+  <div slot="footer" style="display: flex; justify-content: space-between; font-family: Geistmono, monospace; font-size: 9px; letter-spacing: 0.1em; color: #8A8A86; padding: 0 0 4px;"><span>COGNIS GROUP — BRAND GUIDELINES</span><span>V1.0 · AUGUST 2026</span></div>
+
+  <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 28px;">
+    <svg viewBox="0 0 48 48" style="width: 44px; height: 44px;"><path fill="#0D0D0C" d="M 42.66 12.34 A 22 22 0 1 0 42.66 35.66 L 33.19 31.71 A 12 12 0 1 1 33.19 16.29 Z"></path><rect x="36" y="19" width="10" height="10" fill="#D6FD70"></rect></svg>
+    <span style="display: inline-flex; flex-direction: column;">
+      <span style="font-weight: 600; font-size: 26px; line-height: 1.02; letter-spacing: -0.05em;">Cognis</span>
+      <span style="font-family: Geistmono, monospace; font-size: 8px; letter-spacing: 0.52em; color: #5F5F5C;">GROUP</span>
+    </span>
+  </div>
+
+  <h1 style="font-size: 34px; font-weight: 600; letter-spacing: -0.04em; line-height: 1.1; margin: 0 0 8px;">Logo &amp; Identity Guidelines</h1>
+  <p style="font-size: 14px; color: #5F5F5C; line-height: 1.6; margin: 0 0 6px;">Version 1.0 · August 2026 · Applies to all Cognis Group touchpoints: web, product, print, video, and social.</p>
+  <p style="font-size: 15px; line-height: 1.65; margin: 18px 0 0;">This document defines the Cognis Group mark, its lockups, colors, typography, spacing, motion behavior, and rules of use. Follow it exactly; consistency is what makes a mark a brand. When a situation isn't covered here, choose the simplest option that preserves legibility and contrast.</p>
+
+  <h2 style="font-size: 21px; font-weight: 600; letter-spacing: -0.03em; margin: 36px 0 10px;">1 · The mark: the C ring</h2>
+  <div style="display: flex; gap: 20px; align-items: center; break-inside: avoid; margin: 14px 0;">
+    <span style="flex: 0 0 auto; width: 150px; height: 150px; background: #F5F4F1; border-radius: 12px; display: inline-flex; align-items: center; justify-content: center;"><svg viewBox="0 0 48 48" style="width: 92px; height: 92px;"><path fill="#0D0D0C" d="M 42.66 12.34 A 22 22 0 1 0 42.66 35.66 L 33.19 31.71 A 12 12 0 1 1 33.19 16.29 Z"></path><rect x="36" y="19" width="10" height="10" fill="#D6FD70"></rect></svg></span>
+    <p style="font-size: 15px; line-height: 1.65; margin: 0;">The mark is a <strong>C for Cognis drawn as an open loop</strong>. The ring is deliberately not closed: cognition is iterative — a cycle of learning, testing, and refining that never claims to be finished. The <strong>lime keystone</strong> sits in the opening: it is the piece Cognis adds. The client's problem is the open ring; Cognis is the part that completes it. The rigid square meeting the fluid circle also carries the company motto <em>Quod Tango Muto</em> — "what I touch, I transform."</p>
+  </div>
+  <h3 style="font-size: 16px; font-weight: 600; margin: 20px 0 8px;">1.1 Construction</h3>
+  <ul style="font-size: 14px; line-height: 1.7; margin: 0; padding-left: 20px;">
+    <li>Drawn on a 48 × 48 unit grid; ring center at (24, 24), outer radius 22, inner radius 12 (ring weight ≈ 10 units).</li>
+    <li>The notch flares outward: the cut spans 32° each side of horizontal at the outer edge and 40° at the inner edge, so the keystone sits in a fitted slot rather than a straight slice.</li>
+    <li>The keystone is a 10 × 10 unit square, optically centered in the notch at the ring's horizontal axis. It is always a sharp square — never rounded.</li>
+    <li>Never redraw, re-proportion, or reconstruct the mark. Use only the supplied SVG/PNG files.</li>
+  </ul>
+
+  <h2 style="font-size: 21px; font-weight: 600; letter-spacing: -0.03em; margin: 36px 0 10px;">2 · Lockups and when to use each</h2>
+  <p style="font-size: 15px; line-height: 1.65; margin: 0 0 14px;">There are three levels of the identity. Use the shortest form the context allows — formality goes up, length goes up.</p>
+  <table style="width: 100%; border-collapse: collapse; font-size: 13.5px; line-height: 1.55;">
+    <thead>
+      <tr style="border-bottom: 2px solid #0D0D0C; text-align: left;">
+        <th style="padding: 8px 10px 8px 0; font-weight: 600; width: 190px;">Lockup</th>
+        <th style="padding: 8px 10px; font-weight: 600;">Use for</th>
+        <th style="padding: 8px 0 8px 10px; font-weight: 600;">Never for</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom: 1px solid #E4E2DD;">
+        <td style="padding: 12px 10px 12px 0; vertical-align: top;">
+          <span style="display: inline-flex; align-items: center; gap: 8px;"><svg viewBox="0 0 48 48" style="width: 28px; height: 28px;"><path fill="#0D0D0C" d="M 42.66 12.34 A 22 22 0 1 0 42.66 35.66 L 33.19 31.71 A 12 12 0 1 1 33.19 16.29 Z"></path><rect x="36" y="19" width="10" height="10" fill="#D6FD70"></rect></svg><span style="display: inline-flex; flex-direction: column;"><span style="font-weight: 600; font-size: 17px; letter-spacing: -0.05em; line-height: 1.05;">Cognis</span><span style="font-family: Geistmono, monospace; font-size: 5.5px; letter-spacing: 0.5em; color: #5F5F5C;">GROUP</span></span></span>
+          <div style="font-family: Geistmono, monospace; font-size: 10px; color: #8A8A86; margin-top: 6px;">PRIMARY — WITH GROUP</div>
+        </td>
+        <td style="padding: 12px 10px; vertical-align: top;">Legal and formal contexts: contracts, proposals, letterhead, invoices, website footer, press, certificates, first appearance in a formal document.</td>
+        <td style="padding: 12px 0 12px 10px; vertical-align: top;">Sizes where GROUP drops below ~5px tall — the suffix must stay legible or be dropped entirely.</td>
+      </tr>
+      <tr style="border-bottom: 1px solid #E4E2DD;">
+        <td style="padding: 12px 10px 12px 0; vertical-align: top;">
+          <span style="display: inline-flex; align-items: center; gap: 8px;"><svg viewBox="0 0 48 48" style="width: 26px; height: 26px;"><path fill="#0D0D0C" d="M 42.66 12.34 A 22 22 0 1 0 42.66 35.66 L 33.19 31.71 A 12 12 0 1 1 33.19 16.29 Z"></path><rect x="36" y="19" width="10" height="10" fill="#D6FD70"></rect></svg><span style="font-weight: 600; font-size: 19px; letter-spacing: -0.05em;">Cognis</span></span>
+          <div style="font-family: Geistmono, monospace; font-size: 10px; color: #8A8A86; margin-top: 6px;">SHORT — WORDMARK ONLY</div>
+        </td>
+        <td style="padding: 12px 10px; vertical-align: top;">Everyday contexts: site navigation, product UI, decks, social profiles, email headers, merchandise, anywhere the audience already knows the company.</td>
+        <td style="padding: 12px 0 12px 10px; vertical-align: top;">Legal documents or first contact with an audience that has never seen the brand.</td>
+      </tr>
+      <tr style="border-bottom: 1px solid #E4E2DD;">
+        <td style="padding: 12px 10px 12px 0; vertical-align: top;">
+          <svg viewBox="0 0 48 48" style="width: 28px; height: 28px;"><path fill="#0D0D0C" d="M 42.66 12.34 A 22 22 0 1 0 42.66 35.66 L 33.19 31.71 A 12 12 0 1 1 33.19 16.29 Z"></path><rect x="36" y="19" width="10" height="10" fill="#D6FD70"></rect></svg>
+          <div style="font-family: Geistmono, monospace; font-size: 10px; color: #8A8A86; margin-top: 6px;">MARK ONLY</div>
+        </td>
+        <td style="padding: 12px 10px; vertical-align: top;">Avatars, favicons, app icons, watermarks, loading states, pattern elements — contexts that are square, tiny, or where the name appears nearby.</td>
+        <td style="padding: 12px 0 12px 10px; vertical-align: top;">As the sole identifier in print or ads until the mark is widely established.</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 style="font-size: 16px; font-weight: 600; margin: 20px 0 8px;">2.1 Orientation variants</h3>
+  <ul style="font-size: 14px; line-height: 1.7; margin: 0; padding-left: 20px;">
+    <li><strong>Horizontal</strong> (mark left of wordmark) is the default in all contexts.</li>
+    <li><strong>Stacked</strong> (mark above wordmark, centered) only where width is constrained: square social tiles, narrow banners, spine of a document.</li>
+    <li>Gap between mark and wordmark: 0.28 × mark height. Mark height ≈ 1.25 × wordmark cap height.</li>
+  </ul>
+
+  <h2 style="font-size: 21px; font-weight: 600; letter-spacing: -0.03em; margin: 36px 0 10px;">3 · Color</h2>
+  <table style="width: 100%; border-collapse: collapse; font-size: 13.5px; line-height: 1.55;">
+    <thead>
+      <tr style="border-bottom: 2px solid #0D0D0C; text-align: left;">
+        <th style="padding: 8px 10px 8px 0; font-weight: 600;">Color</th>
+        <th style="padding: 8px 10px; font-weight: 600;">Hex</th>
+        <th style="padding: 8px 0 8px 10px; font-weight: 600;">Role</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom: 1px solid #E4E2DD;"><td style="padding: 10px 10px 10px 0;"><span style="display: inline-flex; align-items: center; gap: 8px;"><span style="width: 18px; height: 18px; background: #0D0D0C; border-radius: 4px;"></span><strong>Ink</strong></span></td><td style="padding: 10px; font-family: Geistmono, monospace; font-size: 12px;">#0D0D0C</td><td style="padding: 10px 0 10px 10px;">Ring and wordmark on light backgrounds; dark surface color.</td></tr>
+      <tr style="border-bottom: 1px solid #E4E2DD;"><td style="padding: 10px 10px 10px 0;"><span style="display: inline-flex; align-items: center; gap: 8px;"><span style="width: 18px; height: 18px; background: #D6FD70; border-radius: 4px; border: 1px solid #C4EB60;"></span><strong>Lime</strong></span></td><td style="padding: 10px; font-family: Geistmono, monospace; font-size: 12px;">#D6FD70</td><td style="padding: 10px 0 10px 10px;">The keystone — and only the keystone in the mark. Also CTAs and accents in wider brand use.</td></tr>
+      <tr style="border-bottom: 1px solid #E4E2DD;"><td style="padding: 10px 10px 10px 0;"><span style="display: inline-flex; align-items: center; gap: 8px;"><span style="width: 18px; height: 18px; background: #4D65FF; border-radius: 4px;"></span><strong>Blue</strong></span></td><td style="padding: 10px; font-family: Geistmono, monospace; font-size: 12px;">#4D65FF</td><td style="padding: 10px 0 10px 10px;">Mono-blue mark variant; secondary accent. Never mixed with lime inside the mark.</td></tr>
+      <tr style="border-bottom: 1px solid #E4E2DD;"><td style="padding: 10px 10px 10px 0;"><span style="display: inline-flex; align-items: center; gap: 8px;"><span style="width: 18px; height: 18px; background: #EDECE8; border-radius: 4px; border: 1px solid #D8D6D0;"></span><strong>Paper</strong></span></td><td style="padding: 10px; font-family: Geistmono, monospace; font-size: 12px;">#EDECE8</td><td style="padding: 10px 0 10px 10px;">Preferred light background.</td></tr>
+      <tr style="border-bottom: 1px solid #E4E2DD;"><td style="padding: 10px 10px 10px 0;"><span style="display: inline-flex; align-items: center; gap: 8px;"><span style="width: 18px; height: 18px; background: #FFFFFF; border-radius: 4px; border: 1px solid #D8D6D0;"></span><strong>White</strong></span></td><td style="padding: 10px; font-family: Geistmono, monospace; font-size: 12px;">#FFFFFF</td><td style="padding: 10px 0 10px 10px;">Ring and wordmark on dark backgrounds.</td></tr>
+    </tbody>
+  </table>
+  <h3 style="font-size: 16px; font-weight: 600; margin: 20px 0 8px;">3.1 Color rules by background</h3>
+  <div style="display: flex; gap: 12px; break-inside: avoid; margin: 12px 0;">
+    <span style="flex: 1; background: #FFFFFF; border: 1px solid #E4E2DD; border-radius: 10px; height: 92px; display: inline-flex; align-items: center; justify-content: center;"><svg viewBox="0 0 48 48" style="width: 44px; height: 44px;"><path fill="#0D0D0C" d="M 42.66 12.34 A 22 22 0 1 0 42.66 35.66 L 33.19 31.71 A 12 12 0 1 1 33.19 16.29 Z"></path><rect x="36" y="19" width="10" height="10" fill="#D6FD70"></rect></svg></span>
+    <span style="flex: 1; background: #0D0D0C; border-radius: 10px; height: 92px; display: inline-flex; align-items: center; justify-content: center;"><svg viewBox="0 0 48 48" style="width: 44px; height: 44px;"><path fill="#FFFFFF" d="M 42.66 12.34 A 22 22 0 1 0 42.66 35.66 L 33.19 31.71 A 12 12 0 1 1 33.19 16.29 Z"></path><rect x="36" y="19" width="10" height="10" fill="#D6FD70"></rect></svg></span>
+    <span style="flex: 1; background: #D6FD70; border-radius: 10px; height: 92px; display: inline-flex; align-items: center; justify-content: center;"><svg viewBox="0 0 48 48" style="width: 44px; height: 44px;"><path fill="#0D0D0C" d="M 42.66 12.34 A 22 22 0 1 0 42.66 35.66 L 33.19 31.71 A 12 12 0 1 1 33.19 16.29 Z"></path><rect x="36" y="19" width="10" height="10" fill="#0D0D0C"></rect></svg></span>
+    <span style="flex: 1; background: #4D65FF; border-radius: 10px; height: 92px; display: inline-flex; align-items: center; justify-content: center;"><svg viewBox="0 0 48 48" style="width: 44px; height: 44px;"><path fill="#FFFFFF" d="M 42.66 12.34 A 22 22 0 1 0 42.66 35.66 L 33.19 31.71 A 12 12 0 1 1 33.19 16.29 Z"></path><rect x="36" y="19" width="10" height="10" fill="#FFFFFF"></rect></svg></span>
+  </div>
+  <ul style="font-size: 14px; line-height: 1.7; margin: 0; padding-left: 20px;">
+    <li><strong>Light backgrounds</strong> (white, paper): ink ring + lime keystone. Full color is the default.</li>
+    <li><strong>Dark backgrounds</strong> (ink, near-black): white ring + lime keystone.</li>
+    <li><strong>Lime backgrounds</strong>: all-ink mono mark — lime-on-lime disappears.</li>
+    <li><strong>Blue or photographic backgrounds</strong>: all-white mono mark. On photography, place only over calm, low-detail areas.</li>
+    <li><strong>One-color reproduction</strong> (engraving, embossing, fax, stamp): mono-black or mono-white; keystone takes the ring color.</li>
+    <li>Lime never carries the ring, and the keystone is never blue. In any single use of the mark exactly two colors appear at most.</li>
+  </ul>
+
+  <h2 style="font-size: 21px; font-weight: 600; letter-spacing: -0.03em; margin: 36px 0 10px;">4 · Typography</h2>
+  <ul style="font-size: 14px; line-height: 1.7; margin: 0; padding-left: 20px;">
+    <li><strong>Wordmark:</strong> Plus Jakarta Sans SemiBold (600), letter-spacing −0.05 em, with two kerning corrections baked into the artwork: g–n tightened −0.022 em, i–s tightened −0.012 em. Always title case: "Cognis". Never retype the wordmark in running text styling — use the supplied artwork.</li>
+    <li><strong>GROUP suffix:</strong> Geist Mono Medium, all caps, letter-spacing +0.52 em, set to the wordmark's left edge, ~27% of the wordmark's point size. It is a fixed part of the primary lockup — never restyle or recolor it independently.</li>
+    <li><strong>Brand text:</strong> Plus Jakarta Sans for headings and body; Geist Mono for labels, eyebrow text, and technical annotation. In email, fall back to Arial / Helvetica.</li>
+  </ul>
+
+  <h2 style="font-size: 21px; font-weight: 600; letter-spacing: -0.03em; margin: 36px 0 10px;">5 · Clearspace &amp; minimum sizes</h2>
+  <div style="display: flex; gap: 20px; align-items: center; break-inside: avoid; margin: 12px 0;">
+    <span style="flex: 0 0 auto; background: #F5F4F1; border-radius: 12px; padding: 24px 30px; display: inline-flex; align-items: center; justify-content: center;">
+      <span style="border: 1px dashed #B7B5AF; padding: 19px; display: inline-flex; align-items: center; gap: 10px;">
+        <svg viewBox="0 0 48 48" style="width: 38px; height: 38px;"><path fill="#0D0D0C" d="M 42.66 12.34 A 22 22 0 1 0 42.66 35.66 L 33.19 31.71 A 12 12 0 1 1 33.19 16.29 Z"></path><rect x="36" y="19" width="10" height="10" fill="#D6FD70"></rect></svg>
+        <span style="font-weight: 600; font-size: 28px; letter-spacing: -0.05em;">Cognis</span>
+      </span>
+    </span>
+    <ul style="font-size: 14px; line-height: 1.7; margin: 0; padding-left: 20px;">
+      <li><strong>Clearspace:</strong> half the ring diameter on all four sides, measured from the lockup's bounding box. Nothing enters this zone — text, other logos, page edges, busy imagery.</li>
+      <li><strong>Minimum sizes:</strong> mark alone 15 px / 5 mm; short lockup 20 px / 7 mm tall; primary lockup 34 px / 12 mm tall (below that GROUP becomes illegible — switch to the short lockup).</li>
+      <li>At 16 px and below use the supplied favicon files, which carry an enlarged keystone for legibility.</li>
+    </ul>
+  </div>
+
+  <h2 style="font-size: 21px; font-weight: 600; letter-spacing: -0.03em; margin: 36px 0 10px;">6 · Motion</h2>
+  <div style="display: flex; gap: 20px; align-items: center; break-inside: avoid; margin: 0 0 12px;">
+    <span class="cg-motion-demo" style="flex: 0 0 auto; width: 150px; height: 120px; background: #0D0D0C; border-radius: 12px; display: inline-flex; align-items: center; justify-content: center;">
+      <svg viewBox="0 0 48 48" style="width: 64px; height: 64px; overflow: visible;">
+        <g style="transform-box: fill-box; transform-origin: center; animation: cgRingIn 3.2s cubic-bezier(0.22, 1, 0.36, 1) infinite;"><path fill="#FFFFFF" d="M 42.66 12.34 A 22 22 0 1 0 42.66 35.66 L 33.19 31.71 A 12 12 0 1 1 33.19 16.29 Z"></path></g>
+        <g style="transform-box: fill-box; transform-origin: center; animation: cgKeyIn 3.2s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;"><rect x="36" y="19" width="10" height="10" fill="#D6FD70"></rect></g>
+      </svg>
+    </span>
+    <p style="font-size: 15px; line-height: 1.65; margin: 0;">The mark has one motion behavior — a reveal: <strong>the ring sweeps in with a rotation (~110° with an ease-out), then the keystone snaps into the notch with a slight overshoot.</strong> Total duration ~3 seconds. Motion is a moment, not a state: in real use the animation plays <strong>once</strong>, then the mark holds static. The sample at left loops here only for study; in print it appears as the static mark.</p>
+  </div>
+  <table style="width: 100%; border-collapse: collapse; font-size: 13.5px; line-height: 1.55;">
+    <thead>
+      <tr style="border-bottom: 2px solid #0D0D0C; text-align: left;">
+        <th style="padding: 8px 10px 8px 0; font-weight: 600; width: 50%;">Motion plays (once)</th>
+        <th style="padding: 8px 0 8px 10px; font-weight: 600;">Motion never plays</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="padding: 12px 10px 12px 0; vertical-align: top;">
+          <ul style="margin: 0; padding-left: 18px;">
+            <li>Website first load — once per session</li>
+            <li>App splash screen and loading states</li>
+            <li>Video intros and outros</li>
+            <li>Presentation title slides</li>
+            <li>Event screens and live-stream bumpers</li>
+          </ul>
+        </td>
+        <td style="padding: 12px 0 12px 10px; vertical-align: top;">
+          <ul style="margin: 0; padding-left: 18px;">
+            <li>Navigation bars after page load</li>
+            <li>Footers, email signatures, documents</li>
+            <li>Favicons and avatars</li>
+            <li>Anywhere adjacent to body text a user is reading</li>
+            <li>As an infinite loop, anywhere</li>
+          </ul>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <ul style="font-size: 14px; line-height: 1.7; margin: 12px 0 0; padding-left: 20px;">
+    <li>Respect <span style="font-family: Geistmono, monospace; font-size: 12.5px;">prefers-reduced-motion</span>: show the static mark instantly, no animation.</li>
+    <li>Keep the reveal between 2 and 5 seconds; never add bounce loops, spins, pulses, or particle effects.</li>
+    <li>In video, the reveal may be paired with a single short sound cue (≤ 1 s); the keystone snap is the sync point.</li>
+  </ul>
+
+  <h2 style="font-size: 21px; font-weight: 600; letter-spacing: -0.03em; margin: 36px 0 10px;">7 · Misuse — never do these</h2>
+  <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; break-inside: avoid; margin: 12px 0;">
+    <span style="display: inline-flex; flex-direction: column; align-items: center; gap: 6px;"><span style="width: 100%; height: 84px; background: #F5F4F1; border-radius: 10px; display: inline-flex; align-items: center; justify-content: center; position: relative;"><svg viewBox="0 0 48 48" style="width: 40px; height: 40px; transform: rotate(35deg);"><path fill="#0D0D0C" d="M 42.66 12.34 A 22 22 0 1 0 42.66 35.66 L 33.19 31.71 A 12 12 0 1 1 33.19 16.29 Z"></path><rect x="36" y="19" width="10" height="10" fill="#D6FD70"></rect></svg><span style="position: absolute; top: 6px; right: 8px; color: #C43D3D; font-weight: 700; font-size: 13px;">✕</span></span><span style="font-size: 11.5px; color: #5F5F5C; text-align: center;">Don't rotate — the notch faces right</span></span>
+    <span style="display: inline-flex; flex-direction: column; align-items: center; gap: 6px;"><span style="width: 100%; height: 84px; background: #F5F4F1; border-radius: 10px; display: inline-flex; align-items: center; justify-content: center; position: relative;"><svg viewBox="0 0 48 48" style="width: 40px; height: 40px;"><circle cx="24" cy="24" r="17" fill="none" stroke="#0D0D0C" stroke-width="10"></circle></svg><span style="position: absolute; top: 6px; right: 8px; color: #C43D3D; font-weight: 700; font-size: 13px;">✕</span></span><span style="font-size: 11.5px; color: #5F5F5C; text-align: center;">Don't close the ring or drop the keystone</span></span>
+    <span style="display: inline-flex; flex-direction: column; align-items: center; gap: 6px;"><span style="width: 100%; height: 84px; background: #F5F4F1; border-radius: 10px; display: inline-flex; align-items: center; justify-content: center; position: relative;"><svg viewBox="0 0 48 48" style="width: 40px; height: 40px;"><path fill="#0D0D0C" d="M 42.66 12.34 A 22 22 0 1 0 42.66 35.66 L 33.19 31.71 A 12 12 0 1 1 33.19 16.29 Z"></path><rect x="36" y="19" width="10" height="10" fill="#4D65FF"></rect></svg><span style="position: absolute; top: 6px; right: 8px; color: #C43D3D; font-weight: 700; font-size: 13px;">✕</span></span><span style="font-size: 11.5px; color: #5F5F5C; text-align: center;">Don't recolor the keystone — lime, or the ring color in mono</span></span>
+    <span style="display: inline-flex; flex-direction: column; align-items: center; gap: 6px;"><span style="width: 100%; height: 84px; background: #F5F4F1; border-radius: 10px; display: inline-flex; align-items: center; justify-content: center; position: relative;"><svg viewBox="0 0 48 48" style="width: 52px; height: 34px; transform: scaleX(1.5);"><path fill="#0D0D0C" d="M 42.66 12.34 A 22 22 0 1 0 42.66 35.66 L 33.19 31.71 A 12 12 0 1 1 33.19 16.29 Z"></path><rect x="36" y="19" width="10" height="10" fill="#D6FD70"></rect></svg><span style="position: absolute; top: 6px; right: 8px; color: #C43D3D; font-weight: 700; font-size: 13px;">✕</span></span><span style="font-size: 11.5px; color: #5F5F5C; text-align: center;">Don't stretch, squash, or skew</span></span>
+    <span style="display: inline-flex; flex-direction: column; align-items: center; gap: 6px;"><span style="width: 100%; height: 84px; background: linear-gradient(135deg, #4D65FF, #D6FD70); border-radius: 10px; display: inline-flex; align-items: center; justify-content: center; position: relative;"><svg viewBox="0 0 48 48" style="width: 40px; height: 40px;"><path fill="#FFFFFF" d="M 42.66 12.34 A 22 22 0 1 0 42.66 35.66 L 33.19 31.71 A 12 12 0 1 1 33.19 16.29 Z"></path><rect x="36" y="19" width="10" height="10" fill="#D6FD70"></rect></svg><span style="position: absolute; top: 6px; right: 8px; color: #FFFFFF; font-weight: 700; font-size: 13px;">✕</span></span><span style="font-size: 11.5px; color: #5F5F5C; text-align: center;">Don't place on gradients or busy imagery</span></span>
+    <span style="display: inline-flex; flex-direction: column; align-items: center; gap: 6px;"><span style="width: 100%; height: 84px; background: #F5F4F1; border-radius: 10px; display: inline-flex; align-items: center; justify-content: center; position: relative;"><svg viewBox="0 0 48 48" style="width: 40px; height: 40px; filter: drop-shadow(3px 4px 3px rgba(0,0,0,0.45));"><path fill="#0D0D0C" d="M 42.66 12.34 A 22 22 0 1 0 42.66 35.66 L 33.19 31.71 A 12 12 0 1 1 33.19 16.29 Z"></path><rect x="36" y="19" width="10" height="10" fill="#D6FD70"></rect></svg><span style="position: absolute; top: 6px; right: 8px; color: #C43D3D; font-weight: 700; font-size: 13px;">✕</span></span><span style="font-size: 11.5px; color: #5F5F5C; text-align: center;">Don't add shadows, outlines, glows, or effects</span></span>
+    <span style="display: inline-flex; flex-direction: column; align-items: center; gap: 6px;"><span style="width: 100%; height: 84px; background: #F5F4F1; border-radius: 10px; display: inline-flex; align-items: center; justify-content: center; position: relative;"><span style="font-weight: 400; font-size: 22px; letter-spacing: 0.06em; color: #0D0D0C; font-family: Georgia, serif;">Cognis</span><span style="position: absolute; top: 6px; right: 8px; color: #C43D3D; font-weight: 700; font-size: 13px;">✕</span></span><span style="font-size: 11.5px; color: #5F5F5C; text-align: center;">Don't retype the wordmark in another font or weight</span></span>
+    <span style="display: inline-flex; flex-direction: column; align-items: center; gap: 6px;"><span style="width: 100%; height: 84px; background: #F5F4F1; border-radius: 10px; display: inline-flex; align-items: center; justify-content: center; position: relative; gap: 6px;"><svg viewBox="0 0 48 48" style="width: 26px; height: 26px;"><path fill="#0D0D0C" d="M 42.66 12.34 A 22 22 0 1 0 42.66 35.66 L 33.19 31.71 A 12 12 0 1 1 33.19 16.29 Z"></path><rect x="36" y="19" width="10" height="10" fill="#D6FD70"></rect></svg><span style="font-weight: 600; font-size: 17px; letter-spacing: -0.05em; color: #4D65FF;">Cognis</span><span style="position: absolute; top: 6px; right: 8px; color: #C43D3D; font-weight: 700; font-size: 13px;">✕</span></span><span style="font-size: 11.5px; color: #5F5F5C; text-align: center;">Don't recolor the wordmark — ink or white only</span></span>
+  </div>
+
+  <h2 style="font-size: 21px; font-weight: 600; letter-spacing: -0.03em; margin: 36px 0 10px;">8 · Asset index</h2>
+  <p style="font-size: 15px; line-height: 1.65; margin: 0 0 12px;">All artwork lives in the logo kit (<span style="font-family: Geistmono, monospace; font-size: 12.5px;">assets/logo-kit/</span>). SVG is the master format — use it wherever possible; PNGs are for platforms that require raster.</p>
+  <table style="width: 100%; border-collapse: collapse; font-size: 13px; line-height: 1.5;">
+    <thead>
+      <tr style="border-bottom: 2px solid #0D0D0C; text-align: left;">
+        <th style="padding: 8px 10px 8px 0; font-weight: 600;">File</th>
+        <th style="padding: 8px 0 8px 10px; font-weight: 600;">Use</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="border-bottom: 1px solid #E4E2DD;"><td style="padding: 8px 10px 8px 0; font-family: Geistmono, monospace; font-size: 11.5px;">cognis-mark-black.svg / -white.svg</td><td style="padding: 8px 0 8px 10px;">Full-color mark for light / dark backgrounds. The default files.</td></tr>
+      <tr style="border-bottom: 1px solid #E4E2DD;"><td style="padding: 8px 10px 8px 0; font-family: Geistmono, monospace; font-size: 11.5px;">cognis-mark-mono-black / -white / -blue.svg</td><td style="padding: 8px 0 8px 10px;">One-color reproduction: print, engraving, lime backgrounds (mono-black), photos (mono-white).</td></tr>
+      <tr style="border-bottom: 1px solid #E4E2DD;"><td style="padding: 8px 10px 8px 0; font-family: Geistmono, monospace; font-size: 11.5px;">cognis-app-icon.svg / -512.png / -128.png</td><td style="padding: 8px 0 8px 10px;">App icons, social avatars — white mark on ink rounded square.</td></tr>
+      <tr style="border-bottom: 1px solid #E4E2DD;"><td style="padding: 8px 10px 8px 0; font-family: Geistmono, monospace; font-size: 11.5px;">cognis-favicon-32.png / -16.png</td><td style="padding: 8px 0 8px 10px;">Browser favicons; 16 px carries the enlarged keystone.</td></tr>
+      <tr style="border-bottom: 1px solid #E4E2DD;"><td style="padding: 8px 10px 8px 0; font-family: Geistmono, monospace; font-size: 11.5px;">cognis-mark-black-512.png / -white-512.png</td><td style="padding: 8px 0 8px 10px;">Transparent raster mark for docs, decks, and tools that reject SVG.</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size: 13px; color: #8A8A86; line-height: 1.6; margin: 24px 0 0;">Questions or a context not covered here: contact the Cognis Group design owner before improvising. © 2026 Cognis Group.</p>
+</doc-page>
+</x-dc>
+</body>
+</html>

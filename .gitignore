@@ -42,3 +42,6 @@ tests/phase5-out/
 # Local raw source assets (not deployed)
 stock/
 
+
+# Wrangler local state
+.wrangler/

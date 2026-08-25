@@ -32,9 +32,9 @@ BUNDLES = {
 
     # --- Contact page ---
     "cJ1xuMkLTjw-x2vTqK43D546Q19G_AQcRRmTRca7GeY.CBHzrIGZ.mjs": [
-        ("consulting@aeline.com", "consulting@cognis.group", 4),
+        ("consulting@aeline.com", "info@cognis.group", 4),
         ("+1 (123) 456-7890", "+2349080001101", 2),
-        ("456 Business Ave, New York, NY 10001", "Lagos, Nigeria", 1),
+        ("456 Business Ave, New York, NY 10001", "Cheyenne, USA · Ontario, Canada · Lagos, Nigeria", 1),
         ("456 Business Ave, New York", "Lagos, Nigeria", 1),
         ("https://maps.app.goo.gl/fypBBWRAtpepS5vT8", "", 1),
         ("Learn about our journey, mission, and the team driving innovation.",

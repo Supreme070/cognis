@@ -68,6 +68,7 @@ BLOCK = f"""{START}
       <a href="/why-cognis">Why Cognis</a>
       <a href="/case-studies">Case Studies</a>
       <a href="/how-we-work">How We Work</a>
+      <a href="/careers/">Careers</a>
       <a href="/faq">FAQ</a>
     </div>
     <div class="csl-group">
@@ -111,10 +112,11 @@ def inject(path: Path) -> bool:
         "",
         html,
     )
-    # Insight pages already carry the universal Cognis footer (including its
-    # newsletter and navigation). A second strip below it is duplicate chrome
-    # and breaks the intended newsletter -> footer ending.
-    if path.relative_to(ROOT).parts[0] == "blog":
+    # 2026-08-25: the universal footer now carries every site link (Services
+    # column, FAQ, real legal links), so the strip is duplicate chrome on any
+    # page with a footer. Only the thanks pages — which have no footer at
+    # all — still get the strip; everywhere else it is stripped if present.
+    if path.relative_to(ROOT).parts[0] not in {"thanks", "thanks-subscribe"}:
         if html == original:
             return False
         path.write_text(html, encoding="utf-8")

@@ -6,9 +6,9 @@ Last updated: 2026-07-26
 
 ## About
 
-Cognis Group is a Lagos-headquartered AI consulting and engineering firm. We build, deploy, and govern AI systems for enterprises across Africa and globally. Every engagement leaves the organization permanently more capable — we do not sell dependency.
+Cognis Group is a Lagos-headquartered AI consulting and engineering firm. We build, deploy, and govern AI systems for enterprises across Africa and globally. Every engagement leaves the organization permanently more capable. We do not sell dependency.
 
-**Quod Tango Muto — What we touch, we change.**
+**Quod Tango Muto: What we touch, we change.**
 
 ## Core capabilities
 
@@ -38,7 +38,7 @@ We work remotely, on-site, and through hybrid engagement models.
 ## Our operating principles
 
 - **We deploy, we don't theorize.** Every engagement leaves the organization permanently more capable.
-- **We don't replace people with AI — we make people extraordinary with AI.**
+- **We don't replace people with AI. We make them extraordinary with it.**
 - **Lagos-headquartered. Globally engaged. What we touch, we change.**
 
 ## 2026 expert field notes
@@ -60,9 +60,9 @@ Author profile: https://cognis.group/teams/tosin-salami/
 
 ## Frequently asked
 
-**What does Cognis Group actually do?** We build, deploy, and govern AI systems — agents, chatbots, workflows, governance frameworks, and training programmes — across three practice areas: AI Strategy & Advisory, AI Agent & Automation Engineering, and AI Training & Workforce Development. We also build and operate Cognis AI, MarketSage, Migratio, and SPOG.
+**What does Cognis Group actually do?** We build, deploy, and govern AI systems (agents, chatbots, workflows, governance frameworks, and training programmes) across three practice areas: AI Strategy & Advisory, AI Agent & Automation Engineering, and AI Training & Workforce Development. We also build and operate Cognis AI, MarketSage, Migratio, and SPOG.
 
-**Where is Cognis Group based?** Headquartered in Lagos and registered with Nigeria's Corporate Affairs Commission. Cognis serves organisations across Africa, Europe, and North America.
+**Where is Cognis Group based?** Registered in Lagos with Nigeria's Corporate Affairs Commission, with offices in Cheyenne (USA), Ontario (Canada), and Lagos (Nigeria). Cognis serves organisations across Africa, Europe, and North America.
 
 **What industries do you serve?** Enterprises, government agencies, banks, telcos, and fintechs across Africa, plus international organizations operating in or expanding into Africa.
 
@@ -74,7 +74,8 @@ Author profile: https://cognis.group/teams/tosin-salami/
 
 ## Contact
 
-Email: consulting@cognis.group
-Phone: +2349080001101
-Based in: Lagos, Nigeria
+Email: info@cognis.group
+Phone: +1 (512) 743-7322 (US) / +2349080001101 (NG)
+US office: 2106 House Ave, Suite 665, Cheyenne, WY 82001
+Based in: Cheyenne, USA · Ontario, Canada · Lagos, Nigeria (registered in Lagos)
 Engagements: Africa · Europe · North America

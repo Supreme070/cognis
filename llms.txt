@@ -2,7 +2,7 @@
 
 Last updated: 2026-07-26
 
-> Cognis Group is an AI company that builds, deploys, and governs AI systems that permanently transform organizations. Three core practices: AI Strategy & Advisory, AI Training & Workforce Development, and AI Agent & Automation Engineering. Quod Tango Muto — what we touch, we change.
+> Cognis Group is an AI company that builds, deploys, and governs AI systems that transform how organizations work. Three practices: AI Strategy & Advisory, AI Training & Workforce Development, and AI Agent & Automation Engineering. Quod Tango Muto: what we touch, we change.
 
 ## Core content
 
@@ -17,7 +17,7 @@ Last updated: 2026-07-26
 
 ## Products
 
-Cognis Group builds and operates its own software, not just advisory. Four products:
+Beyond advisory, Cognis Group builds and operates its own software. Four products:
 
 - [Products overview](https://cognis.group/products/): The software Cognis Group builds and runs.
 - [Cognis AI](https://ai.cognis.group): A workforce of specialised AI workers — hire one for support, voice, knowledge, ops, or trade. Workers start in shadow mode, earn autonomy, and can be cancelled anytime. Tagline: "Hire AI to do the work." (Live)
@@ -34,7 +34,7 @@ Cognis Group builds and operates its own software, not just advisory. Four produ
 
 ## How We Work
 
-- [Methodology](https://cognis.group/how-we-work/): Our six-phase engagement methodology — Discovery, Assessment, Strategy, Build, Deploy, Govern — designed to ship production AI rather than stall at pilot.
+- [Methodology](https://cognis.group/how-we-work/): Our six-phase engagement methodology (Discovery, Assessment, Strategy, Build, Deploy, Govern), designed to ship production AI rather than stall at pilot.
 
 ## Services
 
@@ -58,11 +58,11 @@ Cognis Group builds and operates its own software, not just advisory. Four produ
 
 ## About
 
-Cognis Group Limited is registered with the Corporate Affairs Commission (Lagos, Nigeria). Co-founded in 2025 by Supreme Oyewumi and Kola Olatunde. Serves organizations across Africa, Europe, and the Americas.
+Cognis Group Limited is registered with the Corporate Affairs Commission (Lagos, Nigeria). Co-founded in 2024 by Supreme Oyewumi and Kola Olatunde. Offices in Cheyenne, Wyoming (USA), Ontario (Canada), and Lagos (Nigeria). Serves organizations across Africa, Europe, and the Americas.
 
-Motto: Quod Tango Muto — "What we touch, we change."
+Motto: Quod Tango Muto ("What we touch, we change.")
 
-Contact: consulting@cognis.group | +2349080001101
+Contact: info@cognis.group | +2349080001101
 
 ## Policies
 
