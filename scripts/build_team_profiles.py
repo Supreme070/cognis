@@ -21,16 +21,6 @@ ROOT = Path(__file__).resolve().parent.parent
 # them here. Only members without a CMS profile go below.
 MEMBERS = [
     {
-        "slug": "fisayo-oludare",
-        "name": "Fisayo Oludare",
-        "role": "Executive Director, Partnerships & AI Enablement",
-        "img": "/framer-runtime/images/il73eZeVzET6bn72svJVyQpD4.png",
-        "bio": "Fisayo leads partnerships and AI enablement at Cognis Group. "
-               "She connects enterprise priorities to role-based adoption "
-               "programmes, helping leadership teams and workforces build the "
-               "capability to use and govern AI in day-to-day work.",
-    },
-    {
         "slug": "obruche-uwanoghor",
         "name": "Obruche Uwanoghor",
         "role": "Director of People & Culture",
