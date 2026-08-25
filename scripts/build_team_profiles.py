@@ -34,9 +34,7 @@ MEMBERS = [
         "name": "Tosin Salami",
         "role": "Executive Director, Product & Strategy",
         "img": "/assets/team-tosin-salami.jpg",
-        "bio": "Tosin sets product direction and strategy at Cognis Group. He "
-               "turns real business needs into clear plans and priorities for "
-               "Cognis AI, MarketSage, Migratio and SPOG.",
+        "bio": "Tosin serves Cognis Group at board level as Executive Director, Product & Strategy. A senior product leader in global payments with EMEA-wide experience across cross-border infrastructure and fintech, he advises our leadership on product direction and strategy for Cognis AI, MarketSage, Migratio and SPOG.",
     },
 ]
 
