@@ -24,7 +24,7 @@ MEMBERS = [
         "slug": "obruche-uwanoghor",
         "name": "Obruche Uwanoghor",
         "role": "Executive Director of People & Culture",
-        "img": "/framer-runtime/images/team-obruche-uwanoghor.jpg",
+        "img": "/assets/team-obruche-uwanoghor.jpg",
         "bio": "Obruche leads People & Culture at Cognis Group. She builds the "
                "teams behind our consulting and engineering work, shapes how we "
                "work together and helps our people keep growing.",
@@ -33,7 +33,7 @@ MEMBERS = [
         "slug": "tosin-salami",
         "name": "Tosin Salami",
         "role": "Executive Director, Product & Strategy",
-        "img": "/framer-runtime/images/team-tosin-salami.jpg",
+        "img": "/assets/team-tosin-salami.jpg",
         "bio": "Tosin sets product direction and strategy at Cognis Group. She "
                "turns real business needs into clear plans and priorities for "
                "Cognis AI, MarketSage, Migratio and SPOG.",
