@@ -34,9 +34,12 @@
 			"binding": "FORM_WORKFLOW",
 			"class_name": "LeadEnrichment"
 		}
+	],
+	"ai_search": [
+		{
+			"binding": "SITE_SEARCH",
+			"instance_name": "cognis-site",
+			"remote": true
+		}
 	]
-	// After the AI Search instance "cognis-site" exists (needs the one-time
-	// dashboard token at dash.cloudflare.com/<account>/ai/ai-search/tokens),
-	// add and redeploy:
-	// "ai_search": [{ "binding": "SITE_SEARCH", "instance_name": "cognis-site", "remote": true }]
 }
