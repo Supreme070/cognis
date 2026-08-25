@@ -14,7 +14,7 @@ const AUTHOR_SUPREME = {
   '@type': 'Person',
   '@id': FOUNDER_ID,
   name: 'Supreme Oyewumi',
-  jobTitle: 'Founder & CEO',
+  jobTitle: 'Founder & AI Engineer',
   url: `${ORIGIN}/teams/supreme-oyewumi/`,
   worksFor: { '@id': ORG_ID },
 };
@@ -23,7 +23,7 @@ const AUTHOR_KOLA = {
   '@type': 'Person',
   '@id': `${ORIGIN}/teams/kola-olatunde/#person`,
   name: 'Kola Olatunde',
-  jobTitle: 'AI Cybersecurity & Governance Lead',
+  jobTitle: 'Co-Founder and AI Cybersecurity & Governance Lead',
   url: `${ORIGIN}/teams/kola-olatunde/`,
   worksFor: { '@id': ORG_ID },
 };
@@ -43,13 +43,13 @@ export const TEAM_MEMBERS = [
   {
     id: 'supreme-oyewumi',
     name: 'Supreme Oyewumi',
-    jobTitle: 'Founder & CEO',
+    jobTitle: 'Founder & AI Engineer',
     image: '/framer-runtime/images/QnjDKI0euXnnnPi4GtTEaqYDJLo.png',
   },
   {
     id: 'kola-olatunde',
     name: 'Kola Olatunde',
-    jobTitle: 'AI Cybersecurity & Governance Lead',
+    jobTitle: 'Co-Founder and AI Cybersecurity & Governance Lead',
     image: '/framer-runtime/images/QTiI3J2XXGOwJw3fyXhxuB92fl0.png',
   },
   {
@@ -66,7 +66,7 @@ export const BLOG_POSTS = [
     slug: 'why-most-enterprise-ai-strategies-fail-before-they-start',
     headline: 'Why Most Enterprise AI Strategies Fail Before They Start',
     description:
-      'Enterprise AI fails at the whiteboard, not the model. The signals that separate strategies that ship from decks that don\'t.',
+      'Why many business AI plans fail before any tool is built, and the clear decisions that help a useful plan move forward.',
     datePublished: '2026-03-18',
     dateModified: '2026-07-24',
     author: AUTHOR_SUPREME,
@@ -77,7 +77,7 @@ export const BLOG_POSTS = [
     slug: 'building-ai-agents-that-actually-ship',
     headline: 'Building AI Agents That Actually Ship',
     description:
-      'Most agent projects stall in the demo phase. A deployment-first approach to agent engineering — what to build, what to skip, and how to keep them alive in production.',
+      'How to build AI agents people can use in everyday work: what to build, what to avoid and how to keep the system reliable.',
     datePublished: '2026-03-25',
     dateModified: '2026-07-24',
     author: AUTHOR_SUPREME,
@@ -88,7 +88,7 @@ export const BLOG_POSTS = [
     slug: 'ai-governance-is-not-optional',
     headline: 'AI Governance Is Not Optional',
     description:
-      'EU AI Act, NIST AI RMF, ISO 42001, NDPA. Governance is the foundation of AI that scales — here\'s the framework that maps regulation to engineering.',
+      'A practical guide to the rules, checks and responsibilities that help organisations use AI safely and meet key requirements.',
     datePublished: '2026-04-01',
     dateModified: '2026-07-24',
     author: AUTHOR_KOLA,
@@ -99,7 +99,7 @@ export const BLOG_POSTS = [
     slug: 'the-real-roi-of-ai',
     headline: 'The Real ROI of AI',
     description:
-      'Time-to-value, decision velocity, and cost avoidance — the metrics that actually matter when you measure AI in the enterprise.',
+      'A plain guide to measuring whether business AI saves time, improves decisions, avoids costs and creates useful results.',
     datePublished: '2026-04-03',
     dateModified: '2026-07-24',
     author: AUTHOR_SUPREME,
@@ -110,7 +110,7 @@ export const BLOG_POSTS = [
     slug: 'making-your-workforce-ai-ready',
     headline: 'Making Your Workforce AI-Ready',
     description:
-      'AI literacy is a capability, not a workshop. The training framework that turns functional teams into AI-fluent operators.',
+      'How practical AI training helps people use approved tools well, check the output and improve how they work.',
     datePublished: '2026-04-06',
     dateModified: '2026-07-24',
     author: AUTHOR_FISAYO,
@@ -121,7 +121,7 @@ export const BLOG_POSTS = [
     slug: 'ai-native-operations-for-african-enterprises',
     headline: 'AI-Native Operations for African Enterprises',
     description:
-      'African data, African regulation, African infrastructure. Why AI deployment on the continent requires context, not translation.',
+      'Why useful AI in Africa must fit local data, rules, infrastructure and the way organisations actually work.',
     datePublished: '2026-04-08',
     dateModified: '2026-07-24',
     author: AUTHOR_SUPREME,
@@ -137,7 +137,7 @@ export const SERVICES = [
     name: 'AI Strategy & Advisory',
     title: 'AI Strategy & Advisory | Cognis Group',
     description:
-      'AI strategy that ships. Roadmaps, opportunity maps, and executive advisory grounded in what production AI actually takes.',
+      'Choose the right AI opportunities and get a clear plan with priorities, owners, costs, safeguards and measures of success.',
     serviceType: 'AI Strategy Consulting',
   },
   {
@@ -145,7 +145,7 @@ export const SERVICES = [
     name: 'AI Training & Workforce Development',
     title: 'AI Training & Workforce Development | Cognis Group',
     description:
-      'Turn functional teams into AI-fluent operators. Role-based curriculum for executives, managers, and practitioners.',
+      'Practical, role-based AI training that helps leaders and teams work better, check AI output and use approved tools safely.',
     serviceType: 'AI Training',
   },
   {
@@ -153,7 +153,7 @@ export const SERVICES = [
     name: 'AI Agent & Automation Engineering',
     title: 'AI Agent & Automation Engineering | Cognis Group',
     description:
-      'Agents, copilots, and automation pipelines built for production — integrated, observable, and governed.',
+      'We build AI tools that handle agreed steps in business processes, with clear limits, human approval and monitoring.',
     serviceType: 'AI Agent Engineering',
   },
 ];
@@ -180,7 +180,7 @@ export const ROUTES = [
     out: 'about-us/index.html',
     title: 'About Us | Cognis Group',
     description:
-      'Cognis Group is a global AI consulting firm building intelligent agents, strategy, training, and governance frameworks. Quod Tango Muto.',
+      'Meet Cognis Group, a Lagos AI consulting and engineering firm helping organisations across Africa plan, build and use AI with confidence.',
     ogImage: `${ORIGIN}/og/cognis-og-1200x630.jpg`,
     extraSchema: [
       {
@@ -202,7 +202,7 @@ export const ROUTES = [
     out: 'our-services/index.html',
     title: 'Our Services | Cognis Group',
     description:
-      'Strategy, agent engineering, workforce training, and AI governance — the disciplines that move AI from slide deck to production.',
+      'AI strategy, workforce training and practical automation from one senior-led Cognis team, from the first decision to everyday use.',
     ogImage: `${ORIGIN}/og/cognis-og-1200x630.jpg`,
     extraSchema: [
       {
@@ -223,7 +223,7 @@ export const ROUTES = [
     out: 'contact/index.html',
     title: 'Contact | Cognis Group',
     description:
-      'Talk to Cognis Group about AI strategy, agent engineering, and governance. Lagos, Nigeria — engaged globally.',
+      'Talk to Cognis Group about a slow, costly or difficult process. We will help you work out whether AI is the right fit.',
     ogImage: `${ORIGIN}/og/cognis-og-1200x630.jpg`,
     extraSchema: [
       {

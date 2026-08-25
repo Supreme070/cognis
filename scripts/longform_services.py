@@ -187,3 +187,114 @@ SERVICES = {
     },
 
 }
+
+# Plain-English service copy. The public names remain unchanged for search
+# relevance, while the explanations are written for business leaders first.
+SERVICES["ai-strategy-advisory"].update({
+    "lead": "AI Strategy &amp; Advisory answers five practical questions: where can AI help, what is ready now, what should happen first, who will own it, and how will success be measured? You receive a clear plan that leaders can approve and delivery teams can follow.",
+    "what": """
+<p>Many AI plans begin with technology and only later ask which business problem it should solve. That creates expensive trials that never become part of everyday work.</p>
+<p>We begin with your goals, processes, people, data and risks. We then identify the opportunities worth funding and turn them into a practical plan with clear owners, costs, controls and measures of success.</p>
+""",
+    "how": """
+<ol>
+  <li><strong>Check what is ready.</strong> We review your data, systems, people and existing rules against the work you want to improve.</li>
+  <li><strong>Choose the right opportunities.</strong> We rank ideas by business value, cost, difficulty, speed and risk.</li>
+  <li><strong>Agree how the work will run.</strong> We define who funds, owns, approves and measures each AI project.</li>
+  <li><strong>Build the roadmap.</strong> You receive a phased plan with named owners, dependencies and decision points.</li>
+  <li><strong>Prepare leaders to decide.</strong> We provide a clear investment case, expected results and a plain view of the risks.</li>
+</ol>
+""",
+    "who": """
+<p>This service is for boards and leadership teams that need to make confident AI decisions. It is especially useful when an earlier trial stalled, regulations affect the next step, a new leader needs an independent view, or a wider change programme depends on AI.</p>
+""",
+    "outcomes": """
+<ul>
+  <li>An AI strategy with agreed priorities, owners and investment ranges.</li>
+  <li>A 12–24 month plan based on what your organisation can realistically deliver.</li>
+  <li>Clear rules for approving, managing and reviewing AI.</li>
+  <li>A repeatable way to judge future AI investments without depending on us.</li>
+</ul>
+""",
+    "faqs": [
+        {"q": "How long does an AI strategy engagement take?", "a": "Most engagements take 8–14 weeks. We first assess what is ready, then agree priorities, ownership and controls before presenting the final plan to leadership."},
+        {"q": "Do you build the AI systems you recommend?", "a": "Yes, if you want us to. You can use Cognis for the strategy only, the build only, or the full journey. Our advice is based on what the organisation needs."},
+        {"q": "What makes the Cognis approach practical?", "a": "Every recommendation names the business problem, owner, data, cost, risk controls and measure of success. The result is a plan your team can act on."},
+        {"q": "Which laws and standards do you consider?", "a": "Where relevant, we work with Nigeria's Data Protection Act, the EU AI Act, ISO 42001, NIST's AI Risk Management Framework and sector-specific rules. We explain what each one means for your plan."},
+        {"q": "Can you advise whether to buy or build an AI platform?", "a": "Yes. We compare buying, building and combining both options against your needs, data-location rules, budget and in-house skills."},
+        {"q": "Do you work with organisations outside Africa?", "a": "Yes. We are based in Lagos and work across Africa and beyond, especially where organisations need strong local understanding alongside global AI expertise."},
+    ],
+})
+
+SERVICES["ai-training-workforce-development"].update({
+    "lead": "AI Training &amp; Workforce Development helps people use AI safely and confidently in the work they already do. Leaders learn how to make sound decisions, managers learn how to guide adoption, and teams learn practical ways to save time, improve quality and work more efficiently.",
+    "what": """
+<p>AI tools do not create value simply because an organisation buys them. People need to know when to use them, how to check their work and when a human decision is still required.</p>
+<p>Our training is built around each role and the organisation's real tasks. AI is not about taking people's jobs; it is about helping people work better and more efficiently.</p>
+""",
+    "how": """
+<ol>
+  <li><strong>Understand current skills.</strong> We check what each group already knows and where support is needed.</li>
+  <li><strong>Create role-based learning.</strong> Leaders, managers, specialists and wider teams receive the depth they need.</li>
+  <li><strong>Use real work.</strong> Lessons and exercises are based on your processes and approved tools.</li>
+  <li><strong>Teach in practical formats.</strong> We combine live sessions, workshops, guided practice and digital learning.</li>
+  <li><strong>Support key people.</strong> Product owners and governance leads can work with senior Cognis specialists during live projects.</li>
+  <li><strong>Measure the result.</strong> We compare knowledge, behaviour and business results before and after training.</li>
+</ol>
+""",
+    "who": """
+<p>This service is for organisations that need more than a one-off introduction to AI. It suits major change programmes, regulated organisations with staff-knowledge duties, and public institutions building skills across a ministry, agency or national programme.</p>
+""",
+    "outcomes": """
+<ul>
+  <li>People who can use, check and manage AI at the right level for their role.</li>
+  <li>Training records that support relevant AI-literacy requirements.</li>
+  <li>Internal champions who can continue the programme after handover.</li>
+  <li>Measurable improvement in safe use, confidence and decision quality.</li>
+</ul>
+""",
+    "faqs": [
+        {"q": "Do you deliver AI training for executives?", "a": "Yes. Executive programmes usually run across 2–4 short sessions covering investment decisions, oversight, risk and how to question supplier or technical claims."},
+        {"q": "Can you train thousands of employees?", "a": "Yes. We combine focused sessions for leaders and specialists with practical learning for the wider workforce, then train internal champions to keep the programme going."},
+        {"q": "Do you cover EU AI Act Article 4?", "a": "Yes, where it applies. Article 4 requires organisations to take steps so staff have enough knowledge to use AI responsibly. We build suitable learning, assessment and records into the programme."},
+        {"q": "Do you provide certificates?", "a": "We provide Cognis attendance and assessment records. If formal external certification is required, we can work with a recognised certification body."},
+        {"q": "Can our learning team deliver the programme later?", "a": "Yes. We can provide the curriculum under your organisation's brand and train your internal facilitators to deliver it."},
+    ],
+})
+
+SERVICES["ai-agent-automation-engineering"].update({
+    "lead": "An AI agent is a tool that can complete agreed steps in a process, such as reading documents, preparing a report, checking information or routing a request. We build these tools with clear limits, human approval where needed and records of every important action.",
+    "what": """
+<p>AI tools often fail outside a demonstration because they were not designed for real users, imperfect data, system errors or high-risk decisions.</p>
+<p>We build AI agents as dependable business systems. We test them on real tasks, limit what they can do, record their actions and make sure people can review, correct or stop them.</p>
+""",
+    "how": """
+<ol>
+  <li><strong>Map the work.</strong> We break the process into steps and identify which decisions are safe to support or automate.</li>
+  <li><strong>Connect the right systems.</strong> We define which tools and data the AI may use and what happens if a connection fails.</li>
+  <li><strong>Test before choosing technology.</strong> We create a set of real tasks and correct answers so quality can be measured.</li>
+  <li><strong>Set safety rules.</strong> Clear permissions and approval limits sit between the AI and any action it can take.</li>
+  <li><strong>Record and improve.</strong> Important actions are logged so the team can investigate problems and improve performance.</li>
+  <li><strong>Launch in stages.</strong> The system first works in the background, then under human review, and only gains more freedom when the evidence supports it.</li>
+</ol>
+""",
+    "who": """
+<p>This service is for organisations with high-volume, multi-step work that takes too much time or creates avoidable errors. It is particularly useful in customer service, finance, operations, public services and other regulated work where human control and a clear record matter.</p>
+""",
+    "outcomes": """
+<ul>
+  <li>A working AI tool with agreed measures for quality, speed and cost.</li>
+  <li>A reusable set of tests your team can continue after handover.</li>
+  <li>Clear rules for what the system may do and when a person must decide.</li>
+  <li>Monitoring that shows what happened, why it happened and what needs attention.</li>
+</ul>
+""",
+    "faqs": [
+        {"q": "Which AI models do you work with?", "a": "We work with leading models including Claude, GPT, Gemini, Llama, Mistral and Qwen. We test the best options against your task, data-location needs and budget before choosing."},
+        {"q": "Can our data stay in Nigeria or in our own systems?", "a": "Yes. Where law or policy requires it, we can use suitable local, private-cloud or on-site options and design data access around those limits from the start."},
+        {"q": "Which agent-building tools do you use?", "a": "We use tools such as LangGraph, CrewAI, provider agent services or custom software when they fit. The right choice depends on the work, existing systems and level of control required."},
+        {"q": "How do you reduce incorrect AI answers?", "a": "We limit the task, use approved sources, require checks before important actions and test the full system on real examples. A person reviews decisions where the risk is too high for automation."},
+        {"q": "Do you monitor the system after launch?", "a": "Yes. Monitoring for quality, speed, cost, rule breaches and human corrections is part of the build. Ongoing support is also available."},
+        {"q": "How long does it take to launch an AI agent?", "a": "A focused tool for a well-defined process usually takes 10–16 weeks to reach supervised use. Larger or more regulated systems take longer because connections, approvals and safety evidence require more work."},
+    ],
+})

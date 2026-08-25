@@ -16,12 +16,12 @@ ROOT = Path(__file__).resolve().parent.parent
 ORIGIN = "https://cognis.group"
 
 BLOG = {
-    "why-most-enterprise-ai-strategies-fail-before-they-start": ("Supreme Oyewumi", "Founder & CEO", "2026-03-18", "2026-07-24"),
-    "building-ai-agents-that-actually-ship": ("Supreme Oyewumi", "Founder & CEO", "2026-03-25", "2026-07-24"),
+    "why-most-enterprise-ai-strategies-fail-before-they-start": ("Supreme Oyewumi", "Founder & AI Engineer", "2026-03-18", "2026-07-24"),
+    "building-ai-agents-that-actually-ship": ("Supreme Oyewumi", "Founder & AI Engineer", "2026-03-25", "2026-07-24"),
     "ai-governance-is-not-optional": ("Kola Olatunde", "AI Cybersecurity & Governance Lead", "2026-04-01", "2026-07-24"),
-    "the-real-roi-of-ai": ("Supreme Oyewumi", "Founder & CEO", "2026-04-03", "2026-07-24"),
+    "the-real-roi-of-ai": ("Supreme Oyewumi", "Founder & AI Engineer", "2026-04-03", "2026-07-24"),
     "making-your-workforce-ai-ready": ("Fisayo Oludare", "Executive Director, Partnerships & AI Enablement", "2026-04-06", "2026-07-24"),
-    "ai-native-operations-for-african-enterprises": ("Supreme Oyewumi", "Founder & CEO", "2026-04-08", "2026-07-24"),
+    "ai-native-operations-for-african-enterprises": ("Supreme Oyewumi", "Founder & AI Engineer", "2026-04-08", "2026-07-24"),
 }
 
 CASE_NOTES = {
@@ -277,7 +277,7 @@ def process(path: Path) -> bool:
         )
 
     if rel == "teams/supreme-oyewumi/index.html":
-        html = html.replace(">AI Engineer<", ">Founder &amp; CEO<")
+        html = html.replace(">AI Engineer<", ">Founder &amp; AI Engineer<")
 
     if rel == "case-studies/index.html":
         html = html.replace('href="/contact/" data-h="h2"', 'href="/case-studies/marketsage/" data-h="h2"', 1)

@@ -76,7 +76,7 @@ BUNDLES = {
     # --- Team card component (default/fallback values) ---
     "CT0TXHUvF.iOqYZryg.mjs": [
         ("Zaire Dorwart", "Supreme Oyewumi", 4),
-        ("Chief Financial Officer", "Founder & CEO", 4),
+        ("Chief Financial Officer", "Founder & AI Engineer", 4),
     ],
 
     "Dj9QoTIdF.-nt0DdeQ.mjs": [

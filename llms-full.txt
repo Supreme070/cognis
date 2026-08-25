@@ -1,12 +1,12 @@
 # Cognis Group | AI Consulting, Strategy & Agent Engineering
 
-Last updated: 2026-07-26
+Last updated: 2026-08-25
 
-> Cognis Group builds, deploys, and governs AI systems — agents, chatbots, workflows, governance frameworks, and workforce training. Lagos-headquartered, globally engaged.
+> Cognis Group helps organisations decide where AI can help, train their people and build safe tools for everyday work. Lagos-headquartered, globally engaged.
 
 ## About
 
-Cognis Group is a Lagos-headquartered AI consulting and engineering firm. We build, deploy, and govern AI systems for enterprises across Africa and globally. Every engagement leaves the organization permanently more capable. We do not sell dependency.
+Cognis Group is a Lagos-headquartered AI consulting and engineering firm. We help organisations across Africa and beyond plan, build and use AI with confidence. Every engagement leaves the client team more capable and able to manage what we deliver.
 
 **Quod Tango Muto: What we touch, we change.**
 
@@ -14,31 +14,31 @@ Cognis Group is a Lagos-headquartered AI consulting and engineering firm. We bui
 
 Three practice areas (see https://cognis.group/our-services/):
 
-1. **AI Strategy & Advisory** — AI readiness assessments, use-case identification, and deployment roadmaps that move from strategy to measurable business impact. (https://cognis.group/our-services/ai-strategy-advisory/)
-2. **AI Agent & Automation Engineering** — Custom AI agents, copilots, and automation pipelines built for production: integrated, observable, and governed — built on your stack, governed by your rules. (https://cognis.group/our-services/ai-agent-automation-engineering/)
-3. **AI Training & Workforce Development** — Role-based AI literacy programmes for C-suite to frontline teams, covering capability, mindset, and governance discipline at scale. (https://cognis.group/our-services/ai-training-workforce-development/)
+1. **AI Strategy & Advisory** — Choose the right AI opportunities and get a clear plan with priorities, owners, costs, safeguards and measures of success. (https://cognis.group/our-services/ai-strategy-advisory/)
+2. **AI Training & Workforce Development** — Practical, role-based training that helps leaders and teams work better, check AI output and use approved tools safely. (https://cognis.group/our-services/ai-training-workforce-development/)
+3. **AI Agent & Automation Engineering** — AI tools that handle agreed steps in business processes, with clear limits, human approval and monitoring. (https://cognis.group/our-services/ai-agent-automation-engineering/)
 
-AI governance and regulatory alignment (NDPA 2023, CBN guidance, ISO 42001, NIST AI RMF, EU AI Act) is built into every engagement as a design input, not a separate line item.
+Clear AI rules, responsibilities, checks and records are built into every engagement. Where relevant, the work aligns with NDPA 2023, CBN guidance, ISO 42001, NIST AI RMF and the EU AI Act.
 
 ## Products
 
 Beyond advisory, Cognis Group builds and operates its own software. Four products (see https://cognis.group/products/):
 
-1. **Cognis AI** (https://ai.cognis.group) — A workforce of specialised AI workers. Hire one for support, voice, knowledge, ops, or trade. Each worker is built for a single job, starts in shadow mode, earns autonomy through supervised promotion, and can be cancelled anytime. Priced per worker. Tagline: "Hire AI to do the work." Status: Live.
-2. **MarketSage** (https://www.marketsage.africa) — Autonomous marketing and sales intelligence. Plans campaigns, runs them across channels, and turns activity into pipeline; composes into existing CRM and outreach. Tagline: "Marketing that thinks, acts, and converts." Status: Live.
-3. **Migratio** (https://migratio.cognis.group) — The data-migration platform for banks, ministries, and regulated enterprises. Record-level reconciliation and audit trail, naming-normalisation built for African registries, signed cutover with zero-drift verification. Reconcile before cutover; pass the regulator's review on the first try. Status: Live.
-4. **SPOG** (https://spog.cognis.group) — A single pane of glass for enterprise operations across IT, networks, facilities, fleet, and physical security. Status: Live.
+1. **Cognis AI** (https://ai.cognis.group) — Specialised AI support for customer service, voice calls, company knowledge, operations or trade. Each tool starts with people checking its work and only takes on more responsibility after it proves reliable. Tagline: "Hire AI to do the work." Status: Live.
+2. **MarketSage** (https://www.marketsage.africa) — A marketing and sales tool that researches prospects, helps plan campaigns and shows which activity creates sales opportunities. Tagline: "Marketing that thinks, acts, and converts." Status: Live.
+3. **Migratio** (https://migratio.cognis.group) — A tool that helps banks, ministries and regulated organisations move data safely, check it before the change and keep a record of every step. Status: Live.
+4. **SPOG** (https://spog.cognis.group) — One dashboard for IT, networks, facilities, vehicles and security, with every number linked to its source. Status: Live.
 
 ## Where African context meets AI engineering
 
-Our edge is deep African market knowledge combined with global AI engineering capability. International clients engaging with African operations get context no Western firm can authentically replicate. African enterprises get senior engineering without the overhead of remote Western consultancies.
+Our strength is deep African market knowledge combined with global AI engineering experience. We understand local data, rules, infrastructure and working realities, and senior people remain close to the work.
 
 We work remotely, on-site, and through hybrid engagement models.
 
 ## Our operating principles
 
-- **We deploy, we don't theorize.** Every engagement leaves the organization permanently more capable.
-- **We don't replace people with AI. We make them extraordinary with it.**
+- **We turn plans into working tools.** Every engagement leaves the organisation more capable.
+- **AI does not take the place of people. It helps them work better and more efficiently.**
 - **Lagos-headquartered. Globally engaged. What we touch, we change.**
 
 ## 2026 expert field notes
@@ -60,22 +60,23 @@ Author profile: https://cognis.group/teams/tosin-salami/
 
 ## Frequently asked
 
-**What does Cognis Group actually do?** We build, deploy, and govern AI systems (agents, chatbots, workflows, governance frameworks, and training programmes) across three practice areas: AI Strategy & Advisory, AI Agent & Automation Engineering, and AI Training & Workforce Development. We also build and operate Cognis AI, MarketSage, Migratio, and SPOG.
+**What does Cognis Group actually do?** We help organisations decide where AI will be useful, prepare their people and build the tools they need. Our three main services are AI Strategy & Advisory, AI Training & Workforce Development, and AI Agent & Automation Engineering. We also build and operate Cognis AI, MarketSage, Migratio and SPOG.
 
 **Where is Cognis Group based?** Registered in Lagos with Nigeria's Corporate Affairs Commission, with offices in Cheyenne (USA), Ontario (Canada), and Lagos (Nigeria). Cognis serves organisations across Africa, Europe, and North America.
 
-**What industries do you serve?** Enterprises, government agencies, banks, telcos, and fintechs across Africa, plus international organizations operating in or expanding into Africa.
+**What industries do you serve?** We work across all sectors, including large organisations, public institutions, banks, small and medium-sized businesses, and international organisations operating in or expanding into Africa.
 
-**How do you approach AI governance?** We build policy frameworks, audit structures, and compliance systems aligned with both NDPA/CBN guidance and global standards (ISO 42001, NIST AI RMF, EU AI Act). We design governance before deployment, not after.
+**How do you approach safe and responsible AI?** We set clear rules, responsibilities, checks and records before a system goes live. Where relevant, we align the work with NDPA and CBN guidance, ISO 42001, NIST AI RMF and the EU AI Act.
 
-**How does a Lagos-based firm work with international clients?** Deep African market knowledge combined with global AI engineering. We work remotely, on-site, and through hybrid engagement models.
+**How does a Lagos-based firm work with clients elsewhere?** We combine African market knowledge with global AI engineering experience and work remotely, on-site or through a mix of both.
 
-**What makes Cognis different?** We are an African firm by design, not a Western practice with an Africa strategy bolted on. Every engagement leaves the organization permanently more capable.
+**What makes Cognis practical?** Senior people stay close to the work. We agree clear goals, build what is needed, test it in real working conditions and prepare the client team to manage it.
 
 ## Contact
 
 Email: info@cognis.group
 Phone: +1 (512) 743-7322 (US) / +2349080001101 (NG)
 US office: 2106 House Ave, Suite 665, Cheyenne, WY 82001
+Lagos office: Oniru, Victoria Island, Lagos
 Based in: Cheyenne, USA · Ontario, Canada · Lagos, Nigeria (registered in Lagos)
 Engagements: Africa · Europe · North America

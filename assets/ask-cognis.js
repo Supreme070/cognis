@@ -82,7 +82,7 @@
     panel.classList.add('open');
     if (!greeted) {
       greeted = true;
-      add('bot', 'Hello. Ask me anything about what Cognis Group does — services, products, how we work, pricing conversations. I answer from our own material.');
+      add('bot', 'Hi! Ask me anything about Cognis Group: what we do, our products, or how to get started.');
     }
     input.focus();
   }

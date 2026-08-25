@@ -15,3 +15,20 @@
   style.textContent = css;
   document.head.appendChild(style);
 })();
+
+// cgYearSync: keep the footer copyright range current without yearly edits.
+(function () {
+  function sync() {
+    var y = new Date().getFullYear();
+    if (y <= 2026) return;
+    var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+    var n;
+    while ((n = walker.nextNode())) {
+      if (n.textContent.length < 80 && /\u00a9 2024(\u2013\d{4})?/.test(n.textContent)) {
+        n.textContent = n.textContent.replace(/\u00a9 2024(\u2013\d{4})?/, '\u00a9 2024\u2013' + y);
+      }
+    }
+  }
+  if (document.readyState !== 'loading') sync();
+  else document.addEventListener('DOMContentLoaded', sync);
+})();

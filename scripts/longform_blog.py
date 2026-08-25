@@ -16,8 +16,9 @@ Each entry: slug -> dict with
 AUTHOR_SUPREME = {
     "name": "Supreme Oyewumi",
     "slug": "supreme-oyewumi",
-    "role": "Founder & CEO, Cognis Group",
+    "role": "Founder & AI Engineer, Cognis Group",
 }
+
 AUTHOR_KOLA = {
     "name": "Kola Olatunde",
     "slug": "kola-olatunde",
@@ -465,3 +466,42 @@ BLOG = {
         ],
     },
 }
+
+# Plain-English openings help non-technical readers understand the point before
+# the articles move into specialist detail.
+BLOG["why-most-enterprise-ai-strategies-fail-before-they-start"]["lead"] = (
+    "Most large AI plans fail before the technology becomes the problem. The "
+    "organisation has not agreed the business result, prepared its data, named "
+    "a long-term owner or planned how people will use the system. A useful AI "
+    "strategy is therefore a delivery plan, not a presentation."
+)
+BLOG["building-ai-agents-that-actually-ship"]["lead"] = (
+    "An AI agent is a tool that can complete agreed steps in a process, not just "
+    "answer questions. These projects reach everyday use when the job, connected "
+    "tools, correct result and failure process are defined and tested before the "
+    "system is given more responsibility."
+)
+BLOG["ai-governance-is-not-optional"]["lead"] = (
+    "AI governance means the people, rules and checks that keep an AI system safe "
+    "and accountable. It should be designed before launch, so the organisation "
+    "knows who owns each decision, which evidence is required and what happens "
+    "when the system makes a mistake."
+)
+BLOG["the-real-roi-of-ai"]["lead"] = (
+    "The return on an AI investment should appear in business results: work "
+    "completed faster, fewer errors, lower avoidable cost or more useful capacity. "
+    "To prove that return, measure the process before launch and track the same "
+    "measures after people begin using the system."
+)
+BLOG["making-your-workforce-ai-ready"]["lead"] = (
+    "An AI-ready workforce knows when AI can help, how to use it safely, how to "
+    "check its work and when a person must decide. Those skills are developed "
+    "through role-based practice, not a single general workshop. The aim is to "
+    "help people work better and more efficiently."
+)
+BLOG["ai-native-operations-for-african-enterprises"]["lead"] = (
+    "AI-native operations means designing everyday work so people and AI tools "
+    "work together from the start. African organisations can use this approach "
+    "to improve service, speed and decision-making without copying systems built "
+    "for different markets, infrastructure or regulations."
+)

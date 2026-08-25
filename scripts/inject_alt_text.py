@@ -37,7 +37,7 @@ ROOT = Path(__file__).resolve().parent.parent
 # Evidence sourced from scripts/seo-data.mjs and DOM-context inventory.
 CURATED_ALTS: dict[str, str] = {
     # Team — from seo-data.mjs TEAM_MEMBERS
-    "QnjDKI0euXnnnPi4GtTEaqYDJLo.png": "Supreme Oyewumi — Founder & CEO, Cognis Group",
+    "QnjDKI0euXnnnPi4GtTEaqYDJLo.png": "Supreme Oyewumi — Founder & AI Engineer, Cognis Group",
     "QTiI3J2XXGOwJw3fyXhxuB92fl0.png": "Kola Olatunde — AI Cybersecurity & Governance Lead, Cognis Group",
     "il73eZeVzET6bn72svJVyQpD4.png": "Fisayo Oludare — Executive Director, Partnerships & AI Enablement, Cognis Group",
 

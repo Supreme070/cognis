@@ -29,6 +29,24 @@ REPL = {
         "ship AI into production and operate it with confidence",
     "forward-thinking organisations to operationalise AI":
         "banks, ministries, and enterprises to put AI into production — and govern it",
+    "Cognis Group is more than an advisory firm. We build, deploy, and govern AI systems that transform how organizations work.":
+        "Cognis Group helps organisations use AI to improve how people work. We plan, build and manage practical systems, then prepare your team to use them with confidence.",
+    "Trusted by forward-thinking organizations across three continents":
+        "Trusted by organisations across three continents",
+    "Trusted by forward-thinking organisations across three continents":
+        "Trusted by organisations across three continents",
+    "Founder & CEO": "Founder & AI Engineer",
+    "Founder &amp; CEO": "Founder &amp; AI Engineer",
+    "AI Security & Governance": "Co-Founder and AI Cybersecurity & Governance Lead",
+    "AI Security &amp; Governance": "Co-Founder and AI Cybersecurity &amp; Governance Lead",
+    "Let's discuss how AI can transform your organization.":
+        "Tell us which task is slow, costly or difficult to manage. We will help you work out whether AI is the right fit.",
+    "© 2024 Cognis Group. All rights reserved.":
+        "© 2024–2026 Cognis Group. All rights reserved.",
+    "Comprehensive consulting and intelligent innovation":
+        "One team from the first decision to everyday use",
+    "Whether you're optimizing today or building for tomorrow we help you move faster with confidence.":
+        "Start with the service you need now, or ask us to support the full journey.",
 }
 
 SCRIPT = f"""{START}

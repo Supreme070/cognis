@@ -35,19 +35,18 @@ MEMBERS = [
         "name": "Obruche Uwanoghor",
         "role": "Director of People & Culture",
         "img": "/framer-runtime/images/team-obruche-uwanoghor.jpg",
-        "bio": "Obruche leads People & Culture at Cognis Group — building the "
-               "multidisciplinary teams behind our consulting and engineering "
-               "work, shaping how we operate, and making sure our people grow "
-               "as fast as the systems they deliver.",
+        "bio": "Obruche leads People & Culture at Cognis Group. She builds the "
+               "teams behind our consulting and engineering work, shapes how we "
+               "work together and helps our people keep growing.",
     },
     {
         "slug": "tosin-salami",
         "name": "Tosin Salami",
         "role": "Executive Director, Product & Strategy",
         "img": "/framer-runtime/images/team-tosin-salami.jpg",
-        "bio": "Tosin sets product direction and strategy at Cognis Group — "
-               "turning enterprise needs into the product roadmaps and delivery "
-               "priorities behind Cognis AI, MarketSage, Migratio, and SPOG.",
+        "bio": "Tosin sets product direction and strategy at Cognis Group. She "
+               "turns real business needs into clear plans and priorities for "
+               "Cognis AI, MarketSage, Migratio and SPOG.",
     },
 ]
 
@@ -144,11 +143,11 @@ TEMPLATE = """<!doctype html>
   <div class="foot-top">
     <div class="foot-brand">
       <a class="brand" href="/"><img src="/favicon.svg" alt=""> Cognis</a>
-      <p>Cognis Group is more than an advisory firm — we build, deploy, and govern AI systems that permanently transform organizations.</p>
+      <p>Cognis Group helps organisations use AI to improve how people work. We plan, build and manage practical systems, then prepare teams to use them with confidence.</p>
     </div>
     <nav class="foot-links">{foot_links}</nav>
   </div>
-  <div class="foot-bottom"><span>© Cognis Group</span><span>Quod Tango Muto — what we touch, we change.</span></div>
+  <div class="foot-bottom"><span>© 2024–2026 Cognis Group</span><span>Quod Tango Muto — what we touch, we change.</span></div>
 </footer>
 </body>
 </html>
