@@ -125,6 +125,7 @@ def process(p: Path) -> str:
         html = html.replace("</body>", FOOTER + "\n</body>", 1)
         how = "inserted footer"
     html = re.sub(r"<style data-cognis-gfooter>[\s\S]*?</style>\n?", "", html)
+    html = re.sub(r"<link [^>]*data-cognis-gfooter-font>\n?", "", html)
     add = [STYLE]
     if "family=Inter" not in html and "Inter:" not in html:
         add.insert(0, INTER_LINK)

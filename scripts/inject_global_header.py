@@ -198,6 +198,7 @@ def process(p: Path) -> str:
 
     # Head: shared style (refresh), fonts, responsive layer, nav script — each once.
     html = re.sub(r"<style data-cognis-gheader>[\s\S]*?</style>\n?", "", html)
+    html = re.sub(r"<link [^>]*data-cognis-gheader-font>\n?", "", html)
     add = [STYLE]
     if "Plus+Jakarta" not in html:
         add.insert(0, FONT_LINK)
