@@ -29,7 +29,13 @@ SERVICES = {
         "name": "AI Strategy & Advisory",
         "blurb": "We assess organizational AI readiness, identify high-value use cases, and build a clear, executable roadmap from strategy through to deployment and measurable impact.",
         "hero_p": "We assess organizational AI readiness, identify high-value use cases, and build a clear, executable roadmap from initial strategy through to live deployment and measurable business impact. Every engagement leaves you with the plan, the people, and the governance to execute it — long after we are gone.",
-        "hero_img": IMG + "nw1v8zNlvan7Taq8pOE0xIU4IqQ.png",
+        "hero_img": "/assets/service-strategy-hero.jpg",
+        "hero_alt": "A Cognis strategy session: mapping AI opportunities on a whiteboard with a client team",
+        "hero_video": "/assets/service-strategy-hero.mp4",
+        "layout": "v2",
+        "hero_p_v2": "AI Strategy & Advisory answers five practical questions: where can AI help, what is ready now, what should happen first, who will own it, and how will success be measured? You receive a clear plan that leaders can approve and delivery teams can follow.",
+        "proof_quote": "governance framework",
+        "proof_lead": "From readiness assessments to board-approved roadmaps, this is what clients say about our strategy work.",
         "ben_h2": "What a Cognis AI Strategy engagement delivers",
         "ben_lead": "A defensible roadmap, production-first delivery, internal capability transfer, and governance built in from day one.",
         "ben_img": IMG + "XWVgE6Ab2HA2NJq5oJGrl9ao0Fk.png",
@@ -46,7 +52,9 @@ SERVICES = {
         "name": "AI Training & Workforce Development",
         "blurb": "We develop AI literacy across your organization — executives to operators — building the mindset, capability and discipline to work with AI effectively at scale.",
         "hero_p": "We partner with leadership to unlock organizational potential. Our consulting approach integrates deep business acumen with advanced analytical techniques to solve complex challenges, optimize workflows, and prepare your company for the future of work. We focus on impact and measurable results.",
-        "hero_img": IMG + "30HsjaQFo7CwYhlbpERJI6kc20.png",
+        "hero_img": "/assets/service-training-hero.jpg",
+        "hero_alt": "A Cognis trainer leading an in-person AI workshop for a seated group",
+        "hero_video": None,
         "ben_h2": "What a Cognis AI Training engagement delivers",
         "ben_lead": "We develop AI literacy across your entire organization — from executive leadership to operational teams — building the mindset, capability, and governance discipline required to work with AI effectively and responsibly at scale. We do not teach tools. We change how your people think.",
         "ben_img": IMG + "service-training.jpg",
@@ -67,7 +75,13 @@ SERVICES = {
         "name": "AI Agent & Automation Engineering",
         "blurb": "We architect, build and deploy custom AI agents and intelligent automation workflows that eliminate manual bottlenecks and scale your output without scaling your headcount.",
         "hero_p": "We architect, build, and deploy production-ready AI agents and automated workflows that eliminate manual processes, reduce operational errors, and scale organizational capacity — without adding headcount. Agents amplify people. They do not replace them.",
-        "hero_img": IMG + "NXN3j2RGbUWR2wkQTQqSFMgJk0.png",
+        "hero_img": "/assets/service-agent-hero.jpg",
+        "hero_alt": "Code and dashboards on screens, seen through an engineer's glasses",
+        "hero_video": None,
+        "layout": "v2",
+        "hero_p_v2": "An AI agent is a tool that can complete agreed steps in a process, such as reading documents, preparing a report, checking information or routing a request. We build these tools with clear limits, human approval where needed and records of every important action.",
+        "proof_quote": "rebuilt our internal operations",
+        "proof_lead": "From customer operations to back-office workflows, this is what clients say about the agents we ship.",
         "ben_h2": "What a Cognis Agent engagement delivers",
         "ben_lead": "Production workflows, stack-native integrations, human-in-the-loop control, and measurable hours saved — not another chatbot pilot.",
         "ben_img": IMG + "service-agent.jpg",
@@ -267,6 +281,15 @@ def testimonials_block() -> str:
     return block
 
 
+def hero_media(s: dict) -> str:
+    """Hero panel: a still photo, plus the page's video on top when it has one."""
+    img = f'<img class="svc-hero-img" src="{s["hero_img"]}" alt="{e(s.get("hero_alt", s["name"] + " — Cognis Group"))}" width="935" height="720" fetchpriority="high">'
+    video = s.get("hero_video", HERO_VIDEO)
+    if not video:
+        return img
+    return img + f'\n        <video class="svc-hero-video" src="{video}" poster="{s["hero_img"]}" autoplay muted loop playsinline preload="metadata" aria-hidden="true" tabindex="-1"></video>'
+
+
 def longform_parts(slug: str) -> dict:
     """Split the carried-over article into its pieces for the v2 layout."""
     src = (DATA / slug / "longform.html").read_text(encoding="utf-8")
@@ -313,8 +336,7 @@ def render_v2(slug: str, s: dict, meta: str, schema: str) -> str:
         {hero_btn}
       </div></div>
       <div class="svc-hero-right">
-        <img class="svc-hero-img" src="{s["hero_img"]}" alt="{e(s["name"])} — Cognis Group" width="935" height="720" fetchpriority="high">
-        <video class="svc-hero-video" src="{HERO_VIDEO}" poster="{s["hero_img"]}" autoplay muted loop playsinline preload="metadata" aria-hidden="true" tabindex="-1"></video>
+        {hero_media(s)}
       </div>
     </div>
   </section>'''

@@ -141,6 +141,36 @@
     .svc-in,.svc-hero-img,.svc-hero-video{animation:none}
     .svc-roll b,.svc-arrow svg,.svc-pill{transition:none}
   }
+  /* v2 layout: process steps, fit/outcomes, proof, FAQ */
+  .svc-head-left{align-items:flex-start;text-align:left;max-width:640px}
+  .svc-head-left .svc-head-text{align-items:flex-start}
+  .svc-head-text p+p{margin-top:-8px}
+  .svc-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;background:#f2f2f2;border-radius:24px;padding:12px;width:100%}
+  .svc-steps .svc-card{height:auto;min-height:232px}
+  .svc-num{width:40px;height:40px;border-radius:12px;background:#cdfb56;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:600;letter-spacing:-.32px;flex:none}
+  .svc-two{display:grid;grid-template-columns:1fr 1fr;gap:12px;background:#f2f2f2;border-radius:24px;padding:12px;width:100%}
+  .svc-two .svc-card{height:auto;min-height:0}
+  .svc-two .svc-card-text{margin-top:32px}
+  .svc-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px}
+  .svc-list li{position:relative;padding-left:22px;font-size:16px;line-height:24px;letter-spacing:-.32px;color:#7b7b7b}
+  .svc-list li::before{content:"";position:absolute;left:0;top:8px;width:8px;height:8px;background:#131313}
+  .svc-proof{display:grid;grid-template-columns:minmax(0,1fr) min(404px,88vw);gap:48px;align-items:center;max-width:1336px;width:100%}
+  .svc-proof-card{justify-self:end}
+  .svc-faq{max-width:860px;width:100%;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:17px;line-height:1.72;color:#131313}
+  .svc-faq details{border-top:1px solid #e6e6e6;padding:18px 0}
+  .svc-faq details:last-of-type{border-bottom:1px solid #e6e6e6}
+  .svc-faq summary{cursor:pointer;font-weight:600;font-size:17px;list-style:none;position:relative;padding-right:28px}
+  .svc-faq summary::-webkit-details-marker{display:none}
+  .svc-faq summary::after{content:"+";position:absolute;right:0;top:0;font-size:22px;font-weight:400;color:#7b7b7b}
+  .svc-faq details[open] summary::after{content:"−"}
+  .svc-faq details p{margin:12px 0 0;color:#2f2f2f}
+  @media (max-width:991px){
+    .svc-steps,.svc-two,.svc-proof{grid-template-columns:1fr}
+    .svc-proof{gap:32px}
+    .svc-proof-card{justify-self:center}
+    .svc-head-left{align-items:center;text-align:center}
+    .svc-head-left .svc-head-text{align-items:center}
+  }
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://cognis.group/#organization","name":"Cognis Group","alternateName":"Cognis","legalName":"Cognis Group Limited","url":"https://cognis.group/","logo":{"@type":"ImageObject","@id":"https://cognis.group/#logo","url":"https://cognis.group/assets/img/cognis-logo.png","width":512,"height":512,"caption":"Cognis Group"},"image":{"@id":"https://cognis.group/#logo"},"description":"Cognis Group helps organisations decide where AI can help, train their people and build safe tools for everyday work. Its three main services are AI Strategy & Advisory, AI Training & Workforce Development, and AI Agent & Automation Engineering.","slogan":"Quod Tango Muto — What we touch, we change.","foundingDate":"2024","founder":[{"@type":"Person","@id":"https://cognis.group/teams/supreme-oyewumi/#person","name":"Supreme Oyewumi","jobTitle":"Founder & AI Engineer"},{"@type":"Person","@id":"https://cognis.group/teams/kola-olatunde/#person","name":"Kola Olatunde","jobTitle":"Co-Founder and AI Cybersecurity & Governance Lead"}],"foundingLocation":{"@type":"Place","name":"Lagos, Nigeria","address":{"@type":"PostalAddress","addressLocality":"Lagos","addressCountry":"NG"}},"address":[{"@type":"PostalAddress","streetAddress":"Oniru, Victoria Island","addressLocality":"Lagos","addressRegion":"LA","addressCountry":"NG"},{"@type":"PostalAddress","streetAddress":"2106 House Ave, Suite 665","addressLocality":"Cheyenne","addressRegion":"WY","postalCode":"82001","addressCountry":"US"}],"contactPoint":[{"@type":"ContactPoint","contactType":"sales","email":"info@cognis.group","telephone":"+2349080001101","availableLanguage":["English"],"areaServed":["NG","ZA","KE","GH","GB"]},{"@type":"ContactPoint","contactType":"sales","email":"info@cognis.group","telephone":"+15127437322","availableLanguage":["English"],"areaServed":["US","CA"]}],"areaServed":[{"@type":"Place","name":"Africa"},{"@type":"Place","name":"Europe"},{"@type":"Place","name":"Americas"}],"knowsAbout":["Artificial Intelligence Strategy","AI Consulting","AI Agent Engineering","Machine Learning","AI Governance","AI Workforce Development","Intelligent Automation","Large Language Models","Enterprise AI Deployment","Digital Transformation","AI Readiness Assessment","Generative AI","AI Risk Management","Responsible AI"],"sameAs":["https://www.linkedin.com/company/cognis-group","https://x.com/cognisgroup","https://github.com/cognis-group"],"hasOfferCatalog":{"@type":"OfferCatalog","name":"AI Consulting Services","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","@id":"https://cognis.group/#service-ai-strategy","name":"AI Strategy & Advisory","description":"Cognis Group helps organisations choose useful AI opportunities and create a clear plan with priorities, owners, costs, safeguards and measures of success.","provider":{"@id":"https://cognis.group/#organization"},"serviceType":"AI Strategy Consulting","areaServed":"Worldwide","audience":{"@type":"Audience","audienceType":"Enterprise organizations, Government agencies, Financial institutions"}}},{"@type":"Offer","itemOffered":{"@type":"Service","@id":"https://cognis.group/#service-ai-training","name":"AI Training & Workforce Development","description":"Cognis Group provides practical AI training that helps leaders and teams work better, check AI output and use approved tools safely.","provider":{"@id":"https://cognis.group/#organization"},"serviceType":"AI Training and Education","areaServed":"Worldwide"}},{"@type":"Offer","itemOffered":{"@type":"Service","@id":"https://cognis.group/#service-ai-agents","name":"AI Agent & Automation Engineering","description":"Cognis Group builds AI tools that handle agreed steps in business processes, reduce slow manual work and errors, and keep people in control.","provider":{"@id":"https://cognis.group/#organization"},"serviceType":"AI Engineering and Automation","areaServed":"Worldwide"}},{"@type":"Offer","itemOffered":{"@type":"Service","@id":"https://cognis.group/#service-ml-data","name":"Machine Learning & Data Intelligence","description":"Cognis Group builds data and forecasting tools that turn business information into useful answers and clearer decisions.","provider":{"@id":"https://cognis.group/#organization"},"serviceType":"Machine Learning Consulting","areaServed":"Worldwide"}},{"@type":"Offer","itemOffered":{"@type":"Service","@id":"https://cognis.group/#service-ai-governance","name":"AI Governance, Risk & Compliance","description":"Cognis Group sets clear AI rules, responsibilities, checks and records so organisations can use AI safely and meet relevant requirements.","provider":{"@id":"https://cognis.group/#organization"},"serviceType":"AI Governance and Risk Management","areaServed":"Worldwide"}},{"@type":"Offer","itemOffered":{"@type":"Service","@id":"https://cognis.group/#service-digital-transformation","name":"Enterprise Digital Transformation","description":"Cognis Group improves older systems and business processes, then adds useful AI where it can make work faster and decisions clearer.","provider":{"@id":"https://cognis.group/#organization"},"serviceType":"Digital Transformation Consulting","areaServed":"Worldwide"}}]}},{"@type":"WebSite","@id":"https://cognis.group/#website","url":"https://cognis.group","name":"Cognis Group","description":"AI consulting and engineering company helping organisations plan, build and use AI safely","publisher":{"@id":"https://cognis.group/#organization"},"inLanguage":"en-GB"},{"@type":"Person","@id":"https://cognis.group/#founder","name":"Supreme Oyewumi","jobTitle":"Founder & AI Engineer","url":"https://cognis.group/teams/supreme-oyewumi/","worksFor":{"@id":"https://cognis.group/#organization"},"knowsAbout":["AI Strategy","AI Agent Engineering","AI Governance","Enterprise AI Deployment"]},{"@type":"Person","@id":"https://cognis.group/#team-kola","name":"Kola Olatunde","jobTitle":"Co-Founder and AI Cybersecurity & Governance Lead","url":"https://cognis.group/teams/kola-olatunde/","worksFor":{"@id":"https://cognis.group/#organization"},"knowsAbout":["AI Security","AI Governance","Cybersecurity","Compliance"]},{"@type":"Person","@id":"https://cognis.group/#team-tosin","name":"Tosin Salami","jobTitle":"Executive Director, Product & Strategy","url":"https://cognis.group/teams/tosin-salami/","sameAs":"https://www.linkedin.com/in/tosin-salami-405b296b","worksFor":{"@id":"https://cognis.group/#organization"},"knowsAbout":["Product Strategy","AI Product Management","Enterprise AI"]},{"@type":"Person","@id":"https://cognis.group/#team-obruche","name":"Obruche Uwanoghor","jobTitle":"Executive Director of People & Culture","url":"https://cognis.group/teams/obruche-uwanoghor/","worksFor":{"@id":"https://cognis.group/#organization"},"knowsAbout":["People Operations","AI Workforce Development","Organisational Culture"]}]}</script>
 <script type="application/ld+json" data-cognis-route-schema>{"@context":"https://schema.org","@graph":[{"@type":"Service","@id":"https://cognis.group/our-services/ai-agent-automation-engineering/#service","name":"AI Agent & Automation Engineering","description":"Agents, copilots, and automation pipelines built for production — integrated, observable, and governed.","serviceType":"AI Agent Engineering","provider":{"@id":"https://cognis.group/#organization"},"areaServed":["Africa","Europe","Americas"],"url":"https://cognis.group/our-services/ai-agent-automation-engineering/"},{"@type":"WebPage","@id":"https://cognis.group/our-services/ai-agent-automation-engineering/#webpage","url":"https://cognis.group/our-services/ai-agent-automation-engineering/","name":"AI Agent & Automation Engineering | Cognis Group","isPartOf":{"@id":"https://cognis.group/#website"},"primaryImageOfPage":"https://cognis.group/og/cognis-og-1200x630.jpg","breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://cognis.group/"},{"@type":"ListItem","position":2,"name":"Services","item":"https://cognis.group/our-services/"},{"@type":"ListItem","position":3,"name":"AI Agent & Automation Engineering","item":"https://cognis.group/our-services/ai-agent-automation-engineering/"}]}}]}</script>
@@ -219,59 +249,42 @@
     <div class="svc-hero-box">
       <div class="svc-hero-left"><div class="svc-hero-copy">
         <div class="svc-square svc-in" style="--d:.5s" aria-hidden="true"><i></i></div>
-        <div class="svc-hero-text"><h1 id="svc-title" class="svc-in" style="--d:.6s">AI Agent &amp; Automation Engineering</h1><p class="svc-in" style="--d:.7s">We architect, build, and deploy production-ready AI agents and automated workflows that eliminate manual processes, reduce operational errors, and scale organizational capacity — without adding headcount. Agents amplify people. They do not replace them.</p></div>
+        <div class="svc-hero-text"><h1 id="svc-title" class="svc-in" style="--d:.6s">AI Agent &amp; Automation Engineering</h1><p class="svc-in" style="--d:.7s">An AI agent is a tool that can complete agreed steps in a process, such as reading documents, preparing a report, checking information or routing a request. We build these tools with clear limits, human approval where needed and records of every important action.</p></div>
         <a class="svc-btn svc-btn-dark svc-in" href="/contact/" style="--d:.8s"><span class="svc-roll"><b>Get Started</b><b aria-hidden="true">Get Started</b></span><span class="svc-arrow" aria-hidden="true"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M13.0457 8.13128L5.8733 15.3037L4.69479 14.1252L11.8672 6.95277L5.54568 6.95277L5.54568 5.28636H14.7121V14.4528L13.0457 14.4528V8.13128Z" fill="currentColor"/></svg><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M13.0457 8.13128L5.8733 15.3037L4.69479 14.1252L11.8672 6.95277L5.54568 6.95277L5.54568 5.28636H14.7121V14.4528L13.0457 14.4528V8.13128Z" fill="currentColor"/></svg></span></a>
       </div></div>
       <div class="svc-hero-right">
-        <img class="svc-hero-img" src="/framer-runtime/images/NXN3j2RGbUWR2wkQTQqSFMgJk0.png" alt="AI Agent &amp; Automation Engineering — Cognis Group" width="935" height="720" fetchpriority="high">
-        <video class="svc-hero-video" src="/framer-runtime/assets/services-hero.mp4" poster="/framer-runtime/images/NXN3j2RGbUWR2wkQTQqSFMgJk0.png" autoplay muted loop playsinline preload="metadata" aria-hidden="true" tabindex="-1"></video>
+        <img class="svc-hero-img" src="/assets/service-agent-hero.jpg" alt="Code and dashboards on screens, seen through an engineer's glasses" width="935" height="720" fetchpriority="high">
       </div>
     </div>
   </section>
   <section class="svc-section svc-benefits" aria-labelledby="svc-benefits-title">
     <div class="svc-container">
-      <header class="svc-head"><div class="svc-eyebrow"><i></i><span>Benefits</span></div><div class="svc-head-text"><h2 id="svc-benefits-title">What a Cognis Agent engagement delivers</h2><p>Production workflows, stack-native integrations, human-in-the-loop control, and measurable hours saved — not another chatbot pilot.</p></div></header>
+      <header class="svc-head"><div class="svc-eyebrow"><i></i><span>What you get</span></div><div class="svc-head-text"><h2 id="svc-benefits-title">What a Cognis Agent engagement delivers</h2><p>Production workflows, stack-native integrations, human-in-the-loop control, and measurable hours saved — not another chatbot pilot.</p></div></header>
       <div class="svc-grid">
         <div class="svc-row svc-row-a"><article class="svc-card" data-appear><div class="svc-square" aria-hidden="true"><i></i></div><i class="svc-sp"></i><div class="svc-card-text"><h3>Production Workflows</h3><p>Every agent we build goes to production. From intake-to-invoice, KYC, document extraction, and customer ops — we ship agents that handle the work your team has been dreading.</p></div></article><article class="svc-card" data-appear><div class="svc-square" aria-hidden="true"><i></i></div><i class="svc-sp"></i><div class="svc-card-text"><h3>Stack-Native Integration</h3><p>Agents integrate with the tools you already run — Microsoft, Google Workspace, Salesforce, HubSpot, local banking APIs. No rip-and-replace.</p></div></article><div class="svc-photo" data-appear><img src="/framer-runtime/images/service-agent.jpg" alt="AI agent and automation engineering at Cognis Group" loading="lazy" width="730" height="304"></div></div>
         <div class="svc-row svc-row-b"><blockquote class="svc-quote" data-appear><div class="svc-quote-body"><span class="svc-quote-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#131313" d="M4.583 17.321C3.553 16.227 3 15 3 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179zm10 0C13.553 16.227 13 15 13 13.011c0-3.5 2.457-6.637 6.03-8.188l.893 1.378c-3.335 1.804-3.987 4.145-4.247 5.621.537-.278 1.24-.375 1.929-.311 1.804.167 3.226 1.648 3.226 3.489a3.5 3.5 0 01-3.5 3.5c-1.073 0-2.099-.49-2.748-1.179z"/></svg></span><p>“We do not replace people with AI. We make them extraordinary with it. That is the whole point of what Cognis does.”</p></div><div class="svc-quote-author"><img src="/framer-runtime/images/QTiI3J2XXGOwJw3fyXhxuB92fl0.png" alt="" width="40" height="40" loading="lazy"><div><b>Cognis Group</b><span>Nigeria</span></div></div></blockquote><article class="svc-card" data-appear><div class="svc-square" aria-hidden="true"><i></i></div><i class="svc-sp"></i><div class="svc-card-text"><h3>Human-in-the-Loop Review</h3><p>Every agent has review gates, audit logs and rollback paths. Your operators stay in control — the agent does the work, your people approve the outcome.</p></div></article><article class="svc-card" data-appear><div class="svc-square" aria-hidden="true"><i></i></div><i class="svc-sp"></i><div class="svc-card-text"><h3>Measured in Hours Saved</h3><p>Every automation ships with a measurement plan. You see the hours returned, the errors avoided, the throughput gained — in numbers, not promises.</p></div></article></div>
       </div>
     </div>
   </section>
-  <section data-dc-tpl="129" data-screen-label="Testimonials" style="padding: 64px clamp(16px, 3.33vw, 48px) 96px;">
-    <div data-dc-tpl="130" style="max-width: 1280px; margin: 0px auto;">
-      <div data-dc-tpl="131" data-appear="" style="display: flex; justify-content: space-between; align-items: flex-end; gap: 24px;">
-        <div data-dc-tpl="132">
-          <div data-dc-tpl="133" style="display: flex; align-items: center; gap: 12px;">
-            <div data-dc-tpl="134" style="width: 4px; height: 4px; background: rgb(19, 19, 19);"></div>
-            <div data-dc-tpl="135" style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; letter-spacing: 1.68px; text-transform: uppercase; color: rgb(19, 19, 19);">Testimonials</div>
-          </div>
-          <div data-dc-tpl="136" style="height: 20px;"></div>
-          <h2 data-dc-tpl="137" style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-size: clamp(29px, 3.33vw, 48px); font-weight: 500; line-height: 1.17; letter-spacing: -0.06em; color: rgb(19, 19, 19); margin: 0px;">What our clients say</h2>
-          <div data-dc-tpl="138" style="height: 16px;"></div>
-          <div data-dc-tpl="139" style="font-size: 16px; line-height: 24px; color: rgb(123, 123, 123); max-width: 520px;">From AI strategy engagements to agent deployments and enterprise-wide training programs, this is what our clients share.</div>
-        </div>
-        <div data-dc-tpl="140" style="display: flex; gap: 12px;">
-          <button data-dc-tpl="141" aria-label="Previous" data-h="h3" style="width: 52px; height: 52px; border-radius: 50%; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; background: rgb(242, 242, 242); cursor: pointer; display: flex; align-items: center; justify-content: center;"><svg data-dc-tpl="142" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"><path data-dc-tpl="143" d="M7.828 13.0007L20 13.0007L20 11.0007L7.828 11.0007L13.192 5.63666L11.778 4.22266L4 12.0007L11.778 19.7787L13.192 18.3647L7.828 13.0007Z" fill="#131313"></path></svg></button>
-          <button data-dc-tpl="144" aria-label="Next" data-h="h3" style="width: 52px; height: 52px; border-radius: 50%; border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; background: rgb(242, 242, 242); cursor: pointer; display: flex; align-items: center; justify-content: center;"><svg data-dc-tpl="145" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"><path data-dc-tpl="146" d="M16.172 13.0007L4 13.0007L4 11.0007L16.172 11.0007L10.808 5.63666L12.222 4.22266L20 12.0007L12.222 19.7787L10.808 18.3647L16.172 13.0007Z" fill="#131313"></path></svg></button>
-        </div>
+  <section class="svc-section svc-deliver" aria-labelledby="svc-deliver-title">
+    <div class="svc-container">
+      <header class="svc-head"><div class="svc-eyebrow"><i></i><span>Process</span></div><div class="svc-head-text"><h2 id="svc-deliver-title">How we deliver</h2><p>AI tools often fail outside a demonstration because they were not designed for real users, imperfect data, system errors or high-risk decisions.</p><p>We build AI agents as dependable business systems. We test them on real tasks, limit what they can do, record their actions and make sure people can review, correct or stop them.</p></div></header>
+      <div class="svc-steps"><article class="svc-card" data-appear><div class="svc-num" aria-hidden="true">1</div><i class="svc-sp"></i><div class="svc-card-text"><h3>Map the work.</h3><p>We break the process into steps and identify which decisions are safe to support or automate.</p></div></article><article class="svc-card" data-appear><div class="svc-num" aria-hidden="true">2</div><i class="svc-sp"></i><div class="svc-card-text"><h3>Connect the right systems.</h3><p>We define which tools and data the AI may use and what happens if a connection fails.</p></div></article><article class="svc-card" data-appear><div class="svc-num" aria-hidden="true">3</div><i class="svc-sp"></i><div class="svc-card-text"><h3>Test before choosing technology.</h3><p>We create a set of real tasks and correct answers so quality can be measured.</p></div></article><article class="svc-card" data-appear><div class="svc-num" aria-hidden="true">4</div><i class="svc-sp"></i><div class="svc-card-text"><h3>Set safety rules.</h3><p>Clear permissions and approval limits sit between the AI and any action it can take.</p></div></article><article class="svc-card" data-appear><div class="svc-num" aria-hidden="true">5</div><i class="svc-sp"></i><div class="svc-card-text"><h3>Record and improve.</h3><p>Important actions are logged so the team can investigate problems and improve performance.</p></div></article><article class="svc-card" data-appear><div class="svc-num" aria-hidden="true">6</div><i class="svc-sp"></i><div class="svc-card-text"><h3>Launch in stages.</h3><p>The system first works in the background, then under human review, and only gains more freedom when the evidence supports it.</p></div></article></div>
+    </div>
+  </section>
+  <section class="svc-section svc-fit" aria-labelledby="svc-fit-title">
+    <div class="svc-container">
+      <header class="svc-head"><div class="svc-eyebrow"><i></i><span>Fit</span></div><div class="svc-head-text"><h2 id="svc-fit-title">Who this is for, and what you can expect</h2></div></header>
+      <div class="svc-two">
+        <article class="svc-card" data-appear><div class="svc-square" aria-hidden="true"><i></i></div><div class="svc-card-text"><h3>Who this is for</h3><p>This service is for organisations with high-volume, multi-step work that takes too much time or creates avoidable errors. It is particularly useful in customer service, finance, operations, public services and other regulated work where human control and a clear record matter.</p></div></article>
+        <article class="svc-card" data-appear><div class="svc-square" aria-hidden="true"><i></i></div><div class="svc-card-text"><h3>Outcomes you can expect</h3><ul class="svc-list"><li>A working AI tool with agreed measures for quality, speed and cost.</li><li>A reusable set of tests your team can continue after handover.</li><li>Clear rules for what the system may do and when a person must decide.</li><li>Monitoring that shows what happened, why it happened and what needs attention.</li></ul></div></article>
       </div>
-      <div data-dc-tpl="147" style="height: clamp(22px, 3.06vw, 44px);"></div>
-      <div data-dc-tpl="148" style="overflow: hidden;">
-        <div data-dc-tpl="149" style="display: flex; gap: 24px; transition: transform 0.45s cubic-bezier(0.33, 1, 0.68, 1); transform: translateX(0px);">
-          
-            <div data-dc-tpl="151" style="position: relative; width: min(404px, 88vw); height: 520px; border-radius: 16px; overflow: hidden; flex-shrink: 0;">
-              <img loading="lazy" decoding="async" data-dc-tpl="152" src="https://cognis.group/framer-runtime/images/LHF5pnTEGiDqPokWO5u1DEp2l0.png?width=1200" alt="" style="position: absolute; inset: 0px; width: 100%; height: 100%; object-fit: cover;">
-              <div data-dc-tpl="153" style="position: absolute; inset: 0px; background: linear-gradient(rgba(19, 19, 19, 0) 28%, rgba(19, 19, 19, 0.9) 80%);"></div>
-              <div data-dc-tpl="154" style="position: absolute; left: 0px; right: 0px; bottom: 0px; padding: 26px;">
-                <svg data-dc-tpl="155" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 32 32" fill="none"><path data-dc-tpl="156" d="M3.33398 6.66797H14.6673V16.868L8.69132 25.3346H5.06065L8.61532 17.3346H3.33398V6.66797ZM17.334 6.66797H28.6673V16.868L22.6913 25.3346H19.0607L22.6153 17.3346H17.334V6.66797Z" fill="#CDFB56"></path></svg>
-                <div data-dc-tpl="157" style="height: 10px;"></div>
-                <div data-dc-tpl="158" style="font-size: 15.5px; line-height: 1.5; color: rgb(255, 255, 255); font-weight: 500;"><span class="sc-interp">"Cognis Group built our AI customer support stack from the ground up. We cut first-response time from hours to under 30 seconds and reduced support headcount needs by ~60% — without sacrificing the human feel our customers expect. They don't just advise; they ship."</span></div>
-                <div data-dc-tpl="159" style="height: 14px;"></div>
-                <div data-dc-tpl="160" style="font-size: 13px; color: rgba(255, 255, 255, 0.75);">— <span class="sc-interp">Head of Customer Experience, MarketSage</span></div>
-              </div>
-            </div>
-          
-            <div data-dc-tpl="151" style="position: relative; width: min(404px, 88vw); height: 520px; border-radius: 16px; overflow: hidden; flex-shrink: 0;">
+    </div>
+  </section>
+  <section class="svc-section svc-proof-section" aria-labelledby="svc-proof-title">
+    <div class="svc-container"><div class="svc-proof">
+      <header class="svc-head svc-head-left"><div class="svc-eyebrow"><i></i><span>Proof</span></div><div class="svc-head-text"><h2 id="svc-proof-title">What our clients say</h2><p>From customer operations to back-office workflows, this is what clients say about the agents we ship.</p></div></header>
+      <div class="svc-proof-card" data-appear><div data-dc-tpl="151" style="position: relative; width: min(404px, 88vw); height: 520px; border-radius: 16px; overflow: hidden; flex-shrink: 0;">
               <img loading="lazy" decoding="async" data-dc-tpl="152" src="https://cognis.group/framer-runtime/images/Mjb5QC7cBmKTRevvIPeGBCVzHHM.png?width=1200" alt="" style="position: absolute; inset: 0px; width: 100%; height: 100%; object-fit: cover;">
               <div data-dc-tpl="153" style="position: absolute; inset: 0px; background: linear-gradient(rgba(19, 19, 19, 0) 28%, rgba(19, 19, 19, 0.9) 80%);"></div>
               <div data-dc-tpl="154" style="position: absolute; left: 0px; right: 0px; bottom: 0px; padding: 26px;">
@@ -281,47 +294,15 @@
                 <div data-dc-tpl="159" style="height: 14px;"></div>
                 <div data-dc-tpl="160" style="font-size: 13px; color: rgba(255, 255, 255, 0.75);">— <span class="sc-interp">Operations lead, Enterprise client</span></div>
               </div>
-            </div>
-          
-            <div data-dc-tpl="151" style="position: relative; width: min(404px, 88vw); height: 520px; border-radius: 16px; overflow: hidden; flex-shrink: 0;">
-              <img loading="lazy" decoding="async" data-dc-tpl="152" src="https://cognis.group/framer-runtime/images/owRvmfck3MmE9RTAPlzhICFlFg.png?width=1200" alt="" style="position: absolute; inset: 0px; width: 100%; height: 100%; object-fit: cover;">
-              <div data-dc-tpl="153" style="position: absolute; inset: 0px; background: linear-gradient(rgba(19, 19, 19, 0) 28%, rgba(19, 19, 19, 0.9) 80%);"></div>
-              <div data-dc-tpl="154" style="position: absolute; left: 0px; right: 0px; bottom: 0px; padding: 26px;">
-                <svg data-dc-tpl="155" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 32 32" fill="none"><path data-dc-tpl="156" d="M3.33398 6.66797H14.6673V16.868L8.69132 25.3346H5.06065L8.61532 17.3346H3.33398V6.66797ZM17.334 6.66797H28.6673V16.868L22.6913 25.3346H19.0607L22.6153 17.3346H17.334V6.66797Z" fill="#CDFB56"></path></svg>
-                <div data-dc-tpl="157" style="height: 10px;"></div>
-                <div data-dc-tpl="158" style="font-size: 15.5px; line-height: 1.5; color: rgb(255, 255, 255); font-weight: 500;"><span class="sc-interp">"Cognis Group trained our whole organisation to work with AI instead of around it. Adoption curves we'd budgeted six months for closed in six weeks."</span></div>
-                <div data-dc-tpl="159" style="height: 14px;"></div>
-                <div data-dc-tpl="160" style="font-size: 13px; color: rgba(255, 255, 255, 0.75);">— <span class="sc-interp">Chief People Officer, Enterprise client</span></div>
-              </div>
-            </div>
-          
-            <div data-dc-tpl="151" style="position: relative; width: min(404px, 88vw); height: 520px; border-radius: 16px; overflow: hidden; flex-shrink: 0;">
-              <img loading="lazy" decoding="async" data-dc-tpl="152" src="https://cognis.group/framer-runtime/images/IGOxPIDHI4tPrADWVh1HrKM99RQ.png?width=1200" alt="" style="position: absolute; inset: 0px; width: 100%; height: 100%; object-fit: cover;">
-              <div data-dc-tpl="153" style="position: absolute; inset: 0px; background: linear-gradient(rgba(19, 19, 19, 0) 28%, rgba(19, 19, 19, 0.9) 80%);"></div>
-              <div data-dc-tpl="154" style="position: absolute; left: 0px; right: 0px; bottom: 0px; padding: 26px;">
-                <svg data-dc-tpl="155" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 32 32" fill="none"><path data-dc-tpl="156" d="M3.33398 6.66797H14.6673V16.868L8.69132 25.3346H5.06065L8.61532 17.3346H3.33398V6.66797ZM17.334 6.66797H28.6673V16.868L22.6913 25.3346H19.0607L22.6153 17.3346H17.334V6.66797Z" fill="#CDFB56"></path></svg>
-                <div data-dc-tpl="157" style="height: 10px;"></div>
-                <div data-dc-tpl="158" style="font-size: 15.5px; line-height: 1.5; color: rgb(255, 255, 255); font-weight: 500;"><span class="sc-interp">"We've evaluated a lot of AI vendors. Most sell slideware. Cognis Group ships production code, integrates cleanly with our stack, and hands over properly. That's rare."</span></div>
-                <div data-dc-tpl="159" style="height: 14px;"></div>
-                <div data-dc-tpl="160" style="font-size: 13px; color: rgba(255, 255, 255, 0.75);">— <span class="sc-interp">Partner CTO, Enterprise partner</span></div>
-              </div>
-            </div>
-          
-            <div data-dc-tpl="151" style="position: relative; width: min(404px, 88vw); height: 520px; border-radius: 16px; overflow: hidden; flex-shrink: 0;">
-              <img loading="lazy" decoding="async" data-dc-tpl="152" src="https://cognis.group/framer-runtime/images/W7a7pFrDjUXSx6Ldb2bKvhqgg.png?width=1200" alt="" style="position: absolute; inset: 0px; width: 100%; height: 100%; object-fit: cover;">
-              <div data-dc-tpl="153" style="position: absolute; inset: 0px; background: linear-gradient(rgba(19, 19, 19, 0) 28%, rgba(19, 19, 19, 0.9) 80%);"></div>
-              <div data-dc-tpl="154" style="position: absolute; left: 0px; right: 0px; bottom: 0px; padding: 26px;">
-                <svg data-dc-tpl="155" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 32 32" fill="none"><path data-dc-tpl="156" d="M3.33398 6.66797H14.6673V16.868L8.69132 25.3346H5.06065L8.61532 17.3346H3.33398V6.66797ZM17.334 6.66797H28.6673V16.868L22.6913 25.3346H19.0607L22.6153 17.3346H17.334V6.66797Z" fill="#CDFB56"></path></svg>
-                <div data-dc-tpl="157" style="height: 10px;"></div>
-                <div data-dc-tpl="158" style="font-size: 15.5px; line-height: 1.5; color: rgb(255, 255, 255); font-weight: 500;"><span class="sc-interp">"The governance framework they put in place gave our board the confidence to greenlight a continent-wide AI rollout. Compliance sorted, risk managed, zero delays."</span></div>
-                <div data-dc-tpl="159" style="height: 14px;"></div>
-                <div data-dc-tpl="160" style="font-size: 13px; color: rgba(255, 255, 255, 0.75);">— <span class="sc-interp">Head of Compliance, Banking group</span></div>
-              </div>
-            </div>
-          
-        </div>
-      </div>
+            </div></div>
+    </div></div>
+  </section>
+  <section class="svc-section svc-faq-section" aria-labelledby="svc-faq-title">
+    <div class="svc-container">
+      <header class="svc-head"><div class="svc-eyebrow"><i></i><span>FAQ</span></div><div class="svc-head-text"><h2 id="svc-faq-title">Frequently asked questions</h2></div></header>
+      <div class="svc-faq"><details><summary>Which AI models do you work with?</summary><p>We work with leading models including Claude, GPT, Gemini, Llama, Mistral and Qwen. We test the best options against your task, data-location needs and budget before choosing.</p></details><details><summary>Can our data stay in Nigeria or in our own systems?</summary><p>Yes. Where law or policy requires it, we can use suitable local, private-cloud or on-site options and design data access around those limits from the start.</p></details><details><summary>Which agent-building tools do you use?</summary><p>We use tools such as LangGraph, CrewAI, provider agent services or custom software when they fit. The right choice depends on the work, existing systems and level of control required.</p></details><details><summary>How do you reduce incorrect AI answers?</summary><p>We limit the task, use approved sources, require checks before important actions and test the full system on real examples. A person reviews decisions where the risk is too high for automation.</p></details><details><summary>Do you monitor the system after launch?</summary><p>Yes. Monitoring for quality, speed, cost, rule breaches and human corrections is part of the build. Ongoing support is also available.</p></details><details><summary>How long does it take to launch an AI agent?</summary><p>A focused tool for a well-defined process usually takes 10–16 weeks to reach supervised use. Larger or more regulated systems take longer because connections, approvals and safety evidence require more work.</p></details></div>
     </div>
+    <script type="application/ld+json" data-cognis-service-faq>{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Which AI models do you work with?","acceptedAnswer":{"@type":"Answer","text":"We work with leading models including Claude, GPT, Gemini, Llama, Mistral and Qwen. We test the best options against your task, data-location needs and budget before choosing."}},{"@type":"Question","name":"Can our data stay in Nigeria or in our own systems?","acceptedAnswer":{"@type":"Answer","text":"Yes. Where law or policy requires it, we can use suitable local, private-cloud or on-site options and design data access around those limits from the start."}},{"@type":"Question","name":"Which agent-building tools do you use?","acceptedAnswer":{"@type":"Answer","text":"We use tools such as LangGraph, CrewAI, provider agent services or custom software when they fit. The right choice depends on the work, existing systems and level of control required."}},{"@type":"Question","name":"How do you reduce incorrect AI answers?","acceptedAnswer":{"@type":"Answer","text":"We limit the task, use approved sources, require checks before important actions and test the full system on real examples. A person reviews decisions where the risk is too high for automation."}},{"@type":"Question","name":"Do you monitor the system after launch?","acceptedAnswer":{"@type":"Answer","text":"Yes. Monitoring for quality, speed, cost, rule breaches and human corrections is part of the build. Ongoing support is also available."}},{"@type":"Question","name":"How long does it take to launch an AI agent?","acceptedAnswer":{"@type":"Answer","text":"A focused tool for a well-defined process usually takes 10–16 weeks to reach supervised use. Larger or more regulated systems take longer because connections, approvals and safety evidence require more work."}}]}</script>
   </section>
   <section class="svc-section svc-services" aria-labelledby="svc-services-title">
     <div class="svc-container">
@@ -341,106 +322,6 @@
       </div>
     </div>
   </section>
-  <!-- cognis-service-longform:start -->
-
-<style data-cognis-service-style>
-  section.cognis-service-longform {
-    max-width: 860px; margin: 48px auto 96px; padding: 0 24px;
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    color: #131313; font-size: 17px; line-height: 1.72;
-  }
-  section.cognis-service-longform .sv-lead {
-    font-size: 20px; line-height: 1.55; color: #2f2f2f;
-    margin: 0 0 40px; font-weight: 500;
-    padding-bottom: 24px; border-bottom: 1px solid #e6e6e6;
-  }
-  section.cognis-service-longform h2 {
-    font-size: 26px; line-height: 1.25; letter-spacing: -0.01em;
-    margin: 48px 0 14px; font-weight: 700;
-  }
-  section.cognis-service-longform h3 {
-    font-size: 18px; line-height: 1.35; margin: 24px 0 8px; font-weight: 600;
-  }
-  section.cognis-service-longform p { margin: 0 0 16px; }
-  section.cognis-service-longform ul, section.cognis-service-longform ol {
-    padding-left: 22px; margin: 0 0 18px;
-  }
-  section.cognis-service-longform li { margin-bottom: 10px; }
-  section.cognis-service-longform a {
-    color: #131313; text-decoration: underline; text-underline-offset: 3px;
-  }
-  section.cognis-service-longform a:hover { background: #cdfb56; }
-  section.cognis-service-longform details {
-    border-top: 1px solid #e6e6e6; padding: 18px 0;
-  }
-  section.cognis-service-longform details:last-of-type {
-    border-bottom: 1px solid #e6e6e6;
-  }
-  section.cognis-service-longform details summary {
-    cursor: pointer; font-weight: 600; font-size: 17px;
-    list-style: none; position: relative; padding-right: 28px;
-  }
-  section.cognis-service-longform details summary::-webkit-details-marker { display: none; }
-  section.cognis-service-longform details summary::after {
-    content: "+"; position: absolute; right: 0; top: 0;
-    font-size: 22px; font-weight: 400; color: #7b7b7b;
-  }
-  section.cognis-service-longform details[open] summary::after { content: "−"; }
-  section.cognis-service-longform details p {
-    margin: 12px 0 0; color: #2f2f2f;
-  }
-  section.cognis-service-longform .sv-related {
-    margin-top: 56px; padding: 28px; background: #ffffff;
-    border: 1px solid #e6e6e6; border-radius: 12px;
-  }
-  section.cognis-service-longform .sv-related h3 {
-    margin: 0 0 12px; font-size: 14px; letter-spacing: 0.04em;
-    text-transform: uppercase; color: #7b7b7b; font-weight: 600;
-  }
-  section.cognis-service-longform .sv-related ul { list-style: none; padding: 0; margin: 0; }
-  section.cognis-service-longform .sv-related li { margin: 0 0 8px; }
-</style>
-
-<section class="cognis-service-longform" data-cognis-slug="ai-agent-automation-engineering">
-  <p class="sv-lead">An AI agent is a tool that can complete agreed steps in a process, such as reading documents, preparing a report, checking information or routing a request. We build these tools with clear limits, human approval where needed and records of every important action.</p>
-  <h2>What this means</h2>
-<p>AI tools often fail outside a demonstration because they were not designed for real users, imperfect data, system errors or high-risk decisions.</p>
-<p>We build AI agents as dependable business systems. We test them on real tasks, limit what they can do, record their actions and make sure people can review, correct or stop them.</p>
-  <h2>How we deliver</h2>
-<ol>
-  <li><strong>Map the work.</strong> We break the process into steps and identify which decisions are safe to support or automate.</li>
-  <li><strong>Connect the right systems.</strong> We define which tools and data the AI may use and what happens if a connection fails.</li>
-  <li><strong>Test before choosing technology.</strong> We create a set of real tasks and correct answers so quality can be measured.</li>
-  <li><strong>Set safety rules.</strong> Clear permissions and approval limits sit between the AI and any action it can take.</li>
-  <li><strong>Record and improve.</strong> Important actions are logged so the team can investigate problems and improve performance.</li>
-  <li><strong>Launch in stages.</strong> The system first works in the background, then under human review, and only gains more freedom when the evidence supports it.</li>
-</ol>
-  <h2>Who this is for</h2>
-<p>This service is for organisations with high-volume, multi-step work that takes too much time or creates avoidable errors. It is particularly useful in customer service, finance, operations, public services and other regulated work where human control and a clear record matter.</p>
-  <h2>Outcomes you can expect</h2>
-<ul>
-  <li>A working AI tool with agreed measures for quality, speed and cost.</li>
-  <li>A reusable set of tests your team can continue after handover.</li>
-  <li>Clear rules for what the system may do and when a person must decide.</li>
-  <li>Monitoring that shows what happened, why it happened and what needs attention.</li>
-</ul>
-  <h2>Frequently asked questions</h2>
-  <details><summary>Which AI models do you work with?</summary><p>We work with leading models including Claude, GPT, Gemini, Llama, Mistral and Qwen. We test the best options against your task, data-location needs and budget before choosing.</p></details>
-  <details><summary>Can our data stay in Nigeria or in our own systems?</summary><p>Yes. Where law or policy requires it, we can use suitable local, private-cloud or on-site options and design data access around those limits from the start.</p></details>
-  <details><summary>Which agent-building tools do you use?</summary><p>We use tools such as LangGraph, CrewAI, provider agent services or custom software when they fit. The right choice depends on the work, existing systems and level of control required.</p></details>
-  <details><summary>How do you reduce incorrect AI answers?</summary><p>We limit the task, use approved sources, require checks before important actions and test the full system on real examples. A person reviews decisions where the risk is too high for automation.</p></details>
-  <details><summary>Do you monitor the system after launch?</summary><p>Yes. Monitoring for quality, speed, cost, rule breaches and human corrections is part of the build. Ongoing support is also available.</p></details>
-  <details><summary>How long does it take to launch an AI agent?</summary><p>A focused tool for a well-defined process usually takes 10–16 weeks to reach supervised use. Larger or more regulated systems take longer because connections, approvals and safety evidence require more work.</p></details>
-  <aside class="sv-related">
-    <h3>Related services</h3>
-    <ul>
-    <li><a href="/our-services/ai-strategy-advisory">AI Strategy &amp; Advisory →</a></li>
-    <li><a href="/our-services/ai-training-workforce-development">AI Training &amp; Workforce Development →</a></li>
-    </ul>
-  </aside>
-</section>
-<script type="application/ld+json" data-cognis-service-faq>{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Which AI models do you work with?","acceptedAnswer":{"@type":"Answer","text":"We work with leading models including Claude, GPT, Gemini, Llama, Mistral and Qwen. We test the best options against your task, data-location needs and budget before choosing."}},{"@type":"Question","name":"Can our data stay in Nigeria or in our own systems?","acceptedAnswer":{"@type":"Answer","text":"Yes. Where law or policy requires it, we can use suitable local, private-cloud or on-site options and design data access around those limits from the start."}},{"@type":"Question","name":"Which agent-building tools do you use?","acceptedAnswer":{"@type":"Answer","text":"We use tools such as LangGraph, CrewAI, provider agent services or custom software when they fit. The right choice depends on the work, existing systems and level of control required."}},{"@type":"Question","name":"How do you reduce incorrect AI answers?","acceptedAnswer":{"@type":"Answer","text":"We limit the task, use approved sources, require checks before important actions and test the full system on real examples. A person reviews decisions where the risk is too high for automation."}},{"@type":"Question","name":"Do you monitor the system after launch?","acceptedAnswer":{"@type":"Answer","text":"Yes. Monitoring for quality, speed, cost, rule breaches and human corrections is part of the build. Ongoing support is also available."}},{"@type":"Question","name":"How long does it take to launch an AI agent?","acceptedAnswer":{"@type":"Answer","text":"A focused tool for a well-defined process usually takes 10–16 weeks to reach supervised use. Larger or more regulated systems take longer because connections, approvals and safety evidence require more work."}}]}</script>
-<!-- cognis-service-longform:end -->
 </main></div>
 <footer class="cg-gf" data-screen-label="Footer" style="background: rgb(13, 13, 12); margin: 12px; border-radius: 24px; padding: 56px clamp(16px, 3.33vw, 48px) 32px;">
     <div style="max-width: 1280px; margin: 0px auto;">
