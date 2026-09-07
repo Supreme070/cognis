@@ -118,8 +118,10 @@ def process(p: Path) -> str:
     html = STRIP_RE.sub("", html)
     html = OLD_SHELL_CSS_RE.sub("", html)
     html = OLD_COPY_SCRIPT_RE.sub("", html)
-    if FOOTER_RE.search(html):
-        html = FOOTER_RE.sub(FOOTER + "\n", html, count=1)
+    after_main = html.rfind("</main>")
+    target = next((m for m in FOOTER_RE.finditer(html) if m.start() > after_main), None)
+    if target:
+        html = html[:target.start()] + FOOTER + "\n" + html[target.end():]
         how = "replaced footer"
     else:
         html = html.replace("</body>", FOOTER + "\n</body>", 1)
