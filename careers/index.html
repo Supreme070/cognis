@@ -145,23 +145,36 @@
     .job h3 { margin: 0 0 6px; font-size: 19px; }
     .job .meta { color: var(--mute); font-size: 14px; margin-bottom: 10px; }
     .job p { margin: 0 0 12px; }
-    .job a.apply { display: inline-block; background: var(--ink); color: var(--accent); border-radius: 100px; padding: 9px 18px; font-size: 14px; font-weight: 600; text-decoration: none; }
+    .job a.apply, .empty a.apply { display: inline-block; background: var(--ink); color: var(--accent); border-radius: 100px; padding: 9px 18px; font-size: 14px; font-weight: 600; text-decoration: none; }
     .empty { background: var(--card); border: 1px dashed var(--line); border-radius: 14px; padding: 22px 24px; margin: 14px 0; }
+    .job.closed { opacity: .8; }
+    .job .tag { display: inline-block; vertical-align: 3px; margin-left: 8px; background: var(--bg); border: 1px solid var(--line); color: var(--mute); border-radius: 100px; padding: 3px 10px; font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+    .job a.apply.ghost { background: transparent; color: var(--ink); border: 1px solid var(--line); }
   </style>
 
   <section>
     <h2>Open roles</h2>
-    <div class="job">
-      <h3><a href="/careers/business-development-manager/" style="color:var(--ink);text-decoration:none">Business Development Manager</a></h3>
-      <div class="meta">Full-time &middot; Lagos (hybrid) or remote, Nigeria &middot; Posted 26 August 2026</div>
-      <p>Build the relationships and sales opportunities that bring banks, public institutions and businesses to Cognis. At least two years of business-to-business development experience is required.</p>
-      <a class="apply" href="/careers/business-development-manager/">View role &rarr;</a>
+    <div class="empty">
+      <p style="margin:0 0 10px">We have no open roles at the moment. Both positions advertised in August 2026 have been filled.</p>
+      <p style="margin:0 0 14px">We still read every CV that reaches us. If your work fits the way we build, write to us and we will come back to you when the next role opens.</p>
+      <a class="apply" href="mailto:info@cognis.group?subject=Speculative%20application%20%E2%80%94%20Cognis%20Group">Send us your CV &rarr;</a>
     </div>
-    <div class="job">
-      <h3><a href="/careers/customer-service-professional/" style="color:var(--ink);text-decoration:none">Customer Service Professional</a></h3>
-      <div class="meta">Full-time &middot; Remote, Nigeria &middot; Posted 26 August 2026</div>
+  </section>
+
+  <section>
+    <h2>Previously advertised</h2>
+    <p style="color:var(--mute);font-size:15px;margin:0 0 4px">These roles are closed. We keep the descriptions up so you can see the kind of people we hire and the way we write about the work.</p>
+    <div class="job closed">
+      <h3><a href="/careers/business-development-manager/" style="color:var(--ink);text-decoration:none">Business Development Manager</a><span class="tag">Filled</span></h3>
+      <div class="meta">Full-time &middot; Lagos (hybrid) or remote, Nigeria &middot; Posted 26 August 2026 &middot; Filled September 2026</div>
+      <p>Build the relationships and sales opportunities that bring banks, public institutions and businesses to Cognis. At least two years of business-to-business development experience is required.</p>
+      <a class="apply ghost" href="/careers/business-development-manager/">View role &rarr;</a>
+    </div>
+    <div class="job closed">
+      <h3><a href="/careers/customer-service-professional/" style="color:var(--ink);text-decoration:none">Customer Service Professional</a><span class="tag">Filled</span></h3>
+      <div class="meta">Full-time &middot; Remote, Nigeria &middot; Posted 26 August 2026 &middot; Filled September 2026</div>
       <p>Be the first voice our product users and clients meet. Resolve, escalate, and document with care. At least 2 years of customer support experience.</p>
-      <a class="apply" href="/careers/customer-service-professional/">View role &rarr;</a>
+      <a class="apply ghost" href="/careers/customer-service-professional/">View role &rarr;</a>
     </div>
     <!-- To post a role, remove the .empty block above and copy this template:
     <div class="job">
