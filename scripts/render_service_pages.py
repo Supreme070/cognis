@@ -57,7 +57,11 @@ SERVICES = {
             ("Governance Discipline", "Institutionalised responsible AI practices — from prompt hygiene to data handling to approval gates — so scale does not come at the cost of control."),
             ("Measured Outcomes", "Every training programme ships with a measurement plan: capability baselines, post-training assessments, and productivity metrics tracked over months."),
         ],
-        "quote": ("“After the Cognis training, our people do not just use AI — they think differently. That is the permanent change.”", "Enterprise partner", "Partner CTO", IMG + "IGOxPIDHI4tPrADWVh1HrKM99RQ.png"),
+        "quote": ("“After the Cognis training, our people do not just use AI — they think differently. That is the permanent change.”", "Partner CTO", "Enterprise partner", IMG + "IGOxPIDHI4tPrADWVh1HrKM99RQ.png"),
+        "layout": "v2",
+        "hero_p_v2": "AI Training & Workforce Development helps people use AI safely and confidently in the work they already do. Leaders learn how to make sound decisions, managers learn how to guide adoption, and teams learn practical ways to save time, improve quality and work more efficiently.",
+        "proof_quote": "trained our whole organisation",
+        "proof_lead": "From executive sessions to organisation-wide programmes, this is what clients say about our training work.",
     },
     "ai-agent-automation-engineering": {
         "name": "AI Agent & Automation Engineering",
@@ -197,6 +201,36 @@ CSS = """<style data-svc-page>
     .svc-in,.svc-hero-img,.svc-hero-video{animation:none}
     .svc-roll b,.svc-arrow svg,.svc-pill{transition:none}
   }
+  /* v2 layout: process steps, fit/outcomes, proof, FAQ */
+  .svc-head-left{align-items:flex-start;text-align:left;max-width:640px}
+  .svc-head-left .svc-head-text{align-items:flex-start}
+  .svc-head-text p+p{margin-top:-8px}
+  .svc-steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;background:#f2f2f2;border-radius:24px;padding:12px;width:100%}
+  .svc-steps .svc-card{height:auto;min-height:232px}
+  .svc-num{width:40px;height:40px;border-radius:12px;background:#cdfb56;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:600;letter-spacing:-.32px;flex:none}
+  .svc-two{display:grid;grid-template-columns:1fr 1fr;gap:12px;background:#f2f2f2;border-radius:24px;padding:12px;width:100%}
+  .svc-two .svc-card{height:auto;min-height:0}
+  .svc-two .svc-card-text{margin-top:32px}
+  .svc-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px}
+  .svc-list li{position:relative;padding-left:22px;font-size:16px;line-height:24px;letter-spacing:-.32px;color:#7b7b7b}
+  .svc-list li::before{content:"";position:absolute;left:0;top:8px;width:8px;height:8px;background:#131313}
+  .svc-proof{display:grid;grid-template-columns:minmax(0,1fr) min(404px,88vw);gap:48px;align-items:center;max-width:1336px;width:100%}
+  .svc-proof-card{justify-self:end}
+  .svc-faq{max-width:860px;width:100%;font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;font-size:17px;line-height:1.72;color:#131313}
+  .svc-faq details{border-top:1px solid #e6e6e6;padding:18px 0}
+  .svc-faq details:last-of-type{border-bottom:1px solid #e6e6e6}
+  .svc-faq summary{cursor:pointer;font-weight:600;font-size:17px;list-style:none;position:relative;padding-right:28px}
+  .svc-faq summary::-webkit-details-marker{display:none}
+  .svc-faq summary::after{content:"+";position:absolute;right:0;top:0;font-size:22px;font-weight:400;color:#7b7b7b}
+  .svc-faq details[open] summary::after{content:"−"}
+  .svc-faq details p{margin:12px 0 0;color:#2f2f2f}
+  @media (max-width:991px){
+    .svc-steps,.svc-two,.svc-proof{grid-template-columns:1fr}
+    .svc-proof{gap:32px}
+    .svc-proof-card{justify-self:center}
+    .svc-head-left{align-items:center;text-align:center}
+    .svc-head-left .svc-head-text{align-items:center}
+  }
 </style>"""
 
 
@@ -233,12 +267,152 @@ def testimonials_block() -> str:
     return block
 
 
+def longform_parts(slug: str) -> dict:
+    """Split the carried-over article into its pieces for the v2 layout."""
+    src = (DATA / slug / "longform.html").read_text(encoding="utf-8")
+    body = re.search(r'<section class="cognis-service-longform"[^>]*>([\s\S]*?)</section>', src).group(1)
+    schema = re.search(r'<script[^>]*application/ld\+json[^>]*>[\s\S]*?</script>', src[src.find("</section>"):]).group(0)
+    sec = lambda title: re.search(r"<h2>" + re.escape(title) + r"</h2>([\s\S]*?)(?=<h2>|<aside|$)", body).group(1).strip()
+    means = re.findall(r"<p>([\s\S]*?)</p>", sec("What this means"))
+    steps = [(a.strip(), b.strip()) for a, b in re.findall(r"<li><strong>([\s\S]*?)</strong>([\s\S]*?)</li>", sec("How we deliver"))]
+    who = re.findall(r"<p>([\s\S]*?)</p>", sec("Who this is for"))
+    outcomes = re.findall(r"<li>([\s\S]*?)</li>", sec("Outcomes you can expect"))
+    faqs = re.findall(r"<details>[\s\S]*?</details>", sec("Frequently asked questions"))
+    return {"means": means, "steps": steps, "who": who, "outcomes": outcomes, "faqs": faqs, "schema": schema}
+
+
+def proof_card(match_text: str) -> str:
+    """The matching card from the shared testimonial slider on /our-services/ (one source)."""
+    src = (ROOT / "our-services" / "index.html").read_text(encoding="utf-8")
+    track = re.search(r'<div[^>]*style="[^"]*transition: transform 0\.45s[^"]*"[^>]*>', src)
+    i = track.end(); depth = 0; cur = i; cards = []
+    for m in re.finditer(r"<div\b|</div>", src[i:]):
+        if m.group(0) == "<div":
+            if depth == 0: cur = i + m.start()
+            depth += 1
+        else:
+            depth -= 1
+            if depth == 0: cards.append(src[cur:i + m.end()])
+            if depth < 0: break
+    return next(c for c in cards if match_text in c)
+
+
+def render_v2(slug: str, s: dict, meta: str, schema: str) -> str:
+    """Hero → what you get → how we deliver → who it's for + outcomes → proof → FAQ → other services → CTA."""
+    lf = longform_parts(slug)
+    others = [k for k in SERVICES if k != slug]
+    q_text, q_name, q_org, q_avatar = s["quote"]
+    cards = [card(t, x) for t, x in s["cards"]]
+    hero_btn = button("Get Started", "/contact/", "dark", "svc-in", "--d:.8s")
+    cta_btn = button("Start the Conversation", "/contact/", "lime")
+    hero = f'''<section class="svc-hero" aria-labelledby="svc-title">
+    <div class="svc-hero-box">
+      <div class="svc-hero-left"><div class="svc-hero-copy">
+        <div class="svc-square svc-in" style="--d:.5s" aria-hidden="true"><i></i></div>
+        <div class="svc-hero-text"><h1 id="svc-title" class="svc-in" style="--d:.6s">{e(s["name"])}</h1><p class="svc-in" style="--d:.7s">{e(s["hero_p_v2"])}</p></div>
+        {hero_btn}
+      </div></div>
+      <div class="svc-hero-right">
+        <img class="svc-hero-img" src="{s["hero_img"]}" alt="{e(s["name"])} — Cognis Group" width="935" height="720" fetchpriority="high">
+        <video class="svc-hero-video" src="{HERO_VIDEO}" poster="{s["hero_img"]}" autoplay muted loop playsinline preload="metadata" aria-hidden="true" tabindex="-1"></video>
+      </div>
+    </div>
+  </section>'''
+    benefits = f'''<section class="svc-section svc-benefits" aria-labelledby="svc-benefits-title">
+    <div class="svc-container">
+      {head_block("What you get")}<div class="svc-head-text"><h2 id="svc-benefits-title">{e(s["ben_h2"])}</h2><p>{e(s["ben_lead"])}</p></div></header>
+      <div class="svc-grid">
+        <div class="svc-row svc-row-a">{cards[0]}{cards[1]}<div class="svc-photo" data-appear><img src="{s["ben_img"]}" alt="{e(s["ben_img_alt"])}" loading="lazy" width="730" height="304"></div></div>
+        <div class="svc-row svc-row-b"><blockquote class="svc-quote" data-appear><div class="svc-quote-body"><span class="svc-quote-icon">{QUOTE}</span><p>{e(q_text)}</p></div><div class="svc-quote-author"><img src="{q_avatar}" alt="" width="40" height="40" loading="lazy"><div><b>{e(q_name)}</b><span>{e(q_org)}</span></div></div></blockquote>{cards[2]}{cards[3]}</div>
+      </div>
+    </div>
+  </section>'''
+    steps = "".join(f'<article class="svc-card" data-appear><div class="svc-num" aria-hidden="true">{i}</div><i class="svc-sp"></i><div class="svc-card-text"><h3>{t}</h3><p>{x}</p></div></article>' for i, (t, x) in enumerate(lf["steps"], 1))
+    means = "".join(f"<p>{m}</p>" for m in lf["means"])
+    deliver = f'''<section class="svc-section svc-deliver" aria-labelledby="svc-deliver-title">
+    <div class="svc-container">
+      {head_block("Process")}<div class="svc-head-text"><h2 id="svc-deliver-title">How we deliver</h2>{means}</div></header>
+      <div class="svc-steps">{steps}</div>
+    </div>
+  </section>'''
+    who = "".join(f"<p>{w}</p>" for w in lf["who"])
+    outcomes = "".join(f"<li>{o}</li>" for o in lf["outcomes"])
+    fit = f'''<section class="svc-section svc-fit" aria-labelledby="svc-fit-title">
+    <div class="svc-container">
+      {head_block("Fit")}<div class="svc-head-text"><h2 id="svc-fit-title">Who this is for, and what you can expect</h2></div></header>
+      <div class="svc-two">
+        <article class="svc-card" data-appear><div class="svc-square" aria-hidden="true"><i></i></div><div class="svc-card-text"><h3>Who this is for</h3>{who}</div></article>
+        <article class="svc-card" data-appear><div class="svc-square" aria-hidden="true"><i></i></div><div class="svc-card-text"><h3>Outcomes you can expect</h3><ul class="svc-list">{outcomes}</ul></div></article>
+      </div>
+    </div>
+  </section>'''
+    proof = f'''<section class="svc-section svc-proof-section" aria-labelledby="svc-proof-title">
+    <div class="svc-container"><div class="svc-proof">
+      <header class="svc-head svc-head-left"><div class="svc-eyebrow"><i></i><span>Proof</span></div><div class="svc-head-text"><h2 id="svc-proof-title">What our clients say</h2><p>{e(s["proof_lead"])}</p></div></header>
+      <div class="svc-proof-card" data-appear>{proof_card(s["proof_quote"])}</div>
+    </div></div>
+  </section>'''
+    faq = f'''<section class="svc-section svc-faq-section" aria-labelledby="svc-faq-title">
+    <div class="svc-container">
+      {head_block("FAQ")}<div class="svc-head-text"><h2 id="svc-faq-title">Frequently asked questions</h2></div></header>
+      <div class="svc-faq">{"".join(lf["faqs"])}</div>
+    </div>
+    {lf["schema"]}
+  </section>'''
+    band = "".join(card(SERVICES[o]["name"], SERVICES[o]["blurb"], wide=True, pill=f"/our-services/{o}/") for o in others)
+    services = f'''<section class="svc-section svc-services" aria-labelledby="svc-services-title">
+    <div class="svc-container">
+      {head_block("Services")}<div class="svc-head-text"><h2 id="svc-services-title">Comprehensive consulting and intelligent innovation</h2><p>Whether you’re optimizing today or building for tomorrow we help you move faster with confidence.</p></div></header>
+      <div class="svc-band">{band}</div>
+    </div>
+  </section>'''
+    avatars = "".join(f'<img src="{a}" alt="" width="40" height="40" loading="lazy">' for a in CTA_AVATARS)
+    cta = f'''<section class="svc-cta" aria-labelledby="svc-cta-title">
+    <div class="svc-cta-box" data-appear>
+      <img class="svc-cta-bg" src="{CTA_BG}?width=1600" alt="" loading="lazy">
+      <div class="svc-cta-grad" aria-hidden="true"></div>
+      <div class="svc-cta-content">
+        <div class="svc-trust"><p>Trusted by forward-thinking organizations across three continents</p><div class="svc-avatars">{avatars}</div></div>
+        <h2 id="svc-cta-title">What we touch, we change</h2>
+        <p>Cognis Group bridges deep African market knowledge with global AI engineering capability. We do not replace people with AI. We make them extraordinary with it.</p>
+        {cta_btn}
+      </div>
+    </div>
+  </section>'''
+    return page_shell(meta, schema, "\n  ".join([hero, benefits, deliver, fit, proof, faq, services, cta]))
+
+
+def page_shell(meta: str, schema: str, body: str) -> str:
+    return f'''<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{meta}
+{FONTS}
+{CSS}
+{schema}
+<link rel="stylesheet" href="/responsive.css">
+<script src="/cognis.js" defer></script>
+<script defer src="/assets/logo-motion.js"></script><script defer src="/assets/ask-cognis.js"></script>
+</head>
+<body>
+<div id="svc-page"><main class="svc">
+  {body}
+</main></div>
+</body>
+</html>
+'''
+
+
 def render(slug: str) -> str:
     s = SERVICES[slug]
     d = DATA / slug
     meta = (d / "meta.html").read_text(encoding="utf-8").strip()
     schema = (d / "schema.html").read_text(encoding="utf-8").strip()
     longform = (d / "longform.html").read_text(encoding="utf-8").strip()
+    if s.get("layout") == "v2":
+        return render_v2(slug, s, meta, schema)
     others = [k for k in SERVICES if k != slug]
     q_text, q_name, q_org, q_avatar = s["quote"]
     cards = [card(t, x) for t, x in s["cards"]]
