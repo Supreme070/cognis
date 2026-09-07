@@ -141,6 +141,13 @@
   /* Framer service pages: the global header replaces Framer's own nav. */
   div:has(> nav.framer-AZa26), nav.framer-AZa26 { display: none !important; }
 </style>
+<style data-cognis-gfooter>
+  .cg-gf a { text-decoration: none; }
+  .cg-gf a.cg-gf-link:hover { color: #FFFFFF !important; }
+  .cg-gf .cg-gf-btn:hover { background: #E5FF9B !important; }
+  /* Framer service pages: the global footer replaces Framer's own. */
+  div:has(> footer.framer-uOBZL), footer.framer-uOBZL { display: none !important; }
+</style>
 </head>
 <body>
 <div id="dc-root"><div class="sc-host" data-sc-name="__pre__Cognis About"><div data-dc-tpl="6" style="background: rgb(255, 255, 255); position: relative;">
@@ -456,63 +463,64 @@
   </section>
 
   
-  <footer data-dc-tpl="166" style="background: rgb(13, 13, 12); margin: 12px; border-radius: 24px; padding: 56px clamp(16px, 3.33vw, 48px) 32px;">
-    <div data-dc-tpl="167" style="max-width: 1280px; margin: 0px auto;">
-      <div data-dc-tpl="168" style="display: grid; grid-template-columns: 1.4fr 0.7fr 0.7fr 0.7fr 1.2fr; gap: 48px;">
-        <div data-dc-tpl="169">
-          <a data-dc-tpl="170" href="/" style="display: inline-flex; align-items: center; gap: 9px; color: rgb(255, 255, 255);">
-            <svg data-dc-tpl="171" viewBox="0 0 48 48" aria-hidden="true" style="width: 28px; height: 28px; fill: rgb(255, 255, 255); display: block;"><path d="M 42.66 12.34 A 22 22 0 1 0 42.66 35.66 L 33.19 31.71 A 12 12 0 1 1 33.19 16.29 Z"></path><rect x="36" y="19" width="10" height="10" fill="#D6FD70"></rect></svg>
-            <span data-dc-tpl="174" style="font-family: Inter, sans-serif; font-weight: 400; font-size: 24px; line-height: 28.8px; color: rgb(255, 255, 255); letter-spacing: -1.44px;">Cognis</span>
+  <footer class="cg-gf" data-screen-label="Footer" style="background: rgb(13, 13, 12); margin: 12px; border-radius: 24px; padding: 56px clamp(16px, 3.33vw, 48px) 32px;">
+    <div style="max-width: 1280px; margin: 0px auto;">
+      <div style="display: grid; grid-template-columns: 1.4fr 0.7fr 0.7fr 0.7fr 1.2fr; gap: 48px;">
+        <div>
+          <a class="cg-gf-logo" href="/" aria-label="Cognis Group" style="display: inline-flex; align-items: center; gap: 9px; color: rgb(255, 255, 255);">
+            <svg viewBox="0 0 48 48" aria-hidden="true" style="width: 28px; height: 28px; fill: rgb(255, 255, 255); display: block;"><path d="M 42.66 12.34 A 22 22 0 1 0 42.66 35.66 L 33.19 31.71 A 12 12 0 1 1 33.19 16.29 Z"></path><rect x="36" y="19" width="10" height="10" fill="#D6FD70"></rect></svg>
+            <span style="font-family: Inter, sans-serif; font-weight: 400; font-size: 24px; line-height: 28.8px; color: rgb(255, 255, 255); letter-spacing: -1.44px;">Cognis</span>
           </a>
-          <div data-dc-tpl="175" style="height: 20px;"></div>
-          <div data-dc-tpl="176" style="font-size: 14px; line-height: 1.65; color: rgba(255, 255, 255, 0.6); max-width: 320px;">Cognis Group helps organisations use AI to improve how people work. We plan, build and manage practical systems, then prepare your team to use them with confidence. Quod Tango Muto: what we touch, we change.</div>
+          <div style="height: 20px;"></div>
+          <div style="font-size: 14px; line-height: 1.65; color: rgba(255, 255, 255, 0.6); max-width: 320px;">Cognis Group helps organisations use AI to improve how people work. We plan, build and manage practical systems, then prepare your team to use them with confidence. Quod Tango Muto: what we touch, we change.</div>
         </div>
-        <div data-dc-tpl="177" style="display: flex; flex-direction: column; gap: 14px;">
-          <div data-dc-tpl="178" style="font-family: Inter, sans-serif; font-weight: 600; font-size: 11px; color: rgba(255, 255, 255, 0.45); letter-spacing: 0.88px; text-transform: uppercase;">COMPANY</div>
-          <a data-dc-tpl="179" href="/" data-h="h4" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Home</a>
-          <a data-dc-tpl="180" href="/about-us/" data-h="h4" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">About Us</a>
-          <a data-dc-tpl="181" href="/our-services/" data-h="h4" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Services</a>
-          <a data-dc-tpl="182" href="/products/" data-h="h4" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Products</a>
-          <a data-dc-tpl="183" href="/blog/" data-h="h4" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Insights</a>
-          <a href="/careers/" data-h="h4" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Careers</a>
+        <div style="display: flex; flex-direction: column; gap: 14px;">
+          <div style="font-family: Inter, sans-serif; font-weight: 600; font-size: 11px; color: rgba(255, 255, 255, 0.45); letter-spacing: 0.88px; text-transform: uppercase;">COMPANY</div>
+          <a class="cg-gf-link" href="/" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Home</a>
+          <a class="cg-gf-link" href="/about-us/" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">About Us</a>
+          <a class="cg-gf-link" href="/our-services/" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Services</a>
+          <a class="cg-gf-link" href="/products/" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Products</a>
+          <a class="cg-gf-link" href="/blog/" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Insights</a>
+          <a class="cg-gf-link" href="/careers/" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Careers</a>
         </div>
         <div style="display: flex; flex-direction: column; gap: 14px;">
           <div style="font-family: Inter, sans-serif; font-weight: 600; font-size: 11px; color: rgba(255, 255, 255, 0.45); letter-spacing: 0.88px; text-transform: uppercase;">SERVICES</div>
-          <a href="/our-services/ai-strategy-advisory/" data-h="h0" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Strategy</a>
-          <a href="/our-services/ai-training-workforce-development/" data-h="h0" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Training</a>
-          <a href="/our-services/ai-agent-automation-engineering/" data-h="h0" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Agent Engineering</a>
+          <a class="cg-gf-link" href="/our-services/ai-strategy-advisory/" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Strategy</a>
+          <a class="cg-gf-link" href="/our-services/ai-training-workforce-development/" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Training</a>
+          <a class="cg-gf-link" href="/our-services/ai-agent-automation-engineering/" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Agent Engineering</a>
         </div>
-        <div data-dc-tpl="184" style="display: flex; flex-direction: column; gap: 14px;">
-          <div data-dc-tpl="185" style="font-family: Inter, sans-serif; font-weight: 600; font-size: 11px; color: rgba(255, 255, 255, 0.45); letter-spacing: 0.88px; text-transform: uppercase;">EXPLORE</div>
-          <a data-dc-tpl="186" href="/why-cognis/" data-h="h4" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Why Cognis</a>
-          <a data-dc-tpl="187" href="/case-studies/" data-h="h4" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Case Studies</a>
-          <a data-dc-tpl="188" href="/how-we-work/" data-h="h4" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">How We Work</a>
-          <a href="/faq/" data-h="h0" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">FAQ</a>
-          <a data-dc-tpl="189" href="/contact/" data-h="h4" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Contact</a>
+        <div style="display: flex; flex-direction: column; gap: 14px;">
+          <div style="font-family: Inter, sans-serif; font-weight: 600; font-size: 11px; color: rgba(255, 255, 255, 0.45); letter-spacing: 0.88px; text-transform: uppercase;">EXPLORE</div>
+          <a class="cg-gf-link" href="/why-cognis/" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Why Cognis</a>
+          <a class="cg-gf-link" href="/case-studies/" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Case Studies</a>
+          <a class="cg-gf-link" href="/how-we-work/" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">How We Work</a>
+          <a class="cg-gf-link" href="/faq/" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">FAQ</a>
+          <a class="cg-gf-link" href="/contact/" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Contact</a>
         </div>
-        <div data-dc-tpl="190">
-          <div data-dc-tpl="191" style="font-family: Inter, sans-serif; font-weight: 600; font-size: 11px; color: rgba(255, 255, 255, 0.45); letter-spacing: 0.88px; text-transform: uppercase;">GET AI INTELLIGENCE IN YOUR INBOX</div>
-          <div data-dc-tpl="192" style="height: 16px;"></div>
-          <form data-dc-tpl="193" action="/api/form" method="POST" style="display: flex; gap: 8px;"><input type="text" name="company" value="" style="display:none !important" tabindex="-1" autocomplete="off" aria-hidden="true">
-            <input data-dc-tpl="195" type="hidden" name="from_name" value="cognis.group newsletter">
-            <input data-dc-tpl="196" type="hidden" name="subject" value="New newsletter signup — cognis.group">
-            <input data-dc-tpl="197" type="hidden" name="redirect" value="https://cognis.group/thanks-subscribe/">
-            <input data-dc-tpl="198" type="email" name="email" required="" placeholder="Your work email" style="flex: 1 1 0%; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.14); border-radius: 100px; padding: 12px 18px; font-size: 14px; color: rgb(255, 255, 255); outline: none; font-family: &quot;Plus Jakarta Sans&quot;, sans-serif;">
-            <button data-dc-tpl="199" type="submit" data-h="h5" style="background: rgb(214, 253, 112); color: rgb(13, 13, 12); border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; border-radius: 100px; padding: 12px 22px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: &quot;Plus Jakarta Sans&quot;, sans-serif;">Subscribe</button>
+        <div>
+          <div style="font-family: Inter, sans-serif; font-weight: 600; font-size: 11px; color: rgba(255, 255, 255, 0.45); letter-spacing: 0.88px; text-transform: uppercase;">GET AI INTELLIGENCE IN YOUR INBOX</div>
+          <div style="height: 16px;"></div>
+          <form action="/api/form" method="POST" style="display: flex; gap: 8px;"><input type="text" name="company" value="" style="display:none !important" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <input type="hidden" name="from_name" value="cognis.group newsletter">
+            <input type="hidden" name="subject" value="New newsletter signup — cognis.group">
+            <input type="hidden" name="redirect" value="https://cognis.group/thanks-subscribe/">
+            <input type="email" name="email" required="" placeholder="Your work email" style="flex: 1 1 0%; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.14); border-radius: 100px; padding: 12px 18px; font-size: 14px; color: rgb(255, 255, 255); outline: none; font-family: &quot;Plus Jakarta Sans&quot;, sans-serif;">
+            <button type="submit" class="cg-gf-btn" style="background: rgb(214, 253, 112); color: rgb(13, 13, 12); border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; border-radius: 100px; padding: 12px 22px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: &quot;Plus Jakarta Sans&quot;, sans-serif;">Subscribe</button>
           </form>
         </div>
       </div>
-      <div data-dc-tpl="200" style="height: clamp(28px, 3.89vw, 56px);"></div>
-      <div data-dc-tpl="201" style="border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 24px; display: flex; justify-content: space-between; align-items: center;">
-        <div data-dc-tpl="202" style="font-size: 14px; color: rgba(255, 255, 255, 0.45);">© 2024–2026 Cognis Group. All rights reserved.</div>
-        <div data-dc-tpl="203" style="display: flex; gap: 24px;">
-          <a data-dc-tpl="204" href="/privacy-policy/" data-h="h4" style="font-size: 13px; color: rgba(255, 255, 255, 0.45);">Privacy</a>
-          <a data-dc-tpl="205" href="/terms/" data-h="h4" style="font-size: 13px; color: rgba(255, 255, 255, 0.45);">Terms</a>
-          <a data-dc-tpl="206" href="/contact/" data-h="h4" style="font-size: 13px; color: rgba(255, 255, 255, 0.45);">Contact</a>
+      <div style="height: clamp(28px, 3.89vw, 56px);"></div>
+      <div style="border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 24px; display: flex; justify-content: space-between; align-items: center;">
+        <div style="font-size: 14px; color: rgba(255, 255, 255, 0.45);">© 2024–2026 Cognis Group. All rights reserved.</div>
+        <div style="display: flex; gap: 24px;">
+          <a class="cg-gf-link" href="/privacy-policy/" style="font-size: 13px; color: rgba(255, 255, 255, 0.45);">Privacy</a>
+          <a class="cg-gf-link" href="/terms/" style="font-size: 13px; color: rgba(255, 255, 255, 0.45);">Terms</a>
+          <a class="cg-gf-link" href="/contact/" style="font-size: 13px; color: rgba(255, 255, 255, 0.45);">Contact</a>
         </div>
       </div>
     </div>
-  </footer></div></div></div>
+  </footer>
+</div></div></div>
 <script src="/cognis.js" defer></script>
 <script defer src="/assets/logo-motion.js"></script><script defer src="/assets/ask-cognis.js"></script></body>
 </html>
