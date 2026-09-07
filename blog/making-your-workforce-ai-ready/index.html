@@ -171,35 +171,64 @@ a[data-dc-tpl="65"]:hover { opacity: 1; }
 <meta property="article:published_time" content="2026-04-06" />
 <meta property="article:modified_time" content="2026-07-24" />
 <meta property="article:author" content="Supreme Oyewumi" />
+<style data-cognis-gheader>
+  @keyframes cgFadeUp { from { opacity: 0; transform: translateY(32px); } to { opacity: 1; transform: translateY(0); } }
+  .cg-gh .cgRoll { display: inline-block; overflow: hidden; height: 20px; vertical-align: top; }
+  .cg-gh .cgRoll b { display: block; font-weight: inherit; transition: transform 0.18s cubic-bezier(0.33,1,0.68,1); }
+  .cg-gh a:hover > .cgRoll b { transform: translateY(-20px); }
+  .cg-gh[data-cg-skin="white"] a.cg-gh-link:hover { color: #FFFFFF !important; }
+  .cg-gh[data-cg-skin="dark"] a.cg-gh-link:hover { color: #131313 !important; }
+  .cg-gh a.cg-gh-cta:hover { background: #FFFFFF !important; transform: scale(0.95); }
+  .cg-gh .cg-gh-current { box-shadow: rgb(214, 253, 112) 0px -2px 0px inset; padding-bottom: 4px; }
+  .cg-gh .cg-exp { position: relative; }
+  .cg-gh .cg-exp-panel { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); padding-top: 16px; opacity: 0; visibility: hidden; transition: opacity .22s ease; z-index: 30; }
+  .cg-gh .cg-exp:hover .cg-exp-panel, .cg-gh .cg-exp:focus-within .cg-exp-panel { opacity: 1; visibility: visible; }
+  .cg-gh .cg-exp-menu { background: #131313; border: 1px solid rgba(255,255,255,0.10); border-radius: 16px; padding: 8px; min-width: 236px; display: flex; flex-direction: column; gap: 2px; box-shadow: 0 28px 60px rgba(0,0,0,0.45); transform: translateY(8px); transition: transform .22s cubic-bezier(.22,1,.36,1); }
+  .cg-gh .cg-exp:hover .cg-exp-menu, .cg-gh .cg-exp:focus-within .cg-exp-menu { transform: translateY(0); }
+  .cg-gh .cg-exp-menu a { display: flex; flex-direction: column; gap: 2px; padding: 11px 14px; border-radius: 11px; text-transform: none; letter-spacing: -0.01em; transition: background .15s ease; text-decoration: none; }
+  .cg-gh .cg-exp-menu a:hover { background: rgba(255,255,255,0.06); }
+  .cg-gh .cg-exp-menu .t { font-weight: 600; font-size: 14px; color: #FFFFFF; }
+  .cg-gh .cg-exp-menu .d { font-weight: 400; font-size: 12px; color: rgba(255,255,255,0.5); }
+  .cg-gh a { text-decoration: none; }
+  /* Pages where the header is a direct child of <body> (no prerendered hero
+     wrapper) need their content pushed clear of the absolute header. */
+  body > .cg-gh ~ main { padding-top: 108px; }
+  body > .cg-gh ~ div > .sc-host { padding-top: 108px; } /* brand manual: its runtime renders the doc into a shadow host */
+  /* Prerendered pages whose hero card starts with a 12px margin: keep that margin
+     inside the wrapper (no collapse) so the absolute header measures from the page top. */
+  .sc-host > div:has(> .cg-gh) { display: flow-root; }
+  /* Framer service pages: the global header replaces Framer's own nav. */
+  div:has(> nav.framer-AZa26), nav.framer-AZa26 { display: none !important; }
+</style>
 </head>
 <body>
 <div style="background: rgb(242, 242, 242); position: relative; min-height: 100vh;">
-<div data-dc-tpl="7" style="position: absolute; top: 0px; left: 0px; right: 0px; z-index: 1000; background: rgba(242, 242, 242, 0.92); backdrop-filter: saturate(140%) blur(10px);">
-    <div data-dc-tpl="8" style="max-width: 1280px; margin: 0px auto; padding: 24px clamp(16px, 3.33vw, 48px); display: flex; align-items: center; justify-content: space-between; gap: 8px;">
-      <a data-dc-tpl="9" href="/" aria-label="Cognis Group" style="display: flex; align-items: center; gap: 9px; color: rgb(19, 19, 19);">
-        <svg data-dc-tpl="10" class="cg-mark-hero" viewBox="0 0 48 48" aria-hidden="true" style="width: 28px; height: 28px; fill: currentcolor; display: block;"><path d="M 42.66 12.34 A 22 22 0 1 0 42.66 35.66 L 33.19 31.71 A 12 12 0 1 1 33.19 16.29 Z"></path><rect x="36" y="19" width="10" height="10" fill="#D6FD70"></rect></svg>
-        <span data-dc-tpl="13" style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 600; letter-spacing: -0.04em; font-size: 23px; color: rgb(19, 19, 19);">Cognis</span>
+<div data-dc-tpl="7" class="cg-gh" data-cg-skin="dark" style="position: absolute; top: 12px; left: 12px; right: 12px; z-index: 1000; padding: 24px clamp(16px, 3.33vw, 48px);">
+    <div style="max-width: 1280px; margin: 0px auto; display: flex; align-items: center; justify-content: space-between; animation: 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0s 1 normal both running cgFadeUp;">
+      <a class="cg-gh-logo" href="/" aria-label="Cognis Group" style="display: flex; align-items: center; gap: 9px; color: rgb(19, 19, 19);">
+        <svg class="cg-mark-hero" viewBox="0 0 48 48" aria-hidden="true" style="width: 28px; height: 28px; fill: currentcolor; display: block;"><path d="M 42.66 12.34 A 22 22 0 1 0 42.66 35.66 L 33.19 31.71 A 12 12 0 1 1 33.19 16.29 Z"></path><rect x="36" y="19" width="10" height="10" fill="#D6FD70"></rect></svg>
+        <span style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 600; font-size: 23px; color: rgb(19, 19, 19); letter-spacing: -0.04em;">Cognis</span>
       </a>
-      <div data-dc-tpl="14" style="display: flex; align-items: center; gap: 32px;">
-        <a data-dc-tpl="15" href="/" data-h="h0" style="color: rgba(19, 19, 19, 0.8); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; white-space: nowrap;">Home</a>
-        <a data-dc-tpl="16" href="/about-us/" data-h="h0" style="color: rgba(19, 19, 19, 0.8); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; white-space: nowrap;">About Us</a>
-        <a data-dc-tpl="17" href="/our-services/" data-h="h0" style="color: rgba(19, 19, 19, 0.8); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; white-space: nowrap;">Services</a>
-        <a data-dc-tpl="18" href="/products/" data-h="h0" style="color: rgba(19, 19, 19, 0.8); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; white-space: nowrap;">Products</a>
-        <a data-dc-tpl="19" href="/blog/" aria-current="page" style="color: rgb(19, 19, 19); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; white-space: nowrap; box-shadow: rgb(214, 253, 112) 0px -2px 0px inset; padding-bottom: 4px;">Insights</a>
-      <div data-dc-tpl="20" class="cg-exp" tabindex="0" style="height: 20px; color: rgba(19, 19, 19, 0.8); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; white-space: nowrap; cursor: default;">
-          <span data-dc-tpl="21" style="display: inline-flex; align-items: center; gap: 5px;">Explore
-            <svg data-dc-tpl="22" width="10" height="10" viewBox="0 0 10 10" fill="none" style="opacity: 0.85;"><path data-dc-tpl="23" d="M2 3.5L5 6.5L8 3.5" stroke="#131313" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+      <div style="display: flex; align-items: center; gap: 24px;">
+        <a class="cg-gh-link" href="/" style="color: rgba(19, 19, 19, 0.8); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; white-space: nowrap;"><span class="cgRoll"><b>Home</b><b>Home</b></span></a>
+        <a class="cg-gh-link" href="/about-us/" style="color: rgba(19, 19, 19, 0.8); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; white-space: nowrap;"><span class="cgRoll"><b>About Us</b><b>About Us</b></span></a>
+        <a class="cg-gh-link" href="/our-services/" style="color: rgba(19, 19, 19, 0.8); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; white-space: nowrap;"><span class="cgRoll"><b>Services</b><b>Services</b></span></a>
+        <a class="cg-gh-link" href="/products/" style="color: rgba(19, 19, 19, 0.8); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; white-space: nowrap;"><span class="cgRoll"><b>Products</b><b>Products</b></span></a>
+        <a class="cg-gh-link cg-gh-current" href="/blog/" aria-current="page" style="color: rgba(19, 19, 19, 0.8); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; white-space: nowrap;"><span class="cgRoll"><b>Insights</b><b>Insights</b></span></a>
+        <div class="cg-exp" tabindex="0" style="height: 20px; color: rgba(19, 19, 19, 0.8); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; white-space: nowrap; cursor: default;">
+          <span style="display: inline-flex; align-items: center; gap: 5px;">Explore
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" style="opacity: 0.85;"><path d="M2 3.5L5 6.5L8 3.5" stroke="#131313" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
           </span>
-          <div data-dc-tpl="24" class="cg-exp-panel">
-            <div data-dc-tpl="25" class="cg-exp-menu">
-              <a data-dc-tpl="26" href="/why-cognis/"><span data-dc-tpl="27" class="t">Why Cognis</span><span data-dc-tpl="28" class="d">The case for working with us</span></a>
-              <a data-dc-tpl="29" href="/case-studies/"><span data-dc-tpl="30" class="t">Case Studies</span><span data-dc-tpl="31" class="d">AI shipped to governed production</span></a>
-              <a data-dc-tpl="32" href="/how-we-work/"><span data-dc-tpl="33" class="t">How We Work</span><span data-dc-tpl="34" class="d">Six phases, designed to ship</span></a>
+          <div class="cg-exp-panel">
+            <div class="cg-exp-menu">
+              <a href="/why-cognis/"><span class="t">Why Cognis</span><span class="d">The case for working with us</span></a>
+              <a href="/case-studies/"><span class="t">Case Studies</span><span class="d">AI shipped to governed production</span></a>
+              <a href="/how-we-work/"><span class="t">How We Work</span><span class="d">Six phases, designed to ship</span></a>
             </div>
           </div>
         </div>
       </div>
-      <a data-dc-tpl="35" href="/contact/" data-h="h1" style="background: rgb(214, 253, 112); color: rgb(19, 19, 19); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; padding: 12px 22px; border-radius: 100px; white-space: nowrap; transition: transform 0.3s cubic-bezier(0.19, 1, 0.22, 1), background-color 0.3s;">Work With Us</a>
+      <a class="cg-gh-cta" href="/contact/" style="background: rgb(214, 253, 112); color: rgb(19, 19, 19); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; white-space: nowrap; padding: 12px 22px; border-radius: 100px; transition: transform 0.3s cubic-bezier(0.19, 1, 0.22, 1), background-color 0.3s;">Work With Us</a>
     </div>
   </div>
   <main id="content">

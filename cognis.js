@@ -14,7 +14,7 @@
   }
 
   function setupReveal() {
-    if (reduced || !('IntersectionObserver' in window)) return;
+    if (reduced || !('IntersectionObserver' in window) || document.documentElement.hasAttribute('data-cg-no-reveal')) return;
     var EASE = 'cubic-bezier(.22,1,.36,1)';
     function splitWords(el) {
       if (el.dataset.cgSplit) return [];
@@ -56,7 +56,7 @@
   }
 
   function setupAppear() {
-    if (reduced || !('IntersectionObserver' in window)) return;
+    if (reduced || !('IntersectionObserver' in window) || document.documentElement.hasAttribute('data-cg-no-reveal')) return;
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
         if (!e.isIntersecting) return;
@@ -233,6 +233,7 @@
     var seen = {}, items = [];
     headers.forEach(function (h) {
       [].slice.call(h.querySelectorAll('a[href]')).forEach(function (a) {
+        if (a.classList.contains('cg-gh-logo')) return;
         var href = a.getAttribute('href'), text = cgLabelOf(a);
         if (!href || href === '#' || !text || seen[href]) return;
         seen[href] = 1;

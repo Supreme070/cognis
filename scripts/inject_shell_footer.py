@@ -35,7 +35,6 @@ START = "<!-- cognis-gnav:start -->"
 END = "<!-- cognis-gnav:end -->"
 
 # Match the original shell chrome AND any prior replica (so re-runs upgrade in place).
-OLD_HEADER_RE = re.compile(r'<header class="(?:site-nav|cgnav|cgx)"[^>]*>[\s\S]*?</header>', re.IGNORECASE)
 OLD_FOOTER_RE = re.compile(r'<footer class="(?:site-foot|cgxf)"[^>]*>[\s\S]*?</footer>', re.IGNORECASE)
 
 # Cognis mark — fill:currentColor so the same path is dark in the header and
@@ -45,30 +44,9 @@ MARK = (
     '<path d="M 36.968 20.426 L 33.716 26.059 L 24.189 26.048 L 27.223 20.794 L 18.262 5.293 L 28.346 5.337 Z"/>'
     '<path d="M 9.807 5.266 L 16.312 5.266 L 21.066 13.522 L 14.999 13.521 L 6.055 29.033 L 1.051 20.277 Z"/></svg>'
 )
-NAV = [("/", "Home"), ("/about-us", "About Us"), ("/our-services", "Services"), ("/products", "Products"), ("/blog", "Insights")]
 FOOT_NAV = [("/", "Home"), ("/about-us", "About Us"), ("/our-services", "Services"), ("/blog", "Insights"), ("/contact", "Contact")]
 
 
-def _roll(label: str) -> str:
-    return f'<span class="cgx-roll"><span>{label}</span><span aria-hidden="true">{label}</span></span>'
-
-
-HEADER = (
-    '<header class="cgx" data-cognis-gnav>'
-    '<div class="cgx-in">'
-    f'<a class="cgx-logo" href="/" aria-label="Cognis Group">{MARK}<span class="cgx-word">Cognis</span></a>'
-    '<nav class="cgx-nav" aria-label="Primary">'
-    + "".join(f'<a href="{h}">{_roll(t)}</a>' for h, t in NAV)
-    + "</nav>"
-    f'<a class="cgx-cta" href="/contact">{_roll("Work With Us")}</a>'
-    '<button class="cgx-burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="cgx-drawer"><span></span><span></span><span></span></button>'
-    "</div>"
-    '<div class="cgx-drawer" id="cgx-drawer" hidden>'
-    + "".join(f'<a href="{h}">{t}</a>' for h, t in NAV)
-    + '<a class="cgx-cta" href="/contact">Work With Us</a>'
-    "</div>"
-    "</header>"
-)
 
 FOOTER = (
     '<footer class="cgxf">'
@@ -100,37 +78,6 @@ FOOTER = (
 
 STYLE = """<style data-cognis-gnav>
   :root { --cgx-ink: #131313; --cgx-lime: #d6fd70; }
-  /* ---- HEADER (faithful to the global: fixed, transparent, dark ink on light) ---- */
-  header.cgx { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: transparent; font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
-  header.cgx .cgx-in { max-width: 1344px; margin: 0 auto; padding: 18px 24px; display: flex; align-items: center; justify-content: space-between; gap: 8px; }
-  header.cgx .cgx-logo { display: flex; align-items: center; gap: 9px; text-decoration: none; color: var(--cgx-ink); }
-  header.cgx .cgx-mark { width: 32px; height: 24px; fill: currentColor; display: block; }
-  header.cgx .cgx-word { font-weight: 600; letter-spacing: -0.04em; font-size: 23px; color: var(--cgx-ink); }
-  header.cgx .cgx-nav { display: flex; align-items: center; }
-  header.cgx .cgx-nav a { color: var(--cgx-ink); text-decoration: none; font-size: 14px; font-weight: 500; letter-spacing: 1.68px; text-transform: uppercase; padding: 12px 20px; }
-  header.cgx .cgx-roll { position: relative; display: inline-block; overflow: hidden; height: 20px; line-height: 20px; vertical-align: top; }
-  header.cgx .cgx-roll > span { display: block; transition: transform .34s cubic-bezier(.2,.7,.2,1); }
-  header.cgx a:hover .cgx-roll > span { transform: translateY(-20px); }
-  header.cgx .cgx-cta { background: var(--cgx-lime); color: #131313; text-decoration: none; font-size: 13px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; padding: 11px 20px; border-radius: 48px; white-space: nowrap; transition: transform .2s ease, box-shadow .2s ease; }
-  header.cgx .cgx-cta:hover { transform: translateY(-1px); box-shadow: 0 10px 26px -10px rgba(214,253,112,.95); }
-  header.cgx .cgx-burger { display: none; flex-direction: column; gap: 5px; align-items: center; justify-content: center; width: 44px; height: 44px; background: var(--cgx-lime); border: 0; border-radius: 12px; cursor: pointer; }
-  header.cgx .cgx-burger span { width: 20px; height: 2px; background: #131313; border-radius: 2px; transition: transform .25s ease, opacity .2s ease; }
-  header.cgx.open .cgx-burger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-  header.cgx.open .cgx-burger span:nth-child(2) { opacity: 0; }
-  header.cgx.open .cgx-burger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-  header.cgx .cgx-drawer { display: none; flex-direction: column; gap: 2px; padding: 6px 32px 24px; }
-  header.cgx .cgx-drawer a { color: #131313; text-decoration: none; font-weight: 600; font-size: 16px; padding: 14px 4px; border-bottom: 1px solid rgba(19,19,19,.06); }
-  header.cgx .cgx-drawer .cgx-cta { display: inline-block; margin: 16px 0 0; text-align: center; border-bottom: 0; }
-  /* shells are light pages — push content clear of the fixed header */
-  header.cgx ~ main, header.cgx + main { padding-top: 96px; }
-  @media (max-width: 860px) {
-    header.cgx .cgx-in { padding: 14px 20px; }
-    header.cgx .cgx-nav, header.cgx .cgx-in > .cgx-cta { display: none; }
-    header.cgx .cgx-burger { display: flex; }
-    header.cgx { background: rgba(255,255,255,0.9); backdrop-filter: saturate(180%) blur(12px); -webkit-backdrop-filter: saturate(180%) blur(12px); }
-    header.cgx.open { background: #fff; }
-    header.cgx.open .cgx-drawer { display: flex; }
-  }
   /* ---- FOOTER (faithful: dark rounded card inset in white) ---- */
   footer.cgxf { background: transparent; padding: 12px; font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
   footer.cgxf .cgxf-card { background: #0f0f0f; color: #fff; border-radius: 26px; padding: 56px 40px 40px; max-width: 1416px; margin: 0 auto; }
@@ -160,31 +107,8 @@ STYLE = """<style data-cognis-gnav>
   }
 </style>"""
 
-SCRIPT = """<script data-cognis-gnav>
-(function () {
-  var h = document.querySelector('header.cgx[data-cognis-gnav]');
-  if (h) {
-    var here = location.pathname.replace(/\\/index\\.html$/, '').replace(/\\/+$/, '') || '/';
-    h.querySelectorAll('a[href]').forEach(function (a) {
-      var p = (a.getAttribute('href') || '').replace(/\\/+$/, '') || '/';
-      if (p === here) a.setAttribute('aria-current', 'page');
-    });
-    var burger = h.querySelector('.cgx-burger'), drawer = h.querySelector('.cgx-drawer');
-    function setOpen(o) {
-      h.classList.toggle('open', o);
-      if (burger) burger.setAttribute('aria-expanded', o ? 'true' : 'false');
-      if (drawer) { if (o) drawer.removeAttribute('hidden'); else drawer.setAttribute('hidden', ''); }
-      document.documentElement.style.overflow = o ? 'hidden' : '';
-    }
-    if (burger) burger.addEventListener('click', function () { setOpen(!h.classList.contains('open')); });
-    if (drawer) drawer.addEventListener('click', function (e) { if (e.target.closest('a')) setOpen(false); });
-    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setOpen(false); });
-    window.addEventListener('resize', function () { if (window.innerWidth > 860) setOpen(false); });
-  }
-})();
-</script>"""
 
-BLOCK = f"{START}\n{STYLE}\n{SCRIPT}\n{END}"
+BLOCK = f"{START}\n{STYLE}\n{END}"
 
 
 def snapshot_paths() -> list[Path]:
@@ -208,17 +132,16 @@ def main() -> int:
     changed = 0
     for p in snapshot_paths():
         html = p.read_text(encoding="utf-8")
-        if not OLD_HEADER_RE.search(html) and "data-cognis-gnav" not in html:
+        if not OLD_FOOTER_RE.search(html):
             continue
-        new = OLD_HEADER_RE.sub(HEADER, html)
-        new = OLD_FOOTER_RE.sub(FOOTER, new)
+        new = OLD_FOOTER_RE.sub(FOOTER, html)
         new = strip_block(new, START, END)
         if "</body>" in new:
             new = new.replace("</body>", BLOCK + "\n</body>", 1)
         if new != html:
             p.write_text(new, encoding="utf-8")
             changed += 1
-            print(f"  chrome replicated: {p.relative_to(ROOT)}")
+            print(f"  footer replicated: {p.relative_to(ROOT)}")
     print(f"\n{changed} shells updated")
     return 0
 
