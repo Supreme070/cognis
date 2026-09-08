@@ -1,0 +1,14 @@
+HTTP/2 429 
+vary: Origin
+vary: X-Origin
+vary: Referer
+content-type: application/json; charset=UTF-8
+content-encoding: gzip
+date: Mon, 07 Sep 2026 09:46:57 GMT
+server: ESF
+content-length: 515
+x-xss-protection: 0
+x-frame-options: SAMEORIGIN
+x-content-type-options: nosniff
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+

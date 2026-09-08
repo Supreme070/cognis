@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href="https://spog.example/" />
+
+    <title>SPOG — Every system. One pane of glass.</title>
+    <meta
+      name="description"
+      content="SPOG sits above the tools you already own — servers and clouds, power meters and camera fleets, vehicles and revenue — and correlates them into one living picture. One incident, not thirty alerts."
+    />
+    <meta name="theme-color" content="#fafaf9" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="SPOG" />
+    <meta property="og:title" content="SPOG — Every system. One pane of glass." />
+    <meta
+      property="og:description"
+      content="Observability and intelligence for the whole organization — IT, the physical world, and the business. Correlation rules you author, an AI copilot that cites its sources, honest provenance on every number."
+    />
+    <meta property="og:url" content="https://spog.example/" />
+    <meta property="og:image" content="https://spog.example/og.svg" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="SPOG — Every system. One pane of glass." />
+    <meta
+      name="twitter:description"
+      content="One pane of glass for IT, the physical world, and the business. One incident, not thirty alerts."
+    />
+    <meta name="twitter:image" content="https://spog.example/og.svg" />
+
+    <!-- JSON-LD: real product facts only -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "SPOG",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "description": "Multi-tenant single pane of glass: federates IT monitoring, cloud, and the physical world (energy, CCTV, fleet, attendance) plus business KPIs; correlation rules as data, noise control, an AI copilot that cites its sources, and honest provenance on every number."
+      }
+    </script>
+    <script type="module" crossorigin src="/assets/index-C_zCyluF.js"></script>
+    <link rel="modulepreload" crossorigin href="/assets/TemplateLayout-2qWOp7zY.js">
+    <link rel="modulepreload" crossorigin href="/assets/cn-YfhRsIRh.js">
+    <link rel="modulepreload" crossorigin href="/assets/LivingPane-BuDXdJ7i.js">
+    <link rel="stylesheet" crossorigin href="/assets/TemplateLayout-CVeby-EO.css">
+  </head>
+  <body><a href="https://spog.cognis.group/cdn-cgi/content?id=H6xqKV0Yunj8IRYDd6n80tFIophr5BS8JEdYxGcdy9Y-1788774417.1795309-1.2.1.1-LMVBjsBqgiJxKlc9gU6aa.xYaG_EITlXJUTvtqa9fpDdVDQ_6Py2nK_h60HQMKkv" aria-hidden="true" rel="nofollow noopener" style="display: none !important; visibility: hidden !important"></a>
+    <div id="root"></div>
+  <script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a374ca0b5a4e94a9',t:'MTc4ODc3NDQxNw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

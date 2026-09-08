@@ -1,0 +1,122 @@
+[
+  {
+    "agent": "Googlebot",
+    "path": "/",
+    "exitcode": 0,
+    "bytes": 151312,
+    "sha256": "468b3c3e2e038af7a9d6632f038600a6db270282d7eebc88fc68333164df6e9d",
+    "challenge": false,
+    "has_longform": false,
+    "has_title": true
+  },
+  {
+    "agent": "Googlebot",
+    "path": "/our-services/ai-strategy-advisory/",
+    "exitcode": 0,
+    "bytes": 691546,
+    "sha256": "6959f7a90d4d8c6399ab70a4ec1911dd5b8c20c228ce402d714f1dfad3ec9737",
+    "challenge": false,
+    "has_longform": true,
+    "has_title": true
+  },
+  {
+    "agent": "bingbot",
+    "path": "/",
+    "exitcode": 0,
+    "bytes": 151312,
+    "sha256": "0e808e4aa36200c469a1ecfc9e34fa86485ba032126995070d046bddb62ada68",
+    "challenge": false,
+    "has_longform": false,
+    "has_title": true
+  },
+  {
+    "agent": "bingbot",
+    "path": "/our-services/ai-strategy-advisory/",
+    "exitcode": 0,
+    "bytes": 691546,
+    "sha256": "e19d5ed5488bc61f3a769e8c8b34012a2d82a89a2eeeb1c916e587e38f2f41d1",
+    "challenge": false,
+    "has_longform": true,
+    "has_title": true
+  },
+  {
+    "agent": "OAI-SearchBot",
+    "path": "/",
+    "exitcode": 0,
+    "bytes": 151311,
+    "sha256": "1a0ed04ced5ad05c3a683e6a8ff5c3e4ac194e4528d08e26e218a24389565f41",
+    "challenge": false,
+    "has_longform": false,
+    "has_title": true
+  },
+  {
+    "agent": "OAI-SearchBot",
+    "path": "/our-services/ai-strategy-advisory/",
+    "exitcode": 0,
+    "bytes": 691546,
+    "sha256": "c2f05c337b64fc4c5a743be2fbc8101e61a16a36d18ed8329c17c629886877ab",
+    "challenge": false,
+    "has_longform": true,
+    "has_title": true
+  },
+  {
+    "agent": "GPTBot",
+    "path": "/",
+    "exitcode": 0,
+    "bytes": 151311,
+    "sha256": "dd7b275bf3e2f34fa0dc05bc976d9e8ba287d15a67f1ef327e5a18eb469d3dc1",
+    "challenge": false,
+    "has_longform": false,
+    "has_title": true
+  },
+  {
+    "agent": "GPTBot",
+    "path": "/our-services/ai-strategy-advisory/",
+    "exitcode": 0,
+    "bytes": 691546,
+    "sha256": "803effc896f2e2697f30c09cd9981bf560b31245cf1bfed711743f67635e475b",
+    "challenge": false,
+    "has_longform": true,
+    "has_title": true
+  },
+  {
+    "agent": "Claude-SearchBot",
+    "path": "/",
+    "exitcode": 0,
+    "bytes": 151015,
+    "sha256": "30bf2ed80347efba910bf9fc2d93d0b52ee20cdf4aa6613c0d96acab24fe3393",
+    "challenge": false,
+    "has_longform": false,
+    "has_title": true
+  },
+  {
+    "agent": "Claude-SearchBot",
+    "path": "/our-services/ai-strategy-advisory/",
+    "exitcode": 0,
+    "bytes": 691249,
+    "sha256": "fef42cab4e8a0dd98a6db7e20cbf65530c1f96e7aa055bde39477e2c4cc9f192",
+    "challenge": false,
+    "has_longform": true,
+    "has_title": true
+  },
+  {
+    "agent": "PerplexityBot",
+    "path": "/",
+    "exitcode": 0,
+    "bytes": 151015,
+    "sha256": "f2ac8138155be078f701cf202c355e010afd6df7f63c442f9f37e3b9e56503be",
+    "challenge": false,
+    "has_longform": false,
+    "has_title": true
+  },
+  {
+    "agent": "PerplexityBot",
+    "path": "/our-services/ai-strategy-advisory/",
+    "exitcode": 0,
+    "bytes": 691249,
+    "sha256": "a11247f8dd0080defa59bd92f6641c3a6eb941f2467820347d07ee8fef4754f8",
+    "challenge": false,
+    "has_longform": true,
+    "has_title": true
+  }
+]

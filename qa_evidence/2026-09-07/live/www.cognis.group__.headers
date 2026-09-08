@@ -1,0 +1,54 @@
+HTTP/1.1 301 Moved Permanently
+Date: Mon, 07 Sep 2026 09:46:54 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+Location: https://cognis.group/
+Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=Ruy%2B47vR7b3Y1s7LhhoGdbPr104yXo6E6YUGK2FJPP9IdBo0cTTBg7dLRZ5np8TNXCe%2Bm8cG%2FLujvvoSk1BmIvh83xcs3YQT6ubV5slQh15mzIgVivQQWMnuet19Rr16KFjg"}]}
+Nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+Server: cloudflare
+CF-RAY: a374c9faef6a0016-LHR
+
+HTTP/2 301 
+date: Mon, 07 Sep 2026 09:46:54 GMT
+content-type: text/html; charset=UTF-8
+location: https://cognis.group/
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=xkTKbpPn%2BMxU4ytWFoRPJCFIArNA%2B8YkT%2B9QsZsUyjJlX7c9iGALwCq8w%2BpSfU4Rx4iN08Y1aCkcVlwl3pzK%2BeeOb8oYaS7H5E2K3bt0Ve9r6jNjovuc8ONFWFzbzWCP0sYj"}]}
+nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+server: cloudflare
+cf-ray: a374c9fbacbf6408-LHR
+
+HTTP/2 200 
+date: Mon, 07 Sep 2026 09:46:54 GMT
+content-type: text/html; charset=utf-8
+x-frame-options: SAMEORIGIN
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=tBVIsF9l%2FE1H1Ps2NZF%2Bx6BfaAuGER364wo7xyNgxIQwegjsS68JBPg3Vhr539SmiNE%2B2SWJAPO2b9P7oEWFXyd6ODiB8SwSYkofIH2HtMN9gN%2B93CgxQgBuDuk0prk%3D"}]}
+nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+access-control-allow-origin: *
+cache-control: public, max-age=0, must-revalidate
+x-content-type-options: nosniff
+referrer-policy: strict-origin-when-cross-origin
+vary: accept-encoding
+server: cloudflare
+cf-cache-status: DYNAMIC
+content-encoding: gzip
+cf-ray: a374c9fd3d7a5630-LHR
+alt-svc: h3=":443"; ma=86400
+
+HTTP/2 200 
+date: Mon, 07 Sep 2026 09:46:55 GMT
+content-type: text/html; charset=utf-8
+x-frame-options: SAMEORIGIN
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=bt03uWaWKFi5NcjuRvwg%2FK0M7xOSlOA9r7Ox3%2FG3KRJYp2XjtobiciGrLIBu85dVwbtOly6jNj6o8tR7lWKXxbIHU6zYFxqAlFiJBeKiSYOeorrqBJ79xuqtG5sEiPw%3D"}]}
+nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+access-control-allow-origin: *
+cache-control: public, max-age=0, must-revalidate
+x-content-type-options: nosniff
+referrer-policy: strict-origin-when-cross-origin
+vary: accept-encoding
+server: cloudflare
+cf-cache-status: DYNAMIC
+content-encoding: gzip
+cf-ray: a374c9fdf8e2f422-LHR
+alt-svc: h3=":443"; ma=86400
+

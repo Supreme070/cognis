@@ -1,0 +1,30 @@
+HTTP/1.1 301 Moved Permanently
+Date: Mon, 07 Sep 2026 09:46:54 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+Nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+Location: https://cognis.group/
+Report-To: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=8tyRfZp7hvQ8diyXEn1DiBW1GzWU235lHkx%2BvR4rph6wepe7sATfvjJ5bpH8Rk3NfSDoaiagktS2y%2BOtPT%2BUZqekHnMIWy3KnmqFwqfv6uZiB6JCo7FRYz1Gk63Qi14%3D"}]}
+Server: cloudflare
+cf-cache-status: DYNAMIC
+CF-RAY: a374c9fae8b4940a-LHR
+alt-svc: h3=":443"; ma=86400
+
+HTTP/2 200 
+date: Mon, 07 Sep 2026 09:46:55 GMT
+content-type: text/html; charset=utf-8
+x-frame-options: SAMEORIGIN
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=7m95MYTbXbYOjpYXxawtSmXNiVyk6D3TVXlaHnifAlaPY%2FTjHp3Iwso44rOjKt0qIJQlJdGBHODDe%2BtO49aw2nSkQddXGLqJCzvfQqFcJRkC1y2Cv%2Bc01zkAmw4TiOs%3D"}]}
+nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+access-control-allow-origin: *
+cache-control: public, max-age=0, must-revalidate
+x-content-type-options: nosniff
+referrer-policy: strict-origin-when-cross-origin
+vary: accept-encoding
+server: cloudflare
+cf-cache-status: DYNAMIC
+content-encoding: gzip
+cf-ray: a374c9fd992d0ae8-LHR
+alt-svc: h3=":443"; ma=86400
+

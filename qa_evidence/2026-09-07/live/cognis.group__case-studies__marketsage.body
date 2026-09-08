@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>MarketSage: AI sales intelligence platform | Cognis Group</title>
+<meta name="description" content="How Cognis built MarketSage to help sales teams research prospects, prepare outreach and keep people in control of every message." />
+<link rel="canonical" href="https://cognis.group/case-studies/marketsage/" />
+    <link rel="alternate" hreflang="en" href="https://cognis.group/case-studies/marketsage/" />
+    <link rel="alternate" hreflang="x-default" href="https://cognis.group/case-studies/marketsage/" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Cognis Group" />
+<meta property="og:title" content="MarketSage: building our own AI sales intelligence platform | Cognis Group" />
+<meta property="og:description" content="How Cognis built MarketSage to help sales teams research prospects, prepare outreach and keep people in control." />
+<meta property="og:url" content="https://cognis.group/case-studies/marketsage/" />
+<meta property="og:image" content="https://cognis.group/og/cognis-og-1200x630.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Cognis Group — AI Consulting &amp; Engineering" />
+<meta property="og:locale" content="en_GB" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@cognisgroup" />
+<meta name="twitter:title" content="MarketSage: building our own AI sales intelligence platform | Cognis Group" />
+<meta name="twitter:description" content="How Cognis built MarketSage to help sales teams research prospects and prepare outreach." />
+<meta name="twitter:image" content="https://cognis.group/og/cognis-og-1200x630.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root { --ink:#131313; --ink-soft:#2f2f2f; --mute:#7b7b7b; --line:#e6e6e6; --bg:#f2f2f2; --card:#ffffff; --accent:#cdfb56; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: var(--ink); background: var(--bg); font-size: 17px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+  header.site-nav { position: sticky; top: 0; z-index: 10; background: rgba(242,242,242,0.92); backdrop-filter: saturate(140%) blur(10px); border-bottom: 1px solid var(--line); }
+  header.site-nav .inner { max-width: 1100px; margin: 0 auto; padding: 18px 24px; display: flex; align-items: center; justify-content: space-between; }
+  header.site-nav a.brand { font-weight: 700; letter-spacing: -0.01em; color: var(--ink); text-decoration: none; font-size: 20px; }
+  header.site-nav nav a { color: var(--ink-soft); text-decoration: none; margin-left: 24px; font-weight: 500; font-size: 15px; }
+  header.site-nav nav a:hover { color: var(--ink); }
+  .crumbs { max-width: 820px; margin: 0 auto; padding: 32px 24px 0; font-size: 13px; color: var(--mute); }
+  .crumbs a { color: var(--mute); text-decoration: none; }
+  .crumbs a:hover { color: var(--ink); }
+  main.study { max-width: 820px; margin: 0 auto; padding: 24px 24px 96px; }
+  main.study .tag { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--mute); font-weight: 600; margin: 16px 0 14px; }
+  main.study h1 { font-size: 44px; line-height: 1.08; letter-spacing: -0.02em; margin: 0 0 16px; font-weight: 700; }
+  main.study .dek { font-size: 20px; line-height: 1.55; color: var(--ink-soft); margin: 0 0 40px; }
+  main.study .meta { display: flex; gap: 32px; flex-wrap: wrap; padding: 20px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); margin-bottom: 40px; font-size: 14px; }
+  main.study .meta div span { display: block; color: var(--mute); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; font-weight: 600; margin-bottom: 4px; }
+  main.study h2 { font-size: 26px; margin: 48px 0 14px; letter-spacing: -0.01em; font-weight: 700; }
+  main.study h3 { font-size: 18px; margin: 28px 0 10px; font-weight: 600; }
+  main.study p { margin: 0 0 18px; }
+  main.study ul, main.study ol { padding-left: 22px; margin: 0 0 18px; }
+  main.study li { margin-bottom: 8px; }
+  main.study a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+  main.study a:hover { background: var(--accent); }
+  main.study .results { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin: 24px 0 18px; }
+  main.study .results .r { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 20px; }
+  main.study .results .r strong { display: block; font-size: 32px; letter-spacing: -0.02em; margin-bottom: 4px; }
+  main.study .results .r span { color: var(--mute); font-size: 13px; }
+  main.study .quote { margin: 32px 0; padding: 24px 28px; background: var(--card); border-left: 3px solid var(--ink); border-radius: 4px; font-size: 18px; line-height: 1.55; color: var(--ink-soft); }
+  main.study .quote cite { display: block; margin-top: 12px; font-style: normal; font-size: 14px; color: var(--mute); }
+  main.study .cta { margin-top: 56px; padding: 32px; background: var(--card); border: 1px solid var(--line); border-radius: 12px; }
+  main.study .cta h3 { margin: 0 0 8px; font-size: 20px; font-weight: 700; }
+  main.study .cta p { margin: 0 0 16px; color: var(--ink-soft); }
+  main.study .cta a { display: inline-block; background: var(--ink); color: #fff; padding: 12px 22px; border-radius: 8px; text-decoration: none; font-weight: 600; }
+  main.study .cta a:hover { background: var(--accent); color: var(--ink); }
+  footer.site-foot { border-top: 1px solid var(--line); background: #0A0A0A; color: #C1C1C1; padding: 40px 24px; font-size: 14px; }
+  footer.site-foot .inner { max-width: 1100px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 24px; justify-content: space-between; }
+  footer.site-foot a { color: #C1C1C1; text-decoration: none; margin-right: 18px; }
+  footer.site-foot a:hover { color: var(--accent); }
+  footer.site-foot .legal-links a { margin-right: 16px; }
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","@id":"https://cognis.group/case-studies/marketsage/#article","headline":"MarketSage: building our own AI sales intelligence platform","description":"How Cognis Group designed and shipped MarketSage — an AI sales intelligence product — as a reference build for the agent engineering practice we take into client engagements.","url":"https://cognis.group/case-studies/marketsage/","datePublished":"2026-04-14","dateModified":"2026-04-14","inLanguage":"en-GB","author":{"@type":"Organization","@id":"https://cognis.group/#organization"},"publisher":{"@type":"Organization","@id":"https://cognis.group/#organization"},"mainEntityOfPage":"https://cognis.group/case-studies/marketsage/","articleSection":"Case Study"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://cognis.group/"},{"@type":"ListItem","position":2,"name":"Case Studies","item":"https://cognis.group/case-studies/"},{"@type":"ListItem","position":3,"name":"MarketSage: building our own AI sales intelligence platform","item":"https://cognis.group/case-studies/marketsage/"}]},{"@type":"Organization","@id":"https://cognis.group/#organization","name":"Cognis Group","alternateName":"Cognis","legalName":"Cognis Group Limited","url":"https://cognis.group/","logo":{"@type":"ImageObject","@id":"https://cognis.group/#logo","url":"https://cognis.group/assets/img/cognis-logo.png","width":512,"height":512,"caption":"Cognis Group"},"image":{"@id":"https://cognis.group/#logo"},"description":"Cognis Group helps organisations decide where AI can help, train their people and build safe tools for everyday work. Its three main services are AI Strategy & Advisory, AI Training & Workforce Development, and AI Agent & Automation Engineering.","slogan":"Quod Tango Muto — What we touch, we change.","foundingDate":"2024","founder":[{"@type":"Person","@id":"https://cognis.group/teams/supreme-oyewumi/#person","name":"Supreme Oyewumi","jobTitle":"Founder & AI Engineer"},{"@type":"Person","@id":"https://cognis.group/teams/kola-olatunde/#person","name":"Kola Olatunde","jobTitle":"Co-Founder and AI Cybersecurity & Governance Lead"}],"foundingLocation":{"@type":"Place","name":"Lagos, Nigeria","address":{"@type":"PostalAddress","addressLocality":"Lagos","addressCountry":"NG"}},"address":[{"@type":"PostalAddress","streetAddress":"Oniru, Victoria Island","addressLocality":"Lagos","addressRegion":"LA","addressCountry":"NG"},{"@type":"PostalAddress","streetAddress":"2106 House Ave, Suite 665","addressLocality":"Cheyenne","addressRegion":"WY","postalCode":"82001","addressCountry":"US"}],"contactPoint":[{"@type":"ContactPoint","contactType":"sales","email":"info@cognis.group","telephone":"+2349080001101","availableLanguage":["English"],"areaServed":["NG","ZA","KE","GH","GB"]},{"@type":"ContactPoint","contactType":"sales","email":"info@cognis.group","telephone":"+15127437322","availableLanguage":["English"],"areaServed":["US","CA"]}],"areaServed":[{"@type":"Place","name":"Africa"},{"@type":"Place","name":"Europe"},{"@type":"Place","name":"Americas"}],"knowsAbout":["Artificial Intelligence Strategy","AI Consulting","AI Agent Engineering","Machine Learning","AI Governance","AI Workforce Development","Intelligent Automation","Large Language Models","Enterprise AI Deployment","Digital Transformation","AI Readiness Assessment","Generative AI","AI Risk Management","Responsible AI"],"sameAs":["https://www.linkedin.com/company/cognis-group","https://x.com/cognisgroup","https://github.com/cognis-group"],"hasOfferCatalog":{"@type":"OfferCatalog","name":"AI Consulting Services","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","@id":"https://cognis.group/#service-ai-strategy","name":"AI Strategy & Advisory","description":"Cognis Group helps organisations choose useful AI opportunities and create a clear plan with priorities, owners, costs, safeguards and measures of success.","provider":{"@id":"https://cognis.group/#organization"},"serviceType":"AI Strategy Consulting","areaServed":"Worldwide","audience":{"@type":"Audience","audienceType":"Enterprise organizations, Government agencies, Financial institutions"}}},{"@type":"Offer","itemOffered":{"@type":"Service","@id":"https://cognis.group/#service-ai-training","name":"AI Training & Workforce Development","description":"Cognis Group provides practical AI training that helps leaders and teams work better, check AI output and use approved tools safely.","provider":{"@id":"https://cognis.group/#organization"},"serviceType":"AI Training and Education","areaServed":"Worldwide"}},{"@type":"Offer","itemOffered":{"@type":"Service","@id":"https://cognis.group/#service-ai-agents","name":"AI Agent & Automation Engineering","description":"Cognis Group builds AI tools that handle agreed steps in business processes, reduce slow manual work and errors, and keep people in control.","provider":{"@id":"https://cognis.group/#organization"},"serviceType":"AI Engineering and Automation","areaServed":"Worldwide"}},{"@type":"Offer","itemOffered":{"@type":"Service","@id":"https://cognis.group/#service-ml-data","name":"Machine Learning & Data Intelligence","description":"Cognis Group builds data and forecasting tools that turn business information into useful answers and clearer decisions.","provider":{"@id":"https://cognis.group/#organization"},"serviceType":"Machine Learning Consulting","areaServed":"Worldwide"}},{"@type":"Offer","itemOffered":{"@type":"Service","@id":"https://cognis.group/#service-ai-governance","name":"AI Governance, Risk & Compliance","description":"Cognis Group sets clear AI rules, responsibilities, checks and records so organisations can use AI safely and meet relevant requirements.","provider":{"@id":"https://cognis.group/#organization"},"serviceType":"AI Governance and Risk Management","areaServed":"Worldwide"}},{"@type":"Offer","itemOffered":{"@type":"Service","@id":"https://cognis.group/#service-digital-transformation","name":"Enterprise Digital Transformation","description":"Cognis Group improves older systems and business processes, then adds useful AI where it can make work faster and decisions clearer.","provider":{"@id":"https://cognis.group/#organization"},"serviceType":"Digital Transformation Consulting","areaServed":"Worldwide"}}]}},{"@type":"WebSite","@id":"https://cognis.group/#website","url":"https://cognis.group","name":"Cognis Group","description":"AI consulting and engineering company helping organisations plan, build and use AI safely","publisher":{"@id":"https://cognis.group/#organization"},"inLanguage":"en-GB"}]}</script>
+<!-- cognis-hero-video:start -->
+<script data-cognis-hero-video>
+(function () {
+  var SRC = '/framer-runtime/assets/hero-afr5.mp4';
+  function norm(pth) { return pth.replace(/\/index\.html$/, '').replace(/\/+$/, ''); }
+  function isHomePath() { return norm(location.pathname) === ''; }
+  // The page's own <link rel=canonical> is the reliable signal for WHICH route
+  // this snapshot is: it's baked in per route and never flickers. We can't use
+  // location.pathname during initial load because an early inline script
+  // (deferred-nav bootstrap) does history.replaceState(..., '/') on every page,
+  // and Framer briefly renders home content — both would falsely read as home
+  // and trigger a wasted 1.6 MB fetch on non-home routes. After things settle
+  // we switch to the live path so SPA navigation is handled too.
+  function canonicalIsHome() {
+    var l = document.querySelector('link[rel="canonical"]');
+    if (!l) return isHomePath();
+    try { return norm(new URL(l.href).pathname) === ''; } catch (e) { return isHomePath(); }
+  }
+  var settled = false;
+  setTimeout(function () { settled = true; }, 4000);
+  function wantVideo() { return settled ? isHomePath() : canonicalIsHome(); }
+  function tick() {
+    var on = wantVideo();
+    document.querySelectorAll('video[data-cognis-hero-portal]').forEach(function (v) {
+      if (on) {
+        if (!v.getAttribute('src')) {
+          v.setAttribute('preload', 'metadata');
+          v.src = SRC;
+          var p = v.play(); if (p && p.catch) p.catch(function () {});
+        }
+      } else if (v.getAttribute('src')) {
+        try { v.pause(); } catch (e) {}
+        v.removeAttribute('autoplay');
+        v.setAttribute('preload', 'none');
+        v.removeAttribute('src');
+        try { v.load(); } catch (e) {}  // abort any in-flight fetch
+      }
+    });
+
+    // Hero layout guard (home only). The hero is a full-viewport-height screen
+    // with the heading/subcopy up top and the 3D rotating cards anchored lower.
+    // On short laptop heights it compresses and the cards ride up over the
+    // wording. Enforce a min-height floor so the layout always has the room it
+    // has on a tall screen — only on home and only at laptop+ widths (the
+    // stacked mobile/tablet hero doesn't have the overlap). Cleared elsewhere.
+    var hero = document.querySelector('[data-framer-name="hero"]');
+    if (hero) {
+      if (on && window.innerWidth >= 810) hero.style.setProperty('min-height', '900px', 'important');
+      else hero.style.removeProperty('min-height');
+    }
+  }
+  if (document.readyState !== 'loading') tick();
+  else document.addEventListener('DOMContentLoaded', tick);
+  try {
+    var mo = new MutationObserver(function () {
+      if (window.__cghvRAF) return;
+      window.__cghvRAF = requestAnimationFrame(function () { window.__cghvRAF = 0; tick(); });
+    });
+    mo.observe(document.documentElement, { childList: true, subtree: true });
+  } catch (e) {}
+  window.addEventListener('resize', function () {
+    if (window.__cghvRZ) return;
+    window.__cghvRZ = requestAnimationFrame(function () { window.__cghvRZ = 0; tick(); });
+  }, { passive: true });
+  [0, 50, 150, 400, 1000, 2500, 4200, 6000].forEach(function (t) { setTimeout(tick, t); });
+})();
+</script>
+<!-- cognis-hero-video:end -->
+<link rel="manifest" href="/site.webmanifest">
+<!-- cognis-evidence-style:start -->
+<style data-cognis-evidence-style>
+  .cognis-evidence-note{max-width:860px;margin:40px auto 72px;padding:24px;border:1px solid #e6e6e6;border-radius:14px;background:#fff;font:14px/1.65 Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#4a4a4a}
+  .cognis-evidence-note strong{display:block;margin-bottom:6px;color:#131313;font-size:13px;letter-spacing:.02em}
+  .cognis-evidence-note a{color:#131313;text-decoration:underline;text-underline-offset:3px}
+</style>
+<!-- cognis-evidence-style:end -->
+<script data-cognis-copyright>document.addEventListener('DOMContentLoaded', function () { document.querySelectorAll('.cgxf-copy').forEach(function (el) { el.textContent = '© 2024–' + new Date().getFullYear() + ' Cognis Group. All rights reserved.'; }); });</script>
+</head>
+<body><a href="https://cognis.group/cdn-cgi/content?id=8CWO7LjztGfn25w.2m.loa_53BMiq3Teihczv98nGjI-1788774273.793357-1.2.1.1-sQ6fgzIXoN.L41z.X_vedEJXLeil.KoQiKoSWGQuM6iOaik_pgy8DP.1YYZCiHX3" aria-hidden="true" rel="nofollow noopener" style="display: none !important; visibility: hidden !important"></a>
+<header class="cgx" data-cognis-gnav><div class="cgx-in"><a class="cgx-logo" href="/" aria-label="Cognis Group"><svg class="cgx-mark cg-mark-hero" viewBox="0 0 48 48" aria-hidden="true"><path d="M 42.66 12.34 A 22 22 0 1 0 42.66 35.66 L 33.19 31.71 A 12 12 0 1 1 33.19 16.29 Z"></path><rect x="36" y="19" width="10" height="10" fill="#D6FD70"></rect></svg><span class="cgx-word">Cognis</span></a><nav class="cgx-nav" aria-label="Primary"><a href="/"><span class="cgx-roll"><span>Home</span><span aria-hidden="true">Home</span></span></a><a href="/about-us/"><span class="cgx-roll"><span>About Us</span><span aria-hidden="true">About Us</span></span></a><a href="/our-services/"><span class="cgx-roll"><span>Services</span><span aria-hidden="true">Services</span></span></a><a href="/products/"><span class="cgx-roll"><span>Products</span><span aria-hidden="true">Products</span></span></a><a href="/blog/"><span class="cgx-roll"><span>Insights</span><span aria-hidden="true">Insights</span></span></a></nav><a class="cgx-cta" href="/contact/"><span class="cgx-roll"><span>Work With Us</span><span aria-hidden="true">Work With Us</span></span></a><button class="cgx-burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="cgx-drawer"><span></span><span></span><span></span></button></div><div class="cgx-drawer" id="cgx-drawer" hidden><a href="/">Home</a><a href="/about-us/">About Us</a><a href="/our-services/">Services</a><a href="/products/">Products</a><a href="/blog/">Insights</a><a class="cgx-cta" href="/contact/">Work With Us</a></div></header>
+<div class="crumbs"><a href="/">Home</a> · <a href="/case-studies/">Case Studies</a> · MarketSage: building our own AI sales intelligence platform</div>
+<main class="study">
+  <div class="tag">Product · AI Agent Engineering</div>
+  <h1>MarketSage: building our own AI sales intelligence platform</h1>
+  <p class="dek">How Cognis Group designed and launched MarketSage, an AI product that helps sales teams research buyers and markets.</p>
+  <div class="meta"><div><span>Client</span>Cognis Group (internal)</div><div><span>Sector</span>B2B SaaS</div><div><span>Engagement</span>Product design + build</div><div><span>Timeline</span>14 weeks to v1</div></div>
+  
+  <h2>The problem</h2>
+  <p>Sales teams in Africa and other emerging markets often lack reliable information about the companies they want to reach. Many available tools were built around US and European data, leaving important local company, market and regulatory information uncovered.</p>
+  <p>We wanted sellers to enter each meeting with a clear, well-sourced view of the buyer's business, its market and the recent events that could shape the conversation.</p>
+  <p>Building MarketSage also means that the advice we give clients comes from technology we have built, launched and run ourselves.</p>
+
+  <h2>The approach</h2>
+  <p>We used the same six phases we use with clients: understand the problem, assess what is ready, agree the plan, build, launch and manage the system. We spent the first four weeks watching how sellers actually work. This showed us that MarketSage needed to connect with the customer relationship and outreach tools they already used.</p>
+  <h3>How the system works</h3>
+  <ul>
+    <li><strong>Reliable data.</strong> Company and market information comes from several sources. Every factual claim links back to its original source.</li>
+    <li><strong>Focused AI tools.</strong> Separate tools handle company research, contact details, important business events and meeting briefings. Each one is tested on its own task.</li>
+    <li><strong>Safety rules.</strong> The system follows clear rules for data use, cites its sources and checks factual claims before a seller sees them.</li>
+    <li><strong>Easy connections.</strong> MarketSage can connect with the customer relationship and outreach tools that teams already use.</li>
+    <li><strong>Clear records.</strong> Each AI action is logged with the model and instructions that produced it, making problems easier to trace.</li>
+  </ul>
+
+  <h2>What we shipped</h2>
+  <p>Version 1 was working internally by week 14 and entered a private test with selected users in week 16. Automated checks continue to test the system during everyday use, so a drop in quality is found early.</p>
+
+  <h2>Results</h2>
+  <div class="results"><div class="r"><strong>14 weeks</strong><span>0 → v1 production</span></div><div class="r"><strong>100%</strong><span>agent outputs cite primary source</span></div><div class="r"><strong><2s</strong><span>median briefing latency</span></div><div class="r"><strong>4</strong><span>focused agents, separately evaluated</span></div></div>
+  
+  <h3>What this means for our clients</h3>
+  <p>MarketSage is our working proof. The testing, safety rules and phased launch we recommend to clients are the same practices running in our own product. That is the standard we bring to every <a href="/our-services/ai-agent-automation-engineering/">AI Agent &amp; Automation Engineering</a> engagement.</p>
+
+  <h2>Further reading</h2>
+  <ul>
+    <li><a href="/our-services/ai-agent-automation-engineering/">AI Agent &amp; Automation Engineering</a> — the practice this product was built to reference.</li>
+    <li><a href="/blog/building-ai-agents-that-actually-ship/">Building AI Agents That Actually Ship</a> — the engineering pattern behind MarketSage.</li>
+    <li><a href="/case-studies/claims-processing-automation/">Claims processing: 14 days to under 48 hours</a> — the same agent discipline applied in financial services.</li>
+  </ul>
+
+  <div class="cta">
+    <h3>Thinking about building an AI product?</h3>
+    <p>We build and run our own AI products, and we bring that practical experience to client projects.</p>
+    <a href="/contact/">Start a conversation →</a>
+  </div>
+</main>
+<!-- cognis-evidence-note:start -->
+<aside class="cognis-evidence-note"><strong>Evidence note — updated 24 July 2026</strong>MarketSage is owned by Cognis, so this is our internal build record rather than an independent client review. The 14 weeks run from approved scope to the first working internal version. Speed and source checks refer to the test conditions described above.</aside>
+<!-- cognis-evidence-note:end -->
+<footer class="cgxf"><div class="cgxf-card"><div class="cgxf-top"><div class="cgxf-brand"><a class="cgxf-logo" href="/" aria-label="Cognis Group"><svg class="cgx-mark" viewBox="0 0 48 48" aria-hidden="true"><path d="M 42.66 12.34 A 22 22 0 1 0 42.66 35.66 L 33.19 31.71 A 12 12 0 1 1 33.19 16.29 Z"></path><rect x="36" y="19" width="10" height="10" fill="#D6FD70"></rect></svg><span>Cognis</span></a><p class="cgxf-desc">Cognis Group is more than an advisory firm. We build, deploy, and govern AI systems that transform how organisations work. <em>Quod Tango Muto</em>: what we touch, we change.</p></div><nav class="cgxf-nav" aria-label="Footer"><a href="/">Home</a><a href="/about-us/">About Us</a><a href="/our-services/">Services</a><a href="/blog/">Insights</a><a href="/careers/">Careers</a><a href="/contact/">Contact</a></nav></div><div class="cgxf-sub"><p class="cgxf-subh">Get AI intelligence in your inbox</p><form class="cgxf-form" action="/api/form" method="POST"><input type="text" name="company" value="" style="display:none !important" tabindex="-1" autocomplete="off" aria-hidden="true"><input type="hidden" name="from_name" value="cognis.group newsletter"><input type="hidden" name="subject" value="New newsletter signup — cognis.group"><input type="hidden" name="redirect" value="https://cognis.group/thanks-subscribe/"><input class="cgxf-email" type="email" name="email" required placeholder="Enter your email" aria-label="Email address"><button class="cgxf-btn" type="submit">Subscribe<span class="cgxf-arrow" aria-hidden="true">→</span></button></form></div><p class="cgxf-copy">© 2024–2026 Cognis Group. All rights reserved.</p></div></footer>
+<!-- cognis-journey:start -->
+<script data-cognis-journey>
+(function () {
+  // Set each milestone's visible year from its description — order-independent
+  // and idempotent (safe to re-run through Framer's SPA re-renders).
+  function fix() {
+    var years = document.querySelectorAll('[data-framer-name="year"]');
+    if (!years.length) return;
+    years.forEach(function (yd) {
+      var p = yd.querySelector('p');
+      if (!p) return;
+      var c = yd.nextElementSibling;
+      if (!c || c.getAttribute('data-framer-name') !== 'content') {
+        c = yd.parentElement && yd.parentElement.querySelector('[data-framer-name="content"]');
+      }
+      var desc = c ? c.textContent : '';
+      var t = null;
+      if (/Launched workforce/i.test(desc)) t = 'Q4 2024';
+      else if (/Shipped agent/i.test(desc)) t = 'Q1 2025';
+      else if (/Conducted AI trainings/i.test(desc)) t = 'Q3 2024';
+      else if (/Founded/i.test(desc)) t = 'Q2 2024';
+      if (t && p.textContent.trim() !== t) p.textContent = t;
+    });
+  }
+  if (document.readyState !== 'loading') fix();
+  else document.addEventListener('DOMContentLoaded', fix);
+  try {
+    var mo = new MutationObserver(function () {
+      if (window.__cgjRAF) return;
+      window.__cgjRAF = requestAnimationFrame(function () { window.__cgjRAF = 0; fix(); });
+    });
+    mo.observe(document.documentElement, { childList: true, subtree: true });
+  } catch (e) {}
+  [400, 1200, 2500].forEach(function (t) { setTimeout(fix, t); });
+})();
+</script>
+<!-- cognis-journey:end -->
+<!-- cognis-copy:start -->
+<script data-cognis-copy>
+(function () {
+  var REPL = {"think smarter, move faster, and grow stronger": "ship AI into production and operate it with confidence", "forward-thinking organisations to operationalise AI": "banks, ministries, and enterprises to put AI into production \u2014 and govern it"};
+  function fix() {
+    var ps = document.querySelectorAll('p');
+    for (var i = 0; i < ps.length; i++) {
+      var p = ps[i], t = p.textContent;
+      for (var k in REPL) {
+        if (t.indexOf(k) !== -1) { p.textContent = t.split(k).join(REPL[k]); t = p.textContent; }
+      }
+    }
+  }
+  if (document.readyState !== 'loading') fix();
+  else document.addEventListener('DOMContentLoaded', fix);
+  try {
+    var mo = new MutationObserver(function () {
+      if (window.__cgcRAF) return;
+      window.__cgcRAF = requestAnimationFrame(function () { window.__cgcRAF = 0; fix(); });
+    });
+    mo.observe(document.documentElement, { childList: true, subtree: true });
+  } catch (e) {}
+  [400, 1200, 2500].forEach(function (t) { setTimeout(fix, t); });
+})();
+</script>
+<!-- cognis-copy:end -->
+<!-- cognis-quotefix:start -->
+<style data-cognis-quotefix>
+  [data-framer-name="tdesign:quote-filled"] {
+    background-color: transparent !important;
+    -webkit-mask: none !important; mask: none !important;
+    background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27%23cdfb56%27%3E%3Cpath%20d%3D%27M4.583%2017.321C3.553%2016.227%203%2015%203%2013.011c0-3.5%202.457-6.637%206.03-8.188l.893%201.378c-3.335%201.804-3.987%204.145-4.247%205.621.537-.278%201.24-.375%201.929-.311%201.804.167%203.226%201.648%203.226%203.489a3.5%203.5%200%2001-3.5%203.5c-1.073%200-2.099-.49-2.748-1.179zm10%200C13.553%2016.227%2013%2015%2013%2013.011c0-3.5%202.457-6.637%206.03-8.188l.893%201.378c-3.335%201.804-3.987%204.145-4.247%205.621.537-.278%201.24-.375%201.929-.311%201.804.167%203.226%201.648%203.226%203.489a3.5%203.5%200%2001-3.5%203.5c-1.073%200-2.099-.49-2.748-1.179z%27%2F%3E%3C%2Fsvg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: contain !important;
+  }
+  /* any inner mask layer the icon ships with — stand it down so only our bg shows */
+  [data-framer-name="tdesign:quote-filled"] > * { opacity: 0 !important; }
+</style>
+<script data-cognis-quotefix>
+(function () {
+  // The testimonials section also ships two leftover template tells on non-home
+  // pages: a heading ("Our operating principles") that contradicts the eyebrow,
+  // and placeholder client logos (Network / Umbrella / Vision). Fix both. These
+  // live outside the animating carousel track, so a light guarded pass sticks.
+  function tidy() {
+    document.querySelectorAll('h1, h2, h3').forEach(function (h) {
+      if (/operating principles/i.test(h.textContent || '')) h.textContent = 'What our clients say';
+    });
+    // The placeholder client logos are image-based (no text), so match them by
+    // position: each sits inside the same testimonial card as a quote box.
+    // Walk up from each quote box to its card and hide the logo there — scoped
+    // so genuine logos elsewhere on the page are never touched.
+    document.querySelectorAll('[data-framer-name="tdesign:quote-filled"]').forEach(function (q) {
+      var node = q, hops = 0;
+      while (node && hops < 5) {
+        var logo = node.querySelector && node.querySelector('[data-framer-name="logo"]');
+        if (logo) { logo.style.display = 'none'; break; }
+        node = node.parentElement; hops++;
+      }
+    });
+  }
+  if (document.readyState !== 'loading') tidy();
+  else document.addEventListener('DOMContentLoaded', tidy);
+  try {
+    var mo = new MutationObserver(function () {
+      if (window.__cgtdRAF) return;
+      window.__cgtdRAF = requestAnimationFrame(function () { window.__cgtdRAF = 0; tidy(); });
+    });
+    mo.observe(document.documentElement, { childList: true, subtree: true });
+  } catch (e) {}
+  [400, 1200, 2500].forEach(function (t) { setTimeout(tidy, t); });
+})();
+</script>
+<!-- cognis-quotefix:end -->
+<!-- cognis-iconfix:start -->
+<style data-cognis-iconfix>
+  [data-framer-name="arrow"] {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%3E%3Cpath%20d%3D%27M4%2011h12.17l-5.59-5.59L12%204l8%208-8%208-1.41-1.41L16.17%2013H4z%27%2F%3E%3C%2Fsvg%3E") !important; mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%3E%3Cpath%20d%3D%27M4%2011h12.17l-5.59-5.59L12%204l8%208-8%208-1.41-1.41L16.17%2013H4z%27%2F%3E%3C%2Fsvg%3E") !important;
+    -webkit-mask-repeat: no-repeat !important; mask-repeat: no-repeat !important;
+    -webkit-mask-position: center !important; mask-position: center !important;
+    -webkit-mask-size: contain !important; mask-size: contain !important;
+  }
+  [data-framer-name="arrow"] > * { opacity: 0 !important; }
+</style>
+<!-- cognis-iconfix:end -->
+<!-- cognis-a11y:start -->
+<style data-cognis-a11y>
+  .cognis-skip { position: fixed; top: 10px; left: 10px; z-index: 100000; background: #131313; color: #fff; padding: 12px 20px; border-radius: 10px; font: 600 14px/1.2 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif; text-decoration: none; transform: translateY(-160%); transition: transform .16s ease; }
+  .cognis-skip:focus { transform: translateY(0); outline: 3px solid #cdfb56; outline-offset: 2px; }
+  :focus-visible { outline: 3px solid #1769ff; outline-offset: 2px; }
+  .cognis-skip:focus-visible { outline-color: #cdfb56; }
+  /* Contrast lifts (only affect the hand-built shells where these exist). */
+  :root { --mute: #636363 !important; }
+  table.compare .mid { color: #8a5200 !important; }
+</style>
+<script data-cognis-a11y>
+(function () {
+  function main() {
+    return document.querySelector('main') || document.querySelector('[data-framer-name="main"]') || document.querySelector('[role="main"]');
+  }
+  function run() {
+    var m = main();
+    if (m) {
+      if (!m.id) m.id = 'cognis-main';
+      if (m.getAttribute('tabindex') === null) m.setAttribute('tabindex', '-1');
+    }
+    if (!document.querySelector('a.cognis-skip')) {
+      var s = document.createElement('a');
+      s.className = 'cognis-skip';
+      s.href = '#' + (m && m.id ? m.id : 'cognis-main');
+      s.textContent = 'Skip to main content';
+      document.body.insertBefore(s, document.body.firstChild);
+    }
+    // Ticker/slideshow marquees use <ul role="group"> which strips the list
+    // role from their <li> children (WCAG 1.3.1). Restore list semantics.
+    document.querySelectorAll('ul[role="group"]').forEach(function (ul) {
+      if (ul.querySelector(':scope > li')) ul.setAttribute('role', 'list');
+    });
+    // Accessible name for placeholder-only fields (WCAG 1.3.1 / 4.1.2).
+    document.querySelectorAll('input, textarea, select').forEach(function (el) {
+      var t = (el.getAttribute('type') || '').toLowerCase();
+      if (t === 'hidden' || el.getAttribute('aria-hidden') === 'true') return;
+      var labelled = (el.labels && el.labels.length) || el.getAttribute('aria-label') || el.getAttribute('aria-labelledby');
+      if (!labelled) {
+        var ph = el.getAttribute('placeholder');
+        if (ph) el.setAttribute('aria-label', ph);
+      }
+    });
+  }
+  if (document.readyState !== 'loading') run();
+  else document.addEventListener('DOMContentLoaded', run);
+  [400, 1200, 2500].forEach(function (t) { setTimeout(run, t); });
+})();
+</script>
+<!-- cognis-a11y:end -->
+<!-- cognis-products-nav:start -->
+<style data-cognis-products-nav-style>
+  a.cognis-prod-link { display: flex; align-items: center; justify-content: center; padding: 12px 20px; height: 44px; box-sizing: border-box; text-decoration: none; cursor: pointer; }
+  a.cognis-prod-link .cgpn-wrap { position: relative; display: inline-flex; flex-direction: column; height: 1.25em; line-height: 1.25em; overflow: hidden; }
+  a.cognis-prod-link .cgpn-t { font-size: 14px; font-weight: 500; white-space: nowrap; transition: transform .3s cubic-bezier(.2,.7,.2,1); }
+  a.cognis-prod-link:hover .cgpn-t { transform: translateY(-100%); }
+</style>
+<script data-cognis-products-nav>
+(function () {
+  // Build our own Products link (not a Framer clone). `st` theme-matches the
+  // sibling nav items: colour, size, weight, tracking and case.
+  function buildLink(st) {
+    st = st || {};
+    var a = document.createElement('a');
+    a.className = 'cognis-prod-link';
+    a.setAttribute('href', '/products');
+    a.setAttribute('data-cognis-products', '');
+    a.setAttribute('aria-label', 'Products');
+    if (st.color) a.style.color = st.color;
+    var wrap = document.createElement('span'); wrap.className = 'cgpn-wrap';
+    function mk(hidden) {
+      var s = document.createElement('span');
+      s.className = 'cgpn-t';
+      s.textContent = 'Products';
+      if (hidden) s.setAttribute('aria-hidden', 'true');
+      if (st.fontSize) s.style.fontSize = st.fontSize;
+      if (st.fontWeight) s.style.fontWeight = st.fontWeight;
+      if (st.fontFamily) s.style.fontFamily = st.fontFamily;
+      if (st.letterSpacing && st.letterSpacing !== 'normal') s.style.letterSpacing = st.letterSpacing;
+      if (st.textTransform && st.textTransform !== 'none') s.style.textTransform = st.textTransform;
+      return s;
+    }
+    wrap.appendChild(mk(false)); wrap.appendChild(mk(true)); a.appendChild(wrap);
+    return a;
+  }
+  // Sample the typography of a real, non-Products nav item so ours matches.
+  function sampleStyle(menu) {
+    var links = menu.querySelectorAll('a[href]');
+    for (var i = 0; i < links.length; i++) {
+      if (links[i].hasAttribute('data-cognis-products')) continue;
+      var p = links[i].querySelector('p') || links[i].querySelector('span') || links[i];
+      var cs = getComputedStyle(p);
+      var color = cs.color;
+      if (color === 'rgba(0, 0, 0, 0)') color = getComputedStyle(links[i]).color;
+      return { color: color, fontSize: cs.fontSize, fontWeight: cs.fontWeight, fontFamily: cs.fontFamily, letterSpacing: cs.letterSpacing, textTransform: cs.textTransform };
+    }
+    return null;
+  }
+  function addToFramer(menu) {
+    if (menu.querySelector('a[data-cognis-products]')) return;
+    // Anchor after the Services item; fall back to the last real item / end.
+    var kids = menu.children, after = null, last = null;
+    for (var i = 0; i < kids.length; i++) {
+      var l = kids[i].querySelector && kids[i].querySelector('a[href]');
+      if (!l) continue;
+      last = kids[i];
+      if (/our-services/.test(l.getAttribute('href') || '')) after = kids[i];
+    }
+    var link = buildLink(sampleStyle(menu));
+    if (after && after.parentNode) after.parentNode.insertBefore(link, after.nextSibling);
+    else if (last && last.parentNode) last.parentNode.appendChild(link);
+    else menu.appendChild(link);
+  }
+  function addToShell(nav) {
+    if (nav.querySelector('a[href="/products/"]')) return;
+    var services = nav.querySelector('a[href="/our-services/"]');
+    var link = document.createElement('a');
+    link.setAttribute('href', '/products');
+    link.setAttribute('data-cognis-products', '');
+    link.textContent = 'Products';
+    if (services && services.parentNode) services.parentNode.insertBefore(link, services.nextSibling);
+    else nav.appendChild(link);
+  }
+  function run() {
+    document.querySelectorAll('nav [data-framer-name="menu"]').forEach(addToFramer);
+    document.querySelectorAll('header.site-nav nav').forEach(addToShell);
+  }
+  if (document.readyState !== 'loading') run();
+  else document.addEventListener('DOMContentLoaded', run);
+  // Framer re-renders the nav on scroll (its scroll-linked colour change),
+  // which drops the injected Products link. Re-add SYNCHRONOUSLY the instant
+  // it goes missing: MutationObserver callbacks run as a microtask BEFORE the
+  // next paint, so re-adding here (not via rAF) closes the gap with no visible
+  // flicker, even during continuous scrolling. The check is cheap and only
+  // calls run() when the link is actually absent (no loop: the re-add's own
+  // mutation finds it present next tick and bails).
+  try {
+    var mo = new MutationObserver(function () {
+      var menus = document.querySelectorAll('nav [data-framer-name="menu"]');
+      for (var i = 0; i < menus.length; i++) {
+        if (!menus[i].querySelector('a[data-cognis-products]')) { run(); return; }
+      }
+    });
+    mo.observe(document.documentElement, { childList: true, subtree: true });
+  } catch (e) {}
+  [200, 600, 1200, 2500].forEach(function (t) { setTimeout(run, t); });
+})();
+</script>
+<!-- cognis-products-nav:end -->
+<!-- cognis-gnav:start -->
+<style data-cognis-gnav>
+  :root { --cgx-ink: #131313; --cgx-lime: #d6fd70; }
+  /* ---- HEADER (faithful to the global: fixed, transparent, dark ink on light) ---- */
+  header.cgx { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(242,242,242,0.92); backdrop-filter: saturate(180%) blur(12px); -webkit-backdrop-filter: saturate(180%) blur(12px); font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+  header.cgx .cgx-in { max-width: 1344px; margin: 0 auto; padding: 18px 24px; display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  header.cgx .cgx-logo { display: flex; align-items: center; gap: 9px; text-decoration: none; color: var(--cgx-ink); }
+  header.cgx .cgx-mark { width: 28px; height: 28px; fill: currentColor; display: block; }
+  header.cgx .cgx-word { font-weight: 600; letter-spacing: -0.04em; font-size: 23px; color: var(--cgx-ink); }
+  header.cgx .cgx-nav { display: flex; align-items: center; }
+  header.cgx .cgx-nav a { color: var(--cgx-ink); text-decoration: none; font-size: 14px; font-weight: 500; letter-spacing: 1.68px; text-transform: uppercase; padding: 12px 20px; }
+  header.cgx .cgx-roll { position: relative; display: inline-block; overflow: hidden; height: 20px; line-height: 20px; vertical-align: top; }
+  header.cgx .cgx-roll > span { display: block; transition: transform .34s cubic-bezier(.2,.7,.2,1); }
+  header.cgx a:hover .cgx-roll > span { transform: translateY(-20px); }
+  header.cgx .cgx-cta { background: var(--cgx-lime); color: #131313; text-decoration: none; font-size: 13px; font-weight: 600; letter-spacing: 1.2px; text-transform: uppercase; padding: 11px 20px; border-radius: 48px; white-space: nowrap; transition: transform .2s ease, box-shadow .2s ease; }
+  header.cgx .cgx-cta:hover { transform: translateY(-1px); box-shadow: 0 10px 26px -10px rgba(214,253,112,.95); }
+  header.cgx .cgx-burger { display: none; flex-direction: column; gap: 5px; align-items: center; justify-content: center; width: 44px; height: 44px; background: var(--cgx-lime); border: 0; border-radius: 12px; cursor: pointer; }
+  header.cgx .cgx-burger span { width: 20px; height: 2px; background: #131313; border-radius: 2px; transition: transform .25s ease, opacity .2s ease; }
+  header.cgx.open .cgx-burger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  header.cgx.open .cgx-burger span:nth-child(2) { opacity: 0; }
+  header.cgx.open .cgx-burger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  header.cgx .cgx-drawer { display: none; flex-direction: column; gap: 2px; padding: 6px 32px 24px; }
+  header.cgx .cgx-drawer a { color: #131313; text-decoration: none; font-weight: 600; font-size: 16px; padding: 14px 4px; border-bottom: 1px solid rgba(19,19,19,.06); }
+  header.cgx .cgx-drawer .cgx-cta { display: inline-block; margin: 16px 0 0; text-align: center; border-bottom: 0; }
+  /* shells are light pages — push content clear of the fixed header */
+  header.cgx ~ main, header.cgx + main { padding-top: 96px; }
+  @media (max-width: 860px) {
+    header.cgx .cgx-in { padding: 14px 20px; }
+    header.cgx .cgx-nav, header.cgx .cgx-in > .cgx-cta { display: none; }
+    header.cgx .cgx-burger { display: flex; }
+    header.cgx { background: rgba(255,255,255,0.9); backdrop-filter: saturate(180%) blur(12px); -webkit-backdrop-filter: saturate(180%) blur(12px); }
+    header.cgx.open { background: #fff; }
+    header.cgx.open .cgx-drawer { display: flex; }
+  }
+  /* ---- FOOTER (faithful: dark rounded card inset in white) ---- */
+  footer.cgxf { background: transparent; padding: 12px; font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+  footer.cgxf .cgxf-card { background: #0f0f0f; color: #fff; border-radius: 26px; padding: 56px 40px 40px; max-width: 1416px; margin: 0 auto; }
+  footer.cgxf .cgxf-top { display: flex; justify-content: space-between; gap: 48px; flex-wrap: wrap; }
+  footer.cgxf .cgxf-brand { max-width: 620px; }
+  footer.cgxf .cgxf-logo { display: inline-flex; align-items: center; gap: 9px; text-decoration: none; color: #fff; }
+  footer.cgxf .cgxf-logo .cgx-mark { width: 28px; height: 28px; fill: #fff; }
+  footer.cgxf .cgxf-logo span { font-weight: 600; letter-spacing: -0.04em; font-size: 24px; }
+  footer.cgxf .cgxf-desc { color: #aeb0b3; font-size: 15px; line-height: 1.62; margin: 22px 0 0; }
+  footer.cgxf .cgxf-desc em { font-style: italic; color: #cfd1d4; }
+  footer.cgxf .cgxf-nav { display: grid; grid-template-columns: repeat(2, auto); gap: 18px 64px; align-content: start; }
+  footer.cgxf .cgxf-nav a { color: #fff; text-decoration: none; font-size: 15px; font-weight: 500; opacity: .92; }
+  footer.cgxf .cgxf-nav a:hover { opacity: 1; box-shadow: inset 0 -2px 0 var(--cgx-lime); }
+  footer.cgxf .cgxf-sub { margin-top: 46px; }
+  footer.cgxf .cgxf-subh { font-size: 17px; font-weight: 600; margin: 0 0 16px; }
+  footer.cgxf .cgxf-form { display: flex; align-items: center; background: #242424; border-radius: 999px; padding: 6px 6px 6px 4px; max-width: 420px; box-sizing: border-box; width: 100%; }
+  footer.cgxf .cgxf-email { flex: 1; min-width: 0; background: transparent; border: 0; outline: 0; color: #fff; font-size: 14px; padding: 12px 18px; }
+  footer.cgxf .cgxf-email::placeholder { color: #9a9ca0; }
+  footer.cgxf .cgxf-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--cgx-lime); color: #131313; border: 0; border-radius: 999px; font-size: 13px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; padding: 12px 22px; cursor: pointer; transition: transform .2s ease; }
+  footer.cgxf .cgxf-btn:hover { transform: translateX(1px); }
+  footer.cgxf .cgxf-copy { color: #949699; font-size: 13px; margin: 36px 0 0; }
+  @media (max-width: 760px) {
+    footer.cgxf .cgxf-card { padding: 40px 24px 30px; border-radius: 22px; }
+    footer.cgxf .cgxf-top { flex-direction: column; gap: 32px; }
+    footer.cgxf .cgxf-nav { grid-template-columns: 1fr; gap: 12px; }
+    footer.cgxf .cgxf-form { max-width: none; }
+  }
+</style>
+<script data-cognis-gnav>
+(function () {
+  var h = document.querySelector('header.cgx[data-cognis-gnav]');
+  if (h) {
+    var here = location.pathname.replace(/\/index\.html$/, '').replace(/\/+$/, '') || '/';
+    h.querySelectorAll('a[href]').forEach(function (a) {
+      var p = (a.getAttribute('href') || '').replace(/\/+$/, '') || '/';
+      if (p === here) a.setAttribute('aria-current', 'page');
+    });
+    var burger = h.querySelector('.cgx-burger'), drawer = h.querySelector('.cgx-drawer');
+    function setOpen(o) {
+      h.classList.toggle('open', o);
+      if (burger) burger.setAttribute('aria-expanded', o ? 'true' : 'false');
+      if (drawer) { if (o) drawer.removeAttribute('hidden'); else drawer.setAttribute('hidden', ''); }
+      document.documentElement.style.overflow = o ? 'hidden' : '';
+    }
+    if (burger) burger.addEventListener('click', function () { setOpen(!h.classList.contains('open')); });
+    if (drawer) drawer.addEventListener('click', function (e) { if (e.target.closest('a')) setOpen(false); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setOpen(false); });
+    window.addEventListener('resize', function () { if (window.innerWidth > 860) setOpen(false); });
+  }
+})();
+</script>
+<!-- cognis-gnav:end -->
+<script defer src="/assets/logo-motion.js"></script><script defer src="/assets/ask-cognis.js"></script><script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a374c68b3802b84d',t:'MTc4ODc3NDI3Mw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

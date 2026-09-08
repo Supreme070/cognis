@@ -1,0 +1,50 @@
+[
+  {
+    "url": "https://cognis.group/assets/img/cognis-logo.png",
+    "exitcode": 0,
+    "headers": "HTTP/2 200 \ndate: Mon, 07 Sep 2026 09:46:59 GMT\ncontent-type: image/png\ncontent-length: 15040\nx-frame-options: SAMEORIGIN\nreport-to: {\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=1W5X3Pwi%2BQMAvnotDj3RkOVmTiHuJq1hGZNpHPdkRrs0kA7uIyh7NaxrWa7HwOQBmyk6cYvTwU9lTQRXwmO8ovbH5B%2FfBPHFRNnAago67mWJjydgbpPSIwZw3z5TCq0%3D\"}]}\nnel: {\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}\naccess-control-allow-origin: *\ncache-control: public, max-age=0, must-revalidate\netag: \"3572392dd00af2e2e38fc3aebd485d9c\"\nreferrer-policy: strict-origin-when-cross-origin\nx-content-type-options: nosniff\nserver: cloudflare\naccept-ranges: bytes\ncf-cache-status: MISS\ncf-ray: a374ca1a194b9911-LHR\nalt-svc: h3=\":443\"; ma=86400\n\n",
+    "error": ""
+  },
+  {
+    "url": "https://cognis.group/og/cognis-og-1200x630.jpg",
+    "exitcode": 0,
+    "headers": "HTTP/2 200 \ndate: Mon, 07 Sep 2026 09:46:59 GMT\ncontent-type: image/jpeg\ncontent-length: 94517\nx-frame-options: SAMEORIGIN\nreport-to: {\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=fE8E7eJD1oTErUrTWWEQwNBJKaHUf69r%2B2GI95hSGJWDxmv%2FdYtj6M8Nkd5sdW3iT704KUafIHf0Vr3X%2BItHz%2BgSP2T1%2Byo3MNHOZ2%2BrcSyYyST2wM%2BlJCLIE%2FPlgAw%3D\"}]}\nnel: {\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}\naccess-control-allow-origin: *\ncache-control: public, max-age=0, must-revalidate\netag: \"894a8bca68d0c2a769101bfe47cff69a\"\nreferrer-policy: strict-origin-when-cross-origin\nx-content-type-options: nosniff\nserver: cloudflare\naccept-ranges: bytes\ncf-cache-status: MISS\ncf-ray: a374ca1a1f4ef656-LHR\nalt-svc: h3=\":443\"; ma=86400\n\n",
+    "error": ""
+  },
+  {
+    "url": "https://cognis.group/framer-runtime/assets/services-hero.mp4",
+    "exitcode": 0,
+    "headers": "HTTP/2 200 \ndate: Mon, 07 Sep 2026 09:46:59 GMT\ncontent-type: video/mp4\ncontent-length: 1091584\nx-frame-options: SAMEORIGIN\nreport-to: {\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=%2BCSH%2F7dbI%2BhPl%2FjIPKLUoQvh73edwVDnCJURYB6pIIslsLriRHDbjZJiotR9%2Bp1%2FmBHGlWHrUHtmX4fjP5uoZoyvXW6wu9bYjRmAOFqGKu%2F%2BrsP52p5v54a10FOpj7c%3D\"}]}\nnel: {\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}\naccess-control-allow-origin: *\ncache-control: public, max-age=0, must-revalidate\netag: \"45c7a13325ab82222f17f1c59d6c7f33\"\nreferrer-policy: strict-origin-when-cross-origin\nx-content-type-options: nosniff\nserver: cloudflare\naccept-ranges: bytes\ncf-cache-status: MISS\ncf-ray: a374ca1a1e8a7863-LHR\nalt-svc: h3=\":443\"; ma=86400\n\n",
+    "error": ""
+  },
+  {
+    "url": "https://cognis.group/framer-runtime/assets/hero-afr5.mp4",
+    "exitcode": 0,
+    "headers": "HTTP/2 200 \ndate: Mon, 07 Sep 2026 09:46:59 GMT\ncontent-type: video/mp4\ncontent-length: 1719045\nx-frame-options: SAMEORIGIN\nreport-to: {\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=KngPRij5R2IEvfRvolGzkRY8nPTUimz3SJiJBpa9kNevSgkYo3R%2FIzxyQNCs9SoTwMmKYAUd3x32y6eNXe3CF3Gup3QhBvRX6xqNlVhkhNzrFrbMLSpZYlvN5u%2FTTPQ%3D\"}]}\nnel: {\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}\naccess-control-allow-origin: *\ncache-control: public, max-age=0, must-revalidate\netag: \"a7279a7f2766bd4d48d465883c075ae3\"\nreferrer-policy: strict-origin-when-cross-origin\nx-content-type-options: nosniff\nserver: cloudflare\naccept-ranges: bytes\ncf-cache-status: MISS\ncf-ray: a374ca1a1d20c0cf-LHR\nalt-svc: h3=\":443\"; ma=86400\n\n",
+    "error": ""
+  },
+  {
+    "url": "https://cognis.group/framer-runtime/sites/3RYFpGbtMJS5XyuENcvikD/script_main.DuQsiV3H.mjs",
+    "exitcode": 0,
+    "headers": "HTTP/2 200 \ndate: Mon, 07 Sep 2026 09:47:00 GMT\ncontent-type: application/javascript\nreport-to: {\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=OI85IdJBjeXY8Zqd34CYzu%2Fu5D7fzB1KYixTjj0fZL1WA8X2gVJs5v2UfgzbJfKlPg1VxDDED7ev8vxCv9Vcr8qqB%2Biqav5%2BP8RcIG55t2P1ZPBIBA%2Bc790s6NlR8iI%3D\"}]}\nnel: {\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}\naccess-control-allow-origin: *\ncache-control: public, max-age=0, must-revalidate\netag: \"6d0d2439f949f89e4cd3285bc01bb699\"\nreferrer-policy: strict-origin-when-cross-origin\nx-content-type-options: nosniff\nx-frame-options: SAMEORIGIN\nserver: cloudflare\ncf-cache-status: DYNAMIC\ncf-ray: a374ca1cddc32d0d-LHR\nalt-svc: h3=\":443\"; ma=86400\n\n",
+    "error": ""
+  },
+  {
+    "url": "https://cognis.group/framer-runtime/sites/3RYFpGbtMJS5XyuENcvikD/framer.DPEhIzHY.mjs",
+    "exitcode": 0,
+    "headers": "HTTP/2 200 \ndate: Mon, 07 Sep 2026 09:47:00 GMT\ncontent-type: application/javascript\nreport-to: {\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=aJ%2BITp7T6Kg%2FRN7HBxkfnH72f3V4c6GqbQP1WVGH0mwhNbseKZKV2BfG8HQKyxywAHZj1yO9MtKTJntf5lAf4MpsHxquvcB3nDc84TP9zt9V8rzJ2TnTT06XNpvv15w%3D\"}]}\nnel: {\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}\naccess-control-allow-origin: *\ncache-control: public, max-age=0, must-revalidate\netag: \"0d69193d2da17a217e0c14fa6b1ad4b0\"\nreferrer-policy: strict-origin-when-cross-origin\nx-content-type-options: nosniff\nx-frame-options: SAMEORIGIN\nserver: cloudflare\ncf-cache-status: DYNAMIC\ncf-ray: a374ca1cdeae93f7-LHR\nalt-svc: h3=\":443\"; ma=86400\n\n",
+    "error": ""
+  },
+  {
+    "url": "https://cognis.group/assets/ask-cognis.js",
+    "exitcode": 0,
+    "headers": "HTTP/2 200 \ndate: Mon, 07 Sep 2026 09:47:00 GMT\ncontent-type: application/javascript\nreport-to: {\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=TDSFiCqrGN8lEc9w5vlALNqywSvNE7oOt7eiCZiphIRK%2FNgQaGlBBU8Qh7Looq2Lk26iUmkIyE6jiYlkiZ72mt1AvTVFbEvNfLlj2zCQj34F5sp2gT%2BEk43uhgathoY%3D\"}]}\nnel: {\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}\nvary: accept-encoding\naccess-control-allow-origin: *\ncache-control: public, max-age=0, must-revalidate\nx-frame-options: SAMEORIGIN\nreferrer-policy: strict-origin-when-cross-origin\nx-content-type-options: nosniff\netag: W/\"95de43e2feb51511615818cf52a68a38\"\nserver: cloudflare\ncf-cache-status: REVALIDATED\ncf-ray: a374ca1cdadd9e0a-LHR\nalt-svc: h3=\":443\"; ma=86400\n\n",
+    "error": ""
+  },
+  {
+    "url": "https://cognis.group/assets/blog/securing-ai-agents-2026.webp",
+    "exitcode": 0,
+    "headers": "HTTP/2 200 \ndate: Mon, 07 Sep 2026 09:47:00 GMT\ncontent-type: image/webp\ncontent-length: 113948\nx-frame-options: SAMEORIGIN\nreport-to: {\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=IWb4b6xcwzWqrTlGmM%2FI1MynKiKgEA3YEzHgRPmyTj6Jj3uj4FTTkLf7ioHHmQmN2HR4DZD2OG0YNhJvHzGLP%2Fb9K4qewLJU4Z94I1QAaET3Et3jPOGtp0%2BRNFkPHtc%3D\"}]}\nnel: {\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}\naccess-control-allow-origin: *\ncache-control: public, max-age=0, must-revalidate\netag: \"26905b3807386dfc96b0420077a317fb\"\nreferrer-policy: strict-origin-when-cross-origin\nx-content-type-options: nosniff\nserver: cloudflare\naccept-ranges: bytes\ncf-cache-status: MISS\ncf-ray: a374ca1cdeecef4a-LHR\nalt-svc: h3=\":443\"; ma=86400\n\n",
+    "error": ""
+  }
+]
