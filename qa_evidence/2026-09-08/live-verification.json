@@ -1,0 +1,242 @@
+{
+  "pages": [
+    {
+      "route": "/",
+      "status": "200",
+      "issues": []
+    },
+    {
+      "route": "/about-us/",
+      "status": "200",
+      "issues": []
+    },
+    {
+      "route": "/our-services/",
+      "status": "200",
+      "issues": []
+    },
+    {
+      "route": "/our-services/ai-strategy-advisory/",
+      "status": "200",
+      "issues": []
+    },
+    {
+      "route": "/our-services/ai-training-workforce-development/",
+      "status": "200",
+      "issues": []
+    },
+    {
+      "route": "/our-services/ai-agent-automation-engineering/",
+      "status": "200",
+      "issues": []
+    },
+    {
+      "route": "/products/",
+      "status": "200",
+      "issues": []
+    },
+    {
+      "route": "/why-cognis/",
+      "status": "200",
+      "issues": []
+    },
+    {
+      "route": "/how-we-work/",
+      "status": "200",
+      "issues": []
+    },
+    {
+      "route": "/contact/",
+      "status": "200",
+      "issues": []
+    },
+    {
+      "route": "/blog/",
+      "status": "200",
+      "issues": []
+    },
+    {
+      "route": "/blog/why-most-enterprise-ai-strategies-fail-before-they-start/",
+      "status": "200",
+      "issues": []
+    },
+    {
+      "route": "/blog/building-ai-agents-that-actually-ship/",
+      "status": "200",
+      "issues": []
+    },
+    {
+      "route": "/blog/the-real-roi-of-ai/",
+      "status": "200",
+      "issues": []
+    },
+    {
+      "route": "/blog/making-your-workforce-ai-ready/",
+      "status": "200",
+      "issues": []
+    },
+    {
+      "route": "/blog/ai-governance-is-not-optional/",
+      "status": "200",
+      "issues": []
+    },
+    {
+      "route": "/blog/ai-native-operations-for-african-enterprises/",
+      "status": "200",
+      "issues": []
+    },
+    {
+      "route": "/blog/securing-ai-agents-in-production/",
+      "status": "200",
+      "issues": []
+    },
+    {
+      "route": "/blog/enterprise-rag-security-prompt-injection-data-exfiltration/",
+      "status": "200",
+      "issues": []
+    },
+    {
+      "route": "/blog/ai-governance-africa-2026/",
+      "status": "200",
+      "issues": []
+    },
+    {
+      "route": "/blog/from-copilot-to-coworker-productizing-ai-agents/",
+      "status": "200",
+      "issues": []
+    },
+    {
+      "route": "/blog/ai-agent-product-operating-system/",
+      "status": "200",
+      "issues": []
+    },
+    {
+      "route": "/case-studies/",
+      "status": "200",
+      "issues": []
+    },
+    {
+      "route": "/case-studies/marketsage/",
+      "status": "200",
+      "issues": []
+    },
+    {
+      "route": "/case-studies/claims-processing-automation/",
+      "status": "200",
+      "issues": []
+    },
+    {
+      "route": "/case-studies/ai-training-programme/",
+      "status": "200",
+      "issues": []
+    },
+    {
+      "route": "/faq/",
+      "status": "200",
+      "issues": []
+    },
+    {
+      "route": "/teams/supreme-oyewumi/",
+      "status": "200",
+      "issues": []
+    },
+    {
+      "route": "/teams/kola-olatunde/",
+      "status": "200",
+      "issues": []
+    },
+    {
+      "route": "/teams/tosin-salami/",
+      "status": "200",
+      "issues": []
+    },
+    {
+      "route": "/teams/obruche-uwanoghor/",
+      "status": "200",
+      "issues": []
+    },
+    {
+      "route": "/privacy-policy/",
+      "status": "200",
+      "issues": []
+    },
+    {
+      "route": "/terms/",
+      "status": "200",
+      "issues": []
+    },
+    {
+      "route": "/best-ai-consulting-firms-africa/",
+      "status": "200",
+      "issues": []
+    },
+    {
+      "route": "/research/state-of-ai-african-enterprises-2026/",
+      "status": "200",
+      "issues": []
+    },
+    {
+      "route": "/careers/",
+      "status": "200",
+      "issues": []
+    },
+    {
+      "route": "/careers/business-development-manager/",
+      "status": "200",
+      "issues": []
+    },
+    {
+      "route": "/careers/customer-service-professional/",
+      "status": "200",
+      "issues": []
+    },
+    {
+      "route": "/ai-consulting-nigeria/",
+      "status": "200",
+      "issues": []
+    },
+    {
+      "route": "/ai-consulting-south-africa/",
+      "status": "200",
+      "issues": []
+    },
+    {
+      "route": "/ndpa-compliant-ai/",
+      "status": "200",
+      "issues": []
+    }
+  ],
+  "probes": [
+    {
+      "url": "https://cognis.group/sitemap.xml",
+      "status": "200",
+      "pass": true
+    },
+    {
+      "url": "https://cognis.group/llms.txt",
+      "status": "200",
+      "pass": true
+    },
+    {
+      "url": "https://cognis.group/llms-full.txt",
+      "status": "200",
+      "pass": true
+    },
+    {
+      "url": "https://cognis.pages.dev/",
+      "status": "200",
+      "pass": true
+    },
+    {
+      "url": "https://cognis.group/seo-audit-nonexistent-20260908/",
+      "status": "404",
+      "pass": true
+    },
+    {
+      "url": "https://cognis.group/scripts/sync_seo.py",
+      "status": "404",
+      "pass": true
+    }
+  ],
+  "passed": true
+}

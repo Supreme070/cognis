@@ -1,0 +1,137 @@
+[
+  {
+    "route": "/",
+    "width": 390,
+    "overflow": false,
+    "scriptErrors": []
+  },
+  {
+    "route": "/products/",
+    "width": 390,
+    "overflow": false,
+    "scriptErrors": []
+  },
+  {
+    "route": "/our-services/",
+    "width": 390,
+    "overflow": false,
+    "scriptErrors": []
+  },
+  {
+    "route": "/our-services/ai-strategy-advisory/",
+    "width": 390,
+    "overflow": false,
+    "scriptErrors": []
+  },
+  {
+    "route": "/our-services/ai-training-workforce-development/",
+    "width": 390,
+    "overflow": false,
+    "scriptErrors": []
+  },
+  {
+    "route": "/our-services/ai-agent-automation-engineering/",
+    "width": 390,
+    "overflow": false,
+    "scriptErrors": []
+  },
+  {
+    "route": "/research/state-of-ai-african-enterprises-2026/",
+    "width": 390,
+    "overflow": false,
+    "scriptErrors": []
+  },
+  {
+    "route": "/best-ai-consulting-firms-africa/",
+    "width": 390,
+    "overflow": false,
+    "scriptErrors": []
+  },
+  {
+    "route": "/blog/the-real-roi-of-ai/",
+    "width": 390,
+    "overflow": false,
+    "scriptErrors": []
+  },
+  {
+    "route": "/case-studies/ai-training-programme/",
+    "width": 390,
+    "overflow": false,
+    "scriptErrors": []
+  },
+  {
+    "route": "/",
+    "width": 1440,
+    "overflow": false,
+    "scriptErrors": []
+  },
+  {
+    "route": "/products/",
+    "width": 1440,
+    "overflow": false,
+    "scriptErrors": []
+  },
+  {
+    "route": "/our-services/",
+    "width": 1440,
+    "overflow": false,
+    "scriptErrors": []
+  },
+  {
+    "route": "/our-services/ai-strategy-advisory/",
+    "width": 1440,
+    "overflow": false,
+    "scriptErrors": []
+  },
+  {
+    "route": "/our-services/ai-training-workforce-development/",
+    "width": 1440,
+    "overflow": false,
+    "scriptErrors": []
+  },
+  {
+    "route": "/our-services/ai-agent-automation-engineering/",
+    "width": 1440,
+    "overflow": false,
+    "scriptErrors": []
+  },
+  {
+    "route": "/research/state-of-ai-african-enterprises-2026/",
+    "width": 1440,
+    "overflow": false,
+    "scriptErrors": []
+  },
+  {
+    "route": "/best-ai-consulting-firms-africa/",
+    "width": 1440,
+    "overflow": false,
+    "scriptErrors": []
+  },
+  {
+    "route": "/blog/the-real-roi-of-ai/",
+    "width": 1440,
+    "overflow": false,
+    "scriptErrors": []
+  },
+  {
+    "route": "/case-studies/ai-training-programme/",
+    "width": 1440,
+    "overflow": false,
+    "scriptErrors": []
+  },
+  {
+    "route": "/our-services/ai-strategy-advisory/",
+    "javaScript": false,
+    "contentAndFaq": true
+  },
+  {
+    "route": "/our-services/ai-training-workforce-development/",
+    "javaScript": false,
+    "contentAndFaq": true
+  },
+  {
+    "route": "/our-services/ai-agent-automation-engineering/",
+    "javaScript": false,
+    "contentAndFaq": true
+  }
+]
