@@ -207,6 +207,9 @@ async function snapshotRoute(browser, route) {
 }
 
 async function main() {
+  if (process.env.COGNIS_LEGACY_REBUILD !== '1') {
+    throw new Error('Legacy Framer rebuild replaces static page directories. Use npm run prerender for the current site. A deliberate legacy migration requires COGNIS_LEGACY_REBUILD=1 and a separate working copy.');
+  }
   console.log(`starting dev server on :${PORT}`);
   const server = spawn('python3', ['scripts/spa_server.py', String(PORT)], {
     cwd: root,

@@ -98,15 +98,11 @@ def rewrite_jsonld(html: str, rel: str) -> str:
                         {"@type": "Person", "@id": f"{ORIGIN}/teams/supreme-oyewumi/#person", "name": "Supreme Oyewumi"},
                         {"@type": "Person", "@id": f"{ORIGIN}/teams/kola-olatunde/#person", "name": "Kola Olatunde"},
                     ]
-                if node.get("@type") == "Person" and node.get("name") == "Fisayo Oludare":
-                    node["jobTitle"] = "Executive Director, Partnerships & AI Enablement"
-                    node["url"] = f"{ORIGIN}/teams/fisayo-oludare/"
         if isinstance(graph, list) and blog_slug in BLOG:
             author_name, role, published, modified = BLOG[blog_slug]
             author_slug = {
                 "Supreme Oyewumi": "supreme-oyewumi",
                 "Kola Olatunde": "kola-olatunde",
-                "Fisayo Oludare": "fisayo-oludare",
             }[author_name]
             person_id = f"{ORIGIN}/teams/{author_slug}/#person"
             page_id = f"{ORIGIN}/blog/{blog_slug}/#webpage"

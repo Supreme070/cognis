@@ -217,7 +217,7 @@
     // Pages can render the header twice (initial + sticky). Probe with links
     // that appear in EVERY header (the current page's own link may be active/
     // href-less, so don't rely on it). Mark ALL nav rows + all headers.
-    var probes = [].slice.call(document.querySelectorAll('a[href="/our-services/"], a[href="/products/"], a[href="/about-us/"], a[href="/blog/"]'));
+    var probes = [].slice.call(document.querySelectorAll('.cg-gh a[href="/our-services/"], .cg-gh a[href="/products/"], .cg-gh a[href="/about-us/"], .cg-gh a[href="/blog/"]'));
     if (!probes.length) return;
     var wraps = [], headers = [], color = '#131313';
     probes.forEach(function (a) {
@@ -244,6 +244,10 @@
 
     var menu = document.createElement('nav');
     menu.setAttribute('data-cg-menu', '');
+    menu.id = 'cognis-mobile-navigation';
+    menu.setAttribute('aria-label', 'Mobile navigation');
+    menu.setAttribute('aria-hidden', 'true');
+    menu.inert = true;
     menu.innerHTML = items.map(function (it) {
       return '<a href="' + it.href + '"' + (it.cta ? ' class="cg-menu-cta"' : '') + '>' + it.text + '</a>';
     }).join('');
@@ -255,10 +259,19 @@
         b.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
       });
     }
-    function toggle() {
-      var open = menu.classList.toggle('cg-open');
+    var menuTrigger = null;
+    function setMenu(open) {
+      menu.classList.toggle('cg-open', open);
       setBurgers(open);
       document.body.classList.toggle('cg-menu-lock', open);
+      menu.setAttribute('aria-hidden', open ? 'false' : 'true');
+      menu.inert = !open;
+      if (open) { var first = menu.querySelector('a'); if (first) first.focus(); }
+      else if (menuTrigger) menuTrigger.focus();
+    }
+    function toggle(event) {
+      menuTrigger = event.currentTarget;
+      setMenu(!menu.classList.contains('cg-open'));
     }
     // Aeline's mobile header is logo + hamburger only — tag the header CTA
     // pill so responsive.css can hide it at hamburger widths (the slide-in
@@ -274,6 +287,8 @@
       burger.setAttribute('data-cg-hamburger', '');
       burger.setAttribute('aria-label', 'Open menu');
       burger.setAttribute('aria-expanded', 'false');
+      burger.setAttribute('aria-controls', menu.id);
+      burger.type = 'button';
       // Color from a nav link inside THIS header (pages differ: dark hero
       // headers use white links, light headers use ink — and the footer must
       // never win).
@@ -284,7 +299,21 @@
       h.appendChild(burger);
     });
     [].slice.call(menu.querySelectorAll('a')).forEach(function (a) {
-      a.addEventListener('click', function () { menu.classList.remove('cg-open'); setBurgers(false); document.body.classList.remove('cg-menu-lock'); });
+      a.addEventListener('click', function () { setMenu(false); });
+    });
+    document.addEventListener('keydown', function (event) {
+      if (!menu.classList.contains('cg-open')) return;
+      if (event.key === 'Escape') { event.preventDefault(); setMenu(false); return; }
+      if (event.key !== 'Tab') return;
+      var links = [].slice.call(menu.querySelectorAll('a[href]'));
+      var focusable = menuTrigger ? [menuTrigger].concat(links) : links;
+      var index = focusable.indexOf(document.activeElement);
+      event.preventDefault();
+      var next = (index + (event.shiftKey ? -1 : 1) + focusable.length) % focusable.length;
+      if (focusable[next]) focusable[next].focus();
+    });
+    window.addEventListener('resize', function () {
+      if (window.innerWidth >= 992 && menu.classList.contains('cg-open')) setMenu(false);
     });
   }
 

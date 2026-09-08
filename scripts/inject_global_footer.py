@@ -23,7 +23,7 @@ ROOT = Path(__file__).resolve().parent.parent
 SKIP_DIRS = {
     "node_modules", "framer-runtime", "cms-raw", "cognis-cms", "deploy", "scripts",
     "playwright-screenshots", "qa_evidence", "stock", "tests", "workers", "og",
-    "assets", "content", ".git", ".claude",
+    "assets", "content", ".git", ".claude", "dist",
 }
 
 FOOTER = """<footer class="cg-gf" data-screen-label="Footer" style="background: rgb(13, 13, 12); margin: 12px; border-radius: 24px; padding: 56px clamp(16px, 3.33vw, 48px) 32px;">

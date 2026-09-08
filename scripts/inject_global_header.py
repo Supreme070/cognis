@@ -31,7 +31,7 @@ ROOT = Path(__file__).resolve().parent.parent
 SKIP_DIRS = {
     "node_modules", "framer-runtime", "cms-raw", "cognis-cms", "deploy", "scripts",
     "playwright-screenshots", "qa_evidence", "stock", "tests", "workers", "og",
-    "assets", ".git", ".claude",
+    "assets", ".git", ".claude", "dist",
 }
 
 # Pages whose header sits on a dark surface -> white text. Everything else is dark text.

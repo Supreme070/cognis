@@ -1,0 +1,10 @@
+.seo-editorial{max-width:980px;margin:0 auto;padding:40px clamp(16px,3.33vw,48px);box-sizing:border-box;font-family:"Plus Jakarta Sans",sans-serif;color:#131313;line-height:1.7}
+.seo-editorial h2{font-size:clamp(24px,3vw,40px);font-weight:500;letter-spacing:-.04em;line-height:1.2;margin:0 0 24px}
+.seo-editorial p,.seo-editorial li{font-size:16px;line-height:1.7}
+.seo-editorial a{text-decoration:underline;text-underline-offset:3px;color:inherit}
+.seo-editorial a:focus-visible,.seo-table:focus-visible{outline:3px solid #567c0b;outline-offset:4px}
+.seo-metrics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.seo-metrics strong{display:block;font-size:40px;line-height:1.2;margin-bottom:14px;color:#cdfb56}
+[data-screen-label="Key numbers"] .seo-editorial{color:#fff}
+.seo-table{overflow-x:auto;max-width:100%}.seo-table table{width:100%;min-width:650px;border-collapse:collapse;text-align:left;font-size:14px}.seo-table th,.seo-table td{padding:16px 12px;vertical-align:top;border-bottom:1px solid #d8d8d8}.seo-table thead{background:#eff6e0}
+@media(max-width:600px){.seo-metrics{grid-template-columns:1fr}.seo-editorial{padding-top:24px;padding-bottom:24px}}

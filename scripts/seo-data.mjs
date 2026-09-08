@@ -28,15 +28,6 @@ const AUTHOR_KOLA = {
   worksFor: { '@id': ORG_ID },
 };
 
-const AUTHOR_FISAYO = {
-  '@type': 'Person',
-  '@id': `${ORIGIN}/teams/fisayo-oludare/#person`,
-  name: 'Fisayo Oludare',
-  jobTitle: 'Executive Director, Partnerships & AI Enablement',
-  url: `${ORIGIN}/teams/fisayo-oludare/`,
-  worksFor: { '@id': ORG_ID },
-};
-
 // Team members — used to prerender /teams/:id detail snapshots.
 // Roles pulled verbatim from the about-us snapshot team carousel.
 export const TEAM_MEMBERS = [
@@ -51,12 +42,6 @@ export const TEAM_MEMBERS = [
     name: 'Kola Olatunde',
     jobTitle: 'Co-Founder and AI Cybersecurity & Governance Lead',
     image: '/framer-runtime/images/QTiI3J2XXGOwJw3fyXhxuB92fl0.png',
-  },
-  {
-    id: 'fisayo-oludare',
-    name: 'Fisayo Oludare',
-    jobTitle: 'Executive Director, Partnerships & AI Enablement',
-    image: '/framer-runtime/images/il73eZeVzET6bn72svJVyQpD4.png',
   },
 ];
 
@@ -113,7 +98,7 @@ export const BLOG_POSTS = [
       'How practical AI training helps people use approved tools well, check the output and improve how they work.',
     datePublished: '2026-04-06',
     dateModified: '2026-07-24',
-    author: AUTHOR_FISAYO,
+    author: AUTHOR_SUPREME,
     image: `${ORIGIN}/og/cognis-og-1200x630.jpg`,
     keywords: ['AI training', 'AI literacy', 'workforce development', 'AI upskilling'],
   },

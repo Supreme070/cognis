@@ -23,6 +23,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Validate committed SEO and content
+        run: python3 scripts/check_seo.py
+
       - name: Check for Cloudflare credentials
         id: check
         run: |
@@ -36,26 +39,7 @@ jobs:
       - name: Assemble static site (exclude build/internal files)
         if: steps.check.outputs.configured == 'true'
         run: |
-          mkdir -p dist
-          rsync -a --delete \
-            --exclude='.git' \
-            --exclude='.github' \
-            --exclude='node_modules' \
-            --exclude='scripts' \
-            --exclude='deploy' \
-            --exclude='tests' \
-            --exclude='qa_evidence' \
-            --exclude='brand-manual' \
-            --exclude='playwright-report' \
-            --exclude='test-results' \
-            --exclude='package.json' \
-            --exclude='package-lock.json' \
-            --exclude='*.md' \
-            --exclude='cognis_base.html' \
-            --exclude='*.before-final-copy' \
-            --exclude='*.original.html' \
-            ./ dist/
-          echo "Files to deploy: $(find dist -type f | wc -l)"
+          python3 scripts/assemble_site.py
 
       - name: Deploy to Cloudflare Pages
         if: steps.check.outputs.configured == 'true'

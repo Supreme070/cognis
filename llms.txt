@@ -1,75 +1,51 @@
 # Cognis Group
 
-Last updated: 2026-08-25
+> Cognis Group Limited is a Lagos-founded AI consulting and engineering company. Its three practices are strategy, workforce training and agent engineering.
 
-> Cognis Group helps organisations decide where AI can help, train their people and build safe tools for everyday work. Three practices: AI Strategy & Advisory, AI Training & Workforce Development, and AI Agent & Automation Engineering. Quod Tango Muto: what we touch, we change.
+This directory describes public website content. Canonical HTML pages are authoritative. Inclusion in this file does not guarantee search or AI visibility.
 
-## Core content
+Cognis AI: request a demonstration at https://cognis.group/contact/?interest=cognis-ai.
 
-- [Homepage](https://cognis.group/): Full overview of capabilities, team, and engagement model
-- [About Us](https://cognis.group/about-us/): Mission, founding story, and operating principles
-- [Why Cognis](https://cognis.group/why-cognis/): Why Cognis Group is Africa's leading AI consulting firm — senior-led work, strong African context, working products and practical handover
-- [Services](https://cognis.group/our-services/): Three AI practice areas
-- [Best AI Consulting Firms in Africa 2026](https://cognis.group/best-ai-consulting-firms-africa/): Buyer’s guide comparing Cognis Group, InstaDeep, DataProphet, Sama, Aerobotics, and Deloitte Africa
-- [State of AI in African Enterprises 2026](https://cognis.group/research/state-of-ai-african-enterprises-2026/): Cognis Group research on Africa’s AI market, adoption, gaps, and playbook — with cited sources
-- [Blog / Insights](https://cognis.group/blog/): Enterprise AI deployment, governance, ROI, and workforce development
-- [Contact](https://cognis.group/contact/): Start an engagement with Cognis Group
+## Pages
 
-## Products
-
-Beyond advisory, Cognis Group builds and operates its own software. Four products:
-
-- [Products overview](https://cognis.group/products/): The software Cognis Group builds and runs.
-- [Cognis AI](https://ai.cognis.group): Specialised AI support for customer service, voice calls, company knowledge, operations or trade. People check its work before it takes on more responsibility. Tagline: "Hire AI to do the work." (Live)
-- [MarketSage](https://www.marketsage.africa): A marketing and sales tool that researches prospects, helps plan campaigns and shows which activity creates sales opportunities. Tagline: "Marketing that thinks, acts, and converts." (Live)
-- [Migratio](https://migratio.cognis.group): A tool that helps banks, ministries and regulated organisations move data safely, check it before the change and keep a record of every step. (Live)
-- [SPOG](https://spog.cognis.group): One dashboard for IT, networks, facilities, vehicles and security, with every number linked to its source. (Live)
-
-## Case Studies
-
-- [Case Studies Landing](https://cognis.group/case-studies/): Selected Cognis Group engagements from strategy to governed production.
-- [MarketSage: AI sales intelligence platform](https://cognis.group/case-studies/marketsage/): 0 to v1 in 14 weeks — reference build for our agent engineering practice.
-- [Claims processing: 14 days to <48 hours](https://cognis.group/case-studies/claims-processing-automation/): A safe AI system cut processing time by 85% in a multi-country financial services group (anonymised).
-- [AI training: 6 months in 6 weeks](https://cognis.group/case-studies/ai-training-programme/): 3,200 staff trained and EU AI Act Article 4 literacy evidenced in six weeks (anonymised).
-
-## How We Work
-
-- [How we work](https://cognis.group/how-we-work/): Six clear steps to understand the problem, plan the work, build, launch and manage a practical AI system.
-
-## Services
-
-- [AI Strategy & Advisory](https://cognis.group/our-services/ai-strategy-advisory/): Choose the right AI opportunities and get a clear plan with priorities, owners, costs, safeguards and measures of success.
-- [AI Training & Workforce Development](https://cognis.group/our-services/ai-training-workforce-development/): Practical training that helps leaders and teams work better, check AI output and use approved tools safely.
-- [AI Agent & Automation Engineering](https://cognis.group/our-services/ai-agent-automation-engineering/): AI tools that handle agreed steps in business processes, with clear limits, human approval and monitoring.
-
-## Insights
-
-- [Securing AI Agents in Production: A 2026 Threat Model](https://cognis.group/blog/securing-ai-agents-in-production/): Kola Olatunde’s boundary-first control model for identity, tools, memory, approvals, logging, and incident response.
-- [Enterprise RAG Security](https://cognis.group/blog/enterprise-rag-security-prompt-injection-data-exfiltration/): Kola Olatunde on prompt injection, data exfiltration, retrieval-time access control, and secure ingestion.
-- [AI Governance in Africa in 2026](https://cognis.group/blog/ai-governance-africa-2026/): Kola Olatunde’s operating-control framework for multi-jurisdiction African enterprises.
-- [From Copilot to Coworker](https://cognis.group/blog/from-copilot-to-coworker-productizing-ai-agents/): Tosin Salami’s product framework for bounded jobs, trust, staged autonomy, and agent launch criteria.
-- [The AI Agent Product Operating System](https://cognis.group/blog/ai-agent-product-operating-system/): Tosin Salami on evals, production telemetry, unit economics, versioning, and lifecycle governance.
-- [Why Most Enterprise AI Strategies Fail Before They Start](https://cognis.group/blog/why-most-enterprise-ai-strategies-fail-before-they-start/): Common failure modes in enterprise AI adoption.
-- [Building AI Agents That Actually Ship](https://cognis.group/blog/building-ai-agents-that-actually-ship/): From proof of concept to production-grade agent deployment.
-- [AI Governance Is Not Optional](https://cognis.group/blog/ai-governance-is-not-optional/): Building governance before deployment, not after.
-- [The Real ROI of AI](https://cognis.group/blog/the-real-roi-of-ai/): How to measure AI impact beyond efficiency metrics.
-- [Making Your Workforce AI-Ready](https://cognis.group/blog/making-your-workforce-ai-ready/): Developing AI literacy from boardroom to operations.
-- [AI-Native Operations for African Enterprises](https://cognis.group/blog/ai-native-operations-for-african-enterprises/): How African enterprises can leapfrog into AI-native operations.
-
-## About
-
-Cognis Group Limited is registered with the Corporate Affairs Commission (Lagos, Nigeria). Co-founded in 2024 by Supreme Oyewumi and Kola Olatunde. Offices in Cheyenne, Wyoming (USA), Ontario (Canada), and Oniru, Victoria Island, Lagos (Nigeria). Serves organisations across Africa, Europe, and the Americas.
-
-Motto: Quod Tango Muto ("What we touch, we change.")
-
-Contact: info@cognis.group | +2349080001101
-
-## Policies
-
-- [Privacy Policy](https://cognis.group/privacy-policy/): How Cognis Group collects, uses, and protects personal data (NDPA 2023, GDPR-aligned).
-- [Terms of Service](https://cognis.group/terms/): Website use, IP, liability, and Nigerian governing law.
-- [Frequently Asked Questions](https://cognis.group/faq/): Answers on engagement shape, pricing, data sovereignty, and the frameworks we align to.
-
-## Optional
-
-- [llms-full.txt](https://cognis.group/llms-full.txt): Complete site content for AI ingestion
+- [Cognis Group | AI Consulting, Strategy & Agent Engineering](https://cognis.group/): Lagos-based AI consulting firm helping organisations across Nigeria, Africa and beyond plan AI, train their people and build safe tools that improve everyday work.
+- [About Us | Cognis Group](https://cognis.group/about-us/): Meet Cognis Group, a Lagos AI consulting and engineering firm helping organisations across Africa plan, build and use AI with confidence.
+- [Our Services | Cognis Group](https://cognis.group/our-services/): AI strategy, workforce training and practical automation from one senior-led Cognis team, from the first decision to everyday use.
+- [AI Strategy & Advisory | Cognis Group](https://cognis.group/our-services/ai-strategy-advisory/): Choose the right AI opportunities and get a clear plan with priorities, owners, costs, safeguards and measures of success.
+- [AI Training & Workforce Development | Cognis Group](https://cognis.group/our-services/ai-training-workforce-development/): Practical, role-based AI training that helps leaders and teams work better, check AI output and use approved tools safely.
+- [AI Agent & Automation Engineering | Cognis Group](https://cognis.group/our-services/ai-agent-automation-engineering/): We build AI tools that handle agreed steps in business processes, with clear limits, human approval and monitoring.
+- [Products | Cognis Group](https://cognis.group/products/): The products Cognis Group builds and operates — Cognis AI, MarketSage, Migratio, and SPOG. Proof that we ship what we sell.
+- [Africa’s Leading AI Consulting Firm | Cognis Group](https://cognis.group/why-cognis/): Why organisations choose Cognis: senior-led delivery, strong African context, working AI products and a practical handover.
+- [How We Work | Cognis Group](https://cognis.group/how-we-work/): See the six clear steps Cognis uses to understand the problem, plan the work, build, launch and manage a practical AI system.
+- [Contact | Cognis Group](https://cognis.group/contact/): Talk to Cognis Group about a slow, costly or difficult process. We will help you work out whether AI is the right fit.
+- [Blog | Cognis Group](https://cognis.group/blog/): Notes from the field on AI strategy, agent engineering, governance, and operating AI in production.
+- [Why Most Enterprise AI Strategies Fail | Cognis Group](https://cognis.group/blog/why-most-enterprise-ai-strategies-fail-before-they-start/): Enterprise AI fails at the whiteboard, not the model. The signals that separate strategies that ship from decks that don't.
+- [Building AI Agents That Actually Ship | Cognis Group](https://cognis.group/blog/building-ai-agents-that-actually-ship/): Most agent projects stall at the demo. A deployment-first approach to agent engineering — what to build, what to skip, how to keep it alive.
+- [The Real ROI of AI | Cognis Group](https://cognis.group/blog/the-real-roi-of-ai/): Time-to-value, decision velocity, and cost avoidance — the metrics that actually matter when you measure AI in the enterprise.
+- [Making Your Workforce AI-Ready | Cognis Group](https://cognis.group/blog/making-your-workforce-ai-ready/): AI literacy is a capability, not a workshop. The training framework that turns functional teams into AI-fluent operators.
+- [AI Governance Is Not Optional | Cognis Group](https://cognis.group/blog/ai-governance-is-not-optional/): EU AI Act, NIST AI RMF, ISO 42001, NDPA. Governance is the foundation of AI that scales — here's the framework that maps regulation to engineering.
+- [AI-Native Operations for African Enterprises | Cognis Group](https://cognis.group/blog/ai-native-operations-for-african-enterprises/): African data, African regulation, African infrastructure. Why AI deployment on the continent requires context, not translation.
+- [Securing AI Agents in Production: A 2026 Threat Model | Cognis Group](https://cognis.group/blog/securing-ai-agents-in-production/): A practical control model for identity, tools, memory, human approval, and incident response when AI agents can take real actions.
+- [Enterprise RAG Security: Prompt Injection & Access | Cognis](https://cognis.group/blog/enterprise-rag-security-prompt-injection-data-exfiltration/): How to secure retrieval-augmented generation across ingestion, retrieval, generation, and action—without pretending prompt injection has a magic fix.
+- [AI Governance in Africa 2026 | Cognis Group](https://cognis.group/blog/ai-governance-africa-2026/): A practical governance system for African enterprises balancing local law, sector obligations, international standards, and operational reality.
+- [From Copilot to Coworker: How to Productize AI Agents | Cognis Group](https://cognis.group/blog/from-copilot-to-coworker-productizing-ai-agents/): A product framework for turning a model demo into a narrow, dependable agent that owns work and earns greater autonomy.
+- [AI Agent Product OS: Evals, Telemetry & Lifecycle | Cognis](https://cognis.group/blog/ai-agent-product-operating-system/): The operating cadence product teams need to improve agent quality, control cost, handle change, and decide when autonomy should expand—or contract.
+- [Case Studies | Cognis Group](https://cognis.group/case-studies/): See how Cognis turned AI plans into working systems and useful skills, with client results and clear evidence notes.
+- [MarketSage: AI sales intelligence platform | Cognis Group](https://cognis.group/case-studies/marketsage/): How Cognis built MarketSage to help sales teams research prospects, prepare outreach and keep people in control of every message.
+- [Claims processing: 14 days to under 48 hours | Cognis Group](https://cognis.group/case-studies/claims-processing-automation/): How an African financial services group cut claims processing from 14 days to under 48 hours with a safe AI system built by Cognis.
+- [AI training: 6 months’ capability in 6 weeks | Cognis Group](https://cognis.group/case-studies/ai-training-programme/): How Cognis helped 3,200 people learn to use AI responsibly in six weeks, with records supporting its AI literacy programme.
+- [Frequently Asked Questions | Cognis Group](https://cognis.group/faq/): Straight answers about what Cognis does, how we work, costs, timing, training, data and safe AI use.
+- [Supreme Oyewumi — Founder & AI Engineer | Cognis Group](https://cognis.group/teams/supreme-oyewumi/): Supreme Oyewumi is Founder & AI Engineer at Cognis Group, helping organisations across Africa plan, build and use practical AI systems.
+- [Kola Olatunde — Co-Founder and AI Cybersecurity & Governance Lead | Cognis Group](https://cognis.group/teams/kola-olatunde/): Kola Olatunde is AI Cybersecurity & Governance Lead at Cognis Group, securing and governing enterprise AI systems across Africa.
+- [Tosin Salami — Cognis Group](https://cognis.group/teams/tosin-salami/): Tosin Salami, Executive Director, Product & Strategy at Cognis Group.
+- [Obruche Uwanoghor — Cognis Group](https://cognis.group/teams/obruche-uwanoghor/): Obruche Uwanoghor, Executive Director of People & Culture at Cognis Group.
+- [Privacy Policy | Cognis Group](https://cognis.group/privacy-policy/): How Cognis Group collects, uses, and protects personal data across our website and engagements, aligned to Nigeria's NDPA 2023 and the EU GDPR.
+- [Terms of Service | Cognis Group](https://cognis.group/terms/): Terms governing the use of cognis.group — intellectual property, disclaimers, limitation of liability, and Nigerian governing law.
+- [Best AI Consulting Firms in Africa (2026) | Cognis Group](https://cognis.group/best-ai-consulting-firms-africa/): A 2026 buyer’s guide to the best AI consulting firms in Africa — Cognis Group, InstaDeep, DataProphet, Sama, Aerobotics, and Deloitte — and how to choose.
+- [State of AI in African Enterprises 2026 | Cognis Group](https://cognis.group/research/state-of-ai-african-enterprises-2026/): AI in African enterprises: sourced market forecasts, adoption measures, their limitations and a practical framework for evaluating a deployment.
+- [Careers | Cognis Group](https://cognis.group/careers/): Careers at Cognis Group. We hire engineers, strategists and trainers who turn useful AI ideas into working tools. Send your CV to info@cognis.group.
+- [Business Development Manager (Filled) | Careers | Cognis Group](https://cognis.group/careers/business-development-manager/): Business Development Manager at Cognis Group. Own the pipeline that brings banks, ministries, and enterprises to Cognis. Full-time, Lagos (hybrid) or remote within Nigeria. This role has been filled and is no longer accepting applications.
+- [Customer Service Professional (Filled) | Careers | Cognis Group](https://cognis.group/careers/customer-service-professional/): Customer Service Professional at Cognis Group. Be the calm, sharp first voice our product users and clients meet. Full-time, remote within Nigeria. This role has been filled and is no longer accepting applications.
+- [AI Consulting in Nigeria | Cognis Group](https://cognis.group/ai-consulting-nigeria/): Lagos-based AI consulting for Nigerian organisations: practical strategy, staff training and safe AI tools, built with NDPA compliance from day one.
+- [AI Consulting in South Africa | Cognis Group](https://cognis.group/ai-consulting-south-africa/): AI strategy, training and engineering for South African organisations, delivered remotely and on site by Cognis Group, an African AI consulting firm.
+- [NDPA-Compliant AI | Cognis Group](https://cognis.group/ndpa-compliant-ai/): How to use AI under Nigeria’s NDPA 2023: practical guidance and engineering from Cognis Group, from data residency to governance that survives audit.
