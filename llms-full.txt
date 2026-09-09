@@ -6,11 +6,15 @@ Generated from canonical public HTML. This is an extraction, not independent ver
 
 Source: https://cognis.group/
 
+AI strategy, training and engineering for African organisations
+
 # What We Touch, We Change.
 
 Quod Tango Muto
 
 Cognis Group helps organisations use AI to improve everyday work. We set the strategy, train your people and build practical AI tools that save time, reduce errors and support better decisions. Every engagement leaves your team more capable.
+
+[Discuss your AI project ↗](/contact/)
 
 Trusted by organisations
 
@@ -514,7 +518,7 @@ What you get
 
 ## What a Cognis AI Strategy engagement delivers
 
-A defensible roadmap, production-first delivery, internal capability transfer, and governance built in from day one.
+An actionable roadmap, clear delivery requirements, internal capability transfer and governance built in from day one.
 
 ### Readiness Assessment
 
@@ -528,9 +532,9 @@ A prioritised, phase-by-phase roadmap ranking every candidate use case by value,
 
 Cognis GroupNigeria
 
-### Production-First Delivery
+### Ready for Delivery
 
-Every engagement ships at least one workflow into real production. We measure success by deployment, not decks.
+Your roadmap defines the scope, owners, dependencies and success measures for implementation. Production engineering is a separate scope, which you can commission from Cognis or your chosen team.
 
 ### Governance From Day One
 
@@ -1012,7 +1016,7 @@ Source: https://cognis.group/why-cognis/
 
 Why Cognis
 
-# Africa’s leading AI consulting firm.
+# AI consulting and engineering for Africa.
 
 When AI needs to move from an idea to a reliable part of everyday work, organisations across Africa and beyond choose Cognis Group.
 
@@ -1316,6 +1320,8 @@ Source: https://cognis.group/contact/
 # Reach out today
 
 Tell us which task is slow, costly or difficult to manage. We will help you work out whether AI is the right fit.
+
+[Send an enquiry ↓](#contact-form)
 
 Email:
 
@@ -2319,11 +2325,11 @@ AI training: 6 months of capability in 6 weeks
 
 A large organisation trained 3,200 employees across seven countries in six weeks instead of six months, covering leaders, specialists and the wider workforce.
 
-100% Article 4 coverage
+AI literacy records
 
 45 champions
 
-72% score lift
+Before-and-after assessment
 
 "Six weeks and the capability is not only built, it is owned. We did not need you to stay — that is the point."
 

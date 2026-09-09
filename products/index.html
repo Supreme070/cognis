@@ -110,6 +110,7 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=cring">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="stylesheet" href="/responsive.css">
+<link rel="stylesheet" href="/assets/site-improvements.css">
 <style data-cognis-gheader>
   @keyframes cgFadeUp { from { opacity: 0; transform: translateY(32px); } to { opacity: 1; transform: translateY(0); } }
   .cg-gh .cgRoll { display: inline-block; overflow: hidden; height: 20px; vertical-align: top; }
@@ -147,7 +148,7 @@
   div:has(> footer.framer-uOBZL), footer.framer-uOBZL { display: none !important; }
 </style>
 </head>
-<body>
+<body><a class="cg-skip-link" href="#cg-main">Skip to content</a>
 <div id="dc-root"><div class="sc-host" data-sc-name="__pre__Cognis Products"><div data-dc-tpl="6" style="background: rgb(242, 242, 242); position: relative;">
 
   
@@ -181,7 +182,8 @@
   </div>
 
   
-  <div data-dc-tpl="36" style="max-width: 1180px; margin: 0px auto; padding: 168px 24px 40px;">
+  <main id="cg-main">
+<div data-dc-tpl="36" style="max-width: 1180px; margin: 0px auto; padding: 168px 24px 40px;">
     <div data-dc-tpl="37" style="max-width: 760px; margin-bottom: 56px;">
       <p data-dc-tpl="38" style="color: rgb(99, 99, 99); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; font-weight: 500; margin: 0px 0px 18px; display: flex; align-items: center; gap: 12px;"><span data-dc-tpl="39" style="display: inline-block; width: 28px; height: 2px; background: rgb(205, 251, 86);"></span>Products</p>
       <h1 data-dc-tpl="40" style="font-size: clamp(34px, 3.89vw, 56px); line-height: 1.04; letter-spacing: -0.025em; margin: 0px 0px 20px; font-weight: 700;">Four products. One company.</h1>
@@ -275,7 +277,8 @@
   </div>
 
   
-  <footer class="cg-gf" data-screen-label="Footer" style="background: rgb(13, 13, 12); margin: 12px; border-radius: 24px; padding: 56px clamp(16px, 3.33vw, 48px) 32px;">
+  </main>
+<footer class="cg-gf" data-screen-label="Footer" style="background: rgb(13, 13, 12); margin: 12px; border-radius: 24px; padding: 56px clamp(16px, 3.33vw, 48px) 32px;">
     <div style="max-width: 1280px; margin: 0px auto;">
       <div style="display: grid; grid-template-columns: 1.4fr 0.7fr 0.7fr 0.7fr 1.2fr; gap: 48px;">
         <div>
@@ -316,7 +319,7 @@
             <input type="hidden" name="from_name" value="cognis.group newsletter">
             <input type="hidden" name="subject" value="New newsletter signup — cognis.group">
             <input type="hidden" name="redirect" value="https://cognis.group/thanks-subscribe/">
-            <input type="email" name="email" required="" placeholder="Your work email" style="flex: 1 1 0%; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.14); border-radius: 100px; padding: 12px 18px; font-size: 14px; color: rgb(255, 255, 255); outline: none; font-family: &quot;Plus Jakarta Sans&quot;, sans-serif;">
+            <input type="email" name="email" required="" placeholder="Your work email" aria-label="Your work email" style="flex: 1 1 0%; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.14); border-radius: 100px; padding: 12px 18px; font-size: 14px; color: rgb(255, 255, 255); outline: none; font-family: &quot;Plus Jakarta Sans&quot;, sans-serif;">
             <button type="submit" class="cg-gf-btn" style="background: rgb(214, 253, 112); color: rgb(13, 13, 12); border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; border-radius: 100px; padding: 12px 22px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: &quot;Plus Jakarta Sans&quot;, sans-serif;">Subscribe</button>
           </form>
         </div>

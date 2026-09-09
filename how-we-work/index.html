@@ -193,6 +193,7 @@
 </script>
 <!-- cognis-route-handoff:end -->
 <link rel="preload" as="image" href="/assets/process-hero-1920-v2.webp" imagesrcset="/assets/process-hero-960-v2.webp 960w, /assets/process-hero-1920-v2.webp 1920w" imagesizes="100vw" fetchpriority="high" data-cognis-hero-preload="process-hero">
+<link rel="stylesheet" href="/assets/site-improvements.css">
 <style data-cognis-gheader>
   @keyframes cgFadeUp { from { opacity: 0; transform: translateY(32px); } to { opacity: 1; transform: translateY(0); } }
   .cg-gh .cgRoll { display: inline-block; overflow: hidden; height: 20px; vertical-align: top; }
@@ -230,7 +231,7 @@
   div:has(> footer.framer-uOBZL), footer.framer-uOBZL { display: none !important; }
 </style>
 </head>
-<body>
+<body><a class="cg-skip-link" href="#cg-main">Skip to content</a>
 <div id="dc-root"><div class="sc-host" data-sc-name="__pre__Cognis Process"><div data-dc-tpl="6" style="background: rgb(255, 255, 255); position: relative;">
 
   
@@ -264,7 +265,8 @@
   </div>
 
   
-  <section data-dc-tpl="36" data-screen-label="Process hero" style="position: relative; box-sizing: border-box; margin: 12px; border-radius: 24px; overflow: hidden; padding: 172px 52px 96px; background: rgb(13, 13, 12);">
+  <main id="cg-main">
+<section data-dc-tpl="36" data-screen-label="Process hero" style="position: relative; box-sizing: border-box; margin: 12px; border-radius: 24px; overflow: hidden; padding: 172px 52px 96px; background: rgb(13, 13, 12);">
     <img data-dc-tpl="37" src="/assets/process-hero-1920-v2.webp" srcset="/assets/process-hero-960-v2.webp 960w, /assets/process-hero-1920-v2.webp 1920w" sizes="100vw" loading="eager" fetchpriority="high" decoding="async" srcset="/assets/process-hero-960-v2.webp 960w, /assets/process-hero-1920-v2.webp 1920w" sizes="100vw" loading="eager" fetchpriority="high" decoding="async" alt="" style="position: absolute; inset: 0px; width: 100%; height: 100%; object-fit: cover;">
     <div data-dc-tpl="38" style="position: absolute; inset: 0px; background: linear-gradient(100deg, rgba(13, 13, 12, 0.92) 0%, rgba(13, 13, 12, 0.68) 48%, rgba(13, 13, 12, 0.42) 100%);"></div>
     <div data-dc-tpl="39" style="position: absolute; width: 620px; height: 620px; top: -220px; right: -120px; background: radial-gradient(circle, rgba(205, 251, 86, 0.16), transparent 62%); filter: blur(20px); animation: 26s ease-in-out 0s infinite normal none running cgDrift;"></div>
@@ -588,7 +590,8 @@
   </section>
 
   
-  <footer class="cg-gf" data-screen-label="Footer" style="background: rgb(13, 13, 12); margin: 12px; border-radius: 24px; padding: 56px clamp(16px, 3.33vw, 48px) 32px;">
+  </main>
+<footer class="cg-gf" data-screen-label="Footer" style="background: rgb(13, 13, 12); margin: 12px; border-radius: 24px; padding: 56px clamp(16px, 3.33vw, 48px) 32px;">
     <div style="max-width: 1280px; margin: 0px auto;">
       <div style="display: grid; grid-template-columns: 1.4fr 0.7fr 0.7fr 0.7fr 1.2fr; gap: 48px;">
         <div>
@@ -629,7 +632,7 @@
             <input type="hidden" name="from_name" value="cognis.group newsletter">
             <input type="hidden" name="subject" value="New newsletter signup — cognis.group">
             <input type="hidden" name="redirect" value="https://cognis.group/thanks-subscribe/">
-            <input type="email" name="email" required="" placeholder="Your work email" style="flex: 1 1 0%; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.14); border-radius: 100px; padding: 12px 18px; font-size: 14px; color: rgb(255, 255, 255); outline: none; font-family: &quot;Plus Jakarta Sans&quot;, sans-serif;">
+            <input type="email" name="email" required="" placeholder="Your work email" aria-label="Your work email" style="flex: 1 1 0%; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.14); border-radius: 100px; padding: 12px 18px; font-size: 14px; color: rgb(255, 255, 255); outline: none; font-family: &quot;Plus Jakarta Sans&quot;, sans-serif;">
             <button type="submit" class="cg-gf-btn" style="background: rgb(214, 253, 112); color: rgb(13, 13, 12); border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; border-radius: 100px; padding: 12px 22px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: &quot;Plus Jakarta Sans&quot;, sans-serif;">Subscribe</button>
           </form>
         </div>

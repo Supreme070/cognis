@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+    .sc-placeholder{background:color-mix(in srgb,currentColor 8%,transparent);
+      border:1px solid color-mix(in srgb,currentColor 50%,transparent);
+      border-radius:2px;box-sizing:border-box;overflow:hidden}
+    @keyframes sc-shine{0%{background-position:100% 50%}100%{background-position:0% 50%}}
+    html.sc-dc-streaming .sc-placeholder,
+    html.sc-dc-streaming .sc-interp.sc-missing{position:relative;
+      background:color-mix(in srgb,currentColor 5%,transparent);
+      border-color:transparent}
+    html.sc-dc-streaming .sc-placeholder::before,
+    html.sc-dc-streaming .sc-interp.sc-missing::before{content:'';
+      position:absolute;inset:0;pointer-events:none;
+      background:linear-gradient(90deg,rgba(217,119,87,0) 25%,rgba(247,225,211,.95) 37%,rgba(217,119,87,0) 63%);
+      background-size:400% 100%;animation:sc-shine 1.4s ease infinite}
+    html.sc-dc-streaming .sc-placeholder:nth-child(n+9 of .sc-placeholder)::before,
+    html.sc-dc-streaming .sc-interp.sc-missing:nth-child(n+9 of .sc-interp.sc-missing)::before{animation:none;
+      background:color-mix(in srgb,currentColor 8%,transparent)}
+    .sc-placeholder-error{padding:4px 8px;font:11px/1.4 ui-monospace,monospace;
+      color:color-mix(in srgb,currentColor 70%,transparent);word-break:break-word}
+    .sc-interp.sc-missing{display:inline-block;width:2em;height:1em;overflow:hidden;
+      vertical-align:text-bottom;background:rgba(255,255,255,.3);border:1px solid rgba(0,0,0,.5);
+      border-radius:2px;box-sizing:border-box;color:transparent;
+      user-select:none}
+    .sc-interp.sc-unresolved{font-family:ui-monospace,monospace;font-size:.85em;
+      color:color-mix(in srgb,currentColor 50%,transparent);
+      background:color-mix(in srgb,currentColor 10%,transparent);border-radius:3px;
+      padding:0 3px}
+    .sc-host.sc-has-error{position:relative}
+    .sc-logic-error{position:absolute;top:8px;left:8px;z-index:2147483647;max-width:60ch;
+      padding:6px 10px;background:#b00020;color:#fff;font:12px/1.4 ui-monospace,monospace;
+      border-radius:4px;white-space:pre-wrap;pointer-events:none}
+    /* Mirrors PRINT_BASELINE_CSS in apps/web deck-stage-export.ts — keep both
+       in sync until dc-runtime regains a build step. */
+    @media print {
+      @page { margin: 0.5cm; }
+      figure, table { break-inside: avoid; }
+      #dc-root, #dc-root > .sc-host { height: auto; }
+      *, *::before, *::after {
+        print-color-adjust: exact; -webkit-print-color-adjust: exact;
+        backdrop-filter: none !important; -webkit-backdrop-filter: none !important;
+        animation-delay: -99s !important; animation-duration: .001s !important;
+        animation-iteration-count: 1 !important; animation-fill-mode: both !important;
+        animation-play-state: running !important; transition-duration: 0s !important;
+      }
+    }
+  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>x-dc{display:none!important}</style>
+<style>html,body{height:100%;margin:0}#dc-root,#dc-root>.sc-host{height:100%}</style>
+<title data-dc-tpl="1">Products | Cognis Group</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" data-dc-tpl="2">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" data-dc-tpl="3">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600;1,700&amp;family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&amp;family=Roboto&amp;family=Nunito:wght@800&amp;display=swap" rel="stylesheet" data-dc-tpl="4">
+<style data-dc-tpl="5">
+  @font-face { font-family: Geistmono; src: url(https://cdn.prod.website-files.com/6929c116366a14507fc8424d/6929c9fc0f8dc4c415a7aef6_GeistMono-Medium.ttf) format("truetype"); font-weight: 400 500; font-style: normal; font-display: swap; }
+  html, body { margin: 0; padding: 0; background: #F2F2F2; }
+  body { font-family: "Plus Jakarta Sans", -apple-system, "Segoe UI", Roboto, sans-serif; color: #131313; font-size: 16px; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+  a { color: inherit; text-decoration: none; }
+  a:hover { color: inherit; }
+  /* EXPLORE dropdown */
+  .cg-exp { position: relative; }
+  .cg-exp-panel { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); padding-top: 16px; opacity: 0; visibility: hidden; transition: opacity .22s ease; z-index: 30; }
+  .cg-exp:hover .cg-exp-panel, .cg-exp:focus-within .cg-exp-panel { opacity: 1; visibility: visible; }
+  .cg-exp-menu { background: #131313; border: 1px solid rgba(255,255,255,0.10); border-radius: 16px; padding: 8px; min-width: 236px; display: flex; flex-direction: column; gap: 2px; box-shadow: 0 28px 60px rgba(0,0,0,0.45); transform: translateY(8px); transition: transform .22s cubic-bezier(.22,1,.36,1); }
+  .cg-exp:hover .cg-exp-menu, .cg-exp:focus-within .cg-exp-menu { transform: translateY(0); }
+  .cg-exp-menu a { display: flex; flex-direction: column; gap: 2px; padding: 11px 14px; border-radius: 11px; text-transform: none; letter-spacing: -0.01em; transition: background .15s ease; }
+  .cg-exp-menu a:hover { background: rgba(255,255,255,0.06); }
+  .cg-exp-menu .t { font-weight: 600; font-size: 14px; color: #FFFFFF; }
+  .cg-exp-menu .d { font-weight: 400; font-size: 12px; color: rgba(255,255,255,0.5); }
+
+[data-h="h0"]:hover{color: #131313 !important;}
+[data-h="h1"]:hover{background: #FFFFFF !important; transform: scale(0.95);}
+[data-h="h2"]:hover{transform: translateY(-6px); box-shadow: 0 26px 60px -30px rgba(66,133,244,0.5); border-color: rgba(66,133,244,0.45) !important;}
+[data-h="h3"]:hover{transform: translateY(-6px); box-shadow: 0 26px 60px -30px rgba(95,111,255,0.45); border-color: rgba(95,111,255,0.45) !important;}
+[data-h="h4"]:hover{transform: translateY(-6px); box-shadow: 0 26px 60px -28px rgba(31,38,87,0.85); border-color: rgba(91,176,79,0.5) !important;}
+[data-h="h5"]:hover{transform: translateY(-6px); box-shadow: 0 24px 56px -30px rgba(91,84,224,0.45); border-color: rgba(91,84,224,0.45) !important;}
+[data-h="h6"]:hover{transform: translateY(-2px);}
+[data-h="h7"]:hover{color: #FFFFFF !important;}
+[data-h="h8"]:hover{background: #E5FF9B !important;}
+</style>
+<!-- SEO (ported from original) -->
+<meta name="description" content="The products Cognis Group builds and operates — Cognis AI, MarketSage, Migratio, and SPOG. Proof that we ship what we sell." />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Cognis Group" />
+<meta property="og:title" content="Products | Cognis Group" />
+<meta property="og:description" content="Four products, one company. Cognis AI, MarketSage, Migratio, and SPOG — built and operated by Cognis Group." />
+<meta property="og:url" content="https://cognis.group/products/" />
+<meta property="og:image" content="https://cognis.group/og/cognis-og-1200x630.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Cognis Group — Products" />
+<meta property="og:locale" content="en_GB" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@cognisgroup" />
+<meta name="twitter:title" content="Products | Cognis Group" />
+<meta name="twitter:description" content="Four products, one company — Cognis AI, MarketSage, Migratio, and SPOG." />
+<meta name="twitter:image" content="https://cognis.group/og/cognis-og-1200x630.jpg" />
+<link rel="canonical" href="https://cognis.group/products/" />
+<link rel="alternate" hreflang="en" href="https://cognis.group/products/" />
+<link rel="alternate" hreflang="x-default" href="https://cognis.group/products/" />
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"CollectionPage","@id":"https://cognis.group/products/","url":"https://cognis.group/products/","name":"Products","description":"The products Cognis Group builds and operates.","inLanguage":"en-GB","isPartOf":{"@id":"https://cognis.group/#website"},"about":{"@id":"https://cognis.group/#organization"}},{"@type":"ItemList","name":"Cognis Group products","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"SoftwareApplication","name":"Cognis AI","applicationCategory":"BusinessApplication","url":"https://cognis.group/contact/?interest=cognis-ai","description":"Specialised AI support for customer service, voice calls, company knowledge, operations or trade.","publisher":{"@id":"https://cognis.group/#organization"}}},{"@type":"ListItem","position":2,"item":{"@type":"SoftwareApplication","name":"MarketSage","applicationCategory":"BusinessApplication","url":"https://www.marketsage.africa","description":"A marketing and sales tool that researches prospects, helps plan campaigns and shows which activity creates sales opportunities.","publisher":{"@id":"https://cognis.group/#organization"}}},{"@type":"ListItem","position":3,"item":{"@type":"SoftwareApplication","name":"Migratio","applicationCategory":"BusinessApplication","url":"https://migratio.cognis.group","description":"A tool that helps banks, ministries and regulated organisations move data safely, check it before the change and keep a record of every step.","publisher":{"@id":"https://cognis.group/#organization"}}},{"@type":"ListItem","position":4,"item":{"@type":"SoftwareApplication","name":"SPOG","applicationCategory":"BusinessApplication","url":"https://spog.cognis.group","description":"One dashboard for IT, networks, facilities, vehicles and security, with every number linked to its source.","publisher":{"@id":"https://cognis.group/#organization"}}}]},{"@type":"Organization","@id":"https://cognis.group/#organization","name":"Cognis Group","alternateName":"Cognis","legalName":"Cognis Group Limited","url":"https://cognis.group/","logo":{"@type":"ImageObject","@id":"https://cognis.group/#logo","url":"https://cognis.group/assets/img/cognis-logo.png","width":512,"height":512,"caption":"Cognis Group"},"image":{"@id":"https://cognis.group/#logo"},"description":"Cognis Group helps organisations decide where AI can help, train their people and build safe tools for everyday work. Its three main services are AI Strategy & Advisory, AI Training & Workforce Development, and AI Agent & Automation Engineering.","slogan":"Quod Tango Muto — What we touch, we change.","foundingDate":"2024","founder":[{"@type":"Person","@id":"https://cognis.group/teams/supreme-oyewumi/#person","name":"Supreme Oyewumi","jobTitle":"Founder & AI Engineer"},{"@type":"Person","@id":"https://cognis.group/teams/kola-olatunde/#person","name":"Kola Olatunde","jobTitle":"Co-Founder and AI Cybersecurity & Governance Lead"}],"foundingLocation":{"@type":"Place","name":"Lagos, Nigeria","address":{"@type":"PostalAddress","addressLocality":"Lagos","addressCountry":"NG"}},"address":[{"@type":"PostalAddress","streetAddress":"Oniru, Victoria Island","addressLocality":"Lagos","addressRegion":"LA","addressCountry":"NG"},{"@type":"PostalAddress","streetAddress":"2106 House Ave, Suite 665","addressLocality":"Cheyenne","addressRegion":"WY","postalCode":"82001","addressCountry":"US"}],"contactPoint":[{"@type":"ContactPoint","contactType":"sales","email":"info@cognis.group","telephone":"+2349080001101","availableLanguage":["English"],"areaServed":["NG","ZA","KE","GH","GB"]},{"@type":"ContactPoint","contactType":"sales","email":"info@cognis.group","telephone":"+15127437322","availableLanguage":["English"],"areaServed":["US","CA"]}],"areaServed":[{"@type":"Place","name":"Africa"},{"@type":"Place","name":"Europe"},{"@type":"Place","name":"Americas"}],"knowsAbout":["Artificial Intelligence Strategy","AI Consulting","AI Agent Engineering","Machine Learning","AI Governance","AI Workforce Development","Intelligent Automation","Large Language Models","Enterprise AI Deployment","Digital Transformation","AI Readiness Assessment","Generative AI","AI Risk Management","Responsible AI"],"sameAs":["https://www.linkedin.com/company/cognis-group","https://x.com/cognisgroup","https://github.com/cognis-group"],"hasOfferCatalog":{"@type":"OfferCatalog","name":"AI Consulting Services","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","@id":"https://cognis.group/#service-ai-strategy","name":"AI Strategy & Advisory","description":"Cognis Group helps organisations choose useful AI opportunities and create a clear plan with priorities, owners, costs, safeguards and measures of success.","provider":{"@id":"https://cognis.group/#organization"},"serviceType":"AI Strategy Consulting","areaServed":"Worldwide","audience":{"@type":"Audience","audienceType":"Enterprise organizations, Government agencies, Financial institutions"}}},{"@type":"Offer","itemOffered":{"@type":"Service","@id":"https://cognis.group/#service-ai-training","name":"AI Training & Workforce Development","description":"Cognis Group provides practical AI training that helps leaders and teams work better, check AI output and use approved tools safely.","provider":{"@id":"https://cognis.group/#organization"},"serviceType":"AI Training and Education","areaServed":"Worldwide"}},{"@type":"Offer","itemOffered":{"@type":"Service","@id":"https://cognis.group/#service-ai-agents","name":"AI Agent & Automation Engineering","description":"Cognis Group builds AI tools that handle agreed steps in business processes, reduce slow manual work and errors, and keep people in control.","provider":{"@id":"https://cognis.group/#organization"},"serviceType":"AI Engineering and Automation","areaServed":"Worldwide"}}]}},{"@type":"WebSite","@id":"https://cognis.group/#website","url":"https://cognis.group","name":"Cognis Group","description":"AI consulting and engineering company helping organisations plan, build and use AI safely","publisher":{"@id":"https://cognis.group/#organization"},"inLanguage":"en-GB"},{"@type":"BreadcrumbList","@id":"https://cognis.group/products/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://cognis.group/"},{"@type":"ListItem","position":2,"name":"Products","item":"https://cognis.group/products/"}]}]}</script>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=cring">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=cring">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=cring">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" href="/responsive.css">
+<style data-cognis-gheader>
+  @keyframes cgFadeUp { from { opacity: 0; transform: translateY(32px); } to { opacity: 1; transform: translateY(0); } }
+  .cg-gh .cgRoll { display: inline-block; overflow: hidden; height: 20px; vertical-align: top; }
+  .cg-gh .cgRoll b { display: block; font-weight: inherit; transition: transform 0.18s cubic-bezier(0.33,1,0.68,1); }
+  .cg-gh a:hover > .cgRoll b { transform: translateY(-20px); }
+  .cg-gh[data-cg-skin="white"] a.cg-gh-link:hover { color: #FFFFFF !important; }
+  .cg-gh[data-cg-skin="dark"] a.cg-gh-link:hover { color: #131313 !important; }
+  .cg-gh a.cg-gh-cta:hover { background: #FFFFFF !important; transform: scale(0.95); }
+  .cg-gh .cg-gh-current { box-shadow: rgb(214, 253, 112) 0px -2px 0px inset; padding-bottom: 4px; }
+  .cg-gh .cg-exp { position: relative; }
+  .cg-gh .cg-exp-panel { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); padding-top: 16px; opacity: 0; visibility: hidden; transition: opacity .22s ease; z-index: 30; }
+  .cg-gh .cg-exp:hover .cg-exp-panel, .cg-gh .cg-exp:focus-within .cg-exp-panel { opacity: 1; visibility: visible; }
+  .cg-gh .cg-exp-menu { background: #131313; border: 1px solid rgba(255,255,255,0.10); border-radius: 16px; padding: 8px; min-width: 236px; display: flex; flex-direction: column; gap: 2px; box-shadow: 0 28px 60px rgba(0,0,0,0.45); transform: translateY(8px); transition: transform .22s cubic-bezier(.22,1,.36,1); }
+  .cg-gh .cg-exp:hover .cg-exp-menu, .cg-gh .cg-exp:focus-within .cg-exp-menu { transform: translateY(0); }
+  .cg-gh .cg-exp-menu a { display: flex; flex-direction: column; gap: 2px; padding: 11px 14px; border-radius: 11px; text-transform: none; letter-spacing: -0.01em; transition: background .15s ease; text-decoration: none; }
+  .cg-gh .cg-exp-menu a:hover { background: rgba(255,255,255,0.06); }
+  .cg-gh .cg-exp-menu .t { font-weight: 600; font-size: 14px; color: #FFFFFF; }
+  .cg-gh .cg-exp-menu .d { font-weight: 400; font-size: 12px; color: rgba(255,255,255,0.5); }
+  .cg-gh a { text-decoration: none; }
+  /* Pages where the header is a direct child of <body> (no prerendered hero
+     wrapper) need their content pushed clear of the absolute header. */
+  body > .cg-gh ~ main { padding-top: 108px; }
+  body > .cg-gh ~ div > .sc-host { padding-top: 108px; } /* brand manual: its runtime renders the doc into a shadow host */
+  /* Prerendered pages whose hero card starts with a 12px margin: keep that margin
+     inside the wrapper (no collapse) so the absolute header measures from the page top. */
+  .sc-host > div:has(> .cg-gh) { display: flow-root; }
+  /* Framer service pages: the global header replaces Framer's own nav. */
+  div:has(> nav.framer-AZa26), nav.framer-AZa26 { display: none !important; }
+</style>
+<style data-cognis-gfooter>
+  .cg-gf a { text-decoration: none; }
+  .cg-gf a.cg-gf-link:hover { color: #FFFFFF !important; }
+  .cg-gf .cg-gf-btn:hover { background: #E5FF9B !important; }
+  /* Framer service pages: the global footer replaces Framer's own. */
+  div:has(> footer.framer-uOBZL), footer.framer-uOBZL { display: none !important; }
+</style>
+</head>
+<body><a href="https://cognis.group/cdn-cgi/content?id=JX6mRFJFQqiig7HE0HraxL8v3rfrtO4GzSBFSNYWphQ-1788947746.5467608-1.2.1.1-jTwRrIv7qqyuPdCt3MmCcRoyg0uRM5EB5bQU66ZJHohlZQHj0jn.N2XMhEpUhwWD" aria-hidden="true" rel="nofollow noopener" style="display: none !important; visibility: hidden !important"></a>
+<div id="dc-root"><div class="sc-host" data-sc-name="__pre__Cognis Products"><div data-dc-tpl="6" style="background: rgb(242, 242, 242); position: relative;">
+
+  
+  <div data-dc-tpl="7" class="cg-gh" data-cg-skin="dark" style="position: absolute; top: 12px; left: 12px; right: 12px; z-index: 1000; padding: 24px clamp(16px, 3.33vw, 48px);">
+    <div style="max-width: 1280px; margin: 0px auto; display: flex; align-items: center; justify-content: space-between; animation: 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0s 1 normal both running cgFadeUp;">
+      <a class="cg-gh-logo" href="/" aria-label="Cognis Group" style="display: flex; align-items: center; gap: 9px; color: rgb(19, 19, 19);">
+        <svg class="cg-mark-hero" viewBox="0 0 48 48" aria-hidden="true" style="width: 28px; height: 28px; fill: currentcolor; display: block;"><path d="M 42.66 12.34 A 22 22 0 1 0 42.66 35.66 L 33.19 31.71 A 12 12 0 1 1 33.19 16.29 Z"></path><rect x="36" y="19" width="10" height="10" fill="#D6FD70"></rect></svg>
+        <span style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 600; font-size: 23px; color: rgb(19, 19, 19); letter-spacing: -0.04em;">Cognis</span>
+      </a>
+      <div style="display: flex; align-items: center; gap: 24px;">
+        <a class="cg-gh-link" href="/" style="color: rgba(19, 19, 19, 0.8); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; white-space: nowrap;"><span class="cgRoll"><b>Home</b><b>Home</b></span></a>
+        <a class="cg-gh-link" href="/about-us/" style="color: rgba(19, 19, 19, 0.8); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; white-space: nowrap;"><span class="cgRoll"><b>About Us</b><b>About Us</b></span></a>
+        <a class="cg-gh-link" href="/our-services/" style="color: rgba(19, 19, 19, 0.8); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; white-space: nowrap;"><span class="cgRoll"><b>Services</b><b>Services</b></span></a>
+        <a class="cg-gh-link cg-gh-current" href="/products/" aria-current="page" style="color: rgba(19, 19, 19, 0.8); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; white-space: nowrap;"><span class="cgRoll"><b>Products</b><b>Products</b></span></a>
+        <a class="cg-gh-link" href="/blog/" style="color: rgba(19, 19, 19, 0.8); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; white-space: nowrap;"><span class="cgRoll"><b>Insights</b><b>Insights</b></span></a>
+        <div class="cg-exp" tabindex="0" style="height: 20px; color: rgba(19, 19, 19, 0.8); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; white-space: nowrap; cursor: default;">
+          <span style="display: inline-flex; align-items: center; gap: 5px;">Explore
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" style="opacity: 0.85;"><path d="M2 3.5L5 6.5L8 3.5" stroke="#131313" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </span>
+          <div class="cg-exp-panel">
+            <div class="cg-exp-menu">
+              <a href="/why-cognis/"><span class="t">Why Cognis</span><span class="d">The case for working with us</span></a>
+              <a href="/case-studies/"><span class="t">Case Studies</span><span class="d">AI shipped to governed production</span></a>
+              <a href="/how-we-work/"><span class="t">How We Work</span><span class="d">Six phases, designed to ship</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="cg-gh-cta" href="/contact/" style="background: rgb(214, 253, 112); color: rgb(19, 19, 19); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; white-space: nowrap; padding: 12px 22px; border-radius: 100px; transition: transform 0.3s cubic-bezier(0.19, 1, 0.22, 1), background-color 0.3s;">Work With Us</a>
+    </div>
+  </div>
+
+  
+  <div data-dc-tpl="36" style="max-width: 1180px; margin: 0px auto; padding: 168px 24px 40px;">
+    <div data-dc-tpl="37" style="max-width: 760px; margin-bottom: 56px;">
+      <p data-dc-tpl="38" style="color: rgb(99, 99, 99); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; font-weight: 500; margin: 0px 0px 18px; display: flex; align-items: center; gap: 12px;"><span data-dc-tpl="39" style="display: inline-block; width: 28px; height: 2px; background: rgb(205, 251, 86);"></span>Products</p>
+      <h1 data-dc-tpl="40" style="font-size: clamp(34px, 3.89vw, 56px); line-height: 1.04; letter-spacing: -0.025em; margin: 0px 0px 20px; font-weight: 700;">Four products. One company.</h1>
+      <p data-dc-tpl="41" style="color: rgb(47, 47, 47); font-size: 20px; line-height: 1.55; margin: 0px;">Cognis Group does more than give advice. We build and run our own software, with each product designed to solve one clear business problem from beginning to end.</p>
+    </div>
+
+    
+    <div data-dc-tpl="42" style="display: grid; gap: 20px; grid-template-columns: repeat(3, 1fr);">
+
+      
+      <a data-dc-tpl="43" href="/contact/?interest=cognis-ai" rel="noopener" data-h="h2" style="grid-column: span 3; position: relative; border-radius: 22px; padding: 36px; border: 1px solid rgb(230, 230, 230); background: linear-gradient(rgb(255, 255, 255) 0%, rgb(244, 248, 255) 100%); overflow: hidden; display: block; transition: transform 0.3s cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 0.3s, border-color 0.3s;">
+        <div data-dc-tpl="44" style="position: absolute; top: 0px; left: 0px; right: 0px; height: 4px; background: rgb(66, 133, 244); transform: scaleX(0); transform-origin: left center; transition: transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1);"></div>
+        <div data-dc-tpl="45" style="position: absolute; right: -120px; top: -120px; width: 360px; height: 360px; border-radius: 50%; background: radial-gradient(circle, rgba(66, 133, 244, 0.16), transparent 70%); pointer-events: none;"></div>
+        <div data-dc-tpl="46" style="position: relative; display: grid; grid-template-columns: 1.15fr 1fr; gap: 44px; align-items: center;">
+          <div data-dc-tpl="47">
+            <p data-dc-tpl="48" style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-size: 11px; letter-spacing: 1.1px; text-transform: uppercase; font-weight: 600; color: rgb(99, 99, 99); margin: 0px 0px 18px;">Demo by request · AI workforce</p>
+            <div data-dc-tpl="49" style="font-family: Nunito, sans-serif; font-weight: 800; font-size: clamp(28px, 3.19vw, 46px); letter-spacing: -0.02em; color: rgb(19, 19, 19); line-height: 1;">Cognis<span data-dc-tpl="50" style="color: rgb(66, 133, 244);">Ai</span>.</div>
+            <p data-dc-tpl="51" style="font-size: clamp(24px, 2.08vw, 30px); line-height: 1.3; font-weight: 600; letter-spacing: -0.01em; margin: 18px 0px 10px;">Hire AI to do the work.</p>
+            <p data-dc-tpl="52" style="font-size: 14.5px; line-height: 22.5px; color: rgb(47, 47, 47); margin: 0px;">Choose a specialised AI worker for customer support, calls, company knowledge, operations or trade. Each one is trained for a specific job, begins under human supervision and only works independently after proving reliable.</p>
+          </div>
+          <div data-dc-tpl="53" style="border-left: 1px solid rgb(230, 230, 230); padding-left: 44px;">
+            <div data-dc-tpl="54" style="display: flex; flex-direction: column; gap: 9px; margin-bottom: 24px;">
+              <div data-dc-tpl="55" style="display: flex; align-items: center; gap: 14px;"><span data-dc-tpl="56" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(66, 133, 244); flex-shrink: 0;"></span><span data-dc-tpl="57" style="font-size: 14.5px; color: rgb(47, 47, 47);">Specialised workers, not a single chatbot</span></div>
+              <div data-dc-tpl="58" style="display: flex; align-items: center; gap: 14px;"><span data-dc-tpl="59" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(66, 133, 244); flex-shrink: 0;"></span><span data-dc-tpl="60" style="font-size: 14.5px; color: rgb(47, 47, 47);">Learns safely before working independently</span></div>
+              <div data-dc-tpl="61" style="display: flex; align-items: center; gap: 14px;"><span data-dc-tpl="62" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(66, 133, 244); flex-shrink: 0;"></span><span data-dc-tpl="63" style="font-size: 14.5px; color: rgb(47, 47, 47);">Priced per worker, cancel anytime</span></div>
+            </div>
+            <span data-dc-tpl="64" style="display: inline-flex; align-items: center; gap: 8px; font-weight: 600; font-size: 15px; padding: 11px 18px; border-radius: 10px; background: rgb(66, 133, 244); color: rgb(255, 255, 255);">Request a Cognis AI demo <span data-dc-tpl="65">→</span></span>
+          </div>
+        </div>
+      </a>
+
+      
+      <a data-dc-tpl="66" href="https://www.marketsage.africa" target="_blank" rel="noopener" data-h="h3" style="position: relative; border-radius: 22px; padding: 36px; border: 1px solid rgb(230, 230, 230); background: linear-gradient(rgb(255, 255, 255) 0%, rgb(246, 247, 255) 100%); overflow: hidden; display: flex; flex-direction: column; transition: transform 0.3s cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 0.3s, border-color 0.3s;">
+        <div data-dc-tpl="67" style="position: absolute; top: 0px; left: 0px; right: 0px; height: 4px; background: linear-gradient(90deg, rgb(95, 111, 255) 0%, rgb(6, 182, 212) 100%); transform: scaleX(0); transform-origin: left center; transition: transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1);"></div>
+        <div data-dc-tpl="68" style="position: absolute; right: -110px; top: -110px; width: 320px; height: 320px; border-radius: 50%; background: radial-gradient(circle, rgba(95, 111, 255, 0.13), transparent 70%); pointer-events: none;"></div>
+        <p data-dc-tpl="69" style="position: relative; font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-size: 11px; letter-spacing: 1.1px; text-transform: uppercase; font-weight: 600; color: rgb(99, 99, 99); margin: 0px;">Live · Marketing AI</p>
+        <div data-dc-tpl="70" style="position: relative; margin: 26px 0px 0px; display: flex; align-items: center; gap: 12px;"><img data-dc-tpl="71" src="/assets/marketsage-logo.png" alt="MarketSage" style="width: 42px; height: 42px; display: block; flex-shrink: 0;"><span data-dc-tpl="72" style="font-weight: 600; font-size: clamp(24px, 1.81vw, 26px); letter-spacing: -0.02em; line-height: 1;"><span data-dc-tpl="73" style="color: rgb(95, 111, 255);">MΛRKET</span><span data-dc-tpl="74" style="color: rgb(6, 182, 212);">SΛGE</span></span></div>
+        <p data-dc-tpl="75" style="position: relative; font-size: 21px; line-height: 1.3; font-weight: 600; letter-spacing: -0.01em; margin: 18px 0px 10px;">Marketing that thinks, acts, and converts.</p>
+        <p data-dc-tpl="76" style="position: relative; font-size: 14.5px; line-height: 22.5px; color: rgb(47, 47, 47); margin: 0px 0px 22px;">Marketing and sales software that plans campaigns, runs them across different channels and turns interest into sales opportunities. Cognis uses it for its own marketing.</p>
+        <div data-dc-tpl="77" style="position: relative; display: flex; flex-direction: column; gap: 9px; margin-bottom: 26px;">
+          <div data-dc-tpl="78" style="display: flex; align-items: center; gap: 14px;"><span data-dc-tpl="79" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(95, 111, 255); flex-shrink: 0;"></span><span data-dc-tpl="80" style="font-size: 14.5px; color: rgb(47, 47, 47);">Plans and runs campaigns across channels</span></div>
+          <div data-dc-tpl="81" style="display: flex; align-items: center; gap: 14px;"><span data-dc-tpl="82" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(95, 111, 255); flex-shrink: 0;"></span><span data-dc-tpl="83" style="font-size: 14.5px; color: rgb(47, 47, 47);">Sales intelligence that scores and routes leads</span></div>
+          <div data-dc-tpl="84" style="display: flex; align-items: center; gap: 14px;"><span data-dc-tpl="85" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(95, 111, 255); flex-shrink: 0;"></span><span data-dc-tpl="86" style="font-size: 14.5px; color: rgb(47, 47, 47);">Connects with your CRM and sales tools</span></div>
+        </div>
+        <span data-dc-tpl="87" style="position: relative; margin-top: auto; align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; font-weight: 600; font-size: 15px; padding: 11px 18px; border-radius: 10px; background: rgb(95, 111, 255); color: rgb(255, 255, 255);">Visit MarketSage <span data-dc-tpl="88">→</span></span>
+      </a>
+
+      
+      <a data-dc-tpl="89" href="https://migratio.cognis.group" target="_blank" rel="noopener" data-h="h4" style="position: relative; border-radius: 22px; padding: 36px; border: 1px solid rgb(26, 32, 73); background: linear-gradient(160deg, rgb(36, 44, 99) 0%, rgb(26, 32, 73) 100%); color: rgb(241, 242, 248); overflow: hidden; display: flex; flex-direction: column; transition: transform 0.3s cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 0.3s, border-color 0.3s;">
+        <div data-dc-tpl="90" style="position: absolute; top: 0px; left: 0px; right: 0px; height: 4px; background: rgb(91, 176, 79); transform: scaleX(0); transform-origin: left center; transition: transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1);"></div>
+        <div data-dc-tpl="91" style="position: absolute; right: -100px; bottom: -100px; width: 300px; height: 300px; border-radius: 50%; background: radial-gradient(circle, rgba(91, 176, 79, 0.18), transparent 70%); pointer-events: none;"></div>
+        <p data-dc-tpl="92" style="position: relative; font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-size: 11px; letter-spacing: 1.1px; text-transform: uppercase; font-weight: 600; color: rgb(137, 147, 168); margin: 0px;">Live · Data migration</p>
+        <div data-dc-tpl="93" style="position: relative; margin: 24px 0px 6px;"><img data-dc-tpl="94" src="/assets/migratio-logo-horizontal-dark.svg" alt="Migratio by Cognis" style="height: 44px; width: auto; max-width: 100%; display: block;"></div>
+        <p data-dc-tpl="95" style="position: relative; font-size: 19px; line-height: 1.3; font-weight: 500; color: rgb(241, 242, 248); margin: 18px 0px 10px;">Check every record before you switch.</p>
+        <p data-dc-tpl="96" style="position: relative; font-size: 14.5px; line-height: 22.5px; color: rgb(179, 187, 208); margin: 0px 0px 22px;">A secure data-migration platform for banks, public institutions and regulated organisations. It checks every record before and after the move and keeps the evidence needed for review.</p>
+        <div data-dc-tpl="97" style="position: relative; display: flex; flex-direction: column; gap: 9px; margin-bottom: 26px;">
+          <div data-dc-tpl="98" style="display: flex; align-items: center; gap: 14px;"><span data-dc-tpl="99" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(91, 176, 79); flex-shrink: 0;"></span><span data-dc-tpl="100" style="font-size: 14.5px; color: rgb(179, 187, 208);">Checks every record and keeps a full history</span></div>
+          <div data-dc-tpl="101" style="display: flex; align-items: center; gap: 14px;"><span data-dc-tpl="102" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(91, 176, 79); flex-shrink: 0;"></span><span data-dc-tpl="103" style="font-size: 14.5px; color: rgb(179, 187, 208);">Matches different name formats used in African records</span></div>
+          <div data-dc-tpl="104" style="display: flex; align-items: center; gap: 14px;"><span data-dc-tpl="105" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(91, 176, 79); flex-shrink: 0;"></span><span data-dc-tpl="106" style="font-size: 14.5px; color: rgb(179, 187, 208);">Confirms nothing changed or went missing during the move</span></div>
+        </div>
+        <span data-dc-tpl="107" style="position: relative; margin-top: auto; align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; font-weight: 600; font-size: 15px; padding: 11px 18px; border-radius: 10px; background: rgb(91, 176, 79); color: rgb(13, 36, 16);">Visit Migratio <span data-dc-tpl="108">→</span></span>
+      </a>
+
+      
+      <a data-dc-tpl="109" href="https://spog.cognis.group" target="_blank" rel="noopener" data-h="h5" style="position: relative; border-radius: 22px; padding: 36px; border: 1px solid rgb(230, 230, 230); background: linear-gradient(rgb(255, 255, 255) 0%, rgb(244, 243, 254) 100%); overflow: hidden; display: flex; flex-direction: column; transition: transform 0.3s cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 0.3s, border-color 0.3s;">
+        <div data-dc-tpl="110" style="position: absolute; top: 0px; left: 0px; right: 0px; height: 4px; background: rgb(91, 84, 224); transform: scaleX(0); transform-origin: left center; transition: transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1);"></div>
+        <div data-dc-tpl="111" style="position: absolute; right: -110px; top: -110px; width: 320px; height: 320px; border-radius: 50%; background: radial-gradient(circle, rgba(91, 84, 224, 0.14), transparent 70%); pointer-events: none;"></div>
+        <p data-dc-tpl="112" style="position: relative; font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-size: 11px; letter-spacing: 1.1px; text-transform: uppercase; font-weight: 600; color: rgb(99, 99, 99); margin: 0px;">Live · Operations monitoring</p>
+        <div data-dc-tpl="113" style="position: relative; margin: 24px 0px 0px; display: flex; align-items: center; gap: 12px;"><img loading="lazy" decoding="async" data-dc-tpl="114" src="/assets/spog-icon.svg" alt="" style="width: 40px; height: 40px; display: block; flex-shrink: 0;"><span data-dc-tpl="115" style="font-size: clamp(24px, 2.22vw, 32px); font-weight: 700; letter-spacing: -0.02em; color: rgb(19, 19, 19); line-height: 1;">SPOG</span></div>
+        <p data-dc-tpl="116" style="position: relative; font-size: 21px; line-height: 1.3; font-weight: 600; letter-spacing: -0.01em; margin: 18px 0px 10px;">See everything. Trust every number.</p>
+        <p data-dc-tpl="117" style="position: relative; font-size: 14.5px; line-height: 22.5px; color: rgb(47, 47, 47); margin: 0px 0px 22px;">SPOG brings updates from IT, networks, buildings, vehicles and security into one dashboard. It also shows where every number came from and whether it is current.</p>
+        <div data-dc-tpl="118" style="position: relative; display: flex; flex-direction: column; gap: 9px; margin-bottom: 26px;">
+          <div data-dc-tpl="119" style="display: flex; align-items: center; gap: 14px;"><span data-dc-tpl="120" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(91, 84, 224); flex-shrink: 0;"></span><span data-dc-tpl="121" style="font-size: 14.5px; color: rgb(47, 47, 47);">Brings more than 30 data sources into one view</span></div>
+          <div data-dc-tpl="122" style="display: flex; align-items: center; gap: 14px;"><span data-dc-tpl="123" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(91, 84, 224); flex-shrink: 0;"></span><span data-dc-tpl="124" style="font-size: 14.5px; color: rgb(47, 47, 47);">Shows each team the information it needs</span></div>
+          <div data-dc-tpl="125" style="display: flex; align-items: center; gap: 14px;"><span data-dc-tpl="126" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(91, 84, 224); flex-shrink: 0;"></span><span data-dc-tpl="127" style="font-size: 14.5px; color: rgb(47, 47, 47);">Shows the source and freshness of every number</span></div>
+        </div>
+        <span data-dc-tpl="128" style="position: relative; margin-top: auto; align-self: flex-start; display: inline-flex; align-items: center; gap: 8px; font-weight: 600; font-size: 15px; padding: 11px 18px; border-radius: 10px; background: rgb(91, 84, 224); color: rgb(255, 255, 255);">Visit SPOG <span data-dc-tpl="129">→</span></span>
+      </a>
+    </div>
+  </div>
+
+  
+  <div data-dc-tpl="130" style="max-width: 1180px; margin: 64px auto 0px; padding: 0px 24px;">
+    <div data-dc-tpl="131" style="background: rgb(10, 10, 10); color: rgb(255, 255, 255); border-radius: 22px; padding: clamp(16px, 3.33vw, 48px) 44px; display: flex; flex-wrap: wrap; gap: 24px; align-items: center; justify-content: space-between;">
+      <div data-dc-tpl="132">
+        <h2 data-dc-tpl="133" style="font-size: clamp(24px, 1.94vw, 28px); letter-spacing: -0.02em; margin: 0px 0px 8px; font-weight: 700;">One company behind all four.</h2>
+        <p data-dc-tpl="134" style="margin: 0px; color: rgb(193, 193, 193); max-width: 560px; font-size: 16px;">Cognis Group builds, runs and improves every product on this page. The same team also delivers AI work for banks, public institutions and businesses.</p>
+      </div>
+      <a data-dc-tpl="135" href="/contact/" data-h="h6" style="background: rgb(205, 251, 86); color: rgb(19, 19, 19); font-weight: 700; padding: 14px 26px; border-radius: 10px; white-space: nowrap; transition: transform 0.2s;">Start a conversation →</a>
+    </div>
+  </div>
+
+  
+  <footer class="cg-gf" data-screen-label="Footer" style="background: rgb(13, 13, 12); margin: 12px; border-radius: 24px; padding: 56px clamp(16px, 3.33vw, 48px) 32px;">
+    <div style="max-width: 1280px; margin: 0px auto;">
+      <div style="display: grid; grid-template-columns: 1.4fr 0.7fr 0.7fr 0.7fr 1.2fr; gap: 48px;">
+        <div>
+          <a class="cg-gf-logo" href="/" aria-label="Cognis Group" style="display: inline-flex; align-items: center; gap: 9px; color: rgb(255, 255, 255);">
+            <svg viewBox="0 0 48 48" aria-hidden="true" style="width: 28px; height: 28px; fill: rgb(255, 255, 255); display: block;"><path d="M 42.66 12.34 A 22 22 0 1 0 42.66 35.66 L 33.19 31.71 A 12 12 0 1 1 33.19 16.29 Z"></path><rect x="36" y="19" width="10" height="10" fill="#D6FD70"></rect></svg>
+            <span style="font-family: Inter, sans-serif; font-weight: 400; font-size: 24px; line-height: 28.8px; color: rgb(255, 255, 255); letter-spacing: -1.44px;">Cognis</span>
+          </a>
+          <div style="height: 20px;"></div>
+          <div style="font-size: 14px; line-height: 1.65; color: rgba(255, 255, 255, 0.6); max-width: 320px;">Cognis Group helps organisations use AI to improve how people work. We plan, build and manage practical systems, then prepare your team to use them with confidence. Quod Tango Muto: what we touch, we change.</div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 14px;">
+          <div style="font-family: Inter, sans-serif; font-weight: 600; font-size: 11px; color: rgba(255, 255, 255, 0.45); letter-spacing: 0.88px; text-transform: uppercase;">COMPANY</div>
+          <a class="cg-gf-link" href="/" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Home</a>
+          <a class="cg-gf-link" href="/about-us/" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">About Us</a>
+          <a class="cg-gf-link" href="/our-services/" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Services</a>
+          <a class="cg-gf-link" href="/products/" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Products</a>
+          <a class="cg-gf-link" href="/blog/" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Insights</a>
+          <a class="cg-gf-link" href="/careers/" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Careers</a>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 14px;">
+          <div style="font-family: Inter, sans-serif; font-weight: 600; font-size: 11px; color: rgba(255, 255, 255, 0.45); letter-spacing: 0.88px; text-transform: uppercase;">SERVICES</div>
+          <a class="cg-gf-link" href="/our-services/ai-strategy-advisory/" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Strategy</a>
+          <a class="cg-gf-link" href="/our-services/ai-training-workforce-development/" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Training</a>
+          <a class="cg-gf-link" href="/our-services/ai-agent-automation-engineering/" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Agent Engineering</a>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 14px;">
+          <div style="font-family: Inter, sans-serif; font-weight: 600; font-size: 11px; color: rgba(255, 255, 255, 0.45); letter-spacing: 0.88px; text-transform: uppercase;">EXPLORE</div>
+          <a class="cg-gf-link" href="/why-cognis/" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Why Cognis</a>
+          <a class="cg-gf-link" href="/case-studies/" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Case Studies</a>
+          <a class="cg-gf-link" href="/how-we-work/" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">How We Work</a>
+          <a class="cg-gf-link" href="/faq/" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">FAQ</a>
+          <a class="cg-gf-link" href="/contact/" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Contact</a>
+        </div>
+        <div>
+          <div style="font-family: Inter, sans-serif; font-weight: 600; font-size: 11px; color: rgba(255, 255, 255, 0.45); letter-spacing: 0.88px; text-transform: uppercase;">GET AI INTELLIGENCE IN YOUR INBOX</div>
+          <div style="height: 16px;"></div>
+          <form action="/api/form" method="POST" style="display: flex; gap: 8px;"><input type="text" name="company" value="" style="display:none !important" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <input type="hidden" name="from_name" value="cognis.group newsletter">
+            <input type="hidden" name="subject" value="New newsletter signup — cognis.group">
+            <input type="hidden" name="redirect" value="https://cognis.group/thanks-subscribe/">
+            <input type="email" name="email" required="" placeholder="Your work email" style="flex: 1 1 0%; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.14); border-radius: 100px; padding: 12px 18px; font-size: 14px; color: rgb(255, 255, 255); outline: none; font-family: &quot;Plus Jakarta Sans&quot;, sans-serif;">
+            <button type="submit" class="cg-gf-btn" style="background: rgb(214, 253, 112); color: rgb(13, 13, 12); border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; border-radius: 100px; padding: 12px 22px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: &quot;Plus Jakarta Sans&quot;, sans-serif;">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div style="height: clamp(28px, 3.89vw, 56px);"></div>
+      <div style="border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 24px; display: flex; justify-content: space-between; align-items: center;">
+        <div style="font-size: 14px; color: rgba(255, 255, 255, 0.45);">© 2024–2026 Cognis Group. All rights reserved.</div>
+        <div style="display: flex; gap: 24px;">
+          <a class="cg-gf-link" href="/privacy-policy/" style="font-size: 13px; color: rgba(255, 255, 255, 0.45);">Privacy</a>
+          <a class="cg-gf-link" href="/terms/" style="font-size: 13px; color: rgba(255, 255, 255, 0.45);">Terms</a>
+          <a class="cg-gf-link" href="/contact/" style="font-size: 13px; color: rgba(255, 255, 255, 0.45);">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div></div></div>
+<script src="/cognis.js" defer></script>
+<script defer src="/assets/logo-motion.js"></script><script defer src="/assets/ask-cognis.js"></script><script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a38551b7edf493f4',t:'MTc4ODk0Nzc0Ng=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

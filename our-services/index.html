@@ -113,6 +113,7 @@
 <script type="application/ld+json" data-cognis-route-schema>{"@context":"https://schema.org","@graph":[{"@type":"CollectionPage","@id":"https://cognis.group/our-services/#webpage","url":"https://cognis.group/our-services/","name":"Cognis Group Services","isPartOf":{"@id":"https://cognis.group/#website"},"breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://cognis.group/"},{"@type":"ListItem","position":2,"name":"Services","item":"https://cognis.group/our-services/"}]}}]}</script>
 <link rel="stylesheet" href="/responsive.css">
 <link rel="stylesheet" href="/assets/seo-editorial.css">
+<link rel="stylesheet" href="/assets/site-improvements.css">
 <style data-cognis-gheader>
   @keyframes cgFadeUp { from { opacity: 0; transform: translateY(32px); } to { opacity: 1; transform: translateY(0); } }
   .cg-gh .cgRoll { display: inline-block; overflow: hidden; height: 20px; vertical-align: top; }
@@ -150,7 +151,7 @@
   div:has(> footer.framer-uOBZL), footer.framer-uOBZL { display: none !important; }
 </style>
 </head>
-<body>
+<body><a class="cg-skip-link" href="#cg-main">Skip to content</a>
 <div id="dc-root"><div class="sc-host" data-sc-name="__pre__Cognis Services"><div data-dc-tpl="6" style="background: rgb(255, 255, 255); position: relative;">
 
   
@@ -184,7 +185,8 @@
   </div>
 
   
-  <section data-dc-tpl="36" data-screen-label="Services hero" style="position: relative; box-sizing: border-box; margin: 12px; border-radius: 24px; overflow: hidden; padding: 148px 52px 0px; display: flex; flex-direction: column; min-height: calc(-24px + 100svh);">
+  <main id="cg-main">
+<section data-dc-tpl="36" data-screen-label="Services hero" style="position: relative; box-sizing: border-box; margin: 12px; border-radius: 24px; overflow: hidden; padding: 148px 52px 0px; display: flex; flex-direction: column; min-height: calc(-24px + 100svh);">
     <video data-dc-tpl="37" autoplay="" playsinline="" preload="auto" src="/assets/services-hero.mp4" loop="" style="position: absolute; inset: 0px; width: 100%; height: 100%; object-fit: cover;"></video>
     <div data-dc-tpl="38" style="position: absolute; inset: 0px; background: linear-gradient(rgba(19, 19, 19, 0.6) 0%, rgba(19, 19, 19, 0.4) 40%, rgba(19, 19, 19, 0.28) 100%);"></div>
     <div data-dc-tpl="39" style="position: relative; max-width: 1280px; margin: 0px;">
@@ -501,7 +503,8 @@
   </section>
 
   
-  <footer class="cg-gf" data-screen-label="Footer" style="background: rgb(13, 13, 12); margin: 12px; border-radius: 24px; padding: 56px clamp(16px, 3.33vw, 48px) 32px;">
+  </main>
+<footer class="cg-gf" data-screen-label="Footer" style="background: rgb(13, 13, 12); margin: 12px; border-radius: 24px; padding: 56px clamp(16px, 3.33vw, 48px) 32px;">
     <div style="max-width: 1280px; margin: 0px auto;">
       <div style="display: grid; grid-template-columns: 1.4fr 0.7fr 0.7fr 0.7fr 1.2fr; gap: 48px;">
         <div>
@@ -542,7 +545,7 @@
             <input type="hidden" name="from_name" value="cognis.group newsletter">
             <input type="hidden" name="subject" value="New newsletter signup — cognis.group">
             <input type="hidden" name="redirect" value="https://cognis.group/thanks-subscribe/">
-            <input type="email" name="email" required="" placeholder="Your work email" style="flex: 1 1 0%; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.14); border-radius: 100px; padding: 12px 18px; font-size: 14px; color: rgb(255, 255, 255); outline: none; font-family: &quot;Plus Jakarta Sans&quot;, sans-serif;">
+            <input type="email" name="email" required="" placeholder="Your work email" aria-label="Your work email" style="flex: 1 1 0%; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.14); border-radius: 100px; padding: 12px 18px; font-size: 14px; color: rgb(255, 255, 255); outline: none; font-family: &quot;Plus Jakarta Sans&quot;, sans-serif;">
             <button type="submit" class="cg-gf-btn" style="background: rgb(214, 253, 112); color: rgb(13, 13, 12); border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; border-radius: 100px; padding: 12px 22px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: &quot;Plus Jakarta Sans&quot;, sans-serif;">Subscribe</button>
           </form>
         </div>

@@ -1,0 +1,26 @@
+HTTP/2 301 
+date: Wed, 09 Sep 2026 09:59:36 GMT
+content-type: text/html; charset=UTF-8
+location: https://cognis.group/
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=TJlClQjKzr0wBmiY%2B4oCE9ukv2YHFyUBU03HZxUpdHzhwa4nF1U6sgDbGOQeVCog3zbBN3LgmkDaq34ClzNl16l66rhNQhx0hBhzvc0yCx40215dPf30wgbwqBCy1CjdVB2M"}]}
+nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+server: cloudflare
+cf-ray: a38557535b211b03-LHR
+
+HTTP/2 200 
+date: Wed, 09 Sep 2026 09:59:36 GMT
+content-type: text/html; charset=utf-8
+x-frame-options: SAMEORIGIN
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=rCJ5rozRu8nNRiY7vmVW8bUeciHysoUDIaWsJP5uqE75tHSOBxbi1%2B5sHdPn%2FZKRExIAzkWSpK79BLNux9NB7b9fQGamG3VmO36wDr1jK%2BMAJkAqvhJEHoHUUvYAFQQ%3D"}]}
+nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+access-control-allow-origin: *
+cache-control: public, max-age=0, must-revalidate
+x-content-type-options: nosniff
+referrer-policy: strict-origin-when-cross-origin
+vary: accept-encoding
+server: cloudflare
+cf-cache-status: DYNAMIC
+content-encoding: gzip
+cf-ray: a38557557a57d315-LHR
+alt-svc: h3=":443"; ma=86400
+

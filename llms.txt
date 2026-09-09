@@ -15,7 +15,7 @@ Cognis AI: request a demonstration at https://cognis.group/contact/?interest=cog
 - [AI Training & Workforce Development | Cognis Group](https://cognis.group/our-services/ai-training-workforce-development/): Practical, role-based AI training that helps leaders and teams work better, check AI output and use approved tools safely.
 - [AI Agent & Automation Engineering | Cognis Group](https://cognis.group/our-services/ai-agent-automation-engineering/): We build AI tools that handle agreed steps in business processes, with clear limits, human approval and monitoring.
 - [Products | Cognis Group](https://cognis.group/products/): The products Cognis Group builds and operates — Cognis AI, MarketSage, Migratio, and SPOG. Proof that we ship what we sell.
-- [Africa’s Leading AI Consulting Firm | Cognis Group](https://cognis.group/why-cognis/): Why organisations choose Cognis: senior-led delivery, strong African context, working AI products and a practical handover.
+- [Why Cognis | AI Consulting & Engineering for Africa](https://cognis.group/why-cognis/): Why organisations choose Cognis: senior-led delivery, strong African context, working AI products and a practical handover.
 - [How We Work | Cognis Group](https://cognis.group/how-we-work/): See the six clear steps Cognis uses to understand the problem, plan the work, build, launch and manage a practical AI system.
 - [Contact | Cognis Group](https://cognis.group/contact/): Talk to Cognis Group about a slow, costly or difficult process. We will help you work out whether AI is the right fit.
 - [Blog | Cognis Group](https://cognis.group/blog/): Notes from the field on AI strategy, agent engineering, governance, and operating AI in production.

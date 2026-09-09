@@ -417,6 +417,7 @@ a[data-dc-tpl="65"]:hover { opacity: 1; }
 </script>
 <!-- cognis-ux-tweaks:end -->
 <link rel="stylesheet" href="/assets/seo-editorial.css">
+<link rel="stylesheet" href="/assets/site-improvements.css">
 <style data-cognis-gheader>
   @keyframes cgFadeUp { from { opacity: 0; transform: translateY(32px); } to { opacity: 1; transform: translateY(0); } }
   .cg-gh .cgRoll { display: inline-block; overflow: hidden; height: 20px; vertical-align: top; }
@@ -454,7 +455,7 @@ a[data-dc-tpl="65"]:hover { opacity: 1; }
   div:has(> footer.framer-uOBZL), footer.framer-uOBZL { display: none !important; }
 </style>
 </head>
-<body>
+<body><a class="cg-skip-link" href="#cg-main">Skip to content</a>
 <div id="dc-root"><div class="sc-host" data-sc-name="__pre__Cognis Blog"><div data-dc-tpl="6" style="background: rgb(242, 242, 242); position: relative;">
 
   
@@ -488,7 +489,8 @@ a[data-dc-tpl="65"]:hover { opacity: 1; }
   </div>
 
   
-  <div data-dc-tpl="36" style="max-width: 1280px; margin: 0px auto; padding: 168px clamp(16px, 3.33vw, 48px) 40px;">
+  <main id="cg-main">
+<div data-dc-tpl="36" style="max-width: 1280px; margin: 0px auto; padding: 168px clamp(16px, 3.33vw, 48px) 40px;">
     <div data-dc-tpl="37" style="max-width: 760px;">
       <p data-dc-tpl="38" style="color: rgb(99, 99, 99); font-family: Geistmono, &quot;Geist Mono&quot;, monospace; font-size: 13px; line-height: 20px; letter-spacing: 0.12em; text-transform: uppercase; margin: 0px 0px 18px; display: flex; align-items: center; gap: 12px;"><span data-dc-tpl="39" style="display: inline-block; width: 4px; height: 4px; background: rgb(19, 19, 19);"></span>Blog and Articles</p>
       <h1 data-dc-tpl="40" style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-size: clamp(29px, 3.33vw, 48px); line-height: 1.17; letter-spacing: -0.06em; margin: 0px 0px 20px; font-weight: 500;">Latest insights and trends</h1>
@@ -642,6 +644,7 @@ a[data-dc-tpl="65"]:hover { opacity: 1; }
 
   
   <section id="seo-related"><div class="seo-editorial"><h2>Research and buyer guidance</h2><ul><li><a href="/research/state-of-ai-african-enterprises-2026/">The state of AI in African enterprises</a></li><li><a href="/best-ai-consulting-firms-africa/">Choosing an AI delivery partner in Africa</a></li></ul></div></section>
+</main>
 <footer class="cg-gf" data-screen-label="Footer" style="background: rgb(13, 13, 12); margin: 12px; border-radius: 24px; padding: 56px clamp(16px, 3.33vw, 48px) 32px;">
     <div style="max-width: 1280px; margin: 0px auto;">
       <div style="display: grid; grid-template-columns: 1.4fr 0.7fr 0.7fr 0.7fr 1.2fr; gap: 48px;">
@@ -683,7 +686,7 @@ a[data-dc-tpl="65"]:hover { opacity: 1; }
             <input type="hidden" name="from_name" value="cognis.group newsletter">
             <input type="hidden" name="subject" value="New newsletter signup — cognis.group">
             <input type="hidden" name="redirect" value="https://cognis.group/thanks-subscribe/">
-            <input type="email" name="email" required="" placeholder="Your work email" style="flex: 1 1 0%; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.14); border-radius: 100px; padding: 12px 18px; font-size: 14px; color: rgb(255, 255, 255); outline: none; font-family: &quot;Plus Jakarta Sans&quot;, sans-serif;">
+            <input type="email" name="email" required="" placeholder="Your work email" aria-label="Your work email" style="flex: 1 1 0%; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.14); border-radius: 100px; padding: 12px 18px; font-size: 14px; color: rgb(255, 255, 255); outline: none; font-family: &quot;Plus Jakarta Sans&quot;, sans-serif;">
             <button type="submit" class="cg-gf-btn" style="background: rgb(214, 253, 112); color: rgb(13, 13, 12); border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; border-radius: 100px; padding: 12px 22px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: &quot;Plus Jakarta Sans&quot;, sans-serif;">Subscribe</button>
           </form>
         </div>

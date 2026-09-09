@@ -1,0 +1,193 @@
+[
+  {
+    "site": "LM",
+    "width": 390,
+    "state": {
+      "overflow": [
+        {
+          "tag": "DIV",
+          "cls": "orb orb1",
+          "text": "",
+          "right": 430,
+          "width": 380
+        },
+        {
+          "tag": "DIV",
+          "cls": "case-card",
+          "text": "CASE STUDY 02  ·  FINANCIAL SERVICES AI\nAI Fraud Detection, Built to Pass Audit\n",
+          "right": 491.140625,
+          "width": 226.625
+        },
+        {
+          "tag": "DIV",
+          "cls": "case-eyebrow",
+          "text": "CASE STUDY 02  ·  FINANCIAL SERVICES AI",
+          "right": 443.140625,
+          "width": 130.625
+        },
+        {
+          "tag": "H3",
+          "cls": "case-title",
+          "text": "AI Fraud Detection, Built to Pass Audit",
+          "right": 443.140625,
+          "width": 130.625
+        },
+        {
+          "tag": "P",
+          "cls": "case-body",
+          "text": "A US financial institution wanted to put AI to work on fraud detection, but ever",
+          "right": 443.140625,
+          "width": 130.625
+        },
+        {
+          "tag": "DIV",
+          "cls": "case-result",
+          "text": "Audit-ready\nAI moved into production with governance that regulators and auditor",
+          "right": 443.140625,
+          "width": 130.625
+        },
+        {
+          "tag": "DIV",
+          "cls": "case-metric",
+          "text": "Audit-ready",
+          "right": 443.140625,
+          "width": 130.625
+        },
+        {
+          "tag": "DIV",
+          "cls": "case-metric-label",
+          "text": "AI moved into production with governance that regulators and auditors could stan",
+          "right": 443.140625,
+          "width": 130.625
+        },
+        {
+          "tag": "DIV",
+          "cls": "reveal",
+          "text": "SEP\n2026\nLAGOS, NIGERIA",
+          "right": 466.234375,
+          "width": 160
+        },
+        {
+          "tag": "DIV",
+          "cls": "",
+          "text": "SEP",
+          "right": 466.234375,
+          "width": 160
+        },
+        {
+          "tag": "DIV",
+          "cls": "",
+          "text": "2026",
+          "right": 466.234375,
+          "width": 160
+        },
+        {
+          "tag": "DIV",
+          "cls": "",
+          "text": "LAGOS, NIGERIA",
+          "right": 466.234375,
+          "width": 160
+        }
+      ],
+      "navPadding": "15px 60px",
+      "landmarks": 0,
+      "revealHidden": 0
+    }
+  },
+  {
+    "site": "LM",
+    "width": 1440,
+    "state": {
+      "overflow": [
+        {
+          "tag": "DIV",
+          "cls": "orb orb1",
+          "text": "",
+          "right": 1480,
+          "width": 380
+        }
+      ],
+      "navPadding": "15px 60px",
+      "landmarks": 0,
+      "revealHidden": 0
+    }
+  },
+  {
+    "url": "https://luminarymeridian.com/",
+    "nojs": {
+      "hiddenReveal": 32,
+      "reveals": 32,
+      "landmarks": 0
+    }
+  },
+  {
+    "url": "https://cognis.group/",
+    "nojs": {
+      "hiddenReveal": 0,
+      "reveals": 0,
+      "landmarks": 0
+    }
+  },
+  {
+    "site": "Cognis",
+    "formSnapshot": "- text: Full name\n- textbox \"Your full name\"\n- text: Email address\n- textbox \"Your email address\"\n- text: Message\n- textbox \"Your message here...\"\n- button \"Send Message\":\n  - text: Send Message\n  - img",
+    "fields": [
+      {
+        "name": "company",
+        "placeholder": null,
+        "label": null,
+        "labelledby": null,
+        "title": null,
+        "outer": "<input type=\"text\" name=\"company\" value=\"\" style=\"display: none !important;\" tabindex=\"-1\" autocomplete=\"off\" aria-hidden=\"true\">"
+      },
+      {
+        "name": "from_name",
+        "placeholder": null,
+        "label": null,
+        "labelledby": null,
+        "title": null,
+        "outer": "<input data-dc-tpl=\"66\" type=\"hidden\" name=\"from_name\" value=\"cognis.group contact form\" style=\"\">"
+      },
+      {
+        "name": "subject",
+        "placeholder": null,
+        "label": null,
+        "labelledby": null,
+        "title": null,
+        "outer": "<input data-dc-tpl=\"67\" type=\"hidden\" name=\"subject\" value=\"New contact form submission — cognis.group\" style=\"\">"
+      },
+      {
+        "name": "redirect",
+        "placeholder": null,
+        "label": null,
+        "labelledby": null,
+        "title": null,
+        "outer": "<input data-dc-tpl=\"68\" type=\"hidden\" name=\"redirect\" value=\"https://cognis.group/thanks/\" style=\"\">"
+      },
+      {
+        "name": "name",
+        "placeholder": "Your full name",
+        "label": null,
+        "labelledby": null,
+        "title": null,
+        "outer": "<input data-dc-tpl=\"71\" type=\"text\" name=\"name\" required=\"\" placeholder=\"Your full name\" style=\"background: rgb(242, 242, 242); border: 1px solid rgb(230, 230, 230); border-radius: 14px; padding: 16px 18px; font-size: 15px; color: rgb(19, 19, 19); outline: none; font-family: &quot;Plus Jakarta Sans&quot;, sans-serif;\">"
+      },
+      {
+        "name": "email",
+        "placeholder": "Your email address",
+        "label": null,
+        "labelledby": null,
+        "title": null,
+        "outer": "<input data-dc-tpl=\"74\" type=\"email\" name=\"email\" required=\"\" placeholder=\"Your email address\" style=\"background: rgb(242, 242, 242); border: 1px solid rgb(230, 230, 230); border-radius: 14px; padding: 16px 18px; font-size: 15px; color: rgb(19, 19, 19); outline: none; font-family: &quot;Plus Jakarta Sans&quot;, sans-serif;\">"
+      },
+      {
+        "name": "message",
+        "placeholder": "Your message here...",
+        "label": null,
+        "labelledby": null,
+        "title": null,
+        "outer": "<textarea data-dc-tpl=\"77\" name=\"message\" required=\"\" placeholder=\"Your message here...\" style=\"background: rgb(242, 242, 242); border: 1px solid rgb(230, 230, 230); border-radius: 14px; padding: 16px 18px; font-size: 15px; color: rgb(19, 19, 19); outline: none; min-height: 160px; resize: vertical; font-family: &quot;Plus Jakarta Sans&quot;, sans-serif;\"></textarea>"
+      }
+    ]
+  }
+]

@@ -1,0 +1,30 @@
+HTTP/2 308 
+date: Wed, 09 Sep 2026 09:47:10 GMT
+content-length: 0
+x-frame-options: SAMEORIGIN
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=VXnMHzBLpckPTQ00K1FVL74LAOHau3aBODYt7ovw9ASkNrEQcgSMKAiKNHO6NacIcqfAr6l8NUNUdp%2BiZzd9UGsJcH9dCFsZ%2FdxrM3xSme6Fpt5THJuQZmPOdp8qBa4%3D"}]}
+location: /case-studies/
+nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+access-control-allow-origin: *
+referrer-policy: strict-origin-when-cross-origin
+x-content-type-options: nosniff
+server: cloudflare
+cf-cache-status: DYNAMIC
+cf-ray: a385451e48de3431-LHR
+alt-svc: h3=":443"; ma=86400
+
+HTTP/2 200 
+date: Wed, 09 Sep 2026 09:47:10 GMT
+content-type: text/html; charset=utf-8
+x-frame-options: SAMEORIGIN
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=e4KclPTSTbf%2F6gZdSX0yfqiO8TC9Fr%2FKG1GVuIstRINNBlXjT%2BeJy044WlQFXVqvtFOh%2BB5%2FAk5CUS7GzIY3XHeqcszdrbYgzKxPNns1Iubl5MyVLvHYK5LKAdsVaiQ%3D"}]}
+nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+access-control-allow-origin: *
+cache-control: public, max-age=0, must-revalidate
+x-content-type-options: nosniff
+referrer-policy: strict-origin-when-cross-origin
+server: cloudflare
+cf-cache-status: DYNAMIC
+cf-ray: a385451f3b503431-LHR
+alt-svc: h3=":443"; ma=86400
+

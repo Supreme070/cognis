@@ -1,0 +1,477 @@
+
+<html lang="en">
+  <head>
+    <title>Migratio — Reconcile before cutover. Enterprise migration platform by Cognis.</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com"/>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300..900;1,300..900&amp;display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="css/tailwind/tailwind.min.css"/>
+    <!-- a11y contrast override (WCAG 2.2 AA). Darkens the FaunaFlora template
+         grays that fail 4.5:1 on light surfaces. Override-only; never edits
+         tailwind.min.css (root + marketing CLAUDE.md lock). -->
+    <style>
+      /* Migratio brand override (Stage 6.3 pattern — tailwind.min.css untouched).
+         Remap the FaunaFlora teal/lime template classes to the LOCKED Migratio
+         palette so no FaunaFlora green-energy color renders on this page. */
+      .bg-teal-900 { background-color: #1F2657 !important; }
+      .text-teal-900 { color: #1F2657 !important; }
+      .text-teal-800 { color: #1F2657 !important; }
+      .border-teal-900 { border-color: #1F2657 !important; }
+      .hover\:text-teal-700:hover { color: #1F2657 !important; }
+      .hover\:bg-teal-900:hover { background-color: #1F2657 !important; }
+      .bg-lime-500 { background-color: #5BB04F !important; }
+      .text-lime-500 { color: #5BB04F !important; }
+      .border-lime-500 { border-color: #5BB04F !important; }
+      .hover\:text-lime-500:hover { color: #5BB04F !important; }
+      .bg-orange-50 { background-color: #F8F8F3 !important; }
+      /* a11y contrast (WCAG 2.2 AA): template grays fail on light surfaces. */
+      .text-gray-500 { color: #5f6664 !important; }
+      .text-gray-600 { color: #565c5b !important; }
+    </style>
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon.png"/>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js" defer="defer"></script>
+    <script src="js/app-link.js" defer></script>
+  </head>
+  <body class="antialiased bg-body text-body font-body"><a href="https://migratio.cognis.group/cdn-cgi/content?id=bcke0OJS9Rzk8lyvFx4jpFNtA5IMz6gIiQiAaofos5Q-1788947233.0149367-1.2.1.1-JjsIBWheQRN4X3XaLJM3mIwEiB0M6lekq9W_xbUAw4I_yjA8flRz8OcNkRY7H4AT" aria-hidden="true" rel="nofollow noopener" style="display: none !important; visibility: hidden !important"></a>
+    <div>
+      <div>
+        <section class="relative bg-teal-900 overflow-hidden" x-data="{ mobileNavOpen: false }"><video class="absolute top-0 left-0 w-full h-full object-cover opacity-40" style="z-index:0" autoplay muted loop playsinline poster="images/hero-dashboards-poster.jpg"><source src="images/hero-dashboards.mp4" type="video/mp4"/></video><div class="absolute top-0 left-0 w-full h-full" style="z-index:1;background:radial-gradient(at 30% 30%, rgba(30,91,184,0.35) 0%, transparent 55%), radial-gradient(at 80% 70%, rgba(91,176,79,0.20) 0%, transparent 55%), linear-gradient(180deg, rgba(31,38,87,0.55) 0%, rgba(31,38,87,0.85) 100%)"></div><div class="relative" style="z-index:2">
+          <nav class="py-6">
+            <div class="container mx-auto px-4">
+              <div class="relative flex items-center justify-between"><a href="index.html" style="display:inline-flex;align-items:center;text-decoration:none"><img src="images/migratio-logo-dark.svg" alt="Migratio by Cognis" style="height:64px;width:auto;display:block"/></a>
+                <ul class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 hidden md:flex">
+                  <li class="mr-8"><a class="inline-block text-lg text-white hover:text-lime-500 font-medium" href="about.html">About</a></li>
+                  <li class="mr-8"><a class="inline-block text-lg text-white hover:text-lime-500 font-medium" href="pricing.html">Pricing</a></li>
+                  <li class="mr-8"><a class="inline-block text-lg text-white hover:text-lime-500 font-medium" href="blog.html">Blog</a></li>
+                  <li><a class="inline-block text-lg text-white hover:text-lime-500 font-medium" href="contact.html">Contact</a></li>
+                </ul>
+                <div class="flex items-center justify-end">
+                  <!-- N.1 — desktop nav now has Sign in (secondary, for existing customers)
+                       + Book a demo (primary, for prospects). Same hierarchy on every page;
+                       matches Snowflake / Datadog Enterprise pattern. -->
+                  <a class="hidden md:inline-flex items-center mr-4 text-sm font-medium text-white opacity-75 hover:opacity-100 transition duration-200" data-app-link="/login" href="login.html" data-testid="desktop-nav-signin">Sign in</a>
+                  <div class="hidden md:block"><a class="inline-flex group py-2.5 px-4 items-center justify-center text-sm font-medium text-white hover:text-teal-900 border border-white hover:bg-white rounded-full transition duration-200" href="contact.html"><span class="mr-2">Book a demo</span>                      <span class="transform group-hover:translate-x-0.5 transition-transform duration-200">
+                        <svg width="20" height="20" viewbox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M4.75 10H15.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                          <path d="M10 4.75L15.25 10L10 15.25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </svg></span></a></div>
+                  <button class="md:hidden text-white hover:text-lime-500" x-on:click="mobileNavOpen = !mobileNavOpen">
+                    <svg width="32" height="32" viewbox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M5.19995 23.2H26.7999" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                      <path d="M5.19995 16H26.7999" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                      <path d="M5.19995 8.79999H26.7999" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </nav>
+          <div class="relative pt-18 pb-24 sm:pb-32 lg:pt-36 lg:pb-62">
+            <div class="container mx-auto px-4 relative">
+              <div class="max-w-lg xl:max-w-xl mx-auto text-center">
+                <h1 class="font-heading text-5xl xs:text-7xl xl:text-8xl tracking-tight text-white mb-8">Reconcile before cutover.</h1>
+                <p class="max-w-md xl:max-w-none text-lg text-white opacity-80 mb-10">Migratio is the migration platform for banks, ministries, and regulated enterprises. Move data, documents, and domains with AI agents that catch the bugs others miss — and pass the regulator's review on the first try.</p><a class="inline-flex py-4 px-6 items-center justify-center text-lg font-medium text-teal-900 border border-lime-500 hover:border-white bg-lime-500 hover:bg-white rounded-full transition duration-200" href="contact.html">Book a demo</a>
+              </div>
+            </div>
+          </div>
+          <div class="hidden fixed top-0 left-0 bottom-0 w-full xs:w-5/6 xs:max-w-md z-50" :class="{'block': mobileNavOpen, 'hidden': !mobileNavOpen}">
+            <div class="fixed inset-0 bg-violet-900 opacity-20" x-on:click="mobileNavOpen = !mobileNavOpen"></div>
+            <nav class="relative flex flex-col py-7 px-10 w-full h-full bg-white overflow-y-auto">
+              <div class="flex items-center justify-between"><a href="index.html" style="display:inline-flex;align-items:center;text-decoration:none"><img src="images/migratio-logo-light.svg" alt="Migratio by Cognis" style="height:64px;width:auto;display:block"/></a>
+                <div class="flex items-center"><a class="inline-flex py-2.5 px-4 mr-6 items-center justify-center text-sm font-medium text-teal-900 hover:text-white border border-teal-900 hover:bg-teal-900 rounded-full transition duration-200" data-app-link="/login" href="login.html">Login</a>
+                  <button x-on:click="mobileNavOpen = !mobileNavOpen">
+                    <svg width="32" height="32" viewbox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M23.2 8.79999L8.80005 23.2M8.80005 8.79999L23.2 23.2" stroke="#1D1F1E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <div class="pt-20 pb-12 mb-auto">
+                <ul class="flex-col">
+                  <li class="mb-6"><a class="inline-block text-lg text-teal-900 hover:text-teal-700 font-medium" href="about.html">About</a></li>
+                  <li class="mb-6"><a class="inline-block text-lg text-teal-900 hover:text-teal-700 font-medium" href="pricing.html">Pricing</a></li>
+                  <li class="mb-6"><a class="inline-block text-lg text-teal-900 hover:text-teal-700 font-medium" href="blog.html">Blog</a></li>
+                  <li><a class="inline-block text-lg text-teal-900 hover:text-teal-700 font-medium" href="contact.html">Contact</a></li>
+                </ul>
+              </div>
+              <div class="flex items-center justify-between"><a class="inline-flex items-center text-lg font-medium text-teal-900" href="/cdn-cgi/l/email-protection#1261737e776152717d757c7b613c75607d67622d616770787771662f4167706171607b7077372022667d3720225f7b756073667b7d7c3720227b7c617b757a6661"><span>
+                    <svg width="32" height="32" viewbox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M6.4 6.39999H25.6C26.92 6.39999 28 7.47999 28 8.79999V23.2C28 24.52 26.92 25.6 25.6 25.6H6.4C5.08 25.6 4 24.52 4 23.2V8.79999C4 7.47999 5.08 6.39999 6.4 6.39999Z" stroke="#646A69" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                      <path d="M28 8.8L16 17.2L4 8.8" stroke="#646A69" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg></span>                  <span class="ml-2">Newsletter</span></a>
+                <div class="flex items-center"><a class="inline-block" href="https://www.linkedin.com/company/cognis-group" target="_blank" rel="noopener" aria-label="Cognis Group on LinkedIn">
+                    <svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M19 3C19.5304 3 20.0391 3.21071 20.4142 3.58579C20.7893 3.96086 21 4.46957 21 5V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H19ZM18.5 18.5V13.2C18.5 12.3354 18.1565 11.5062 17.5452 10.8948C16.9338 10.2835 16.1046 9.94 15.24 9.94C14.39 9.94 13.4 10.46 12.92 11.24V10.13H10.13V18.5H12.92V13.57C12.92 12.8 13.54 12.17 14.31 12.17C14.6813 12.17 15.0374 12.3175 15.2999 12.5801C15.5625 12.8426 15.71 13.1987 15.71 13.57V18.5H18.5ZM6.88 8.56C7.32556 8.56 7.75288 8.383 8.06794 8.06794C8.383 7.75288 8.56 7.32556 8.56 6.88C8.56 5.95 7.81 5.19 6.88 5.19C6.43178 5.19 6.00193 5.36805 5.68499 5.68499C5.36805 6.00193 5.19 6.43178 5.19 6.88C5.19 7.81 5.95 8.56 6.88 8.56ZM8.27 18.5V10.13H5.5V18.5H8.27Z" fill="currentColor"></path>
+                    </svg></a></div>
+              </div>
+            </nav>
+          </div>
+          </div>
+        </section>
+      </div>
+      <section class="py-12 lg:py-24">
+        <div class="container mx-auto px-4">
+          <div class="flex flex-wrap -mx-4">
+            <div class="w-full sm:w-1/2 md:w-1/4 px-4 mb-10 md:mb-0">
+              <div class="text-center">
+                <h5 class="text-2xl xs:text-3xl lg:text-4xl xl:text-5xl mb-4">99.87%</h5><span class="text-base lg:text-lg text-gray-700">Reconciliation rate, across all live runs</span>
+              </div>
+            </div>
+            <div class="w-full sm:w-1/2 md:w-1/4 px-4 mb-10 md:mb-0">
+              <div class="text-center">
+                <h5 class="text-2xl xs:text-3xl lg:text-4xl xl:text-5xl mb-4">18.4M+</h5><span class="text-base lg:text-lg text-gray-700">Records migrated this quarter</span>
+              </div>
+            </div>
+            <div class="w-full sm:w-1/2 md:w-1/4 px-4 mb-10 sm:mb-0">
+              <div class="text-center">
+                <h5 class="text-2xl xs:text-3xl lg:text-4xl xl:text-5xl mb-4">8,200 hrs</h5><span class="text-base lg:text-lg text-gray-700">Analyst time saved vs. manual recon</span>
+              </div>
+            </div>
+            <div class="w-full sm:w-1/2 md:w-1/4 px-4">
+              <div class="text-center">
+                <h5 class="text-2xl xs:text-3xl lg:text-4xl xl:text-5xl mb-4">₦847.2B</h5><span class="text-base lg:text-lg text-gray-700">Total reconciled value to date</span>
+              </div>
+            </div>
+          </div>
+          <p class="text-center text-sm text-gray-500 mt-8">Illustrative figures from reference deployments — your numbers will vary.</p>
+        </div>
+      </section>
+      <section class="p-4 bg-white">
+        <div class="pt-16 pb-24 px-5 xs:px-8 xl:px-12 bg-lime-500 rounded-3xl">
+          <div class="container mx-auto px-4">
+            <div class="flex mb-4 items-center">
+              <svg width="8" height="8" viewbox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="4" cy="4" r="4" fill="#1F2657"></circle>
+              </svg><span class="inline-block ml-2 text-sm font-medium">The platform</span>
+            </div>
+            <div class="border-t pt-14" style="border-color:rgba(31,38,87,0.25)">
+              <h1 class="font-heading text-4xl sm:text-6xl mb-24">Built for the three classes of migration</h1>
+              <div class="flex flex-wrap -mx-4">
+                <div class="w-full sm:w-1/2 px-4 mb-16">
+                  <div>
+                    <svg width="48" height="48" viewbox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M0 8C0 3.58172 3.58172 0 8 0H40C44.4183 0 48 3.58172 48 8V40C48 44.4183 44.4183 48 40 48H8C3.58172 48 0 44.4183 0 40V8Z" fill="white"></path>
+                      <circle cx="16" cy="16" r="4" fill="#1F2657"></circle>
+                      <circle cx="24" cy="32" r="4" fill="#1F2657"></circle>
+                      <circle cx="32" cy="16" r="4" fill="#1F2657"></circle>
+                    </svg>
+                    <div class="mt-6">
+                      <h5 class="text-2xl font-medium mb-3">Data migration</h5>
+                      <p class="mb-6">Move tables, records, and transactional data. Schema mapping, naming normalization, row-by-row reconciliation, audit-ready PDFs. The pain-killer for the bugs that make regulators reject your cutover.</p><a class="inline-block text-lg  font-medium hover:text-teal-700" href="pricing.html">Available in Phase 1 →</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="w-full sm:w-1/2 px-4 mb-16">
+                  <div>
+                    <svg width="48" height="48" viewbox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M0 8C0 3.58172 3.58172 0 8 0H40C44.4183 0 48 3.58172 48 8V40C48 44.4183 44.4183 48 40 48H8C3.58172 48 0 44.4183 0 40V8Z" fill="white"></path>
+                      <rect x="23" y="8" width="2" height="12" rx="1" fill="#1F2657"></rect>
+                      <rect x="23" y="28" width="2" height="12" rx="1" fill="#1F2657"></rect>
+                      <rect x="34.6066" y="11.9792" width="2" height="12" rx="1" transform="rotate(45 34.6066 11.9792)" fill="#1F2657"></rect>
+                      <rect x="20.4645" y="26.1213" width="2" height="12" rx="1" transform="rotate(45 20.4645 26.1213)" fill="#1F2657"></rect>
+                      <rect x="28" y="25" width="2" height="12" rx="1" transform="rotate(-90 28 25)" fill="#1F2657"></rect>
+                      <rect x="8" y="25" width="2" height="12" rx="1" transform="rotate(-90 8 25)" fill="#1F2657"></rect>
+                      <rect x="26.1213" y="27.5355" width="2" height="12" rx="1" transform="rotate(-45 26.1213 27.5355)" fill="#1F2657"></rect>
+                      <rect x="11.9792" y="13.3934" width="2" height="12" rx="1" transform="rotate(-45 11.9792 13.3934)" fill="#1F2657"></rect>
+                    </svg>
+                    <div class="mt-6">
+                      <h5 class="text-2xl font-medium mb-3">Document migration</h5>
+                      <p class="mb-6">Move files, attachments, and metadata between content systems. FileNet → SharePoint, SAP DMS → Box, OnBase → M-Files. Layout-aware extraction, content-hash + ACL reconciliation, and cryptographic chain-of-custody preserve audit chains and access controls. <span class="font-medium">Engine generally available — live content systems connect with your credentials.</span></p><a class="inline-block text-lg  font-medium hover:text-teal-700" href="#!">Phase 2 · Available now</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="w-full sm:w-1/2 px-4 mb-16 sm:mb-0">
+                  <div>
+                    <svg width="48" height="48" viewbox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M0 8C0 3.58172 3.58172 0 8 0H40C44.4183 0 48 3.58172 48 8V40C48 44.4183 44.4183 48 40 48H8C3.58172 48 0 44.4183 0 40V8Z" fill="white"></path>
+                      <path d="M25 24C25 24.5523 24.5523 25 24 25C23.4477 25 23 24.5523 23 24C23 23.4477 23.4477 23 24 23C24.5523 23 25 23.4477 25 24Z" fill="#1F2657"></path>
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M24 25C24.5523 25 25 24.5523 25 24C25 23.4477 24.5523 23 24 23C23.4477 23 23 23.4477 23 24C23 24.5523 23.4477 25 24 25Z" fill="#1F2657"></path>
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M40 23C40.5523 23 41 23.4477 41 24C41 33.3888 33.3888 41 24 41C23.4477 41 23 40.5523 23 40C23 39.4477 23.4477 39 24 39C32.2843 39 39 32.2843 39 24C39 23.4477 39.4477 23 40 23Z" fill="#1F2657"></path>
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M24 9C15.7157 9 9 15.7157 9 24C9 24.5523 8.55228 25 8 25C7.44772 25 7 24.5523 7 24C7 14.6112 14.6112 7 24 7C24.5523 7 25 7.44772 25 8C25 8.55228 24.5523 9 24 9Z" fill="#1F2657"></path>
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M36 23C36.5523 23 37 23.4477 37 24C37 31.1797 31.1797 37 24 37C23.4477 37 23 36.5523 23 36C23 35.4477 23.4477 35 24 35C30.0751 35 35 30.0751 35 24C35 23.4477 35.4477 23 36 23Z" fill="#1F2657"></path>
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M24 13C17.9249 13 13 17.9249 13 24C13 24.5523 12.5523 25 12 25C11.4477 25 11 24.5523 11 24C11 16.8203 16.8203 11 24 11C24.5523 11 25 11.4477 25 12C25 12.5523 24.5523 13 24 13Z" fill="#1F2657"></path>
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M32 23C32.5523 23 33 23.4477 33 24C33 28.9706 28.9706 33 24 33C23.4477 33 23 32.5523 23 32C23 31.4477 23.4477 31 24 31C27.866 31 31 27.866 31 24C31 23.4477 31.4477 23 32 23Z" fill="#1F2657"></path>
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M24 17C20.134 17 17 20.134 17 24C17 24.5523 16.5523 25 16 25C15.4477 25 15 24.5523 15 24C15 19.0294 19.0294 15 24 15C24.5523 15 25 15.4477 25 16C25 16.5523 24.5523 17 24 17Z" fill="#1F2657"></path>
+                    </svg>
+                    <div class="mt-6">
+                      <h5 class="text-2xl font-medium mb-3">Domain migration</h5>
+                      <p class="mb-6">Move email, identity, DNS, and tenant-level systems between providers. Microsoft 365 → Google Workspace, Okta → Entra ID. Handles identity reconciliation, MFA re-enrollment, and a staged MX/DNS cutover that pauses for a named human approver. <span class="font-medium">Engine generally available — live identity providers connect with your credentials; the MX/DNS flip is deploy-gated.</span></p><a class="inline-block text-lg  font-medium hover:text-teal-700" href="#!">Phase 3 · Q1 2027</a>
+                    </div>
+                  </div>
+                </div>
+                <div class="w-full sm:w-1/2 px-4">
+                  <div>
+                    <svg width="48" height="48" viewbox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M0 8C0 3.58172 3.58172 0 8 0H40C44.4183 0 48 3.58172 48 8V40C48 44.4183 44.4183 48 40 48H8C3.58172 48 0 44.4183 0 40V8Z" fill="white"></path>
+                      <path d="M24 10L34 16V32L24 38L14 32V16L24 10Z" stroke="#1F2657" stroke-width="2" stroke-linejoin="round"></path>
+                      <path d="M19 23L22.5 26.5L29.5 19.5" stroke="#1F2657" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                    <div class="mt-6">
+                      <h5 class="text-2xl font-medium mb-3">Audit &amp; compliance</h5>
+                      <p class="mb-6">Every action signed, every record traceable. Regulator-grade audit packs auto-generated for NDPA, CBN, and ISO 27001 reviews — so the first time your compliance team sees the migration, they sign it off.</p><a class="inline-block text-lg  font-medium hover:text-teal-700" href="about.html">How it works →</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="py-12 lg:py-24 overflow-hidden">
+        <div class="container mx-auto px-4">
+          <div class="max-w-6xl mx-auto mb-24 text-center">
+            <h1 class="font-heading text-4xl sm:text-6xl md:text-7xl tracking-sm mb-16">The migration platform built by people who have lived through a failed one. </h1><a class="inline-flex py-4 px-6 items-center justify-center text-lg font-medium text-white hover:text-teal-900 border border-teal-900 hover:border-lime-500 bg-teal-900 hover:bg-lime-500 rounded-full transition duration-200" href="blog.html">Read the NRS case study</a>
+          </div>
+          <div class="flex justify-center">
+            <div class="flex-shrink-0 h-full max-w-xs sm:max-w-md md:max-w-xl mr-4 sm:mr-8"><img class="block w-full rounded-2xl" src="images/nrs-1-cranes.jpg" alt="Cranes migrating at sunset"/></div>
+            <div class="flex-shrink-0 h-full max-w-xs sm:max-w-md md:max-w-xl mr-4 sm:mr-8"><img class="block w-full rounded-2xl" src="images/nrs-2-analyst.jpg" alt="Analyst reviewing migration metrics on screen"/></div>
+            <div class="flex-shrink-0 h-full max-w-xs sm:max-w-md md:max-w-xl mr-4 sm:mr-8"><img class="block w-full rounded-2xl" src="images/nrs-3-binders.jpg" alt="Legacy record binders awaiting migration"/></div>
+            <div class="flex-shrink-0 h-full max-w-xs sm:max-w-md md:max-w-xl mr-4 sm:mr-8"><img class="block w-full rounded-2xl" src="images/nrs-4-numbers.jpg" alt="Financial records in flight"/></div>
+            <div class="hidden md:block sm:flex-shrink-0 h-full max-w-md md:max-w-xl mr-4 sm:mr-8"><img class="block w-full rounded-2xl" src="images/nrs-5-records.jpg" alt="Records being reconciled"/></div>
+            <div class="hidden md:block sm:flex-shrink-0 h-full max-w-md md:max-w-xl mr-4 sm:mr-8"><img class="block w-full rounded-2xl" src="images/nrs-6-server-room.jpg" alt="Cutover running in the server room"/></div>
+          </div>
+        </div>
+      </section>
+      <section class="py-12 lg:py-24">
+        <div class="container mx-auto px-4">
+          <div class="text-center mb-20">
+            <h1 class="font-heading text-6xl mb-6">FAQ</h1>
+            <p class="text-gray-700">The questions a bank's CISO, a CFO, and a tax authority's program manager have asked us this quarter.</p>
+          </div>
+          <div class="max-w-4xl mx-auto">
+            <button class="flex w-full py-6 px-8 mb-4 items-start justify-between text-left shadow-md rounded-2xl" x-data="{ accordion: false }" x-on:click.prevent="accordion = !accordion">
+              <div>
+                <div class="pr-5">
+                  <h5 class="text-lg font-medium">How is Migratio different from Fivetran or Airbyte?</h5>
+                </div>
+                <div class="overflow-hidden h-0 pr-5 duration-500" x-ref="container" :style="accordion ? 'height: ' + $refs.container.scrollHeight + 'px' : ''">
+                  <p class="text-gray-700 mt-4">Fivetran and Airbyte are continuous ELT pipelines built for analytics. Migratio is a cutover-grade migration platform built for one-time enterprise system replacements where every record must reconcile and every action must audit. Our AI agents (Schema Mapper, Reconciliation, Naming Library, Exception Triage, Orchestrator) catch the bugs that destroyed projects like SAAQ Quebec ($1.1B) and TSB Bank UK.</p>
+                </div>
+              </div><span class="flex-shrink-0">
+                <div :class="{'hidden': accordion}">
+                  <svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 5.69995V18.3" stroke="#1D1F1E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M5.69995 12H18.3" stroke="#1D1F1E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                </div>
+                <div class="hidden" :class="{'hidden': !accordion}">
+                  <svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5.69995 12H18.3" stroke="#1D1F1E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                </div></span>
+            </button>
+            <button class="flex w-full py-6 px-8 mb-4 items-start justify-between text-left shadow-md rounded-2xl" x-data="{ accordion: false }" x-on:click.prevent="accordion = !accordion">
+              <div>
+                <div class="pr-5">
+                  <h5 class="text-lg font-medium">Is Migratio NDPA compliant?</h5>
+                </div>
+                <div class="overflow-hidden h-0 pr-5 duration-500" x-ref="container" :style="accordion ? 'height: ' + $refs.container.scrollHeight + 'px' : ''">
+                  <p class="text-gray-700 mt-4">Yes. Cognis Group Limited is registered with the Nigeria Data Protection Commission as an Ultra-High Level data controller, and Migratio is listed as a processing activity in our Record of Processing Activities. We can share our DPCO documentation on request.</p>
+                </div>
+              </div><span class="flex-shrink-0">
+                <div :class="{'hidden': accordion}">
+                  <svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 5.69995V18.3" stroke="#1D1F1E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M5.69995 12H18.3" stroke="#1D1F1E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                </div>
+                <div class="hidden" :class="{'hidden': !accordion}">
+                  <svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5.69995 12H18.3" stroke="#1D1F1E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                </div></span>
+            </button>
+            <button class="flex w-full py-6 px-8 mb-4 items-start justify-between text-left shadow-md rounded-2xl" x-data="{ accordion: false }" x-on:click.prevent="accordion = !accordion">
+              <div>
+                <div class="pr-5">
+                  <h5 class="text-lg font-medium">What does an implementation look like?</h5>
+                </div>
+                <div class="overflow-hidden h-0 pr-5 duration-500" x-ref="container" :style="accordion ? 'height: ' + $refs.container.scrollHeight + 'px' : ''">
+                  <p class="text-gray-700 mt-4">Phase 0 (discovery, 2-3 weeks) — schema profiling and feasibility report. Phase 1 (implementation, 4-8 weeks) — connector configuration, mapping review, validation rule setup, user training. Phase 2 (parallel run, 2-4 weeks) — reconciliation against source-of-truth. Phase 3 (cutover, one weekend) — monitored hard cutover with war-room support.</p>
+                </div>
+              </div><span class="flex-shrink-0">
+                <div :class="{'hidden': accordion}">
+                  <svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 5.69995V18.3" stroke="#1D1F1E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M5.69995 12H18.3" stroke="#1D1F1E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                </div>
+                <div class="hidden" :class="{'hidden': !accordion}">
+                  <svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5.69995 12H18.3" stroke="#1D1F1E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                </div></span>
+            </button>
+            <button class="flex w-full py-6 px-8 mb-4 items-start justify-between text-left shadow-md rounded-2xl" x-data="{ accordion: false }" x-on:click.prevent="accordion = !accordion">
+              <div>
+                <div class="pr-5">
+                  <h5 class="text-lg font-medium">Does Migratio support our system?</h5>
+                </div>
+                <div class="overflow-hidden h-0 pr-5 duration-500" x-ref="container" :style="accordion ? 'height: ' + $refs.container.scrollHeight + 'px' : ''">
+                  <p class="text-gray-700 mt-4">Phase 1 ships with native connectors for Oracle, PostgreSQL, SQL Server, GraphQL, REST APIs, and the Nigerian Tax/Government pack (TaxPro Max, Rev360, TIN Validation, Tax ID). SAP HANA ships as a GA pack too — because SAP licenses its database driver to the customer, the live HANA connection runs against your own licensed instance and credentials. Custom connectors take 1-3 weeks via the Airbyte CDK. If your system isn't on the list, we'll quote a connector build during discovery.</p>
+                </div>
+              </div><span class="flex-shrink-0">
+                <div :class="{'hidden': accordion}">
+                  <svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 5.69995V18.3" stroke="#1D1F1E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M5.69995 12H18.3" stroke="#1D1F1E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                </div>
+                <div class="hidden" :class="{'hidden': !accordion}">
+                  <svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5.69995 12H18.3" stroke="#1D1F1E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                </div></span>
+            </button>
+            <button class="flex w-full py-6 px-8 mb-24 items-start justify-between text-left shadow-md rounded-2xl" x-data="{ accordion: false }" x-on:click.prevent="accordion = !accordion">
+              <div>
+                <div class="pr-5">
+                  <h5 class="text-lg font-medium">How is Migratio priced?</h5>
+                </div>
+                <div class="overflow-hidden h-0 pr-5 duration-500" x-ref="container" :style="accordion ? 'height: ' + $refs.container.scrollHeight + 'px' : ''">
+                  <p class="text-gray-700 mt-4">Fixed annual platform fee plus committed capacity. Three tiers: Starter (₦55M / $35K, one project), Program (₦240M / $150K, five projects), Enterprise (custom, unlimited). Implementation services priced per engagement. We never charge metered per-record fees — your procurement team will thank you.</p>
+                </div>
+              </div><span class="flex-shrink-0">
+                <div :class="{'hidden': accordion}">
+                  <svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 5.69995V18.3" stroke="#1D1F1E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    <path d="M5.69995 12H18.3" stroke="#1D1F1E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                </div>
+                <div class="hidden" :class="{'hidden': !accordion}">
+                  <svg width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M5.69995 12H18.3" stroke="#1D1F1E" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                </div></span>
+            </button>
+            <div class="sm:flex py-10 px-5 sm:px-10 bg-orange-50 rounded-2xl">
+              <div class="mb-4 sm:mb-0 sm:mr-6">
+                <svg width="48" height="48" viewbox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0 8C0 3.58172 3.58172 0 8 0H40C44.4183 0 48 3.58172 48 8V40C48 44.4183 44.4183 48 40 48H8C3.58172 48 0 44.4183 0 40V8Z" fill="#5BB04F"></path>
+                  <path d="M13.676 15.5617C11.7951 17.8602 10.6666 20.7983 10.6666 24C10.6666 27.2017 11.7951 30.1398 13.6761 32.4383L18.9201 27.1943C18.3372 26.2694 18 25.174 18 24C18 22.8259 18.3372 21.7306 18.92 20.8057L13.676 15.5617Z" fill="#1F2657"></path>
+                  <path d="M15.5616 13.6761L20.8056 18.9201C21.7306 18.3372 22.8259 18 24 18C25.174 18 26.2694 18.3372 27.1943 18.9201L32.4383 13.6761C30.1398 11.7951 27.2017 10.6666 24 10.6666C20.7982 10.6666 17.8601 11.7951 15.5616 13.6761Z" fill="#1F2657"></path>
+                  <path d="M34.3239 15.5617L29.0799 20.8057C29.6628 21.7307 30 22.8259 30 24C30 25.174 29.6627 26.2693 29.0799 27.1943L34.3238 32.4383C36.2048 30.1398 37.3333 27.2017 37.3333 24C37.3333 20.7983 36.2048 17.8602 34.3239 15.5617Z" fill="#1F2657"></path>
+                  <path d="M32.4382 34.3239L27.1942 29.0799C26.2693 29.6628 25.174 30 24 30C22.8259 30 21.7307 29.6628 20.8057 29.0799L15.5617 34.3239C17.8602 36.2048 20.7983 37.3333 24 37.3333C27.2016 37.3333 30.1397 36.2048 32.4382 34.3239Z" fill="#1F2657"></path>
+                </svg>
+              </div>
+              <div>
+                <h5 class="text-xl font-medium mb-4">Still have questions?</h5>
+                <p class="text-gray-700"><span>Talk to our solutions team via the</span>                                  <a class="inline-block text-black font-medium underline" href="contact.html">Contact page</a>                                  <span>, or email</span>                                  <span class="text-black font-medium"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="14677578716754777b737a7d673a73667b6164">[email&#160;protected]</a></span>                                  <span>. We respond within one business day, Lagos time.</span></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="py-12 lg:py-24 overflow-hidden" x-data="{ activeSlide: 1, slideCount: 3 }">
+        <div class="container mx-auto px-4">
+          <div class="flex flex-wrap items-center -mx-4">
+            <div class="w-full md:w-1/2 px-4 mb-12 md:mb-0">
+              <div class="max-w-lg mx-auto md:mx-0 overflow-hidden">
+                <div class="flex -mx-4 transition-transform duration-500" :style="'transform: translateX(-' + (activeSlide - 1) * 100 + '%)'"><img class="block flex-shrink-0 w-full px-4" src="fauna-assets/testimonials/photo-lg.png" alt=""/><img class="block flex-shrink-0 w-full px-4" src="fauna-assets/testimonials/photo-lg.png" alt=""/><img class="block flex-shrink-0 w-full px-4" src="fauna-assets/testimonials/photo-lg.png" alt=""/></div>
+              </div>
+            </div>
+            <div class="w-full md:w-1/2 px-4">
+              <div class="max-w-lg mx-auto md:mr-0 overflow-hidden">
+                <div class="flex -mx-4 transition-transform duration-500" :style="'transform: translateX(-' + (activeSlide - 1) * 100 + '%)'">
+                  <div class="flex-shrink-0 px-4 w-full">
+                    <h4 class="text-3xl lg:text-4xl font-medium mb-10">“Migratio caught the naming bug that would have failed our regulator review. We moved 2.8M records with zero reconciliation gaps.”</h4><span class="block text-xl font-medium">CIO</span>                                      <span class="block mb-12 lg:mb-32 text-lg text-gray-700">Tier-1 commercial bank, West Africa</span>
+                  </div>
+                  <div class="flex-shrink-0 px-4 w-full">
+                    <h4 class="text-3xl lg:text-4xl font-medium mb-10">“The audit pack closed our compliance review on day one. The regulator had answers before they had questions.”</h4><span class="block text-xl font-medium">Head of Risk</span>                                      <span class="block mb-12 lg:mb-32 text-lg text-gray-700">Federal revenue authority</span>
+                  </div>
+                  <div class="flex-shrink-0 px-4 w-full">
+                    <h4 class="text-3xl lg:text-4xl font-medium mb-10">“First migration in our history we shipped without a war room. The agents do the boring parts so the team can think.”</h4><span class="block text-xl font-medium">Program Director</span>                                      <span class="block mb-12 lg:mb-32 text-lg text-gray-700">Financial services, Lagos</span>
+                  </div>
+                </div>
+                <div>
+                  <button type="button" aria-label="Previous testimonial" class="inline-block mr-4 text-gray-700 hover:text-lime-500" x-on:click="activeSlide = activeSlide &gt; 1 ? activeSlide - 1 : slideCount">
+                    <svg aria-hidden="true" width="32" height="32" viewbox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M24.4 16H7.59998" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                      <path d="M16 24.4L7.59998 16L16 7.59998" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                  </button>
+                  <button type="button" aria-label="Next testimonial" class="inline-block text-gray-700 hover:text-lime-500" x-on:click="activeSlide = activeSlide &lt; slideCount ? activeSlide + 1 : 1">
+                    <svg aria-hidden="true" width="32" height="32" viewbox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M7.59998 16H24.4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                      <path d="M16 7.59998L24.4 16L16 24.4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div>
+        <div>
+          <section>
+            <div class="p-4">
+              <div class="max-w-xl lg:max-w-5xl mx-auto xl:max-w-none px-5 md:px-12 xl:px-24 py-16 bg-teal-900 rounded-2xl">
+                <div class="container mx-auto px-4">
+                  <div class="flex flex-wrap items-center -mx-4">
+                    <div class="w-full lg:w-2/3 px-4 mb-8 lg:mb-0">
+                      <div class="max-w-md xl:max-w-none">
+                        <h1 class="font-heading text-4xl xs:text-5xl sm:text-6xl tracking-sm text-white mb-6">Move with the platform that gets cutover right.</h1>
+                        <p class="text-lg text-white opacity-80">Book a demo and we'll walk you through a live reconciliation on sample data — no setup required.</p>
+                      </div>
+                    </div>
+                    <div class="w-full lg:w-1/3 px-4 lg:text-right"><a class="inline-flex py-4 px-6 items-center justify-center text-lg font-medium text-teal-900 border border-lime-500 hover:border-white bg-lime-500 hover:bg-white rounded-full transition duration-200" href="contact.html">Book a demo</a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+      <section class="relative py-12 lg:py-24 bg-orange-50 overflow-hidden"><img class="absolute bottom-0 left-0" src="fauna-assets/footer/waves-lines-left-bottom.png" alt=""/>
+        <div class="container px-4 mx-auto relative">
+          <div class="flex flex-wrap mb-16 -mx-4">
+            <div class="w-full lg:w-3/12 xl:w-3/12 px-4 mb-16 lg:mb-0"><a href="index.html" style="display:inline-flex;align-items:center;text-decoration:none"><img src="images/migratio-logo-light.svg" alt="Migratio by Cognis" style="height:88px;width:auto;display:block"/></a></div>
+            <div class="w-full md:w-7/12 lg:w-6/12 px-4 mb-16 lg:mb-0">
+              <div class="flex flex-wrap -mx-4">
+                <div class="w-1/2 xs:w-1/3 px-4 mb-8 xs:mb-0">
+                  <h3 class="mb-6 font-bold">Platform</h3>
+                  <ul>
+                    <li class="mb-4"><a class="inline-block text-gray-600 hover:text-lime-500 font-medium" href="index.html">Data migration</a></li>
+                    <li class="mb-4"><a class="inline-block text-gray-600 hover:text-lime-500 font-medium" href="index.html">Document migration</a></li>
+                    <li><a class="inline-block text-gray-600 hover:text-lime-500 font-medium" href="pricing.html">Pricing</a></li>
+                  </ul>
+                </div>
+                <div class="w-1/2 xs:w-1/3 px-4 mb-8 xs:mb-0">
+                  <h3 class="mb-6 font-bold">Resources</h3>
+                  <ul>
+                    <li class="mb-4"><a class="inline-block text-gray-600 hover:text-lime-500 font-medium" href="blog.html">Blog</a></li>
+                    <li><a class="inline-block text-gray-600 hover:text-lime-500 font-medium" href="blog.html">Case studies</a></li>
+                  </ul>
+                </div>
+                <div class="w-full xs:w-1/3 px-4">
+                  <h3 class="mb-6 font-bold">Company</h3>
+                  <ul>
+                    <li class="mb-4"><a class="inline-block text-gray-600 hover:text-lime-500 font-medium" href="about.html">About Cognis</a></li>
+                    <li class="mb-4"><a class="inline-block text-gray-600 hover:text-lime-500 font-medium" href="about.html">Customers</a></li>
+                    <li class="mb-4"><a class="inline-block text-gray-600 hover:text-lime-500 font-medium" href="about.html">Careers</a></li>
+                    <li><a class="inline-block text-gray-600 hover:text-lime-500 font-medium" href="contact.html">Contact</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="w-full md:w-5/12 lg:w-4/12 px-4">
+              <div class="max-w-sm p-8 bg-teal-900 rounded-2xl mx-auto md:mr-0">
+                <h5 class="text-xl font-medium text-white mb-4">Migration insights, monthly</h5>
+                <p class="text-sm text-white opacity-80 leading-normal mb-10">Lessons from real cutovers — what worked, what nearly didn't, and what the regulators actually checked.</p>
+                <div class="flex flex-col">
+                  <input class="h-12 w-full px-4 py-1 placeholder-gray-700 outline-none ring-offset-0 focus:ring-2 focus:ring-lime-500 shadow rounded-full" type="email" placeholder="your@work.email"/><a class="h-12 inline-flex mt-3 py-1 px-5 items-center justify-center font-medium text-teal-900 border border-lime-500 hover:border-white bg-lime-500 hover:bg-white rounded-full transition duration-200" href="/cdn-cgi/l/email-protection#2152404d445261424e464f48520f46534e54511e5254434b4442551c725443524253484344041311554e0413116c4846534055484e4f041311484f524846495552">Subscribe</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="flex flex-wrap -mb-3 justify-between">
+            <div class="flex items-center mb-3" style="gap:14px"><a class="inline-block text-black hover:text-lime-500" href="https://www.linkedin.com/company/cognis-group" target="_blank" rel="noopener" aria-label="Cognis Group on LinkedIn"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zm-.5 15.5V13.2c0-1.41-1.14-2.55-2.55-2.55-.74 0-1.61.45-2.03 1.11v-.95H11.3v7.69h2.62V13.7c0-.67.54-1.21 1.21-1.21.67 0 1.21.54 1.21 1.21v4.8h2.16zM6.88 8.56a1.68 1.68 0 1 0 0-3.36 1.68 1.68 0 0 0 0 3.36zM8.27 18.5v-7.69H5.5v7.69h2.77z"/></svg></a><a class="inline-block text-black hover:text-lime-500" href="https://x.com/cognisgroup" target="_blank" rel="noopener" aria-label="Cognis Group on X"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a><a class="inline-block text-black hover:text-lime-500" href="https://www.facebook.com/cognisgroup" target="_blank" rel="noopener" aria-label="Cognis Group on Facebook"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88V14.9H7.9V12h2.54V9.8c0-2.51 1.49-3.89 3.78-3.89 1.09 0 2.24.19 2.24.19v2.46H15.2c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.45 2.9h-2.33v6.98A10 10 0 0 0 22 12z"/></svg></a><a class="inline-block text-black hover:text-lime-500" href="https://www.instagram.com/cognisgroup" target="_blank" rel="noopener" aria-label="Cognis Group on Instagram"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07M12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63a5.92 5.92 0 0 0-2.13 1.39A5.92 5.92 0 0 0 .62 4.15C.32 4.91.12 5.78.06 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.14.56 2.91a5.92 5.92 0 0 0 1.39 2.13 5.92 5.92 0 0 0 2.13 1.39c.76.3 1.63.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.14-.26 2.91-.56a5.92 5.92 0 0 0 2.13-1.39 5.92 5.92 0 0 0 1.39-2.13c.3-.76.5-1.63.56-2.91.06-1.27.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.14-.56-2.91a5.92 5.92 0 0 0-1.39-2.13A5.92 5.92 0 0 0 19.85.62C19.09.32 18.22.12 16.95.06 15.67.01 15.26 0 12 0zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.41-11.85a1.44 1.44 0 1 0 0 2.88 1.44 1.44 0 0 0 0-2.88z"/></svg></a></div>
+            <p class="text-sm text-gray-500 mb-3">© 2026 Cognis Group Limited. All rights reserved. <span class="hidden md:inline mx-2 text-gray-300">·</span><a class="text-gray-600 hover:text-lime-500 underline-offset-2 hover:underline font-medium" data-app-link="/login" href="login.html" data-testid="footer-customer-signin">Existing customer? Sign in →</a></p>
+          </div>
+        </div>
+      </section>
+    </div>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a385452e5a9c08b9',t:'MTc4ODk0NzIzMw=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

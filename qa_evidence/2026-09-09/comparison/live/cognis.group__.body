@@ -1,0 +1,1443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+    .sc-placeholder{background:color-mix(in srgb,currentColor 8%,transparent);
+      border:1px solid color-mix(in srgb,currentColor 50%,transparent);
+      border-radius:2px;box-sizing:border-box;overflow:hidden}
+    @keyframes sc-shine{0%{background-position:100% 50%}100%{background-position:0% 50%}}
+    html.sc-dc-streaming .sc-placeholder,
+    html.sc-dc-streaming .sc-interp.sc-missing{position:relative;
+      background:color-mix(in srgb,currentColor 5%,transparent);
+      border-color:transparent}
+    html.sc-dc-streaming .sc-placeholder::before,
+    html.sc-dc-streaming .sc-interp.sc-missing::before{content:'';
+      position:absolute;inset:0;pointer-events:none;
+      background:linear-gradient(90deg,rgba(217,119,87,0) 25%,rgba(247,225,211,.95) 37%,rgba(217,119,87,0) 63%);
+      background-size:400% 100%;animation:sc-shine 1.4s ease infinite}
+    html.sc-dc-streaming .sc-placeholder:nth-child(n+9 of .sc-placeholder)::before,
+    html.sc-dc-streaming .sc-interp.sc-missing:nth-child(n+9 of .sc-interp.sc-missing)::before{animation:none;
+      background:color-mix(in srgb,currentColor 8%,transparent)}
+    .sc-placeholder-error{padding:4px 8px;font:11px/1.4 ui-monospace,monospace;
+      color:color-mix(in srgb,currentColor 70%,transparent);word-break:break-word}
+    .sc-interp.sc-missing{display:inline-block;width:2em;height:1em;overflow:hidden;
+      vertical-align:text-bottom;background:rgba(255,255,255,.3);border:1px solid rgba(0,0,0,.5);
+      border-radius:2px;box-sizing:border-box;color:transparent;
+      user-select:none}
+    .sc-interp.sc-unresolved{font-family:ui-monospace,monospace;font-size:.85em;
+      color:color-mix(in srgb,currentColor 50%,transparent);
+      background:color-mix(in srgb,currentColor 10%,transparent);border-radius:3px;
+      padding:0 3px}
+    .sc-host.sc-has-error{position:relative}
+    .sc-logic-error{position:absolute;top:8px;left:8px;z-index:2147483647;max-width:60ch;
+      padding:6px 10px;background:#b00020;color:#fff;font:12px/1.4 ui-monospace,monospace;
+      border-radius:4px;white-space:pre-wrap;pointer-events:none}
+    /* Mirrors PRINT_BASELINE_CSS in apps/web deck-stage-export.ts — keep both
+       in sync until dc-runtime regains a build step. */
+    @media print {
+      @page { margin: 0.5cm; }
+      figure, table { break-inside: avoid; }
+      #dc-root, #dc-root > .sc-host { height: auto; }
+      *, *::before, *::after {
+        print-color-adjust: exact; -webkit-print-color-adjust: exact;
+        backdrop-filter: none !important; -webkit-backdrop-filter: none !important;
+        animation-delay: -99s !important; animation-duration: .001s !important;
+        animation-iteration-count: 1 !important; animation-fill-mode: both !important;
+        animation-play-state: running !important; transition-duration: 0s !important;
+      }
+    }
+  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>x-dc{display:none!important}</style>
+<style>html,body{height:100%;margin:0}#dc-root,#dc-root>.sc-host{height:100%}</style>
+<title data-dc-tpl="1">Cognis Group | AI Consulting, Strategy &amp; Agent Engineering</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" data-dc-tpl="2">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" data-dc-tpl="3">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600;1,700&amp;family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&amp;family=Roboto&amp;family=Nunito:wght@800&amp;display=swap" rel="stylesheet" data-dc-tpl="4">
+<style data-dc-tpl="5">
+  @font-face { font-family: Geistmono; src: url(https://cdn.prod.website-files.com/6929c116366a14507fc8424d/6929c9fc0f8dc4c415a7aef6_GeistMono-Medium.ttf) format("truetype"); font-weight: 400 500; font-style: normal; font-display: swap; }
+  html, body { margin: 0; padding: 0; background: #FFFFFF; }
+  body { font-family: "Plus Jakarta Sans", -apple-system, "Segoe UI", Roboto, sans-serif; letter-spacing: -0.02em; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  a { color: inherit; text-decoration: none; }
+  a:hover { color: inherit; opacity: 0.85; }
+  @keyframes cgMarquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @keyframes cgMarqueeRev { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+  @keyframes cgFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+  @keyframes cgMarqueeY { from { transform: translateY(0); } to { transform: translateY(-50%); } }
+  @keyframes cgMarqueeYRev { from { transform: translateY(-50%); } to { transform: translateY(0); } }
+  @keyframes cgFadeUp { from { opacity: 0; transform: translateY(32px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes cgFadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes cgRingSpin { from { transform: rotateY(0deg); } to { transform: rotateY(360deg); } }
+  @keyframes cgOrbit { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+  @keyframes cgOrbitRev { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
+  .cgRoll { display: inline-block; overflow: hidden; height: 20px; vertical-align: top; }
+  .cgRoll b { display: block; font-weight: inherit; transition: transform 0.18s cubic-bezier(0.33,1,0.68,1); }
+  a:hover > .cgRoll b { transform: translateY(-20px); }
+  /* EXPLORE dropdown */
+  .cg-exp { position: relative; }
+  .cg-exp-panel { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); padding-top: 16px; opacity: 0; visibility: hidden; transition: opacity .22s ease; z-index: 30; }
+  .cg-exp:hover .cg-exp-panel, .cg-exp:focus-within .cg-exp-panel { opacity: 1; visibility: visible; }
+  .cg-exp-menu { background: #131313; border: 1px solid rgba(255,255,255,0.10); border-radius: 16px; padding: 8px; min-width: 236px; display: flex; flex-direction: column; gap: 2px; box-shadow: 0 28px 60px rgba(0,0,0,0.45); transform: translateY(8px); transition: transform .22s cubic-bezier(.22,1,.36,1); }
+  .cg-exp:hover .cg-exp-menu, .cg-exp:focus-within .cg-exp-menu { transform: translateY(0); }
+  .cg-exp-menu a { display: flex; flex-direction: column; gap: 2px; padding: 11px 14px; border-radius: 11px; text-transform: none; letter-spacing: -0.01em; transition: background .15s ease; }
+  .cg-exp-menu a:hover { background: rgba(255,255,255,0.06); }
+  .cg-exp-menu .t { font-weight: 600; font-size: 14px; color: #FFFFFF; }
+  .cg-exp-menu .d { font-weight: 400; font-size: 12px; color: rgba(255,255,255,0.5); }
+
+[data-h="h0"]:hover{color: #FFFFFF !important;}
+[data-h="h1"]:hover{background: #FFFFFF !important; transform: scale(0.95);}
+[data-h="h2"]:hover{transform: scale(0.97);}
+[data-h="h3"]:hover{opacity: 0.7;}
+[data-h="h4"]:hover{border-color: #4285F4 !important; background: rgba(66,133,244,0.05) !important; transform: translateY(-5px); box-shadow: 0 22px 50px -26px rgba(19,19,19,0.32);}
+[data-h="h5"]:hover{border-color: #5F6FFF !important; background: rgba(95,111,255,0.05) !important; transform: translateY(-5px); box-shadow: 0 22px 50px -26px rgba(19,19,19,0.32);}
+[data-h="h6"]:hover{border-color: #5BB04F !important; transform: translateY(-5px); box-shadow: 0 22px 50px -26px rgba(19,19,19,0.32);}
+[data-h="h7"]:hover{border-color: #5B54E0 !important; background: rgba(91,84,224,0.05) !important; transform: translateY(-5px); box-shadow: 0 22px 50px -26px rgba(19,19,19,0.32);}
+[data-h="h8"]:hover{background: #2F2F2F !important;}
+[data-h="h9"]:hover{box-shadow: 0 20px 40px rgba(13,13,12,0.08);}
+a[href*="/blog/"] div[style*="overflow"] img{transition:transform .65s cubic-bezier(.19,1,.22,1)}
+a[href*="/blog/"]:hover div[style*="overflow"] img{transform:scale(1.06)}
+
+[data-h="h10"]:hover{background: #E5FF9B !important;}
+</style>
+<!-- SEO (ported from original) -->
+<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=cring" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=cring" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png?v=cring" />
+<link rel="manifest" href="/site.webmanifest">
+<meta name="description" content="Lagos-based AI consulting firm helping organisations across Nigeria, Africa and beyond plan AI, train their people and build safe tools that improve everyday work." />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+<meta name="author" content="Cognis Group" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Cognis Group" />
+<meta property="og:title" content="Cognis Group | AI Consulting, Strategy & Agent Engineering" />
+<meta property="og:description" content="We help organisations across Nigeria, Africa and beyond plan AI, train their people and build safe tools that improve everyday work." />
+<meta property="og:url" content="https://cognis.group/" />
+<meta property="og:image" content="https://cognis.group/og/cognis-og-1200x630.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Cognis Group — AI Consulting & Engineering" />
+<meta property="og:locale" content="en_GB" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@cognisgroup" />
+<meta name="twitter:title" content="Cognis Group | AI Consulting & Advisory" />
+<meta name="twitter:description" content="Practical AI strategy, training and safe tools for organisations across Nigeria, Africa and beyond." />
+<meta name="twitter:image" content="https://cognis.group/og/cognis-og-1200x630.jpg" />
+<link rel="canonical" href="https://cognis.group/" />
+<link rel="alternate" hreflang="en" href="https://cognis.group/" />
+<link rel="alternate" hreflang="x-default" href="https://cognis.group/" />
+<link rel="alternate" type="text/plain" title="LLM-friendly summary" href="/llms.txt" />
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://cognis.group/#organization","name":"Cognis Group","alternateName":"Cognis","legalName":"Cognis Group Limited","url":"https://cognis.group/","logo":{"@type":"ImageObject","@id":"https://cognis.group/#logo","url":"https://cognis.group/assets/img/cognis-logo.png","width":512,"height":512,"caption":"Cognis Group"},"image":{"@id":"https://cognis.group/#logo"},"description":"Cognis Group helps organisations decide where AI can help, train their people and build safe tools for everyday work. Its three main services are AI Strategy & Advisory, AI Training & Workforce Development, and AI Agent & Automation Engineering.","slogan":"Quod Tango Muto — What we touch, we change.","foundingDate":"2024","founder":[{"@type":"Person","@id":"https://cognis.group/teams/supreme-oyewumi/#person","name":"Supreme Oyewumi","jobTitle":"Founder & AI Engineer"},{"@type":"Person","@id":"https://cognis.group/teams/kola-olatunde/#person","name":"Kola Olatunde","jobTitle":"Co-Founder and AI Cybersecurity & Governance Lead"}],"foundingLocation":{"@type":"Place","name":"Lagos, Nigeria","address":{"@type":"PostalAddress","addressLocality":"Lagos","addressCountry":"NG"}},"address":[{"@type":"PostalAddress","streetAddress":"Oniru, Victoria Island","addressLocality":"Lagos","addressRegion":"LA","addressCountry":"NG"},{"@type":"PostalAddress","streetAddress":"2106 House Ave, Suite 665","addressLocality":"Cheyenne","addressRegion":"WY","postalCode":"82001","addressCountry":"US"}],"contactPoint":[{"@type":"ContactPoint","contactType":"sales","email":"info@cognis.group","telephone":"+2349080001101","availableLanguage":["English"],"areaServed":["NG","ZA","KE","GH","GB"]},{"@type":"ContactPoint","contactType":"sales","email":"info@cognis.group","telephone":"+15127437322","availableLanguage":["English"],"areaServed":["US","CA"]}],"areaServed":[{"@type":"Place","name":"Africa"},{"@type":"Place","name":"Europe"},{"@type":"Place","name":"Americas"}],"knowsAbout":["Artificial Intelligence Strategy","AI Consulting","AI Agent Engineering","Machine Learning","AI Governance","AI Workforce Development","Intelligent Automation","Large Language Models","Enterprise AI Deployment","Digital Transformation","AI Readiness Assessment","Generative AI","AI Risk Management","Responsible AI"],"sameAs":["https://www.linkedin.com/company/cognis-group","https://x.com/cognisgroup","https://github.com/cognis-group"],"hasOfferCatalog":{"@type":"OfferCatalog","name":"AI Consulting Services","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","@id":"https://cognis.group/#service-ai-strategy","name":"AI Strategy & Advisory","description":"Cognis Group helps organisations choose useful AI opportunities and create a clear plan with priorities, owners, costs, safeguards and measures of success.","provider":{"@id":"https://cognis.group/#organization"},"serviceType":"AI Strategy Consulting","areaServed":"Worldwide","audience":{"@type":"Audience","audienceType":"Enterprise organizations, Government agencies, Financial institutions"}}},{"@type":"Offer","itemOffered":{"@type":"Service","@id":"https://cognis.group/#service-ai-training","name":"AI Training & Workforce Development","description":"Cognis Group provides practical AI training that helps leaders and teams work better, check AI output and use approved tools safely.","provider":{"@id":"https://cognis.group/#organization"},"serviceType":"AI Training and Education","areaServed":"Worldwide"}},{"@type":"Offer","itemOffered":{"@type":"Service","@id":"https://cognis.group/#service-ai-agents","name":"AI Agent & Automation Engineering","description":"Cognis Group builds AI tools that handle agreed steps in business processes, reduce slow manual work and errors, and keep people in control.","provider":{"@id":"https://cognis.group/#organization"},"serviceType":"AI Engineering and Automation","areaServed":"Worldwide"}}]}},{"@type":"WebSite","@id":"https://cognis.group/#website","url":"https://cognis.group","name":"Cognis Group","description":"AI consulting and engineering company helping organisations plan, build and use AI safely","publisher":{"@id":"https://cognis.group/#organization"},"inLanguage":"en-GB"},{"@type":"WebPage","@id":"https://cognis.group/#webpage","url":"https://cognis.group","name":"Cognis Group | AI Consulting, Strategy & Agent Engineering","isPartOf":{"@id":"https://cognis.group/#website"},"about":{"@id":"https://cognis.group/#organization"},"primaryImageOfPage":{"@id":"https://cognis.group/#logo"},"description":"Cognis Group helps organisations decide where AI can help, train their people and build safe tools for everyday work.","inLanguage":"en-GB","breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://cognis.group"}]}},{"@type":"Person","@id":"https://cognis.group/teams/supreme-oyewumi/#person","name":"Supreme Oyewumi","jobTitle":"Founder & AI Engineer","url":"https://cognis.group/teams/supreme-oyewumi/","worksFor":{"@id":"https://cognis.group/#organization"},"knowsAbout":["AI Strategy","AI Agent Engineering","AI Governance","Enterprise AI Deployment"]},{"@type":"Person","@id":"https://cognis.group/#team-kola","name":"Kola Olatunde","jobTitle":"Co-Founder and AI Cybersecurity & Governance Lead","url":"https://cognis.group/teams/kola-olatunde/","worksFor":{"@id":"https://cognis.group/#organization"},"knowsAbout":["AI Security","AI Governance","Cybersecurity","Compliance"]},{"@type":"Person","@id":"https://cognis.group/#team-tosin","name":"Tosin Salami","jobTitle":"Executive Director, Product & Strategy","url":"https://cognis.group/teams/tosin-salami/","sameAs":"https://www.linkedin.com/in/tosin-salami-405b296b","worksFor":{"@id":"https://cognis.group/#organization"},"knowsAbout":["Product Strategy","AI Product Management","Enterprise AI"]},{"@type":"Person","@id":"https://cognis.group/#team-obruche","name":"Obruche Uwanoghor","jobTitle":"Executive Director of People & Culture","url":"https://cognis.group/teams/obruche-uwanoghor/","worksFor":{"@id":"https://cognis.group/#organization"},"knowsAbout":["People Operations","AI Workforce Development","Organisational Culture"]}]}</script>
+<link rel="stylesheet" href="/responsive.css">
+  <!-- cognis-ux-tweaks:start -->
+<style data-cognis-ux-tweaks>
+  /* Let vertical page scroll pass through horizontal Framer slideshows
+     on mobile (e.g. the testimonials carousel). */
+  .framer-slideshow,
+  .framer-slideshow-axis-x,
+  [data-framer-name="slideshow"] {
+    touch-action: pan-y;
+  }
+  .framer-slideshow > div,
+  .framer-slideshow-axis-x > div {
+    touch-action: pan-y;
+  }
+
+  /* Soften testimonials transition — Framer default of 0.25s snaps when
+     you release a swipe. 0.55s cubic-bezier glides into place. */
+  .framer-slideshow-axis-x ul {
+    transition: transform 0.55s cubic-bezier(0.22, 0.61, 0.36, 1) !important;
+  }
+
+  /* About-us "Meet our team": the native Framer block is a horizontal
+     slideshow that froze at slide 0 and only loops two real members
+     (Supreme, Kola) after two former members were retired — so it showed a
+     duplicate Supreme on desktop and disappeared on the phone breakpoint
+     (Framer's mobile layout omits the section). Hide it on the about-us
+     snapshot only (scoped so a "team"-named element on any other route is
+     never touched) and let `ensureTeamGrid()` render the clean grid below. */
+  [data-cognis-snapshot="/about-us"] [data-framer-name="team"] {
+    display: none !important;
+  }
+
+  /* Injected replacement: a self-contained, deduplicated team grid that
+     renders identically at every breakpoint (2-up desktop/tablet, stacked
+     on mobile). On-brand: Royal/ink heading, lime accent, surface cards. */
+  .cognis-team {
+    background: #fff;
+    padding: 80px max(24px, 5vw) 96px;
+  }
+  .cognis-team-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+  .cognis-team-eyebrow {
+    margin: 0 0 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #131313;
+  }
+  .cognis-team-eyebrow::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #131313;
+  }
+  .cognis-team-title {
+    margin: 0 0 28px;
+    font-size: clamp(34px, 5vw, 56px);
+    line-height: 1.02;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: #131313;
+  }
+  .cognis-team-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 44px;
+    padding: 12px 22px;
+    border-radius: 999px;
+    background: #131313;
+    color: #d6fd70;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+  /* All four members fit on one row — no horizontal scroll. Responsive grid:
+     4-up on desktop, 2-up on tablet, stacked on phones. minmax(0,1fr) lets
+     the columns share the row evenly and shrink without overflowing. */
+  .cognis-team-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+  }
+  .cognis-team-card {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 22px 22px 20px;
+    border-radius: 18px;
+    background: #f2f2f2;
+    color: #131313;
+    text-decoration: none;
+    transition: transform 0.25s ease, background 0.25s ease;
+  }
+  a.cognis-team-card:hover {
+    background: #ececec;
+    transform: translateY(-4px);
+  }
+  .cognis-team-card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .cognis-team-name {
+    font-size: clamp(20px, 1.5vw, 30px);
+    line-height: 1.08;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .cognis-team-go {
+    flex: 0 0 auto;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #131313;
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.25s ease, color 0.25s ease;
+  }
+  a.cognis-team-card:hover .cognis-team-go {
+    background: #d6fd70;
+    color: #131313;
+  }
+  .cognis-team-go svg {
+    width: 18px;
+    height: 18px;
+    display: block;
+  }
+  .cognis-team-role {
+    margin: 6px 0 16px;
+    font-size: 14px;
+    color: #7b7b7b;
+  }
+  .cognis-team-photo {
+    margin-top: auto;
+    overflow: hidden;
+    border-radius: 14px;
+    aspect-ratio: 5 / 4;
+    background: #ddd;
+  }
+  .cognis-team-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  @media (max-width: 1099px) {
+    .cognis-team-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+  }
+  @media (max-width: 809px) {
+    .cognis-team { padding: 56px max(20px, 5vw) 64px; }
+  }
+  @media (max-width: 539px) {
+    .cognis-team-grid { grid-template-columns: 1fr; }
+  }
+
+  /* The static homepage scrolls #dc-root rather than the document. Keep its
+     header inside that real scroll container so it remains visible, and give
+     the scrolled state an opaque surface instead of letting content show
+     through the navigation. JS below supplies the measured negative margin,
+     preserving the original absolute-header hero spacing at every breakpoint. */
+  .sc-host[data-sc-name="__pre__Cognis Home"] > div > [data-dc-tpl="7"] {
+    position: sticky !important;
+    top: 12px !important;
+    left: auto !important;
+    right: auto !important;
+    z-index: 1000 !important;
+    transition: background-color .22s ease, box-shadow .22s ease, backdrop-filter .22s ease;
+  }
+  .sc-host[data-sc-name="__pre__Cognis Home"] > div > [data-dc-tpl="7"].cognis-nav-scrolled {
+    background: rgba(13, 13, 12, .96) !important;
+    box-shadow: 0 10px 32px rgba(0, 0, 0, .2);
+    backdrop-filter: saturate(140%) blur(12px);
+    -webkit-backdrop-filter: saturate(140%) blur(12px);
+  }
+
+  /* Blog cards: the complete clickable surface responds, with the same
+     restrained lift/image movement used elsewhere in the Cognis system.
+     Keyboard focus receives the same state; coarse pointers do not get a
+     sticky hover effect. */
+  .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="43"],
+  .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="65"] {
+    border-radius: 20px;
+    transition: transform .28s cubic-bezier(.2,.7,.2,1), box-shadow .28s ease, background-color .28s ease;
+  }
+  .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="43"] img,
+  .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="65"] img {
+    transition: transform .36s cubic-bezier(.2,.7,.2,1);
+  }
+  .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="43"]:focus-visible,
+  .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="65"]:focus-visible {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 44px -28px rgba(19,19,19,.42);
+  }
+  .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="43"]:focus-visible img,
+  .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="65"]:focus-visible img {
+    transform: scale(1.035);
+  }
+  @media (hover: hover) and (pointer: fine) {
+    .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="43"]:hover,
+    .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="65"]:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 44px -28px rgba(19,19,19,.42);
+      opacity: 1;
+    }
+    .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="43"]:hover img,
+    .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="65"]:hover img {
+      transform: scale(1.035);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .sc-host[data-sc-name="__pre__Cognis Home"] > div > [data-dc-tpl="7"],
+    .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="43"],
+    .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="65"],
+    .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="43"] img,
+    .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="65"] img {
+      transition-duration: .01ms !important;
+    }
+    .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="43"]:hover,
+    .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="65"]:hover,
+    .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="43"]:focus-visible,
+    .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="65"]:focus-visible,
+    .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="43"]:hover img,
+    .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="65"]:hover img,
+    .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="43"]:focus-visible img,
+    .sc-host[data-sc-name="__pre__Cognis Blog"] a[data-dc-tpl="65"]:focus-visible img {
+      transform: none;
+    }
+  }
+</style>
+<script data-cognis-sticky-header>
+(function () {
+  function initStickyHeader() {
+    var host = document.querySelector('.sc-host[data-sc-name="__pre__Cognis Home"]');
+    if (!host) return;
+    var header = host.querySelector(':scope > div > [data-dc-tpl="7"]');
+    var scroller = host.parentElement;
+    if (!header || !scroller) return;
+    function size() {
+      header.style.marginBottom = (-header.offsetHeight) + 'px';
+    }
+    function state() {
+      header.classList.toggle('cognis-nav-scrolled', scroller.scrollTop > 24);
+    }
+    size();
+    state();
+    scroller.addEventListener('scroll', state, { passive: true });
+    window.addEventListener('resize', size, { passive: true });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(size);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initStickyHeader);
+  else initStickyHeader();
+})();
+</script>
+<!-- cognis-ux-tweaks:end -->
+    <!-- cognis-route-handoff:start -->
+<style data-cognis-route-handoff>
+  html::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 2147483647;
+    background: #0d0d0c;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+  html.cognis-route-leaving::after { opacity: 1; visibility: visible; }
+</style>
+<script type="speculationrules">
+{
+  "prefetch": [{
+    "where": {"or": [
+      {"href_matches": "/why-cognis/*"},
+      {"href_matches": "/case-studies/*"},
+      {"href_matches": "/how-we-work/*"}
+    ]},
+    "eagerness": "eager"
+  }],
+  "prerender": [{
+    "where": {"or": [
+      {"href_matches": "/why-cognis/*"},
+      {"href_matches": "/case-studies/*"},
+      {"href_matches": "/how-we-work/*"}
+    ]},
+    "eagerness": "moderate"
+  }]
+}
+</script>
+<script data-cognis-route-handoff>
+(function () {
+  var routes = {
+    "/why-cognis/": "/assets/why-hero-1920-v2.webp",
+    "/case-studies/": "/assets/cases-hero-1920-v2.webp",
+    "/how-we-work/": "/assets/process-hero-1920-v2.webp"
+  };
+
+  function normalize(pathname) {
+    return pathname.endsWith("/") ? pathname : pathname + "/";
+  }
+
+  function warmImages() {
+    Object.keys(routes).forEach(function (route) {
+      if (!document.querySelector('link[data-cognis-route-image="' + route + '"]')) {
+        var link = document.createElement("link");
+        link.rel = "prefetch";
+        link.as = "image";
+        link.href = routes[route];
+        link.setAttribute("data-cognis-route-image", route);
+        document.head.appendChild(link);
+      }
+    });
+  }
+
+  document.addEventListener("click", function (event) {
+    if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+    var anchor = event.target.closest && event.target.closest("a[href]");
+    if (!anchor || anchor.target || anchor.hasAttribute("download")) return;
+    var url = new URL(anchor.href, location.href);
+    var route = normalize(url.pathname);
+    if (url.origin !== location.origin || !routes[route] || route === normalize(location.pathname)) return;
+    event.preventDefault();
+    document.documentElement.classList.add("cognis-route-leaving");
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () { location.assign(url.href); });
+    });
+  }, true);
+
+  addEventListener("pageshow", function () {
+    document.documentElement.classList.remove("cognis-route-leaving");
+  });
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", warmImages, { once: true });
+  else warmImages();
+})();
+</script>
+<!-- cognis-route-handoff:end -->
+<style data-cognis-gheader>
+  @keyframes cgFadeUp { from { opacity: 0; transform: translateY(32px); } to { opacity: 1; transform: translateY(0); } }
+  .cg-gh .cgRoll { display: inline-block; overflow: hidden; height: 20px; vertical-align: top; }
+  .cg-gh .cgRoll b { display: block; font-weight: inherit; transition: transform 0.18s cubic-bezier(0.33,1,0.68,1); }
+  .cg-gh a:hover > .cgRoll b { transform: translateY(-20px); }
+  .cg-gh[data-cg-skin="white"] a.cg-gh-link:hover { color: #FFFFFF !important; }
+  .cg-gh[data-cg-skin="dark"] a.cg-gh-link:hover { color: #131313 !important; }
+  .cg-gh a.cg-gh-cta:hover { background: #FFFFFF !important; transform: scale(0.95); }
+  .cg-gh .cg-gh-current { box-shadow: rgb(214, 253, 112) 0px -2px 0px inset; padding-bottom: 4px; }
+  .cg-gh .cg-exp { position: relative; }
+  .cg-gh .cg-exp-panel { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); padding-top: 16px; opacity: 0; visibility: hidden; transition: opacity .22s ease; z-index: 30; }
+  .cg-gh .cg-exp:hover .cg-exp-panel, .cg-gh .cg-exp:focus-within .cg-exp-panel { opacity: 1; visibility: visible; }
+  .cg-gh .cg-exp-menu { background: #131313; border: 1px solid rgba(255,255,255,0.10); border-radius: 16px; padding: 8px; min-width: 236px; display: flex; flex-direction: column; gap: 2px; box-shadow: 0 28px 60px rgba(0,0,0,0.45); transform: translateY(8px); transition: transform .22s cubic-bezier(.22,1,.36,1); }
+  .cg-gh .cg-exp:hover .cg-exp-menu, .cg-gh .cg-exp:focus-within .cg-exp-menu { transform: translateY(0); }
+  .cg-gh .cg-exp-menu a { display: flex; flex-direction: column; gap: 2px; padding: 11px 14px; border-radius: 11px; text-transform: none; letter-spacing: -0.01em; transition: background .15s ease; text-decoration: none; }
+  .cg-gh .cg-exp-menu a:hover { background: rgba(255,255,255,0.06); }
+  .cg-gh .cg-exp-menu .t { font-weight: 600; font-size: 14px; color: #FFFFFF; }
+  .cg-gh .cg-exp-menu .d { font-weight: 400; font-size: 12px; color: rgba(255,255,255,0.5); }
+  .cg-gh a { text-decoration: none; }
+  /* Pages where the header is a direct child of <body> (no prerendered hero
+     wrapper) need their content pushed clear of the absolute header. */
+  body > .cg-gh ~ main { padding-top: 108px; }
+  body > .cg-gh ~ div > .sc-host { padding-top: 108px; } /* brand manual: its runtime renders the doc into a shadow host */
+  /* Prerendered pages whose hero card starts with a 12px margin: keep that margin
+     inside the wrapper (no collapse) so the absolute header measures from the page top. */
+  .sc-host > div:has(> .cg-gh) { display: flow-root; }
+  /* Framer service pages: the global header replaces Framer's own nav. */
+  div:has(> nav.framer-AZa26), nav.framer-AZa26 { display: none !important; }
+</style>
+<style data-cognis-gfooter>
+  .cg-gf a { text-decoration: none; }
+  .cg-gf a.cg-gf-link:hover { color: #FFFFFF !important; }
+  .cg-gf .cg-gf-btn:hover { background: #E5FF9B !important; }
+  /* Framer service pages: the global footer replaces Framer's own. */
+  div:has(> footer.framer-uOBZL), footer.framer-uOBZL { display: none !important; }
+</style>
+</head>
+<body><a href="https://cognis.group/cdn-cgi/content?id=fi3LMerjcl.Vyq0cFJKkndM_9yzci1lQYa34Z3_jrnc-1788947976.1974351-1.2.1.1-87q8CLfBFujZVcOFN9URrcRQzBhr2pC9g5rQQgKQ2Tbj1jp57AS8opgiJmF24V_U" aria-hidden="true" rel="nofollow noopener" style="display: none !important; visibility: hidden !important"></a>
+<div id="dc-root"><div class="sc-host" data-sc-name="__pre__Cognis Home"><div data-dc-tpl="6" style="background: rgb(255, 255, 255); position: relative;">
+
+  
+  <div data-dc-tpl="7" class="cg-gh" data-cg-skin="white" style="position: absolute; top: 12px; left: 12px; right: 12px; z-index: 1000; padding: 24px clamp(16px, 3.33vw, 48px);">
+    <div style="max-width: 1280px; margin: 0px auto; display: flex; align-items: center; justify-content: space-between; animation: 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0s 1 normal both running cgFadeUp;">
+      <a class="cg-gh-logo" href="/" aria-label="Cognis Group" style="display: flex; align-items: center; gap: 9px; color: rgb(255, 255, 255);">
+        <svg class="cg-mark-hero" viewBox="0 0 48 48" aria-hidden="true" style="width: 28px; height: 28px; fill: currentcolor; display: block;"><path d="M 42.66 12.34 A 22 22 0 1 0 42.66 35.66 L 33.19 31.71 A 12 12 0 1 1 33.19 16.29 Z"></path><rect x="36" y="19" width="10" height="10" fill="#D6FD70"></rect></svg>
+        <span style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 600; font-size: 23px; color: rgb(255, 255, 255); letter-spacing: -0.04em;">Cognis</span>
+      </a>
+      <div style="display: flex; align-items: center; gap: 24px;">
+        <a class="cg-gh-link cg-gh-current" href="/" aria-current="page" style="color: rgba(255, 255, 255, 0.8); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; white-space: nowrap;"><span class="cgRoll"><b>Home</b><b>Home</b></span></a>
+        <a class="cg-gh-link" href="/about-us/" style="color: rgba(255, 255, 255, 0.8); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; white-space: nowrap;"><span class="cgRoll"><b>About Us</b><b>About Us</b></span></a>
+        <a class="cg-gh-link" href="/our-services/" style="color: rgba(255, 255, 255, 0.8); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; white-space: nowrap;"><span class="cgRoll"><b>Services</b><b>Services</b></span></a>
+        <a class="cg-gh-link" href="/products/" style="color: rgba(255, 255, 255, 0.8); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; white-space: nowrap;"><span class="cgRoll"><b>Products</b><b>Products</b></span></a>
+        <a class="cg-gh-link" href="/blog/" style="color: rgba(255, 255, 255, 0.8); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; white-space: nowrap;"><span class="cgRoll"><b>Insights</b><b>Insights</b></span></a>
+        <div class="cg-exp" tabindex="0" style="height: 20px; color: rgba(255, 255, 255, 0.8); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; white-space: nowrap; cursor: default;">
+          <span style="display: inline-flex; align-items: center; gap: 5px;">Explore
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" style="opacity: 0.85;"><path d="M2 3.5L5 6.5L8 3.5" stroke="#FFFFFF" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </span>
+          <div class="cg-exp-panel">
+            <div class="cg-exp-menu">
+              <a href="/why-cognis/"><span class="t">Why Cognis</span><span class="d">The case for working with us</span></a>
+              <a href="/case-studies/"><span class="t">Case Studies</span><span class="d">AI shipped to governed production</span></a>
+              <a href="/how-we-work/"><span class="t">How We Work</span><span class="d">Six phases, designed to ship</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="cg-gh-cta" href="/contact/" style="background: rgb(214, 253, 112); color: rgb(19, 19, 19); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; white-space: nowrap; padding: 12px 22px; border-radius: 100px; transition: transform 0.3s cubic-bezier(0.19, 1, 0.22, 1), background-color 0.3s;">Work With Us</a>
+    </div>
+  </div>
+
+  
+  <section data-dc-tpl="51" data-screen-label="Hero" style="position: relative; overflow: clip; margin: 12px; border-radius: 24px; display: flex; flex-direction: column; justify-content: flex-start; padding: clamp(104px, 10.42vw, 150px) clamp(16px, 3.33vw, 48px) 0px; background: radial-gradient(120% 80% at 50% 0%, rgb(28, 28, 26) 0%, rgb(13, 13, 12) 60%);">
+    <video data-dc-tpl="52" autoplay="" playsinline="" preload="auto" src="/assets/hero-afr5.mp4" loop="" poster="/assets/hero-poster.jpg" width="1280" height="720" style="position: absolute; inset: 0px; width: 100%; height: 100%; object-fit: cover; z-index: 0;"></video>
+    <div data-dc-tpl="53" style="position: absolute; inset: 0px; z-index: 0; background: linear-gradient(rgba(0, 0, 0, 0.82) 0%, rgba(0, 0, 0, 0.72) 35%, rgba(0, 0, 0, 0.55) 55%, rgba(0, 0, 0, 0.3) 78%, rgba(0, 0, 0, 0.05) 92%, rgba(0, 0, 0, 0) 100%);"></div>
+    <div data-dc-tpl="54" style="position: relative; max-width: 900px; margin: 0px auto; display: flex; flex-direction: column; align-items: center; text-align: center; text-shadow: rgba(0, 0, 0, 0.55) 0px 1px 28px;">
+      <h1 data-dc-tpl="55" style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-size: clamp(36px, 4.17vw, 60px); line-height: 1.2; letter-spacing: -0.06em; font-weight: 500; color: rgb(255, 255, 255); margin: 0px; text-wrap: balance; animation: 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0s 1 normal both running cgFadeUp;">What We Touch, <span data-dc-tpl="56" style="color: rgba(255, 255, 255, 0.75);">We</span> <br data-dc-tpl="57"><span data-dc-tpl="58" style="color: rgba(255, 255, 255, 0.75);">Change.</span></h1>
+      <div data-dc-tpl="59" style="height: 20px;"></div>
+      <div data-dc-tpl="60" style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 300; font-size: 19.2px; line-height: 19.2px; letter-spacing: 4.8px; color: rgba(255, 255, 255, 0.72); animation: 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.06s 1 normal both running cgFadeUp;">Quod Tango Muto</div>
+      <div data-dc-tpl="61" style="height: 24px;"></div>
+      <div data-dc-tpl="62" style="max-width: 560px; font-size: 16px; line-height: 24px; letter-spacing: -0.32px; color: rgba(255, 255, 255, 0.92); animation: 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.12s 1 normal both running cgFadeUp;">Cognis Group helps organisations use AI to improve everyday work. We set the strategy, train your people and build practical AI tools that save time, reduce errors and support better decisions. Every engagement leaves your team more capable.</div>
+    </div>
+    <div data-dc-tpl="63" style="height: clamp(20px, 2.78vw, 40px);"></div>
+    
+    <div data-dc-tpl="64" style="position: relative; height: 230px; overflow: visible; animation: 1.4s ease 0.25s 1 normal both running cgFadeIn;">
+      
+      <div data-dc-tpl="65" style="position: absolute; inset: -20px 0px -140px; perspective: 3000px; z-index: 2; overflow: visible; mask-image: linear-gradient(90deg, transparent 8.56%, rgb(0, 0, 0) 12%, rgb(0, 0, 0) 88%, transparent 92%);">
+        <div data-dc-tpl="66" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, calc(-50% + 32px)) scale(1) rotateX(10deg); transform-style: preserve-3d;">
+          <div data-dc-tpl="67" style="position: relative; width: 0px; height: 0px; transform-style: preserve-3d; will-change: transform; animation: 97s linear 0s infinite normal none running cgRingSpin;">
+            
+              <div data-dc-tpl="69" style="position: absolute; top: 50%; left: 50%; width: 172px; margin: -86px 0px 0px -86px; border-radius: 12px; overflow: hidden; background: rgb(255, 255, 255); box-shadow: rgba(0, 0, 0, 0.45) 0px 24px 48px; backface-visibility: hidden; transform: rotateY(0deg) translateZ(525px);">
+                <img data-dc-tpl="70" src="https://cognis.group/framer-runtime/images/6CIbzpanm9QwttboqUvfD3LJr94.png?width=500" alt="" style="width: 100%; height: 172px; object-fit: cover; display: block;">
+              </div>
+            
+              <div data-dc-tpl="69" style="position: absolute; top: 50%; left: 50%; width: 172px; margin: -86px 0px 0px -86px; border-radius: 12px; overflow: hidden; background: rgb(255, 255, 255); box-shadow: rgba(0, 0, 0, 0.45) 0px 24px 48px; backface-visibility: hidden; transform: rotateY(20deg) translateZ(525px);">
+                <img data-dc-tpl="70" src="https://cognis.group/framer-runtime/images/fIybNZHyBu72xfFTdyUzRgab0Mc.png?width=500" alt="" style="width: 100%; height: 172px; object-fit: cover; display: block;">
+              </div>
+            
+              <div data-dc-tpl="69" style="position: absolute; top: 50%; left: 50%; width: 172px; margin: -86px 0px 0px -86px; border-radius: 12px; overflow: hidden; background: rgb(255, 255, 255); box-shadow: rgba(0, 0, 0, 0.45) 0px 24px 48px; backface-visibility: hidden; transform: rotateY(40deg) translateZ(525px);">
+                <img data-dc-tpl="70" src="https://cognis.group/framer-runtime/images/Xs5D1qDo4uJKopeDuIyOE87MqPw.png?width=500" alt="" style="width: 100%; height: 172px; object-fit: cover; display: block;">
+              </div>
+            
+              <div data-dc-tpl="69" style="position: absolute; top: 50%; left: 50%; width: 172px; margin: -86px 0px 0px -86px; border-radius: 12px; overflow: hidden; background: rgb(255, 255, 255); box-shadow: rgba(0, 0, 0, 0.45) 0px 24px 48px; backface-visibility: hidden; transform: rotateY(60deg) translateZ(525px);">
+                <img data-dc-tpl="70" src="https://cognis.group/framer-runtime/images/9OmbiS9xjEf1LBFWMnuglmayMKk.png?width=500" alt="" style="width: 100%; height: 172px; object-fit: cover; display: block;">
+              </div>
+            
+              <div data-dc-tpl="69" style="position: absolute; top: 50%; left: 50%; width: 172px; margin: -86px 0px 0px -86px; border-radius: 12px; overflow: hidden; background: rgb(255, 255, 255); box-shadow: rgba(0, 0, 0, 0.45) 0px 24px 48px; backface-visibility: hidden; transform: rotateY(80deg) translateZ(525px);">
+                <img data-dc-tpl="70" src="https://cognis.group/framer-runtime/images/DJtFCnryarmP1ZSHtWkVN0XYXuM.png?width=500" alt="" style="width: 100%; height: 172px; object-fit: cover; display: block;">
+              </div>
+            
+              <div data-dc-tpl="69" style="position: absolute; top: 50%; left: 50%; width: 172px; margin: -86px 0px 0px -86px; border-radius: 12px; overflow: hidden; background: rgb(255, 255, 255); box-shadow: rgba(0, 0, 0, 0.45) 0px 24px 48px; backface-visibility: hidden; transform: rotateY(100deg) translateZ(525px);">
+                <img data-dc-tpl="70" src="https://cognis.group/framer-runtime/images/wAB2rKVe4BkrVIHZAOdZS3FE6Tw.png?width=500" alt="" style="width: 100%; height: 172px; object-fit: cover; display: block;">
+              </div>
+            
+              <div data-dc-tpl="69" style="position: absolute; top: 50%; left: 50%; width: 172px; margin: -86px 0px 0px -86px; border-radius: 12px; overflow: hidden; background: rgb(255, 255, 255); box-shadow: rgba(0, 0, 0, 0.45) 0px 24px 48px; backface-visibility: hidden; transform: rotateY(120deg) translateZ(525px);">
+                <img data-dc-tpl="70" src="https://cognis.group/framer-runtime/images/sO1jgMhBr28EnEhgtxehLBQaFI.png?width=500" alt="" style="width: 100%; height: 172px; object-fit: cover; display: block;">
+              </div>
+            
+              <div data-dc-tpl="69" style="position: absolute; top: 50%; left: 50%; width: 172px; margin: -86px 0px 0px -86px; border-radius: 12px; overflow: hidden; background: rgb(255, 255, 255); box-shadow: rgba(0, 0, 0, 0.45) 0px 24px 48px; backface-visibility: hidden; transform: rotateY(140deg) translateZ(525px);">
+                <img data-dc-tpl="70" src="https://cognis.group/framer-runtime/images/V6TBO20rjB87mxZVkt03bM02V0.png?width=500" alt="" style="width: 100%; height: 172px; object-fit: cover; display: block;">
+              </div>
+            
+              <div data-dc-tpl="69" style="position: absolute; top: 50%; left: 50%; width: 172px; margin: -86px 0px 0px -86px; border-radius: 12px; overflow: hidden; background: rgb(255, 255, 255); box-shadow: rgba(0, 0, 0, 0.45) 0px 24px 48px; backface-visibility: hidden; transform: rotateY(160deg) translateZ(525px);">
+                <img data-dc-tpl="70" src="https://cognis.group/framer-runtime/images/BxQ1QrZjflzmMIGKgq9wSHlPvik.png?width=500" alt="" style="width: 100%; height: 172px; object-fit: cover; display: block;">
+              </div>
+            
+              <div data-dc-tpl="69" style="position: absolute; top: 50%; left: 50%; width: 172px; margin: -86px 0px 0px -86px; border-radius: 12px; overflow: hidden; background: rgb(255, 255, 255); box-shadow: rgba(0, 0, 0, 0.45) 0px 24px 48px; backface-visibility: hidden; transform: rotateY(180deg) translateZ(525px);">
+                <img data-dc-tpl="70" src="https://cognis.group/framer-runtime/images/6CIbzpanm9QwttboqUvfD3LJr94.png?width=500" alt="" style="width: 100%; height: 172px; object-fit: cover; display: block;">
+              </div>
+            
+              <div data-dc-tpl="69" style="position: absolute; top: 50%; left: 50%; width: 172px; margin: -86px 0px 0px -86px; border-radius: 12px; overflow: hidden; background: rgb(255, 255, 255); box-shadow: rgba(0, 0, 0, 0.45) 0px 24px 48px; backface-visibility: hidden; transform: rotateY(200deg) translateZ(525px);">
+                <img data-dc-tpl="70" src="https://cognis.group/framer-runtime/images/fIybNZHyBu72xfFTdyUzRgab0Mc.png?width=500" alt="" style="width: 100%; height: 172px; object-fit: cover; display: block;">
+              </div>
+            
+              <div data-dc-tpl="69" style="position: absolute; top: 50%; left: 50%; width: 172px; margin: -86px 0px 0px -86px; border-radius: 12px; overflow: hidden; background: rgb(255, 255, 255); box-shadow: rgba(0, 0, 0, 0.45) 0px 24px 48px; backface-visibility: hidden; transform: rotateY(220deg) translateZ(525px);">
+                <img data-dc-tpl="70" src="https://cognis.group/framer-runtime/images/Xs5D1qDo4uJKopeDuIyOE87MqPw.png?width=500" alt="" style="width: 100%; height: 172px; object-fit: cover; display: block;">
+              </div>
+            
+              <div data-dc-tpl="69" style="position: absolute; top: 50%; left: 50%; width: 172px; margin: -86px 0px 0px -86px; border-radius: 12px; overflow: hidden; background: rgb(255, 255, 255); box-shadow: rgba(0, 0, 0, 0.45) 0px 24px 48px; backface-visibility: hidden; transform: rotateY(240deg) translateZ(525px);">
+                <img data-dc-tpl="70" src="https://cognis.group/framer-runtime/images/9OmbiS9xjEf1LBFWMnuglmayMKk.png?width=500" alt="" style="width: 100%; height: 172px; object-fit: cover; display: block;">
+              </div>
+            
+              <div data-dc-tpl="69" style="position: absolute; top: 50%; left: 50%; width: 172px; margin: -86px 0px 0px -86px; border-radius: 12px; overflow: hidden; background: rgb(255, 255, 255); box-shadow: rgba(0, 0, 0, 0.45) 0px 24px 48px; backface-visibility: hidden; transform: rotateY(260deg) translateZ(525px);">
+                <img data-dc-tpl="70" src="https://cognis.group/framer-runtime/images/DJtFCnryarmP1ZSHtWkVN0XYXuM.png?width=500" alt="" style="width: 100%; height: 172px; object-fit: cover; display: block;">
+              </div>
+            
+              <div data-dc-tpl="69" style="position: absolute; top: 50%; left: 50%; width: 172px; margin: -86px 0px 0px -86px; border-radius: 12px; overflow: hidden; background: rgb(255, 255, 255); box-shadow: rgba(0, 0, 0, 0.45) 0px 24px 48px; backface-visibility: hidden; transform: rotateY(280deg) translateZ(525px);">
+                <img data-dc-tpl="70" src="https://cognis.group/framer-runtime/images/wAB2rKVe4BkrVIHZAOdZS3FE6Tw.png?width=500" alt="" style="width: 100%; height: 172px; object-fit: cover; display: block;">
+              </div>
+            
+              <div data-dc-tpl="69" style="position: absolute; top: 50%; left: 50%; width: 172px; margin: -86px 0px 0px -86px; border-radius: 12px; overflow: hidden; background: rgb(255, 255, 255); box-shadow: rgba(0, 0, 0, 0.45) 0px 24px 48px; backface-visibility: hidden; transform: rotateY(300deg) translateZ(525px);">
+                <img data-dc-tpl="70" src="https://cognis.group/framer-runtime/images/sO1jgMhBr28EnEhgtxehLBQaFI.png?width=500" alt="" style="width: 100%; height: 172px; object-fit: cover; display: block;">
+              </div>
+            
+              <div data-dc-tpl="69" style="position: absolute; top: 50%; left: 50%; width: 172px; margin: -86px 0px 0px -86px; border-radius: 12px; overflow: hidden; background: rgb(255, 255, 255); box-shadow: rgba(0, 0, 0, 0.45) 0px 24px 48px; backface-visibility: hidden; transform: rotateY(320deg) translateZ(525px);">
+                <img data-dc-tpl="70" src="https://cognis.group/framer-runtime/images/V6TBO20rjB87mxZVkt03bM02V0.png?width=500" alt="" style="width: 100%; height: 172px; object-fit: cover; display: block;">
+              </div>
+            
+              <div data-dc-tpl="69" style="position: absolute; top: 50%; left: 50%; width: 172px; margin: -86px 0px 0px -86px; border-radius: 12px; overflow: hidden; background: rgb(255, 255, 255); box-shadow: rgba(0, 0, 0, 0.45) 0px 24px 48px; backface-visibility: hidden; transform: rotateY(340deg) translateZ(525px);">
+                <img data-dc-tpl="70" src="https://cognis.group/framer-runtime/images/BxQ1QrZjflzmMIGKgq9wSHlPvik.png?width=500" alt="" style="width: 100%; height: 172px; object-fit: cover; display: block;">
+              </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div data-dc-tpl="71" style="position: relative; display: flex; flex-direction: column; align-items: center; padding: 4px 0px clamp(16px, 3.33vw, 48px); animation: 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.35s 1 normal both running cgFadeUp;">
+      <div data-dc-tpl="72" style="color: rgba(255, 255, 255, 0.85); font-size: 15px; text-align: center; line-height: 1.5;">Trusted by organisations<br data-dc-tpl="73">across Africa, Europe and the Americas</div>
+      <div data-dc-tpl="74" style="height: 12px;"></div>
+      <div data-dc-tpl="75" style="display: flex; gap: 6px;">
+        
+          <svg data-dc-tpl="77" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none"><path data-dc-tpl="78" d="M3.88203 13.9987L4.96536 9.31536L1.33203 6.16536L6.13203 5.7487L7.9987 1.33203L9.86536 5.7487L14.6654 6.16536L11.032 9.31536L12.1154 13.9987L7.9987 11.5154L3.88203 13.9987Z" fill="#F1EE46"></path></svg>
+        
+          <svg data-dc-tpl="77" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none"><path data-dc-tpl="78" d="M3.88203 13.9987L4.96536 9.31536L1.33203 6.16536L6.13203 5.7487L7.9987 1.33203L9.86536 5.7487L14.6654 6.16536L11.032 9.31536L12.1154 13.9987L7.9987 11.5154L3.88203 13.9987Z" fill="#F1EE46"></path></svg>
+        
+          <svg data-dc-tpl="77" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none"><path data-dc-tpl="78" d="M3.88203 13.9987L4.96536 9.31536L1.33203 6.16536L6.13203 5.7487L7.9987 1.33203L9.86536 5.7487L14.6654 6.16536L11.032 9.31536L12.1154 13.9987L7.9987 11.5154L3.88203 13.9987Z" fill="#F1EE46"></path></svg>
+        
+          <svg data-dc-tpl="77" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none"><path data-dc-tpl="78" d="M3.88203 13.9987L4.96536 9.31536L1.33203 6.16536L6.13203 5.7487L7.9987 1.33203L9.86536 5.7487L14.6654 6.16536L11.032 9.31536L12.1154 13.9987L7.9987 11.5154L3.88203 13.9987Z" fill="#F1EE46"></path></svg>
+        
+          <svg data-dc-tpl="77" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none"><path data-dc-tpl="78" d="M3.88203 13.9987L4.96536 9.31536L1.33203 6.16536L6.13203 5.7487L7.9987 1.33203L9.86536 5.7487L14.6654 6.16536L11.032 9.31536L12.1154 13.9987L7.9987 11.5154L3.88203 13.9987Z" fill="#F1EE46"></path></svg>
+        
+      </div>
+    </div>
+  </section>
+
+  
+  <section data-dc-tpl="79" data-screen-label="Logo loop" style="background: rgb(255, 255, 255); padding: 32px 0px; overflow: hidden;">
+    <div data-dc-tpl="80" style="display: flex; width: max-content; gap: 96px; align-items: center; animation: 36s linear 0s infinite normal none running cgMarquee;">
+        <img loading="lazy" decoding="async" data-dc-tpl="82" src="/assets/partners/advansio.svg" alt="Advansio" style="height: 40px; width: auto; opacity: 0.55; filter: grayscale(1) brightness(0.6);">
+        <img loading="lazy" decoding="async" data-dc-tpl="82" src="/assets/partners/marketsage.svg" alt="MarketSage" style="height: 40px; width: auto; opacity: 0.55; filter: grayscale(1) brightness(0.6);">
+        <img loading="lazy" decoding="async" data-dc-tpl="82" src="/assets/partners/migratio.svg" alt="Migratio" style="height: 48px; width: auto; opacity: 0.55; filter: grayscale(1) brightness(0.6);">
+        <img loading="lazy" decoding="async" data-dc-tpl="82" src="/assets/partners/spog.svg" alt="SPOG" style="height: 38px; width: auto; opacity: 0.55; filter: grayscale(1) brightness(0.6);">
+        <img loading="lazy" decoding="async" data-dc-tpl="82" src="/assets/partners/vision.png" alt="Partner logo" style="height: 30px; width: auto; opacity: 0.55; filter: grayscale(1) brightness(0.6);">
+        <img loading="lazy" decoding="async" data-dc-tpl="82" src="/assets/partners/advansio.svg" alt="Advansio" style="height: 40px; width: auto; opacity: 0.55; filter: grayscale(1) brightness(0.6);">
+        <img loading="lazy" decoding="async" data-dc-tpl="82" src="/assets/partners/marketsage.svg" alt="MarketSage" style="height: 40px; width: auto; opacity: 0.55; filter: grayscale(1) brightness(0.6);">
+        <img loading="lazy" decoding="async" data-dc-tpl="82" src="/assets/partners/migratio.svg" alt="Migratio" style="height: 48px; width: auto; opacity: 0.55; filter: grayscale(1) brightness(0.6);">
+        <img loading="lazy" decoding="async" data-dc-tpl="82" src="/assets/partners/spog.svg" alt="SPOG" style="height: 38px; width: auto; opacity: 0.55; filter: grayscale(1) brightness(0.6);">
+        <img loading="lazy" decoding="async" data-dc-tpl="82" src="/assets/partners/vision.png" alt="Partner logo" style="height: 30px; width: auto; opacity: 0.55; filter: grayscale(1) brightness(0.6);">
+        <img loading="lazy" decoding="async" data-dc-tpl="82" src="/assets/partners/advansio.svg" alt="Advansio" style="height: 40px; width: auto; opacity: 0.55; filter: grayscale(1) brightness(0.6);">
+        <img loading="lazy" decoding="async" data-dc-tpl="82" src="/assets/partners/marketsage.svg" alt="MarketSage" style="height: 40px; width: auto; opacity: 0.55; filter: grayscale(1) brightness(0.6);">
+        <img loading="lazy" decoding="async" data-dc-tpl="82" src="/assets/partners/migratio.svg" alt="Migratio" style="height: 48px; width: auto; opacity: 0.55; filter: grayscale(1) brightness(0.6);">
+        <img loading="lazy" decoding="async" data-dc-tpl="82" src="/assets/partners/spog.svg" alt="SPOG" style="height: 38px; width: auto; opacity: 0.55; filter: grayscale(1) brightness(0.6);">
+        <img loading="lazy" decoding="async" data-dc-tpl="82" src="/assets/partners/vision.png" alt="Partner logo" style="height: 30px; width: auto; opacity: 0.55; filter: grayscale(1) brightness(0.6);">
+        <img loading="lazy" decoding="async" data-dc-tpl="82" src="/assets/partners/advansio.svg" alt="Advansio" style="height: 40px; width: auto; opacity: 0.55; filter: grayscale(1) brightness(0.6);">
+        <img loading="lazy" decoding="async" data-dc-tpl="82" src="/assets/partners/marketsage.svg" alt="MarketSage" style="height: 40px; width: auto; opacity: 0.55; filter: grayscale(1) brightness(0.6);">
+        <img loading="lazy" decoding="async" data-dc-tpl="82" src="/assets/partners/migratio.svg" alt="Migratio" style="height: 48px; width: auto; opacity: 0.55; filter: grayscale(1) brightness(0.6);">
+        <img loading="lazy" decoding="async" data-dc-tpl="82" src="/assets/partners/spog.svg" alt="SPOG" style="height: 38px; width: auto; opacity: 0.55; filter: grayscale(1) brightness(0.6);">
+        <img loading="lazy" decoding="async" data-dc-tpl="82" src="/assets/partners/vision.png" alt="Partner logo" style="height: 30px; width: auto; opacity: 0.55; filter: grayscale(1) brightness(0.6);">
+      </div>
+  </section>
+
+  
+  <section data-dc-tpl="83" id="about" data-screen-label="About" style="background: rgb(255, 255, 255); padding: 96px clamp(16px, 3.33vw, 48px);">
+    <div data-dc-tpl="84" style="max-width: 1280px; margin: 0px auto;">
+      <div data-dc-tpl="85" style="display: flex; flex-direction: column; align-items: center;">
+        <div data-dc-tpl="86" style="display: flex; align-items: center; gap: 12px;">
+          <div data-dc-tpl="87" style="width: 4px; height: 4px; background: rgb(19, 19, 19);"></div>
+          <div data-dc-tpl="88" style="font-family: Geistmono, &quot;Geist Mono&quot;, monospace; font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: rgb(19, 19, 19);">About us</div>
+        </div>
+        <div data-dc-tpl="89" style="height: 36px;"></div>
+        <div data-dc-tpl="90" style="max-width: 900px; display: flex; flex-direction: column; align-items: center; gap: 4px; text-align: center;">
+          <div data-dc-tpl="91" style="display: flex; align-items: center; column-gap: 14px;">
+            <h2 data-dc-tpl="92" style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-size: clamp(29px, 3.33vw, 48px); font-weight: 500; line-height: 1.17; letter-spacing: -0.06em; color: rgb(13, 13, 12); margin: 0px; white-space: nowrap;">A global intelligence partner</h2>
+          </div>
+          <div data-dc-tpl="93" style="display: flex; align-items: center; column-gap: 14px;">
+            <h2 data-dc-tpl="94" style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-size: clamp(29px, 3.33vw, 48px); font-weight: 500; line-height: 1.17; letter-spacing: -0.06em; color: rgb(13, 13, 12); margin: 0px; white-space: nowrap;">dedicated to helping organisations</h2>
+            <span data-dc-tpl="95" style="width: 44px; height: 44px; border-radius: 50%; background: rgb(77, 101, 255); display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;">
+              <span data-dc-tpl="96" style="width: 26px; height: 26px; background: rgb(255, 255, 255); display: inline-block;"></span>
+            </span>
+            <h2 data-dc-tpl="97" style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-size: clamp(29px, 3.33vw, 48px); font-weight: 500; line-height: 1.17; letter-spacing: -0.06em; color: rgba(13, 13, 12, 0.5); margin: 0px; white-space: nowrap;">sharper,</h2>
+          </div>
+          <div data-dc-tpl="98" style="display: flex; align-items: center; column-gap: 14px;">
+            <h2 data-dc-tpl="99" style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-size: clamp(29px, 3.33vw, 48px); font-weight: 500; line-height: 1.17; letter-spacing: -0.06em; color: rgba(13, 13, 12, 0.5); margin: 0px; white-space: nowrap;">faster and</h2>
+            <span data-dc-tpl="100" style="width: 44px; height: 44px; border-radius: 50%; background: rgb(214, 253, 112); display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;">
+              <span data-dc-tpl="101" style="width: 26px; height: 26px; background: rgb(13, 13, 12); display: inline-block;"></span>
+            </span>
+            <h2 data-dc-tpl="102" style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-size: clamp(29px, 3.33vw, 48px); font-weight: 500; line-height: 1.17; letter-spacing: -0.06em; color: rgba(13, 13, 12, 0.5); margin: 0px; white-space: nowrap;">AI-ready</h2>
+          </div>
+        </div>
+      </div>
+      <div data-dc-tpl="103" style="height: clamp(32px, 4.44vw, 64px);"></div>
+      <div data-dc-tpl="104" style="display: grid; grid-template-columns: 1.25fr 1fr 0.85fr; grid-template-rows: auto auto; gap: 20px;">
+        <div data-dc-tpl="105" style="grid-row: span 2; position: relative; border-radius: 20px; overflow: hidden; min-height: 210px; background: rgb(13, 13, 12);">
+          <img loading="lazy" decoding="async" data-dc-tpl="106" src="https://cognis.group/framer-runtime/images/JGdNRl6jQUnlEAMYGOue2qDYts.png?width=1200" alt="Cognis Group team" style="position: absolute; inset: 0px; width: 100%; height: 100%; object-fit: cover; opacity: 0.85;">
+          <div data-dc-tpl="107" style="position: absolute; top: 20px; left: 22px; right: 22px; display: flex; align-items: center; justify-content: space-between;">
+            <div data-dc-tpl="108" style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 700; font-size: 15px; letter-spacing: 1.2px; color: rgb(255, 255, 255);">MARKETSAGE</div>
+            <div data-dc-tpl="109" style="width: 36px; height: 36px; border-radius: 10px; background: rgb(13, 13, 12); display: flex; align-items: center; justify-content: center;"><span data-dc-tpl="110" style="width: 18px; height: 18px; background: rgb(255, 255, 255); display: inline-block;"></span></div>
+          </div>
+          <div data-dc-tpl="111" style="position: absolute; inset: 0px; display: flex; flex-direction: column; justify-content: flex-end; padding: 20px;">
+            <div data-dc-tpl="112" style="background: rgb(255, 255, 255); border-radius: 16px; padding: 24px;">
+              <div data-dc-tpl="113" style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-size: clamp(24px, 2.78vw, 40px); font-weight: 500; line-height: 1.20; letter-spacing: -0.06em; color: rgb(13, 13, 12);">Your stack</div>
+              <div data-dc-tpl="114" style="height: 8px;"></div>
+              <div data-dc-tpl="115" style="font-size: 15px; font-weight: 500; color: rgb(13, 13, 12); line-height: 1.5;">Integrating with the AI and cloud ecosystems our clients already run on — Google, AWS, Microsoft, OpenAI, and partners like MarketSage.</div>
+            </div>
+          </div>
+        </div>
+        <div data-dc-tpl="116" style="grid-row: span 2; background: rgb(242, 242, 242); border-radius: 20px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; gap: 16px; min-height: 210px;">
+          <div data-dc-tpl="117">
+            <div data-dc-tpl="118" style="font-size: 15px; font-weight: 500; color: rgb(13, 13, 12);">Built for everyday use</div>
+            <div data-dc-tpl="119" style="height: 10px;"></div>
+            <div data-dc-tpl="120" style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-size: clamp(24px, 2.78vw, 40px); font-weight: 500; line-height: 1.20; letter-spacing: -0.06em; color: rgb(13, 13, 12);">People first</div>
+          </div>
+          <div data-dc-tpl="121">
+            <div data-dc-tpl="122" style="display: flex;">
+              
+                <div data-dc-tpl="124" style="width: 44px; height: 44px; border-radius: 50%; border: 2px solid rgb(242, 242, 242); overflow: hidden; margin-left: -10px; flex-shrink: 0;"><img loading="lazy" decoding="async" data-dc-tpl="125" src="/assets/testi-m-ai25.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: center; display: block;"></div>
+              
+                <div data-dc-tpl="124" style="width: 44px; height: 44px; border-radius: 50%; border: 2px solid rgb(242, 242, 242); overflow: hidden; margin-left: -10px; flex-shrink: 0;"><img loading="lazy" decoding="async" data-dc-tpl="125" src="/assets/testi-m-joe.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: center; display: block;"></div>
+              
+                <div data-dc-tpl="124" style="width: 44px; height: 44px; border-radius: 50%; border: 2px solid rgb(242, 242, 242); overflow: hidden; margin-left: -10px; flex-shrink: 0;"><img loading="lazy" decoding="async" data-dc-tpl="125" src="/assets/testi-m-joseph.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: center; display: block;"></div>
+              
+                <div data-dc-tpl="124" style="width: 44px; height: 44px; border-radius: 50%; border: 2px solid rgb(242, 242, 242); overflow: hidden; margin-left: -10px; flex-shrink: 0;"><img loading="lazy" decoding="async" data-dc-tpl="125" src="/assets/testi-m-lord.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: center; display: block;"></div>
+              
+            </div>
+            <div data-dc-tpl="126" style="height: 16px;"></div>
+            <div data-dc-tpl="127" style="font-size: 16px; font-weight: 500; color: rgb(13, 13, 12); line-height: 1.55;">“Cognis Group did not just advise us. They fundamentally changed how our leadership team thinks about AI, automation, and decision-making.”</div>
+          </div>
+        </div>
+        <div data-dc-tpl="128" style="background: rgb(214, 253, 112); border-radius: 20px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; min-height: 120px;">
+          <div data-dc-tpl="129">
+            <div data-dc-tpl="130" style="font-size: 15px; font-weight: 500; color: rgb(13, 13, 12);">One team from plan to launch</div>
+            <div data-dc-tpl="131" style="height: 10px;"></div>
+            <div data-dc-tpl="132" style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-size: clamp(24px, 2.78vw, 40px); font-weight: 500; line-height: 1.20; letter-spacing: -0.06em; color: rgb(13, 13, 12);">One team</div>
+          </div>
+          <div data-dc-tpl="133" style="font-size: 15px; font-weight: 500; color: rgb(13, 13, 12); line-height: 1.5;">Strategy, agent engineering, workforce training, and AI governance — no handoffs, no gaps.</div>
+        </div>
+        <div data-dc-tpl="134" style="background: rgb(13, 13, 12); border-radius: 20px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between; min-height: 74px;">
+          <div data-dc-tpl="135" style="font-size: 15px; font-weight: 500; color: rgb(255, 255, 255);">Continents engaged</div>
+          <div data-dc-tpl="136" data-countup="" style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-size: clamp(24px, 2.78vw, 40px); font-weight: 500; line-height: 1.20; letter-spacing: -0.06em; color: rgb(255, 255, 255);" data-cu-init="1">3+</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section data-dc-tpl="137" id="services" data-screen-label="Services" style="background: rgb(255, 255, 255); padding: 24px clamp(16px, 3.33vw, 48px) 96px;">
+    <div data-dc-tpl="138" style="max-width: 1280px; margin: 0px auto;">
+      <div data-dc-tpl="139" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+        <div data-dc-tpl="140" style="display: flex; align-items: center; gap: 12px;">
+          <div data-dc-tpl="141" style="width: 4px; height: 4px; background: rgb(19, 19, 19);"></div>
+          <div data-dc-tpl="142" style="font-family: Geistmono, &quot;Geist Mono&quot;, monospace; font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: rgb(19, 19, 19);">Services</div>
+        </div>
+        <div data-dc-tpl="143" style="height: 32px;"></div>
+        <h2 data-dc-tpl="144" style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-size: clamp(29px, 3.33vw, 48px); font-weight: 500; line-height: 1.17; letter-spacing: -0.06em; color: rgb(19, 19, 19); margin: 0px; max-width: 660px; text-wrap: balance;">Three practice areas, one mission</h2>
+        <div data-dc-tpl="145" style="height: 24px;"></div>
+        <div data-dc-tpl="146" style="font-size: 16px; line-height: 24px; letter-spacing: -0.32px; color: rgba(13, 13, 12, 0.6); max-width: 540px;">Whether you are exploring AI for the first time or expanding what already works, we help you choose the right opportunities, prepare your people and put useful systems into daily operation.</div>
+        <div data-dc-tpl="147" style="height: 28px;"></div>
+        <a data-dc-tpl="148" href="/contact/" data-h="h2" style="background: rgb(19, 19, 19); border-radius: 100px; padding: 4px 4px 4px 20px; display: flex; align-items: center; gap: 12px; transition: transform 0.3s cubic-bezier(0.19, 1, 0.22, 1);">
+          <span data-dc-tpl="149" style="color: rgb(214, 253, 112); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase;">Explore Our Services</span>
+          <span data-dc-tpl="150" style="width: 40px; height: 40px; border-radius: 50%; background: rgb(214, 253, 112); display: flex; align-items: center; justify-content: center;">
+            <svg data-dc-tpl="151" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none"><path data-dc-tpl="152" d="M13.0457 8.13128L5.8733 15.3037L4.69479 14.1252L11.8672 6.95277L5.54568 6.95277L5.54568 5.28636H14.7121V14.4528L13.0457 14.4528V8.13128Z" fill="#131313"></path></svg>
+          </span>
+        </a>
+      </div>
+      <div data-dc-tpl="153" style="height: clamp(28px, 3.89vw, 56px);"></div>
+      <div data-dc-tpl="154" style="background: rgb(242, 242, 242); border-radius: 24px; padding: 12px; max-width: 100%; margin: 0px auto;">
+        <div data-dc-tpl="155" style="display: flex; gap: 12px;">
+          
+            <div data-dc-tpl="157" style="position: relative; background: rgb(255, 255, 255); border-radius: 12px; padding: 20px; height: 300px; box-sizing: border-box; box-shadow: rgba(0, 0, 0, 0.06) 0px 3px 6px; overflow: hidden; cursor: pointer; flex: 1.78 1 0%; transition: flex 0.42s cubic-bezier(0.34, 1.3, 0.64, 1); min-width: 0px;">
+              <div data-dc-tpl="158" style="width: 40px; height: 40px; border-radius: 12px; background: rgb(205, 251, 86); display: flex; align-items: center; justify-content: center;">
+                <span data-dc-tpl="159" style="width: 24px; height: 24px; background: rgb(19, 19, 19); display: inline-block;"></span>
+              </div>
+              <div data-dc-tpl="160" style="position: absolute; left: 20px; bottom: 20px; width: 275px; display: flex; flex-direction: column; gap: 8px;">
+                <h3 data-dc-tpl="161" style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-size: 24px; font-weight: 500; line-height: 32px; letter-spacing: -0.04em; color: rgb(19, 19, 19); margin: 0px;"><span class="sc-interp">AI Strategy &amp; Advisory</span></h3>
+                <div data-dc-tpl="162" style="font-size: 16px; line-height: 24px; color: rgb(123, 123, 123);"><span class="sc-interp">We help leaders decide where AI can deliver real value, what to do first, who should own it and how to manage the risks.</span></div>
+              </div>
+              <div data-dc-tpl="163" style="position: absolute; inset: 20px 20px 20px 315px; overflow: hidden; border-radius: 12px; opacity: 1; transition: opacity 0.32s;">
+                <video data-dc-tpl="164" src="/assets/service-strategy.mp4" autoplay="" playsinline="" preload="metadata" loop="" style="width: 274px; height: 260px; border-radius: 12px; object-fit: cover; display: block;"></video>
+              </div>
+            </div>
+          
+            <div data-dc-tpl="157" style="position: relative; background: rgb(255, 255, 255); border-radius: 12px; padding: 20px; height: 300px; box-sizing: border-box; box-shadow: rgba(0, 0, 0, 0.06) 0px 3px 6px; overflow: hidden; cursor: pointer; flex: 1 1 0%; transition: flex 0.42s cubic-bezier(0.34, 1.3, 0.64, 1); min-width: 0px;">
+              <div data-dc-tpl="158" style="width: 40px; height: 40px; border-radius: 12px; background: rgb(205, 251, 86); display: flex; align-items: center; justify-content: center;">
+                <span data-dc-tpl="159" style="width: 24px; height: 24px; background: rgb(19, 19, 19); display: inline-block;"></span>
+              </div>
+              <div data-dc-tpl="160" style="position: absolute; left: 20px; bottom: 20px; width: 275px; display: flex; flex-direction: column; gap: 8px;">
+                <h3 data-dc-tpl="161" style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-size: 24px; font-weight: 500; line-height: 32px; letter-spacing: -0.04em; color: rgb(19, 19, 19); margin: 0px;"><span class="sc-interp">AI Training &amp; Workforce</span></h3>
+                <div data-dc-tpl="162" style="font-size: 16px; line-height: 24px; color: rgb(123, 123, 123);"><span class="sc-interp">We give leaders, managers and employees the practical skills to use AI confidently, safely and effectively in their own work.</span></div>
+              </div>
+              <div data-dc-tpl="163" style="position: absolute; inset: 20px 20px 20px 315px; overflow: hidden; border-radius: 12px; opacity: 0; transition: opacity 0.32s;">
+                <video data-dc-tpl="164" src="/assets/service-training.mp4" autoplay="" playsinline="" preload="metadata" loop="" style="width: 274px; height: 260px; border-radius: 12px; object-fit: cover; display: block;"></video>
+              </div>
+            </div>
+          
+            <div data-dc-tpl="157" style="position: relative; background: rgb(255, 255, 255); border-radius: 12px; padding: 20px; height: 300px; box-sizing: border-box; box-shadow: rgba(0, 0, 0, 0.06) 0px 3px 6px; overflow: hidden; cursor: pointer; flex: 1 1 0%; transition: flex 0.42s cubic-bezier(0.34, 1.3, 0.64, 1); min-width: 0px;">
+              <div data-dc-tpl="158" style="width: 40px; height: 40px; border-radius: 12px; background: rgb(205, 251, 86); display: flex; align-items: center; justify-content: center;">
+                <span data-dc-tpl="159" style="width: 24px; height: 24px; background: rgb(19, 19, 19); display: inline-block;"></span>
+              </div>
+              <div data-dc-tpl="160" style="position: absolute; left: 20px; bottom: 20px; width: 275px; display: flex; flex-direction: column; gap: 8px;">
+                <h3 data-dc-tpl="161" style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-size: 24px; font-weight: 500; line-height: 32px; letter-spacing: -0.04em; color: rgb(19, 19, 19); margin: 0px;"><span class="sc-interp">AI Agent &amp; Automation</span></h3>
+                <div data-dc-tpl="162" style="font-size: 16px; line-height: 24px; color: rgb(123, 123, 123);"><span class="sc-interp">We build AI agents and automated workflows that handle repetitive tasks, reduce delays and help your people do more valuable work.</span></div>
+              </div>
+              <div data-dc-tpl="163" style="position: absolute; inset: 20px 20px 20px 315px; overflow: hidden; border-radius: 12px; opacity: 0; transition: opacity 0.32s;">
+                <video data-dc-tpl="164" src="/assets/service-agent.mp4" autoplay="" playsinline="" preload="metadata" loop="" style="width: 274px; height: 260px; border-radius: 12px; object-fit: cover; display: block;"></video>
+              </div>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  <section data-dc-tpl="165" id="products" data-screen-label="Products" style="background: rgb(255, 255, 255); padding: 0px clamp(16px, 3.33vw, 48px) 96px;">
+    <div data-dc-tpl="166" style="max-width: 1280px; margin: 0px auto;">
+      <div data-dc-tpl="167" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+        <div data-dc-tpl="168" style="display: flex; align-items: center; gap: 12px;">
+          <div data-dc-tpl="169" style="width: 4px; height: 4px; background: rgb(19, 19, 19);"></div>
+          <div data-dc-tpl="170" style="font-family: Geistmono, &quot;Geist Mono&quot;, monospace; font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: rgb(19, 19, 19);">Products</div>
+        </div>
+        <div data-dc-tpl="171" style="height: 32px;"></div>
+        <h2 data-dc-tpl="172" style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-size: clamp(24px, 2.78vw, 40px); font-weight: 500; line-height: 1.1; letter-spacing: -0.04em; color: rgb(19, 19, 19); margin: 0px; max-width: 640px; text-wrap: balance;">Software we build and run, not just advise on.</h2>
+        <div data-dc-tpl="173" style="height: 20px;"></div>
+        <a data-dc-tpl="174" href="/products/" data-h="h3" style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 600; font-size: 15px; color: rgb(19, 19, 19);">All products →</a>
+      </div>
+      <div data-dc-tpl="175" style="height: clamp(28px, 3.89vw, 56px);"></div>
+      <div data-dc-tpl="176" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
+        
+        <a data-dc-tpl="177" href="/contact/?interest=cognis-ai" rel="noopener" data-h="h4" style="border: 1px solid rgb(230, 230, 230); border-radius: 18px; padding: 24px; min-height: 278px; box-sizing: border-box; display: flex; flex-direction: column; transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s, background-color 0.3s;">
+          <div data-dc-tpl="178" style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.88px; text-transform: uppercase; color: rgb(123, 123, 123);">Demo by request · AI workforce</div>
+          <div data-dc-tpl="179" style="height: 18px;"></div>
+          <div data-dc-tpl="180" style="font-family: Nunito, sans-serif; font-weight: 800; font-size: 24px; letter-spacing: -0.24px; color: rgb(19, 19, 19); line-height: 1;">Cognis<span data-dc-tpl="181" style="color: rgb(66, 133, 244);">Ai</span>.</div>
+          <div data-dc-tpl="182" style="height: 14px;"></div>
+          <div data-dc-tpl="183" style="font-size: 15px; line-height: 1.45; color: rgb(123, 123, 123);">Specialised AI workers for customer support, calls, company knowledge, operations and trade.</div>
+          <div data-dc-tpl="184" style="margin-top: auto; padding-top: 18px; font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 600; font-size: 14px; color: rgb(19, 19, 19);">Request a Cognis AI demo →</div>
+        </a>
+        
+        <a data-dc-tpl="185" href="https://www.marketsage.africa" target="_blank" rel="noopener" data-h="h5" style="border: 1px solid rgb(230, 230, 230); border-radius: 18px; padding: 24px; min-height: 278px; box-sizing: border-box; display: flex; flex-direction: column; transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s, background-color 0.3s;">
+          <div data-dc-tpl="186" style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.88px; text-transform: uppercase; color: rgb(123, 123, 123);">Live · Marketing AI</div>
+          <div data-dc-tpl="187" style="height: 18px;"></div>
+          <div data-dc-tpl="188" style="display: flex; align-items: center; gap: 8px;">
+            <img loading="lazy" decoding="async" data-dc-tpl="189" src="/assets/marketsage-logo.png" alt="MarketSage" style="width: 24px; height: 24px; display: block; flex-shrink: 0;">
+            <span data-dc-tpl="190" style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 600; font-size: 20px; letter-spacing: -0.02em; line-height: 1;"><span data-dc-tpl="191" style="color: rgb(95, 111, 255);">MΛRKET</span><span data-dc-tpl="192" style="color: rgb(6, 182, 212);">SΛGE</span></span>
+          </div>
+          <div data-dc-tpl="193" style="height: 14px;"></div>
+          <div data-dc-tpl="194" style="font-size: 15px; line-height: 1.45; color: rgb(123, 123, 123);">Marketing and sales software that plans campaigns, runs them across channels and turns interest into sales opportunities.</div>
+          <div data-dc-tpl="195" style="margin-top: auto; padding-top: 18px; font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 600; font-size: 14px; color: rgb(19, 19, 19);">Visit MarketSage →</div>
+        </a>
+        
+        <a data-dc-tpl="196" href="https://migratio.cognis.group" target="_blank" rel="noopener" data-h="h6" style="background: rgb(26, 32, 73); border: 1px solid rgb(26, 32, 73); border-radius: 18px; padding: 24px; min-height: 278px; box-sizing: border-box; display: flex; flex-direction: column; transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;">
+          <div data-dc-tpl="197" style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.88px; text-transform: uppercase; color: rgb(137, 147, 168);">Live · Data Migration</div>
+          <div data-dc-tpl="198" style="height: 18px;"></div>
+          <div data-dc-tpl="199"><img loading="lazy" decoding="async" data-dc-tpl="200" src="/assets/migratio-logo-horizontal-dark.svg" alt="Migratio by Cognis" style="height: 30px; width: auto; max-width: 100%; display: block;"></div>
+          <div data-dc-tpl="201" style="height: 14px;"></div>
+          <div data-dc-tpl="202" style="font-size: 15px; line-height: 1.45; color: rgb(179, 187, 208);">The migration platform for banks, ministries, and regulated enterprises. Reconcile before cutover.</div>
+          <div data-dc-tpl="203" style="margin-top: auto; padding-top: 18px; font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 600; font-size: 14px; color: rgb(255, 255, 255);">Visit Migratio →</div>
+        </a>
+        
+        <a data-dc-tpl="204" href="https://spog.cognis.group" target="_blank" rel="noopener" data-h="h7" style="border: 1px solid rgb(230, 230, 230); border-radius: 18px; padding: 24px; min-height: 278px; box-sizing: border-box; display: flex; flex-direction: column; transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s, background-color 0.3s;">
+          <div data-dc-tpl="205" style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.88px; text-transform: uppercase; color: rgb(123, 123, 123);">Live · Observability</div>
+          <div data-dc-tpl="206" style="height: 18px;"></div>
+          <div data-dc-tpl="207" style="display: flex; align-items: center; gap: 8px;">
+            <img loading="lazy" decoding="async" data-dc-tpl="208" src="/assets/spog-icon.svg" alt="" style="width: 24px; height: 24px; display: block; flex-shrink: 0;">
+            <span data-dc-tpl="209" style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 700; font-size: 20px; letter-spacing: -0.02em; color: rgb(19, 19, 19); line-height: 1;">SPOG</span>
+          </div>
+          <div data-dc-tpl="210" style="height: 14px;"></div>
+          <div data-dc-tpl="211" style="font-size: 15px; line-height: 1.45; color: rgb(123, 123, 123);">One trusted view of IT, networks, buildings, vehicles and security, showing where every number came from.</div>
+          <div data-dc-tpl="212" style="margin-top: auto; padding-top: 18px; font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 600; font-size: 14px; color: rgb(19, 19, 19);">Visit SPOG →</div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  
+  <section data-dc-tpl="213" data-screen-label="Expertise" style="background: rgb(255, 255, 255); padding: 0px clamp(16px, 3.33vw, 48px) 96px;"><p data-seo-demo-note style="font:14px/1.6 Inter,sans-serif;color:#363636;margin:0 auto 28px;max-width:1160px">Illustrative dashboards: the sample names, task counts and percentages in this section demonstrate interface concepts and are not client results.</p>
+    <div data-dc-tpl="214" style="max-width: 1280px; margin: 0px auto;">
+      <div data-dc-tpl="215" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+        <div data-dc-tpl="216" style="display: flex; align-items: center; gap: 12px;">
+          <div data-dc-tpl="217" style="width: 4px; height: 4px; background: rgb(19, 19, 19);"></div>
+          <div data-dc-tpl="218" style="font-family: Geistmono, &quot;Geist Mono&quot;, monospace; font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: rgb(19, 19, 19);">Expertise</div>
+        </div>
+        <div data-dc-tpl="219" style="height: 32px;"></div>
+        <h2 data-dc-tpl="220" style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-size: clamp(29px, 3.33vw, 48px); font-weight: 500; line-height: 1.17; letter-spacing: -0.06em; color: rgb(19, 19, 19); margin: 0px; max-width: 620px; text-wrap: balance;">African understanding. Global AI expertise.</h2>
+        <div data-dc-tpl="221" style="height: 24px;"></div>
+        <div data-dc-tpl="222" style="font-size: 16px; line-height: 24px; letter-spacing: -0.32px; color: rgb(47, 47, 47); max-width: 560px;">We use AI to help people work faster, make better decisions and spend more time on work that needs human judgement and creativity.</div>
+      </div>
+      <div data-dc-tpl="223" style="height: clamp(36px, 5.00vw, 72px);"></div>
+      <div data-dc-tpl="224" style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+
+        
+        <div data-dc-tpl="225" style="background: rgb(255, 255, 255); border-radius: 12px; box-shadow: rgba(0, 0, 0, 0.06) 0px 3px 6px; overflow: hidden;">
+          <div data-dc-tpl="226" style="margin: 12px; border-radius: 12px; height: 340px; position: relative; overflow: hidden;">
+            <div data-dc-tpl="227" style="position: absolute; left: 32px; top: 36px; width: 240px; box-sizing: border-box; background: rgb(255, 255, 255); border-radius: 13px; padding: 20px; box-shadow: rgba(13, 13, 12, 0.1) 0px 12px 32px; transform: rotate(-4deg);">
+              <div data-dc-tpl="228" style="font-size: 13px; font-weight: 500; color: rgb(123, 123, 123);">AI Adoption Rate</div>
+              <div data-dc-tpl="229" style="height: 8px;"></div>
+              <div data-dc-tpl="230" style="display: flex; align-items: baseline; gap: 8px;">
+                <div data-dc-tpl="231" style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-size: clamp(24px, 2.08vw, 30px); font-weight: 600; color: rgb(19, 19, 19);">4,900</div>
+                <div data-dc-tpl="232" style="font-size: 13px; font-weight: 500; color: rgba(13, 13, 12, 0.45);">/ 10,000 tasks</div>
+              </div>
+              <div data-dc-tpl="233" style="height: 14px;"></div>
+              <div data-dc-tpl="234" style="height: 8px; border-radius: 100px; background: rgba(13, 13, 12, 0.08); overflow: hidden;"><div data-dc-tpl="235" style="width: 49%; height: 100%; border-radius: 100px; background: rgb(56, 198, 246);"></div></div>
+              <div data-dc-tpl="236" style="height: 18px;"></div>
+              <div data-dc-tpl="237" style="display: flex; flex-direction: column; gap: 12px;">
+                
+                  <div data-dc-tpl="239" style="display: flex; align-items: center; justify-content: space-between;">
+                    <div data-dc-tpl="240" style="display: flex; align-items: center; gap: 10px;">
+                      <div data-dc-tpl="241" style="width: 28px; height: 28px; border-radius: 8px; background: rgb(214, 253, 112); display: flex; align-items: center; justify-content: center;">
+                        <svg data-dc-tpl="242" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"><path data-dc-tpl="243" d="M16 20V13H20V20H16ZM10 20V4H14V20H10ZM4 20V9H8V20H4Z" fill="#0D0D0C"></path></svg>
+                      </div>
+                      <div data-dc-tpl="244">
+                        <div data-dc-tpl="245" style="font-size: 13px; font-weight: 600; color: rgb(13, 13, 12);"><span class="sc-interp">Claims triage agent</span></div>
+                        <div data-dc-tpl="246" style="font-size: 11px; color: rgba(13, 13, 12, 0.5);"><span class="sc-interp">Deployed · Finance</span></div>
+                      </div>
+                    </div>
+                    <div data-dc-tpl="247" style="font-size: 13px; font-weight: 600; color: rgb(13, 13, 12);"><span class="sc-interp">Live</span></div>
+                  </div>
+                
+                  <div data-dc-tpl="239" style="display: flex; align-items: center; justify-content: space-between;">
+                    <div data-dc-tpl="240" style="display: flex; align-items: center; gap: 10px;">
+                      <div data-dc-tpl="241" style="width: 28px; height: 28px; border-radius: 8px; background: rgb(214, 253, 112); display: flex; align-items: center; justify-content: center;">
+                        <svg data-dc-tpl="242" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"><path data-dc-tpl="243" d="M16 20V13H20V20H16ZM10 20V4H14V20H10ZM4 20V9H8V20H4Z" fill="#0D0D0C"></path></svg>
+                      </div>
+                      <div data-dc-tpl="244">
+                        <div data-dc-tpl="245" style="font-size: 13px; font-weight: 600; color: rgb(13, 13, 12);"><span class="sc-interp">Ops reporting agent</span></div>
+                        <div data-dc-tpl="246" style="font-size: 11px; color: rgba(13, 13, 12, 0.5);"><span class="sc-interp">Deployed · Logistics</span></div>
+                      </div>
+                    </div>
+                    <div data-dc-tpl="247" style="font-size: 13px; font-weight: 600; color: rgb(13, 13, 12);"><span class="sc-interp">Live</span></div>
+                  </div>
+                
+                  <div data-dc-tpl="239" style="display: flex; align-items: center; justify-content: space-between;">
+                    <div data-dc-tpl="240" style="display: flex; align-items: center; gap: 10px;">
+                      <div data-dc-tpl="241" style="width: 28px; height: 28px; border-radius: 8px; background: rgb(214, 253, 112); display: flex; align-items: center; justify-content: center;">
+                        <svg data-dc-tpl="242" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none"><path data-dc-tpl="243" d="M16 20V13H20V20H16ZM10 20V4H14V20H10ZM4 20V9H8V20H4Z" fill="#0D0D0C"></path></svg>
+                      </div>
+                      <div data-dc-tpl="244">
+                        <div data-dc-tpl="245" style="font-size: 13px; font-weight: 600; color: rgb(13, 13, 12);"><span class="sc-interp">Support co-pilot</span></div>
+                        <div data-dc-tpl="246" style="font-size: 11px; color: rgba(13, 13, 12, 0.5);"><span class="sc-interp">In rollout · Banking</span></div>
+                      </div>
+                    </div>
+                    <div data-dc-tpl="247" style="font-size: 13px; font-weight: 600; color: rgb(13, 13, 12);"><span class="sc-interp">Beta</span></div>
+                  </div>
+                
+              </div>
+            </div>
+            <div data-dc-tpl="248" style="position: absolute; right: 24px; bottom: 28px; width: 210px; box-sizing: border-box; background: rgb(19, 19, 19); border-radius: 13px; padding: 18px; box-shadow: rgba(13, 13, 12, 0.18) 0px 12px 32px; transform: rotate(6deg);">
+              <div data-dc-tpl="249" style="display: flex; justify-content: space-between; align-items: flex-start;">
+                <div data-dc-tpl="250">
+                  <div data-dc-tpl="251" style="font-size: 13px; font-weight: 600; color: rgb(255, 255, 255);">Intelligence Impact</div>
+                  <div data-dc-tpl="252" style="font-size: 11px; color: rgba(255, 255, 255, 0.55);">Active Engagement</div>
+                </div>
+                <svg data-dc-tpl="253" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"><path data-dc-tpl="254" d="M4.20065 17.7827L9.50065 12.4827L12.7506 15.7327C13.1606 16.1427 13.8206 16.1227 14.2006 15.6927L21.3706 7.62274C21.7206 7.23274 21.7006 6.63274 21.3306 6.25274C21.2345 6.15693 21.1199 6.08169 20.9938 6.03158C20.8677 5.98148 20.7327 5.95758 20.5971 5.96132C20.4614 5.96506 20.3279 5.99637 20.2048 6.05335C20.0816 6.11033 19.9713 6.19178 19.8806 6.29274L13.4906 13.4727L10.2006 10.1827C10.1081 10.09 9.99824 10.0165 9.87727 9.96631C9.7563 9.91613 9.62662 9.8903 9.49565 9.8903C9.36468 9.8903 9.235 9.91613 9.11402 9.96631C8.99305 10.0165 8.88316 10.09 8.79065 10.1827L2.70065 16.2827C2.60794 16.3753 2.5344 16.4851 2.48421 16.6061C2.43403 16.7271 2.4082 16.8568 2.4082 16.9877C2.4082 17.1187 2.43403 17.2484 2.48421 17.3694C2.5344 17.4903 2.60794 17.6002 2.70065 17.6927L2.79065 17.7827C3.18065 18.1727 3.82065 18.1727 4.20065 17.7827Z" fill="#D6FD70"></path></svg>
+              </div>
+              <div data-dc-tpl="255" style="height: 14px;"></div>
+              <div data-dc-tpl="256" style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-size: clamp(24px, 1.94vw, 28px); font-weight: 600; color: rgb(255, 255, 255);">50%</div>
+              <div data-dc-tpl="257" style="font-size: 12px; color: rgba(255, 255, 255, 0.55);">Workflow efficiency gained</div>
+            </div>
+          </div>
+          <div data-dc-tpl="258" style="padding: 16px 40px 36px; text-align: center;">
+            <h3 data-dc-tpl="259" style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-size: 24px; font-weight: 500; line-height: 32px; letter-spacing: -0.04em; color: rgb(19, 19, 19); margin: 0px;">AI Agent &amp; Automation Engineering</h3>
+            <div data-dc-tpl="260" style="height: 10px;"></div>
+            <div data-dc-tpl="261" style="font-size: 16px; line-height: 24px; color: rgb(123, 123, 123);">Streamline your operations through intelligent workflow automation that saves time, reduces errors, and boosts productivity.</div>
+          </div>
+        </div>
+
+        
+        <div data-dc-tpl="262" style="background: rgb(255, 255, 255); border-radius: 12px; box-shadow: rgba(0, 0, 0, 0.06) 0px 3px 6px; overflow: hidden;">
+          <div data-dc-tpl="263" style="margin: 12px; border-radius: 12px; height: 340px; position: relative; overflow: hidden; display: flex; gap: 16px; padding: 32px;">
+            <div data-dc-tpl="264" style="flex: 1.2 1 0%; background: rgb(255, 255, 255); border-radius: 13px; padding: 22px; display: flex; flex-direction: column; justify-content: space-between; box-shadow: rgba(13, 13, 12, 0.1) 0px 12px 32px; transform: rotate(4deg); z-index: 1;">
+              <div data-dc-tpl="265" style="font-size: 14px; font-weight: 600; color: rgb(19, 19, 19);">Intelligence in Every Decision</div>
+              <div data-dc-tpl="266" style="display: flex; align-items: flex-end; gap: 10px; height: 160px;">
+                
+                  <div data-dc-tpl="268" style="flex: 1 1 0%; display: flex; flex-direction: column; align-items: center; gap: 8px; height: 100%; justify-content: flex-end;">
+                    <div data-dc-tpl="269" style="width: 100%; border-radius: 6px; background: rgba(13, 13, 12, 0.12); height: 22%;"></div>
+                    <div data-dc-tpl="270" style="font-size: 10px; color: rgba(13, 13, 12, 0.5);"><span class="sc-interp">2019</span></div>
+                  </div>
+                
+                  <div data-dc-tpl="268" style="flex: 1 1 0%; display: flex; flex-direction: column; align-items: center; gap: 8px; height: 100%; justify-content: flex-end;">
+                    <div data-dc-tpl="269" style="width: 100%; border-radius: 6px; background: rgba(13, 13, 12, 0.12); height: 30%;"></div>
+                    <div data-dc-tpl="270" style="font-size: 10px; color: rgba(13, 13, 12, 0.5);"><span class="sc-interp">2020</span></div>
+                  </div>
+                
+                  <div data-dc-tpl="268" style="flex: 1 1 0%; display: flex; flex-direction: column; align-items: center; gap: 8px; height: 100%; justify-content: flex-end;">
+                    <div data-dc-tpl="269" style="width: 100%; border-radius: 6px; background: rgba(13, 13, 12, 0.12); height: 42%;"></div>
+                    <div data-dc-tpl="270" style="font-size: 10px; color: rgba(13, 13, 12, 0.5);"><span class="sc-interp">2021</span></div>
+                  </div>
+                
+                  <div data-dc-tpl="268" style="flex: 1 1 0%; display: flex; flex-direction: column; align-items: center; gap: 8px; height: 100%; justify-content: flex-end;">
+                    <div data-dc-tpl="269" style="width: 100%; border-radius: 6px; background: rgba(13, 13, 12, 0.18); height: 54%;"></div>
+                    <div data-dc-tpl="270" style="font-size: 10px; color: rgba(13, 13, 12, 0.5);"><span class="sc-interp">2022</span></div>
+                  </div>
+                
+                  <div data-dc-tpl="268" style="flex: 1 1 0%; display: flex; flex-direction: column; align-items: center; gap: 8px; height: 100%; justify-content: flex-end;">
+                    <div data-dc-tpl="269" style="width: 100%; border-radius: 6px; background: rgba(13, 13, 12, 0.24); height: 66%;"></div>
+                    <div data-dc-tpl="270" style="font-size: 10px; color: rgba(13, 13, 12, 0.5);"><span class="sc-interp">2023</span></div>
+                  </div>
+                
+                  <div data-dc-tpl="268" style="flex: 1 1 0%; display: flex; flex-direction: column; align-items: center; gap: 8px; height: 100%; justify-content: flex-end;">
+                    <div data-dc-tpl="269" style="width: 100%; border-radius: 6px; background: rgba(13, 13, 12, 0.55); height: 80%;"></div>
+                    <div data-dc-tpl="270" style="font-size: 10px; color: rgba(13, 13, 12, 0.5);"><span class="sc-interp">2024</span></div>
+                  </div>
+                
+                  <div data-dc-tpl="268" style="flex: 1 1 0%; display: flex; flex-direction: column; align-items: center; gap: 8px; height: 100%; justify-content: flex-end;">
+                    <div data-dc-tpl="269" style="width: 100%; border-radius: 6px; background: rgb(56, 198, 246); height: 100%;"></div>
+                    <div data-dc-tpl="270" style="font-size: 10px; color: rgba(13, 13, 12, 0.5);"><span class="sc-interp">2025</span></div>
+                  </div>
+                
+              </div>
+            </div>
+            <div data-dc-tpl="271" style="flex: 0.8 1 0%; background: rgb(19, 19, 19); border-radius: 13px; padding: 22px; display: flex; flex-wrap: wrap; align-content: flex-start; gap: 2px 8px; transform: rotate(-5deg);">
+              <span data-dc-tpl="272" style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-size: 22px; font-weight: 500; color: rgb(255, 255, 255);">Expertise</span>
+              <span data-dc-tpl="273" style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-size: 22px; font-weight: 500; color: rgba(255, 255, 255, 0.4);">that</span>
+              <span data-dc-tpl="274" style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-size: 22px; font-weight: 500; color: rgba(255, 255, 255, 0.4);">combines</span>
+              <span data-dc-tpl="275" style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-size: 22px; font-weight: 500; color: rgba(255, 255, 255, 0.4);">strategy,</span>
+              <span data-dc-tpl="276" style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-size: 22px; font-weight: 500; color: rgb(255, 255, 255);">data,</span>
+              <span data-dc-tpl="277" style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-size: 22px; font-weight: 500; color: rgba(255, 255, 255, 0.4);">and artificial</span>
+              <span data-dc-tpl="278" style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-size: 22px; font-weight: 500; color: rgb(214, 253, 112);">intelligence</span>
+            </div>
+          </div>
+          <div data-dc-tpl="279" style="padding: 16px 40px 36px; text-align: center;">
+            <h3 data-dc-tpl="280" style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-size: 24px; font-weight: 500; line-height: 32px; letter-spacing: -0.04em; color: rgb(19, 19, 19); margin: 0px;">Data analytics &amp; insights</h3>
+            <div data-dc-tpl="281" style="height: 10px;"></div>
+            <div data-dc-tpl="282" style="font-size: 16px; line-height: 24px; color: rgb(123, 123, 123);">Turn scattered business data into clear reports, useful forecasts and decisions your team can act on.</div>
+          </div>
+        </div>
+
+        
+        <div data-dc-tpl="283" style="background: rgb(255, 255, 255); border-radius: 12px; box-shadow: rgba(0, 0, 0, 0.06) 0px 3px 6px; overflow: hidden;">
+          <div data-dc-tpl="284" style="margin: 12px; border-radius: 12px; height: 340px; position: relative; overflow: hidden; display: flex; gap: 16px; padding: 32px;">
+            <div data-dc-tpl="285" style="flex: 1 1 0%; background: rgb(255, 255, 255); border-radius: 13px; overflow: hidden; display: flex; flex-direction: column; box-shadow: rgba(13, 13, 12, 0.1) 0px 12px 32px; transform: rotate(5deg); z-index: 1;">
+              <div data-dc-tpl="286" style="background: rgb(19, 19, 19); padding: 16px 20px; display: flex; justify-content: space-between; align-items: center;">
+                <div data-dc-tpl="287">
+                  <div data-dc-tpl="288" style="font-size: 13px; font-weight: 600; color: rgb(255, 255, 255);">Intelligence Impact</div>
+                  <div data-dc-tpl="289" style="font-size: 11px; color: rgba(255, 255, 255, 0.55);">In the past 7 days</div>
+                </div>
+                <svg data-dc-tpl="290" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none"><path data-dc-tpl="291" d="M4.20065 17.7827L9.50065 12.4827L12.7506 15.7327C13.1606 16.1427 13.8206 16.1227 14.2006 15.6927L21.3706 7.62274C21.7206 7.23274 21.7006 6.63274 21.3306 6.25274C21.2345 6.15693 21.1199 6.08169 20.9938 6.03158C20.8677 5.98148 20.7327 5.95758 20.5971 5.96132C20.4614 5.96506 20.3279 5.99637 20.2048 6.05335C20.0816 6.11033 19.9713 6.19178 19.8806 6.29274L13.4906 13.4727L10.2006 10.1827C10.1081 10.09 9.99824 10.0165 9.87727 9.96631C9.7563 9.91613 9.62662 9.8903 9.49565 9.8903C9.36468 9.8903 9.235 9.91613 9.11402 9.96631C8.99305 10.0165 8.88316 10.09 8.79065 10.1827L2.70065 16.2827C2.60794 16.3753 2.5344 16.4851 2.48421 16.6061C2.43403 16.7271 2.4082 16.8568 2.4082 16.9877C2.4082 17.1187 2.43403 17.2484 2.48421 17.3694C2.5344 17.4903 2.60794 17.6002 2.70065 17.6927L2.79065 17.7827C3.18065 18.1727 3.82065 18.1727 4.20065 17.7827Z" fill="#D6FD70"></path></svg>
+              </div>
+              <div data-dc-tpl="292" style="padding: 18px 20px;">
+                <div data-dc-tpl="293" style="display: flex; align-items: center; gap: 10px;">
+                  <div data-dc-tpl="294" style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-size: clamp(24px, 2.08vw, 30px); font-weight: 600; color: rgb(13, 13, 12);">49%</div>
+                  <div data-dc-tpl="295" style="background: rgb(214, 253, 112); border-radius: 100px; padding: 4px 10px; font-size: 12px; font-weight: 600; color: rgb(13, 13, 12);">+2.5%</div>
+                </div>
+                <div data-dc-tpl="296" style="font-size: 12px; color: rgba(13, 13, 12, 0.5);">Business growth</div>
+              </div>
+              <div data-dc-tpl="297" style="margin-top: auto; padding: 0px 16px 16px; display: flex; flex-wrap: wrap; gap: 8px;">
+                
+                  <div data-dc-tpl="299" style="background: rgb(242, 242, 242); border-radius: 100px; padding: 6px 14px; font-size: 12px; font-weight: 500; color: rgb(19, 19, 19); white-space: nowrap;"><span class="sc-interp">Professional</span></div>
+                
+                  <div data-dc-tpl="299" style="background: rgb(242, 242, 242); border-radius: 100px; padding: 6px 14px; font-size: 12px; font-weight: 500; color: rgb(19, 19, 19); white-space: nowrap;"><span class="sc-interp">Grow Faster</span></div>
+                
+                  <div data-dc-tpl="299" style="background: rgb(242, 242, 242); border-radius: 100px; padding: 6px 14px; font-size: 12px; font-weight: 500; color: rgb(19, 19, 19); white-space: nowrap;"><span class="sc-interp">Strategic</span></div>
+                
+                  <div data-dc-tpl="299" style="background: rgb(242, 242, 242); border-radius: 100px; padding: 6px 14px; font-size: 12px; font-weight: 500; color: rgb(19, 19, 19); white-space: nowrap;"><span class="sc-interp">AI-Focused</span></div>
+                
+                  <div data-dc-tpl="299" style="background: rgb(242, 242, 242); border-radius: 100px; padding: 6px 14px; font-size: 12px; font-weight: 500; color: rgb(19, 19, 19); white-space: nowrap;"><span class="sc-interp">Simple</span></div>
+                
+              </div>
+            </div>
+            <div data-dc-tpl="300" style="flex: 1 1 0%; background: rgb(19, 19, 19); border-radius: 13px; padding: 22px; display: flex; flex-direction: column; justify-content: space-between; transform: rotate(-6deg);">
+              <div data-dc-tpl="301" style="display: flex; align-items: center; gap: 10px;">
+                <div data-dc-tpl="302" style="display: flex;">
+                  
+                    <div data-dc-tpl="304" style="width: 30px; height: 30px; border-radius: 50%; border: 2px solid rgb(13, 13, 12); overflow: hidden; margin-left: -8px; flex-shrink: 0;"><img loading="lazy" decoding="async" data-dc-tpl="305" src="/assets/testi-w-blue.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: center; display: block;"></div>
+                  
+                    <div data-dc-tpl="304" style="width: 30px; height: 30px; border-radius: 50%; border: 2px solid rgb(13, 13, 12); overflow: hidden; margin-left: -8px; flex-shrink: 0;"><img loading="lazy" decoding="async" data-dc-tpl="305" src="/assets/testi-m-mustapha.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: center; display: block;"></div>
+                  
+                    <div data-dc-tpl="304" style="width: 30px; height: 30px; border-radius: 50%; border: 2px solid rgb(13, 13, 12); overflow: hidden; margin-left: -8px; flex-shrink: 0;"><img loading="lazy" decoding="async" data-dc-tpl="305" src="/assets/testi-m-victor.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: center; display: block;"></div>
+                  
+                </div>
+                <div data-dc-tpl="306" style="font-size: 12px; color: rgba(255, 255, 255, 0.6);">+5,000 practitioners</div>
+              </div>
+              <div data-dc-tpl="307">
+                <div data-dc-tpl="308" style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-size: clamp(24px, 1.81vw, 26px); font-weight: 500; color: rgba(255, 255, 255, 0.4);">Smart.</div>
+                <div data-dc-tpl="309" style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-size: clamp(24px, 1.81vw, 26px); font-weight: 500; color: rgba(255, 255, 255, 0.4);">Simple.</div>
+                <div data-dc-tpl="310" style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-size: clamp(24px, 1.81vw, 26px); font-weight: 500; color: rgb(255, 255, 255);">Strategic.</div>
+              </div>
+            </div>
+          </div>
+          <div data-dc-tpl="311" style="padding: 16px 40px 36px; text-align: center;">
+            <h3 data-dc-tpl="312" style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-size: 24px; font-weight: 500; line-height: 32px; letter-spacing: -0.04em; color: rgb(19, 19, 19); margin: 0px;">Digital transformation</h3>
+            <div data-dc-tpl="313" style="height: 10px;"></div>
+            <div data-dc-tpl="314" style="font-size: 16px; line-height: 24px; color: rgb(123, 123, 123);">We help organisations update older systems, improve key processes and make better decisions with practical digital tools.</div>
+          </div>
+        </div>
+
+        
+        <div data-dc-tpl="315" style="background: rgb(255, 255, 255); border-radius: 12px; box-shadow: rgba(0, 0, 0, 0.06) 0px 3px 6px; overflow: hidden;">
+          <div data-dc-tpl="316" style="margin: 12px; border-radius: 12px; height: 340px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center;">
+            <div data-dc-tpl="317" style="width: 420px; height: 420px; border-radius: 50%; border: 1px solid rgba(13, 13, 12, 0.12); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+              <div data-dc-tpl="318" style="width: 300px; height: 300px; border-radius: 50%; border: 1px solid rgba(13, 13, 12, 0.16); display: flex; align-items: center; justify-content: center;">
+                <div data-dc-tpl="319" style="width: 180px; height: 180px; border-radius: 50%; border: 1px solid rgba(13, 13, 12, 0.2); display: flex; align-items: center; justify-content: center;">
+                  <div data-dc-tpl="320" style="width: 84px; height: 84px; border-radius: 24px; background: rgb(13, 13, 12); display: flex; align-items: center; justify-content: center; box-shadow: rgba(13, 13, 12, 0.25) 0px 24px 48px;">
+                    <span data-dc-tpl="321" style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 700; font-size: 17px; color: rgb(255, 255, 255); letter-spacing: -0.03em;">cognis<span data-dc-tpl="322" style="color: rgb(214, 253, 112);">.</span></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div data-dc-tpl="323" style="position: absolute; left: 50%; top: 50%; width: 0px; height: 0px; animation: 24s linear 0s infinite normal none running cgOrbit;">
+              
+                <div data-dc-tpl="325" style="position: absolute; transform: rotate(0deg) translateX(150px);">
+                  <div data-dc-tpl="326" style="transform: rotate(0deg);">
+                    <div data-dc-tpl="327" style="animation: 24s linear 0s infinite normal none running cgOrbitRev; background: rgb(255, 255, 255); border-radius: 100px; padding: 8px 12px 8px 8px; display: flex; align-items: center; gap: 10px; box-shadow: rgba(13, 13, 12, 0.14) 0px 16px 32px; transform: translate(-50%, -50%);">
+                      <div data-dc-tpl="328" style="width: 28px; height: 28px; border-radius: 50%; overflow: hidden; flex-shrink: 0;"><img loading="lazy" decoding="async" data-dc-tpl="329" src="/assets/testi-w-nana.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: center; display: block;"></div>
+                      <div data-dc-tpl="330" style="font-size: 13px; font-weight: 600; color: rgb(19, 19, 19); white-space: nowrap;"><span class="sc-interp">Lindsey Press</span></div>
+                      <div data-dc-tpl="331" style="background: rgb(214, 253, 112); border-radius: 100px; padding: 3px 9px; font-size: 11px; font-weight: 600; color: rgb(19, 19, 19);"><span class="sc-interp">+6%</span></div>
+                    </div>
+                  </div>
+                </div>
+              
+                <div data-dc-tpl="325" style="position: absolute; transform: rotate(120deg) translateX(150px);">
+                  <div data-dc-tpl="326" style="transform: rotate(-120deg);">
+                    <div data-dc-tpl="327" style="animation: 24s linear 0s infinite normal none running cgOrbitRev; background: rgb(255, 255, 255); border-radius: 100px; padding: 8px 12px 8px 8px; display: flex; align-items: center; gap: 10px; box-shadow: rgba(13, 13, 12, 0.14) 0px 16px 32px; transform: translate(-50%, -50%);">
+                      <div data-dc-tpl="328" style="width: 28px; height: 28px; border-radius: 50%; overflow: hidden; flex-shrink: 0;"><img loading="lazy" decoding="async" data-dc-tpl="329" src="/assets/testi-w-lilac.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: center; display: block;"></div>
+                      <div data-dc-tpl="330" style="font-size: 13px; font-weight: 600; color: rgb(19, 19, 19); white-space: nowrap;"><span class="sc-interp">Livia Curtis</span></div>
+                      <div data-dc-tpl="331" style="background: rgb(214, 253, 112); border-radius: 100px; padding: 3px 9px; font-size: 11px; font-weight: 600; color: rgb(19, 19, 19);"><span class="sc-interp">+4%</span></div>
+                    </div>
+                  </div>
+                </div>
+              
+                <div data-dc-tpl="325" style="position: absolute; transform: rotate(240deg) translateX(150px);">
+                  <div data-dc-tpl="326" style="transform: rotate(-240deg);">
+                    <div data-dc-tpl="327" style="animation: 24s linear 0s infinite normal none running cgOrbitRev; background: rgb(255, 255, 255); border-radius: 100px; padding: 8px 12px 8px 8px; display: flex; align-items: center; gap: 10px; box-shadow: rgba(13, 13, 12, 0.14) 0px 16px 32px; transform: translate(-50%, -50%);">
+                      <div data-dc-tpl="328" style="width: 28px; height: 28px; border-radius: 50%; overflow: hidden; flex-shrink: 0;"><img loading="lazy" decoding="async" data-dc-tpl="329" src="/assets/testi-w-dion.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: center; display: block;"></div>
+                      <div data-dc-tpl="330" style="font-size: 13px; font-weight: 600; color: rgb(19, 19, 19); white-space: nowrap;"><span class="sc-interp">Ann Stanton</span></div>
+                      <div data-dc-tpl="331" style="background: rgb(214, 253, 112); border-radius: 100px; padding: 3px 9px; font-size: 11px; font-weight: 600; color: rgb(19, 19, 19);"><span class="sc-interp">+2.5%</span></div>
+                    </div>
+                  </div>
+                </div>
+              
+            </div>
+          </div>
+          <div data-dc-tpl="332" style="padding: 16px 40px 36px; text-align: center;">
+            <h3 data-dc-tpl="333" style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-size: 24px; font-weight: 500; line-height: 32px; letter-spacing: -0.04em; color: rgb(19, 19, 19); margin: 0px;">AI Governance, Risk &amp; Compliance</h3>
+            <div data-dc-tpl="334" style="height: 10px;"></div>
+            <div data-dc-tpl="335" style="font-size: 16px; line-height: 24px; color: rgb(123, 123, 123);">Set clear rules for how AI is approved, used and monitored so your organisation can innovate without losing control of risk or compliance.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+  
+
+  
+  <section data-dc-tpl="367" data-screen-label="Testimonials" style="background: rgb(255, 255, 255); padding: 0px 0px 96px; overflow: hidden;"><p data-seo-testimonial-note style="font:14px/1.65 Inter,sans-serif;color:#4a4a4a;max-width:1160px;margin:0 auto 28px">Selected first-party testimonials. MarketSage is a Cognis product. Statements describe individual experiences; quantitative claims are not independently audited benchmarks.</p>
+    <div data-dc-tpl="368" style="max-width: 1280px; margin: 0px auto; padding: 0px clamp(16px, 3.33vw, 48px);">
+      <div data-dc-tpl="369" style="display: flex; align-items: center; gap: 12px; width: max-content;">
+        <div data-dc-tpl="370" style="width: 4px; height: 4px; background: rgb(19, 19, 19);"></div>
+        <div data-dc-tpl="371" style="font-family: Geistmono, &quot;Geist Mono&quot;, monospace; font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: rgb(19, 19, 19);">Testimonials</div>
+      </div>
+      <div data-dc-tpl="372" style="height: 28px;"></div>
+      <h2 data-dc-tpl="373" style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-size: clamp(29px, 3.33vw, 48px); font-weight: 500; line-height: 1.17; letter-spacing: -0.06em; color: rgb(13, 13, 12); margin: 0px; max-width: 640px;">What organisations say about working with Cognis Group</h2>
+      <div data-dc-tpl="374" style="height: 24px;"></div>
+      <div data-dc-tpl="375" style="font-size: 16px; color: rgba(13, 13, 12, 0.6); max-width: 480px; line-height: 1.6;">What clients say about our strategy, training and AI engineering work.</div>
+    </div>
+    <div data-dc-tpl="376" style="height: clamp(28px, 3.89vw, 56px);"></div>
+    <div data-dc-tpl="377" style="overflow: hidden;">
+      <div data-dc-tpl="378" style="display: flex; width: max-content; padding-left: 24px; animation: 18s linear 0s infinite normal none running cgMarquee;">
+        
+          <div data-dc-tpl="380" style="position: relative; width: min(404px, 88vw); height: 480px; border-radius: 24px; overflow: hidden; flex-shrink: 0; margin-right: 24px;">
+            <img loading="lazy" decoding="async" data-dc-tpl="381" src="https://cognis.group/framer-runtime/images/LHF5pnTEGiDqPokWO5u1DEp2l0.png?width=1200" alt="" style="position: absolute; inset: 0px; width: 100%; height: 100%; object-fit: cover;">
+            <div data-dc-tpl="382" style="position: absolute; inset: 0px; background: linear-gradient(rgba(13, 13, 12, 0) 30%, rgba(13, 13, 12, 0.88) 78%);"></div>
+            <div data-dc-tpl="383" style="position: absolute; top: 20px; left: 20px; background: rgba(13, 13, 12, 0.55); backdrop-filter: blur(8px); border-radius: 100px; padding: 8px 16px; font-family: Geistmono, &quot;Geist Mono&quot;, monospace; font-size: 12px; color: rgb(255, 255, 255);"><span class="sc-interp">MarketSage</span></div>
+            <div data-dc-tpl="384" style="position: absolute; left: 0px; right: 0px; bottom: 0px; padding: 28px;">
+              <svg data-dc-tpl="385" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 32 32" fill="none"><path data-dc-tpl="386" d="M3.33398 6.66797H14.6673V16.868L8.69132 25.3346H5.06065L8.61532 17.3346H3.33398V6.66797ZM17.334 6.66797H28.6673V16.868L22.6913 25.3346H19.0607L22.6153 17.3346H17.334V6.66797Z" fill="#FFFFFF"></path></svg>
+              <div data-dc-tpl="387" style="height: 12px;"></div>
+              <div data-dc-tpl="388" style="font-size: 17px; line-height: 1.55; color: rgb(255, 255, 255); font-weight: 500;"><span class="sc-interp">"Cognis Group built our AI customer support stack from the ground up. We cut first-response time from hours to under 30 seconds and reduced support headcount needs by ~60% — without sacrificing the human feel our customers expect. They don't just advise; they ship."</span></div>
+              <div data-dc-tpl="389" style="height: 20px;"></div>
+              <div data-dc-tpl="390" style="font-size: 14px; color: rgba(255, 255, 255, 0.75); text-align: right;">— <span class="sc-interp">Head of Customer Experience, MarketSage</span></div>
+            </div>
+          </div>
+        
+          <div data-dc-tpl="380" style="position: relative; width: min(404px, 88vw); height: 480px; border-radius: 24px; overflow: hidden; flex-shrink: 0; margin-right: 24px;">
+            <img loading="lazy" decoding="async" data-dc-tpl="381" src="https://cognis.group/framer-runtime/images/Mjb5QC7cBmKTRevvIPeGBCVzHHM.png?width=1200" alt="" style="position: absolute; inset: 0px; width: 100%; height: 100%; object-fit: cover;">
+            <div data-dc-tpl="382" style="position: absolute; inset: 0px; background: linear-gradient(rgba(13, 13, 12, 0) 30%, rgba(13, 13, 12, 0.88) 78%);"></div>
+            <div data-dc-tpl="383" style="position: absolute; top: 20px; left: 20px; background: rgba(13, 13, 12, 0.55); backdrop-filter: blur(8px); border-radius: 100px; padding: 8px 16px; font-family: Geistmono, &quot;Geist Mono&quot;, monospace; font-size: 12px; color: rgb(255, 255, 255);"><span class="sc-interp">Enterprise client</span></div>
+            <div data-dc-tpl="384" style="position: absolute; left: 0px; right: 0px; bottom: 0px; padding: 28px;">
+              <svg data-dc-tpl="385" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 32 32" fill="none"><path data-dc-tpl="386" d="M3.33398 6.66797H14.6673V16.868L8.69132 25.3346H5.06065L8.61532 17.3346H3.33398V6.66797ZM17.334 6.66797H28.6673V16.868L22.6913 25.3346H19.0607L22.6153 17.3346H17.334V6.66797Z" fill="#FFFFFF"></path></svg>
+              <div data-dc-tpl="387" style="height: 12px;"></div>
+              <div data-dc-tpl="388" style="font-size: 17px; line-height: 1.55; color: rgb(255, 255, 255); font-weight: 500;"><span class="sc-interp">"Cognis Group rebuilt our internal operations around agents that handle the work we used to staff in shifts. The team didn't shrink — it got repurposed onto problems worth human attention."</span></div>
+              <div data-dc-tpl="389" style="height: 20px;"></div>
+              <div data-dc-tpl="390" style="font-size: 14px; color: rgba(255, 255, 255, 0.75); text-align: right;">— <span class="sc-interp">Operations lead, Enterprise client</span></div>
+            </div>
+          </div>
+        
+          <div data-dc-tpl="380" style="position: relative; width: min(404px, 88vw); height: 480px; border-radius: 24px; overflow: hidden; flex-shrink: 0; margin-right: 24px;">
+            <img loading="lazy" decoding="async" data-dc-tpl="381" src="https://cognis.group/framer-runtime/images/owRvmfck3MmE9RTAPlzhICFlFg.png?width=1200" alt="" style="position: absolute; inset: 0px; width: 100%; height: 100%; object-fit: cover;">
+            <div data-dc-tpl="382" style="position: absolute; inset: 0px; background: linear-gradient(rgba(13, 13, 12, 0) 30%, rgba(13, 13, 12, 0.88) 78%);"></div>
+            <div data-dc-tpl="383" style="position: absolute; top: 20px; left: 20px; background: rgba(13, 13, 12, 0.55); backdrop-filter: blur(8px); border-radius: 100px; padding: 8px 16px; font-family: Geistmono, &quot;Geist Mono&quot;, monospace; font-size: 12px; color: rgb(255, 255, 255);"><span class="sc-interp">Enterprise client</span></div>
+            <div data-dc-tpl="384" style="position: absolute; left: 0px; right: 0px; bottom: 0px; padding: 28px;">
+              <svg data-dc-tpl="385" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 32 32" fill="none"><path data-dc-tpl="386" d="M3.33398 6.66797H14.6673V16.868L8.69132 25.3346H5.06065L8.61532 17.3346H3.33398V6.66797ZM17.334 6.66797H28.6673V16.868L22.6913 25.3346H19.0607L22.6153 17.3346H17.334V6.66797Z" fill="#FFFFFF"></path></svg>
+              <div data-dc-tpl="387" style="height: 12px;"></div>
+              <div data-dc-tpl="388" style="font-size: 17px; line-height: 1.55; color: rgb(255, 255, 255); font-weight: 500;"><span class="sc-interp">"Cognis Group trained our whole organisation to work with AI instead of around it. Adoption curves we'd budgeted six months for closed in six weeks."</span></div>
+              <div data-dc-tpl="389" style="height: 20px;"></div>
+              <div data-dc-tpl="390" style="font-size: 14px; color: rgba(255, 255, 255, 0.75); text-align: right;">— <span class="sc-interp">Chief People Officer, Enterprise client</span></div>
+            </div>
+          </div>
+        
+          <div data-dc-tpl="380" style="position: relative; width: min(404px, 88vw); height: 480px; border-radius: 24px; overflow: hidden; flex-shrink: 0; margin-right: 24px;">
+            <img loading="lazy" decoding="async" data-dc-tpl="381" src="https://cognis.group/framer-runtime/images/IGOxPIDHI4tPrADWVh1HrKM99RQ.png?width=1200" alt="" style="position: absolute; inset: 0px; width: 100%; height: 100%; object-fit: cover;">
+            <div data-dc-tpl="382" style="position: absolute; inset: 0px; background: linear-gradient(rgba(13, 13, 12, 0) 30%, rgba(13, 13, 12, 0.88) 78%);"></div>
+            <div data-dc-tpl="383" style="position: absolute; top: 20px; left: 20px; background: rgba(13, 13, 12, 0.55); backdrop-filter: blur(8px); border-radius: 100px; padding: 8px 16px; font-family: Geistmono, &quot;Geist Mono&quot;, monospace; font-size: 12px; color: rgb(255, 255, 255);"><span class="sc-interp">Enterprise partner</span></div>
+            <div data-dc-tpl="384" style="position: absolute; left: 0px; right: 0px; bottom: 0px; padding: 28px;">
+              <svg data-dc-tpl="385" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 32 32" fill="none"><path data-dc-tpl="386" d="M3.33398 6.66797H14.6673V16.868L8.69132 25.3346H5.06065L8.61532 17.3346H3.33398V6.66797ZM17.334 6.66797H28.6673V16.868L22.6913 25.3346H19.0607L22.6153 17.3346H17.334V6.66797Z" fill="#FFFFFF"></path></svg>
+              <div data-dc-tpl="387" style="height: 12px;"></div>
+              <div data-dc-tpl="388" style="font-size: 17px; line-height: 1.55; color: rgb(255, 255, 255); font-weight: 500;"><span class="sc-interp">"We've evaluated a lot of AI vendors. Most sell slideware. Cognis Group ships production code, integrates cleanly with our stack, and hands over properly. That's rare."</span></div>
+              <div data-dc-tpl="389" style="height: 20px;"></div>
+              <div data-dc-tpl="390" style="font-size: 14px; color: rgba(255, 255, 255, 0.75); text-align: right;">— <span class="sc-interp">Partner CTO, Enterprise partner</span></div>
+            </div>
+          </div>
+        
+          <div data-dc-tpl="380" style="position: relative; width: min(404px, 88vw); height: 480px; border-radius: 24px; overflow: hidden; flex-shrink: 0; margin-right: 24px;">
+            <img loading="lazy" decoding="async" data-dc-tpl="381" src="https://cognis.group/framer-runtime/images/LHF5pnTEGiDqPokWO5u1DEp2l0.png?width=1200" alt="" style="position: absolute; inset: 0px; width: 100%; height: 100%; object-fit: cover;">
+            <div data-dc-tpl="382" style="position: absolute; inset: 0px; background: linear-gradient(rgba(13, 13, 12, 0) 30%, rgba(13, 13, 12, 0.88) 78%);"></div>
+            <div data-dc-tpl="383" style="position: absolute; top: 20px; left: 20px; background: rgba(13, 13, 12, 0.55); backdrop-filter: blur(8px); border-radius: 100px; padding: 8px 16px; font-family: Geistmono, &quot;Geist Mono&quot;, monospace; font-size: 12px; color: rgb(255, 255, 255);"><span class="sc-interp">MarketSage</span></div>
+            <div data-dc-tpl="384" style="position: absolute; left: 0px; right: 0px; bottom: 0px; padding: 28px;">
+              <svg data-dc-tpl="385" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 32 32" fill="none"><path data-dc-tpl="386" d="M3.33398 6.66797H14.6673V16.868L8.69132 25.3346H5.06065L8.61532 17.3346H3.33398V6.66797ZM17.334 6.66797H28.6673V16.868L22.6913 25.3346H19.0607L22.6153 17.3346H17.334V6.66797Z" fill="#FFFFFF"></path></svg>
+              <div data-dc-tpl="387" style="height: 12px;"></div>
+              <div data-dc-tpl="388" style="font-size: 17px; line-height: 1.55; color: rgb(255, 255, 255); font-weight: 500;"><span class="sc-interp">"Cognis Group built our AI customer support stack from the ground up. We cut first-response time from hours to under 30 seconds and reduced support headcount needs by ~60% — without sacrificing the human feel our customers expect. They don't just advise; they ship."</span></div>
+              <div data-dc-tpl="389" style="height: 20px;"></div>
+              <div data-dc-tpl="390" style="font-size: 14px; color: rgba(255, 255, 255, 0.75); text-align: right;">— <span class="sc-interp">Head of Customer Experience, MarketSage</span></div>
+            </div>
+          </div>
+        
+          <div data-dc-tpl="380" style="position: relative; width: min(404px, 88vw); height: 480px; border-radius: 24px; overflow: hidden; flex-shrink: 0; margin-right: 24px;">
+            <img loading="lazy" decoding="async" data-dc-tpl="381" src="https://cognis.group/framer-runtime/images/Mjb5QC7cBmKTRevvIPeGBCVzHHM.png?width=1200" alt="" style="position: absolute; inset: 0px; width: 100%; height: 100%; object-fit: cover;">
+            <div data-dc-tpl="382" style="position: absolute; inset: 0px; background: linear-gradient(rgba(13, 13, 12, 0) 30%, rgba(13, 13, 12, 0.88) 78%);"></div>
+            <div data-dc-tpl="383" style="position: absolute; top: 20px; left: 20px; background: rgba(13, 13, 12, 0.55); backdrop-filter: blur(8px); border-radius: 100px; padding: 8px 16px; font-family: Geistmono, &quot;Geist Mono&quot;, monospace; font-size: 12px; color: rgb(255, 255, 255);"><span class="sc-interp">Enterprise client</span></div>
+            <div data-dc-tpl="384" style="position: absolute; left: 0px; right: 0px; bottom: 0px; padding: 28px;">
+              <svg data-dc-tpl="385" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 32 32" fill="none"><path data-dc-tpl="386" d="M3.33398 6.66797H14.6673V16.868L8.69132 25.3346H5.06065L8.61532 17.3346H3.33398V6.66797ZM17.334 6.66797H28.6673V16.868L22.6913 25.3346H19.0607L22.6153 17.3346H17.334V6.66797Z" fill="#FFFFFF"></path></svg>
+              <div data-dc-tpl="387" style="height: 12px;"></div>
+              <div data-dc-tpl="388" style="font-size: 17px; line-height: 1.55; color: rgb(255, 255, 255); font-weight: 500;"><span class="sc-interp">"Cognis Group rebuilt our internal operations around agents that handle the work we used to staff in shifts. The team didn't shrink — it got repurposed onto problems worth human attention."</span></div>
+              <div data-dc-tpl="389" style="height: 20px;"></div>
+              <div data-dc-tpl="390" style="font-size: 14px; color: rgba(255, 255, 255, 0.75); text-align: right;">— <span class="sc-interp">Operations lead, Enterprise client</span></div>
+            </div>
+          </div>
+        
+          <div data-dc-tpl="380" style="position: relative; width: min(404px, 88vw); height: 480px; border-radius: 24px; overflow: hidden; flex-shrink: 0; margin-right: 24px;">
+            <img loading="lazy" decoding="async" data-dc-tpl="381" src="https://cognis.group/framer-runtime/images/owRvmfck3MmE9RTAPlzhICFlFg.png?width=1200" alt="" style="position: absolute; inset: 0px; width: 100%; height: 100%; object-fit: cover;">
+            <div data-dc-tpl="382" style="position: absolute; inset: 0px; background: linear-gradient(rgba(13, 13, 12, 0) 30%, rgba(13, 13, 12, 0.88) 78%);"></div>
+            <div data-dc-tpl="383" style="position: absolute; top: 20px; left: 20px; background: rgba(13, 13, 12, 0.55); backdrop-filter: blur(8px); border-radius: 100px; padding: 8px 16px; font-family: Geistmono, &quot;Geist Mono&quot;, monospace; font-size: 12px; color: rgb(255, 255, 255);"><span class="sc-interp">Enterprise client</span></div>
+            <div data-dc-tpl="384" style="position: absolute; left: 0px; right: 0px; bottom: 0px; padding: 28px;">
+              <svg data-dc-tpl="385" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 32 32" fill="none"><path data-dc-tpl="386" d="M3.33398 6.66797H14.6673V16.868L8.69132 25.3346H5.06065L8.61532 17.3346H3.33398V6.66797ZM17.334 6.66797H28.6673V16.868L22.6913 25.3346H19.0607L22.6153 17.3346H17.334V6.66797Z" fill="#FFFFFF"></path></svg>
+              <div data-dc-tpl="387" style="height: 12px;"></div>
+              <div data-dc-tpl="388" style="font-size: 17px; line-height: 1.55; color: rgb(255, 255, 255); font-weight: 500;"><span class="sc-interp">"Cognis Group trained our whole organisation to work with AI instead of around it. Adoption curves we'd budgeted six months for closed in six weeks."</span></div>
+              <div data-dc-tpl="389" style="height: 20px;"></div>
+              <div data-dc-tpl="390" style="font-size: 14px; color: rgba(255, 255, 255, 0.75); text-align: right;">— <span class="sc-interp">Chief People Officer, Enterprise client</span></div>
+            </div>
+          </div>
+        
+          <div data-dc-tpl="380" style="position: relative; width: min(404px, 88vw); height: 480px; border-radius: 24px; overflow: hidden; flex-shrink: 0; margin-right: 24px;">
+            <img loading="lazy" decoding="async" data-dc-tpl="381" src="https://cognis.group/framer-runtime/images/IGOxPIDHI4tPrADWVh1HrKM99RQ.png?width=1200" alt="" style="position: absolute; inset: 0px; width: 100%; height: 100%; object-fit: cover;">
+            <div data-dc-tpl="382" style="position: absolute; inset: 0px; background: linear-gradient(rgba(13, 13, 12, 0) 30%, rgba(13, 13, 12, 0.88) 78%);"></div>
+            <div data-dc-tpl="383" style="position: absolute; top: 20px; left: 20px; background: rgba(13, 13, 12, 0.55); backdrop-filter: blur(8px); border-radius: 100px; padding: 8px 16px; font-family: Geistmono, &quot;Geist Mono&quot;, monospace; font-size: 12px; color: rgb(255, 255, 255);"><span class="sc-interp">Enterprise partner</span></div>
+            <div data-dc-tpl="384" style="position: absolute; left: 0px; right: 0px; bottom: 0px; padding: 28px;">
+              <svg data-dc-tpl="385" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 32 32" fill="none"><path data-dc-tpl="386" d="M3.33398 6.66797H14.6673V16.868L8.69132 25.3346H5.06065L8.61532 17.3346H3.33398V6.66797ZM17.334 6.66797H28.6673V16.868L22.6913 25.3346H19.0607L22.6153 17.3346H17.334V6.66797Z" fill="#FFFFFF"></path></svg>
+              <div data-dc-tpl="387" style="height: 12px;"></div>
+              <div data-dc-tpl="388" style="font-size: 17px; line-height: 1.55; color: rgb(255, 255, 255); font-weight: 500;"><span class="sc-interp">"We've evaluated a lot of AI vendors. Most sell slideware. Cognis Group ships production code, integrates cleanly with our stack, and hands over properly. That's rare."</span></div>
+              <div data-dc-tpl="389" style="height: 20px;"></div>
+              <div data-dc-tpl="390" style="font-size: 14px; color: rgba(255, 255, 255, 0.75); text-align: right;">— <span class="sc-interp">Partner CTO, Enterprise partner</span></div>
+            </div>
+          </div>
+        
+      </div>
+    </div>
+  </section>
+
+  
+  
+  <section data-dc-tpl="392" id="insights" data-screen-label="Insights" style="background: rgb(255, 255, 255); padding: 0px clamp(16px, 3.33vw, 48px) 96px;">
+    <div data-dc-tpl="393" style="max-width: 1280px; margin: 0px auto;">
+      <div data-dc-tpl="394" style="display: flex; justify-content: space-between; align-items: flex-end; gap: 32px;">
+        <div data-dc-tpl="395">
+          <div data-dc-tpl="396" style="display: flex; align-items: center; gap: 12px; width: max-content;">
+            <div data-dc-tpl="397" style="width: 4px; height: 4px; background: rgb(19, 19, 19);"></div>
+            <div data-dc-tpl="398" style="font-family: Geistmono, &quot;Geist Mono&quot;, monospace; font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: rgb(19, 19, 19);">Insights &amp; Perspectives</div>
+          </div>
+          <div data-dc-tpl="399" style="height: 28px;"></div>
+          <h2 data-dc-tpl="400" style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-size: clamp(29px, 3.33vw, 48px); font-weight: 500; line-height: 1.17; letter-spacing: -0.06em; color: rgb(13, 13, 12); margin: 0px; max-width: 720px; text-wrap: balance;">Practical guidance on AI strategy, safe automation and preparing your people</h2>
+        </div>
+        <a data-dc-tpl="401" href="/blog/" data-h="h2" style="background: rgb(19, 19, 19); border-radius: 100px; padding: 4px 4px 4px 20px; display: flex; align-items: center; gap: 12px; flex-shrink: 0; transition: transform 0.3s cubic-bezier(0.19, 1, 0.22, 1);">
+          <span data-dc-tpl="402" style="color: rgb(214, 253, 112); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase;">All Insights</span>
+          <span data-dc-tpl="403" style="width: 40px; height: 40px; border-radius: 50%; background: rgb(214, 253, 112); display: flex; align-items: center; justify-content: center;">
+            <svg data-dc-tpl="404" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none"><path data-dc-tpl="405" d="M13.0457 8.13128L5.8733 15.3037L4.69479 14.1252L11.8672 6.95277L5.54568 6.95277L5.54568 5.28636H14.7121V14.4528L13.0457 14.4528V8.13128Z" fill="#131313"></path></svg>
+          </span>
+        </a>
+      </div>
+      <div data-dc-tpl="406" style="height: clamp(28px, 3.89vw, 56px);"></div>
+      <div data-dc-tpl="407" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+        
+          <a data-dc-tpl="409" href="https://cognis.group/blog/why-most-enterprise-ai-strategies-fail-before-they-start/" target="_blank" rel="noopener" data-h="h9" style="background: rgb(255, 255, 255); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column;">
+            <div data-dc-tpl="410" style="height: 210px; overflow: hidden;"><img loading="lazy" decoding="async" data-dc-tpl="411" src="https://cognis.group/framer-runtime/images/v4o6m3a57qOMklmWqrkcQPIdI.png?width=1600" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block;"></div>
+            <div data-dc-tpl="412" style="padding: 24px 24px 28px; display: flex; flex-direction: column; gap: 12px;">
+              <div data-dc-tpl="413" style="font-family: Geistmono, &quot;Geist Mono&quot;, monospace; font-size: 12px; color: rgba(13, 13, 12, 0.5);"><span class="sc-interp">AI STRATEGY</span></div>
+              <h3 data-dc-tpl="414" style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-size: 19px; font-weight: 600; letter-spacing: -0.015em; color: rgb(13, 13, 12); margin: 0px; line-height: 1.35;"><span class="sc-interp">Why Most Enterprise AI Deployments Fail — and What Separates the Ones That Succeed</span></h3>
+            </div>
+          </a>
+        
+          <a data-dc-tpl="409" href="https://cognis.group/blog/building-ai-agents-that-actually-ship/" target="_blank" rel="noopener" data-h="h9" style="background: rgb(255, 255, 255); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column;">
+            <div data-dc-tpl="410" style="height: 210px; overflow: hidden;"><img loading="lazy" decoding="async" data-dc-tpl="411" src="https://cognis.group/framer-runtime/images/xMyo1j7rlMvnbr9NtkshZFKFcEo.png?width=1600" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block;"></div>
+            <div data-dc-tpl="412" style="padding: 24px 24px 28px; display: flex; flex-direction: column; gap: 12px;">
+              <div data-dc-tpl="413" style="font-family: Geistmono, &quot;Geist Mono&quot;, monospace; font-size: 12px; color: rgba(13, 13, 12, 0.5);"><span class="sc-interp">AGENT ENGINEERING</span></div>
+              <h3 data-dc-tpl="414" style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-size: 19px; font-weight: 600; letter-spacing: -0.015em; color: rgb(13, 13, 12); margin: 0px; line-height: 1.35;"><span class="sc-interp">AI Agents Are the New Operating System for Enterprise Teams</span></h3>
+            </div>
+          </a>
+        
+          <a data-dc-tpl="409" href="https://cognis.group/blog/making-your-workforce-ai-ready/" target="_blank" rel="noopener" data-h="h9" style="background: rgb(255, 255, 255); border-radius: 20px; overflow: hidden; display: flex; flex-direction: column;">
+            <div data-dc-tpl="410" style="height: 210px; overflow: hidden;"><img loading="lazy" decoding="async" data-dc-tpl="411" src="https://cognis.group/framer-runtime/images/v9xKsohrFAX7eLCkGBmNgxjzlw.png?width=1600" alt="" style="width: 100%; height: 100%; object-fit: cover; display: block;"></div>
+            <div data-dc-tpl="412" style="padding: 24px 24px 28px; display: flex; flex-direction: column; gap: 12px;">
+              <div data-dc-tpl="413" style="font-family: Geistmono, &quot;Geist Mono&quot;, monospace; font-size: 12px; color: rgba(13, 13, 12, 0.5);"><span class="sc-interp">WORKFORCE</span></div>
+              <h3 data-dc-tpl="414" style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-size: 19px; font-weight: 600; letter-spacing: -0.015em; color: rgb(13, 13, 12); margin: 0px; line-height: 1.35;"><span class="sc-interp">Building an AI-Ready Workforce: What Effective Training Actually Looks Like</span></h3>
+            </div>
+          </a>
+        
+      </div>
+    </div>
+  </section>
+  
+
+  
+  <section data-dc-tpl="415" id="contact" data-screen-label="CTA" style="position: relative; margin: 12px; border-radius: 24px; overflow: hidden; padding: 72px 64px;">
+    <img loading="lazy" decoding="async" data-dc-tpl="416" src="https://cognis.group/framer-runtime/images/W7a7pFrDjUXSx6Ldb2bKvhqgg.png?width=1600" alt="" style="position: absolute; inset: 0px; width: 100%; height: 100%; object-fit: cover;">
+    <div data-dc-tpl="417" style="position: absolute; inset: 0px; background: linear-gradient(rgba(19, 19, 19, 0.25) 0%, rgba(19, 19, 19, 0.5) 100%);"></div>
+    <div data-dc-tpl="418" style="position: relative;">
+      <div data-dc-tpl="419" style="display: flex; align-items: center; gap: 16px;">
+        <div data-dc-tpl="420" style="font-size: 15px; color: rgba(255, 255, 255, 0.9);">Trusted by organisations across three continents</div>
+        <div data-dc-tpl="421" style="display: flex;">
+          
+            <div data-dc-tpl="423" style="width: 36px; height: 36px; border-radius: 50%; border: 2px solid rgba(255, 255, 255, 0.6); overflow: hidden; margin-left: -9px; flex-shrink: 0;"><img loading="lazy" decoding="async" data-dc-tpl="424" src="/assets/testi-w-daniel.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: center; display: block;"></div>
+          
+            <div data-dc-tpl="423" style="width: 36px; height: 36px; border-radius: 50%; border: 2px solid rgba(255, 255, 255, 0.6); overflow: hidden; margin-left: -9px; flex-shrink: 0;"><img loading="lazy" decoding="async" data-dc-tpl="424" src="/assets/testi-m-2me.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: center; display: block;"></div>
+          
+            <div data-dc-tpl="423" style="width: 36px; height: 36px; border-radius: 50%; border: 2px solid rgba(255, 255, 255, 0.6); overflow: hidden; margin-left: -9px; flex-shrink: 0;"><img loading="lazy" decoding="async" data-dc-tpl="424" src="/assets/testi-m-abpix.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: center; display: block;"></div>
+          
+        </div>
+      </div>
+      <div data-dc-tpl="425" style="height: 28px;"></div>
+      <h2 data-dc-tpl="426" style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-size: clamp(29px, 3.33vw, 48px); font-weight: 500; line-height: 1.17; letter-spacing: -0.06em; color: rgb(255, 255, 255); margin: 0px; max-width: 560px;">What we touch, we change</h2>
+      <div data-dc-tpl="427" style="height: 18px;"></div>
+      <div data-dc-tpl="428" style="font-size: 16px; line-height: 24px; letter-spacing: -0.32px; color: rgba(255, 255, 255, 0.85); max-width: 560px;">Cognis Group combines deep knowledge of African markets with global AI expertise. We help people work better with AI; we do not use it to replace them.</div>
+      <div data-dc-tpl="429" style="height: 32px;"></div>
+      <a data-dc-tpl="430" href="/contact/" data-h="h2" style="background: rgb(214, 253, 112); border-radius: 100px; padding: 4px 4px 4px 22px; display: inline-flex; align-items: center; gap: 12px; transition: transform 0.3s cubic-bezier(0.19, 1, 0.22, 1);">
+        <span data-dc-tpl="431" style="color: rgb(19, 19, 19); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase;">Start the Conversation</span>
+        <span data-dc-tpl="432" style="width: 40px; height: 40px; border-radius: 50%; background: rgb(19, 19, 19); display: flex; align-items: center; justify-content: center;">
+          <svg data-dc-tpl="433" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none"><path data-dc-tpl="434" d="M13.0457 8.13128L5.8733 15.3037L4.69479 14.1252L11.8672 6.95277L5.54568 6.95277L5.54568 5.28636H14.7121V14.4528L13.0457 14.4528V8.13128Z" fill="#131313"></path></svg>
+        </span>
+      </a>
+    </div>
+  </section>
+
+  
+  <footer class="cg-gf" data-screen-label="Footer" style="background: rgb(13, 13, 12); margin: 12px; border-radius: 24px; padding: 56px clamp(16px, 3.33vw, 48px) 32px;">
+    <div style="max-width: 1280px; margin: 0px auto;">
+      <div style="display: grid; grid-template-columns: 1.4fr 0.7fr 0.7fr 0.7fr 1.2fr; gap: 48px;">
+        <div>
+          <a class="cg-gf-logo" href="/" aria-label="Cognis Group" style="display: inline-flex; align-items: center; gap: 9px; color: rgb(255, 255, 255);">
+            <svg viewBox="0 0 48 48" aria-hidden="true" style="width: 28px; height: 28px; fill: rgb(255, 255, 255); display: block;"><path d="M 42.66 12.34 A 22 22 0 1 0 42.66 35.66 L 33.19 31.71 A 12 12 0 1 1 33.19 16.29 Z"></path><rect x="36" y="19" width="10" height="10" fill="#D6FD70"></rect></svg>
+            <span style="font-family: Inter, sans-serif; font-weight: 400; font-size: 24px; line-height: 28.8px; color: rgb(255, 255, 255); letter-spacing: -1.44px;">Cognis</span>
+          </a>
+          <div style="height: 20px;"></div>
+          <div style="font-size: 14px; line-height: 1.65; color: rgba(255, 255, 255, 0.6); max-width: 320px;">Cognis Group helps organisations use AI to improve how people work. We plan, build and manage practical systems, then prepare your team to use them with confidence. Quod Tango Muto: what we touch, we change.</div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 14px;">
+          <div style="font-family: Inter, sans-serif; font-weight: 600; font-size: 11px; color: rgba(255, 255, 255, 0.45); letter-spacing: 0.88px; text-transform: uppercase;">COMPANY</div>
+          <a class="cg-gf-link" href="/" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Home</a>
+          <a class="cg-gf-link" href="/about-us/" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">About Us</a>
+          <a class="cg-gf-link" href="/our-services/" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Services</a>
+          <a class="cg-gf-link" href="/products/" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Products</a>
+          <a class="cg-gf-link" href="/blog/" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Insights</a>
+          <a class="cg-gf-link" href="/careers/" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Careers</a>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 14px;">
+          <div style="font-family: Inter, sans-serif; font-weight: 600; font-size: 11px; color: rgba(255, 255, 255, 0.45); letter-spacing: 0.88px; text-transform: uppercase;">SERVICES</div>
+          <a class="cg-gf-link" href="/our-services/ai-strategy-advisory/" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Strategy</a>
+          <a class="cg-gf-link" href="/our-services/ai-training-workforce-development/" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Training</a>
+          <a class="cg-gf-link" href="/our-services/ai-agent-automation-engineering/" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Agent Engineering</a>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 14px;">
+          <div style="font-family: Inter, sans-serif; font-weight: 600; font-size: 11px; color: rgba(255, 255, 255, 0.45); letter-spacing: 0.88px; text-transform: uppercase;">EXPLORE</div>
+          <a class="cg-gf-link" href="/why-cognis/" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Why Cognis</a>
+          <a class="cg-gf-link" href="/case-studies/" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Case Studies</a>
+          <a class="cg-gf-link" href="/how-we-work/" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">How We Work</a>
+          <a class="cg-gf-link" href="/faq/" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">FAQ</a>
+          <a class="cg-gf-link" href="/contact/" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Contact</a>
+        </div>
+        <div>
+          <div style="font-family: Inter, sans-serif; font-weight: 600; font-size: 11px; color: rgba(255, 255, 255, 0.45); letter-spacing: 0.88px; text-transform: uppercase;">GET AI INTELLIGENCE IN YOUR INBOX</div>
+          <div style="height: 16px;"></div>
+          <form action="/api/form" method="POST" style="display: flex; gap: 8px;"><input type="text" name="company" value="" style="display:none !important" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <input type="hidden" name="from_name" value="cognis.group newsletter">
+            <input type="hidden" name="subject" value="New newsletter signup — cognis.group">
+            <input type="hidden" name="redirect" value="https://cognis.group/thanks-subscribe/">
+            <input type="email" name="email" required="" placeholder="Your work email" style="flex: 1 1 0%; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.14); border-radius: 100px; padding: 12px 18px; font-size: 14px; color: rgb(255, 255, 255); outline: none; font-family: &quot;Plus Jakarta Sans&quot;, sans-serif;">
+            <button type="submit" class="cg-gf-btn" style="background: rgb(214, 253, 112); color: rgb(13, 13, 12); border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; border-radius: 100px; padding: 12px 22px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: &quot;Plus Jakarta Sans&quot;, sans-serif;">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div style="height: clamp(28px, 3.89vw, 56px);"></div>
+      <div style="border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 24px; display: flex; justify-content: space-between; align-items: center;">
+        <div style="font-size: 14px; color: rgba(255, 255, 255, 0.45);">© 2024–2026 Cognis Group. All rights reserved.</div>
+        <div style="display: flex; gap: 24px;">
+          <a class="cg-gf-link" href="/privacy-policy/" style="font-size: 13px; color: rgba(255, 255, 255, 0.45);">Privacy</a>
+          <a class="cg-gf-link" href="/terms/" style="font-size: 13px; color: rgba(255, 255, 255, 0.45);">Terms</a>
+          <a class="cg-gf-link" href="/contact/" style="font-size: 13px; color: rgba(255, 255, 255, 0.45);">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div></div></div>
+<script src="/cognis.js" defer></script>
+<script defer src="/assets/logo-motion.js"></script><script defer src="/assets/ask-cognis.js"></script><script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a38557533884ef3a',t:'MTc4ODk0Nzk3Ng=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

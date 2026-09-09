@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Privacy Policy | Cognis Group</title>
+<meta name="description" content="How Cognis Group collects, uses, and protects personal data across our website and engagements, aligned to Nigeria's NDPA 2023 and the EU GDPR." />
+<link rel="canonical" href="https://cognis.group/privacy-policy/" />
+    <link rel="alternate" hreflang="en" href="https://cognis.group/privacy-policy/" />
+    <link rel="alternate" hreflang="x-default" href="https://cognis.group/privacy-policy/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Cognis Group" />
+<meta property="og:title" content="Privacy Policy | Cognis Group" />
+<meta property="og:description" content="How Cognis Group collects, uses, and protects personal data across our website and engagements." />
+<meta property="og:url" content="https://cognis.group/privacy-policy/" />
+<meta property="og:image" content="https://cognis.group/og/cognis-og-1200x630.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Cognis Group — AI Consulting &amp; Engineering" />
+<meta property="og:locale" content="en_GB" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@cognisgroup" />
+<meta name="twitter:title" content="Privacy Policy | Cognis Group" />
+<meta name="twitter:description" content="How Cognis Group collects, uses, and protects personal data across our website and engagements." />
+<meta name="twitter:image" content="https://cognis.group/og/cognis-og-1200x630.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --ink: #131313;
+    --ink-soft: #2f2f2f;
+    --mute: #7b7b7b;
+    --line: #e6e6e6;
+    --bg: #f2f2f2;
+    --card: #ffffff;
+    --accent: #cdfb56;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  header.site-nav {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(242, 242, 242, 0.92);
+    backdrop-filter: saturate(140%) blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  header.site-nav .inner {
+    max-width: 1100px; margin: 0 auto;
+    padding: 18px 24px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  header.site-nav a.brand {
+    font-weight: 700; letter-spacing: -0.01em; color: var(--ink); text-decoration: none;
+    font-size: 20px;
+  }
+  header.site-nav nav a {
+    color: var(--ink-soft); text-decoration: none; margin-left: 24px; font-weight: 500; font-size: 15px;
+  }
+  header.site-nav nav a:hover { color: var(--ink); }
+  main.legal {
+    max-width: 760px; margin: 0 auto;
+    padding: 64px 24px 96px;
+  }
+  main.legal h1 {
+    font-size: 44px; line-height: 1.1; letter-spacing: -0.02em;
+    margin: 0 0 8px; font-weight: 700;
+  }
+  main.legal .meta { color: var(--mute); font-size: 15px; margin: 0 0 40px; }
+  main.legal h2 {
+    font-size: 22px; letter-spacing: -0.01em;
+    margin: 40px 0 12px; font-weight: 600;
+  }
+  main.legal h3 {
+    font-size: 18px; margin: 28px 0 10px; font-weight: 600;
+  }
+  main.legal p { margin: 0 0 16px; }
+  main.legal ul { padding-left: 22px; margin: 0 0 16px; }
+  main.legal li { margin-bottom: 6px; }
+  main.legal a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
+  main.legal a:hover { background: var(--accent); }
+  footer.site-foot {
+    border-top: 1px solid var(--line); background: #0A0A0A; color: #C1C1C1;
+    padding: 40px 24px; font-size: 14px;
+  }
+  footer.site-foot .inner {
+    max-width: 1100px; margin: 0 auto;
+    display: flex; flex-wrap: wrap; gap: 24px; justify-content: space-between;
+  }
+  footer.site-foot a { color: #C1C1C1; text-decoration: none; margin-right: 18px; }
+  footer.site-foot a:hover { color: var(--accent); }
+  footer.site-foot .legal-links a { margin-right: 16px; }
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@context":"https://schema.org","@type":"WebPage","@id":"https://cognis.group/privacy-policy/","url":"https://cognis.group/privacy-policy/","name":"Privacy Policy","description":"How Cognis Group collects, uses, and protects personal data.","inLanguage":"en-GB","isPartOf":{"@id":"https://cognis.group/#website"},"about":{"@id":"https://cognis.group/#organization"},"datePublished":"2026-04-14","dateModified":"2026-04-14"},{"@type":"Organization","@id":"https://cognis.group/#organization","name":"Cognis Group","alternateName":"Cognis","legalName":"Cognis Group Limited","url":"https://cognis.group/","logo":{"@type":"ImageObject","@id":"https://cognis.group/#logo","url":"https://cognis.group/assets/img/cognis-logo.png","width":512,"height":512,"caption":"Cognis Group"},"image":{"@id":"https://cognis.group/#logo"},"description":"Cognis Group helps organisations decide where AI can help, train their people and build safe tools for everyday work. Its three main services are AI Strategy & Advisory, AI Training & Workforce Development, and AI Agent & Automation Engineering.","slogan":"Quod Tango Muto — What we touch, we change.","foundingDate":"2024","founder":[{"@type":"Person","@id":"https://cognis.group/teams/supreme-oyewumi/#person","name":"Supreme Oyewumi","jobTitle":"Founder & AI Engineer"},{"@type":"Person","@id":"https://cognis.group/teams/kola-olatunde/#person","name":"Kola Olatunde","jobTitle":"Co-Founder and AI Cybersecurity & Governance Lead"}],"foundingLocation":{"@type":"Place","name":"Lagos, Nigeria","address":{"@type":"PostalAddress","addressLocality":"Lagos","addressCountry":"NG"}},"address":[{"@type":"PostalAddress","streetAddress":"Oniru, Victoria Island","addressLocality":"Lagos","addressRegion":"LA","addressCountry":"NG"},{"@type":"PostalAddress","streetAddress":"2106 House Ave, Suite 665","addressLocality":"Cheyenne","addressRegion":"WY","postalCode":"82001","addressCountry":"US"}],"contactPoint":[{"@type":"ContactPoint","contactType":"sales","email":"info@cognis.group","telephone":"+2349080001101","availableLanguage":["English"],"areaServed":["NG","ZA","KE","GH","GB"]},{"@type":"ContactPoint","contactType":"sales","email":"info@cognis.group","telephone":"+15127437322","availableLanguage":["English"],"areaServed":["US","CA"]}],"areaServed":[{"@type":"Place","name":"Africa"},{"@type":"Place","name":"Europe"},{"@type":"Place","name":"Americas"}],"knowsAbout":["Artificial Intelligence Strategy","AI Consulting","AI Agent Engineering","Machine Learning","AI Governance","AI Workforce Development","Intelligent Automation","Large Language Models","Enterprise AI Deployment","Digital Transformation","AI Readiness Assessment","Generative AI","AI Risk Management","Responsible AI"],"sameAs":["https://www.linkedin.com/company/cognis-group","https://x.com/cognisgroup","https://github.com/cognis-group"],"hasOfferCatalog":{"@type":"OfferCatalog","name":"AI Consulting Services","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","@id":"https://cognis.group/#service-ai-strategy","name":"AI Strategy & Advisory","description":"Cognis Group helps organisations choose useful AI opportunities and create a clear plan with priorities, owners, costs, safeguards and measures of success.","provider":{"@id":"https://cognis.group/#organization"},"serviceType":"AI Strategy Consulting","areaServed":"Worldwide","audience":{"@type":"Audience","audienceType":"Enterprise organizations, Government agencies, Financial institutions"}}},{"@type":"Offer","itemOffered":{"@type":"Service","@id":"https://cognis.group/#service-ai-training","name":"AI Training & Workforce Development","description":"Cognis Group provides practical AI training that helps leaders and teams work better, check AI output and use approved tools safely.","provider":{"@id":"https://cognis.group/#organization"},"serviceType":"AI Training and Education","areaServed":"Worldwide"}},{"@type":"Offer","itemOffered":{"@type":"Service","@id":"https://cognis.group/#service-ai-agents","name":"AI Agent & Automation Engineering","description":"Cognis Group builds AI tools that handle agreed steps in business processes, reduce slow manual work and errors, and keep people in control.","provider":{"@id":"https://cognis.group/#organization"},"serviceType":"AI Engineering and Automation","areaServed":"Worldwide"}}]}},{"@type":"WebSite","@id":"https://cognis.group/#website","url":"https://cognis.group","name":"Cognis Group","description":"AI consulting and engineering company helping organisations plan, build and use AI safely","publisher":{"@id":"https://cognis.group/#organization"},"inLanguage":"en-GB"},{"@type":"BreadcrumbList","@id":"https://cognis.group/privacy-policy/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://cognis.group/"},{"@type":"ListItem","position":2,"name":"Privacy Policy","item":"https://cognis.group/privacy-policy/"}]}]}</script>
+<!-- cognis-hero-video:start -->
+<script data-cognis-hero-video>
+(function () {
+  var SRC = '/framer-runtime/assets/hero-afr5.mp4';
+  function norm(pth) { return pth.replace(/\/index\.html$/, '').replace(/\/+$/, ''); }
+  function isHomePath() { return norm(location.pathname) === ''; }
+  // The page's own <link rel=canonical> is the reliable signal for WHICH route
+  // this snapshot is: it's baked in per route and never flickers. We can't use
+  // location.pathname during initial load because an early inline script
+  // (deferred-nav bootstrap) does history.replaceState(..., '/') on every page,
+  // and Framer briefly renders home content — both would falsely read as home
+  // and trigger a wasted 1.6 MB fetch on non-home routes. After things settle
+  // we switch to the live path so SPA navigation is handled too.
+  function canonicalIsHome() {
+    var l = document.querySelector('link[rel="canonical"]');
+    if (!l) return isHomePath();
+    try { return norm(new URL(l.href).pathname) === ''; } catch (e) { return isHomePath(); }
+  }
+  var settled = false;
+  setTimeout(function () { settled = true; }, 4000);
+  function wantVideo() { return settled ? isHomePath() : canonicalIsHome(); }
+  function tick() {
+    var on = wantVideo();
+    document.querySelectorAll('video[data-cognis-hero-portal]').forEach(function (v) {
+      if (on) {
+        if (!v.getAttribute('src')) {
+          v.setAttribute('preload', 'metadata');
+          v.src = SRC;
+          var p = v.play(); if (p && p.catch) p.catch(function () {});
+        }
+      } else if (v.getAttribute('src')) {
+        try { v.pause(); } catch (e) {}
+        v.removeAttribute('autoplay');
+        v.setAttribute('preload', 'none');
+        v.removeAttribute('src');
+        try { v.load(); } catch (e) {}  // abort any in-flight fetch
+      }
+    });
+
+    // Hero layout guard (home only). The hero is a full-viewport-height screen
+    // with the heading/subcopy up top and the 3D rotating cards anchored lower.
+    // On short laptop heights it compresses and the cards ride up over the
+    // wording. Enforce a min-height floor so the layout always has the room it
+    // has on a tall screen — only on home and only at laptop+ widths (the
+    // stacked mobile/tablet hero doesn't have the overlap). Cleared elsewhere.
+    var hero = document.querySelector('[data-framer-name="hero"]');
+    if (hero) {
+      if (on && window.innerWidth >= 810) hero.style.setProperty('min-height', '900px', 'important');
+      else hero.style.removeProperty('min-height');
+    }
+  }
+  if (document.readyState !== 'loading') tick();
+  else document.addEventListener('DOMContentLoaded', tick);
+  try {
+    var mo = new MutationObserver(function () {
+      if (window.__cghvRAF) return;
+      window.__cghvRAF = requestAnimationFrame(function () { window.__cghvRAF = 0; tick(); });
+    });
+    mo.observe(document.documentElement, { childList: true, subtree: true });
+  } catch (e) {}
+  window.addEventListener('resize', function () {
+    if (window.__cghvRZ) return;
+    window.__cghvRZ = requestAnimationFrame(function () { window.__cghvRZ = 0; tick(); });
+  }, { passive: true });
+  [0, 50, 150, 400, 1000, 2500, 4200, 6000].forEach(function (t) { setTimeout(tick, t); });
+})();
+</script>
+<!-- cognis-hero-video:end -->
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" href="/responsive.css">
+<script src="/cognis.js" defer></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet" data-cognis-gheader-font>
+<style data-cognis-gheader>
+  @keyframes cgFadeUp { from { opacity: 0; transform: translateY(32px); } to { opacity: 1; transform: translateY(0); } }
+  .cg-gh .cgRoll { display: inline-block; overflow: hidden; height: 20px; vertical-align: top; }
+  .cg-gh .cgRoll b { display: block; font-weight: inherit; transition: transform 0.18s cubic-bezier(0.33,1,0.68,1); }
+  .cg-gh a:hover > .cgRoll b { transform: translateY(-20px); }
+  .cg-gh[data-cg-skin="white"] a.cg-gh-link:hover { color: #FFFFFF !important; }
+  .cg-gh[data-cg-skin="dark"] a.cg-gh-link:hover { color: #131313 !important; }
+  .cg-gh a.cg-gh-cta:hover { background: #FFFFFF !important; transform: scale(0.95); }
+  .cg-gh .cg-gh-current { box-shadow: rgb(214, 253, 112) 0px -2px 0px inset; padding-bottom: 4px; }
+  .cg-gh .cg-exp { position: relative; }
+  .cg-gh .cg-exp-panel { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); padding-top: 16px; opacity: 0; visibility: hidden; transition: opacity .22s ease; z-index: 30; }
+  .cg-gh .cg-exp:hover .cg-exp-panel, .cg-gh .cg-exp:focus-within .cg-exp-panel { opacity: 1; visibility: visible; }
+  .cg-gh .cg-exp-menu { background: #131313; border: 1px solid rgba(255,255,255,0.10); border-radius: 16px; padding: 8px; min-width: 236px; display: flex; flex-direction: column; gap: 2px; box-shadow: 0 28px 60px rgba(0,0,0,0.45); transform: translateY(8px); transition: transform .22s cubic-bezier(.22,1,.36,1); }
+  .cg-gh .cg-exp:hover .cg-exp-menu, .cg-gh .cg-exp:focus-within .cg-exp-menu { transform: translateY(0); }
+  .cg-gh .cg-exp-menu a { display: flex; flex-direction: column; gap: 2px; padding: 11px 14px; border-radius: 11px; text-transform: none; letter-spacing: -0.01em; transition: background .15s ease; text-decoration: none; }
+  .cg-gh .cg-exp-menu a:hover { background: rgba(255,255,255,0.06); }
+  .cg-gh .cg-exp-menu .t { font-weight: 600; font-size: 14px; color: #FFFFFF; }
+  .cg-gh .cg-exp-menu .d { font-weight: 400; font-size: 12px; color: rgba(255,255,255,0.5); }
+  .cg-gh a { text-decoration: none; }
+  /* Pages where the header is a direct child of <body> (no prerendered hero
+     wrapper) need their content pushed clear of the absolute header. */
+  body > .cg-gh ~ main { padding-top: 108px; }
+  body > .cg-gh ~ div > .sc-host { padding-top: 108px; } /* brand manual: its runtime renders the doc into a shadow host */
+  /* Prerendered pages whose hero card starts with a 12px margin: keep that margin
+     inside the wrapper (no collapse) so the absolute header measures from the page top. */
+  .sc-host > div:has(> .cg-gh) { display: flow-root; }
+  /* Framer service pages: the global header replaces Framer's own nav. */
+  div:has(> nav.framer-AZa26), nav.framer-AZa26 { display: none !important; }
+</style>
+<style data-cognis-gfooter>
+  .cg-gf a { text-decoration: none; }
+  .cg-gf a.cg-gf-link:hover { color: #FFFFFF !important; }
+  .cg-gf .cg-gf-btn:hover { background: #E5FF9B !important; }
+  /* Framer service pages: the global footer replaces Framer's own. */
+  div:has(> footer.framer-uOBZL), footer.framer-uOBZL { display: none !important; }
+</style>
+</head>
+<body><a href="https://cognis.group/cdn-cgi/content?id=grZ1fIRmA2Gphn.OKOx96z4f0m1hPWAB2EAkFvlDwK0-1788947746.1620479-1.2.1.1-qbUw61XejkCJozt6uVZUEe.u1XqpRvf61NR3nEWaohlwdezDfoh8m5kFpf_6ATYq" aria-hidden="true" rel="nofollow noopener" style="display: none !important; visibility: hidden !important"></a>
+
+<div data-dc-tpl="7" class="cg-gh" data-cg-skin="dark" style="position: absolute; top: 12px; left: 12px; right: 12px; z-index: 1000; padding: 24px clamp(16px, 3.33vw, 48px);">
+    <div style="max-width: 1280px; margin: 0px auto; display: flex; align-items: center; justify-content: space-between; animation: 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0s 1 normal both running cgFadeUp;">
+      <a class="cg-gh-logo" href="/" aria-label="Cognis Group" style="display: flex; align-items: center; gap: 9px; color: rgb(19, 19, 19);">
+        <svg class="cg-mark-hero" viewBox="0 0 48 48" aria-hidden="true" style="width: 28px; height: 28px; fill: currentcolor; display: block;"><path d="M 42.66 12.34 A 22 22 0 1 0 42.66 35.66 L 33.19 31.71 A 12 12 0 1 1 33.19 16.29 Z"></path><rect x="36" y="19" width="10" height="10" fill="#D6FD70"></rect></svg>
+        <span style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 600; font-size: 23px; color: rgb(19, 19, 19); letter-spacing: -0.04em;">Cognis</span>
+      </a>
+      <div style="display: flex; align-items: center; gap: 24px;">
+        <a class="cg-gh-link" href="/" style="color: rgba(19, 19, 19, 0.8); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; white-space: nowrap;"><span class="cgRoll"><b>Home</b><b>Home</b></span></a>
+        <a class="cg-gh-link" href="/about-us/" style="color: rgba(19, 19, 19, 0.8); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; white-space: nowrap;"><span class="cgRoll"><b>About Us</b><b>About Us</b></span></a>
+        <a class="cg-gh-link" href="/our-services/" style="color: rgba(19, 19, 19, 0.8); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; white-space: nowrap;"><span class="cgRoll"><b>Services</b><b>Services</b></span></a>
+        <a class="cg-gh-link" href="/products/" style="color: rgba(19, 19, 19, 0.8); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; white-space: nowrap;"><span class="cgRoll"><b>Products</b><b>Products</b></span></a>
+        <a class="cg-gh-link" href="/blog/" style="color: rgba(19, 19, 19, 0.8); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; white-space: nowrap;"><span class="cgRoll"><b>Insights</b><b>Insights</b></span></a>
+        <div class="cg-exp" tabindex="0" style="height: 20px; color: rgba(19, 19, 19, 0.8); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; white-space: nowrap; cursor: default;">
+          <span style="display: inline-flex; align-items: center; gap: 5px;">Explore
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" style="opacity: 0.85;"><path d="M2 3.5L5 6.5L8 3.5" stroke="#131313" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </span>
+          <div class="cg-exp-panel">
+            <div class="cg-exp-menu">
+              <a href="/why-cognis/"><span class="t">Why Cognis</span><span class="d">The case for working with us</span></a>
+              <a href="/case-studies/"><span class="t">Case Studies</span><span class="d">AI shipped to governed production</span></a>
+              <a href="/how-we-work/"><span class="t">How We Work</span><span class="d">Six phases, designed to ship</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="cg-gh-cta" href="/contact/" style="background: rgb(214, 253, 112); color: rgb(19, 19, 19); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; white-space: nowrap; padding: 12px 22px; border-radius: 100px; transition: transform 0.3s cubic-bezier(0.19, 1, 0.22, 1), background-color 0.3s;">Work With Us</a>
+    </div>
+  </div>
+<main class="legal">
+  <h1>Privacy Policy</h1>
+  <p class="meta">Last updated 14 April 2026 · Governed by the Nigeria Data Protection Act 2023 and the EU General Data Protection Regulation where applicable.</p>
+
+  <p>In plain English: Cognis Group Limited collects only the personal information needed to answer enquiries, deliver client work and keep this website secure. We do not sell personal data. This policy explains what we collect, why we use it, how long we keep it and the choices available to you.</p>
+
+  <h2>1. Who we are</h2>
+  <p>Cognis Group Limited is registered with the Corporate Affairs Commission of Nigeria and operates from Lagos, serving organisations across Africa, Europe, and the Americas. For any privacy question, write to <a href="/cdn-cgi/l/email-protection#3242405b4453514b72515d555c5b411c55405d4742"><span class="__cf_email__" data-cfemail="a6d6d4cfd0c7c5dfe6c5c9c1c8cfd588c1d4c9d3d6">[email&#160;protected]</span></a> or call +234 908 000 1101.</p>
+
+  <h2>2. What we collect</h2>
+  <p>We collect only the personal data we need to answer an enquiry, deliver an engagement, or run our website.</p>
+  <ul>
+    <li><strong>Contact data</strong> — name, business email, phone number, company, and any context you share when you submit a form, subscribe to our newsletter, or email us.</li>
+    <li><strong>Engagement data</strong> — documents, notes, credentials, and workshop outputs shared with us during a live engagement. Handled under a separate signed engagement contract with confidentiality terms.</li>
+    <li><strong>Usage data</strong> — basic request logs (IP address, user agent, referrer, page path, timestamp) retained short-term for security and abuse detection by our hosting and CDN providers.</li>
+  </ul>
+  <p>We do not knowingly collect data from children under 16, and we do not process sensitive categories of personal data through the website.</p>
+
+  <h2>3. Why we collect it (legal bases)</h2>
+  <ul>
+    <li><strong>Consent</strong> — newsletter subscription, optional marketing follow-ups.</li>
+    <li><strong>Legitimate interest</strong> — responding to enquiries, protecting the website and our systems, measuring site health.</li>
+    <li><strong>Contract</strong> — delivering an engagement you have signed with us.</li>
+    <li><strong>Legal obligation</strong> — retaining records required by Nigerian tax, corporate, or regulatory authorities.</li>
+  </ul>
+
+  <h2>4. Cookies and analytics</h2>
+  <p>This site runs a minimal-cookie approach. We use only strictly necessary cookies for routing, session handling, and security. We do not run advertising or cross-site tracking pixels. Where we measure aggregate site health, we use privacy-respecting, server-side analytics with no personal identifiers.</p>
+
+  <h2>5. Who we share it with</h2>
+  <p>We share personal data with a small set of vetted service providers strictly to run the business:</p>
+  <ul>
+    <li>Infrastructure and CDN (Cloudflare) for hosting and delivery.</li>
+    <li>Form processing (Web3Forms) for routing contact and newsletter submissions.</li>
+    <li>Business email and document platforms for internal collaboration.</li>
+    <li>Advisers and processors covered by confidentiality and data-processing agreements.</li>
+  </ul>
+  <p>We do not sell personal data. Ever.</p>
+
+  <h2>6. International transfers</h2>
+  <p>Because our clients and infrastructure span Africa, Europe, and the Americas, personal data may be transferred across borders. Where transfers leave Nigeria or the European Economic Area, we rely on standard contractual clauses and equivalent safeguards to protect your data.</p>
+
+  <h2>7. How long we keep it</h2>
+  <ul>
+    <li>Contact enquiries — up to 24 months from last interaction, then deleted.</li>
+    <li>Newsletter subscribers — until you unsubscribe (every email contains a one-click unsubscribe link).</li>
+    <li>Engagement records — for the duration of the contract plus the minimum statutory retention period that applies to the engagement type.</li>
+    <li>Server logs — no more than 90 days unless needed for an active security investigation.</li>
+  </ul>
+
+  <h2>8. Your rights</h2>
+  <p>Under the NDPA and GDPR where applicable, you have the right to access, correct, erase, restrict, port, and object to the processing of your personal data, and the right to withdraw consent at any time. To exercise any of these rights, email <a href="/cdn-cgi/l/email-protection#7707051e0116140e37141810191e04591005180207"><span class="__cf_email__" data-cfemail="3545475c4354564c75565a525b5c461b52475a4045">[email&#160;protected]</span></a>. We will respond within 30 days.</p>
+  <p>You may also lodge a complaint with the Nigeria Data Protection Commission (NDPC) or, if you are in the EU, your local supervisory authority.</p>
+
+  <h2>9. Security</h2>
+  <p>We apply role-based access, least-privilege principles, encryption in transit, and vendor due diligence to every system that holds personal data. Where an engagement requires stronger controls — for example under ISO 42001 or a client's compliance regime — we align to those controls under the engagement contract.</p>
+
+  <h2>10. Changes to this policy</h2>
+  <p>When we update this policy, we change the "Last updated" date at the top. Material changes are announced on the website and, where you are a subscriber or active client, notified directly.</p>
+
+  <h2>11. Contact</h2>
+  <p>Questions, requests, or concerns: <a href="/cdn-cgi/l/email-protection#8ffffde6f9eeecf6cfece0e8e1e6fca1e8fde0faff"><span class="__cf_email__" data-cfemail="8dfdffe4fbeceef4cdeee2eae3e4fea3eaffe2f8fd">[email&#160;protected]</span></a> · +234 908 000 1101 · Lagos, Nigeria.</p>
+</main>
+
+<footer class="cg-gf" data-screen-label="Footer" style="background: rgb(13, 13, 12); margin: 12px; border-radius: 24px; padding: 56px clamp(16px, 3.33vw, 48px) 32px;">
+    <div style="max-width: 1280px; margin: 0px auto;">
+      <div style="display: grid; grid-template-columns: 1.4fr 0.7fr 0.7fr 0.7fr 1.2fr; gap: 48px;">
+        <div>
+          <a class="cg-gf-logo" href="/" aria-label="Cognis Group" style="display: inline-flex; align-items: center; gap: 9px; color: rgb(255, 255, 255);">
+            <svg viewBox="0 0 48 48" aria-hidden="true" style="width: 28px; height: 28px; fill: rgb(255, 255, 255); display: block;"><path d="M 42.66 12.34 A 22 22 0 1 0 42.66 35.66 L 33.19 31.71 A 12 12 0 1 1 33.19 16.29 Z"></path><rect x="36" y="19" width="10" height="10" fill="#D6FD70"></rect></svg>
+            <span style="font-family: Inter, sans-serif; font-weight: 400; font-size: 24px; line-height: 28.8px; color: rgb(255, 255, 255); letter-spacing: -1.44px;">Cognis</span>
+          </a>
+          <div style="height: 20px;"></div>
+          <div style="font-size: 14px; line-height: 1.65; color: rgba(255, 255, 255, 0.6); max-width: 320px;">Cognis Group helps organisations use AI to improve how people work. We plan, build and manage practical systems, then prepare your team to use them with confidence. Quod Tango Muto: what we touch, we change.</div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 14px;">
+          <div style="font-family: Inter, sans-serif; font-weight: 600; font-size: 11px; color: rgba(255, 255, 255, 0.45); letter-spacing: 0.88px; text-transform: uppercase;">COMPANY</div>
+          <a class="cg-gf-link" href="/" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Home</a>
+          <a class="cg-gf-link" href="/about-us/" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">About Us</a>
+          <a class="cg-gf-link" href="/our-services/" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Services</a>
+          <a class="cg-gf-link" href="/products/" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Products</a>
+          <a class="cg-gf-link" href="/blog/" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Insights</a>
+          <a class="cg-gf-link" href="/careers/" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Careers</a>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 14px;">
+          <div style="font-family: Inter, sans-serif; font-weight: 600; font-size: 11px; color: rgba(255, 255, 255, 0.45); letter-spacing: 0.88px; text-transform: uppercase;">SERVICES</div>
+          <a class="cg-gf-link" href="/our-services/ai-strategy-advisory/" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Strategy</a>
+          <a class="cg-gf-link" href="/our-services/ai-training-workforce-development/" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Training</a>
+          <a class="cg-gf-link" href="/our-services/ai-agent-automation-engineering/" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Agent Engineering</a>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 14px;">
+          <div style="font-family: Inter, sans-serif; font-weight: 600; font-size: 11px; color: rgba(255, 255, 255, 0.45); letter-spacing: 0.88px; text-transform: uppercase;">EXPLORE</div>
+          <a class="cg-gf-link" href="/why-cognis/" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Why Cognis</a>
+          <a class="cg-gf-link" href="/case-studies/" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Case Studies</a>
+          <a class="cg-gf-link" href="/how-we-work/" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">How We Work</a>
+          <a class="cg-gf-link" href="/faq/" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">FAQ</a>
+          <a class="cg-gf-link" href="/contact/" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Contact</a>
+        </div>
+        <div>
+          <div style="font-family: Inter, sans-serif; font-weight: 600; font-size: 11px; color: rgba(255, 255, 255, 0.45); letter-spacing: 0.88px; text-transform: uppercase;">GET AI INTELLIGENCE IN YOUR INBOX</div>
+          <div style="height: 16px;"></div>
+          <form action="/api/form" method="POST" style="display: flex; gap: 8px;"><input type="text" name="company" value="" style="display:none !important" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <input type="hidden" name="from_name" value="cognis.group newsletter">
+            <input type="hidden" name="subject" value="New newsletter signup — cognis.group">
+            <input type="hidden" name="redirect" value="https://cognis.group/thanks-subscribe/">
+            <input type="email" name="email" required="" placeholder="Your work email" style="flex: 1 1 0%; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.14); border-radius: 100px; padding: 12px 18px; font-size: 14px; color: rgb(255, 255, 255); outline: none; font-family: &quot;Plus Jakarta Sans&quot;, sans-serif;">
+            <button type="submit" class="cg-gf-btn" style="background: rgb(214, 253, 112); color: rgb(13, 13, 12); border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; border-radius: 100px; padding: 12px 22px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: &quot;Plus Jakarta Sans&quot;, sans-serif;">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div style="height: clamp(28px, 3.89vw, 56px);"></div>
+      <div style="border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 24px; display: flex; justify-content: space-between; align-items: center;">
+        <div style="font-size: 14px; color: rgba(255, 255, 255, 0.45);">© 2024–2026 Cognis Group. All rights reserved.</div>
+        <div style="display: flex; gap: 24px;">
+          <a class="cg-gf-link" href="/privacy-policy/" style="font-size: 13px; color: rgba(255, 255, 255, 0.45);">Privacy</a>
+          <a class="cg-gf-link" href="/terms/" style="font-size: 13px; color: rgba(255, 255, 255, 0.45);">Terms</a>
+          <a class="cg-gf-link" href="/contact/" style="font-size: 13px; color: rgba(255, 255, 255, 0.45);">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+<!-- cognis-journey:start -->
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cognis-journey>
+(function () {
+  // Set each milestone's visible year from its description — order-independent
+  // and idempotent (safe to re-run through Framer's SPA re-renders).
+  function fix() {
+    var years = document.querySelectorAll('[data-framer-name="year"]');
+    if (!years.length) return;
+    years.forEach(function (yd) {
+      var p = yd.querySelector('p');
+      if (!p) return;
+      var c = yd.nextElementSibling;
+      if (!c || c.getAttribute('data-framer-name') !== 'content') {
+        c = yd.parentElement && yd.parentElement.querySelector('[data-framer-name="content"]');
+      }
+      var desc = c ? c.textContent : '';
+      var t = null;
+      if (/Launched workforce/i.test(desc)) t = 'Q4 2024';
+      else if (/Shipped agent/i.test(desc)) t = 'Q1 2025';
+      else if (/Conducted AI trainings/i.test(desc)) t = 'Q3 2024';
+      else if (/Founded/i.test(desc)) t = 'Q2 2024';
+      if (t && p.textContent.trim() !== t) p.textContent = t;
+    });
+  }
+  if (document.readyState !== 'loading') fix();
+  else document.addEventListener('DOMContentLoaded', fix);
+  try {
+    var mo = new MutationObserver(function () {
+      if (window.__cgjRAF) return;
+      window.__cgjRAF = requestAnimationFrame(function () { window.__cgjRAF = 0; fix(); });
+    });
+    mo.observe(document.documentElement, { childList: true, subtree: true });
+  } catch (e) {}
+  [400, 1200, 2500].forEach(function (t) { setTimeout(fix, t); });
+})();
+</script>
+<!-- cognis-journey:end -->
+<!-- cognis-copy:start -->
+<script data-cognis-copy>
+(function () {
+  var REPL = {"think smarter, move faster, and grow stronger": "ship AI into production and operate it with confidence", "forward-thinking organisations to operationalise AI": "banks, ministries, and enterprises to put AI into production \u2014 and govern it"};
+  function fix() {
+    var ps = document.querySelectorAll('p');
+    for (var i = 0; i < ps.length; i++) {
+      var p = ps[i], t = p.textContent;
+      for (var k in REPL) {
+        if (t.indexOf(k) !== -1) { p.textContent = t.split(k).join(REPL[k]); t = p.textContent; }
+      }
+    }
+  }
+  if (document.readyState !== 'loading') fix();
+  else document.addEventListener('DOMContentLoaded', fix);
+  try {
+    var mo = new MutationObserver(function () {
+      if (window.__cgcRAF) return;
+      window.__cgcRAF = requestAnimationFrame(function () { window.__cgcRAF = 0; fix(); });
+    });
+    mo.observe(document.documentElement, { childList: true, subtree: true });
+  } catch (e) {}
+  [400, 1200, 2500].forEach(function (t) { setTimeout(fix, t); });
+})();
+</script>
+<!-- cognis-copy:end -->
+<!-- cognis-quotefix:start -->
+<style data-cognis-quotefix>
+  [data-framer-name="tdesign:quote-filled"] {
+    background-color: transparent !important;
+    -webkit-mask: none !important; mask: none !important;
+    background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27%23cdfb56%27%3E%3Cpath%20d%3D%27M4.583%2017.321C3.553%2016.227%203%2015%203%2013.011c0-3.5%202.457-6.637%206.03-8.188l.893%201.378c-3.335%201.804-3.987%204.145-4.247%205.621.537-.278%201.24-.375%201.929-.311%201.804.167%203.226%201.648%203.226%203.489a3.5%203.5%200%2001-3.5%203.5c-1.073%200-2.099-.49-2.748-1.179zm10%200C13.553%2016.227%2013%2015%2013%2013.011c0-3.5%202.457-6.637%206.03-8.188l.893%201.378c-3.335%201.804-3.987%204.145-4.247%205.621.537-.278%201.24-.375%201.929-.311%201.804.167%203.226%201.648%203.226%203.489a3.5%203.5%200%2001-3.5%203.5c-1.073%200-2.099-.49-2.748-1.179z%27%2F%3E%3C%2Fsvg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: contain !important;
+  }
+  /* any inner mask layer the icon ships with — stand it down so only our bg shows */
+  [data-framer-name="tdesign:quote-filled"] > * { opacity: 0 !important; }
+</style>
+<script data-cognis-quotefix>
+(function () {
+  // The testimonials section also ships two leftover template tells on non-home
+  // pages: a heading ("Our operating principles") that contradicts the eyebrow,
+  // and placeholder client logos (Network / Umbrella / Vision). Fix both. These
+  // live outside the animating carousel track, so a light guarded pass sticks.
+  function tidy() {
+    document.querySelectorAll('h1, h2, h3').forEach(function (h) {
+      if (/operating principles/i.test(h.textContent || '')) h.textContent = 'What our clients say';
+    });
+    // The placeholder client logos are image-based (no text), so match them by
+    // position: each sits inside the same testimonial card as a quote box.
+    // Walk up from each quote box to its card and hide the logo there — scoped
+    // so genuine logos elsewhere on the page are never touched.
+    document.querySelectorAll('[data-framer-name="tdesign:quote-filled"]').forEach(function (q) {
+      var node = q, hops = 0;
+      while (node && hops < 5) {
+        var logo = node.querySelector && node.querySelector('[data-framer-name="logo"]');
+        if (logo) { logo.style.display = 'none'; break; }
+        node = node.parentElement; hops++;
+      }
+    });
+  }
+  if (document.readyState !== 'loading') tidy();
+  else document.addEventListener('DOMContentLoaded', tidy);
+  try {
+    var mo = new MutationObserver(function () {
+      if (window.__cgtdRAF) return;
+      window.__cgtdRAF = requestAnimationFrame(function () { window.__cgtdRAF = 0; tidy(); });
+    });
+    mo.observe(document.documentElement, { childList: true, subtree: true });
+  } catch (e) {}
+  [400, 1200, 2500].forEach(function (t) { setTimeout(tidy, t); });
+})();
+</script>
+<!-- cognis-quotefix:end -->
+<!-- cognis-iconfix:start -->
+<style data-cognis-iconfix>
+  [data-framer-name="arrow"] {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%3E%3Cpath%20d%3D%27M4%2011h12.17l-5.59-5.59L12%204l8%208-8%208-1.41-1.41L16.17%2013H4z%27%2F%3E%3C%2Fsvg%3E") !important; mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%3E%3Cpath%20d%3D%27M4%2011h12.17l-5.59-5.59L12%204l8%208-8%208-1.41-1.41L16.17%2013H4z%27%2F%3E%3C%2Fsvg%3E") !important;
+    -webkit-mask-repeat: no-repeat !important; mask-repeat: no-repeat !important;
+    -webkit-mask-position: center !important; mask-position: center !important;
+    -webkit-mask-size: contain !important; mask-size: contain !important;
+  }
+  [data-framer-name="arrow"] > * { opacity: 0 !important; }
+</style>
+<!-- cognis-iconfix:end -->
+<!-- cognis-a11y:start -->
+<style data-cognis-a11y>
+  .cognis-skip { position: fixed; top: 10px; left: 10px; z-index: 100000; background: #131313; color: #fff; padding: 12px 20px; border-radius: 10px; font: 600 14px/1.2 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif; text-decoration: none; transform: translateY(-160%); transition: transform .16s ease; }
+  .cognis-skip:focus { transform: translateY(0); outline: 3px solid #cdfb56; outline-offset: 2px; }
+  :focus-visible { outline: 3px solid #1769ff; outline-offset: 2px; }
+  .cognis-skip:focus-visible { outline-color: #cdfb56; }
+  /* Contrast lifts (only affect the hand-built shells where these exist). */
+  :root { --mute: #636363 !important; }
+  table.compare .mid { color: #8a5200 !important; }
+</style>
+<script data-cognis-a11y>
+(function () {
+  function main() {
+    return document.querySelector('main') || document.querySelector('[data-framer-name="main"]') || document.querySelector('[role="main"]');
+  }
+  function run() {
+    var m = main();
+    if (m) {
+      if (!m.id) m.id = 'cognis-main';
+      if (m.getAttribute('tabindex') === null) m.setAttribute('tabindex', '-1');
+    }
+    if (!document.querySelector('a.cognis-skip')) {
+      var s = document.createElement('a');
+      s.className = 'cognis-skip';
+      s.href = '#' + (m && m.id ? m.id : 'cognis-main');
+      s.textContent = 'Skip to main content';
+      document.body.insertBefore(s, document.body.firstChild);
+    }
+    // Ticker/slideshow marquees use <ul role="group"> which strips the list
+    // role from their <li> children (WCAG 1.3.1). Restore list semantics.
+    document.querySelectorAll('ul[role="group"]').forEach(function (ul) {
+      if (ul.querySelector(':scope > li')) ul.setAttribute('role', 'list');
+    });
+    // Accessible name for placeholder-only fields (WCAG 1.3.1 / 4.1.2).
+    document.querySelectorAll('input, textarea, select').forEach(function (el) {
+      var t = (el.getAttribute('type') || '').toLowerCase();
+      if (t === 'hidden' || el.getAttribute('aria-hidden') === 'true') return;
+      var labelled = (el.labels && el.labels.length) || el.getAttribute('aria-label') || el.getAttribute('aria-labelledby');
+      if (!labelled) {
+        var ph = el.getAttribute('placeholder');
+        if (ph) el.setAttribute('aria-label', ph);
+      }
+    });
+  }
+  if (document.readyState !== 'loading') run();
+  else document.addEventListener('DOMContentLoaded', run);
+  [400, 1200, 2500].forEach(function (t) { setTimeout(run, t); });
+})();
+</script>
+<!-- cognis-a11y:end -->
+<!-- cognis-products-nav:start -->
+<style data-cognis-products-nav-style>
+  a.cognis-prod-link { display: flex; align-items: center; justify-content: center; padding: 12px 20px; height: 44px; box-sizing: border-box; text-decoration: none; cursor: pointer; }
+  a.cognis-prod-link .cgpn-wrap { position: relative; display: inline-flex; flex-direction: column; height: 1.25em; line-height: 1.25em; overflow: hidden; }
+  a.cognis-prod-link .cgpn-t { font-size: 14px; font-weight: 500; white-space: nowrap; transition: transform .3s cubic-bezier(.2,.7,.2,1); }
+  a.cognis-prod-link:hover .cgpn-t { transform: translateY(-100%); }
+</style>
+<script data-cognis-products-nav>
+(function () {
+  // Build our own Products link (not a Framer clone). `st` theme-matches the
+  // sibling nav items: colour, size, weight, tracking and case.
+  function buildLink(st) {
+    st = st || {};
+    var a = document.createElement('a');
+    a.className = 'cognis-prod-link';
+    a.setAttribute('href', '/products');
+    a.setAttribute('data-cognis-products', '');
+    a.setAttribute('aria-label', 'Products');
+    if (st.color) a.style.color = st.color;
+    var wrap = document.createElement('span'); wrap.className = 'cgpn-wrap';
+    function mk(hidden) {
+      var s = document.createElement('span');
+      s.className = 'cgpn-t';
+      s.textContent = 'Products';
+      if (hidden) s.setAttribute('aria-hidden', 'true');
+      if (st.fontSize) s.style.fontSize = st.fontSize;
+      if (st.fontWeight) s.style.fontWeight = st.fontWeight;
+      if (st.fontFamily) s.style.fontFamily = st.fontFamily;
+      if (st.letterSpacing && st.letterSpacing !== 'normal') s.style.letterSpacing = st.letterSpacing;
+      if (st.textTransform && st.textTransform !== 'none') s.style.textTransform = st.textTransform;
+      return s;
+    }
+    wrap.appendChild(mk(false)); wrap.appendChild(mk(true)); a.appendChild(wrap);
+    return a;
+  }
+  // Sample the typography of a real, non-Products nav item so ours matches.
+  function sampleStyle(menu) {
+    var links = menu.querySelectorAll('a[href]');
+    for (var i = 0; i < links.length; i++) {
+      if (links[i].hasAttribute('data-cognis-products')) continue;
+      var p = links[i].querySelector('p') || links[i].querySelector('span') || links[i];
+      var cs = getComputedStyle(p);
+      var color = cs.color;
+      if (color === 'rgba(0, 0, 0, 0)') color = getComputedStyle(links[i]).color;
+      return { color: color, fontSize: cs.fontSize, fontWeight: cs.fontWeight, fontFamily: cs.fontFamily, letterSpacing: cs.letterSpacing, textTransform: cs.textTransform };
+    }
+    return null;
+  }
+  function addToFramer(menu) {
+    if (menu.querySelector('a[data-cognis-products]')) return;
+    // Anchor after the Services item; fall back to the last real item / end.
+    var kids = menu.children, after = null, last = null;
+    for (var i = 0; i < kids.length; i++) {
+      var l = kids[i].querySelector && kids[i].querySelector('a[href]');
+      if (!l) continue;
+      last = kids[i];
+      if (/our-services/.test(l.getAttribute('href') || '')) after = kids[i];
+    }
+    var link = buildLink(sampleStyle(menu));
+    if (after && after.parentNode) after.parentNode.insertBefore(link, after.nextSibling);
+    else if (last && last.parentNode) last.parentNode.appendChild(link);
+    else menu.appendChild(link);
+  }
+  function addToShell(nav) {
+    if (nav.querySelector('a[href="/products/"]')) return;
+    var services = nav.querySelector('a[href="/our-services/"]');
+    var link = document.createElement('a');
+    link.setAttribute('href', '/products');
+    link.setAttribute('data-cognis-products', '');
+    link.textContent = 'Products';
+    if (services && services.parentNode) services.parentNode.insertBefore(link, services.nextSibling);
+    else nav.appendChild(link);
+  }
+  function run() {
+    document.querySelectorAll('nav [data-framer-name="menu"]').forEach(addToFramer);
+    document.querySelectorAll('header.site-nav nav').forEach(addToShell);
+  }
+  if (document.readyState !== 'loading') run();
+  else document.addEventListener('DOMContentLoaded', run);
+  // Framer re-renders the nav on scroll (its scroll-linked colour change),
+  // which drops the injected Products link. Re-add SYNCHRONOUSLY the instant
+  // it goes missing: MutationObserver callbacks run as a microtask BEFORE the
+  // next paint, so re-adding here (not via rAF) closes the gap with no visible
+  // flicker, even during continuous scrolling. The check is cheap and only
+  // calls run() when the link is actually absent (no loop: the re-add's own
+  // mutation finds it present next tick and bails).
+  try {
+    var mo = new MutationObserver(function () {
+      var menus = document.querySelectorAll('nav [data-framer-name="menu"]');
+      for (var i = 0; i < menus.length; i++) {
+        if (!menus[i].querySelector('a[data-cognis-products]')) { run(); return; }
+      }
+    });
+    mo.observe(document.documentElement, { childList: true, subtree: true });
+  } catch (e) {}
+  [200, 600, 1200, 2500].forEach(function (t) { setTimeout(run, t); });
+})();
+</script>
+<!-- cognis-products-nav:end -->
+<script defer src="/assets/logo-motion.js"></script><script defer src="/assets/ask-cognis.js"></script><script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a38551b57815ba61',t:'MTc4ODk0Nzc0Ng=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

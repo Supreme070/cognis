@@ -132,6 +132,7 @@
 <link rel="manifest" href="/site.webmanifest">
 <link rel="stylesheet" href="/responsive.css">
 <script src="/cognis.js" defer></script>
+<link rel="stylesheet" href="/assets/site-improvements.css">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet" data-cognis-gheader-font>
 <style data-cognis-gheader>
   @keyframes cgFadeUp { from { opacity: 0; transform: translateY(32px); } to { opacity: 1; transform: translateY(0); } }
@@ -170,7 +171,7 @@
   div:has(> footer.framer-uOBZL), footer.framer-uOBZL { display: none !important; }
 </style>
 </head>
-<body>
+<body><a class="cg-skip-link" href="#cg-main">Skip to content</a>
 
 <div data-dc-tpl="7" class="cg-gh" data-cg-skin="dark" style="position: absolute; top: 12px; left: 12px; right: 12px; z-index: 1000; padding: 24px clamp(16px, 3.33vw, 48px);">
     <div style="max-width: 1280px; margin: 0px auto; display: flex; align-items: center; justify-content: space-between; animation: 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0s 1 normal both running cgFadeUp;">
@@ -200,7 +201,7 @@
       <a class="cg-gh-cta" href="/contact/" style="background: rgb(214, 253, 112); color: rgb(19, 19, 19); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; white-space: nowrap; padding: 12px 22px; border-radius: 100px; transition: transform 0.3s cubic-bezier(0.19, 1, 0.22, 1), background-color 0.3s;">Work With Us</a>
     </div>
   </div>
-<main class="faq">
+<main class="faq" id="cg-main">
   <h1>NDPA-Compliant AI for Nigerian Organisations</h1>
   <p class="lead">Nigeria’s Data Protection Act (NDPA 2023) applies to how your organisation collects, stores and processes personal data, and AI systems touch all three. We help Nigerian organisations use AI in ways that satisfy the law, their regulators and their boards.</p>
   <section><h2>What the NDPA means for your AI plans</h2><p>In plain terms: if your AI tools handle personal data belonging to Nigerians, you are responsible for where that data goes, who can see it and how decisions made with it can be explained. Sending customer data to a foreign AI service without safeguards is exactly the kind of shortcut that creates regulatory problems later.</p><p>None of this means avoiding AI. It means designing for the rules from the start, which is cheaper and faster than retrofitting compliance after something has shipped.</p></section><section><h2>How we build for compliance</h2><p>Where data residency matters, under the NDPA, sector regulation or your own policy, we design for it from day one: in-region processing, client-controlled encryption keys, isolated deployments, or on-premises model hosting where nothing may leave your environment. Cross-border transfers, where permitted, use standard contractual safeguards.</p><p>Beyond residency, our <a href='/our-services/'>governance work</a> sets clear rules, responsibilities, checks and records, so your organisation can show its homework: to the Nigeria Data Protection Commission, to sector regulators like the CBN, and to your own board. We align to international frameworks Nigerian enterprises increasingly adopt, including ISO 42001 and the NIST AI Risk Management Framework.</p></section><section><h2>Who this is for</h2><p>Banks and fintechs facing CBN and NDPA obligations at once. Government bodies handling citizen data. Healthcare, insurance and telecoms businesses where personal data is the core of the work. If that sounds like you, the conversation is worth an hour.</p></section>
@@ -255,7 +256,7 @@
             <input type="hidden" name="from_name" value="cognis.group newsletter">
             <input type="hidden" name="subject" value="New newsletter signup — cognis.group">
             <input type="hidden" name="redirect" value="https://cognis.group/thanks-subscribe/">
-            <input type="email" name="email" required="" placeholder="Your work email" style="flex: 1 1 0%; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.14); border-radius: 100px; padding: 12px 18px; font-size: 14px; color: rgb(255, 255, 255); outline: none; font-family: &quot;Plus Jakarta Sans&quot;, sans-serif;">
+            <input type="email" name="email" required="" placeholder="Your work email" aria-label="Your work email" style="flex: 1 1 0%; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.14); border-radius: 100px; padding: 12px 18px; font-size: 14px; color: rgb(255, 255, 255); outline: none; font-family: &quot;Plus Jakarta Sans&quot;, sans-serif;">
             <button type="submit" class="cg-gf-btn" style="background: rgb(214, 253, 112); color: rgb(13, 13, 12); border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; border-radius: 100px; padding: 12px 22px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: &quot;Plus Jakarta Sans&quot;, sans-serif;">Subscribe</button>
           </form>
         </div>

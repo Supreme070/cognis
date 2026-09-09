@@ -1,0 +1,740 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>You're subscribed — Cognis Group</title>
+<meta name="description" content="You're subscribed to Cognis Group updates. Practical ideas on AI strategy, tools and safe use — direct to your inbox.">
+<meta name="theme-color" content="#0A0A0A">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=cring">
+<link rel="preload" href="/framer-runtime/fonts/PlusJakartaSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/framer-runtime/fonts/PlusJakartaSans-Bold.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+  @font-face {
+    font-family: "Plus Jakarta Sans";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("/framer-runtime/fonts/PlusJakartaSans-Regular.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: "Plus Jakarta Sans";
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url("/framer-runtime/fonts/PlusJakartaSans-Bold.woff2") format("woff2");
+  }
+  :root { color-scheme: dark; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: #0A0A0A;
+    color: #F5F5F5;
+    font-family: "Plus Jakarta Sans", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  main {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 24px;
+  }
+  .card {
+    max-width: 560px;
+    width: 100%;
+    text-align: left;
+  }
+  .eyebrow {
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #8E8E8E;
+    margin: 0 0 24px;
+  }
+  h1 {
+    font-weight: 700;
+    font-size: clamp(32px, 5vw, 48px);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin: 0 0 20px;
+  }
+  p {
+    font-size: 17px;
+    line-height: 1.6;
+    color: #B8B8B8;
+    margin: 0 0 32px;
+  }
+  a.back {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #0A0A0A;
+    background: #C7F24C;
+    padding: 14px 22px;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: transform 0.2s ease, background 0.2s ease;
+  }
+  a.back:hover { background: #B4E03A; transform: translateY(-1px); }
+  .motto {
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid #1F1F1F;
+    font-size: 13px;
+    color: #6E6E6E;
+    font-style: italic;
+  }
+</style>
+<!-- cognis-hero-video:start -->
+<script data-cognis-hero-video>
+(function () {
+  var SRC = '/framer-runtime/assets/hero-afr5.mp4';
+  function norm(pth) { return pth.replace(/\/index\.html$/, '').replace(/\/+$/, ''); }
+  function isHomePath() { return norm(location.pathname) === ''; }
+  // The page's own <link rel=canonical> is the reliable signal for WHICH route
+  // this snapshot is: it's baked in per route and never flickers. We can't use
+  // location.pathname during initial load because an early inline script
+  // (deferred-nav bootstrap) does history.replaceState(..., '/') on every page,
+  // and Framer briefly renders home content — both would falsely read as home
+  // and trigger a wasted 1.6 MB fetch on non-home routes. After things settle
+  // we switch to the live path so SPA navigation is handled too.
+  function canonicalIsHome() {
+    var l = document.querySelector('link[rel="canonical"]');
+    if (!l) return isHomePath();
+    try { return norm(new URL(l.href).pathname) === ''; } catch (e) { return isHomePath(); }
+  }
+  var settled = false;
+  setTimeout(function () { settled = true; }, 4000);
+  function wantVideo() { return settled ? isHomePath() : canonicalIsHome(); }
+  function tick() {
+    var on = wantVideo();
+    document.querySelectorAll('video[data-cognis-hero-portal]').forEach(function (v) {
+      if (on) {
+        if (!v.getAttribute('src')) {
+          v.setAttribute('preload', 'metadata');
+          v.src = SRC;
+          var p = v.play(); if (p && p.catch) p.catch(function () {});
+        }
+      } else if (v.getAttribute('src')) {
+        try { v.pause(); } catch (e) {}
+        v.removeAttribute('autoplay');
+        v.setAttribute('preload', 'none');
+        v.removeAttribute('src');
+        try { v.load(); } catch (e) {}  // abort any in-flight fetch
+      }
+    });
+
+    // Hero layout guard (home only). The hero is a full-viewport-height screen
+    // with the heading/subcopy up top and the 3D rotating cards anchored lower.
+    // On short laptop heights it compresses and the cards ride up over the
+    // wording. Enforce a min-height floor so the layout always has the room it
+    // has on a tall screen — only on home and only at laptop+ widths (the
+    // stacked mobile/tablet hero doesn't have the overlap). Cleared elsewhere.
+    var hero = document.querySelector('[data-framer-name="hero"]');
+    if (hero) {
+      if (on && window.innerWidth >= 810) hero.style.setProperty('min-height', '900px', 'important');
+      else hero.style.removeProperty('min-height');
+    }
+  }
+  if (document.readyState !== 'loading') tick();
+  else document.addEventListener('DOMContentLoaded', tick);
+  try {
+    var mo = new MutationObserver(function () {
+      if (window.__cghvRAF) return;
+      window.__cghvRAF = requestAnimationFrame(function () { window.__cghvRAF = 0; tick(); });
+    });
+    mo.observe(document.documentElement, { childList: true, subtree: true });
+  } catch (e) {}
+  window.addEventListener('resize', function () {
+    if (window.__cghvRZ) return;
+    window.__cghvRZ = requestAnimationFrame(function () { window.__cghvRZ = 0; tick(); });
+  }, { passive: true });
+  [0, 50, 150, 400, 1000, 2500, 4200, 6000].forEach(function (t) { setTimeout(tick, t); });
+})();
+</script>
+<!-- cognis-hero-video:end -->
+                  <!-- cognis-ux-tweaks:start -->
+<style data-cognis-ux-tweaks>
+  /* Let vertical page scroll pass through horizontal Framer slideshows
+     on mobile (e.g. the testimonials carousel). */
+  .framer-slideshow,
+  .framer-slideshow-axis-x,
+  [data-framer-name="slideshow"] {
+    touch-action: pan-y;
+  }
+  .framer-slideshow > div,
+  .framer-slideshow-axis-x > div {
+    touch-action: pan-y;
+  }
+
+  /* Soften testimonials transition — Framer default of 0.25s snaps when
+     you release a swipe. 0.55s cubic-bezier glides into place. */
+  .framer-slideshow-axis-x ul {
+    transition: transform 0.55s cubic-bezier(0.22, 0.61, 0.36, 1) !important;
+  }
+
+  /* About-us "Meet our team": the native Framer block is a horizontal
+     slideshow that froze at slide 0 and only loops two real members
+     (Supreme, Kola) after two former members were retired — so it showed a
+     duplicate Supreme on desktop and disappeared on the phone breakpoint
+     (Framer's mobile layout omits the section). Hide it on the about-us
+     snapshot only (scoped so a "team"-named element on any other route is
+     never touched) and let `ensureTeamGrid()` render the clean grid below. */
+  [data-cognis-snapshot="/about-us"] [data-framer-name="team"] {
+    display: none !important;
+  }
+
+  /* Injected replacement: a self-contained, deduplicated team grid that
+     renders identically at every breakpoint (2-up desktop/tablet, stacked
+     on mobile). On-brand: Royal/ink heading, lime accent, surface cards. */
+  .cognis-team {
+    background: #fff;
+    padding: 80px max(24px, 5vw) 96px;
+  }
+  .cognis-team-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+  .cognis-team-eyebrow {
+    margin: 0 0 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #131313;
+  }
+  .cognis-team-eyebrow::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #131313;
+  }
+  .cognis-team-title {
+    margin: 0 0 28px;
+    font-size: clamp(34px, 5vw, 56px);
+    line-height: 1.02;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: #131313;
+  }
+  .cognis-team-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 0 44px;
+    padding: 12px 22px;
+    border-radius: 999px;
+    background: #131313;
+    color: #d6fd70;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+  /* All four members fit on one row — no horizontal scroll. Responsive grid:
+     4-up on desktop, 2-up on tablet, stacked on phones. minmax(0,1fr) lets
+     the columns share the row evenly and shrink without overflowing. */
+  .cognis-team-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+  }
+  .cognis-team-card {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 22px 22px 20px;
+    border-radius: 18px;
+    background: #f2f2f2;
+    color: #131313;
+    text-decoration: none;
+    transition: transform 0.25s ease, background 0.25s ease;
+  }
+  a.cognis-team-card:hover {
+    background: #ececec;
+    transform: translateY(-4px);
+  }
+  .cognis-team-card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .cognis-team-name {
+    font-size: clamp(20px, 1.5vw, 30px);
+    line-height: 1.08;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .cognis-team-go {
+    flex: 0 0 auto;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #131313;
+    color: #fff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.25s ease, color 0.25s ease;
+  }
+  a.cognis-team-card:hover .cognis-team-go {
+    background: #d6fd70;
+    color: #131313;
+  }
+  .cognis-team-go svg {
+    width: 18px;
+    height: 18px;
+    display: block;
+  }
+  .cognis-team-role {
+    margin: 6px 0 16px;
+    font-size: 14px;
+    color: #7b7b7b;
+  }
+  .cognis-team-photo {
+    margin-top: auto;
+    overflow: hidden;
+    border-radius: 14px;
+    aspect-ratio: 5 / 4;
+    background: #ddd;
+  }
+  .cognis-team-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  @media (max-width: 1099px) {
+    .cognis-team-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+  }
+  @media (max-width: 809px) {
+    .cognis-team { padding: 56px max(20px, 5vw) 64px; }
+  }
+  @media (max-width: 539px) {
+    .cognis-team-grid { grid-template-columns: 1fr; }
+  }
+</style>
+<!-- cognis-ux-tweaks:end -->
+<link rel="manifest" href="/site.webmanifest">
+<link rel="stylesheet" href="/responsive.css">
+<script src="/cognis.js" defer></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet" data-cognis-gheader-font>
+<style data-cognis-gheader>
+  @keyframes cgFadeUp { from { opacity: 0; transform: translateY(32px); } to { opacity: 1; transform: translateY(0); } }
+  .cg-gh .cgRoll { display: inline-block; overflow: hidden; height: 20px; vertical-align: top; }
+  .cg-gh .cgRoll b { display: block; font-weight: inherit; transition: transform 0.18s cubic-bezier(0.33,1,0.68,1); }
+  .cg-gh a:hover > .cgRoll b { transform: translateY(-20px); }
+  .cg-gh[data-cg-skin="white"] a.cg-gh-link:hover { color: #FFFFFF !important; }
+  .cg-gh[data-cg-skin="dark"] a.cg-gh-link:hover { color: #131313 !important; }
+  .cg-gh a.cg-gh-cta:hover { background: #FFFFFF !important; transform: scale(0.95); }
+  .cg-gh .cg-gh-current { box-shadow: rgb(214, 253, 112) 0px -2px 0px inset; padding-bottom: 4px; }
+  .cg-gh .cg-exp { position: relative; }
+  .cg-gh .cg-exp-panel { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); padding-top: 16px; opacity: 0; visibility: hidden; transition: opacity .22s ease; z-index: 30; }
+  .cg-gh .cg-exp:hover .cg-exp-panel, .cg-gh .cg-exp:focus-within .cg-exp-panel { opacity: 1; visibility: visible; }
+  .cg-gh .cg-exp-menu { background: #131313; border: 1px solid rgba(255,255,255,0.10); border-radius: 16px; padding: 8px; min-width: 236px; display: flex; flex-direction: column; gap: 2px; box-shadow: 0 28px 60px rgba(0,0,0,0.45); transform: translateY(8px); transition: transform .22s cubic-bezier(.22,1,.36,1); }
+  .cg-gh .cg-exp:hover .cg-exp-menu, .cg-gh .cg-exp:focus-within .cg-exp-menu { transform: translateY(0); }
+  .cg-gh .cg-exp-menu a { display: flex; flex-direction: column; gap: 2px; padding: 11px 14px; border-radius: 11px; text-transform: none; letter-spacing: -0.01em; transition: background .15s ease; text-decoration: none; }
+  .cg-gh .cg-exp-menu a:hover { background: rgba(255,255,255,0.06); }
+  .cg-gh .cg-exp-menu .t { font-weight: 600; font-size: 14px; color: #FFFFFF; }
+  .cg-gh .cg-exp-menu .d { font-weight: 400; font-size: 12px; color: rgba(255,255,255,0.5); }
+  .cg-gh a { text-decoration: none; }
+  /* Pages where the header is a direct child of <body> (no prerendered hero
+     wrapper) need their content pushed clear of the absolute header. */
+  body > .cg-gh ~ main { padding-top: 108px; }
+  body > .cg-gh ~ div > .sc-host { padding-top: 108px; } /* brand manual: its runtime renders the doc into a shadow host */
+  /* Prerendered pages whose hero card starts with a 12px margin: keep that margin
+     inside the wrapper (no collapse) so the absolute header measures from the page top. */
+  .sc-host > div:has(> .cg-gh) { display: flow-root; }
+  /* Framer service pages: the global header replaces Framer's own nav. */
+  div:has(> nav.framer-AZa26), nav.framer-AZa26 { display: none !important; }
+</style>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet" data-cognis-gfooter-font>
+<style data-cognis-gfooter>
+  .cg-gf a { text-decoration: none; }
+  .cg-gf a.cg-gf-link:hover { color: #FFFFFF !important; }
+  .cg-gf .cg-gf-btn:hover { background: #E5FF9B !important; }
+  /* Framer service pages: the global footer replaces Framer's own. */
+  div:has(> footer.framer-uOBZL), footer.framer-uOBZL { display: none !important; }
+</style>
+</head>
+<body><a href="https://cognis.group/cdn-cgi/content?id=wOe77bjGaYabgnmTWvRNzftrQMoLoqwxE2hr8WjT8NM-1788947232.5767343-1.2.1.1-CPWWuiws8yhaRxekcNrJjHopi41Ijb2JsLZxrPoI9.Ms14VeZjprmNPoqj8dIemV" aria-hidden="true" rel="nofollow noopener" style="display: none !important; visibility: hidden !important"></a>
+<div data-dc-tpl="7" class="cg-gh" data-cg-skin="white" style="position: absolute; top: 12px; left: 12px; right: 12px; z-index: 1000; padding: 24px clamp(16px, 3.33vw, 48px);">
+    <div style="max-width: 1280px; margin: 0px auto; display: flex; align-items: center; justify-content: space-between; animation: 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0s 1 normal both running cgFadeUp;">
+      <a class="cg-gh-logo" href="/" aria-label="Cognis Group" style="display: flex; align-items: center; gap: 9px; color: rgb(255, 255, 255);">
+        <svg class="cg-mark-hero" viewBox="0 0 48 48" aria-hidden="true" style="width: 28px; height: 28px; fill: currentcolor; display: block;"><path d="M 42.66 12.34 A 22 22 0 1 0 42.66 35.66 L 33.19 31.71 A 12 12 0 1 1 33.19 16.29 Z"></path><rect x="36" y="19" width="10" height="10" fill="#D6FD70"></rect></svg>
+        <span style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 600; font-size: 23px; color: rgb(255, 255, 255); letter-spacing: -0.04em;">Cognis</span>
+      </a>
+      <div style="display: flex; align-items: center; gap: 24px;">
+        <a class="cg-gh-link" href="/" style="color: rgba(255, 255, 255, 0.8); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; white-space: nowrap;"><span class="cgRoll"><b>Home</b><b>Home</b></span></a>
+        <a class="cg-gh-link" href="/about-us/" style="color: rgba(255, 255, 255, 0.8); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; white-space: nowrap;"><span class="cgRoll"><b>About Us</b><b>About Us</b></span></a>
+        <a class="cg-gh-link" href="/our-services/" style="color: rgba(255, 255, 255, 0.8); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; white-space: nowrap;"><span class="cgRoll"><b>Services</b><b>Services</b></span></a>
+        <a class="cg-gh-link" href="/products/" style="color: rgba(255, 255, 255, 0.8); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; white-space: nowrap;"><span class="cgRoll"><b>Products</b><b>Products</b></span></a>
+        <a class="cg-gh-link" href="/blog/" style="color: rgba(255, 255, 255, 0.8); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; white-space: nowrap;"><span class="cgRoll"><b>Insights</b><b>Insights</b></span></a>
+        <div class="cg-exp" tabindex="0" style="height: 20px; color: rgba(255, 255, 255, 0.8); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; white-space: nowrap; cursor: default;">
+          <span style="display: inline-flex; align-items: center; gap: 5px;">Explore
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" style="opacity: 0.85;"><path d="M2 3.5L5 6.5L8 3.5" stroke="#FFFFFF" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </span>
+          <div class="cg-exp-panel">
+            <div class="cg-exp-menu">
+              <a href="/why-cognis/"><span class="t">Why Cognis</span><span class="d">The case for working with us</span></a>
+              <a href="/case-studies/"><span class="t">Case Studies</span><span class="d">AI shipped to governed production</span></a>
+              <a href="/how-we-work/"><span class="t">How We Work</span><span class="d">Six phases, designed to ship</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="cg-gh-cta" href="/contact/" style="background: rgb(214, 253, 112); color: rgb(19, 19, 19); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; white-space: nowrap; padding: 12px 22px; border-radius: 100px; transition: transform 0.3s cubic-bezier(0.19, 1, 0.22, 1), background-color 0.3s;">Work With Us</a>
+    </div>
+  </div>
+
+<main>
+  <div class="card">
+    <p class="eyebrow">Cognis Group</p>
+    <h1>You're in. Welcome to Cognis updates.</h1>
+    <p>Expect practical ideas on AI strategy, useful tools and safe use, drawn from real work. Your first email will arrive shortly. You can unsubscribe at any time.</p>
+    <a class="back" href="/">← Back to cognis.group</a>
+    <p class="motto">Quod Tango Muto: what we touch, we change.</p>
+  </div>
+</main>
+<!-- cognis-journey:start -->
+<script data-cognis-journey>
+(function () {
+  // Set each milestone's visible year from its description — order-independent
+  // and idempotent (safe to re-run through Framer's SPA re-renders).
+  function fix() {
+    var years = document.querySelectorAll('[data-framer-name="year"]');
+    if (!years.length) return;
+    years.forEach(function (yd) {
+      var p = yd.querySelector('p');
+      if (!p) return;
+      var c = yd.nextElementSibling;
+      if (!c || c.getAttribute('data-framer-name') !== 'content') {
+        c = yd.parentElement && yd.parentElement.querySelector('[data-framer-name="content"]');
+      }
+      var desc = c ? c.textContent : '';
+      var t = null;
+      if (/Launched workforce/i.test(desc)) t = 'Q4 2024';
+      else if (/Shipped agent/i.test(desc)) t = 'Q1 2025';
+      else if (/Conducted AI trainings/i.test(desc)) t = 'Q3 2024';
+      else if (/Founded/i.test(desc)) t = 'Q2 2024';
+      if (t && p.textContent.trim() !== t) p.textContent = t;
+    });
+  }
+  if (document.readyState !== 'loading') fix();
+  else document.addEventListener('DOMContentLoaded', fix);
+  try {
+    var mo = new MutationObserver(function () {
+      if (window.__cgjRAF) return;
+      window.__cgjRAF = requestAnimationFrame(function () { window.__cgjRAF = 0; fix(); });
+    });
+    mo.observe(document.documentElement, { childList: true, subtree: true });
+  } catch (e) {}
+  [400, 1200, 2500].forEach(function (t) { setTimeout(fix, t); });
+})();
+</script>
+<!-- cognis-journey:end -->
+<!-- cognis-copy:start -->
+<script data-cognis-copy>
+(function () {
+  var REPL = {"think smarter, move faster, and grow stronger": "ship AI into production and operate it with confidence", "forward-thinking organisations to operationalise AI": "banks, ministries, and enterprises to put AI into production \u2014 and govern it"};
+  function fix() {
+    var ps = document.querySelectorAll('p');
+    for (var i = 0; i < ps.length; i++) {
+      var p = ps[i], t = p.textContent;
+      for (var k in REPL) {
+        if (t.indexOf(k) !== -1) { p.textContent = t.split(k).join(REPL[k]); t = p.textContent; }
+      }
+    }
+  }
+  if (document.readyState !== 'loading') fix();
+  else document.addEventListener('DOMContentLoaded', fix);
+  try {
+    var mo = new MutationObserver(function () {
+      if (window.__cgcRAF) return;
+      window.__cgcRAF = requestAnimationFrame(function () { window.__cgcRAF = 0; fix(); });
+    });
+    mo.observe(document.documentElement, { childList: true, subtree: true });
+  } catch (e) {}
+  [400, 1200, 2500].forEach(function (t) { setTimeout(fix, t); });
+})();
+</script>
+<!-- cognis-copy:end -->
+<!-- cognis-quotefix:start -->
+<style data-cognis-quotefix>
+  [data-framer-name="tdesign:quote-filled"] {
+    background-color: transparent !important;
+    -webkit-mask: none !important; mask: none !important;
+    background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%20fill%3D%27%23cdfb56%27%3E%3Cpath%20d%3D%27M4.583%2017.321C3.553%2016.227%203%2015%203%2013.011c0-3.5%202.457-6.637%206.03-8.188l.893%201.378c-3.335%201.804-3.987%204.145-4.247%205.621.537-.278%201.24-.375%201.929-.311%201.804.167%203.226%201.648%203.226%203.489a3.5%203.5%200%2001-3.5%203.5c-1.073%200-2.099-.49-2.748-1.179zm10%200C13.553%2016.227%2013%2015%2013%2013.011c0-3.5%202.457-6.637%206.03-8.188l.893%201.378c-3.335%201.804-3.987%204.145-4.247%205.621.537-.278%201.24-.375%201.929-.311%201.804.167%203.226%201.648%203.226%203.489a3.5%203.5%200%2001-3.5%203.5c-1.073%200-2.099-.49-2.748-1.179z%27%2F%3E%3C%2Fsvg%3E") !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: contain !important;
+  }
+  /* any inner mask layer the icon ships with — stand it down so only our bg shows */
+  [data-framer-name="tdesign:quote-filled"] > * { opacity: 0 !important; }
+</style>
+<script data-cognis-quotefix>
+(function () {
+  // The testimonials section also ships two leftover template tells on non-home
+  // pages: a heading ("Our operating principles") that contradicts the eyebrow,
+  // and placeholder client logos (Network / Umbrella / Vision). Fix both. These
+  // live outside the animating carousel track, so a light guarded pass sticks.
+  function tidy() {
+    document.querySelectorAll('h1, h2, h3').forEach(function (h) {
+      if (/operating principles/i.test(h.textContent || '')) h.textContent = 'What our clients say';
+    });
+    // The placeholder client logos are image-based (no text), so match them by
+    // position: each sits inside the same testimonial card as a quote box.
+    // Walk up from each quote box to its card and hide the logo there — scoped
+    // so genuine logos elsewhere on the page are never touched.
+    document.querySelectorAll('[data-framer-name="tdesign:quote-filled"]').forEach(function (q) {
+      var node = q, hops = 0;
+      while (node && hops < 5) {
+        var logo = node.querySelector && node.querySelector('[data-framer-name="logo"]');
+        if (logo) { logo.style.display = 'none'; break; }
+        node = node.parentElement; hops++;
+      }
+    });
+  }
+  if (document.readyState !== 'loading') tidy();
+  else document.addEventListener('DOMContentLoaded', tidy);
+  try {
+    var mo = new MutationObserver(function () {
+      if (window.__cgtdRAF) return;
+      window.__cgtdRAF = requestAnimationFrame(function () { window.__cgtdRAF = 0; tidy(); });
+    });
+    mo.observe(document.documentElement, { childList: true, subtree: true });
+  } catch (e) {}
+  [400, 1200, 2500].forEach(function (t) { setTimeout(tidy, t); });
+})();
+</script>
+<!-- cognis-quotefix:end -->
+<!-- cognis-iconfix:start -->
+<style data-cognis-iconfix>
+  [data-framer-name="arrow"] {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%3E%3Cpath%20d%3D%27M4%2011h12.17l-5.59-5.59L12%204l8%208-8%208-1.41-1.41L16.17%2013H4z%27%2F%3E%3C%2Fsvg%3E") !important; mask-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%2024%2024%27%3E%3Cpath%20d%3D%27M4%2011h12.17l-5.59-5.59L12%204l8%208-8%208-1.41-1.41L16.17%2013H4z%27%2F%3E%3C%2Fsvg%3E") !important;
+    -webkit-mask-repeat: no-repeat !important; mask-repeat: no-repeat !important;
+    -webkit-mask-position: center !important; mask-position: center !important;
+    -webkit-mask-size: contain !important; mask-size: contain !important;
+  }
+  [data-framer-name="arrow"] > * { opacity: 0 !important; }
+</style>
+<!-- cognis-iconfix:end -->
+<!-- cognis-a11y:start -->
+<style data-cognis-a11y>
+  .cognis-skip { position: fixed; top: 10px; left: 10px; z-index: 100000; background: #131313; color: #fff; padding: 12px 20px; border-radius: 10px; font: 600 14px/1.2 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif; text-decoration: none; transform: translateY(-160%); transition: transform .16s ease; }
+  .cognis-skip:focus { transform: translateY(0); outline: 3px solid #cdfb56; outline-offset: 2px; }
+  :focus-visible { outline: 3px solid #1769ff; outline-offset: 2px; }
+  .cognis-skip:focus-visible { outline-color: #cdfb56; }
+  /* Contrast lifts (only affect the hand-built shells where these exist). */
+  :root { --mute: #636363 !important; }
+  table.compare .mid { color: #8a5200 !important; }
+</style>
+<script data-cognis-a11y>
+(function () {
+  function main() {
+    return document.querySelector('main') || document.querySelector('[data-framer-name="main"]') || document.querySelector('[role="main"]');
+  }
+  function run() {
+    var m = main();
+    if (m) {
+      if (!m.id) m.id = 'cognis-main';
+      if (m.getAttribute('tabindex') === null) m.setAttribute('tabindex', '-1');
+    }
+    if (!document.querySelector('a.cognis-skip')) {
+      var s = document.createElement('a');
+      s.className = 'cognis-skip';
+      s.href = '#' + (m && m.id ? m.id : 'cognis-main');
+      s.textContent = 'Skip to main content';
+      document.body.insertBefore(s, document.body.firstChild);
+    }
+    // Ticker/slideshow marquees use <ul role="group"> which strips the list
+    // role from their <li> children (WCAG 1.3.1). Restore list semantics.
+    document.querySelectorAll('ul[role="group"]').forEach(function (ul) {
+      if (ul.querySelector(':scope > li')) ul.setAttribute('role', 'list');
+    });
+    // Accessible name for placeholder-only fields (WCAG 1.3.1 / 4.1.2).
+    document.querySelectorAll('input, textarea, select').forEach(function (el) {
+      var t = (el.getAttribute('type') || '').toLowerCase();
+      if (t === 'hidden' || el.getAttribute('aria-hidden') === 'true') return;
+      var labelled = (el.labels && el.labels.length) || el.getAttribute('aria-label') || el.getAttribute('aria-labelledby');
+      if (!labelled) {
+        var ph = el.getAttribute('placeholder');
+        if (ph) el.setAttribute('aria-label', ph);
+      }
+    });
+  }
+  if (document.readyState !== 'loading') run();
+  else document.addEventListener('DOMContentLoaded', run);
+  [400, 1200, 2500].forEach(function (t) { setTimeout(run, t); });
+})();
+</script>
+<!-- cognis-a11y:end -->
+<!-- cognis-products-nav:start -->
+<style data-cognis-products-nav-style>
+  a.cognis-prod-link { display: flex; align-items: center; justify-content: center; padding: 12px 20px; height: 44px; box-sizing: border-box; text-decoration: none; cursor: pointer; }
+  a.cognis-prod-link .cgpn-wrap { position: relative; display: inline-flex; flex-direction: column; height: 1.25em; line-height: 1.25em; overflow: hidden; }
+  a.cognis-prod-link .cgpn-t { font-size: 14px; font-weight: 500; white-space: nowrap; transition: transform .3s cubic-bezier(.2,.7,.2,1); }
+  a.cognis-prod-link:hover .cgpn-t { transform: translateY(-100%); }
+</style>
+<script data-cognis-products-nav>
+(function () {
+  // Build our own Products link (not a Framer clone). `st` theme-matches the
+  // sibling nav items: colour, size, weight, tracking and case.
+  function buildLink(st) {
+    st = st || {};
+    var a = document.createElement('a');
+    a.className = 'cognis-prod-link';
+    a.setAttribute('href', '/products');
+    a.setAttribute('data-cognis-products', '');
+    a.setAttribute('aria-label', 'Products');
+    if (st.color) a.style.color = st.color;
+    var wrap = document.createElement('span'); wrap.className = 'cgpn-wrap';
+    function mk(hidden) {
+      var s = document.createElement('span');
+      s.className = 'cgpn-t';
+      s.textContent = 'Products';
+      if (hidden) s.setAttribute('aria-hidden', 'true');
+      if (st.fontSize) s.style.fontSize = st.fontSize;
+      if (st.fontWeight) s.style.fontWeight = st.fontWeight;
+      if (st.fontFamily) s.style.fontFamily = st.fontFamily;
+      if (st.letterSpacing && st.letterSpacing !== 'normal') s.style.letterSpacing = st.letterSpacing;
+      if (st.textTransform && st.textTransform !== 'none') s.style.textTransform = st.textTransform;
+      return s;
+    }
+    wrap.appendChild(mk(false)); wrap.appendChild(mk(true)); a.appendChild(wrap);
+    return a;
+  }
+  // Sample the typography of a real, non-Products nav item so ours matches.
+  function sampleStyle(menu) {
+    var links = menu.querySelectorAll('a[href]');
+    for (var i = 0; i < links.length; i++) {
+      if (links[i].hasAttribute('data-cognis-products')) continue;
+      var p = links[i].querySelector('p') || links[i].querySelector('span') || links[i];
+      var cs = getComputedStyle(p);
+      var color = cs.color;
+      if (color === 'rgba(0, 0, 0, 0)') color = getComputedStyle(links[i]).color;
+      return { color: color, fontSize: cs.fontSize, fontWeight: cs.fontWeight, fontFamily: cs.fontFamily, letterSpacing: cs.letterSpacing, textTransform: cs.textTransform };
+    }
+    return null;
+  }
+  function addToFramer(menu) {
+    if (menu.querySelector('a[data-cognis-products]')) return;
+    // Anchor after the Services item; fall back to the last real item / end.
+    var kids = menu.children, after = null, last = null;
+    for (var i = 0; i < kids.length; i++) {
+      var l = kids[i].querySelector && kids[i].querySelector('a[href]');
+      if (!l) continue;
+      last = kids[i];
+      if (/our-services/.test(l.getAttribute('href') || '')) after = kids[i];
+    }
+    var link = buildLink(sampleStyle(menu));
+    if (after && after.parentNode) after.parentNode.insertBefore(link, after.nextSibling);
+    else if (last && last.parentNode) last.parentNode.appendChild(link);
+    else menu.appendChild(link);
+  }
+  function addToShell(nav) {
+    if (nav.querySelector('a[href="/products/"]')) return;
+    var services = nav.querySelector('a[href="/our-services/"]');
+    var link = document.createElement('a');
+    link.setAttribute('href', '/products');
+    link.setAttribute('data-cognis-products', '');
+    link.textContent = 'Products';
+    if (services && services.parentNode) services.parentNode.insertBefore(link, services.nextSibling);
+    else nav.appendChild(link);
+  }
+  function run() {
+    document.querySelectorAll('nav [data-framer-name="menu"]').forEach(addToFramer);
+    document.querySelectorAll('header.site-nav nav').forEach(addToShell);
+  }
+  if (document.readyState !== 'loading') run();
+  else document.addEventListener('DOMContentLoaded', run);
+  // Framer re-renders the nav on scroll (its scroll-linked colour change),
+  // which drops the injected Products link. Re-add SYNCHRONOUSLY the instant
+  // it goes missing: MutationObserver callbacks run as a microtask BEFORE the
+  // next paint, so re-adding here (not via rAF) closes the gap with no visible
+  // flicker, even during continuous scrolling. The check is cheap and only
+  // calls run() when the link is actually absent (no loop: the re-add's own
+  // mutation finds it present next tick and bails).
+  try {
+    var mo = new MutationObserver(function () {
+      var menus = document.querySelectorAll('nav [data-framer-name="menu"]');
+      for (var i = 0; i < menus.length; i++) {
+        if (!menus[i].querySelector('a[data-cognis-products]')) { run(); return; }
+      }
+    });
+    mo.observe(document.documentElement, { childList: true, subtree: true });
+  } catch (e) {}
+  [200, 600, 1200, 2500].forEach(function (t) { setTimeout(run, t); });
+})();
+</script>
+<!-- cognis-products-nav:end -->
+<footer class="cg-gf" data-screen-label="Footer" style="background: rgb(13, 13, 12); margin: 12px; border-radius: 24px; padding: 56px clamp(16px, 3.33vw, 48px) 32px;">
+    <div style="max-width: 1280px; margin: 0px auto;">
+      <div style="display: grid; grid-template-columns: 1.4fr 0.7fr 0.7fr 0.7fr 1.2fr; gap: 48px;">
+        <div>
+          <a class="cg-gf-logo" href="/" aria-label="Cognis Group" style="display: inline-flex; align-items: center; gap: 9px; color: rgb(255, 255, 255);">
+            <svg viewBox="0 0 48 48" aria-hidden="true" style="width: 28px; height: 28px; fill: rgb(255, 255, 255); display: block;"><path d="M 42.66 12.34 A 22 22 0 1 0 42.66 35.66 L 33.19 31.71 A 12 12 0 1 1 33.19 16.29 Z"></path><rect x="36" y="19" width="10" height="10" fill="#D6FD70"></rect></svg>
+            <span style="font-family: Inter, sans-serif; font-weight: 400; font-size: 24px; line-height: 28.8px; color: rgb(255, 255, 255); letter-spacing: -1.44px;">Cognis</span>
+          </a>
+          <div style="height: 20px;"></div>
+          <div style="font-size: 14px; line-height: 1.65; color: rgba(255, 255, 255, 0.6); max-width: 320px;">Cognis Group helps organisations use AI to improve how people work. We plan, build and manage practical systems, then prepare your team to use them with confidence. Quod Tango Muto: what we touch, we change.</div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 14px;">
+          <div style="font-family: Inter, sans-serif; font-weight: 600; font-size: 11px; color: rgba(255, 255, 255, 0.45); letter-spacing: 0.88px; text-transform: uppercase;">COMPANY</div>
+          <a class="cg-gf-link" href="/" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Home</a>
+          <a class="cg-gf-link" href="/about-us/" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">About Us</a>
+          <a class="cg-gf-link" href="/our-services/" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Services</a>
+          <a class="cg-gf-link" href="/products/" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Products</a>
+          <a class="cg-gf-link" href="/blog/" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Insights</a>
+          <a class="cg-gf-link" href="/careers/" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Careers</a>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 14px;">
+          <div style="font-family: Inter, sans-serif; font-weight: 600; font-size: 11px; color: rgba(255, 255, 255, 0.45); letter-spacing: 0.88px; text-transform: uppercase;">SERVICES</div>
+          <a class="cg-gf-link" href="/our-services/ai-strategy-advisory/" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Strategy</a>
+          <a class="cg-gf-link" href="/our-services/ai-training-workforce-development/" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Training</a>
+          <a class="cg-gf-link" href="/our-services/ai-agent-automation-engineering/" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Agent Engineering</a>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 14px;">
+          <div style="font-family: Inter, sans-serif; font-weight: 600; font-size: 11px; color: rgba(255, 255, 255, 0.45); letter-spacing: 0.88px; text-transform: uppercase;">EXPLORE</div>
+          <a class="cg-gf-link" href="/why-cognis/" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Why Cognis</a>
+          <a class="cg-gf-link" href="/case-studies/" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Case Studies</a>
+          <a class="cg-gf-link" href="/how-we-work/" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">How We Work</a>
+          <a class="cg-gf-link" href="/faq/" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">FAQ</a>
+          <a class="cg-gf-link" href="/contact/" style="font-family: Inter, sans-serif; font-weight: 500; font-size: 14px; line-height: 22.4px; color: rgba(255, 255, 255, 0.75);">Contact</a>
+        </div>
+        <div>
+          <div style="font-family: Inter, sans-serif; font-weight: 600; font-size: 11px; color: rgba(255, 255, 255, 0.45); letter-spacing: 0.88px; text-transform: uppercase;">GET AI INTELLIGENCE IN YOUR INBOX</div>
+          <div style="height: 16px;"></div>
+          <form action="/api/form" method="POST" style="display: flex; gap: 8px;"><input type="text" name="company" value="" style="display:none !important" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <input type="hidden" name="from_name" value="cognis.group newsletter">
+            <input type="hidden" name="subject" value="New newsletter signup — cognis.group">
+            <input type="hidden" name="redirect" value="https://cognis.group/thanks-subscribe/">
+            <input type="email" name="email" required="" placeholder="Your work email" style="flex: 1 1 0%; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.14); border-radius: 100px; padding: 12px 18px; font-size: 14px; color: rgb(255, 255, 255); outline: none; font-family: &quot;Plus Jakarta Sans&quot;, sans-serif;">
+            <button type="submit" class="cg-gf-btn" style="background: rgb(214, 253, 112); color: rgb(13, 13, 12); border-width: medium; border-style: none; border-color: currentcolor; border-image: initial; border-radius: 100px; padding: 12px 22px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: &quot;Plus Jakarta Sans&quot;, sans-serif;">Subscribe</button>
+          </form>
+        </div>
+      </div>
+      <div style="height: clamp(28px, 3.89vw, 56px);"></div>
+      <div style="border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 24px; display: flex; justify-content: space-between; align-items: center;">
+        <div style="font-size: 14px; color: rgba(255, 255, 255, 0.45);">© 2024–2026 Cognis Group. All rights reserved.</div>
+        <div style="display: flex; gap: 24px;">
+          <a class="cg-gf-link" href="/privacy-policy/" style="font-size: 13px; color: rgba(255, 255, 255, 0.45);">Privacy</a>
+          <a class="cg-gf-link" href="/terms/" style="font-size: 13px; color: rgba(255, 255, 255, 0.45);">Terms</a>
+          <a class="cg-gf-link" href="/contact/" style="font-size: 13px; color: rgba(255, 255, 255, 0.45);">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a385452b9b86887d',t:'MTc4ODk0NzIzMg=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

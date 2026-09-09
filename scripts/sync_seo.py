@@ -9,6 +9,7 @@ import json
 import re
 from seo_html import Document, Node, ROOT, ORIGIN, edit, objects, route, sitemap_paths, write_changed
 from seo_editorial import RESEARCH, RELATED, FIRMS, comparison
+from site_improvements import improve
 
 DATE = '2026-09-08'
 RETIRED = {'service-ml-data', 'service-ai-governance', 'service-digital-transformation'}
@@ -134,7 +135,7 @@ def editorial(source, url):
                 source=edit(source,[(at,at,'<section id="seo-primary-sources">'+box(body)+'</section>')])
     if 'seo-editorial' in source and 'href="/assets/seo-editorial.css"' not in source:
         source=source.replace('</head>','<link rel="stylesheet" href="/assets/seo-editorial.css">\n</head>')
-    return source
+    return improve(source,url)
 
 def structured(source,url):
     doc=Document(source); faq=faq_items(doc); h1=doc.find('h1'); edits=[]
