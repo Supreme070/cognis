@@ -182,8 +182,11 @@ async function handleForm(request, env, ctx) {
         text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}\n\nPage: ${page || "unknown"}\nLead #${leadId}`,
       });
     } catch (e) {
+      // The lead is already stored. Mark it for the hourly retry and let the
+      // visitor through — a sending-quota blip must never look like a broken form.
       console.log("notify send failed:", e && e.code, e && e.message);
-      return new Response("Something went wrong sending your message. Please email info@cognis.group directly.", { status: 502 });
+      ctx.waitUntil(env.DB.prepare("UPDATE leads SET notified = 0 WHERE id = ?1").bind(leadId).run().catch(() => {}));
+      return Response.redirect(redirect, 303);
     }
 
     ctx.waitUntil((async () => {
@@ -280,9 +283,19 @@ async function verifyTurnstile(env, token, ip) {
 const BLOCKED_HTML = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Please try again — Cognis Group</title></head><body style="margin:0;background:#f2f2f2;color:#131313;font-family:'Plus Jakarta Sans',Inter,system-ui,sans-serif"><main style="max-width:560px;margin:12vh auto;padding:40px;background:#fff;border-radius:20px"><h1 style="font-size:24px;margin:0 0 12px">We couldn't confirm that was a person.</h1><p style="line-height:1.6">Please go back and complete the check under the form, then send again. If it keeps happening, email us at <a href="mailto:info@cognis.group" style="color:#131313">info@cognis.group</a>.</p><p><a href="https://cognis.group/contact/" style="color:#131313">← Back to the contact form</a></p></main></body></html>`;
 
 // ---------- Ask Cognis ----------
+// The Rate Limiting binding proved permissive in testing, so the real guard is a
+// D1 count of this visitor's questions in the last minute (ip_hash is salted daily).
+async function askQuotaExceeded(env, hash, limit) {
+  try {
+    const row = await env.DB.prepare("SELECT COUNT(*) AS n FROM asks WHERE ip_hash = ?1 AND created_at >= datetime('now', '-60 seconds')").bind(hash).first();
+    return row && row.n >= limit;
+  } catch (e) { console.log("quota check failed:", e && e.message); return false; }
+}
+
 async function handleAsk(request, env, ctx) {
   const ip = clientIp(request);
-  if (await limited(env.ASK_RL, "ask:" + ip)) {
+  const hash = await ipHash(ip);
+  if (await limited(env.ASK_RL, "ask:" + ip) || await askQuotaExceeded(env, hash, 20)) {
     return Response.json({ answer: "You're sending questions faster than I can read them. Give me a moment and try again, or write to info@cognis.group.", sources: [], escalate: false, limited: true }, { status: 429 });
   }
   let body;
@@ -329,7 +342,7 @@ async function handleAsk(request, env, ctx) {
   ctx.waitUntil((async () => {
     try {
       await env.DB.prepare("INSERT INTO asks (sid, page, question, answer, sources, model, path, latency_ms, escalated, ip_hash) VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10)")
-        .bind(sid || null, page || null, question, answer, JSON.stringify(sources), model, path, latency, escalate ? 1 : 0, await ipHash(ip)).run();
+        .bind(sid || null, page || null, question, answer, JSON.stringify(sources), model, path, latency, escalate ? 1 : 0, hash).run();
     } catch (e) { console.log("ask log failed:", e && e.message); }
   })());
   console.log(JSON.stringify({ event: "ask", path, latency, escalate, sid: sid || null }));
@@ -370,7 +383,9 @@ async function handleHandoff(request, env, ctx) {
     });
   } catch (e) {
     console.log("handoff notify failed:", e && e.code, e && e.message);
-    return Response.json({ ok: false, error: "We couldn't send that just now. Please email info@cognis.group." }, { status: 502 });
+    ctx.waitUntil(env.DB.prepare("UPDATE leads SET notified = 0 WHERE id = ?1").bind(leadId).run().catch(() => {}));
+    if (sid) ctx.waitUntil(env.DB.prepare("UPDATE asks SET handed_off = 1 WHERE sid = ?1").bind(sid).run().catch(() => {}));
+    return Response.json({ ok: true, queued: true });
   }
   ctx.waitUntil((async () => {
     try {
@@ -384,6 +399,31 @@ async function handleHandoff(request, env, ctx) {
     if (sid) { try { await env.DB.prepare("UPDATE asks SET handed_off = 1 WHERE sid = ?1").bind(sid).run(); } catch (e) {} }
   })());
   return Response.json({ ok: true });
+}
+
+// ---------- Hourly retry of team notifications that could not be sent ----------
+async function retryNotifications(env) {
+  const pending = (await env.DB.prepare("SELECT id, type, name, email, message, page FROM leads WHERE notified = 0 ORDER BY id ASC LIMIT 20").all()).results || [];
+  let sent = 0;
+  for (const l of pending) {
+    try {
+      await env.EMAIL.send({
+        to: TO, from: FROM_FORMS, replyTo: l.email,
+        subject: `${l.type === "chat" ? "Chat handoff" : "Contact form"} (delayed): ${l.name || l.email}`,
+        text: `This notification was delayed because the email sending quota was exhausted when it came in.\n\nName: ${l.name || "(not given)"}\nEmail: ${l.email}\nPage: ${l.page || "unknown"}\n\n${l.message || ""}\n\nLead #${l.id} · stored in cognis-leads (D1)`,
+      });
+      await env.DB.prepare("UPDATE leads SET notified = 1 WHERE id = ?1").bind(l.id).run();
+      sent++;
+      try {
+        await env.EMAIL.send({ to: l.email, from: FROM_NOREPLY, replyTo: TO, subject: "We received your message — Cognis Group",
+          text: `Hello${l.name ? " " + l.name : ""},\n\nThank you for reaching out to Cognis Group. Your message is with the team and a senior member will reply within two business days.\n\nFor anything urgent, write to info@cognis.group.\n\nCognis Group` });
+      } catch (e) {}
+      try { await env.FORM_WORKFLOW.create({ id: `lead-${l.id}`, params: { leadId: l.id, name: l.name || "", email: l.email, message: l.message || "", page: l.page || "" } }); } catch (e) {}
+    } catch (e) {
+      console.log("retry still failing:", e && e.code); break; // quota still exhausted; try next hour
+    }
+  }
+  console.log(JSON.stringify({ event: "retry-notifications", pending: pending.length, sent }));
 }
 
 // ---------- Weekly digest (cron) ----------
@@ -421,6 +461,7 @@ export default {
     return Response.redirect("https://cognis.group/", 302);
   },
   async scheduled(controller, env, ctx) {
-    ctx.waitUntil(sendDigest(env).catch((e) => console.log("digest failed:", e && e.message)));
+    if (controller.cron === "0 7 * * 1") ctx.waitUntil(sendDigest(env).catch((e) => console.log("digest failed:", e && e.message)));
+    else ctx.waitUntil(retryNotifications(env).catch((e) => console.log("retry failed:", e && e.message)));
   },
 };
