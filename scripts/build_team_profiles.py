@@ -24,7 +24,7 @@ MEMBERS = [
         "slug": "obruche-uwanoghor",
         "name": "Obruche Uwanoghor",
         "role": "Executive Director of People & Culture",
-        "img": "/assets/team-obruche-uwanoghor.jpg",
+        "img": "/assets/team-obruche-uwanoghor.png",
         "bio": "Obruche leads People & Culture at Cognis Group. She builds the "
                "teams behind our consulting and engineering work, shapes how we "
                "work together and helps our people keep growing.",
