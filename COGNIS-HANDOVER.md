@@ -57,3 +57,11 @@ Updated 9 September 2026 (Claude session, after Codex's run stopped mid-way). Al
 ## Strategic next batches
 
 Once this first implementation is complete: integrate authentic training evidence; improve one flagship case study with publishable records; strengthen verified external identity; establish lead qualification reporting; then expand only into topics/services supported by real expertise. Preserve Cognis's builder identity and practical strategy/training/engineering focus. The competitor is a benchmark, not a source of claims to copy.
+
+## Ask Cognis and forms — 10 September 2026 (Claude session)
+
+Done and live: `/api/ask` with conversation memory, one verified prompt, escalation flag; `/api/ask/handoff` (visitor email → lead type `chat` with transcript → team email, acknowledgement, enrichment), Turnstile on the contact form and the chat handoff, every question logged to D1 table `asks`, Monday 07:00 UTC digest email, hourly (:15) retry of team notifications when the email quota is exhausted, per-visitor question quota. Widget rewritten (`assets/ask-cognis.js`).
+
+Incidents: a bot flooded the contact form 4–10 Sep (1,168 junk rows named "Robertces"), which exhausted the daily email quota and made the form return an error to real visitors. Blocked by Turnstile since 10 Sep 09:33 UTC. Junk rows still in `leads` — delete only with the owner's say-so.
+
+Open for the owner: (1) decide on deleting the junk leads; (2) optionally add a WAF rate-limiting rule for `/api/*` in the dashboard (the API token used here lacks that permission); (3) watch the first Monday digest.
