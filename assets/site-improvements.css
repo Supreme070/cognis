@@ -2,3 +2,7 @@
 .cg-contact-jump{display:inline-flex;gap:18px;align-items:center;background:#131313;color:#d6fd70;padding:14px 24px;border-radius:100px;text-decoration:none;font:600 14px/1.5 "Plus Jakarta Sans",sans-serif}#contact-form{scroll-margin-top:110px}
 .cg-skip-link{position:fixed;top:12px;left:12px;z-index:100000;background:#d6fd70;color:#111;padding:14px 22px;border-radius:8px;transform:translateY(-180%);font:600 15px/1.5 sans-serif}.cg-skip-link:focus{transform:translateY(0)}
 a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible,summary:focus-visible{outline:3px solid #5c8317!important;outline-offset:4px!important}.cg-gf :focus-visible,[data-screen-label="Hero"] :focus-visible{outline-color:#d6fd70!important}
+
+/* Team cards: the fixed role/blurb heights exist only to line the four cards
+   up side by side, so drop them once the grid stacks. */
+@media (max-width: 479px){a[href^="/teams/"] [data-dc-tpl="124"],a[href^="/teams/"] [data-dc-tpl="124c"]{min-height:0!important}}

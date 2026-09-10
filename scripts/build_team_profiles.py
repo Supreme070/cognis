@@ -8,6 +8,18 @@ generated pages stay consistent. Run manually after editing MEMBERS:
 
 Writes teams/<slug>/index.html for each member. These are plain static
 pages (no Framer runtime), served directly by Cloudflare Pages.
+
+STALE — do not run without reading this first. The live pages have been
+hand-edited since this template was written, and TEMPLATE below has not kept
+up. A plain run strips all of: the LinkedIn block, the styled contact/back
+buttons, the cg-skip-link and id="cg-main", site-improvements.css,
+logo-motion.js and the Ask Cognis widget, and the .cg-std-hdr wrapper whose
+position:relative is what stops the header ghosting on scroll.
+
+Running inject_global_header.py + inject_global_footer.py afterwards restores
+only the header and footer; everything else above stays lost. Until TEMPLATE
+is brought back in line with the live pages, edit teams/<slug>/index.html by
+hand and mirror the copy into MEMBERS here so the two do not drift further.
 """
 from __future__ import annotations
 
@@ -25,16 +37,30 @@ MEMBERS = [
         "name": "Obruche Uwanoghor",
         "role": "Executive Director of People & Culture",
         "img": "/assets/team-obruche-uwanoghor.png",
+        "blurb": "Senior HR and operations leader, latterly COO of a services "
+                 "business. Owns facilitator standards, cohort culture and the "
+                 "ninety-day follow-through after training.",
         "bio": "Obruche leads People & Culture at Cognis Group. She builds the "
-               "teams behind our consulting and engineering work, shapes how we "
-               "work together and helps our people keep growing.",
+               "teams behind our consulting and engineering work, sets the "
+               "standards our facilitators are held to, and owns the ninety-day "
+               "follow-through that turns training into changed habits.\n\n"
+               "She is a senior HR and operations leader, most recently Chief "
+               "Operating Officer at Garment Care Ltd, having risen through its "
+               "HR leadership, and before that Human Resources Manager at Bx-Edge "
+               "Limited. Her work covers workforce strategy, organisational "
+               "development, culture change and business performance. She holds a "
+               "degree in Educational Psychology from the University of Lagos and "
+               "several professional HR and management qualifications.",
     },
     {
         "slug": "tosin-salami",
         "name": "Tosin Salami",
         "role": "Executive Director, Product & Strategy",
         "img": "/assets/team-tosin-salami.jpg",
-        "bio": "Tosin serves Cognis Group at board level as Executive Director, Product & Strategy, advising our leadership on product direction and strategy for Cognis AI, MarketSage, Migratio and SPOG. He is currently Director of Product Management, Transfer Solutions (EMEA) at Mastercard. Before that he was Chief Operating Officer at Rabafast Technologies, where he built a cross-border payments business from the ground up, and Head of Product at AZA Finance, where he led African payments infrastructure across eight countries, including a project that processed over $500 million in volume. His product career began at Venture Garden Group, building payment platforms used by federal institutions across Nigeria. He is completing an MBA at Edinburgh Business School, Heriot-Watt University.",
+        "blurb": "Payments product executive with product leadership at a global "
+                 "card network and at African fintechs, across transfer "
+                 "infrastructure and API products. Owns our product line.",
+        "bio": "Tosin serves Cognis Group at board level as Executive Director, Product & Strategy, advising our leadership on product direction and strategy for Cognis AI, MarketSage, Migratio and SPOG.\n\nHe is currently Director of Product Management, Transfer Solutions (EMEA) at Mastercard. Before that he was Chief Operating Officer at Rabafast Technologies, where he built a cross-border payments business from the ground up, and Head of Product at AZA Finance, where he led African payments infrastructure across eight countries, including a project that processed over $500 million in volume. His product career began at Venture Garden Group, building payment platforms used by federal institutions across Nigeria. He is completing an MBA at Edinburgh Business School, Heriot-Watt University.",
     },
 ]
 
@@ -53,18 +79,18 @@ TEMPLATE = """<!doctype html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{name} — Cognis Group</title>
-<meta name="description" content="{name}, {role_text} at Cognis Group.">
+<meta name="description" content="{name}, {role_text} at Cognis Group. {blurb}">
 <link rel="canonical" href="https://cognis.group/teams/{slug}/">
 <link rel="alternate" hreflang="en" href="https://cognis.group/teams/{slug}/">
 <link rel="alternate" hreflang="x-default" href="https://cognis.group/teams/{slug}/">
 <meta property="og:type" content="profile">
 <meta property="og:title" content="{name} — Cognis Group">
-<meta property="og:description" content="{role_text} at Cognis Group.">
+<meta property="og:description" content="{role_text} at Cognis Group. {blurb}">
 <meta property="og:url" content="https://cognis.group/teams/{slug}/">
 <meta property="og:image" content="https://cognis.group{img_path}">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{name} — Cognis Group">
-<meta name="twitter:description" content="{role_text} at Cognis Group.">
+<meta name="twitter:description" content="{role_text} at Cognis Group. {blurb}">
 <meta name="twitter:image" content="https://cognis.group{img_path}">
 <script type="application/ld+json">{schema}</script>
 <link rel="icon" href="/favicon.svg">
@@ -120,7 +146,7 @@ TEMPLATE = """<!doctype html>
     <p class="eyebrow">Team</p>
     <h1>{name}</h1>
     <p class="role">{role_html}</p>
-    <p class="bio">{bio_html}</p>
+    {bio_html}
     <div class="actions">
       <a class="btn btn-primary" href="/contact">Contact us →</a>
       <a class="btn btn-ghost" href="/about-us">Back to team</a>
@@ -181,7 +207,11 @@ def main() -> None:
             name=html.escape(m["name"]),
             role_text=html.escape(m["role"]),
             role_html=html.escape(m["role"]),
-            bio_html=html.escape(m["bio"]),
+            blurb=html.escape(m["blurb"]),
+            bio_html="\n    ".join(
+                f'<p class="bio">{html.escape(p)}</p>'
+                for p in m["bio"].split("\n\n")
+            ),
             slug=m["slug"],
             img_path=m["img"],
             nav_links=nav_links,
