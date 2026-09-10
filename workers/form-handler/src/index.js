@@ -7,6 +7,7 @@
 //   GET  /api/confirm  — newsletter double-opt-in confirmation link
 //   POST /api/ask      — "Ask Cognis" site concierge (JSON: question, history, page, sid)
 //   POST /api/ask/handoff — visitor leaves an email from the chat; becomes a lead
+//   POST /api/lead      — JSON lead capture for other Cognis Group sites (CORS)
 //   cron  Monday 07:00 UTC — weekly Ask Cognis digest to the team
 
 import { WorkflowEntrypoint } from "cloudflare:workers";
@@ -401,6 +402,86 @@ async function handleHandoff(request, env, ctx) {
   return Response.json({ ok: true });
 }
 
+// ---------- JSON lead capture (other Cognis Group sites, e.g. marketsage.africa) ----------
+const LEAD_ORIGINS = new Set([
+  "https://marketsage.africa", "https://www.marketsage.africa",
+  "https://cognis.group", "https://www.cognis.group",
+  "http://localhost:8877", "http://localhost:3000",
+]);
+
+function corsHeaders(request) {
+  const origin = request.headers.get("Origin") || "";
+  if (!LEAD_ORIGINS.has(origin)) return null;
+  return {
+    "Access-Control-Allow-Origin": origin,
+    "Access-Control-Allow-Methods": "POST, OPTIONS",
+    "Access-Control-Allow-Headers": "content-type",
+    "Access-Control-Max-Age": "86400",
+    "Vary": "Origin",
+  };
+}
+
+async function handleLead(request, env, ctx) {
+  const cors = corsHeaders(request);
+  if (!cors) return Response.json({ ok: false, error: "origin not allowed" }, { status: 403 });
+  if (request.method === "OPTIONS") return new Response(null, { status: 204, headers: cors });
+
+  const ip = clientIp(request);
+  if (await limited(env.FORM_RL, "lead:" + ip)) {
+    return Response.json({ ok: false, error: "Too many requests. Please wait a minute, or email info@cognis.group." }, { status: 429, headers: cors });
+  }
+  let body;
+  try { body = await request.json(); } catch (e) { return Response.json({ ok: false, error: "bad request" }, { status: 400, headers: cors }); }
+
+  const str = (v, n) => String(v == null ? "" : v).trim().slice(0, n);
+  const email = str(body.email, 320);
+  const name = str(body.name, 120);
+  const company = str(body.company, 160);
+  const phone = str(body.phone, 40);
+  const message = str(body.message, 4000);
+  const source = str(body.source, 60) || "website";
+  const page = str(body.page || request.headers.get("referer"), 300);
+  if (!email.includes("@") || email.length < 5) {
+    return Response.json({ ok: false, error: "Please enter a valid email address." }, { status: 400, headers: cors });
+  }
+  if (str(body.company_website, 100)) return Response.json({ ok: true }, { headers: cors }); // honeypot
+
+  const detail = [
+    company ? `Company: ${company}` : null,
+    phone ? `Phone: ${phone}` : null,
+    "",
+    message || "(no message)",
+  ].filter((x) => x !== null).join("\n");
+
+  const res = await env.DB.prepare("INSERT INTO leads (type, name, email, message, page) VALUES (?1, ?2, ?3, ?4, ?5)")
+    .bind(source, name || null, email, detail, page || null).run();
+  const leadId = res.meta.last_row_id;
+
+  ctx.waitUntil((async () => {
+    try {
+      await env.EMAIL.send({
+        to: TO, from: FROM_FORMS, replyTo: email,
+        subject: `New enquiry (${source}): ${name || email}`,
+        text: `Source: ${source}\nName: ${name || "(not given)"}\nEmail: ${email}\nPage: ${page || "unknown"}\n\n${detail}\n\nLead #${leadId} · stored in cognis-leads (D1)`,
+      });
+    } catch (e) {
+      console.log("lead notify failed:", e && e.code);
+      await env.DB.prepare("UPDATE leads SET notified = 0 WHERE id = ?1").bind(leadId).run().catch(() => {});
+    }
+    try {
+      await env.EMAIL.send({
+        to: email, from: FROM_NOREPLY, replyTo: TO,
+        subject: "We received your message — Cognis Group",
+        text: `Hello${name ? " " + name : ""},\n\nThank you for getting in touch. Your message is with the team and a senior member will reply within two business days.\n\nFor anything urgent, write to info@cognis.group.\n\nCognis Group`,
+      });
+    } catch (e) { console.log("lead auto-reply failed:", e && e.code); }
+    try { await env.FORM_WORKFLOW.create({ id: `lead-${leadId}`, params: { leadId, name, email, message: detail, page } }); } catch (e) {}
+  })());
+
+  console.log(JSON.stringify({ event: "lead", source, leadId }));
+  return Response.json({ ok: true }, { headers: cors });
+}
+
 // ---------- Hourly retry of team notifications that could not be sent ----------
 async function retryNotifications(env) {
   const pending = (await env.DB.prepare("SELECT id, type, name, email, message, page FROM leads WHERE notified = 0 ORDER BY id ASC LIMIT 20").all()).results || [];
@@ -458,6 +539,7 @@ export default {
     if (path === "/api/confirm" && request.method === "GET") return handleConfirm(request, env, ctx);
     if (path === "/api/ask" && request.method === "POST") return handleAsk(request, env, ctx);
     if (path === "/api/ask/handoff" && request.method === "POST") return handleHandoff(request, env, ctx);
+    if (path === "/api/lead" && (request.method === "POST" || request.method === "OPTIONS")) return handleLead(request, env, ctx);
     return Response.redirect("https://cognis.group/", 302);
   },
   async scheduled(controller, env, ctx) {
