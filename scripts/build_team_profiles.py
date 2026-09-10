@@ -35,6 +35,7 @@ MEMBERS = [
     {
         "slug": "obruche-uwanoghor",
         "name": "Obruche Uwanoghor",
+        "linkedin": "https://www.linkedin.com/in/obruche-uwanoghor-gphr-milr-acipm-aat-cscp-ccsp-2027b089/",
         "role": "Executive Director of People & Culture",
         "img": "/assets/team-obruche-uwanoghor.png",
         "blurb": "Senior HR and operations leader, latterly COO of a services "
