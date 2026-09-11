@@ -80,7 +80,7 @@ Products
 
 [All products →](/products/)
 
-[Demo by request · AI workforce CognisAi. Specialised AI workers for customer support, calls, company knowledge, operations and trade. Request a Cognis AI demo →](/contact/?interest=cognis-ai)
+[Live · Private AI Private AI that runs on your own servers, for banks, government and organisations that cannot send data abroad. Visit Cognis Brain →](https://brain.cognis.group)
 
 [Live · Marketing AI MΛRKETSΛGE Marketing and sales software that plans campaigns, runs them across channels and turns interest into sales opportunities. Visit MarketSage →](https://www.marketsage.africa)
 
@@ -306,11 +306,11 @@ Clear goals
 
 Measures agreed upfront
 
-Commitment to delivery
+Live in production
 
-100%
+413
 
-Helping banks, public institutions and businesses use AI safely and effectively.
+API endpoints running in production on a client's own servers, across the platforms we have shipped.
 
 Professional
 
@@ -346,13 +346,13 @@ Team
 
 [Contact Us](/contact/)
 
-[Supreme Oyewumi Founder & AI Engineer](/teams/supreme-oyewumi/)
+[Supreme Oyewumi Founder & AI Engineer Builds the agents, private LLM deployments and data pipelines, and the AWS platforms behind them — Kubernetes, Terraform, full observability. MBA in Advanced AI and Automation (Nexford); PGD in digital innovation and cloud technology.](/teams/supreme-oyewumi/)
 
-[Kola Olatunde Co-Founder and AI Cybersecurity & Governance Lead](/teams/kola-olatunde/)
+[Kola Olatunde Co-Founder and AI Cybersecurity & Governance Lead Virtual CISO in healthcare, finance and software. Multi-cloud zero-trust; AI controls for LLMs and AML built to NIST AI RMF and the EU AI Act. PCI-DSS, SOX, HIPAA. MSc Cyber Security; SC-100, CEH.](/teams/kola-olatunde/)
 
-[Tosin Salami Executive Director, Product & Strategy](/teams/tosin-salami/)
+[Obruche Uwanoghor Executive Director of People & Culture Senior HR and operations leader; most recently COO at Garment Care Ltd, before that HR Manager at Bx-Edge Limited. Educational Psychology, University of Lagos. Owns facilitator standards and the ninety-day follow-through.](/teams/obruche-uwanoghor/)
 
-[Obruche Uwanoghor Executive Director of People & Culture](/teams/obruche-uwanoghor/)
+[Tosin Salami Executive Director, Product & Strategy Director of Product Management, Transfer Solutions (EMEA) at Mastercard. Previously COO at Rabafast, and Head of Product at AZA Finance across eight African markets. Owns our product line.](/teams/tosin-salami/)
 
 Our Journey
 
@@ -375,6 +375,30 @@ Launched workforce training programmes for business and public-sector teams.
 Q1 2025
 
 Shipped agent and automation builds and deployed ML models for a SaaS martech company.
+
+Q2 2025
+
+Shipped an observability platform for a Nigerian federal agency, live on the agency's own servers.
+
+Q3 2025
+
+Launched Cognis Academy, our multi-tenant training platform, hosted in Johannesburg.
+
+Q4 2025
+
+Delivered AI training in Canada for the Ontario College of Management and Technology.
+
+Q1 2026
+
+Released Cognis Brain — private AI running on a client's own servers.
+
+Q2 2026
+
+Built and shipped an executive intelligence platform for a Nigerian commercial bank.
+
+Q3 2026
+
+Rebuilt MarketSage and moved it onto our own hosting.
 
 Trusted by organisations across three continents
 
@@ -996,13 +1020,15 @@ Products
 
 Cognis Group does more than give advice. We build and run our own software, with each product designed to solve one clear business problem from beginning to end.
 
-[Demo by request · AI workforce CognisAi. Hire AI to do the work. Choose a specialised AI worker for customer support, calls, company knowledge, operations or trade. Each one is trained for a specific job, begins under human supervision and only works independently after proving reliable. Specialised workers, not a single chatbot Learns safely before working independently Priced per worker, cancel anytime Request a Cognis AI demo →](/contact/?interest=cognis-ai)
+[Live · Private AI AI that never leaves your building. A private AI engine that runs on your own servers, for banks, government and organisations that cannot send data abroad. Your prompts and documents stay inside your infrastructure, and no outside AI company sits in the request path. Runs on your own servers, or hosted for you OpenAI-compatible API, so existing apps can switch A trust layer screens requests before the model sees them Visit Cognis Brain →](https://brain.cognis.group)
 
 [Live · Marketing AI MΛRKETSΛGE Marketing that thinks, acts, and converts. Marketing and sales software that plans campaigns, runs them across different channels and turns interest into sales opportunities. Cognis uses it for its own marketing. Plans and runs campaigns across channels Sales intelligence that scores and routes leads Connects with your CRM and sales tools Visit MarketSage →](https://www.marketsage.africa)
 
 [Live · Data migration Check every record before you switch. A secure data-migration platform for banks, public institutions and regulated organisations. It checks every record before and after the move and keeps the evidence needed for review. Checks every record and keeps a full history Matches different name formats used in African records Confirms nothing changed or went missing during the move Visit Migratio →](https://migratio.cognis.group)
 
 [Live · Operations monitoring SPOG See everything. Trust every number. SPOG brings updates from IT, networks, buildings, vehicles and security into one dashboard. It also shows where every number came from and whether it is current. Brings more than 30 data sources into one view Shows each team the information it needs Shows the source and freshness of every number Visit SPOG →](https://spog.cognis.group)
+
+In development: Cognis AI, ready-made AI workers for support, sales and operations. [Ask us to hear when it's ready →](/contact/)
 
 ## One company behind all four.
 
@@ -1048,7 +1074,7 @@ We are an African firm. We understand the data, regulation and infrastructure re
 
 We build our own products
 
-Our advice is tested on software we build and run ourselves. Cognis AI, MarketSage, Migratio and SPOG are working products. The testing, monitoring and safe rollout methods we recommend are the same ones we use every day.
+Our advice is tested on software we build and run ourselves. Cognis Brain, MarketSage, Migratio and SPOG are working products. The testing, monitoring and safe rollout methods we recommend are the same ones we use every day.
 
 04
 
@@ -2597,7 +2623,7 @@ We are based in Lagos, Nigeria, and work with organisations across Africa and be
 
 Does Cognis Group build its own products?
 
-Yes. We advise clients and build our own software. Our products include [Cognis AI (demo by request)](https://cognis.group/contact/?interest=cognis-ai) for specialised AI support, [MarketSage](https://www.marketsage.africa) for marketing and sales research, [Migratio](https://migratio.cognis.group) for moving business data safely, and [SPOG](https://spog.cognis.group) for viewing operations in one place. See the full [products overview](/products/).
+Yes. We advise clients and build our own software. Our products include [Cognis Brain](https://brain.cognis.group) for private AI that runs on your own servers, [MarketSage](https://www.marketsage.africa) for marketing and sales research, [Migratio](https://migratio.cognis.group) for moving business data safely, and [SPOG](https://spog.cognis.group) for viewing operations in one place. See the full [products overview](/products/).
 
 What size of engagements do you take on?
 
@@ -2683,7 +2709,9 @@ Team
 
 Founder & AI Engineer
 
-Supreme founded Cognis Group and leads its AI engineering work. He turns business needs into practical AI tools, automated processes and data systems that organisations can use every day.
+Supreme founded Cognis Group and leads its AI engineering. He turns business needs into working systems: AI agents, private LLM deployments, and the automated processes and data pipelines behind them. He stays hands-on through delivery.
+
+His background is in cloud and DevOps engineering: building and running AWS environments with Kubernetes and Terraform, and the monitoring that shows how systems actually behave in production. He also brings technical project management experience, and holds an MBA in Advanced AI and Automation from Nexford University, with postgraduate training in digital innovation and cloud technology.
 
 [Supreme Oyewumi](https://linkedin.com)
 [@supremeoyewumi](https://x.com)
@@ -2762,7 +2790,9 @@ Team
 
 Co-Founder and AI Cybersecurity & Governance Lead
 
-Kola co-founded Cognis Group and leads our cybersecurity and AI governance work. He helps organisations set clear rules, protect sensitive data, monitor AI systems and meet relevant laws and standards.
+Kola co-founded Cognis Group and leads our cybersecurity and AI governance work. He acts as a virtual CISO, designing enterprise security programmes, reporting risk at board level and managing third-party vendor risk. He helps organisations set clear rules for AI, protect sensitive data and meet the standards that apply to them.
+
+He has secured multi-cloud environments across AWS, Azure and Google Cloud using zero-trust and identity-first design, and built AI security controls for large language models and anti-money-laundering systems against the NIST AI Risk Management Framework and the EU AI Act. His compliance work spans financial services and healthcare, covering FFIEC, GLBA, BSA/AML, SOX, PCI-DSS and HIPAA. He holds an MSc in Cyber Security and is a Microsoft Cybersecurity Architect (SC-100), AWS Solutions Architect Professional, AWS Security Specialty and Certified Ethical Hacker.
 
 [Kola Olatunde](https://linkedin.com)
 [@kolaolatunde](https://x.com)
@@ -2849,7 +2879,7 @@ Team
 
 Executive Director, Product & Strategy
 
-Tosin serves Cognis Group at board level as Executive Director, Product & Strategy, advising our leadership on product direction and strategy for Cognis AI, MarketSage, Migratio and SPOG.
+Tosin serves Cognis Group at board level as Executive Director, Product & Strategy, advising our leadership on product direction and strategy for Cognis Brain, MarketSage, Migratio and SPOG.
 
 He is currently Director of Product Management, Transfer Solutions (EMEA) at Mastercard. Before that he was Chief Operating Officer at Rabafast Technologies, where he built a cross-border payments business from the ground up, and Head of Product at AZA Finance, where he led African payments infrastructure across eight countries, including a project that processed over $500 million in volume. His product career began at Venture Garden Group, building payment platforms used by federal institutions across Nigeria. He is completing an MBA at Edinburgh Business School, Heriot-Watt University.
 
@@ -2868,7 +2898,11 @@ Team
 
 Executive Director of People & Culture
 
-Obruche leads People & Culture at Cognis Group. She builds the teams behind our consulting and engineering work, shapes how we work together and helps our people keep growing.
+Obruche leads People & Culture at Cognis Group. She builds the teams behind our consulting and engineering work, sets the standards our facilitators are held to, and owns the ninety-day follow-through that turns training into changed habits.
+
+She is a senior HR and operations leader, most recently Chief Operating Officer at Garment Care Ltd, having risen through its HR leadership, and before that Human Resources Manager at Bx-Edge Limited. Her work covers workforce strategy, organisational development, culture change and business performance. She holds a degree in Educational Psychology from the University of Lagos and several professional HR and management qualifications.
+
+[Obruche Uwanoghor](https://www.linkedin.com/in/obruche-uwanoghor-gphr-milr-acipm-aat-cscp-ccsp-2027b089/)
 
 [Contact Me](/contact/)
 [Back to Team](/about-us/)
@@ -3245,7 +3279,7 @@ This role has been filled. We closed applications in September 2026. The descrip
 
 ## The role
 
-Cognis Group sells two things: AI consulting engagements and our own products (Cognis AI, MarketSage, Migratio, SPOG). You will own the commercial pipeline for both. That means qualifying and converting the inbound leads our site and referrals generate, opening doors at banks, fintechs, and public-sector institutions, and working directly with the founders on proposals until they are signed.
+Cognis Group sells two things: AI consulting engagements and our own products (Cognis Brain, MarketSage, Migratio, SPOG). You will own the commercial pipeline for both. That means qualifying and converting the inbound leads our site and referrals generate, opening doors at banks, fintechs, and public-sector institutions, and working directly with the founders on proposals until they are signed.
 
 ## What you will do
 
@@ -3307,7 +3341,7 @@ This role has been filled. We closed applications in September 2026. The descrip
 
 ## The role
 
-Our products (Cognis AI, MarketSage, SPOG, Migratio) serve businesses that expect answers fast. You will be the first line for their questions: resolving what you can, escalating what you cannot, and making sure nobody waits in silence. You will also support client teams during consulting engagements and help keep our documentation honest.
+Our products (Cognis Brain, MarketSage, SPOG, Migratio) serve businesses that expect answers fast. You will be the first line for their questions: resolving what you can, escalating what you cannot, and making sure nobody waits in silence. You will also support client teams during consulting engagements and help keep our documentation honest.
 
 ## What you will do
 

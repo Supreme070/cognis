@@ -4,7 +4,7 @@
 
 This directory describes public website content. Canonical HTML pages are authoritative. Inclusion in this file does not guarantee search or AI visibility.
 
-Cognis AI: request a demonstration at https://cognis.group/contact/?interest=cognis-ai.
+Cognis Brain (private AI that runs on your own servers): https://brain.cognis.group
 
 ## Pages
 
@@ -14,7 +14,7 @@ Cognis AI: request a demonstration at https://cognis.group/contact/?interest=cog
 - [AI Strategy & Advisory | Cognis Group](https://cognis.group/our-services/ai-strategy-advisory/): Choose the right AI opportunities and get a clear plan with priorities, owners, costs, safeguards and measures of success.
 - [AI Training & Workforce Development | Cognis Group](https://cognis.group/our-services/ai-training-workforce-development/): Practical, role-based AI training that helps leaders and teams work better, check AI output and use approved tools safely.
 - [AI Agent & Automation Engineering | Cognis Group](https://cognis.group/our-services/ai-agent-automation-engineering/): We build AI tools that handle agreed steps in business processes, with clear limits, human approval and monitoring.
-- [Products | Cognis Group](https://cognis.group/products/): The products Cognis Group builds and operates — Cognis AI, MarketSage, Migratio, and SPOG. Proof that we ship what we sell.
+- [Products | Cognis Group](https://cognis.group/products/): The products Cognis Group builds and operates — Cognis Brain, MarketSage, Migratio, and SPOG. Proof that we ship what we sell.
 - [Why Cognis | AI Consulting & Engineering for Africa](https://cognis.group/why-cognis/): Why organisations choose Cognis: senior-led delivery, strong African context, working AI products and a practical handover.
 - [How We Work | Cognis Group](https://cognis.group/how-we-work/): See the six clear steps Cognis uses to understand the problem, plan the work, build, launch and manage a practical AI system.
 - [Contact | Cognis Group](https://cognis.group/contact/): Talk to Cognis Group about a slow, costly or difficult process. We will help you work out whether AI is the right fit.
@@ -35,10 +35,10 @@ Cognis AI: request a demonstration at https://cognis.group/contact/?interest=cog
 - [Claims processing: 14 days to under 48 hours | Cognis Group](https://cognis.group/case-studies/claims-processing-automation/): How an African financial services group cut claims processing from 14 days to under 48 hours with a safe AI system built by Cognis.
 - [AI training: 6 months’ capability in 6 weeks | Cognis Group](https://cognis.group/case-studies/ai-training-programme/): How Cognis helped 3,200 people learn to use AI responsibly in six weeks, with records supporting its AI literacy programme.
 - [Frequently Asked Questions | Cognis Group](https://cognis.group/faq/): Straight answers about what Cognis does, how we work, costs, timing, training, data and safe AI use.
-- [Supreme Oyewumi — Founder & AI Engineer | Cognis Group](https://cognis.group/teams/supreme-oyewumi/): Supreme Oyewumi is Founder & AI Engineer at Cognis Group, helping organisations across Africa plan, build and use practical AI systems.
-- [Kola Olatunde — Co-Founder and AI Cybersecurity & Governance Lead | Cognis Group](https://cognis.group/teams/kola-olatunde/): Kola Olatunde is AI Cybersecurity & Governance Lead at Cognis Group, securing and governing enterprise AI systems across Africa.
-- [Tosin Salami — Cognis Group](https://cognis.group/teams/tosin-salami/): Tosin Salami, Executive Director, Product & Strategy at Cognis Group.
-- [Obruche Uwanoghor — Cognis Group](https://cognis.group/teams/obruche-uwanoghor/): Obruche Uwanoghor, Executive Director of People & Culture at Cognis Group.
+- [Supreme Oyewumi — Founder & AI Engineer | Cognis Group](https://cognis.group/teams/supreme-oyewumi/): Supreme Oyewumi is Founder & AI Engineer at Cognis Group. He builds AI agents, private LLM deployments and the AWS, Kubernetes and Terraform infrastructure they run on. MBA in Advanced AI and Automation.
+- [Kola Olatunde — Co-Founder and AI Cybersecurity & Governance Lead | Cognis Group](https://cognis.group/teams/kola-olatunde/): Kola Olatunde is Co-Founder and AI Cybersecurity & Governance Lead at Cognis Group. Virtual CISO to enterprises in healthcare, financial services and software, building AI and multi-cloud security controls to NIST AI RMF and the EU AI Act.
+- [Tosin Salami — Cognis Group](https://cognis.group/teams/tosin-salami/): Tosin Salami, Executive Director, Product & Strategy at Cognis Group. Payments product executive with product leadership at a global card network and at African fintechs, across transfer infrastructure and API products. Owns our product line.
+- [Obruche Uwanoghor — Cognis Group](https://cognis.group/teams/obruche-uwanoghor/): Obruche Uwanoghor, Executive Director of People & Culture at Cognis Group. Senior HR and operations leader, latterly COO of a services business. Owns facilitator standards, cohort culture and the ninety-day follow-through after training.
 - [Privacy Policy | Cognis Group](https://cognis.group/privacy-policy/): How Cognis Group collects, uses, and protects personal data across our website and engagements, aligned to Nigeria's NDPA 2023 and the EU GDPR.
 - [Terms of Service | Cognis Group](https://cognis.group/terms/): Terms governing the use of cognis.group — intellectual property, disclaimers, limitation of liability, and Nigerian governing law.
 - [Best AI Consulting Firms in Africa (2026) | Cognis Group](https://cognis.group/best-ai-consulting-firms-africa/): A 2026 buyer’s guide to the best AI consulting firms in Africa — Cognis Group, InstaDeep, DataProphet, Sama, Aerobotics, and Deloitte — and how to choose.

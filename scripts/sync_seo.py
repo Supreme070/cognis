@@ -159,7 +159,7 @@ def structured(source,url):
     return edit(source,edits)
 
 def export_text(files):
-    short=['# Cognis Group','', '> Cognis Group Limited is a Lagos-founded AI consulting and engineering company. Its three practices are strategy, workforce training and agent engineering.','', 'This directory describes public website content. Canonical HTML pages are authoritative. Inclusion in this file does not guarantee search or AI visibility.','', 'Cognis AI: request a demonstration at '+ORIGIN+DEMO+'.','', '## Pages','']
+    short=['# Cognis Group','', '> Cognis Group Limited is a Lagos-founded AI consulting and engineering company. Its three practices are strategy, workforce training and agent engineering.','', 'This directory describes public website content. Canonical HTML pages are authoritative. Inclusion in this file does not guarantee search or AI visibility.','', 'Cognis Brain (private AI that runs on your own servers): https://brain.cognis.group','', '## Pages','']
     full=['# Cognis Group — public website text','', 'Generated from canonical public HTML. This is an extraction, not independent verification of claims. Navigation, scripts and shared footer content are omitted.','']
     def markdown(n):
         if not isinstance(n,Node): return n

@@ -26,9 +26,9 @@ try {
       assert.equal(overflow,false,route+' overflows at '+width);
       assert.deepEqual(errors,[],route+' script errors');
       if(route==='/' || route==='/products/') {
-        const cta=page.getByRole('link',{name:/Request a Cognis AI demo/});
-        assert.equal(await cta.count(),1,route+' demo CTA');
-        assert.match(await cta.getAttribute('href'),/\/contact\/\?interest=cognis-ai/);
+        const cta=page.getByRole('link',{name:/Visit Cognis Brain/});
+        assert.equal(await cta.count(),1,route+' Cognis Brain link');
+        assert.match(await cta.getAttribute('href'),/^https:\/\/brain\.cognis\.group/);
       }
       if(width===390 && route.includes('/our-services/ai-')) {
         const menu=page.getByRole('button',{name:'Open menu',exact:true});
