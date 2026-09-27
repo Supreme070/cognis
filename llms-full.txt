@@ -348,7 +348,7 @@ Team
 
 [Supreme Oyewumi Founder & AI Engineer Builds the agents, private LLM deployments and data pipelines, and the AWS platforms behind them — Kubernetes, Terraform, full observability. MBA in Advanced AI and Automation (Nexford); PGD in digital innovation and cloud technology.](/teams/supreme-oyewumi/)
 
-[Kola Olatunde Co-Founder and AI Cybersecurity & Governance Lead Virtual CISO in healthcare, finance and software. Multi-cloud zero-trust; AI controls for LLMs and AML built to NIST AI RMF and the EU AI Act. PCI-DSS, SOX, HIPAA. MSc Cyber Security; SC-100, CEH.](/teams/kola-olatunde/)
+[Joseph Ola Co-Founder and AI Cybersecurity & Governance Lead Virtual CISO in healthcare, finance and software. Multi-cloud zero-trust; AI controls for LLMs and AML built to NIST AI RMF and the EU AI Act. PCI-DSS, SOX, HIPAA. MSc Cyber Security; SC-100, CEH.](/teams/joseph-ola/)
 
 [Obruche Uwanoghor Executive Director of People & Culture Senior HR and operations leader; most recently COO at Garment Care Ltd, before that HR Manager at Bx-Edge Limited. Educational Psychology, University of Lagos. Owns facilitator standards and the ninety-day follow-through.](/teams/obruche-uwanoghor/)
 
@@ -1745,7 +1745,7 @@ Insights · April 1, 2026
 
 AI governance means the people, rules and checks that keep an AI system safe and accountable. It should be designed before launch, so the organisation knows who owns each decision, which evidence is required and what happens when the system makes a mistake.
 
-By [Kola Olatunde](/teams/kola-olatunde) · AI Cybersecurity & Governance Lead, Cognis Group
+By [Joseph Ola](/teams/joseph-ola) · AI Cybersecurity & Governance Lead, Cognis Group
 
 ## What is AI governance, in practical terms?
 
@@ -1909,7 +1909,7 @@ Photo: [Markus Spiske / Unsplash](https://unsplash.com/photos/iar-afB0QQw)
 
 An AI agent is a tool that can take agreed actions, not just answer questions. To keep it safe, give it only the access it needs, treat outside content as untrusted, require approval for high-risk actions, keep reliable records and make sure it can be stopped quickly.
 
-By [Kola Olatunde](/teams/kola-olatunde/) · Co-Founder and AI Cybersecurity & Governance Lead · 10 min read
+By [Joseph Ola](/teams/joseph-ola/) · Co-Founder and AI Cybersecurity & Governance Lead · 10 min read
 
 ## What changes when a model becomes an agent?
 
@@ -1987,7 +1987,7 @@ Photo: [Jefferson Santos / Unsplash](https://unsplash.com/photos/9SoCnyQmkzI)
 
 RAG, or retrieval-augmented generation, lets AI answer using an organisation's own documents. A safe system must check the user's access before finding information, treat every document as untrusted, send only the necessary content to the model and never let generated text approve an action by itself.
 
-By [Kola Olatunde](/teams/kola-olatunde/) · Co-Founder and AI Cybersecurity & Governance Lead · 9 min read
+By [Joseph Ola](/teams/joseph-ola/) · Co-Founder and AI Cybersecurity & Governance Lead · 9 min read
 
 ## Where can an enterprise RAG system leak data?
 
@@ -2063,7 +2063,7 @@ Photo: [Memento Media / Unsplash](https://unsplash.com/photos/2pPw5Glro5I)
 
 Effective AI governance means clear responsibility, not just a policy document. An organisation should know where AI is used, rate the risk, agree what proof is needed before launch, protect data, monitor live systems and respond when behaviour changes. One core set of controls can then be adapted to each country and sector.
 
-By [Kola Olatunde](/teams/kola-olatunde/) · Co-Founder and AI Cybersecurity & Governance Lead · 11 min read
+By [Joseph Ola](/teams/joseph-ola/) · Co-Founder and AI Cybersecurity & Governance Lead · 11 min read
 
 ## What should an African enterprise govern?
 
@@ -2782,19 +2782,19 @@ Cognis Group bridges deep African market knowledge with global AI engineering ca
 
 ---
 
-Source: https://cognis.group/teams/kola-olatunde/
+Source: https://cognis.group/teams/joseph-ola/
 
 Team
 
-# Kola Olatunde
+# Joseph Ola
 
 Co-Founder and AI Cybersecurity & Governance Lead
 
-Kola co-founded Cognis Group and leads our cybersecurity and AI governance work. He acts as a virtual CISO, designing enterprise security programmes, reporting risk at board level and managing third-party vendor risk. He helps organisations set clear rules for AI, protect sensitive data and meet the standards that apply to them.
+Joseph co-founded Cognis Group and leads our cybersecurity and AI governance work. He acts as a virtual CISO, designing enterprise security programmes, reporting risk at board level and managing third-party vendor risk. He helps organisations set clear rules for AI, protect sensitive data and meet the standards that apply to them.
 
 He has secured multi-cloud environments across AWS, Azure and Google Cloud using zero-trust and identity-first design, and built AI security controls for large language models and anti-money-laundering systems against the NIST AI Risk Management Framework and the EU AI Act. His compliance work spans financial services and healthcare, covering FFIEC, GLBA, BSA/AML, SOX, PCI-DSS and HIPAA. He holds an MSc in Cyber Security and is a Microsoft Cybersecurity Architect (SC-100), AWS Solutions Architect Professional, AWS Security Specialty and Certified Ethical Hacker.
 
-[Kola Olatunde](https://linkedin.com)
+[Joseph Ola](https://linkedin.com)
 [@kolaolatunde](https://x.com)
 [@kolaolatunde](https://instagram.com)
 
@@ -2861,7 +2861,7 @@ Cognis Group bridges deep African market knowledge with global AI engineering ca
 
 [Start the Conversation](/contact/)
 
-## Field notes by Kola Olatunde
+## Field notes by Joseph Ola
 
 [Securing AI Agents in Production: A 2026 Threat Model](/blog/securing-ai-agents-in-production/)AI security
 
@@ -3397,7 +3397,7 @@ We are an AI consulting and engineering firm registered in Nigeria, with our off
 
 ## Why Nigerian organisations work with us
 
-Plenty of firms can talk about AI. The harder part is making it work here: with Nigerian data rules, Nigerian infrastructure, and teams that need to run the system long after the consultants leave. That is the work we do. We are registered with the Corporate Affairs Commission, founded in 2024 by Supreme Oyewumi and Kola Olatunde, and we build for Nigerian reality first.
+Plenty of firms can talk about AI. The harder part is making it work here: with Nigerian data rules, Nigerian infrastructure, and teams that need to run the system long after the consultants leave. That is the work we do. We are registered with the Corporate Affairs Commission, founded in 2024 by Supreme Oyewumi and Joseph Ola, and we build for Nigerian reality first.
 
 Our early work includes AI training delivered in partnership with a state government, workforce programmes for enterprise and public-sector teams, and agent and automation builds for businesses that needed real results, not demonstrations.
 

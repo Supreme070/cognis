@@ -19,9 +19,9 @@ AUTHOR_SUPREME = {
     "role": "Founder & AI Engineer, Cognis Group",
 }
 
-AUTHOR_KOLA = {
-    "name": "Kola Olatunde",
-    "slug": "kola-olatunde",
+AUTHOR_JOSEPH = {
+    "name": "Joseph Ola",
+    "slug": "joseph-ola",
     "role": "AI Cybersecurity & Governance Lead, Cognis Group",
 }
 AUTHOR_FISAYO = {
@@ -179,7 +179,7 @@ BLOG = {
             "Act, ISO 42001, NIST AI RMF, and Nigeria's NDPA all assume governance "
             "is built in, not bolted on."
         ),
-        "author": AUTHOR_KOLA,
+        "author": AUTHOR_JOSEPH,
         "sections": [
             {
                 "q": "What is AI governance, in practical terms?",

@@ -76,7 +76,7 @@ def walk(value, *, faq_items=None, page_name=""):
     if value.get("@type") == "Person":
         if value.get("name") == "Supreme Oyewumi":
             value["jobTitle"] = "Founder & AI Engineer"
-        elif value.get("name") == "Kola Olatunde":
+        elif value.get("name") == "Joseph Ola":
             value["jobTitle"] = "Co-Founder and AI Cybersecurity & Governance Lead"
 
     if value.get("@type") == "FAQPage" and faq_items and page_name == "faq/index.html":

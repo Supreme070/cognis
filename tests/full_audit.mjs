@@ -14,7 +14,7 @@ const pages = [
   '/our-services/ai-agent-automation-engineering',
   '/our-services/ai-strategy-advisory',
   '/teams/supreme-oyewumi',
-  '/teams/kola-olatunde',
+  '/teams/joseph-ola',
   '/teams/fisayo-oludare',
   '/contact',
   '/insights',
@@ -172,12 +172,12 @@ const aboutChecks = [
     const info = await p.evaluate(() => {
       const body = document.body.innerText;
       const hasSupreme = /Supreme/i.test(body);
-      const hasKola = /Kola/i.test(body);
+      const hasJoseph = /Joseph/i.test(body);
       const hasFisayo = /Fisayo/i.test(body);
       const hasEugene = /Eugene/i.test(body);
-      return { hasSupreme, hasKola, hasFisayo, hasEugene };
+      return { hasSupreme, hasJoseph, hasFisayo, hasEugene };
     });
-    const pass = info.hasSupreme && info.hasKola && info.hasFisayo && !info.hasEugene;
+    const pass = info.hasSupreme && info.hasJoseph && info.hasFisayo && !info.hasEugene;
     return { name: 'team=3 no-eugene', pass, detail: JSON.stringify(info) };
   },
   async (p) => {
@@ -323,7 +323,7 @@ async function mobileFooterCheck(browser, route) {
     '/our-services/ai-training-workforce-development': [...trainingChecks, deepRouteCheck('AI Training', '/our-services/ai-training-workforce-development')],
     '/our-services/ai-agent-automation-engineering': [...agentChecks, deepRouteCheck('AI Agent', '/our-services/ai-agent-automation-engineering')],
     '/teams/supreme-oyewumi': [teamPortraitCheck('QnjDKI0', 'Supreme'), noEugeneCheck(), deepRouteCheck('Supreme', '/teams/supreme-oyewumi')],
-    '/teams/kola-olatunde': [teamPortraitCheck('QTiI3J2', 'Kola'), noEugeneCheck(), deepRouteCheck('Kola', '/teams/kola-olatunde')],
+    '/teams/joseph-ola': [teamPortraitCheck('QTiI3J2', 'Joseph'), noEugeneCheck(), deepRouteCheck('Joseph', '/teams/joseph-ola')],
     '/teams/fisayo-oludare': [noEugeneCheck(), deepRouteCheck('Fisayo', '/teams/fisayo-oludare')],
   };
 

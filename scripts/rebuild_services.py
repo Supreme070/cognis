@@ -76,7 +76,7 @@ SERVICES_PER_ITEM: dict[str, dict[str, str]] = {
 #   LHF5pnTEGiDqPokWO5u1DEp2l0  = stock portrait used by AI Agent slot (26 char legacy)
 #   QnjDKI0euXnnnPi4GtTEaqYDJLo = Supreme
 #   IGOxPIDHI4tPrADWVh1HrKM99RQ = Card 4 partner photo
-#   QTiI3J2XXGOwJw3fyXhxuB92fl0 = Kola
+#   QTiI3J2XXGOwJw3fyXhxuB92fl0 = Joseph
 SERVICES_AVATAR_MAP: dict[str, dict[bytes, bytes]] = {
     "J32RqOIjy": {
         b"Mjb5QC7cBmKTRevvIPeGBCVzHHM": b"QnjDKI0euXnnnPi4GtTEaqYDJLo",

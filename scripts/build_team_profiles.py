@@ -29,7 +29,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 
-# CMS-backed members (Supreme, Kola) keep their Framer pages — do NOT list
+# CMS-backed members (Supreme, Joseph) keep their Framer pages — do NOT list
 # them here. Only members without a CMS profile go below.
 MEMBERS = [
     {
