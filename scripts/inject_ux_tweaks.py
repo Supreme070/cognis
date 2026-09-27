@@ -4,7 +4,7 @@
 Two issues these address:
   1. About-us "Meet our team" — the native Framer block is a horizontal
      slideshow that froze at slide 0 and, after Fisayo & Eugene were
-     retired, only loops two real members (Supreme, Kola): it rendered a
+     retired, only loops two real members (Supreme, Joseph): it rendered a
      duplicate Supreme on desktop and dropped out entirely on the phone
      breakpoint. We hide the native slideshow at every breakpoint and style
      a clean, self-contained 2-member grid (`.cognis-team`) that the
@@ -49,7 +49,7 @@ BLOCK = f"""{START}
 
   /* About-us "Meet our team": the native Framer block is a horizontal
      slideshow that froze at slide 0 and only loops two real members
-     (Supreme, Kola) after Fisayo & Eugene were retired — so it showed a
+     (Supreme, Joseph) after Fisayo & Eugene were retired — so it showed a
      duplicate Supreme on desktop and disappeared on the phone breakpoint
      (Framer's mobile layout omits the section). Hide it on the about-us
      snapshot only (scoped so a "team"-named element on any other route is

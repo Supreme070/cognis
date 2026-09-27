@@ -43,3 +43,6 @@
 # Retired team member page
 /teams/fisayo-oludare/* /about-us/ 301
 /teams/fisayo-oludare /about-us/ 301
+# Renamed team member page (Kola Olatunde -> Joseph Ola)
+/teams/kola-olatunde/* /teams/joseph-ola/ 301
+/teams/kola-olatunde /teams/joseph-ola/ 301

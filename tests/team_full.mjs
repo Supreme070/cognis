@@ -12,7 +12,7 @@ const info = await p.evaluate(() => {
     let txt = '';
     for (let k=0;k<6 && parent;k++){ txt = parent.innerText||''; if (txt.length>30) break; parent = parent.parentElement; }
     return {src: i.getAttribute('src'), txt: (txt||'').slice(0,400), dw: i.width};
-  }).filter(x => x.dw > 80 && /supreme|kola|fisayo|eugene/i.test(x.txt))
+  }).filter(x => x.dw > 80 && /supreme|joseph|fisayo|eugene/i.test(x.txt))
     .filter(x => !seen.has(x.src) && seen.add(x.src));
 });
 console.log(JSON.stringify(info, null, 2));

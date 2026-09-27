@@ -17,7 +17,7 @@ const PAGES = [
   '/blog/ai-governance-is-not-optional/', '/blog/ai-native-operations-for-african-enterprises/', '/blog/making-your-workforce-ai-ready/', '/blog/the-real-roi-of-ai/',
   '/case-studies/', '/case-studies/marketsage/', '/case-studies/ai-training-programme/', '/case-studies/claims-processing-automation/',
   '/contact/', '/faq/', '/how-we-work/',
-  '/teams/supreme-oyewumi/', '/teams/kola-olatunde/', '/teams/fisayo-oludare/',
+  '/teams/supreme-oyewumi/', '/teams/joseph-ola/', '/teams/fisayo-oludare/',
   '/privacy-policy/', '/terms/', '/thanks/', '/thanks-subscribe/',
 ]
 

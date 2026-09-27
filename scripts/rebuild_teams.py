@@ -22,12 +22,12 @@ TEAMS = {
         "Supreme co-founded Cognis Group and leads its AI engineering practice \u2014 architecting, building, and deploying the intelligent agents, automation systems, and ML pipelines that power client engagements. He turns strategy into working production software.",
     "@zairedorwart": "@supremeoyewumi",
 
-    # --- Member 2: Cheyenne George → Kola Olatunde ---
-    "Cheyenne George": "Kola Olatunde",
-    "cheyenne-george": "kola-olatunde",
+    # --- Member 2: Cheyenne George → Joseph Ola ---
+    "Cheyenne George": "Joseph Ola",
+    "cheyenne-george": "joseph-ola",
     "Head of AI Strategy": "AI Cybersecurity & Governance Lead",
     "Cheyenne leads the development of our client-facing AI roadmaps and integration projects. Her expertise in Machine Learning ensures our solutions drive measurable impact and future-proof client operations.":
-        "Kola co-founded Cognis Group and leads its cybersecurity and AI governance practice \u2014 designing policy frameworks, model oversight systems, and compliance architectures aligned to the EU AI Act, ISO 42001, NIST AI RMF, and the Nigerian Data Protection Act. He has secured AI deployments for financial, government, and enterprise clients across three continents.",
+        "Joseph co-founded Cognis Group and leads its cybersecurity and AI governance practice \u2014 designing policy frameworks, model oversight systems, and compliance architectures aligned to the EU AI Act, ISO 42001, NIST AI RMF, and the Nigerian Data Protection Act. He has secured AI deployments for financial, government, and enterprise clients across three continents.",
     "@cheyennegeorge": "@kolaolatunde",
 
     # --- Member 3: Jaylon Calzoni → Fisayo Oludare ---

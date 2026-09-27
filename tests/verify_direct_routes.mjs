@@ -3,7 +3,7 @@ const b = await chromium.launch();
 const p = await (await b.newContext({viewport:{width:1440,height:900}})).newPage();
 const routes = [
   '/teams/supreme-oyewumi',
-  '/teams/kola-olatunde',
+  '/teams/joseph-ola',
   '/teams/fisayo-oludare',
   '/our-services/ai-training-workforce-development',
   '/our-services/ai-agent-automation-engineering',

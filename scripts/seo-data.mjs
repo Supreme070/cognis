@@ -19,12 +19,12 @@ const AUTHOR_SUPREME = {
   worksFor: { '@id': ORG_ID },
 };
 
-const AUTHOR_KOLA = {
+const AUTHOR_JOSEPH = {
   '@type': 'Person',
-  '@id': `${ORIGIN}/teams/kola-olatunde/#person`,
-  name: 'Kola Olatunde',
+  '@id': `${ORIGIN}/teams/joseph-ola/#person`,
+  name: 'Joseph Ola',
   jobTitle: 'Co-Founder and AI Cybersecurity & Governance Lead',
-  url: `${ORIGIN}/teams/kola-olatunde/`,
+  url: `${ORIGIN}/teams/joseph-ola/`,
   worksFor: { '@id': ORG_ID },
 };
 
@@ -38,8 +38,8 @@ export const TEAM_MEMBERS = [
     image: '/framer-runtime/images/QnjDKI0euXnnnPi4GtTEaqYDJLo.png',
   },
   {
-    id: 'kola-olatunde',
-    name: 'Kola Olatunde',
+    id: 'joseph-ola',
+    name: 'Joseph Ola',
     jobTitle: 'Co-Founder and AI Cybersecurity & Governance Lead',
     image: '/framer-runtime/images/QTiI3J2XXGOwJw3fyXhxuB92fl0.png',
   },
@@ -76,7 +76,7 @@ export const BLOG_POSTS = [
       'A practical guide to the rules, checks and responsibilities that help organisations use AI safely and meet key requirements.',
     datePublished: '2026-04-01',
     dateModified: '2026-07-24',
-    author: AUTHOR_KOLA,
+    author: AUTHOR_JOSEPH,
     image: `${ORIGIN}/og/cognis-og-1200x630.jpg`,
     keywords: ['AI governance', 'EU AI Act', 'NIST AI RMF', 'ISO 42001', 'AI compliance'],
   },

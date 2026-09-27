@@ -18,7 +18,7 @@ ORIGIN = "https://cognis.group"
 BLOG = {
     "why-most-enterprise-ai-strategies-fail-before-they-start": ("Supreme Oyewumi", "Founder & AI Engineer", "2026-03-18", "2026-07-24"),
     "building-ai-agents-that-actually-ship": ("Supreme Oyewumi", "Founder & AI Engineer", "2026-03-25", "2026-07-24"),
-    "ai-governance-is-not-optional": ("Kola Olatunde", "AI Cybersecurity & Governance Lead", "2026-04-01", "2026-07-24"),
+    "ai-governance-is-not-optional": ("Joseph Ola", "AI Cybersecurity & Governance Lead", "2026-04-01", "2026-07-24"),
     "the-real-roi-of-ai": ("Supreme Oyewumi", "Founder & AI Engineer", "2026-04-03", "2026-07-24"),
     "making-your-workforce-ai-ready": ("Fisayo Oludare", "Executive Director, Partnerships & AI Enablement", "2026-04-06", "2026-07-24"),
     "ai-native-operations-for-african-enterprises": ("Supreme Oyewumi", "Founder & AI Engineer", "2026-04-08", "2026-07-24"),
@@ -96,13 +96,13 @@ def rewrite_jsonld(html: str, rel: str) -> str:
                 if node.get("@type") == "Organization" and node.get("@id") == f"{ORIGIN}/#organization":
                     node["founder"] = [
                         {"@type": "Person", "@id": f"{ORIGIN}/teams/supreme-oyewumi/#person", "name": "Supreme Oyewumi"},
-                        {"@type": "Person", "@id": f"{ORIGIN}/teams/kola-olatunde/#person", "name": "Kola Olatunde"},
+                        {"@type": "Person", "@id": f"{ORIGIN}/teams/joseph-ola/#person", "name": "Joseph Ola"},
                     ]
         if isinstance(graph, list) and blog_slug in BLOG:
             author_name, role, published, modified = BLOG[blog_slug]
             author_slug = {
                 "Supreme Oyewumi": "supreme-oyewumi",
-                "Kola Olatunde": "kola-olatunde",
+                "Joseph Ola": "joseph-ola",
             }[author_name]
             person_id = f"{ORIGIN}/teams/{author_slug}/#person"
             page_id = f"{ORIGIN}/blog/{blog_slug}/#webpage"
@@ -138,8 +138,8 @@ def rewrite_jsonld(html: str, rel: str) -> str:
                         {"@type": "ListItem", "position": 3, "name": blog_slug.replace("-", " ").title(), "item": f"{ORIGIN}/blog/{blog_slug}/"},
                     ],
                 })
-        if isinstance(graph, list) and team_slug in {"kola-olatunde", "supreme-oyewumi"}:
-            target_name = "Kola Olatunde" if team_slug == "kola-olatunde" else "Supreme Oyewumi"
+        if isinstance(graph, list) and team_slug in {"joseph-ola", "supreme-oyewumi"}:
+            target_name = "Joseph Ola" if team_slug == "joseph-ola" else "Supreme Oyewumi"
             person_id = f"{ORIGIN}/teams/{team_slug}/#person"
             for node in graph:
                 if not isinstance(node, dict):

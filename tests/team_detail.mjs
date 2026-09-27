@@ -1,7 +1,7 @@
 import { chromium } from 'playwright';
 const b = await chromium.launch();
 const p = await (await b.newContext({viewport:{width:1440,height:900}})).newPage();
-for (const slug of ['supreme-oyewumi', 'kola-olatunde', 'fisayo-oludare']) {
+for (const slug of ['supreme-oyewumi', 'joseph-ola', 'fisayo-oludare']) {
   await p.goto('http://127.0.0.1:3001/team/' + slug + '?cb=' + Date.now(), {waitUntil:'domcontentloaded', timeout:60000});
   await p.waitForTimeout(4000);
   const info = await p.evaluate(() => {
