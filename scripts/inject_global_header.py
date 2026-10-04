@@ -53,6 +53,15 @@ NAV = [("home", "/", "Home"), ("about", "/about-us/", "About Us"), ("services", 
 EXPLORE = [("/why-cognis/", "Why Cognis", "The case for working with us"),
            ("/case-studies/", "Case Studies", "AI shipped to governed production"),
            ("/how-we-work/", "How We Work", "Six phases, designed to ship")]
+# Products dropdown. Tag is "New", "Soon", or "". "New" tags and the footer
+# launch link hide themselves from 2027-01-01 (cognis.js expireNewTags).
+PRODUCTS = [("https://brain.cognis.group", "/assets/products/cognis-brain-icon.svg", "Cognis Brain", "Private AI on your own servers", ""),
+            ("https://www.marketsage.africa", "/assets/marketsage-logo.png", "MarketSage", "Marketing that plans and converts", ""),
+            ("https://migratio.cognis.group", "/assets/products/migratio-icon.svg", "Migratio", "Data migration you can prove", ""),
+            ("https://spog.cognis.group", "/assets/spog-icon.svg", "SPOG", "One trusted operations view", ""),
+            ("https://academy.cognis.group", "/assets/logo-kit/cognis-app-icon.svg", "Cognis Academy", "AI training for teams", "New"),
+            ("https://imisilab.cognis.group", "/assets/imisilab-mark.svg", "Imisi Lab", "Coding and AI for kids 6 to 13", "New"),
+            ("/products/#new", "/assets/products/eko-one-mark.svg", "Eko One", "Lagos services, in your language", "Soon")]
 
 SKIN = {
     "white": {"TEXT": "rgb(255, 255, 255)", "LINK": "rgba(255, 255, 255, 0.8)", "CHEV": "#FFFFFF"},
@@ -72,15 +81,31 @@ def current_key(rel: str) -> str | None:
             "contact": "contact"}.get(top)
 
 
+def products_panel() -> str:
+    items = []
+    for href, icon, name, desc, tag in PRODUCTS:
+        ext = ' target="_blank" rel="noopener"' if href.startswith("http") else ""
+        until = ' data-cg-new-until="2027-01-01"' if tag == "New" else ""
+        badge = f'<em class="cg-tag-{tag.lower()}"{until}>{tag}</em>' if tag else ""
+        items.append(f'<a href="{href}"{ext}><img src="{icon}" alt="" width="32" height="32" loading="lazy">'
+                     f'<span><span class="t">{name}{badge}</span><span class="d">{desc}</span></span></a>')
+    return ('<div class="cg-exp-panel"><div class="cg-exp-menu cg-prod-menu">'
+            f'<div class="cg-prod-grid">{"".join(items)}</div>'
+            '<div class="cg-prod-foot"><a href="/products/#new" data-cg-new-until="2027-01-01"><em class="cg-tag-new">New</em>Cognis Academy and Imisi Lab</a>'
+            '<a href="/products/">All products →</a></div></div></div>')
+
+
 def header_html(skin: str, current: str | None) -> str:
     c = SKIN[skin]
     links = []
     for key, href, label in NAV:
         cur = ' aria-current="page"' if key == current else ""
         cls = "cg-gh-link cg-gh-current" if key == current else "cg-gh-link"
-        links.append(
-            f'        <a class="{cls}" href="{href}"{cur} style="color: {c["LINK"]}; {FONT}">'
-            f'<span class="cgRoll"><b>{label}</b><b>{label}</b></span></a>')
+        link = (f'<a class="{cls}" href="{href}"{cur} style="color: {c["LINK"]}; {FONT}">'
+                f'<span class="cgRoll"><b>{label}</b><b>{label}</b></span></a>')
+        if key == "products":
+            link = f'<div class="cg-exp cg-prod">{link}{products_panel()}</div>'
+        links.append("        " + link)
     explore_items = "".join(
         f'\n              <a href="{href}"><span class="t">{t}</span><span class="d">{d}</span></a>'
         for href, t, d in EXPLORE)
@@ -129,6 +154,17 @@ STYLE = """<style data-cognis-gheader>
   .cg-gh .cg-exp-menu .t { font-weight: 600; font-size: 14px; color: #FFFFFF; }
   .cg-gh .cg-exp-menu .d { font-weight: 400; font-size: 12px; color: rgba(255,255,255,0.5); }
   .cg-gh a { text-decoration: none; }
+  .cg-gh .cg-prod-menu { width: 600px; padding: 10px; }
+  .cg-gh .cg-prod-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+  .cg-gh .cg-prod-menu a { flex-direction: row; align-items: center; gap: 12px; }
+  .cg-gh .cg-prod-menu img { width: 32px; height: 32px; border-radius: 9px; padding: 5px; box-sizing: border-box; background: rgba(255,255,255,0.92); object-fit: contain; flex-shrink: 0; }
+  .cg-gh .cg-prod-menu a > span { display: flex; flex-direction: column; gap: 2px; }
+  .cg-gh .cg-prod-menu em { font-style: normal; margin-left: 8px; padding: 2px 7px; border-radius: 100px; font-size: 10px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; vertical-align: 1px; }
+  .cg-gh .cg-tag-new { background: #D6FD70; color: #131313; }
+  .cg-gh .cg-tag-soon { border: 1px solid rgba(214,253,112,0.45); color: #D6FD70; }
+  .cg-gh .cg-prod-foot { display: flex; justify-content: space-between; margin-top: 8px; padding-top: 8px; border-top: 1px solid rgba(255,255,255,0.08); }
+  .cg-gh .cg-prod-foot a { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.85); }
+  .cg-gh .cg-prod-foot em { margin: 0 8px 0 0 !important; }
   /* Pages where the header is a direct child of <body> (no prerendered hero
      wrapper) need their content pushed clear of the absolute header. */
   body > .cg-gh ~ main { padding-top: 108px; }

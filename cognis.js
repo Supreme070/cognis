@@ -233,7 +233,7 @@
     var seen = {}, items = [];
     headers.forEach(function (h) {
       [].slice.call(h.querySelectorAll('a[href]')).forEach(function (a) {
-        if (a.classList.contains('cg-gh-logo')) return;
+        if (a.classList.contains('cg-gh-logo') || a.closest('.cg-prod-menu')) return;
         var href = a.getAttribute('href'), text = cgLabelOf(a);
         if (!href || href === '#' || !text || seen[href]) return;
         seen[href] = 1;
@@ -396,6 +396,15 @@
     window.addEventListener('resize', fit);
   }
 
-  function init() { keepAlive(); setInterval(keepAlive, 1000); setupReveal(); setupAppear(); setupCountUp(); setupServices(); setupProductHover(); setupTestiCarousel(); setupMobileNav(); setupHeroScale(); }
+  // Launch badges ("New" tags, the homepage "New" pill) carry data-cg-new-until="YYYY-MM-DD"
+  // and remove themselves from that date, so they never go stale.
+  function expireNewTags() {
+    var today = new Date().toISOString().slice(0, 10);
+    [].slice.call(document.querySelectorAll('[data-cg-new-until]')).forEach(function (el) {
+      if (today >= el.getAttribute('data-cg-new-until')) el.remove();
+    });
+  }
+
+  function init() { expireNewTags(); keepAlive(); setInterval(keepAlive, 1000); setupReveal(); setupAppear(); setupCountUp(); setupServices(); setupProductHover(); setupTestiCarousel(); setupMobileNav(); setupHeroScale(); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 })();

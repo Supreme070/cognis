@@ -95,6 +95,10 @@
 [data-h="h5"]:hover{border-color: #5F6FFF !important; background: rgba(95,111,255,0.05) !important; transform: translateY(-5px); box-shadow: 0 22px 50px -26px rgba(19,19,19,0.32);}
 [data-h="h6"]:hover{border-color: #5BB04F !important; transform: translateY(-5px); box-shadow: 0 22px 50px -26px rgba(19,19,19,0.32);}
 [data-h="h7"]:hover{border-color: #5B54E0 !important; background: rgba(91,84,224,0.05) !important; transform: translateY(-5px); box-shadow: 0 22px 50px -26px rgba(19,19,19,0.32);}
+[data-h="h40"]:hover{border-color: #131313 !important; background: rgba(205,251,86,0.12) !important; transform: translateY(-5px); box-shadow: 0 22px 50px -26px rgba(19,19,19,0.32);}
+[data-h="h41"]:hover{border-color: #EC3013 !important; background: rgba(236,48,19,0.04) !important; transform: translateY(-5px); box-shadow: 0 22px 50px -26px rgba(19,19,19,0.32);}
+[data-h="h42"]:hover{transform: translateY(-5px); box-shadow: 0 22px 50px -26px rgba(19,19,19,0.5);}
+[data-h="h43"]:hover{border-color: #131313 !important;}
 [data-h="h8"]:hover{background: #2F2F2F !important;}
 [data-h="h9"]:hover{box-shadow: 0 20px 40px rgba(13,13,12,0.08);}
 a[href*="/blog/"] div[style*="overflow"] img{transition:transform .65s cubic-bezier(.19,1,.22,1)}
@@ -478,6 +482,14 @@ a[href*="/blog/"]:hover div[style*="overflow"] img{transform:scale(1.06)}
 })();
 </script>
 <!-- cognis-route-handoff:end -->
+<style data-cognis-gfooter>
+  .cg-gf a { text-decoration: none; }
+  .cg-gf a.cg-gf-link:hover { color: #FFFFFF !important; }
+  .cg-gf .cg-gf-btn:hover { background: #E5FF9B !important; }
+  /* Framer service pages: the global footer replaces Framer's own. */
+  div:has(> footer.framer-uOBZL), footer.framer-uOBZL { display: none !important; }
+</style>
+<link rel="stylesheet" href="/assets/site-improvements.css">
 <style data-cognis-gheader>
   @keyframes cgFadeUp { from { opacity: 0; transform: translateY(32px); } to { opacity: 1; transform: translateY(0); } }
   .cg-gh .cgRoll { display: inline-block; overflow: hidden; height: 20px; vertical-align: top; }
@@ -497,6 +509,17 @@ a[href*="/blog/"]:hover div[style*="overflow"] img{transform:scale(1.06)}
   .cg-gh .cg-exp-menu .t { font-weight: 600; font-size: 14px; color: #FFFFFF; }
   .cg-gh .cg-exp-menu .d { font-weight: 400; font-size: 12px; color: rgba(255,255,255,0.5); }
   .cg-gh a { text-decoration: none; }
+  .cg-gh .cg-prod-menu { width: 600px; padding: 10px; }
+  .cg-gh .cg-prod-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+  .cg-gh .cg-prod-menu a { flex-direction: row; align-items: center; gap: 12px; }
+  .cg-gh .cg-prod-menu img { width: 32px; height: 32px; border-radius: 9px; padding: 5px; box-sizing: border-box; background: rgba(255,255,255,0.92); object-fit: contain; flex-shrink: 0; }
+  .cg-gh .cg-prod-menu a > span { display: flex; flex-direction: column; gap: 2px; }
+  .cg-gh .cg-prod-menu em { font-style: normal; margin-left: 8px; padding: 2px 7px; border-radius: 100px; font-size: 10px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; vertical-align: 1px; }
+  .cg-gh .cg-tag-new { background: #D6FD70; color: #131313; }
+  .cg-gh .cg-tag-soon { border: 1px solid rgba(214,253,112,0.45); color: #D6FD70; }
+  .cg-gh .cg-prod-foot { display: flex; justify-content: space-between; margin-top: 8px; padding-top: 8px; border-top: 1px solid rgba(255,255,255,0.08); }
+  .cg-gh .cg-prod-foot a { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.85); }
+  .cg-gh .cg-prod-foot em { margin: 0 8px 0 0 !important; }
   /* Pages where the header is a direct child of <body> (no prerendered hero
      wrapper) need their content pushed clear of the absolute header. */
   body > .cg-gh ~ main { padding-top: 108px; }
@@ -507,14 +530,6 @@ a[href*="/blog/"]:hover div[style*="overflow"] img{transform:scale(1.06)}
   /* Framer service pages: the global header replaces Framer's own nav. */
   div:has(> nav.framer-AZa26), nav.framer-AZa26 { display: none !important; }
 </style>
-<style data-cognis-gfooter>
-  .cg-gf a { text-decoration: none; }
-  .cg-gf a.cg-gf-link:hover { color: #FFFFFF !important; }
-  .cg-gf .cg-gf-btn:hover { background: #E5FF9B !important; }
-  /* Framer service pages: the global footer replaces Framer's own. */
-  div:has(> footer.framer-uOBZL), footer.framer-uOBZL { display: none !important; }
-</style>
-<link rel="stylesheet" href="/assets/site-improvements.css">
 </head>
 <body><a class="cg-skip-link" href="#cg-main">Skip to content</a>
 <div id="dc-root"><div class="sc-host" data-sc-name="__pre__Cognis Home"><div data-dc-tpl="6" style="background: rgb(255, 255, 255); position: relative;">
@@ -530,7 +545,7 @@ a[href*="/blog/"]:hover div[style*="overflow"] img{transform:scale(1.06)}
         <a class="cg-gh-link cg-gh-current" href="/" aria-current="page" style="color: rgba(255, 255, 255, 0.8); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; white-space: nowrap;"><span class="cgRoll"><b>Home</b><b>Home</b></span></a>
         <a class="cg-gh-link" href="/about-us/" style="color: rgba(255, 255, 255, 0.8); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; white-space: nowrap;"><span class="cgRoll"><b>About Us</b><b>About Us</b></span></a>
         <a class="cg-gh-link" href="/our-services/" style="color: rgba(255, 255, 255, 0.8); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; white-space: nowrap;"><span class="cgRoll"><b>Services</b><b>Services</b></span></a>
-        <a class="cg-gh-link" href="/products/" style="color: rgba(255, 255, 255, 0.8); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; white-space: nowrap;"><span class="cgRoll"><b>Products</b><b>Products</b></span></a>
+        <div class="cg-exp cg-prod"><a class="cg-gh-link" href="/products/" style="color: rgba(255, 255, 255, 0.8); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; white-space: nowrap;"><span class="cgRoll"><b>Products</b><b>Products</b></span></a><div class="cg-exp-panel"><div class="cg-exp-menu cg-prod-menu"><div class="cg-prod-grid"><a href="https://brain.cognis.group" target="_blank" rel="noopener"><img src="/assets/products/cognis-brain-icon.svg" alt="" width="32" height="32" loading="lazy"><span><span class="t">Cognis Brain</span><span class="d">Private AI on your own servers</span></span></a><a href="https://www.marketsage.africa" target="_blank" rel="noopener"><img src="/assets/marketsage-logo.png" alt="" width="32" height="32" loading="lazy"><span><span class="t">MarketSage</span><span class="d">Marketing that plans and converts</span></span></a><a href="https://migratio.cognis.group" target="_blank" rel="noopener"><img src="/assets/products/migratio-icon.svg" alt="" width="32" height="32" loading="lazy"><span><span class="t">Migratio</span><span class="d">Data migration you can prove</span></span></a><a href="https://spog.cognis.group" target="_blank" rel="noopener"><img src="/assets/spog-icon.svg" alt="" width="32" height="32" loading="lazy"><span><span class="t">SPOG</span><span class="d">One trusted operations view</span></span></a><a href="https://academy.cognis.group" target="_blank" rel="noopener"><img src="/assets/logo-kit/cognis-app-icon.svg" alt="" width="32" height="32" loading="lazy"><span><span class="t">Cognis Academy<em class="cg-tag-new" data-cg-new-until="2027-01-01">New</em></span><span class="d">AI training for teams</span></span></a><a href="https://imisilab.cognis.group" target="_blank" rel="noopener"><img src="/assets/imisilab-mark.svg" alt="" width="32" height="32" loading="lazy"><span><span class="t">Imisi Lab<em class="cg-tag-new" data-cg-new-until="2027-01-01">New</em></span><span class="d">Coding and AI for kids 6 to 13</span></span></a><a href="/products/#new"><img src="/assets/products/eko-one-mark.svg" alt="" width="32" height="32" loading="lazy"><span><span class="t">Eko One<em class="cg-tag-soon">Soon</em></span><span class="d">Lagos services, in your language</span></span></a></div><div class="cg-prod-foot"><a href="/products/#new" data-cg-new-until="2027-01-01"><em class="cg-tag-new">New</em>Cognis Academy and Imisi Lab</a><a href="/products/">All products →</a></div></div></div></div>
         <a class="cg-gh-link" href="/blog/" style="color: rgba(255, 255, 255, 0.8); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; white-space: nowrap;"><span class="cgRoll"><b>Insights</b><b>Insights</b></span></a>
         <div class="cg-exp" tabindex="0" style="height: 20px; color: rgba(255, 255, 255, 0.8); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; white-space: nowrap; cursor: default;">
           <span style="display: inline-flex; align-items: center; gap: 5px;">Explore
@@ -850,6 +865,7 @@ a[href*="/blog/"]:hover div[style*="overflow"] img{transform:scale(1.06)}
   <section data-dc-tpl="165" id="products" data-screen-label="Products" style="background: rgb(255, 255, 255); padding: 0px clamp(16px, 3.33vw, 48px) 96px;">
     <div data-dc-tpl="166" style="max-width: 1280px; margin: 0px auto;">
       <div data-dc-tpl="167" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+        <a href="/products/#new" data-h="h43" data-cg-new-until="2027-01-01" style="display: inline-flex; align-items: center; gap: 8px; margin-bottom: 20px; padding: 6px 14px 6px 6px; border: 1px solid rgb(230, 230, 230); border-radius: 100px; font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-size: 14px; font-weight: 500; color: rgb(19, 19, 19); transition: border-color 0.3s;"><span style="padding: 3px 10px; border-radius: 100px; background: rgb(205, 251, 86); font-weight: 600; font-size: 12px; letter-spacing: 0.6px; text-transform: uppercase;">New</span>Cognis Academy and Imisi Lab are live →</a>
         <div data-dc-tpl="168" style="display: flex; align-items: center; gap: 12px;">
           <div data-dc-tpl="169" style="width: 4px; height: 4px; background: rgb(19, 19, 19);"></div>
           <div data-dc-tpl="170" style="font-family: Geistmono, &quot;Geist Mono&quot;, monospace; font-size: 13px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: rgb(19, 19, 19);">Products</div>
@@ -902,6 +918,34 @@ a[href*="/blog/"]:hover div[style*="overflow"] img{transform:scale(1.06)}
           <div data-dc-tpl="210" style="height: 14px;"></div>
           <div data-dc-tpl="211" style="font-size: 15px; line-height: 1.45; color: rgb(123, 123, 123);">One trusted view of IT, networks, buildings, vehicles and security, showing where every number came from.</div>
           <div data-dc-tpl="212" style="margin-top: auto; padding-top: 18px; font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 600; font-size: 14px; color: rgb(19, 19, 19);">Visit SPOG →</div>
+        </a>
+        
+        <a href="https://academy.cognis.group" target="_blank" rel="noopener" data-h="h40" style="border: 1px solid rgb(230, 230, 230); border-radius: 18px; padding: 24px; min-height: 278px; box-sizing: border-box; display: flex; flex-direction: column; transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s, background-color 0.3s;">
+          <div style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.88px; text-transform: uppercase; color: rgb(123, 123, 123);">Live · AI training<span data-cg-new-until="2027-01-01" style="display: inline-block; margin-left: 6px; padding: 2px 8px; border-radius: 100px; background: rgb(205, 251, 86); color: rgb(19, 19, 19); letter-spacing: 0.8px;">New</span></div>
+          <div style="height: 18px;"></div>
+          <div style="display: flex; align-items: center; gap: 8px;"><img loading="lazy" decoding="async" src="/assets/logo-kit/cognis-app-icon.svg" alt="" width="24" height="24" style="width: 24px; height: 24px; display: block; flex-shrink: 0;"><span style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 700; font-size: 20px; letter-spacing: -0.02em; line-height: 1; color: rgb(19, 19, 19);">Cognis Academy</span></div>
+          <div style="height: 14px;"></div>
+          <div style="font-size: 15px; line-height: 1.45; color: rgb(123, 123, 123);">AI courses and team programmes, already delivered for a leading Nigerian energy company.</div>
+          <div style="margin-top: auto; padding-top: 18px; font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 600; font-size: 14px; color: rgb(19, 19, 19);">Browse the courses →</div>
+        </a>
+        
+        <a href="https://imisilab.cognis.group" target="_blank" rel="noopener" data-h="h41" style="border: 1px solid rgb(230, 230, 230); border-radius: 18px; padding: 24px; min-height: 278px; box-sizing: border-box; display: flex; flex-direction: column; transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s, background-color 0.3s;">
+          <div style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.88px; text-transform: uppercase; color: rgb(123, 123, 123);">Live · For families<span data-cg-new-until="2027-01-01" style="display: inline-block; margin-left: 6px; padding: 2px 8px; border-radius: 100px; background: rgb(205, 251, 86); color: rgb(19, 19, 19); letter-spacing: 0.8px;">New</span></div>
+          <div style="height: 18px;"></div>
+          <div style="display: flex; align-items: center; gap: 8px;"><img loading="lazy" decoding="async" src="/assets/imisilab-mark.svg" alt="" width="24" height="24" style="width: 24px; height: 24px; display: block; flex-shrink: 0; border-radius: 5px;"><span style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 700; font-size: 20px; letter-spacing: -0.02em; line-height: 1; color: rgb(19, 19, 19);">Imisi Lab</span></div>
+          <div style="height: 14px;"></div>
+          <div style="font-size: 15px; line-height: 1.45; color: rgb(123, 123, 123);">Coding, robots and AI for children aged 6 to 13, learning at home one small step at a time.</div>
+          <div style="margin-top: auto; padding-top: 18px; font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 600; font-size: 14px; color: rgb(19, 19, 19);">Visit Imisi Lab →</div>
+        </a>
+        
+        <a href="/contact/?interest=eko-one" data-h="h42" style="grid-column: span 2; background: rgb(13, 13, 12); border: 1px solid rgb(13, 13, 12); color: rgb(255, 255, 255); border-radius: 18px; padding: 24px; min-height: 278px; box-sizing: border-box; display: flex; flex-direction: column; transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s, background-color 0.3s;">
+          <div style="font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 600; font-size: 11px; letter-spacing: 0.88px; text-transform: uppercase; color: rgb(214, 253, 112);">Coming soon</div>
+          <div style="height: 18px;"></div>
+          <div><img loading="lazy" decoding="async" src="/assets/eko-one-lockup-white.svg" alt="Eko One" width="460" height="80" style="height: 30px; width: auto; display: block;"></div>
+          <div style="height: 14px;"></div>
+          <div style="font-size: 15px; line-height: 1.45; color: rgb(193, 193, 193); max-width: 460px;">Ask about Lagos services in English, Yorùbá or Pidgin, and get the right steps, each linked to its official source.</div>
+          <div aria-hidden="true" style="margin-top: 22px; display: flex; align-items: center; gap: 10px; padding: 8px 8px 8px 10px; border-radius: 14px; background: rgb(255, 255, 255); color: rgb(19, 19, 19); max-width: 520px; box-shadow: rgba(214, 253, 112, 0.14) 0px 0px 0px 5px;"><span style="flex-shrink: 0; padding: 5px 9px; border-radius: 8px; background: rgb(19, 19, 19); color: rgb(214, 253, 112); font-size: 10.5px; font-weight: 600; letter-spacing: 0.6px; text-transform: uppercase;">Yorùbá</span><span style="flex: 1 1 0%; min-width: 0; font-size: 14px; font-weight: 500; text-align: left;">Báwo ni mo ṣe lè gba tax clearance (e-TCC)?</span><span style="flex-shrink: 0; width: 30px; height: 30px; border-radius: 8px; background: rgb(214, 253, 112); display: grid; place-items: center; font-weight: 700;">↑</span></div>
+          <div style="margin-top: auto; padding-top: 18px; font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 600; font-size: 14px; color: rgb(214, 253, 112);">Get notified →</div>
         </a>
       </div>
     </div>

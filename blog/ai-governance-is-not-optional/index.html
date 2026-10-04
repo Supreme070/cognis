@@ -173,6 +173,13 @@ a[data-dc-tpl="65"]:hover { opacity: 1; }
 <meta property="article:author" content="Joseph Ola" />
 <link rel="stylesheet" href="/assets/seo-editorial.css">
 <link rel="stylesheet" href="/assets/site-improvements.css">
+<style data-cognis-gfooter>
+  .cg-gf a { text-decoration: none; }
+  .cg-gf a.cg-gf-link:hover { color: #FFFFFF !important; }
+  .cg-gf .cg-gf-btn:hover { background: #E5FF9B !important; }
+  /* Framer service pages: the global footer replaces Framer's own. */
+  div:has(> footer.framer-uOBZL), footer.framer-uOBZL { display: none !important; }
+</style>
 <style data-cognis-gheader>
   @keyframes cgFadeUp { from { opacity: 0; transform: translateY(32px); } to { opacity: 1; transform: translateY(0); } }
   .cg-gh .cgRoll { display: inline-block; overflow: hidden; height: 20px; vertical-align: top; }
@@ -192,6 +199,17 @@ a[data-dc-tpl="65"]:hover { opacity: 1; }
   .cg-gh .cg-exp-menu .t { font-weight: 600; font-size: 14px; color: #FFFFFF; }
   .cg-gh .cg-exp-menu .d { font-weight: 400; font-size: 12px; color: rgba(255,255,255,0.5); }
   .cg-gh a { text-decoration: none; }
+  .cg-gh .cg-prod-menu { width: 600px; padding: 10px; }
+  .cg-gh .cg-prod-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+  .cg-gh .cg-prod-menu a { flex-direction: row; align-items: center; gap: 12px; }
+  .cg-gh .cg-prod-menu img { width: 32px; height: 32px; border-radius: 9px; padding: 5px; box-sizing: border-box; background: rgba(255,255,255,0.92); object-fit: contain; flex-shrink: 0; }
+  .cg-gh .cg-prod-menu a > span { display: flex; flex-direction: column; gap: 2px; }
+  .cg-gh .cg-prod-menu em { font-style: normal; margin-left: 8px; padding: 2px 7px; border-radius: 100px; font-size: 10px; font-weight: 700; letter-spacing: 0.6px; text-transform: uppercase; vertical-align: 1px; }
+  .cg-gh .cg-tag-new { background: #D6FD70; color: #131313; }
+  .cg-gh .cg-tag-soon { border: 1px solid rgba(214,253,112,0.45); color: #D6FD70; }
+  .cg-gh .cg-prod-foot { display: flex; justify-content: space-between; margin-top: 8px; padding-top: 8px; border-top: 1px solid rgba(255,255,255,0.08); }
+  .cg-gh .cg-prod-foot a { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.85); }
+  .cg-gh .cg-prod-foot em { margin: 0 8px 0 0 !important; }
   /* Pages where the header is a direct child of <body> (no prerendered hero
      wrapper) need their content pushed clear of the absolute header. */
   body > .cg-gh ~ main { padding-top: 108px; }
@@ -201,13 +219,6 @@ a[data-dc-tpl="65"]:hover { opacity: 1; }
   .sc-host > div:has(> .cg-gh) { display: flow-root; }
   /* Framer service pages: the global header replaces Framer's own nav. */
   div:has(> nav.framer-AZa26), nav.framer-AZa26 { display: none !important; }
-</style>
-<style data-cognis-gfooter>
-  .cg-gf a { text-decoration: none; }
-  .cg-gf a.cg-gf-link:hover { color: #FFFFFF !important; }
-  .cg-gf .cg-gf-btn:hover { background: #E5FF9B !important; }
-  /* Framer service pages: the global footer replaces Framer's own. */
-  div:has(> footer.framer-uOBZL), footer.framer-uOBZL { display: none !important; }
 </style>
 </head>
 <body><a class="cg-skip-link" href="#content">Skip to content</a>
@@ -222,7 +233,7 @@ a[data-dc-tpl="65"]:hover { opacity: 1; }
         <a class="cg-gh-link" href="/" style="color: rgba(19, 19, 19, 0.8); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; white-space: nowrap;"><span class="cgRoll"><b>Home</b><b>Home</b></span></a>
         <a class="cg-gh-link" href="/about-us/" style="color: rgba(19, 19, 19, 0.8); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; white-space: nowrap;"><span class="cgRoll"><b>About Us</b><b>About Us</b></span></a>
         <a class="cg-gh-link" href="/our-services/" style="color: rgba(19, 19, 19, 0.8); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; white-space: nowrap;"><span class="cgRoll"><b>Services</b><b>Services</b></span></a>
-        <a class="cg-gh-link" href="/products/" style="color: rgba(19, 19, 19, 0.8); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; white-space: nowrap;"><span class="cgRoll"><b>Products</b><b>Products</b></span></a>
+        <div class="cg-exp cg-prod"><a class="cg-gh-link" href="/products/" style="color: rgba(19, 19, 19, 0.8); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; white-space: nowrap;"><span class="cgRoll"><b>Products</b><b>Products</b></span></a><div class="cg-exp-panel"><div class="cg-exp-menu cg-prod-menu"><div class="cg-prod-grid"><a href="https://brain.cognis.group" target="_blank" rel="noopener"><img src="/assets/products/cognis-brain-icon.svg" alt="" width="32" height="32" loading="lazy"><span><span class="t">Cognis Brain</span><span class="d">Private AI on your own servers</span></span></a><a href="https://www.marketsage.africa" target="_blank" rel="noopener"><img src="/assets/marketsage-logo.png" alt="" width="32" height="32" loading="lazy"><span><span class="t">MarketSage</span><span class="d">Marketing that plans and converts</span></span></a><a href="https://migratio.cognis.group" target="_blank" rel="noopener"><img src="/assets/products/migratio-icon.svg" alt="" width="32" height="32" loading="lazy"><span><span class="t">Migratio</span><span class="d">Data migration you can prove</span></span></a><a href="https://spog.cognis.group" target="_blank" rel="noopener"><img src="/assets/spog-icon.svg" alt="" width="32" height="32" loading="lazy"><span><span class="t">SPOG</span><span class="d">One trusted operations view</span></span></a><a href="https://academy.cognis.group" target="_blank" rel="noopener"><img src="/assets/logo-kit/cognis-app-icon.svg" alt="" width="32" height="32" loading="lazy"><span><span class="t">Cognis Academy<em class="cg-tag-new" data-cg-new-until="2027-01-01">New</em></span><span class="d">AI training for teams</span></span></a><a href="https://imisilab.cognis.group" target="_blank" rel="noopener"><img src="/assets/imisilab-mark.svg" alt="" width="32" height="32" loading="lazy"><span><span class="t">Imisi Lab<em class="cg-tag-new" data-cg-new-until="2027-01-01">New</em></span><span class="d">Coding and AI for kids 6 to 13</span></span></a><a href="/products/#new"><img src="/assets/products/eko-one-mark.svg" alt="" width="32" height="32" loading="lazy"><span><span class="t">Eko One<em class="cg-tag-soon">Soon</em></span><span class="d">Lagos services, in your language</span></span></a></div><div class="cg-prod-foot"><a href="/products/#new" data-cg-new-until="2027-01-01"><em class="cg-tag-new">New</em>Cognis Academy and Imisi Lab</a><a href="/products/">All products →</a></div></div></div></div>
         <a class="cg-gh-link cg-gh-current" href="/blog/" aria-current="page" style="color: rgba(19, 19, 19, 0.8); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; white-space: nowrap;"><span class="cgRoll"><b>Insights</b><b>Insights</b></span></a>
         <div class="cg-exp" tabindex="0" style="height: 20px; color: rgba(19, 19, 19, 0.8); font-family: &quot;Plus Jakarta Sans&quot;, sans-serif; font-weight: 500; font-size: 14px; line-height: 20px; letter-spacing: 1.68px; text-transform: uppercase; white-space: nowrap; cursor: default;">
           <span style="display: inline-flex; align-items: center; gap: 5px;">Explore

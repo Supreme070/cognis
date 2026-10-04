@@ -74,6 +74,8 @@ We give leaders, managers and employees the practical skills to use AI confident
 
 We build AI agents and automated workflows that handle repetitive tasks, reduce delays and help your people do more valuable work.
 
+[NewCognis Academy and Imisi Lab are live →](/products/#new)
+
 Products
 
 ## Software we build and run, not just advise on.
@@ -87,6 +89,12 @@ Products
 [Live · Data Migration The migration platform for banks, ministries, and regulated enterprises. Reconcile before cutover. Visit Migratio →](https://migratio.cognis.group)
 
 [Live · Observability SPOG One trusted view of IT, networks, buildings, vehicles and security, showing where every number came from. Visit SPOG →](https://spog.cognis.group)
+
+[Live · AI trainingNew Cognis Academy AI courses and team programmes, already delivered for a leading Nigerian energy company. Browse the courses →](https://academy.cognis.group)
+
+[Live · For familiesNew Imisi Lab Coding, robots and AI for children aged 6 to 13, learning at home one small step at a time. Visit Imisi Lab →](https://imisilab.cognis.group)
+
+[Coming soon Ask about Lagos services in English, Yorùbá or Pidgin, and get the right steps, each linked to its official source. YorùbáBáwo ni mo ṣe lè gba tax clearance (e-TCC)?↑ Get notified →](/contact/?interest=eko-one)
 
 Illustrative dashboards: the sample names, task counts and percentages in this section demonstrate interface concepts and are not client results.
 
@@ -1016,7 +1024,7 @@ Source: https://cognis.group/products/
 
 Products
 
-# Four products. One company.
+# Our products. One company.
 
 Cognis Group does more than give advice. We build and run our own software, with each product designed to solve one clear business problem from beginning to end.
 
@@ -1028,9 +1036,48 @@ Cognis Group does more than give advice. We build and run our own software, with
 
 [Live · Operations monitoring SPOG See everything. Trust every number. SPOG brings updates from IT, networks, buildings, vehicles and security into one dashboard. It also shows where every number came from and whether it is current. Brings more than 30 data sources into one view Shows each team the information it needs Shows the source and freshness of every number Visit SPOG →](https://spog.cognis.group)
 
+Launched October 2026
+
+## New from Cognis.
+
+Two new ways to learn AI, one for teams and one for children, plus a first look at what we are building for Lagos.
+
+NewLive · AI training
+
+Cognis Academy
+
+AI training your people actually finish.
+
+Two ways to learn. Teams get a guided programme under their own name, with an AI tutor, hands-on practice on real work and certificates, and leaders see what it is worth. Individuals take self-paced courses, from first setup to building AI agents.
+
+Self-paced courses10 courses · 207 lessons
+
+Setup and ToolingFree12 lessons
+
+ML Fundamentals18 lessons
+
+LLM Engineering17 lessons
+
+Tools and Protocols: MCP and A2A31 lessons
+
+Agent Engineering42 lessons
+
++ Math Foundations, Deep Learning, Computer Vision, Transformers, Reinforcement Learning
+
+A quiz for every module and a certificate for every course.
+
+Already delivered: a five-day AI for Finance bootcamp for one of Nigeria's leading indigenous energy companies. Now rolling out at a top HR consultancy.
+
+[Bring it to your team →](/contact/?interest=cognis-academy)
+[Browse the courses ↗](https://academy.cognis.group)
+
+[NewLive · For families Imisi Lab Build robots. Write code. Launch ideas. Coding, robots and AI for children aged 6 to 13: 127 lessons across 7 courses, learned at home one small step at a time. A parent sets up the family's lab. imisilab.cognis.group ScratchRobotsGame BuilderPythonmicro:bitBuddy AI Visit Imisi Lab →](https://imisilab.cognis.group)
+
+[Coming soon Lagos services, explained in your language. Ask in English, Yorùbá or Pidgin, on the web or WhatsApp, and get the right steps. Every answer links to the official page it came from. Get notified → English How do I renew my vehicle licence online? ↑ Official sourceLast checked ENYOPCMWhatsApp](/contact/?interest=eko-one)
+
 In development: Cognis AI, ready-made AI workers for support, sales and operations. [Ask us to hear when it's ready →](/contact/)
 
-## One company behind all four.
+## One company behind every product.
 
 Cognis Group builds, runs and improves every product on this page. The same team also delivers AI work for banks, public institutions and businesses.
 
