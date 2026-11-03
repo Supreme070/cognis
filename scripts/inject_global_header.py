@@ -58,7 +58,7 @@ EXPLORE = [("/why-cognis/", "Why Cognis", "The case for working with us"),
 PRODUCTS = [("https://brain.cognis.group", "/assets/products/cognis-brain-icon.svg", "Cognis Brain", "Private AI on your own servers", ""),
             ("https://www.marketsage.africa", "/assets/marketsage-logo.png", "MarketSage", "Marketing that plans and converts", ""),
             ("https://migratio.cognis.group", "/assets/products/migratio-icon.svg", "Migratio", "Data migration you can prove", ""),
-            ("https://spog.cognis.group", "/assets/spog-icon.svg", "SPOG", "One trusted operations view", ""),
+            ("https://commandcentre.africa/", "/assets/command-centre-icon.svg", "Command Centre", "One view of every site and system", ""),
             ("https://academy.cognis.group", "/assets/logo-kit/cognis-app-icon.svg", "Cognis Academy", "AI training for teams", "New"),
             ("https://imisilab.cognis.group", "/assets/imisilab-mark.svg", "Imisi Lab", "Coding and AI for kids 6 to 13", "New"),
             ("/products/#new", "/assets/products/eko-one-mark.svg", "Eko One", "Lagos services, in your language", "Soon")]

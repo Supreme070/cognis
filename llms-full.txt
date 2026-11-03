@@ -88,7 +88,7 @@ Products
 
 [Live · Data Migration The migration platform for banks, ministries, and regulated enterprises. Reconcile before cutover. Visit Migratio →](https://migratio.cognis.group)
 
-[Live · Observability SPOG One trusted view of IT, networks, buildings, vehicles and security, showing where every number came from. Visit SPOG →](https://spog.cognis.group)
+[Live · Observability Command Centre One view of every site and system. Alerts about one fault become one incident. Visit Command Centre →](https://commandcentre.africa/)
 
 [Live · AI trainingNew Cognis Academy AI courses and team programmes, already delivered for a leading Nigerian energy company. Browse the courses →](https://academy.cognis.group)
 
@@ -1034,7 +1034,7 @@ Cognis Group does more than give advice. We build and run our own software, with
 
 [Live · Data migration Check every record before you switch. A secure data-migration platform for banks, public institutions and regulated organisations. It checks every record before and after the move and keeps the evidence needed for review. Checks every record and keeps a full history Matches different name formats used in African records Confirms nothing changed or went missing during the move Visit Migratio →](https://migratio.cognis.group)
 
-[Live · Operations monitoring SPOG See everything. Trust every number. SPOG brings updates from IT, networks, buildings, vehicles and security into one dashboard. It also shows where every number came from and whether it is current. Brings more than 30 data sources into one view Shows each team the information it needs Shows the source and freshness of every number Visit SPOG →](https://spog.cognis.group)
+[Live · Operations monitoring Command Centre Many alerts. One incident. Command Centre reads your servers, apps, databases, network and power across every site, joins alerts about one fault into one incident, and pages the right person. It runs on your own servers. Brings more than 30 data sources into one view Shows each team the information it needs Shows the source and freshness of every number Visit Command Centre →](https://commandcentre.africa/)
 
 Launched October 2026
 
@@ -1121,7 +1121,7 @@ We are an African firm. We understand the data, regulation and infrastructure re
 
 We build our own products
 
-Our advice is tested on software we build and run ourselves. Cognis Brain, MarketSage, Migratio and SPOG are working products. The testing, monitoring and safe rollout methods we recommend are the same ones we use every day.
+Our advice is tested on software we build and run ourselves. Cognis Brain, MarketSage, Migratio and Command Centre are working products. The testing, monitoring and safe rollout methods we recommend are the same ones we use every day.
 
 04
 
@@ -2670,7 +2670,7 @@ We are based in Lagos, Nigeria, and work with organisations across Africa and be
 
 Does Cognis Group build its own products?
 
-Yes. We advise clients and build our own software. Our products include [Cognis Brain](https://brain.cognis.group) for private AI that runs on your own servers, [MarketSage](https://www.marketsage.africa) for marketing and sales research, [Migratio](https://migratio.cognis.group) for moving business data safely, and [SPOG](https://spog.cognis.group) for viewing operations in one place. See the full [products overview](/products/).
+Yes. We advise clients and build our own software. Our products include [Cognis Brain](https://brain.cognis.group) for private AI that runs on your own servers, [MarketSage](https://www.marketsage.africa) for marketing and sales research, [Migratio](https://migratio.cognis.group) for moving business data safely, and [Command Centre](https://commandcentre.africa/) for viewing operations in one place. See the full [products overview](/products/).
 
 What size of engagements do you take on?
 
@@ -2926,7 +2926,7 @@ Team
 
 Executive Director, Product & Strategy
 
-Tosin serves Cognis Group at board level as Executive Director, Product & Strategy, advising our leadership on product direction and strategy for Cognis Brain, MarketSage, Migratio and SPOG.
+Tosin serves Cognis Group at board level as Executive Director, Product & Strategy, advising our leadership on product direction and strategy for Cognis Brain, MarketSage, Migratio and Command Centre.
 
 He is currently Director of Product Management, Transfer Solutions (EMEA) at Mastercard. Before that he was Chief Operating Officer at Rabafast Technologies, where he built a cross-border payments business from the ground up, and Head of Product at AZA Finance, where he led African payments infrastructure across eight countries, including a project that processed over $500 million in volume. His product career began at Venture Garden Group, building payment platforms used by federal institutions across Nigeria. He is completing an MBA at Edinburgh Business School, Heriot-Watt University.
 
@@ -3326,7 +3326,7 @@ This role has been filled. We closed applications in September 2026. The descrip
 
 ## The role
 
-Cognis Group sells two things: AI consulting engagements and our own products (Cognis Brain, MarketSage, Migratio, SPOG). You will own the commercial pipeline for both. That means qualifying and converting the inbound leads our site and referrals generate, opening doors at banks, fintechs, and public-sector institutions, and working directly with the founders on proposals until they are signed.
+Cognis Group sells two things: AI consulting engagements and our own products (Cognis Brain, MarketSage, Migratio, Command Centre). You will own the commercial pipeline for both. That means qualifying and converting the inbound leads our site and referrals generate, opening doors at banks, fintechs, and public-sector institutions, and working directly with the founders on proposals until they are signed.
 
 ## What you will do
 
@@ -3388,7 +3388,7 @@ This role has been filled. We closed applications in September 2026. The descrip
 
 ## The role
 
-Our products (Cognis Brain, MarketSage, SPOG, Migratio) serve businesses that expect answers fast. You will be the first line for their questions: resolving what you can, escalating what you cannot, and making sure nobody waits in silence. You will also support client teams during consulting engagements and help keep our documentation honest.
+Our products (Cognis Brain, MarketSage, Command Centre, Migratio) serve businesses that expect answers fast. You will be the first line for their questions: resolving what you can, escalating what you cannot, and making sure nobody waits in silence. You will also support client teams during consulting engagements and help keep our documentation honest.
 
 ## What you will do
 

@@ -38,7 +38,7 @@ COPY_REPLACEMENTS = {
     "The migration platform for banks, ministries, and regulated enterprises. Reconcile before cutover, audit every record.":
         "A tool that helps banks, ministries and regulated organisations move data safely, check it before the change and keep a record of every step.",
     "Single pane of glass for enterprise operations. Federates IT, network, facilities, fleet, and security telemetry into one dashboard, with every number traced to its source.":
-        "One dashboard for IT, networks, facilities, vehicles and security, with every number linked to its source.",
+        "One view of every site and system: servers, apps, databases, network and power. Alerts about one fault become one incident. Runs on your own servers.",
 }
 
 
