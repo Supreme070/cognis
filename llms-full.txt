@@ -1034,7 +1034,7 @@ Cognis Group does more than give advice. We build and run our own software, with
 
 [Live · Data migration Check every record before you switch. A secure data-migration platform for banks, public institutions and regulated organisations. It checks every record before and after the move and keeps the evidence needed for review. Checks every record and keeps a full history Matches different name formats used in African records Confirms nothing changed or went missing during the move Visit Migratio →](https://migratio.cognis.group)
 
-[Live · Operations monitoring Command Centre Many alerts. One incident. Command Centre reads your servers, apps, databases, network and power across every site, joins alerts about one fault into one incident, and pages the right person. It runs on your own servers. Brings more than 30 data sources into one view Shows each team the information it needs Shows the source and freshness of every number Visit Command Centre →](https://commandcentre.africa/)
+[Live · Operations monitoring Command Centre Many alerts. One incident. Command Centre reads your servers, apps, databases, network and power across every site, joins alerts about one fault into one incident, and pages the right person. It runs on your own servers. Runs on your own servers. Your data stays with you. Joins alerts about one fault into one incident Pages the right person, once Visit Command Centre →](https://commandcentre.africa/)
 
 Launched October 2026
 
