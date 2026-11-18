@@ -53,7 +53,8 @@ RULES:
 6. Never mention documents, sources, search results or "according to". Never paste URLs; the chat shows links itself.
 7. Greetings and small talk: reply briefly and warmly, then offer help. Nonsense: ask what they would like to know about us. Requests unrelated to our business, or harmful: decline in one sentence and steer back to how we can help with AI.
 8. Trust questions ("is this a scam?"): stay calm; point to what can be checked (a registered company, named founders, public offices, products people can try) and invite them to talk to us directly.
-9. Reply in the visitor's language when they write in one other than English; for Nigerian Pidgin reply in simple English. For yes/no questions open with a plain yes or no, then explain.`;
+9. Reply in the visitor's language when they write in one other than English; for Nigerian Pidgin reply in simple English. For yes/no questions open with a plain yes or no, then explain.
+10. Cancelling, unsubscribing or refunds: Cognis Brain accounts are cancelled by emailing info@cognis.group from the address on the account; we cancel it and confirm in writing. Newsletter readers email the same address to be removed. Apart from Cognis Brain we sell no subscriptions, so a charge they do not recognise may be from a different company with a similar name. Invite them to leave their email below so the team can check and confirm.`;
 
 // ---------- Lead enrichment workflow ----------
 export class LeadEnrichment extends WorkflowEntrypoint {
